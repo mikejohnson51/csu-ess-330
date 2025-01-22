@@ -18,7 +18,7 @@
     "href": "schedule.html#component-2-working-with-data",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 2: Working with Data",
-    "text": "Component 2: Working with Data\nBuild confidence in wrangling, visualizing, and analyzing data. This section covers importing and cleaning datasets, working with joins, and creating effective visualizations. You’ll also delve into study design, hypothesis testing, and statistical analyses spanning univariate, bivariate, and multivariate techniques.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nImport, clean, and merge datasets from diverse sources using core tidyverse packages.\nConduct hypothesis testing and interpret results.\nCreate impact visualizations to communicate findings.\n\n\n\n\n\n Lecture 06 (w4): Review uni-, bi- statistics\n Lecture 07 (w4): Exploratory Data Methods\n Lecture 08 (w5): Data Manipulation\n Lecture 09 (w5): Data Groups & Shapes\n Lecture 10 (w6): Data Relations\n Lecture 11 (w6): Data Visualization\n Lecture 12 (w7): Data I/0\n Lecture 13 (w7): Multivariate statistics\n\nExercise 06:\nExercise 07:\nExercise 08:\nExercise 09:\nExercise 10:\nExercise 11:\nExercise 12:\nExercise 13:"
+    "text": "Component 2: Working with Data\nBuild confidence in wrangling, visualizing, and analyzing data. This section covers importing and cleaning data sets, working with joins, and creating effective visualizations. You’ll also delve into study design, hypothesis testing, and statistical analyses spanning uni-variate, bivariate, and multivariate techniques.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nImport, clean, and merge data sets from diverse sources using core tidyverse packages.\nConduct hypothesis testing and interpret results.\nCreate impact visualizations to communicate findings.\n\n\n\n\n\n Lecture 06 (w4): Review uni-, bi- statistics\n Lecture 07 (w4): Exploratory Data Methods\n Lecture 08 (w5): Data Manipulation\n Lecture 09 (w5): Data Groups & Shapes\n Lecture 10 (w6): Data Relations\n Lecture 11 (w6): Data Visualization\n Lecture 12 (w7): Data I/0\n Lecture 13 (w7): Multivariate statistics\n\nExercise 06:\nExercise 07:\nExercise 08:\nExercise 09:\nExercise 10:\nExercise 11:\nExercise 12:\nExercise 13:"
   },
   {
     "objectID": "schedule.html#component-3-modeling",
@@ -81,35 +81,42 @@
     "href": "index.html#welcome",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Welcome!",
-    "text": "Welcome!\nWelcome to Ecosystem Science and Sustainability 330: Quantitative Reasoning for Ecosystem Science! This course is your entery point to understanding data science tools and techniques essential for solving today’s most pressing environmental challenges. We aim to equip students with the essential quantitative tools and reasoning skills needed to address complex challenges in ecosystem science. It emphasizes the integration of open-source technologies, statistical methods, spatial data analysis, and machine learning to foster reproducible, data-driven insights."
+    "text": "Welcome!\nWelcome to Ecosystem Science and Sustainability 330: Quantitative Reasoning for Ecosystem Science! This course is your entry point to understanding data science tools and techniques essential for solving today’s most pressing environmental challenges. We aim to equip students with the skills needed to address complex challenges in ecosystem science by emphasizing the integration of open-source technologies, statistical methods, spatial data analysis, and machine learning to foster reproducible, data-driven insights."
   },
   {
     "objectID": "index.html#who-this-class-is-for",
     "href": "index.html#who-this-class-is-for",
     "title": "Ecosystem Science and Sustainability 330",
-    "section": "Who This Class is For",
-    "text": "Who This Class is For\nThis course is ideal for students in ecosystem science, sustainability, and related disciplines who want to enhance their data science skills. Whether you’re new to coding or looking to expand your expertise, ESS 330 provides the tools to address critical environmental challenges with data-driven insights. By the end of this course, students will have the skills (and confidence to continue learning) to tackle a wide range of applied and theoretical questions, including:\n\nHow can I efficiently organize, store, and share data for a research project?\nHow do I set up a reproducible workflow using R, Git, and GitHub?\nHow do I clean, merge, and visualize messy datasets from different sources?\nWhat statistical methods should I use to test my hypotheses?\nHow can I identify patterns and relationships in environmental datasets?\nHow can I predict ecosystem changes using regression and machine learning models?\nHow do I design, train, and evaluate models to ensure reliable predictions?\nHow can I analyze and forecast environmental trends using time-series data?\nHow do I process and analyze spatial data to answer location-based questions?\nHow can I visualize and interpret geospatial trends in ecosystem variables?\nHow can GIS tools be integrated into larger data science workflows?"
+    "section": "Who This Class is For:",
+    "text": "Who This Class is For:\nThis course is ideal for students in ecosystem science, sustainability, and related disciplines who want to enhance their data science skills. Whether you’re new to coding or looking to expand your expertise, ESS 330 provides the resources to address critical environmental challenges with data-driven insights. By the end of this course, students will have the skills (and confidence) to tackle a wide range of applied and theoretical questions, including:\n\nHow can I efficiently organize, store, and share data for a research project?\nHow do I set up a reproducible workflow using R, Git, and GitHub to collaborate with others, or, my future self?\nHow do I clean, merge, and visualize messy data sets from different sources?\nWhat statistical methods should I use to test my hypotheses?\nHow can I identify patterns and relationships in environmental data sets?\nHow can I predict ecosystem changes using regression and machine learning models?\nHow do I design, train, and evaluate models to ensure reliable predictions?\nHow can I analyze and forecast environmental trends using time-series data?\nHow do I process and analyze spatial data to answer location-based questions?\nHow can I visualize and interpret geospatial trends in ecosystem variables?\nHow can GIS tools be integrated into larger data science workflows?"
   },
   {
     "objectID": "index.html#careers",
     "href": "index.html#careers",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Careers",
-    "text": "Careers\nGraduates of this course will be equipped to pursue careers as geospatial analysts, ecological modelers, data scientists, hydrologists, or climate scientists. You’ll be prepared to tackle pressing environmental challenges in academia, government, industry, or NGOs, making data-driven decisions to shape the future of ecosystem science and sustainability."
+    "text": "Careers\nGraduates of this course will be equipped to pursue careers as geospatial analysts, ecological modelers, data scientists, hydrologists, or climate scientists. You’ll be prepared to tackle pressing environmental challenges in academia, government, industry, or NGOs, making data-driven decisions to shape the future of ecosystem science and sustainability. Ideally, as an upper division course it will help you unify your domain expertise, writing skills, and data skills to provide a cross-cutting, in demand, rewarding and flexible future for you and the planet."
   },
   {
     "objectID": "index.html#acknowledgments",
     "href": "index.html#acknowledgments",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\n\nThis website, including the slides, is made with Quarto. Please submit an issue on the GitHub repo for this workshop if you find something that could be fixed or improved."
+    "text": "Acknowledgments\n\nThis website, including all slides, are made with Quarto. Please submit an issue on the GitHub repo for this course if you find something that could be fixed or improved.\nWe borrow significant content from the amazing R community and do our best to curate and design course content for students."
   },
   {
     "objectID": "index.html#reuse-and-licensing",
     "href": "index.html#reuse-and-licensing",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Reuse and licensing",
-    "text": "Reuse and licensing\n\nUnless otherwise noted (i.e. not an original creation and reused from another source), these educational materials are licensed under Creative Commons Attribution CC BY-SA 4.0."
+    "text": "Reuse and licensing\n\nUnless otherwise noted (i.e. not an original creation and reused from another source), these educational materials are licensed under Apache 2."
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "Apache License",
+    "section": "",
+    "text": "Apache License\nVersion 2.0, January 2004 &lt;http://www.apache.org/licenses/&gt;\n\nTerms and Conditions for use, reproduction, and distribution\n\n1. Definitions\n“License” shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n“Licensor” shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.\n“Legal Entity” shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, “control” means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.\n“You” (or “Your”) shall mean an individual or Legal Entity exercising permissions granted by this License.\n“Source” form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.\n“Object” form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.\n“Work” shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).\n“Derivative Works” shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.\n“Contribution” shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, “submitted” means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as “Not a Contribution.”\n“Contributor” shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.\n\n\n2. Grant of Copyright License\nSubject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.\n\n\n3. Grant of Patent License\nSubject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.\n\n\n4. Redistribution\nYou may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:\n\n(a) You must give any other recipients of the Work or Derivative Works a copy of this License; and\n(b) You must cause any modified files to carry prominent notices stating that You changed the files; and\n(c) You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and\n(d) If the Work includes a “NOTICE” text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.\n\nYou may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.\n\n\n5. Submission of Contributions\nUnless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.\n\n\n6. Trademarks\nThis License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.\n\n\n7. Disclaimer of Warranty\nUnless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.\n\n\n8. Limitation of Liability\nIn no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.\n\n\n9. Accepting Warranty or Additional Liability\nWhile redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.\nEND OF TERMS AND CONDITIONS\n\n\n\nAPPENDIX: How to apply the Apache License to your work\nTo apply the Apache License to your work, attach the following boilerplate notice, with the fields enclosed by brackets [] replaced with your own identifying information. (Don’t include the brackets!) The text should be enclosed in the appropriate comment syntax for the file format. We also recommend that a file or class name and description of purpose be included on the same “printed page” as the copyright notice for easier identification within third-party archives.\nCopyright [yyyy] [name of copyright owner]\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n  http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License."
   },
   {
     "objectID": "labs.html",
@@ -126,158 +133,158 @@
     "text": "Week\nLab\nLab Activity\n\n\n\n\n1\nNo Lab Meetings\n—"
   },
   {
-    "objectID": "slides/1-welcome.html#what-this-class-is-about",
-    "href": "slides/1-welcome.html#what-this-class-is-about",
-    "title": "1 - Welcome",
-    "section": "What This Class Is About:",
-    "text": "What This Class Is About:\n\nLearning essential quantitative skills for ecosystem science\nEmphasizing real-world applications\nDeveloping proficiency in data science tools and methods\nUnderstanding and applying open science principles\n\n\n\n\n\n\n\nArtwork by @allison_horst"
+    "objectID": "slides/1-welcome.html#section",
+    "href": "slides/1-welcome.html#section",
+    "title": "1 - Introduction",
+    "section": "",
+    "text": "Welcome!"
   },
   {
-    "objectID": "slides/1-welcome.html#why-this-class-matters-challenges-in-ecosystem-science",
-    "href": "slides/1-welcome.html#why-this-class-matters-challenges-in-ecosystem-science",
-    "title": "1 - Welcome",
-    "section": "Why This Class Matters: Challenges in Ecosystem Science:",
-    "text": "Why This Class Matters: Challenges in Ecosystem Science:\n\nComplex, messy data sets\nDiverse, rapidly changing tools and workflows\nNeed for reproducibility and transparency\nIncreasing societal role in that face of new world\n\n\n\n\n\n\n\nNOAA Climate Change Impacts"
+    "objectID": "slides/1-welcome.html#what-this-class-is-about",
+    "href": "slides/1-welcome.html#what-this-class-is-about",
+    "title": "1 - Introduction",
+    "section": "What This Class Is About:",
+    "text": "What This Class Is About:\n\n\n\n\n\n\n\nLearning essential quantitative skills for ecosystem science\nEmphasizing real-world applications\nDeveloping proficiency in data science tools and methods\nUnderstanding and applying open science principles\n\n\n\n\n\n\n\nArtwork by @allison_horst"
+  },
+  {
+    "objectID": "slides/1-welcome.html#why-this-class-matters",
+    "href": "slides/1-welcome.html#why-this-class-matters",
+    "title": "1 - Introduction",
+    "section": "Why This Class Matters:",
+    "text": "Why This Class Matters:\n\n\n\n\n\n\n\nComplex, messy data sets\nDiverse, rapidly changing tools and workflows\nNeed for reproducibility and transparency\nIncreasing societal role in that face of new world\n\n\n\n\n\n\n\nNOAA Climate Change Impacts"
   },
   {
     "objectID": "slides/1-welcome.html#goals-for-you",
     "href": "slides/1-welcome.html#goals-for-you",
-    "title": "1 - Welcome",
+    "title": "1 - Introduction",
     "section": "Goals for You:",
-    "text": "Goals for You:\n\nBuild confidence in tackling data-intensive problems: if not you then who?\nGain practical, hands-on experience: All (almost) environmental issues now require data\n\nPolicy & Management\nModeling\nStake holder engagement\n\nDevelop a critical mindset for evaluating models and results\n\nMerging technical skill, communication skills, and passion are critical to success\n\nLearn to merge data, and writing to communicate complex issues\nPrepare for careers or advanced studies in environmental science and sustainability"
+    "text": "Goals for You:\n\n\n\n\n\n\n\nBuild confidence in tackling data-intensive problems: if not you then who?\nGain practical, hands-on experience: All (almost) environmental issues now require data\n\nPolicy & Management\nModeling\nStake holder engagement\n\nDevelop a critical mindset for evaluating models and results\n\nMerging technical skill, communication skills, and passion are critical to success\n\nLearn to merge data, and writing to communicate complex issues\nPrepare for careers or advanced studies in environmental science and sustainability"
   },
   {
-    "objectID": "slides/1-welcome.html#instructor",
-    "href": "slides/1-welcome.html#instructor",
-    "title": "1 - Welcome",
-    "section": "Instructor",
-    "text": "Instructor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMike Johnson, Geospatial Science & Technology Lead @ NOAA Office of Water Prediction\nPreviously, Chief Data Scientist for local consulting group\n\nGrew our division form 3 to 15 before transitioning\nGraduate student at UCSB where I developed\n\nPhD from UCSB in Geography\nOver 10 years of experience working in hydrology and ecosystem science\nPassionate about applying data science to solve environmental challenges\nExcited to share practical tools and insights to prepare you for real-world problem"
+    "objectID": "slides/1-welcome.html#building-a-ess-trifecta",
+    "href": "slides/1-welcome.html#building-a-ess-trifecta",
+    "title": "1 - Introduction",
+    "section": "Building a “ESS Trifecta”:",
+    "text": "Building a “ESS Trifecta”:\n\n\n\n\n\n\nCombining strong writing skills, advanced data analysis capabilities, and deep domain expertise (in areas such as water, carbon, or ecosystem management systems) paves the way for a flexible, impactful, and interdisciplinary career. Whether your goal is to excel as a scientist, policymaker, or NGO leader, these skills will empower you to make meaningful contributions across diverse fields."
   },
   {
-    "objectID": "slides/1-welcome.html#teaching-assistants",
-    "href": "slides/1-welcome.html#teaching-assistants",
-    "title": "1 - Welcome",
-    "section": "Teaching Assistants",
-    "text": "Teaching Assistants"
+    "objectID": "slides/1-welcome.html#instructor-mike-johnson",
+    "href": "slides/1-welcome.html#instructor-mike-johnson",
+    "title": "1 - Introduction",
+    "section": "Instructor: Mike Johnson",
+    "text": "Instructor: Mike Johnson\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeospatial Science & Technology Lead @ NOAA Office of Water Prediction\nPreviously, Chief Data Scientist for local consulting group\n\nGrew our division form 3 to 15 before transitioning\nGraduate student at UCSB where I developed\n\nPhD from UCSB in Geography\nOver 10 years of experience working in hydrology and ecosystem science\nPassionate about applying data science to solve environmental challenges\nExcited to share practical tools and insights to prepare you for real-world problem"
+  },
+  {
+    "objectID": "slides/1-welcome.html#teaching-assistant-alan-cai",
+    "href": "slides/1-welcome.html#teaching-assistant-alan-cai",
+    "title": "1 - Introduction",
+    "section": "Teaching Assistant: Alan Cai",
+    "text": "Teaching Assistant: Alan Cai"
+  },
+  {
+    "objectID": "slides/1-welcome.html#teaching-assistant-jaque-mcvey",
+    "href": "slides/1-welcome.html#teaching-assistant-jaque-mcvey",
+    "title": "1 - Introduction",
+    "section": "Teaching Assistant: Jaque McVey",
+    "text": "Teaching Assistant: Jaque McVey"
   },
   {
     "objectID": "slides/1-welcome.html#course-website",
     "href": "slides/1-welcome.html#course-website",
-    "title": "1 - Welcome",
-    "section": "Course Website",
-    "text": "Course Website\n\nhttps://github.com/mikejohnson51/csu-ess-330/"
+    "title": "1 - Introduction",
+    "section": "Course Website:",
+    "text": "Course Website:\n\nhttps://github.com/mikejohnson51/csu-ess-330/"
   },
   {
     "objectID": "slides/1-welcome.html#course-structure-4-units",
     "href": "slides/1-welcome.html#course-structure-4-units",
-    "title": "1 - Welcome",
+    "title": "1 - Introduction",
     "section": "Course Structure: 4 Units",
     "text": "Course Structure: 4 Units\n\nOpen Science and Tools (Weeks 1-3)\n\nIntroduction to reproducible workflows and software (R, Rmd, Git)\nHow do you interact with you computer whether you love it or hate it\n\nWorking with Data (Weeks 4-7)\n\nAll data is messy!\nHow do you refine it to answer questions you have in ways others will (1) care about and (2) understand\n\nModeling (Weeks 8-12)\n\nStatistical and simulation models to solve ecosystem-related problems\nPull the current back on “Machine Learning”\nUnderstand that “all” problems are either prediction or classification\n\nGeospatial Data (Weeks 13-16)\n\nAll problems are spatial, how can we add location information to our growing skill set?"
   },
   {
-    "objectID": "slides/1-welcome.html#components",
-    "href": "slides/1-welcome.html#components",
-    "title": "1 - Welcome",
-    "section": "Components",
-    "text": "Components\n\nDaily Exercises (20%)\n\nTo be completed between the end of a class and the beginning of the next\nPass/Fail based on effort\nMeant to be low stakes opportunity to experiments\nOne “opps pass” is given per unit\n\nLab Activities (10%)\n\nWork with TAs is lab sections to practice skills learned in class on real world problems\nPass/Fail based on effort\nMeant to be low stakes opportunity to experiments\nOne “opps pass” is given per unit\n\nLabs (50%)\n\nWork with TAs is lab sections to practice skills learned in class on real world problems\n9 in total, some due weekly, others spread over a few\n\nFinal project (20%)\n\nChoose a final project to demonstrate your quantitative reasoning skills, mixing ideas from lectures and labs throughout the semester\nPresent in lightning talk format within lab section\n\nExtra Credit (up to 10%)\n\n4% are available for completing all Daily Assignments\n6% are available in extra aspects of the bigger labs\n1% are available for extra lab activity"
+    "objectID": "slides/1-welcome.html#course-components",
+    "href": "slides/1-welcome.html#course-components",
+    "title": "1 - Introduction",
+    "section": "Course Components:",
+    "text": "Course Components:\n\n\n\n\n\n\nActivites:\n\nDaily Exercises (20%)\n\nTo be completed between the end of a class and the beginning of the next\nPass/Fail based on effort\nMeant to be low stakes opportunity to experiments\nOne “opps pass” is given per unit\n\nLab Activities (10%)\n\nWork with TAs is lab sections to practice skills learned in class on real world problems\nPass/Fail based on effort\nMeant to be low stakes opportunity to experiments\nOne “opps pass” is given\n\n\n\n\nAssignments:\n\nLabs (50%)\n\nWork with TAs is lab sections to practice skills learned in class on real world problems\n9 in total, some due weekly, others spread over a few\n\nFinal project (20%)\n\nChoose a final project to demonstrate your quantitative reasoning skills, mixing ideas from lectures and labs throughout the semester\nPresent in lightning talk format within lab section\n\n\n\n\nExtra Credit:\n\nExtra Credit (up to 10%)\n\n4% are available for completing all Daily Assignments\n6% are available in extra aspects of the bigger labs\n1% are available for extra lab activity"
   },
   {
     "objectID": "slides/1-welcome.html#grading",
     "href": "slides/1-welcome.html#grading",
-    "title": "1 - Welcome",
-    "section": "Grading",
-    "text": "Grading\n\n\n\n\n\n\n\nComponents\n\n\n\nComponent\nPoints\nPercentage\n\n\n\n\nDaily Exercises\n250\n20%\n\n\nLab Activities\n120\n10%\n\n\nLabs\n620\n50%\n\n\nFinal Project\n250\n20%\n\n\nExtra Credit Opportunities\n130\n10%\n\n\nTotal Assigned Points\n1,240\n\n\n\nTotal Possible Points\n1,370\n\n\n\n\n\n\nScale:\nA+: 100 % to 96.67%\nA : &lt; 96.67 % to 93.33%\nA-: &lt; 93.33 % to 90.0%\nB+: &lt; 90.0 % to 86.67%\nB : &lt; 86.67 % to 83.33%\nB-: &lt; 83.33 % to 80.0%\nC+: &lt; 80.0 % to 76.67%\nC : &lt; 76.67 % to 70.0%\nD : &lt; 70.0 % to 60.0%\nF : &lt; 60.0 % to 0.0%"
+    "title": "1 - Introduction",
+    "section": "Grading:",
+    "text": "Grading:\n\n\n\n\n\n\n\nComponents\n\n\n\nComponent\nPoints\nPercentage\n\n\n\n\nDaily Exercises\n250\n20%\n\n\nLab Activities\n120\n10%\n\n\nLabs\n620\n50%\n\n\nFinal Project\n250\n20%\n\n\nExtra Credit Opportunities\n130\n10%\n\n\nTotal Assigned Points\n1,240\n\n\n\nTotal Possible Points\n1,370\n\n\n\n\n\n\nScale:\nA+: 100 % to 96.67%\nA : &lt; 96.67 % to 93.33%\nA-: &lt; 93.33 % to 90.0%\nB+: &lt; 90.0 % to 86.67%\nB : &lt; 86.67 % to 83.33%\nB-: &lt; 83.33 % to 80.0%\nC+: &lt; 80.0 % to 76.67%\nC : &lt; 76.67 % to 70.0%\nD : &lt; 70.0 % to 60.0%\nF : &lt; 60.0 % to 0.0%"
   },
   {
     "objectID": "slides/1-welcome.html#our-promise",
     "href": "slides/1-welcome.html#our-promise",
-    "title": "1 - Welcome",
-    "section": "Our promise",
-    "text": "Our promise\n\nThis class will have a steep learning curve.\n\n\n\n\n\n\n\n\n\n\n\n\nJaque, Alan and I will do everything we can to help you along. If you stick with the course and do the work (particularly the daily assignments!), you will get a good grade, learn a lot, and be prepared to serve as a environmental data scientist in a quantitative capacity - OR - better communicate with those who are serving in that role\nThis style has worked for past students and while I have had students drop, I have never had anyone who tried get lower then a B+.\nSo, please don’t let “getting a bad grade” be a reason to not see this class through!"
+    "title": "1 - Introduction",
+    "section": "Our promise:",
+    "text": "Our promise:\n\n\n\n\n\n\n\nThis class will have a steep learning curve.\nJaque, Alan and I will do everything we can to help you along. If you stick with the course and do the work (particularly the daily assignments!), you will get a good grade, learn a lot, and be prepared to serve as a environmental data scientist in a quantitative capacity - OR - better communicate with those who are serving in that role\nThis style has worked for past students and while I have had students drop, I have never had anyone who tried get lower then a B+.\nSo, please don’t let “getting a bad grade” be a reason to not see this class through!"
   },
   {
     "objectID": "slides/1-welcome.html#working-together",
     "href": "slides/1-welcome.html#working-together",
-    "title": "1 - Welcome",
+    "title": "1 - Introduction",
     "section": "Working Together:",
-    "text": "Working Together:\nFor exercises and assignments, you are welcome to work together to problem solve, and figure things out, but you are expected to write up your own individual assignment, and hand in your own individually conducted work, including results (models, graphics, tables, etc.) and writing."
+    "text": "Working Together:\n\n\n\n\n\n\n\nFor exercises, labs and assignments, you are welcome to work together but you are expected to write up your own assignment, and hand in your own individually conducted work, including results (models, graphics, tables, etc.) and writing.\nThe project will be done in teams determined in lab"
+  },
+  {
+    "objectID": "slides/1-welcome.html#compute-needs",
+    "href": "slides/1-welcome.html#compute-needs",
+    "title": "1 - Introduction",
+    "section": "Compute Needs:",
+    "text": "Compute Needs:\n\n\n\n\n\n\n\nFor this class, we will be installing software and learning about how to organize and interact with our computers\nTo do this most effectively you will need your own computer running a full OS (not Chromebook)\nIf this is not possible, please reach out to me or your TA and we can find a solution"
   },
   {
     "objectID": "slides/1-welcome.html#attendance",
     "href": "slides/1-welcome.html#attendance",
-    "title": "1 - Welcome",
-    "section": "Attendance",
-    "text": "Attendance\n\nEach lecture will introduce new topics or expand on existing content. Therefore if you miss a section or lab, you will miss material. It is highly encouraged (but not mandatory) that you attend all lectures and the lab sections.\nWe have built this into the grading scheme and beleive it faciliates the push to “put in the time”\nThat said, things happen. If you communicate with your TA’s or me we will help you find a solution"
+    "title": "1 - Introduction",
+    "section": "Attendance:",
+    "text": "Attendance:\n\n\n\n\n\n\n\nEach lecture will introduce new topics or expand on existing content. Therefore if you miss a section or lab, you will miss material. It is highly encouraged that you attend all lectures and the lab sections.\nWe have built this into the grading scheme and believe it facilitates the push to “put in the time”\nThat said, things happen. If you communicate with your TA’s or me we will help you find a solution"
   },
   {
     "objectID": "slides/1-welcome.html#next-time",
     "href": "slides/1-welcome.html#next-time",
-    "title": "1 - Welcome",
-    "section": "Next Time",
-    "text": "Next Time\n\nDaily Assignment: Install R and RStudio\n\n\n\nNext Topic: Getting familar with your environment\n\n\n\n\nArtwork by @allison_horst"
+    "title": "1 - Introduction",
+    "section": "Next Time:",
+    "text": "Next Time:\n\n\n\n\n\n\n\nDaily Assignment: Install R and RStudio\n\n\n\n\n\n\n\n\n\nNext Topic: Getting familar with your environment\n\n\n\n\n\n\n\nArtwork by @allison_horst"
   },
   {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Instructor\n Mike Johnson\n Geospatial Technology Lead, NOAA\n webpage\n\nLecture\n January 21st - May 9th, 2025\n Monday, Wednesday\n 10:00am - 10:50am\n NR 113\n\nTeaching Assistants\n\n Jaque McVey\n PhD Student, CSU\n\n Alan Cai\n PhD Student, CSU\n linkedin\n\nLabs\n Section 1: Th 8:00am–9:50am (McVey)\n Section 2: Th 2:00pm–3:50pm (McVey)\n Section 3: Th 4:00pm–5:50pm (Cai)\n Section 4: F 12:00pm–1:50am (Cai)\n NR 232"
+    "text": "Instructor\n Mike Johnson\n Geospatial Science &Technology Lead, NOAA\n webpage\n\nLecture\n January 21st - May 9th, 2025\n Monday, Wednesday\n 10:00am - 10:50am\n NR 113\n\nTeaching Assistants\n\n Jaque McVey\n PhD Student, CSU\n\n Alan Cai\n PhD Student, CSU\n linkedin\n\nLabs\n Section 1: Th 8:00am–9:50am (McVey)\n Section 2: Th 2:00pm–3:50pm (McVey)\n Section 3: Th 4:00pm–5:50pm (Cai)\n Section 4: F 12:00pm–1:50am (Cai)\n NR 232"
   },
   {
     "objectID": "syllabus.html#about-this-course",
     "href": "syllabus.html#about-this-course",
     "title": "Ecosystem Science and Sustainability 330",
-    "section": "About this course",
-    "text": "About this course\nQuantitative reasoning involves analyzing, interpreting, and solving problems using numerical and logical reasoning. This course equips students with essential data science and quantitative skills, focusing on applying these methods to problems in ecosystem science and sustainability.\nStudents will engage in practical data-driven approaches through lectures, live coding demonstrations, discussions, and hands-on lab sessions. The course emphasizes the use of open-source technologies (R, Quarto), statistical methods, geospatial data analysis, and machine learning within reproducible workflows.\nBy the end of this course, students will:\n\nAssess ecosystem science challenges using quantitative tools.\n\nApply data-driven methods to real-world sustainability issues.\n\nUse these skills in scientific research, decision-making, and environmental data analysis.\n\nPrerequisites: MATH 155/160; STAT 301/307/315; ESS 211 or LIFE 320\nCredits: 3\nCourse Website: https://github.com/mikejohnson51/csu-ess-330"
+    "section": "About this course:",
+    "text": "About this course:\nQuantitative reasoning involves analyzing, interpreting, and solving problems using numerical and logical reasoning. This course equips students with essential data science and quantitative skills, focusing on applying these methods to problems in ecosystem science and sustainability.\nStudents will engage in practical data-driven approaches through lectures, live coding demonstrations, discussions, and hands-on lab sessions. The course emphasizes the use of open-source technologies (R, Quarto), statistical methods, geospatial data analysis, and machine learning within reproducible workflows."
+  },
+  {
+    "objectID": "syllabus.html#course-objectives",
+    "href": "syllabus.html#course-objectives",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Course Objectives:",
+    "text": "Course Objectives:\nBy the end of this course, students will:\n\nAssess ecosystem science challenges using quantitative tools.\n\nApply data-driven methods to real-world sustainability issues.\n\nUse these skills in scientific research, decision-making, and environmental data analysis.\n\nPrerequisites: MATH 155/160; STAT 301/307/315; ESS 211 or LIFE 320\nCredits: 3\nCourse Website: Github Pages"
   },
   {
     "objectID": "syllabus.html#course-units",
     "href": "syllabus.html#course-units",
     "title": "Ecosystem Science and Sustainability 330",
-    "section": "Course Units",
-    "text": "Course Units\nAn approximate weekly schedule is available on the course home page. While it is subject to change, we will be guided by four primary units:\n\nOpen Science and Tools (Weeks 1-3)\n\nIntroduction to reproducible workflows and software (R, Rmd, Git)\nLearning efficient interaction with computers whether you love them or hate them\n\nWorking with Data (Weeks 4-7)\n\nCleaning, refining, and analyzing messy data sets\nTechniques for effective data interpretation\n\nModeling (Weeks 8-12)\n\nStatistical, predictive, and classification models to solve ecosystem-related problems\nPull the current back on “Machine Learning”\nUnderstand that “all” problems are either prediction or classification\n\nGeospatial Data (Weeks 13-16)\n\nApplying spatial information to data analysis and problem-solving"
+    "section": "Course Units:",
+    "text": "Course Units:\nAn approximate weekly schedule is available on the course schedule. While it is subject to change, we will be guided by four primary units:\n\nOpen Science and Tools (Weeks 1-3)\n\nIntroduction to reproducible workflows and software (R, Rmd, Git)\nLearning efficient interaction with computers whether you love them or hate them\n\nWorking with Data (Weeks 4-7)\n\nCleaning, refining, and analyzing messy data sets\nTechniques for effective data interpretation\n\nModeling (Weeks 8-12)\n\nStatistical, predictive, and classification models\nIntroduction to Machine Learning concepts\nUnderstand that “all” problems are either prediction or classification\n\nGeospatial Data (Weeks 13-16)\n\nApplying spatial information to data analysis and problem-solving"
   },
   {
-    "objectID": "syllabus.html#components",
-    "href": "syllabus.html#components",
+    "objectID": "syllabus.html#grading-evaluation",
+    "href": "syllabus.html#grading-evaluation",
     "title": "Ecosystem Science and Sustainability 330",
-    "section": "Components",
-    "text": "Components\n\nDaily Exercises (20%)\nDaily coding or reading assignments will conclude each class. These short assignments (30 minutes) are graded pass/fail and are intended to reinforce the concepts learned during lectures. Students are required to complete 25 out of 29 assignments, with the remaining 4 serving as extra credit opportunities.\n\n\nLab Activities (10%)\nEach weeks lab will have an associated activity, completed in class, that helps solidify topics from lecture. Students are required to complete 12 out of 13 activities, with the remaining 1 serving as extra credit opportunities.\n\n\nLabs (50%)\nApproximately 9 hands-on labs will provide applied learning experiences, focusing on solving real-world problems through data analysis. Lab assignments will be released on Sundays and are due the designated Sunday at 11:59 PM. While some labs only last 1 weeks, others will take more.\n\n\nFinal project (20%)\nStudents will design and choose a final project to demonstrate their quantitative reasoning skills, mixing ideas from lectures and labs to answer a question of interest to them. Final projects will be presented in the final lab section - lightning talk style.\n\n\nExtra Credit Opportunities (10%)"
-  },
-  {
-    "objectID": "syllabus.html#grading",
-    "href": "syllabus.html#grading",
-    "title": "Ecosystem Science and Sustainability 330",
-    "section": "Grading",
-    "text": "Grading\nFinal grades will be based on points earned out throughout the semester based on the following opportunities:\n\n\n\n\n\n\n\n\n\nComponent\nPoints\nPercentage\n\n\n\n\nDaily Exercises\n250\n20%\n\n\nLab Activities\n120\n10%\n\n\nLabs\n620\n50%\n\n\nFinal Project\n250\n20%\n\n\nExtra Credit Opportunities\n130\n10%\n\n\nTotal Assigned Points\n1,240\n\n\n\nTotal Possible Points\n1,370\n\n\n\n\n\n\nGrading Scale:\n\nA+: 100 % to 96.67%\nA : &lt; 96.67 % to 93.33%\nA-: &lt; 93.33 % to 90.0%\nB+: &lt; 90.0 % to 86.67%\nB : &lt; 86.67 % to 83.33%\nB-: &lt; 83.33 % to 80.0%\nC+: &lt; 80.0 % to 76.67%\nC : &lt; 76.67 % to 70.0%\nD : &lt; 70.0 % to 60.0%\nF : &lt; 60.0 % to 0.0%"
-  },
-  {
-    "objectID": "syllabus.html#course-policies",
-    "href": "syllabus.html#course-policies",
-    "title": "Ecosystem Science and Sustainability 330",
-    "section": "Course policies",
-    "text": "Course policies\n\nAttendance is required, and important. We are reasonable people so if you need to be absent please let us know in advance insofar as that is possible.\nDo the assigned readings in advance of class.\nSubmit problem sets, or other assignments, on time."
-  },
-  {
-    "objectID": "syllabus.html#course-material",
-    "href": "syllabus.html#course-material",
-    "title": "Ecosystem Science and Sustainability 330",
-    "section": "Course Material",
-    "text": "Course Material\n\nAll readings and resources are free and avialable online\nIt is highly encouraged that you do all work on you own laptop. You’ll need a machine with a full OS (not Chromebook) to install the software and process the data we’ll be working with. If this is not possible for you, please work with me or your TA to find a good solution.\nThis class borrows from the R community and the data science world at large - particualry from UCSB. It seeks to provide a curreated set of the best material along with careful guidance through it. If someone has made exceptional resources, we want to share that with you rather then reinvnet the wheel (a core tenet of data science at large - borrow, share, contirbute)"
-  },
-  {
-    "objectID": "syllabus.html#how-to-approach-this-course",
-    "href": "syllabus.html#how-to-approach-this-course",
-    "title": "Ecosystem Science and Sustainability 330",
-    "section": "How to Approach this course:",
-    "text": "How to Approach this course:\nThe material covered in the course aims to provide continuity and it is cumulative. You will be learning a set of practical skills meaning that techniques we learn in early weeks will be necessary for understanding things that come later. It also means that regular practice will help you a lot. So, this is not a “Topic of the week” course where you can tune out for a few weeks while expecting to be able to easily drop back in later. The material we cover each week will not be overwhelming. If you participate during class and keep up with the weekly assignments you’ll be in a very strong position to do well in the class. If you don’t, it’ll be harder than you expected."
-  },
-  {
-    "objectID": "syllabus.html#my-promise",
-    "href": "syllabus.html#my-promise",
-    "title": "Ecosystem Science and Sustainability 330",
-    "section": "My promise",
-    "text": "My promise\nThis course is designed to build practical, cumulative skills that are essential for success in environmental data science. Each week’s content builds on what you’ve learned before, so regular participation and consistent practice are key. Labs and daily assignments will reinforce foundational concepts, and early engagement will set you up for long-term success.\nBy committing to the work and completing the daily assignments, you’ll gain valuable skills and perform well. Jaque, Alan, and I will be here to support you throughout the semester, ready to help you navigate any challenges.\nThis course may present a steep learning curve, but with persistence and effort, you’ll find the support you need to succeed. Stick with the course, stay engaged, and do the work—especially the daily assignments—and you’ll not only earn a good grade, but also build the skills to excel as an environmental data scientist.\nThis approach has proven effective for many past students, including those I’ve hired at Lynker and NOAA. While some students may choose to withdraw, I’ve never had a student who stuck with the course and put in the effort finish with a grade lower than a B.\nSo, please don’t let the possibility of a challenging start be a reason to hold back!"
+    "section": "Grading & Evaluation:",
+    "text": "Grading & Evaluation:\nFinal grades will be based on points earned out throughout the semester based on the following opportunities. Regular participation and consistent practice will set you up for success.\n\n\n\n\n\n\n\n\n\nComponent\nPoints\nPercentage\n\n\n\n\nDaily Exercises\n250\n20%\n\n\nLab Activities\n120\n10%\n\n\nLabs\n620\n50%\n\n\nFinal Project\n250\n20%\n\n\nExtra Credit Opportunities\n130\n10%\n\n\nTotal Assigned Points\n1,240\n\n\n\nTotal Possible Points\n1,370\n\n\n\n\n\n\nGrading Scale:\n\nA+: 100 % to 96.67%\nA : &lt; 96.67 % to 93.33%\nA-: &lt; 93.33 % to 90.0%\nB+: &lt; 90.0 % to 86.67%\nB : &lt; 86.67 % to 83.33%\nB-: &lt; 83.33 % to 80.0%\nC+: &lt; 80.0 % to 76.67%\nC : &lt; 76.67 % to 70.0%\nD : &lt; 70.0 % to 60.0%\nF : &lt; 60.0 % to 0.0%\n\n\n\n\n\nEvaluation Components\n\nDaily Exercises (20%)\nShort coding or reading assignments graded pass/fail. Complete 25 out of 29 assignments, with 4 extra credit opportunities.\n\n\nLab Activities (10%)\nWeekly in-class activities reinforcing lecture topics. Complete 12 out of 13 activities, with 1 extra credit opportunity.\n\n\nLabs (50%)\nApproximately 9 hands-on labs will provide applied learning experiences, focusing on solving real-world problems through data analysis.\n\n\nFinal project (20%)\nStudents will design and choose a final project to demonstrate their quantitative reasoning skills, mixing ideas from lectures and labs to answer a question of interest to them. Final projects will be presented in the final lab section - lightning talk style.\n\n\n\nExtra Credit Opportunities (10%)\n\n\nCourse Material\n\nAll readings and resources are free and avialable online\nIt is highly encouraged that you do all work on you own laptop. You’ll need a machine with a full OS (not Chromebook) to install the software and process the data we’ll be working with. If this is not possible for you, please work with me or your TA to find a good solution.\nThis class borrows from the R community and the data science world at large - particualry from UCSB. It seeks to provide a curreated set of the best material along with careful guidance through it. If someone has made exceptional resources, we want to share that with you rather then reinvnet the wheel (a core tenet of data science at large - borrow, share, contirbute)"
   },
   {
     "objectID": "syllabus.html#software",
