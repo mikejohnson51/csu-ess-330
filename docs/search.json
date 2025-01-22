@@ -74,7 +74,7 @@
     "href": "exercises/1-install-r.html#assignment",
     "title": "Daily Exercise 01",
     "section": "Assignment",
-    "text": "Assignment\nFor Exercise 01, your task is to install three additional packages: tidymodels, remotes, gapminder, and palmerpenguins. Once installed, clear the console by clicking the broom icon ( ) and run the following 4 lines of code:\n\nSys.getenv(\"LOGNAME\")\n\nversion$major\n\nRStudio.Version()$version\n\nc(\"tidymodels\", 'remotes', 'gapminder', 'palmerpenguins')  %in% rownames(installed.packages()) \n\nFor Exercise 01, submit a screenshot of the output to the Canvas dropbox. It should look like this:\n\nKey points to verify include:\n\nCorrect R version (4.x)\nCorrect RStudio version (2024.X.XXXX)\nAll three packages installed (three TRUE values)\n\nOnce you’ve completed this, you can close RStudio—no need to save the workspace.\nNice work!"
+    "text": "Assignment\nFor Exercise 01, your task is to install three additional packages: tidymodels, remotes, gapminder, and palmerpenguins. Once installed, clear the console by clicking the broom icon ( ) and run the following 4 lines of code:\n\nSys.getenv(\"LOGNAME\")\n\nversion$major\n\nRStudio.Version()$version\n\nc(\"tidymodels\", 'remotes', 'gapminder', 'palmerpenguins')  %in% rownames(installed.packages()) \n\nFor Exercise 01, submit a screenshot of the output to the Canvas dropbox. It should look like this:\n\nKey points to verify include:\n\nCorrect R version (4.x)\nCorrect RStudio version (2024.X.XXXX)\nAll three packages installed (4 TRUE values)\n\nOnce you’ve completed this, you can close RStudio—no need to save the workspace.\nNice work!"
   },
   {
     "objectID": "index.html#welcome",
