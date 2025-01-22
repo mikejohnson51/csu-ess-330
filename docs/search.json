@@ -1,0 +1,296 @@
+[
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "Understand the essentials of modern data workflows. This module focuses on setting up your computational environment with R, RStudio, Git, and GitHub while introducing best practices for organizing and managing data. Learn how computers process and interface with data, ensuring you’re equipped for transparent and reproducible science.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nSet up and navigate R, RStudio, Git, and GitHub.\nDevelop effective data organization strategies.\nUnderstand data structures and types.\n\n\n\n\n\n Lecture 01 (w1): Welcome!\n Lecture 02 (w2): Your Tools: Interactive Walk Though\n Lecture 03 (w2): Your Digital Environment\n Lecture 04 (w3): Data Types & Structures\n Lecture 05 (w3): Hypothesis Testing & Study Design\n\nExercise 01: Setup R & RStudio\nExercise 02: Intro to Terminal / Git Install\nExercise 03: Your first Project\nExercise 04: Forking and Quarto\nExercise 05: Open Science"
+  },
+  {
+    "objectID": "schedule.html#component-1-open-science-tools",
+    "href": "schedule.html#component-1-open-science-tools",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "Understand the essentials of modern data workflows. This module focuses on setting up your computational environment with R, RStudio, Git, and GitHub while introducing best practices for organizing and managing data. Learn how computers process and interface with data, ensuring you’re equipped for transparent and reproducible science.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nSet up and navigate R, RStudio, Git, and GitHub.\nDevelop effective data organization strategies.\nUnderstand data structures and types.\n\n\n\n\n\n Lecture 01 (w1): Welcome!\n Lecture 02 (w2): Your Tools: Interactive Walk Though\n Lecture 03 (w2): Your Digital Environment\n Lecture 04 (w3): Data Types & Structures\n Lecture 05 (w3): Hypothesis Testing & Study Design\n\nExercise 01: Setup R & RStudio\nExercise 02: Intro to Terminal / Git Install\nExercise 03: Your first Project\nExercise 04: Forking and Quarto\nExercise 05: Open Science"
+  },
+  {
+    "objectID": "schedule.html#component-2-working-with-data",
+    "href": "schedule.html#component-2-working-with-data",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Component 2: Working with Data",
+    "text": "Component 2: Working with Data\nBuild confidence in wrangling, visualizing, and analyzing data. This section covers importing and cleaning datasets, working with joins, and creating effective visualizations. You’ll also delve into study design, hypothesis testing, and statistical analyses spanning univariate, bivariate, and multivariate techniques.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nImport, clean, and merge datasets from diverse sources using core tidyverse packages.\nConduct hypothesis testing and interpret results.\nCreate impact visualizations to communicate findings.\n\n\n\n\n\n Lecture 06 (w4): Review uni-, bi- statistics\n Lecture 07 (w4): Exploratory Data Methods\n Lecture 08 (w5): Data Manipulation\n Lecture 09 (w5): Data Groups & Shapes\n Lecture 10 (w6): Data Relations\n Lecture 11 (w6): Data Visualization\n Lecture 12 (w7): Data I/0\n Lecture 13 (w7): Multivariate statistics\n\nExercise 06:\nExercise 07:\nExercise 08:\nExercise 09:\nExercise 10:\nExercise 11:\nExercise 12:\nExercise 13:"
+  },
+  {
+    "objectID": "schedule.html#component-3-modeling",
+    "href": "schedule.html#component-3-modeling",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Component 3: Modeling",
+    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 14 (w8): Regression\n Lecture 15 (w8): Project Introduction\nSpring Break (w9)\n Lecture 16 (w10): ML Basics\n Lecture 17 (w10) : ML Model Setup\n Lecture 18 (w11): ML Model Evaluation\n Lecture 19 (w11): ML Model Tuning\n Lecture 20 (w12): Time series Analysis\n Lecture 21 (w12): Time series Forecasting\n\nExercise 14:\nExercise 15:\nSpring Break\nExercise 16:\nExercise 17:\nExercise 18:\nExercise 19:\nExercise 20:\nExercise 21:"
+  },
+  {
+    "objectID": "schedule.html#component-4-geospatial",
+    "href": "schedule.html#component-4-geospatial",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Component 4: Geospatial",
+    "text": "Component 4: Geospatial\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\n\n\n\n\n\n Lecture 22 (w13): Spatial Data Libraries\n Lecture 23 (w13): Feature Geometries (CRS)\n Lecture 24 (w14): Spatial Analysis (Predicts, Unary, Binary)\n Lecture 25 (w14): Mapping\n Lecture 26 (w15): Raster Data\n Lecture 27 (w15: Raster Data Manipulation\n Lecture 28 (w16): Categorization\n Lecture 29 (w16): Wrap up\n\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:\nExercise 29:"
+  },
+  {
+    "objectID": "exercises/1-install-r.html",
+    "href": "exercises/1-install-r.html",
+    "title": "Daily Exercise 01",
+    "section": "",
+    "text": "Getting all the necessary software installed, configured, and playing nicely together is half the battle when first adopting an open source, reproducable scientific workflow. These steps have become increasingly easier over the years and we are here to help you if you hit a hurdle 😄\nWelcome to ESS 330, Quantitative Reasoning for Ecosystem Science! In this course, we’ll be using R and RStudio for data organization, manipulation, analysis, and visualization. You’ll become more familiar with both tools throughout the course.\nIt’s highly recommended to install these tools on your own laptop for convenience and the following step-by-step guide will walk you through installing R and RStudio on your computer, as well as introducing a few essential tools we’ll use throughout the quarter. If you encounter any issues during the process, don’t hesitate to contact me or a teaching assistant for assistance!"
+  },
+  {
+    "objectID": "exercises/1-install-r.html#macos-installation",
+    "href": "exercises/1-install-r.html#macos-installation",
+    "title": "Daily Exercise 01",
+    "section": "MacOS Installation  ",
+    "text": "MacOS Installation  \n\nInstall R\n\nDownload the latest release of R from CRAN (choose the .pkg version).\nSave the .pkg file and double-click it to start the installation. Follow the prompts to complete the installation.\n\n\n\n\n\n\n\nKnow your chip\n\n\n\nEnsure you download the correct version based on your Mac’s chip. If you’re unsure, click the apple icon in the menu bar → About This Mac, and check your chip (Intel or Apple).\n\n\n\n\nInstalling RStudio\n\nDownload RStudio for Mac.\nAfter downloading, double-click the .dmg file and move RStudio into your Applications folder.\n\n\nNow that R is installed, you can download and install RStudio."
+  },
+  {
+    "objectID": "exercises/1-install-r.html#windows-installation",
+    "href": "exercises/1-install-r.html#windows-installation",
+    "title": "Daily Exercise 01",
+    "section": "Windows Installation  ",
+    "text": "Windows Installation  \n\nInstalling R\n\nDownload the latest version of R for Windows from CRAN.\nInstall the downloaded .exe file as you would any other Windows application.\n\n\n\nInstalling RStudio\n\nDownload RStudio for Windows.\nRun the .exe installer and follow the prompts to complete the installation."
+  },
+  {
+    "objectID": "exercises/1-install-r.html#launch-rstudio",
+    "href": "exercises/1-install-r.html#launch-rstudio",
+    "title": "Daily Exercise 01",
+    "section": "Launch RStudio",
+    "text": "Launch RStudio\nOnce both R and RStudio are installed, locate and click the RStudio icon to launch the program. It should look like this:\n\n\n\nOpening RStudio will launch a workplace. If something like the below image appears for you, then you are all set!\n\nThroughout the quarter, we’ll be working extensively within this IDE. The layout and features will become more familiar as we progress. A few things to note now are:\n\nYour session is linked to a specific project (pink box).\n\nIn the blue box, you have:\n\nAn Environment tab that shows all the active objects in your session\nA Files tab that shows all the files and folders in your default (project) workplace\nA Plots tab that will show all your graphs once we start visualizing data.\n\nIn the red window you will write code and open scripts/markdown files.\nAll output will be printed to your console (yellow box). Code and prompts can be directly entered in the console but will not be saved after executing.\n\nYour layout and theme may not look like the above (all the elements are the same but arranged differently). If you want to change your theme and layout got to RStudio –&gt; Preferences.\nHere you can adjust the “Appearance” and “Pane Layout”. If you want your to look like mine, see below:"
+  },
+  {
+    "objectID": "exercises/1-install-r.html#installing-package",
+    "href": "exercises/1-install-r.html#installing-package",
+    "title": "Daily Exercise 01",
+    "section": "Installing Package",
+    "text": "Installing Package\nR comes loaded with many base packages and tools. There are also many additional tools that will make your life easier. Throughout this class, we’ll use packages that exist in the aggregate tidyverse package.\n\nTidyverse\nThe tidyverse contains a collection of very useful packages that play nicely together for data exploration, manipulation, wrangling and visualization (among other things). Packages can be installed from CRAN (Comprehensive R Archive Network) using the following pattern which should be typed in the console (yellow box):\n\ninstall.packages(\"tidyverse\")\n\nAfter you press ‘Enter,’ you should see a whole bunch of text streaming across the Console Window. This is a good sign and is simply logging what’s being downloaded/installed. This process can go on for a few minutes (the tidyverse has a lot of different components). You will know it’s done when the active cursor shows up again waiting for your next command.\nOnce it’s installed, you can ensure that everything worked by loading/attaching the tidyverse using the library call:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter()     masks stats::filter()\n✖ dplyr::group_rows() masks kableExtra::group_rows()\n✖ dplyr::lag()        masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nWhen you press enter, some information will come up below the command. Don’t worry too much about it now as long as there are no errors!\nIf you got something similar to the above you’ve successfully installed R, RStudio, and the tidyverse package. Congratulations!"
+  },
+  {
+    "objectID": "exercises/1-install-r.html#assignment",
+    "href": "exercises/1-install-r.html#assignment",
+    "title": "Daily Exercise 01",
+    "section": "Assignment",
+    "text": "Assignment\nFor Exercise 01, your task is to install three additional packages: tidymodels, remotes, gapminder, and palmerpenguins. Once installed, clear the console by clicking the broom icon ( ) and run the following 4 lines of code:\n\nSys.getenv(\"LOGNAME\")\n\nversion$major\n\nRStudio.Version()$version\n\nc(\"tidymodels\", 'remotes', 'gapminder', 'palmerpenguins')  %in% rownames(installed.packages()) \n\nFor Exercise 01, submit a screenshot of the output to the Canvas dropbox. It should look like this:\n\nKey points to verify include:\n\nCorrect R version (4.x)\nCorrect RStudio version (2024.X.XXXX)\nAll three packages installed (three TRUE values)\n\nOnce you’ve completed this, you can close RStudio—no need to save the workspace.\nNice work!"
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Welcome!",
+    "text": "Welcome!\nWelcome to Ecosystem Science and Sustainability 330: Quantitative Reasoning for Ecosystem Science! This course is your entery point to understanding data science tools and techniques essential for solving today’s most pressing environmental challenges. We aim to equip students with the essential quantitative tools and reasoning skills needed to address complex challenges in ecosystem science. It emphasizes the integration of open-source technologies, statistical methods, spatial data analysis, and machine learning to foster reproducible, data-driven insights."
+  },
+  {
+    "objectID": "index.html#who-this-class-is-for",
+    "href": "index.html#who-this-class-is-for",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Who This Class is For",
+    "text": "Who This Class is For\nThis course is ideal for students in ecosystem science, sustainability, and related disciplines who want to enhance their data science skills. Whether you’re new to coding or looking to expand your expertise, ESS 330 provides the tools to address critical environmental challenges with data-driven insights. By the end of this course, students will have the skills (and confidence to continue learning) to tackle a wide range of applied and theoretical questions, including:\n\nHow can I efficiently organize, store, and share data for a research project?\nHow do I set up a reproducible workflow using R, Git, and GitHub?\nHow do I clean, merge, and visualize messy datasets from different sources?\nWhat statistical methods should I use to test my hypotheses?\nHow can I identify patterns and relationships in environmental datasets?\nHow can I predict ecosystem changes using regression and machine learning models?\nHow do I design, train, and evaluate models to ensure reliable predictions?\nHow can I analyze and forecast environmental trends using time-series data?\nHow do I process and analyze spatial data to answer location-based questions?\nHow can I visualize and interpret geospatial trends in ecosystem variables?\nHow can GIS tools be integrated into larger data science workflows?"
+  },
+  {
+    "objectID": "index.html#careers",
+    "href": "index.html#careers",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Careers",
+    "text": "Careers\nGraduates of this course will be equipped to pursue careers as geospatial analysts, ecological modelers, data scientists, hydrologists, or climate scientists. You’ll be prepared to tackle pressing environmental challenges in academia, government, industry, or NGOs, making data-driven decisions to shape the future of ecosystem science and sustainability."
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nThis website, including the slides, is made with Quarto. Please submit an issue on the GitHub repo for this workshop if you find something that could be fixed or improved."
+  },
+  {
+    "objectID": "index.html#reuse-and-licensing",
+    "href": "index.html#reuse-and-licensing",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Reuse and licensing",
+    "text": "Reuse and licensing\n\nUnless otherwise noted (i.e. not an original creation and reused from another source), these educational materials are licensed under Creative Commons Attribution CC BY-SA 4.0."
+  },
+  {
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "Week\nLab\nLab Activity\n\n\n\n\n1\nNo Lab Meetings\n—"
+  },
+  {
+    "objectID": "labs.html#labs",
+    "href": "labs.html#labs",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "Week\nLab\nLab Activity\n\n\n\n\n1\nNo Lab Meetings\n—"
+  },
+  {
+    "objectID": "slides/1-welcome.html#what-this-class-is-about",
+    "href": "slides/1-welcome.html#what-this-class-is-about",
+    "title": "1 - Welcome",
+    "section": "What This Class Is About:",
+    "text": "What This Class Is About:\n\nLearning essential quantitative skills for ecosystem science\nEmphasizing real-world applications\nDeveloping proficiency in data science tools and methods\nUnderstanding and applying open science principles\n\n\n\n\n\n\n\nArtwork by @allison_horst"
+  },
+  {
+    "objectID": "slides/1-welcome.html#why-this-class-matters-challenges-in-ecosystem-science",
+    "href": "slides/1-welcome.html#why-this-class-matters-challenges-in-ecosystem-science",
+    "title": "1 - Welcome",
+    "section": "Why This Class Matters: Challenges in Ecosystem Science:",
+    "text": "Why This Class Matters: Challenges in Ecosystem Science:\n\nComplex, messy data sets\nDiverse, rapidly changing tools and workflows\nNeed for reproducibility and transparency\nIncreasing societal role in that face of new world\n\n\n\n\n\n\n\nNOAA Climate Change Impacts"
+  },
+  {
+    "objectID": "slides/1-welcome.html#goals-for-you",
+    "href": "slides/1-welcome.html#goals-for-you",
+    "title": "1 - Welcome",
+    "section": "Goals for You:",
+    "text": "Goals for You:\n\nBuild confidence in tackling data-intensive problems: if not you then who?\nGain practical, hands-on experience: All (almost) environmental issues now require data\n\nPolicy & Management\nModeling\nStake holder engagement\n\nDevelop a critical mindset for evaluating models and results\n\nMerging technical skill, communication skills, and passion are critical to success\n\nLearn to merge data, and writing to communicate complex issues\nPrepare for careers or advanced studies in environmental science and sustainability"
+  },
+  {
+    "objectID": "slides/1-welcome.html#instructor",
+    "href": "slides/1-welcome.html#instructor",
+    "title": "1 - Welcome",
+    "section": "Instructor",
+    "text": "Instructor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMike Johnson, Geospatial Science & Technology Lead @ NOAA Office of Water Prediction\nPreviously, Chief Data Scientist for local consulting group\n\nGrew our division form 3 to 15 before transitioning\nGraduate student at UCSB where I developed\n\nPhD from UCSB in Geography\nOver 10 years of experience working in hydrology and ecosystem science\nPassionate about applying data science to solve environmental challenges\nExcited to share practical tools and insights to prepare you for real-world problem"
+  },
+  {
+    "objectID": "slides/1-welcome.html#teaching-assistants",
+    "href": "slides/1-welcome.html#teaching-assistants",
+    "title": "1 - Welcome",
+    "section": "Teaching Assistants",
+    "text": "Teaching Assistants"
+  },
+  {
+    "objectID": "slides/1-welcome.html#course-website",
+    "href": "slides/1-welcome.html#course-website",
+    "title": "1 - Welcome",
+    "section": "Course Website",
+    "text": "Course Website\n\nhttps://github.com/mikejohnson51/csu-ess-330/"
+  },
+  {
+    "objectID": "slides/1-welcome.html#course-structure-4-units",
+    "href": "slides/1-welcome.html#course-structure-4-units",
+    "title": "1 - Welcome",
+    "section": "Course Structure: 4 Units",
+    "text": "Course Structure: 4 Units\n\nOpen Science and Tools (Weeks 1-3)\n\nIntroduction to reproducible workflows and software (R, Rmd, Git)\nHow do you interact with you computer whether you love it or hate it\n\nWorking with Data (Weeks 4-7)\n\nAll data is messy!\nHow do you refine it to answer questions you have in ways others will (1) care about and (2) understand\n\nModeling (Weeks 8-12)\n\nStatistical and simulation models to solve ecosystem-related problems\nPull the current back on “Machine Learning”\nUnderstand that “all” problems are either prediction or classification\n\nGeospatial Data (Weeks 13-16)\n\nAll problems are spatial, how can we add location information to our growing skill set?"
+  },
+  {
+    "objectID": "slides/1-welcome.html#components",
+    "href": "slides/1-welcome.html#components",
+    "title": "1 - Welcome",
+    "section": "Components",
+    "text": "Components\n\nDaily Exercises (20%)\n\nTo be completed between the end of a class and the beginning of the next\nPass/Fail based on effort\nMeant to be low stakes opportunity to experiments\nOne “opps pass” is given per unit\n\nLab Activities (10%)\n\nWork with TAs is lab sections to practice skills learned in class on real world problems\nPass/Fail based on effort\nMeant to be low stakes opportunity to experiments\nOne “opps pass” is given per unit\n\nLabs (50%)\n\nWork with TAs is lab sections to practice skills learned in class on real world problems\n9 in total, some due weekly, others spread over a few\n\nFinal project (20%)\n\nChoose a final project to demonstrate your quantitative reasoning skills, mixing ideas from lectures and labs throughout the semester\nPresent in lightning talk format within lab section\n\nExtra Credit (up to 10%)\n\n4% are available for completing all Daily Assignments\n6% are available in extra aspects of the bigger labs\n1% are available for extra lab activity"
+  },
+  {
+    "objectID": "slides/1-welcome.html#grading",
+    "href": "slides/1-welcome.html#grading",
+    "title": "1 - Welcome",
+    "section": "Grading",
+    "text": "Grading\n\n\n\n\n\n\n\nComponents\n\n\n\nComponent\nPoints\nPercentage\n\n\n\n\nDaily Exercises\n250\n20%\n\n\nLab Activities\n120\n10%\n\n\nLabs\n620\n50%\n\n\nFinal Project\n250\n20%\n\n\nExtra Credit Opportunities\n130\n10%\n\n\nTotal Assigned Points\n1,240\n\n\n\nTotal Possible Points\n1,370\n\n\n\n\n\n\nScale:\nA+: 100 % to 96.67%\nA : &lt; 96.67 % to 93.33%\nA-: &lt; 93.33 % to 90.0%\nB+: &lt; 90.0 % to 86.67%\nB : &lt; 86.67 % to 83.33%\nB-: &lt; 83.33 % to 80.0%\nC+: &lt; 80.0 % to 76.67%\nC : &lt; 76.67 % to 70.0%\nD : &lt; 70.0 % to 60.0%\nF : &lt; 60.0 % to 0.0%"
+  },
+  {
+    "objectID": "slides/1-welcome.html#our-promise",
+    "href": "slides/1-welcome.html#our-promise",
+    "title": "1 - Welcome",
+    "section": "Our promise",
+    "text": "Our promise\n\nThis class will have a steep learning curve.\n\n\n\n\n\n\n\n\n\n\n\n\nJaque, Alan and I will do everything we can to help you along. If you stick with the course and do the work (particularly the daily assignments!), you will get a good grade, learn a lot, and be prepared to serve as a environmental data scientist in a quantitative capacity - OR - better communicate with those who are serving in that role\nThis style has worked for past students and while I have had students drop, I have never had anyone who tried get lower then a B+.\nSo, please don’t let “getting a bad grade” be a reason to not see this class through!"
+  },
+  {
+    "objectID": "slides/1-welcome.html#working-together",
+    "href": "slides/1-welcome.html#working-together",
+    "title": "1 - Welcome",
+    "section": "Working Together:",
+    "text": "Working Together:\nFor exercises and assignments, you are welcome to work together to problem solve, and figure things out, but you are expected to write up your own individual assignment, and hand in your own individually conducted work, including results (models, graphics, tables, etc.) and writing."
+  },
+  {
+    "objectID": "slides/1-welcome.html#attendance",
+    "href": "slides/1-welcome.html#attendance",
+    "title": "1 - Welcome",
+    "section": "Attendance",
+    "text": "Attendance\n\nEach lecture will introduce new topics or expand on existing content. Therefore if you miss a section or lab, you will miss material. It is highly encouraged (but not mandatory) that you attend all lectures and the lab sections.\nWe have built this into the grading scheme and beleive it faciliates the push to “put in the time”\nThat said, things happen. If you communicate with your TA’s or me we will help you find a solution"
+  },
+  {
+    "objectID": "slides/1-welcome.html#next-time",
+    "href": "slides/1-welcome.html#next-time",
+    "title": "1 - Welcome",
+    "section": "Next Time",
+    "text": "Next Time\n\nDaily Assignment: Install R and RStudio\n\n\n\nNext Topic: Getting familar with your environment\n\n\n\n\nArtwork by @allison_horst"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "Instructor\n Mike Johnson\n Geospatial Technology Lead, NOAA\n webpage\n\nLecture\n January 21st - May 9th, 2025\n Monday, Wednesday\n 10:00am - 10:50am\n NR 113\n\nTeaching Assistants\n\n Jaque McVey\n PhD Student, CSU\n\n Alan Cai\n PhD Student, CSU\n linkedin\n\nLabs\n Section 1: Th 8:00am–9:50am (McVey)\n Section 2: Th 2:00pm–3:50pm (McVey)\n Section 3: Th 4:00pm–5:50pm (Cai)\n Section 4: F 12:00pm–1:50am (Cai)\n NR 232"
+  },
+  {
+    "objectID": "syllabus.html#about-this-course",
+    "href": "syllabus.html#about-this-course",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "About this course",
+    "text": "About this course\nQuantitative reasoning involves analyzing, interpreting, and solving problems using numerical and logical reasoning. This course equips students with essential data science and quantitative skills, focusing on applying these methods to problems in ecosystem science and sustainability.\nStudents will engage in practical data-driven approaches through lectures, live coding demonstrations, discussions, and hands-on lab sessions. The course emphasizes the use of open-source technologies (R, Quarto), statistical methods, geospatial data analysis, and machine learning within reproducible workflows.\nBy the end of this course, students will:\n\nAssess ecosystem science challenges using quantitative tools.\n\nApply data-driven methods to real-world sustainability issues.\n\nUse these skills in scientific research, decision-making, and environmental data analysis.\n\nPrerequisites: MATH 155/160; STAT 301/307/315; ESS 211 or LIFE 320\nCredits: 3\nCourse Website: https://github.com/mikejohnson51/csu-ess-330"
+  },
+  {
+    "objectID": "syllabus.html#course-units",
+    "href": "syllabus.html#course-units",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Course Units",
+    "text": "Course Units\nAn approximate weekly schedule is available on the course home page. While it is subject to change, we will be guided by four primary units:\n\nOpen Science and Tools (Weeks 1-3)\n\nIntroduction to reproducible workflows and software (R, Rmd, Git)\nLearning efficient interaction with computers whether you love them or hate them\n\nWorking with Data (Weeks 4-7)\n\nCleaning, refining, and analyzing messy data sets\nTechniques for effective data interpretation\n\nModeling (Weeks 8-12)\n\nStatistical, predictive, and classification models to solve ecosystem-related problems\nPull the current back on “Machine Learning”\nUnderstand that “all” problems are either prediction or classification\n\nGeospatial Data (Weeks 13-16)\n\nApplying spatial information to data analysis and problem-solving"
+  },
+  {
+    "objectID": "syllabus.html#components",
+    "href": "syllabus.html#components",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Components",
+    "text": "Components\n\nDaily Exercises (20%)\nDaily coding or reading assignments will conclude each class. These short assignments (30 minutes) are graded pass/fail and are intended to reinforce the concepts learned during lectures. Students are required to complete 25 out of 29 assignments, with the remaining 4 serving as extra credit opportunities.\n\n\nLab Activities (10%)\nEach weeks lab will have an associated activity, completed in class, that helps solidify topics from lecture. Students are required to complete 12 out of 13 activities, with the remaining 1 serving as extra credit opportunities.\n\n\nLabs (50%)\nApproximately 9 hands-on labs will provide applied learning experiences, focusing on solving real-world problems through data analysis. Lab assignments will be released on Sundays and are due the designated Sunday at 11:59 PM. While some labs only last 1 weeks, others will take more.\n\n\nFinal project (20%)\nStudents will design and choose a final project to demonstrate their quantitative reasoning skills, mixing ideas from lectures and labs to answer a question of interest to them. Final projects will be presented in the final lab section - lightning talk style.\n\n\nExtra Credit Opportunities (10%)"
+  },
+  {
+    "objectID": "syllabus.html#grading",
+    "href": "syllabus.html#grading",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Grading",
+    "text": "Grading\nFinal grades will be based on points earned out throughout the semester based on the following opportunities:\n\n\n\n\n\n\n\n\n\nComponent\nPoints\nPercentage\n\n\n\n\nDaily Exercises\n250\n20%\n\n\nLab Activities\n120\n10%\n\n\nLabs\n620\n50%\n\n\nFinal Project\n250\n20%\n\n\nExtra Credit Opportunities\n130\n10%\n\n\nTotal Assigned Points\n1,240\n\n\n\nTotal Possible Points\n1,370\n\n\n\n\n\n\nGrading Scale:\n\nA+: 100 % to 96.67%\nA : &lt; 96.67 % to 93.33%\nA-: &lt; 93.33 % to 90.0%\nB+: &lt; 90.0 % to 86.67%\nB : &lt; 86.67 % to 83.33%\nB-: &lt; 83.33 % to 80.0%\nC+: &lt; 80.0 % to 76.67%\nC : &lt; 76.67 % to 70.0%\nD : &lt; 70.0 % to 60.0%\nF : &lt; 60.0 % to 0.0%"
+  },
+  {
+    "objectID": "syllabus.html#course-policies",
+    "href": "syllabus.html#course-policies",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Course policies",
+    "text": "Course policies\n\nAttendance is required, and important. We are reasonable people so if you need to be absent please let us know in advance insofar as that is possible.\nDo the assigned readings in advance of class.\nSubmit problem sets, or other assignments, on time."
+  },
+  {
+    "objectID": "syllabus.html#course-material",
+    "href": "syllabus.html#course-material",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Course Material",
+    "text": "Course Material\n\nAll readings and resources are free and avialable online\nIt is highly encouraged that you do all work on you own laptop. You’ll need a machine with a full OS (not Chromebook) to install the software and process the data we’ll be working with. If this is not possible for you, please work with me or your TA to find a good solution.\nThis class borrows from the R community and the data science world at large - particualry from UCSB. It seeks to provide a curreated set of the best material along with careful guidance through it. If someone has made exceptional resources, we want to share that with you rather then reinvnet the wheel (a core tenet of data science at large - borrow, share, contirbute)"
+  },
+  {
+    "objectID": "syllabus.html#how-to-approach-this-course",
+    "href": "syllabus.html#how-to-approach-this-course",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "How to Approach this course:",
+    "text": "How to Approach this course:\nThe material covered in the course aims to provide continuity and it is cumulative. You will be learning a set of practical skills meaning that techniques we learn in early weeks will be necessary for understanding things that come later. It also means that regular practice will help you a lot. So, this is not a “Topic of the week” course where you can tune out for a few weeks while expecting to be able to easily drop back in later. The material we cover each week will not be overwhelming. If you participate during class and keep up with the weekly assignments you’ll be in a very strong position to do well in the class. If you don’t, it’ll be harder than you expected."
+  },
+  {
+    "objectID": "syllabus.html#my-promise",
+    "href": "syllabus.html#my-promise",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "My promise",
+    "text": "My promise\nThis course is designed to build practical, cumulative skills that are essential for success in environmental data science. Each week’s content builds on what you’ve learned before, so regular participation and consistent practice are key. Labs and daily assignments will reinforce foundational concepts, and early engagement will set you up for long-term success.\nBy committing to the work and completing the daily assignments, you’ll gain valuable skills and perform well. Jaque, Alan, and I will be here to support you throughout the semester, ready to help you navigate any challenges.\nThis course may present a steep learning curve, but with persistence and effort, you’ll find the support you need to succeed. Stick with the course, stay engaged, and do the work—especially the daily assignments—and you’ll not only earn a good grade, but also build the skills to excel as an environmental data scientist.\nThis approach has proven effective for many past students, including those I’ve hired at Lynker and NOAA. While some students may choose to withdraw, I’ve never had a student who stuck with the course and put in the effort finish with a grade lower than a B.\nSo, please don’t let the possibility of a challenging start be a reason to hold back!"
+  },
+  {
+    "objectID": "syllabus.html#software",
+    "href": "syllabus.html#software",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Software",
+    "text": "Software\nIn this course we will use R which is an open source programming environment. You will interact with R through the RStudio IDE. Your projects and code will be turned into through GitHub as Quarto reports. Through the course you will build an online portfolio that can be taken with you latter on. If you haven’t used these tools before, don’t worry - we will get up and running with them during the first week."
+  },
+  {
+    "objectID": "syllabus.html#references",
+    "href": "syllabus.html#references",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "References",
+    "text": "References\nI recommend the following reference if a topic peeks your interest. Versions of all of them are available for free at the following links:\n\nR Programming: Hadley Wickham et al., R for Data Science\nData Visualization: Claus E. Wilke, Fundamentals of Data Visualization.\nGeospatial Data Science: Robin Lovelace et al., Geocomputation with R\nMachine Learning: Max Kuhn and Julia Silge, Tidy Modeling with R\nCommunication: Quarto Guide"
+  }
+]
