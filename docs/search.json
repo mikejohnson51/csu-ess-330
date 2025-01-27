@@ -410,14 +410,14 @@
     "href": "slides/2-digital-environment.html#object-address",
     "title": "Lecture 02",
     "section": "Object Address",
-    "text": "Object Address\n\nObjects have unique identifiers.\nThese identifiers have a form that looks like the object’s memory “address”\nThe actual memory addresses changes every time the code is run, so we use these identifiers instead.\nIf you are interested in this, the Wikipedia page is great!\n\n\n\nx &lt;- 10\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x17bb959b0\""
+    "text": "Object Address\n\nObjects have unique identifiers.\nThese identifiers have a form that looks like the object’s memory “address”\nThe actual memory addresses changes every time the code is run, so we use these identifiers instead.\nIf you are interested in this, the Wikipedia page is great!\n\n\n\nx &lt;- 10\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x17da7c0d8\""
   },
   {
     "objectID": "slides/2-digital-environment.html#to-illustate-this",
     "href": "slides/2-digital-environment.html#to-illustate-this",
     "title": "Lecture 02",
     "section": "To illustate this…",
-    "text": "To illustate this…\nIn the code below, y doesn’t make another copy of the value 10, but instead creates an additional binding to the existing object.\n\n\nx &lt;- 10\ny &lt;- x\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x17acef270\"\nlobstr::obj_addr(y)\n#&gt; [1] \"0x17acef270\""
+    "text": "To illustate this…\nIn the code below, y doesn’t make another copy of the value 10, but instead creates an additional binding to the existing object.\n\n\nx &lt;- 10\ny &lt;- x\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x17c80a278\"\nlobstr::obj_addr(y)\n#&gt; [1] \"0x17c80a278\""
   },
   {
     "objectID": "slides/2-digital-environment.html#computer-memory-like-a-dynamic-hard-disk",
