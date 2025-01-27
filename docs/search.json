@@ -410,14 +410,14 @@
     "href": "slides/2-digital-environment.html#object-address",
     "title": "Lecture 02",
     "section": "Object Address",
-    "text": "Object Address\n\nObjects have unique identifiers.\nThese identifiers have a form that looks like the object’s memory “address”\nThe actual memory addresses changes every time the code is run, so we use these identifiers instead.\nIf you are interested in this, the Wikipedia page is great!\n\n\n\nx &lt;- 10\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x130c149e8\""
+    "text": "Object Address\n\nObjects have unique identifiers.\nThese identifiers have a form that looks like the object’s memory “address”\nThe actual memory addresses changes every time the code is run, so we use these identifiers instead.\nIf you are interested in this, the Wikipedia page is great!\n\n\n\nx &lt;- 10\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x17bb959b0\""
   },
   {
     "objectID": "slides/2-digital-environment.html#to-illustate-this",
     "href": "slides/2-digital-environment.html#to-illustate-this",
     "title": "Lecture 02",
     "section": "To illustate this…",
-    "text": "To illustate this…\nIn the code below, y doesn’t make another copy of the value 10, but instead creates an additional binding to the existing object.\n\n\nx &lt;- 10\ny &lt;- x\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x1521092c8\"\nlobstr::obj_addr(y)\n#&gt; [1] \"0x1521092c8\""
+    "text": "To illustate this…\nIn the code below, y doesn’t make another copy of the value 10, but instead creates an additional binding to the existing object.\n\n\nx &lt;- 10\ny &lt;- x\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x17acef270\"\nlobstr::obj_addr(y)\n#&gt; [1] \"0x17acef270\""
   },
   {
     "objectID": "slides/2-digital-environment.html#computer-memory-like-a-dynamic-hard-disk",
@@ -462,6 +462,195 @@
     "text": "Next Time:\n\n\n\n\n\n\n\nDaily Assignment: Set up Git and Github\n\n\n\n\n\n\n\n\n\nNext Topic: Data Types & Structures\n\n\n\n\n\n\n\nArtwork by @allison_horst"
   },
   {
+    "objectID": "slides/3-data-types.html#computers-via-r-convert-bytes---hex---value",
+    "href": "slides/3-data-types.html#computers-via-r-convert-bytes---hex---value",
+    "title": "Lecture 04",
+    "section": "Computers (via R) convert bytes <-> hex <-> value",
+    "text": "Computers (via R) convert bytes &lt;-&gt; hex &lt;-&gt; value"
+  },
+  {
+    "objectID": "slides/3-data-types.html#whats-the-difference-between-3-the-number-and-3-the-character",
+    "href": "slides/3-data-types.html#whats-the-difference-between-3-the-number-and-3-the-character",
+    "title": "Lecture 04",
+    "section": "What’s the difference between 3 (the number) and ‘3’ (the character)?",
+    "text": "What’s the difference between 3 (the number) and ‘3’ (the character)?\n\nTo us: meaning\nTo software: hows its handled\nTo a computer: nothing\n\n\n\ncharToRaw('3') %&gt;% rawToBits()\n[1] 01 01 00 00 01 01 00 00\nwriteBin(3, raw(), size = 8, endian = \"big\")\n[1] 40 08 00 00 00 00 00 00\n3 + 3\n[1] 6\n'3' + 3\nError in \"3\" + 3: non-numeric argument to binary operator"
+  },
+  {
+    "objectID": "slides/3-data-types.html#data-types-1",
+    "href": "slides/3-data-types.html#data-types-1",
+    "title": "Lecture 04",
+    "section": "Data Types",
+    "text": "Data Types\nValues in R can be one of 6 different types : 1. numeric (e.g. 2, 2.15) 2. integer (e.g. 2L) 3. character (e.g. \"x\", \"Welcome!\") 4. logical (e.g. TRUE, FALSE) 5. raw (e.g. holds bytes) 6. complex (e.g. 1+4i) - we are going to ignore\n\nThe class function tells us what kind of object is it (high-level)\nThe typeof function can tell us the object’s data type (low-level)"
+  },
+  {
+    "objectID": "slides/3-data-types.html#numeric",
+    "href": "slides/3-data-types.html#numeric",
+    "title": "Lecture 04",
+    "section": "1. Numeric",
+    "text": "1. Numeric\n\nValues with decimals\nOf type “double” in computer science terms\nDefault computational data type in R.\nDoubles can be specified in decimal (0.1234), scientific (1.23e4), or hexadecimal (0xcafe) form.\nThere are three special values unique to doubles: Inf, -Inf, and NaN (not a number)."
+  },
+  {
+    "objectID": "slides/3-data-types.html#section",
+    "href": "slides/3-data-types.html#section",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\n\n\n\n[1] 4.75"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-1",
+    "href": "slides/3-data-types.html#section-1",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\n\n\n\n[1] 4.75\n[1] \"numeric\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-2",
+    "href": "slides/3-data-types.html#section-2",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-3",
+    "href": "slides/3-data-types.html#section-3",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-4",
+    "href": "slides/3-data-types.html#section-4",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-5",
+    "href": "slides/3-data-types.html#section-5",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-6",
+    "href": "slides/3-data-types.html#section-6",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\nx / 4\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25\n[1] 1.1875"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-7",
+    "href": "slides/3-data-types.html#section-7",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\nx / 4\n\n\nx == 4\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25\n[1] 1.1875\n[1] FALSE"
+  },
+  {
+    "objectID": "slides/3-data-types.html#integer",
+    "href": "slides/3-data-types.html#integer",
+    "title": "Lecture 04",
+    "section": "2. Integer",
+    "text": "2. Integer\n\nValues without decimals\nTo create an integer in R you must follow the a number with an uppercase L.\nTake less memory then doubles but this is rarely an issue\nOne byte is 8 bits,\nEach bit can represent two values (0,1),\nOne byte can hold 28=256 values.\nused for (0 to 255) –or– (−128 to 127)."
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-8",
+    "href": "slides/3-data-types.html#section-8",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\n\n\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-9",
+    "href": "slides/3-data-types.html#section-9",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n\n\n\n[1] 2\n[1] \"double\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-10",
+    "href": "slides/3-data-types.html#section-10",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-11",
+    "href": "slides/3-data-types.html#section-11",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-12",
+    "href": "slides/3-data-types.html#section-12",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-13",
+    "href": "slides/3-data-types.html#section-13",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-14",
+    "href": "slides/3-data-types.html#section-14",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\ntypeof(t)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2\n[1] \"double\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-15",
+    "href": "slides/3-data-types.html#section-15",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\ntypeof(t)\n\n## Casting\n\nas.integer(c(4.1, 5.2, 6.3, 6.4))\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2\n[1] \"double\"\n[1] 4 5 6 6"
+  },
+  {
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\nPersonal Portfolio \nIntro to Quarto\nBefore your Lab Week 4\n\n\n3\nPersonal Portfolio \n\nBefore your Lab Week 4"
+  },
+  {
+    "objectID": "labs.html#labs",
+    "href": "labs.html#labs",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\nPersonal Portfolio \nIntro to Quarto\nBefore your Lab Week 4\n\n\n3\nPersonal Portfolio \n\nBefore your Lab Week 4"
+  },
+  {
+    "objectID": "labs/lab1.html",
+    "href": "labs/lab1.html",
+    "title": "Lab 1: Personal Portfolio",
+    "section": "",
+    "text": "This is a two week lab, and this site will be updated with the needed content at the beginning of each week."
+  },
+  {
+    "objectID": "labs/lab1.html#github-pages",
+    "href": "labs/lab1.html#github-pages",
+    "title": "Lab 1: Personal Portfolio",
+    "section": "GitHub Pages",
+    "text": "GitHub Pages\nGitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes them as a website. GitHub Pages is available for public repositories.\nThere are three types of GitHub Pages sites: project, user, and organization.\nWe are not interested in organization sites, and will focus on the details of user and project sites.\nIn this lab, we will be building your user site, and in future labs, you might build a project site.\n\n\nuser sites are connected to a GitHub account (not a project/repository). To publish a user site, you must create a repository named &lt;user&gt;.github.io. Active user sites are available at http(s)://&lt;username&gt;.github.io.\nproject sites are connected to a single project (repository). The source files for a project site are stored in the same repository as their project. Active project sites are available at URLs following the pattern: http(s)://&lt;username&gt;.github.io/&lt;repository&gt;.\n\nWhy are Github Pages cool? Well they are free. They are secure. And like the versioned code, all you need to do to modify a site is edit, commit, and push your changes."
+  },
+  {
+    "objectID": "labs/lab1.html#index.html",
+    "href": "labs/lab1.html#index.html",
+    "title": "Lab 1: Personal Portfolio",
+    "section": "index.html",
+    "text": "index.html\nindex.html is the most common name for the default page shown on a website. If you publish a website, and a server looks for the web address, the information rendered is likely stored in the index.html file. Therefore it is critical you have a file named index.html if you are going to host your own site.\nWe will use your websites landing page as an “about me” section to introduce yourself to our class and more broadly to the internet. Take some time to write a concise and clear paragraph introducing yourself, describing what you enjoy, and what you aim to do (within a professional context). Feel free to add hyperlinks to relevant accounts or other web pages using the Rmarkdown syntax."
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "Apache License",
+    "section": "",
+    "text": "Apache License\nVersion 2.0, January 2004 &lt;http://www.apache.org/licenses/&gt;\n\nTerms and Conditions for use, reproduction, and distribution\n\n1. Definitions\n“License” shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n“Licensor” shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.\n“Legal Entity” shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, “control” means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.\n“You” (or “Your”) shall mean an individual or Legal Entity exercising permissions granted by this License.\n“Source” form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.\n“Object” form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.\n“Work” shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).\n“Derivative Works” shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.\n“Contribution” shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, “submitted” means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as “Not a Contribution.”\n“Contributor” shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.\n\n\n2. Grant of Copyright License\nSubject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.\n\n\n3. Grant of Patent License\nSubject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.\n\n\n4. Redistribution\nYou may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:\n\n(a) You must give any other recipients of the Work or Derivative Works a copy of this License; and\n(b) You must cause any modified files to carry prominent notices stating that You changed the files; and\n(c) You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and\n(d) If the Work includes a “NOTICE” text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.\n\nYou may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.\n\n\n5. Submission of Contributions\nUnless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.\n\n\n6. Trademarks\nThis License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.\n\n\n7. Disclaimer of Warranty\nUnless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.\n\n\n8. Limitation of Liability\nIn no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.\n\n\n9. Accepting Warranty or Additional Liability\nWhile redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.\nEND OF TERMS AND CONDITIONS\n\n\n\nAPPENDIX: How to apply the Apache License to your work\nTo apply the Apache License to your work, attach the following boilerplate notice, with the fields enclosed by brackets [] replaced with your own identifying information. (Don’t include the brackets!) The text should be enclosed in the appropriate comment syntax for the file format. We also recommend that a file or class name and description of purpose be included on the same “printed page” as the copyright notice for easier identification within third-party archives.\nCopyright [yyyy] [name of copyright owner]\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n  http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License."
+  },
+  {
     "objectID": "index.html#welcome",
     "href": "index.html#welcome",
     "title": "Ecosystem Science and Sustainability 330",
@@ -495,48 +684,6 @@
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Reuse and licensing",
     "text": "Reuse and licensing\n\nUnless otherwise noted (i.e. not an original creation and reused from another source), these educational materials are licensed under Apache 2."
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "Apache License",
-    "section": "",
-    "text": "Apache License\nVersion 2.0, January 2004 &lt;http://www.apache.org/licenses/&gt;\n\nTerms and Conditions for use, reproduction, and distribution\n\n1. Definitions\n“License” shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n“Licensor” shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.\n“Legal Entity” shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, “control” means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.\n“You” (or “Your”) shall mean an individual or Legal Entity exercising permissions granted by this License.\n“Source” form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.\n“Object” form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.\n“Work” shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).\n“Derivative Works” shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.\n“Contribution” shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, “submitted” means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as “Not a Contribution.”\n“Contributor” shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.\n\n\n2. Grant of Copyright License\nSubject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.\n\n\n3. Grant of Patent License\nSubject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.\n\n\n4. Redistribution\nYou may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:\n\n(a) You must give any other recipients of the Work or Derivative Works a copy of this License; and\n(b) You must cause any modified files to carry prominent notices stating that You changed the files; and\n(c) You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and\n(d) If the Work includes a “NOTICE” text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.\n\nYou may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.\n\n\n5. Submission of Contributions\nUnless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.\n\n\n6. Trademarks\nThis License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.\n\n\n7. Disclaimer of Warranty\nUnless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.\n\n\n8. Limitation of Liability\nIn no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.\n\n\n9. Accepting Warranty or Additional Liability\nWhile redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.\nEND OF TERMS AND CONDITIONS\n\n\n\nAPPENDIX: How to apply the Apache License to your work\nTo apply the Apache License to your work, attach the following boilerplate notice, with the fields enclosed by brackets [] replaced with your own identifying information. (Don’t include the brackets!) The text should be enclosed in the appropriate comment syntax for the file format. We also recommend that a file or class name and description of purpose be included on the same “printed page” as the copyright notice for easier identification within third-party archives.\nCopyright [yyyy] [name of copyright owner]\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n  http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License."
-  },
-  {
-    "objectID": "labs/lab1.html",
-    "href": "labs/lab1.html",
-    "title": "Lab 1: Personal Portfolio",
-    "section": "",
-    "text": "This is a two week lab, and this site will be updated with the needed content at the beginning of each week."
-  },
-  {
-    "objectID": "labs/lab1.html#github-pages",
-    "href": "labs/lab1.html#github-pages",
-    "title": "Lab 1: Personal Portfolio",
-    "section": "GitHub Pages",
-    "text": "GitHub Pages\nGitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes them as a website. GitHub Pages is available for public repositories.\nThere are three types of GitHub Pages sites: project, user, and organization.\nWe are not interested in organization sites, and will focus on the details of user and project sites.\nIn this lab, we will be building your user site, and in future labs, you might build a project site.\n\n\nuser sites are connected to a GitHub account (not a project/repository). To publish a user site, you must create a repository named &lt;user&gt;.github.io. Active user sites are available at http(s)://&lt;username&gt;.github.io.\nproject sites are connected to a single project (repository). The source files for a project site are stored in the same repository as their project. Active project sites are available at URLs following the pattern: http(s)://&lt;username&gt;.github.io/&lt;repository&gt;.\n\nWhy are Github Pages cool? Well they are free. They are secure. And like the versioned code, all you need to do to modify a site is edit, commit, and push your changes."
-  },
-  {
-    "objectID": "labs/lab1.html#index.html",
-    "href": "labs/lab1.html#index.html",
-    "title": "Lab 1: Personal Portfolio",
-    "section": "index.html",
-    "text": "index.html\nindex.html is the most common name for the default page shown on a website. If you publish a website, and a server looks for the web address, the information rendered is likely stored in the index.html file. Therefore it is critical you have a file named index.html if you are going to host your own site.\nWe will use your websites landing page as an “about me” section to introduce yourself to our class and more broadly to the internet. Take some time to write a concise and clear paragraph introducing yourself, describing what you enjoy, and what you aim to do (within a professional context). Feel free to add hyperlinks to relevant accounts or other web pages using the Rmarkdown syntax."
-  },
-  {
-    "objectID": "labs.html",
-    "href": "labs.html",
-    "title": "Ecosystem Science and Sustainability 330",
-    "section": "",
-    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\nPersonal Portfolio \nIntro to Quarto\nBefore your Lab Week 4\n\n\n3\nPersonal Portfolio \n\nBefore your Lab Week 4"
-  },
-  {
-    "objectID": "labs.html#labs",
-    "href": "labs.html#labs",
-    "title": "Ecosystem Science and Sustainability 330",
-    "section": "",
-    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\nPersonal Portfolio \nIntro to Quarto\nBefore your Lab Week 4\n\n\n3\nPersonal Portfolio \n\nBefore your Lab Week 4"
   },
   {
     "objectID": "slides/1-welcome.html#section",
@@ -747,152 +894,5 @@
     "title": "Ecosystem Science and Sustainability 330",
     "section": "References",
     "text": "References\nI recommend the following reference if a topic peeks your interest. Versions of all of them are available for free at the following links:\n\nR Programming: Hadley Wickham et al., R for Data Science\nData Visualization: Claus E. Wilke, Fundamentals of Data Visualization.\nGeospatial Data Science: Robin Lovelace et al., Geocomputation with R\nMachine Learning: Max Kuhn and Julia Silge, Tidy Modeling with R\nCommunication: Quarto Guide"
-  },
-  {
-    "objectID": "slides/3-data-types.html#computers-via-r-convert-bytes---hex---value",
-    "href": "slides/3-data-types.html#computers-via-r-convert-bytes---hex---value",
-    "title": "Lecture 04",
-    "section": "Computers (via R) convert bytes <-> hex <-> value",
-    "text": "Computers (via R) convert bytes &lt;-&gt; hex &lt;-&gt; value"
-  },
-  {
-    "objectID": "slides/3-data-types.html#whats-the-difference-between-3-the-number-and-3-the-character",
-    "href": "slides/3-data-types.html#whats-the-difference-between-3-the-number-and-3-the-character",
-    "title": "Lecture 04",
-    "section": "What’s the difference between 3 (the number) and ‘3’ (the character)?",
-    "text": "What’s the difference between 3 (the number) and ‘3’ (the character)?\n\nTo us: meaning\nTo software: hows its handled\nTo a computer: nothing\n\n\n\ncharToRaw('3') %&gt;% rawToBits()\n[1] 01 01 00 00 01 01 00 00\nwriteBin(3, raw(), size = 8, endian = \"big\")\n[1] 40 08 00 00 00 00 00 00\n3 + 3\n[1] 6\n'3' + 3\nError in \"3\" + 3: non-numeric argument to binary operator"
-  },
-  {
-    "objectID": "slides/3-data-types.html#data-types-1",
-    "href": "slides/3-data-types.html#data-types-1",
-    "title": "Lecture 04",
-    "section": "Data Types",
-    "text": "Data Types\nValues in R can be one of 6 different types : 1. numeric (e.g. 2, 2.15) 2. integer (e.g. 2L) 3. character (e.g. \"x\", \"Welcome!\") 4. logical (e.g. TRUE, FALSE) 5. raw (e.g. holds bytes) 6. complex (e.g. 1+4i) - we are going to ignore\n\nThe class function tells us what kind of object is it (high-level)\nThe typeof function can tell us the object’s data type (low-level)"
-  },
-  {
-    "objectID": "slides/3-data-types.html#numeric",
-    "href": "slides/3-data-types.html#numeric",
-    "title": "Lecture 04",
-    "section": "1. Numeric",
-    "text": "1. Numeric\n\nValues with decimals\nOf type “double” in computer science terms\nDefault computational data type in R.\nDoubles can be specified in decimal (0.1234), scientific (1.23e4), or hexadecimal (0xcafe) form.\nThere are three special values unique to doubles: Inf, -Inf, and NaN (not a number)."
-  },
-  {
-    "objectID": "slides/3-data-types.html#section",
-    "href": "slides/3-data-types.html#section",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 4.75)\n\n\n\n[1] 4.75"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-1",
-    "href": "slides/3-data-types.html#section-1",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 4.75)\nclass(x)\n\n\n\n[1] 4.75\n[1] \"numeric\""
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-2",
-    "href": "slides/3-data-types.html#section-2",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\""
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-3",
-    "href": "slides/3-data-types.html#section-3",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-4",
-    "href": "slides/3-data-types.html#section-4",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-5",
-    "href": "slides/3-data-types.html#section-5",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-6",
-    "href": "slides/3-data-types.html#section-6",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\nx / 4\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25\n[1] 1.1875"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-7",
-    "href": "slides/3-data-types.html#section-7",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\nx / 4\n\n\nx == 4\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25\n[1] 1.1875\n[1] FALSE"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-8",
-    "href": "slides/3-data-types.html#section-8",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 2)  # defaults to numeric\n\n\n\n[1] 2"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-9",
-    "href": "slides/3-data-types.html#section-9",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n\n\n\n[1] 2\n[1] \"double\""
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-10",
-    "href": "slides/3-data-types.html#section-10",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-11",
-    "href": "slides/3-data-types.html#section-11",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\""
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-12",
-    "href": "slides/3-data-types.html#section-12",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\""
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-13",
-    "href": "slides/3-data-types.html#section-13",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2"
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-14",
-    "href": "slides/3-data-types.html#section-14",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\ntypeof(t)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2\n[1] \"double\""
-  },
-  {
-    "objectID": "slides/3-data-types.html#section-15",
-    "href": "slides/3-data-types.html#section-15",
-    "title": "Lecture 04",
-    "section": "",
-    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\ntypeof(t)\n\n## Casting\n\nas.integer(c(4.1, 5.2, 6.3, 6.4))\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2\n[1] \"double\"\n[1] 4 5 6 6"
-  },
-  {
-    "objectID": "slides/3-data-types.html#integer",
-    "href": "slides/3-data-types.html#integer",
-    "title": "Lecture 04",
-    "section": "2. Integer",
-    "text": "2. Integer\n\nValues without decimals\nTo create an integer in R you must follow the a number with an uppercase L.\nTake less memory then doubles but this is rarely an issue\nOne byte is 8 bits,\nEach bit can represent two values (0,1),\nOne byte can hold 28=256 values.\nused for (0 to 255) –or– (−128 to 127)."
   }
 ]
