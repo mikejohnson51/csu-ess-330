@@ -4,14 +4,14 @@
     "href": "schedule.html",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Understand the essentials of modern data workflows. This module focuses on setting up your computational environment with R, RStudio, Git, and GitHub while introducing best practices for organizing and managing data. Learn how computers process and interface with data, ensuring you’re equipped for transparent and reproducible science.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nSet up and navigate R, RStudio, Git, and GitHub.\nDevelop effective data organization strategies.\nUnderstand data structures and types.\n\n\n\n\n\n Lecture 01 (w1): Welcome!\n Lecture 02 (w2): Your Digital Environment\n Lecture 03 (w2): Your Tools: Interactive Walk Though\n Lecture 04 (w3): Data Types & Structures\n Lecture 05 (w3): Exploratory Data Methods\n\nExercise 01: Setup R & RStudio\nExercise 02: Intro to Terminal / Git Install\nExercise 03: Your first Project\nExercise 04: Forking and Quarto\nExercise 05: Open Science"
+    "text": "Understand the essentials of modern data workflows. This module focuses on setting up your computational environment with R, RStudio, Git, and GitHub while introducing best practices for organizing and managing data. Learn how computers process and interface with data, ensuring you’re equipped for transparent and reproducible science.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nSet up and navigate R, RStudio, Git, and GitHub.\nDevelop effective data organization strategies.\nUnderstand data structures and types.\n\n\n\n\n\n Lecture 01 (w1): Welcome!\n Lecture 02 (w2): Your Digital Environment\n Lecture 03 (w2): Data Types & Structures\n Lecture 04 (w3): Your Tools: Interactive Walk Though\n Lecture 05 (w3): Exploratory Data Methods\n\nExercise 01: Setup R & RStudio\nExercise 02: Intro to Terminal / Git Install\nExercise 03: Your first Project\nExercise 04: Forking and Quarto\nExercise 05: Open Science"
   },
   {
     "objectID": "schedule.html#component-1-open-science-tools",
     "href": "schedule.html#component-1-open-science-tools",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Understand the essentials of modern data workflows. This module focuses on setting up your computational environment with R, RStudio, Git, and GitHub while introducing best practices for organizing and managing data. Learn how computers process and interface with data, ensuring you’re equipped for transparent and reproducible science.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nSet up and navigate R, RStudio, Git, and GitHub.\nDevelop effective data organization strategies.\nUnderstand data structures and types.\n\n\n\n\n\n Lecture 01 (w1): Welcome!\n Lecture 02 (w2): Your Digital Environment\n Lecture 03 (w2): Your Tools: Interactive Walk Though\n Lecture 04 (w3): Data Types & Structures\n Lecture 05 (w3): Exploratory Data Methods\n\nExercise 01: Setup R & RStudio\nExercise 02: Intro to Terminal / Git Install\nExercise 03: Your first Project\nExercise 04: Forking and Quarto\nExercise 05: Open Science"
+    "text": "Understand the essentials of modern data workflows. This module focuses on setting up your computational environment with R, RStudio, Git, and GitHub while introducing best practices for organizing and managing data. Learn how computers process and interface with data, ensuring you’re equipped for transparent and reproducible science.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nSet up and navigate R, RStudio, Git, and GitHub.\nDevelop effective data organization strategies.\nUnderstand data structures and types.\n\n\n\n\n\n Lecture 01 (w1): Welcome!\n Lecture 02 (w2): Your Digital Environment\n Lecture 03 (w2): Data Types & Structures\n Lecture 04 (w3): Your Tools: Interactive Walk Though\n Lecture 05 (w3): Exploratory Data Methods\n\nExercise 01: Setup R & RStudio\nExercise 02: Intro to Terminal / Git Install\nExercise 03: Your first Project\nExercise 04: Forking and Quarto\nExercise 05: Open Science"
   },
   {
     "objectID": "schedule.html#component-2-working-with-data",
@@ -25,7 +25,7 @@
     "href": "schedule.html#component-3-modeling",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 3: Modeling",
-    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 14 (w8): Regression\n Lecture 15 (w8): Project Introduction\nSpring Break (w9)\n Lecture 16 (w10): ML Basics\n Lecture 17 (w10) : ML Model Setup\n Lecture 18 (w11): ML Model Evaluation\n Lecture 19 (w11): ML Model Tuning\n Lecture 20 (w12): Time series Analysis\n Lecture 21 (w12): Time series Forecasting\n\nExercise 14:\nExercise 15:\nSpring Break\nExercise 16:\nExercise 17:\nExercise 18:\nExercise 19:\nExercise 20:\nExercise 21:"
+    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 14 (w8): Regression\n Lecture 15 (w8): Project Introduction & Catch-up\nSpring Break (w9)\n Lecture 16 (w10): ML Basics\n Lecture 17 (w10) : ML Model Setup\n Lecture 18 (w11): ML Model Evaluation\n Lecture 19 (w11): ML Model Tuning\n Lecture 20 (w12): Time series Analysis\n Lecture 21 (w12): Time series Forecasting\n\nExercise 14:\nExercise 15:\nSpring Break\nExercise 16:\nExercise 17:\nExercise 18:\nExercise 19:\nExercise 20:\nExercise 21:"
   },
   {
     "objectID": "schedule.html#component-4-geospatial",
@@ -35,46 +35,431 @@
     "text": "Component 4: Geospatial\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\n\n\n\n\n\n Lecture 22 (w13): Spatial Data Libraries\n Lecture 23 (w13): Feature Geometries (CRS)\n Lecture 24 (w14): Spatial Analysis (Predicts, Unary, Binary)\n Lecture 25 (w14): Mapping\n Lecture 26 (w15): Raster Data\n Lecture 27 (w15: Raster Data Manipulation\n Lecture 28 (w16): Categorization\n Lecture 29 (w16): Wrap up\n\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:\nExercise 29:"
   },
   {
-    "objectID": "exercises/1-install-r.html",
-    "href": "exercises/1-install-r.html",
-    "title": "Daily Exercise 01",
+    "objectID": "exercises/2-terminal.html",
+    "href": "exercises/2-terminal.html",
+    "title": "Daily Exercise 02",
     "section": "",
-    "text": "Getting all the necessary software installed, configured, and playing nicely together is half the battle when first adopting an open source, reproducable scientific workflow. These steps have become increasingly easier over the years and we are here to help you if you hit a hurdle 😄\nWelcome to ESS 330, Quantitative Reasoning for Ecosystem Science! In this course, we’ll be using R and RStudio for data organization, manipulation, analysis, and visualization. You’ll become more familiar with both tools throughout the course.\nIt’s highly recommended to install these tools on your own laptop for convenience and the following step-by-step guide will walk you through installing R and RStudio on your computer, as well as introducing a few essential tools we’ll use throughout the quarter. If you encounter any issues during the process, don’t hesitate to contact me or a teaching assistant for assistance!"
+    "text": "The RStudio terminal provides access to the operating system (OS) shell from within the RStudio IDE. Beneath the surface of any OS is an entire world that can only be accessed only from the command line. The terminal is a gateway to that command line. With it, instead of pointing and clicking, you can type commands and have your computer respond."
   },
   {
-    "objectID": "exercises/1-install-r.html#macos-installation",
-    "href": "exercises/1-install-r.html#macos-installation",
-    "title": "Daily Exercise 01",
-    "section": "MacOS Installation  ",
-    "text": "MacOS Installation  \n\nInstall R\n\nDownload the latest release of R from CRAN (choose the .pkg version).\nSave the .pkg file and double-click it to start the installation. Follow the prompts to complete the installation.\n\n\n\n\n\n\n\nKnow your chip\n\n\n\nEnsure you download the correct version based on your Mac’s chip. If you’re unsure, click the apple icon in the menu bar → About This Mac, and check your chip (Intel or Apple).\n\n\n\n\nInstalling RStudio\n\nDownload RStudio for Mac.\nAfter downloading, double-click the .dmg file and move RStudio into your Applications folder.\n\n\nNow that R is installed, you can download and install RStudio."
+    "objectID": "exercises/2-terminal.html#step-1.-see-if-git-is-already-installed",
+    "href": "exercises/2-terminal.html#step-1.-see-if-git-is-already-installed",
+    "title": "Daily Exercise 02",
+    "section": "Step 1. See if git is already installed",
+    "text": "Step 1. See if git is already installed\nIn your terminal, type the following (note: PC USERS type where git) and hit Enter.\nIf git is installed, it will return a path like below.\n\nwhich git\n\n/usr/bin/git\n\n\nYou may be prompted to install git automatically – do it! If you are not automatically prompted to install, continue to Step 2 to install manually.\nIf you have git installed, or it automatically installed, consider yourself fortunate and move to section 3. Otherwise…"
   },
   {
-    "objectID": "exercises/1-install-r.html#windows-installation",
-    "href": "exercises/1-install-r.html#windows-installation",
-    "title": "Daily Exercise 01",
-    "section": "Windows Installation  ",
-    "text": "Windows Installation  \n\nInstalling R\n\nDownload the latest version of R for Windows from CRAN.\nInstall the downloaded .exe file as you would any other Windows application.\n\n\n\nInstalling RStudio\n\nDownload RStudio for Windows.\nRun the .exe installer and follow the prompts to complete the installation."
+    "objectID": "exercises/2-terminal.html#step-2-manually-install-git",
+    "href": "exercises/2-terminal.html#step-2-manually-install-git",
+    "title": "Daily Exercise 02",
+    "section": "Step 2: Manually install git",
+    "text": "Step 2: Manually install git\nYou should only have to do this if git was NOT found in Step 1 !!!\n\nMacOS \nInstall the Xcode command line tools (not all of Xcode), which includes Git, by typing the following in your terminal:\n\nxcode-select --install\n\n\n\nWindows \nInstall Git for Windows, also known as “Git Bash”, to get Git and some other useful tools, such as the Bash shell.\n‘Git for Windows’ places the Git executable in the conventional location, which will help you and other programs (like RStudio) find and use it.\nWhen asked about “Adjusting your PATH environment”, make sure to select “Git from the command line and also from 3rd-party software”. Otherwise, accept the defaults unless you have specific reasons not to.\nOnce git is installed - restart RStudio and make sure that you can see the git pathway (which/where git) in the terminal. Once installed, continue to Step 3."
   },
   {
-    "objectID": "exercises/1-install-r.html#launch-rstudio",
-    "href": "exercises/1-install-r.html#launch-rstudio",
-    "title": "Daily Exercise 01",
-    "section": "Launch RStudio",
-    "text": "Launch RStudio\nOnce both R and RStudio are installed, locate and click the RStudio icon to launch the program. It should look like this:\n\n\n\nOpening RStudio will launch a workplace. If something like the below image appears for you, then you are all set!\n\nThroughout the quarter, we’ll be working extensively within this IDE. The layout and features will become more familiar as we progress. A few things to note now are:\n\nYour session is linked to a specific project (pink box).\n\nIn the blue box, you have:\n\nAn Environment tab that shows all the active objects in your session\nA Files tab that shows all the files and folders in your default (project) workplace\nA Plots tab that will show all your graphs once we start visualizing data.\n\nIn the red window you will write code and open scripts/markdown files.\nAll output will be printed to your console (yellow box). Code and prompts can be directly entered in the console but will not be saved after executing.\n\nYour layout and theme may not look like the above (all the elements are the same but arranged differently). If you want to change your theme and layout got to RStudio –&gt; Preferences.\nHere you can adjust the “Appearance” and “Pane Layout”. If you want your to look like mine, see below:"
+    "objectID": "exercises/2-terminal.html#step-3-check-the-version",
+    "href": "exercises/2-terminal.html#step-3-check-the-version",
+    "title": "Daily Exercise 02",
+    "section": "Step 3: Check the version",
+    "text": "Step 3: Check the version\nOnce you have git installed, you can also type git --version (then press Enter) to see the version of git you have. Like this:\n\ngit --version\n\ngit version 2.39.5 (Apple Git-154)"
   },
   {
-    "objectID": "exercises/1-install-r.html#installing-package",
-    "href": "exercises/1-install-r.html#installing-package",
-    "title": "Daily Exercise 01",
-    "section": "Installing Package",
-    "text": "Installing Package\nR comes loaded with many base packages and tools. There are also many additional tools that will make your life easier. Throughout this class, we’ll use packages that exist in the aggregate tidyverse package.\n\nTidyverse\nThe tidyverse contains a collection of very useful packages that play nicely together for data exploration, manipulation, wrangling and visualization (among other things). Packages can be installed from CRAN (Comprehensive R Archive Network) using the following pattern which should be typed in the console (yellow box):\n\ninstall.packages(\"tidyverse\")\n\nAfter you press ‘Enter,’ you should see a whole bunch of text streaming across the Console Window. This is a good sign and is simply logging what’s being downloaded/installed. This process can go on for a few minutes (the tidyverse has a lot of different components). You will know it’s done when the active cursor shows up again waiting for your next command.\nOnce it’s installed, you can ensure that everything worked by loading/attaching the tidyverse using the library call:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter()     masks stats::filter()\n✖ dplyr::group_rows() masks kableExtra::group_rows()\n✖ dplyr::lag()        masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nWhen you press enter, some information will come up below the command. Don’t worry too much about it now as long as there are no errors!\nIf you got something similar to the above you’ve successfully installed R, RStudio, and the tidyverse package. Congratulations!"
+    "objectID": "exercises/2-terminal.html#note-for-windows-users",
+    "href": "exercises/2-terminal.html#note-for-windows-users",
+    "title": "Daily Exercise 02",
+    "section": "Note for Windows Users",
+    "text": "Note for Windows Users\nGit Bash is an application for Windows environments which provides an emulation layer for a Git command line experience. Bash (or zsh) is default shell on Linux and macOS. Git Bash is a package that installs Bash, some common bash utilities, and Git on a Windows operating system. To use bash in R Studio, you can change the setting in your profile by going to Tools -&gt; Global Options -&gt; Terminal\n\nIf you change these settings, then you will be able to use the “Mac” commands above like touch."
   },
   {
-    "objectID": "exercises/1-install-r.html#assignment",
-    "href": "exercises/1-install-r.html#assignment",
-    "title": "Daily Exercise 01",
-    "section": "Assignment",
-    "text": "Assignment\nFor Exercise 01, your task is to install three additional packages: tidymodels, remotes, gapminder, and palmerpenguins. Once installed, clear the console by clicking the broom icon ( ) and run the following 4 lines of code:\n\nSys.getenv(\"LOGNAME\")\n\nversion$major\n\nRStudio.Version()$version\n\nc(\"tidymodels\", 'remotes', 'gapminder', 'palmerpenguins')  %in% rownames(installed.packages()) \n\nFor Exercise 01, submit a screenshot of the output to the Canvas dropbox. It should look like this:\n\nKey points to verify include:\n\nCorrect R version (4.x)\nCorrect RStudio version (2024.X.XXXX)\nAll three packages installed (4 TRUE values)\n\nOnce you’ve completed this, you can close RStudio—no need to save the workspace.\nNice work!"
+    "objectID": "exercises/2-terminal.html#your-github",
+    "href": "exercises/2-terminal.html#your-github",
+    "title": "Daily Exercise 02",
+    "section": " Your GitHub",
+    "text": "Your GitHub\n\nGo to GitHub to register an account.\nChoose your user.name and email wisely! Your user.name will appear on all websites we build, and will eventually become a “long-form” business card to advertise your work online.\nBoth your email and user.name will be used in the next steps so make sure to remember them\nFill in your profile information including email, location, ect and change your profile image\n\nThe image does NOT have to be a personal picture but should not remain the pixelated Github Avatar."
+  },
+  {
+    "objectID": "exercises/2-terminal.html#finding-open-source-code",
+    "href": "exercises/2-terminal.html#finding-open-source-code",
+    "title": "Daily Exercise 02",
+    "section": " Finding Open Source code",
+    "text": "Finding Open Source code\nGitHub is full of open source code that you can use, borrow, find, etc. To find your first repository search for mikejohnson51/csu-ess-330. This should take you to the repository for this course!\n\nIn the upper right hand corner you see three options:\n\nwatch: will notify you via email when changes to the repo are made\nstar: this will place the repo in your “stared” repositories making it easy to find latter\nfork: this makes a copy of the current repo in your account that you can modify and build on.\n\nWatching a repo can be nice, but for a class like this - which is updated every day - the notifications will be a lot.\nFor now, please star csu-ess-330 so that you can easily find it and I will have easy access to your accounts (you can always “unstar” after the course).\nWe will deal with forking repositories latter!"
+  },
+  {
+    "objectID": "exercises/2-terminal.html#telling-git-who-we-are",
+    "href": "exercises/2-terminal.html#telling-git-who-we-are",
+    "title": "Daily Exercise 02",
+    "section": " Telling Git who we are",
+    "text": "Telling Git who we are\nNow you have Git locally and you have a Github account that you’ve used to find published projects. Lets connect them…\nThe first thing we need to do is tell git who we are. Git comes with a tool called git config that lets us set the configuration variables that control how Git looks and operates.\nIn the RStudio Terminal, enter the following, where YOUR NAME is what you want git to know you by (this can be your user.name or real name)\n\ngit config --global user.name 'YOUR NAME'\n\nSo what did we just do? We used the terminal to tell git (a local program) to set a global configuration variable, called user.name, to a specified value. Next, tell git the email associated with your GitHub account in the same way …\n\ngit config --global user.email 'Your Email Here'\n\nWhen you are done, you can list your global configuration variables:\n\ngit config --list --global\n\nuser.name=mikejohnson51\nuser.email=mikecp11@gmail.com\ncredential.helper=osxkeychain\ninit.defaultbranch=main\n\n\nSo long as your user.name and user.email are consistent with your entries you are doing great 👍!"
+  },
+  {
+    "objectID": "exercises/2-terminal.html#githubs-local-home",
+    "href": "exercises/2-terminal.html#githubs-local-home",
+    "title": "Daily Exercise 02",
+    "section": " GitHub’s local home",
+    "text": "GitHub’s local home\nOk the last thing! This is a matter of convenience rather the necessity but we will create a local directory on our computers to house all git-enabled projects.\nTo do this, create a folder called github in the home directory of your computer. We can quickly do this by changing to our home directory (cd) and making a new folder (mkdir) called github:\n\ncd ~\nmkdir github"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#your-environment",
+    "href": "slides/2-digital-environment.html#your-environment",
+    "title": "Lecture 02",
+    "section": "Your Environment",
+    "text": "Your Environment\n\n\n\n\n\n\nComputer: An electronic device for storing and processing data, typically in binary form, according to instruction. Computers store persistent data on disk, ephemeral data in memory, and executes processes with the CPU (Central Processing Unit).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFile: A block of arbitrary information available to a computer program."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#compute",
+    "href": "slides/2-digital-environment.html#compute",
+    "title": "Lecture 02",
+    "section": "Compute",
+    "text": "Compute"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#bytes-vs-bits",
+    "href": "slides/2-digital-environment.html#bytes-vs-bits",
+    "title": "Lecture 02",
+    "section": "Bytes vs Bits",
+    "text": "Bytes vs Bits\n\n\n\n\n\n\n\nA byte is a group of 8 binary digits (bits) and a unit of memory size.\nThe bit is a basic unit of information in computing and represents a logical state with two possible values (0 or 1)."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#file-storage",
+    "href": "slides/2-digital-environment.html#file-storage",
+    "title": "Lecture 02",
+    "section": "File Storage",
+    "text": "File Storage\n\nFiles are stored as a collection of bytes on a hard drive\nHard drives do not understand files - they just store bytes and directions to those bytes\nWe need ways to retrieve (and write) bytes from (and to) the hard drive.\n\n\n\n\n\n\n\n\nInterpreting Capacity\n\n\n\nNew computer capacity"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#storage-pattern",
+    "href": "slides/2-digital-environment.html#storage-pattern",
+    "title": "Lecture 02",
+    "section": "Storage Pattern",
+    "text": "Storage Pattern\n\n\n\n\n\n\nFile Storage\n\n\n\nDefragmentation"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#what-is-a-file",
+    "href": "slides/2-digital-environment.html#what-is-a-file",
+    "title": "Lecture 02",
+    "section": "What is a file?",
+    "text": "What is a file?\n\n\n\n\n\n\n\nFiles save data on the hard drive as bytes in a meaningful way.\nFiles have three key properties:\n\na name (machine and human interpret-able address)\na path (a location in the file system)\nan extension (how to/what program reads the format)"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#filesystem",
+    "href": "slides/2-digital-environment.html#filesystem",
+    "title": "Lecture 02",
+    "section": "Filesystem",
+    "text": "Filesystem\n\n\n\n\n\n\nTip\n\n\nFor every file, there are paths and directories that lead to that specific file. These paths and directories are called File Systems.\n\n\n\n\n\n\n\n\n\n\nFilesystem: describes the methods an operating system uses to organize files\n\nIf you are on a Windows device  , and you want to find a file you just downloaded, you go to “This PC,” from where you click on “Documents” and there you find yet another folder called “Downloads” that has the downloaded files stored.\nIf you are on a Mac  , to get the same result is click on “Downloads.” Whether you do it from the menu bar or anywhere else, it’s going to get you to exactly where you need to go."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#directories",
+    "href": "slides/2-digital-environment.html#directories",
+    "title": "Lecture 02",
+    "section": "Directories",
+    "text": "Directories\n\n\n\n\n\n\n\nDirectory: is a location for storing, organizing, and separating files and other directories on a computer. Think of folders!\nRoot directory: the “highest” or top-level directory in the hierarchy.\n\nThe root directory contains all other folders/files in the drive or folder\nSometimes referred to as the home directory"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#file-names",
+    "href": "slides/2-digital-environment.html#file-names",
+    "title": "Lecture 02",
+    "section": "File Names",
+    "text": "File Names\n\n\n\n\n\n\nTip\n\n\n“There are only two hard things in Computer Science: cache invalidation and naming things.” ~Phil Karlton\n\n\n\n\nFile names/paths are how we locate and identify information stored on a machine.\nNames are always up to us as users!\n\n\nThree Principles for file names\n\nmachine readable\nhuman readable\nsortable"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#machine-readable",
+    "href": "slides/2-digital-environment.html#machine-readable",
+    "title": "Lecture 02",
+    "section": "machine readable",
+    "text": "machine readable\n\navoid spaces, punctuation, accented characters, and mixed cases\nregular expression friendly (e.g. use patterns!)\nuse ISO 8601 dates (YYYY-MM-DD)\nbe consistent with delimiters (easy to compute on)\nUse “_” (underscores) to separate “metadata” you want latter\nUse “-” (hyphens) to separate words for readability (like dates or names)"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#doing-so-makes-files",
+    "href": "slides/2-digital-environment.html#doing-so-makes-files",
+    "title": "Lecture 02",
+    "section": "Doing so makes files …",
+    "text": "Doing so makes files …\n\neasy to search for & narrow\n\n\n\n# Only those files with pattern \"_tx\"\nfiles = list.files(\"data/usgs-files\", pattern = \"_tx\") \nlength(files) # total number of Texas files\n#&gt; [1] 27\n\n\n#&gt; [1] \"1903-07-01_08033500_00060_tyler_tx.txt\"   \n#&gt; [2] \"1923-10-01_08033000_00060_angelina_tx.txt\"\n\n\n\nand metadata easy to recover (easy to compute on)\n\n\n\nstringr::str_split(files, \"[_\\\\.]\", simplify = TRUE) \n\n\n#&gt;    StartDate   siteID parameterCode   county state extension\n#&gt; 1 1903-07-01 08033500         00060    tyler    tx       txt\n#&gt; 2 1923-10-01 08033000         00060 angelina    tx       txt\n#&gt; 3 1923-10-01 08180500         00060   medina    tx       txt\n#&gt; 4 1923-12-01 08082500         00060   baylor    tx       txt\n#&gt; 5 1924-08-01 08062500         00060    ellis    tx       txt"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#human-readable",
+    "href": "slides/2-digital-environment.html#human-readable",
+    "title": "Lecture 02",
+    "section": "human readable",
+    "text": "human readable\n\nFile names contain information about the content and purpose of the file\neasy to find the right file a year from now\n\n\n\nlist.files(\"R\")\n#&gt; [1] \"00_src_utils.R\"         \"01_src_data-download.R\" \"02_src_data-clean.R\"   \n#&gt; [4] \"03_src_analysis.R\"      \"04_src_figures.R\"\n\n\nHere, we see the order that the files run (utilities, download, clean, analyze, figures), the project they belong to (src), are archived in the file names.\n\n\n\n\n#&gt;   Order Project       Purpose extension\n#&gt; 1    00     src         utils         R\n#&gt; 2    01     src data-download         R\n#&gt; 3    02     src    data-clean         R\n#&gt; 4    03     src      analysis         R\n#&gt; 5    04     src       figures         R"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#sort-easily",
+    "href": "slides/2-digital-environment.html#sort-easily",
+    "title": "Lecture 02",
+    "section": "Sort easily",
+    "text": "Sort easily\n\nput numeric values first (use leading 0 for 1-9)\nuse ISO 8601 dates (YYYY-MM-DD)"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#file-paths",
+    "href": "slides/2-digital-environment.html#file-paths",
+    "title": "Lecture 02",
+    "section": "File Paths",
+    "text": "File Paths\n\n\n\n\n\n\n\nFile paths tell us the location of a file within the file system\nDirectories are stored as hierarchies, again with root (home) directory being the one holding everything on a system\nThe folder you are in, is called your working directory. (think pwd)\nThe folder above the working directory is the parent directory\nAll folders within the working directory are sub folders or child folder"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#declaring-file-paths",
+    "href": "slides/2-digital-environment.html#declaring-file-paths",
+    "title": "Lecture 02",
+    "section": "Declaring File Paths",
+    "text": "Declaring File Paths\n\nFiles are located by their path. Think of this as the directions - from the root directory.\nDirectories are separated with backslashes (“\\\") on windows, and forward slashes (”/“) or MacOS and Linux machines."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#example",
+    "href": "slides/2-digital-environment.html#example",
+    "title": "Lecture 02",
+    "section": "Example:",
+    "text": "Example:\n/Users/mikejohnson/github/csu-ess-330/slides/images/03-bit-byte.png\n\nRoot: /Users/mikejohnson  \n\n\n\nSys.getenv(\"LOGNAME\")\n#&gt; [1] \"mikejohnson\"\n\n\ngit-enabled projects: github  \nproject: csu-ess-330  \nsub directory: slides  \nsub directory: images  \nfile: 03-bit-byte  \next: .png"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#absolute-vs-realative-paths",
+    "href": "slides/2-digital-environment.html#absolute-vs-realative-paths",
+    "title": "Lecture 02",
+    "section": "Absolute vs Realative Paths",
+    "text": "Absolute vs Realative Paths\nThere are two ways to specify a file path.\n\n\nAn absolute path always begins in the root folder\n\n\n\n\nimg &lt;- png::readPNG('/Users/mikejohnson/github/csu-ess-330/slides/images/03-bit-byte.png')\n\n\nA relative path is relative to the current working directory\n\n\n\n\ngetwd()\n#&gt; [1] \"/Users/mikejohnson/github/csu-ess-330/slides\"\nimg &lt;- png::readPNG('images/03-bit-byte.png')"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#and-.-notation",
+    "href": "slides/2-digital-environment.html#and-.-notation",
+    "title": "Lecture 02",
+    "section": ".. and . notation",
+    "text": ".. and . notation\n\n\n\n\n\n\n\nThe dot (.) and dot-dot (..) notation to help us write shorter paths\nA single ‘.’ denotes “this directory”.\nTwo periods (“..”) means “the parent directory”"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#enforcing-relative-paths",
+    "href": "slides/2-digital-environment.html#enforcing-relative-paths",
+    "title": "Lecture 02",
+    "section": "Enforcing Relative Paths",
+    "text": "Enforcing Relative Paths\n\n\n\n\n\n\nTip\n\n\nWorking with absolute paths can be a pain compared to relative paths…\n\n\n\n\nIt is a good practice to keep all the files associated with a project — input data, R scripts, analytic results, figures - together.\nThis is such a common practice that RStudio has built-in support for this via projects.\nA good project layout will ultimately make your life easier:\n\nIt will help ensure the integrity of your data;\nIt makes it simpler to share your code with someone else (a lab-mate, collaborator, or supervisor);\nIt allows you to easily upload your code with your manuscript submission;\nIt makes it easier to pick the project back up after a break."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#file-extensions",
+    "href": "slides/2-digital-environment.html#file-extensions",
+    "title": "Lecture 02",
+    "section": "File Extensions",
+    "text": "File Extensions\n\n\n\n\n\n\n\nAll files store bits.\nExtensions can be considered a type of metadata that provides information about the way data might be stored\nThere are 1000’s of different formats for data ranging from common to custom\nEach format defines how the sequence of bits and bytes are laid out\nIndicate the characteristics of the file, its intended use, and the default applications that can open/use the file.\nIf you double click a .docx file it opens in Word which interprets the meaning of the bytes\nIf you double click an .R file it opens with RStudio, and R interprets the meaning of the bytes"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#extension-interpretation",
+    "href": "slides/2-digital-environment.html#extension-interpretation",
+    "title": "Lecture 02",
+    "section": "Extension Interpretation",
+    "text": "Extension Interpretation\n\nReaders depended on anticipated structure\n\n\n\nimg &lt;- jpeg::readJPEG('images/03-bit-byte.png')\n#&gt; Error in jpeg::readJPEG(\"images/03-bit-byte.png\"): JPEG decompression error: Not a JPEG file: starts with 0x89 0x50\n\n\nThe file is actually a PNG with the wrong file extension. “0x89 0x50” is how a PNG file starts.\n\n\n\n\nimg &lt;- png::readPNG('images/03-bit-byte.png')\n\n\nThe data returned to R is a structured set of bits, interpreted according to the directions of the file and the interpreting language!\n\n\n\n\ndim(img)\n#&gt; [1] 394 768   3\nclass(img)\n#&gt; [1] \"array\"\nstr(img)\n#&gt;  num [1:394, 1:768, 1:3] 1 1 1 1 1 1 1 1 1 1 ...\n\n\n\n\nplot(NA, xlim = c(0, 2), ylim = c(0, 1))\nrasterImage(img, 0, 0, 2, 1)"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#bytes-being-interpreted",
+    "href": "slides/2-digital-environment.html#bytes-being-interpreted",
+    "title": "Lecture 02",
+    "section": "Bytes Being Interpreted",
+    "text": "Bytes Being Interpreted\n\n\n\n# Character Object\n(x &lt;- \"ESS 330\")\n\n\n\n#&gt; [1] \"ESS 330\""
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#bytes-being-interpreted-1",
+    "href": "slides/2-digital-environment.html#bytes-being-interpreted-1",
+    "title": "Lecture 02",
+    "section": "Bytes Being Interpreted",
+    "text": "Bytes Being Interpreted\n\n\n\n# Character Object\n(x &lt;- \"ESS 330\")\n\n# Character Object to Raw Type\n# How R sees the data\n(y &lt;- charToRaw(x))\n\n\n\n#&gt; [1] \"ESS 330\"\n#&gt; [1] 45 53 53 20 33 33 30"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#bytes-being-interpreted-2",
+    "href": "slides/2-digital-environment.html#bytes-being-interpreted-2",
+    "title": "Lecture 02",
+    "section": "Bytes Being Interpreted",
+    "text": "Bytes Being Interpreted\n\n\n\n# Character Object\n(x &lt;- \"ESS 330\")\n\n# Character Object to Raw Type\n# How R sees the data\n(y &lt;- charToRaw(x))\n\n# Raw to Bits\n# Whats on disk\n(z &lt;- rawToBits(y))\n\n\n\n#&gt; [1] \"ESS 330\"\n#&gt; [1] 45 53 53 20 33 33 30\n#&gt;  [1] 01 00 01 00 00 00 01 00 01 01 00 00 01 00 01 00 01 01 00 00 01 00 01 00 00\n#&gt; [26] 00 00 00 00 01 00 00 01 01 00 00 01 01 00 00 01 01 00 00 01 01 00 00 00 00\n#&gt; [51] 00 00 01 01 00 00"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#bytes-being-interpreted-3",
+    "href": "slides/2-digital-environment.html#bytes-being-interpreted-3",
+    "title": "Lecture 02",
+    "section": "Bytes Being Interpreted",
+    "text": "Bytes Being Interpreted\n\n\n\n# Character Object\n(x &lt;- \"ESS 330\")\n\n# Character Object to Raw Type\n# How R sees the data\n(y &lt;- charToRaw(x))\n\n# Raw to Bits\n# Whats on disk\n(z &lt;- rawToBits(y))\n\nlength(z)\n\n\n\n#&gt; [1] \"ESS 330\"\n#&gt; [1] 45 53 53 20 33 33 30\n#&gt;  [1] 01 00 01 00 00 00 01 00 01 01 00 00 01 00 01 00 01 01 00 00 01 00 01 00 00\n#&gt; [26] 00 00 00 00 01 00 00 01 01 00 00 01 01 00 00 01 01 00 00 01 01 00 00 00 00\n#&gt; [51] 00 00 01 01 00 00\n#&gt; [1] 56"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#bytes-being-interpreted-4",
+    "href": "slides/2-digital-environment.html#bytes-being-interpreted-4",
+    "title": "Lecture 02",
+    "section": "Bytes Being Interpreted",
+    "text": "Bytes Being Interpreted\n\n\n\n# Character Object\n(x &lt;- \"ESS 330\")\n\n# Character Object to Raw Type\n# How R sees the data\n(y &lt;- charToRaw(x))\n\n# Raw to Bits\n# Whats on disk\n(z &lt;- rawToBits(y))\n\nlength(z)\n\nnchar(x)\n\n\n\n#&gt; [1] \"ESS 330\"\n#&gt; [1] 45 53 53 20 33 33 30\n#&gt;  [1] 01 00 01 00 00 00 01 00 01 01 00 00 01 00 01 00 01 01 00 00 01 00 01 00 00\n#&gt; [26] 00 00 00 00 01 00 00 01 01 00 00 01 01 00 00 01 01 00 00 01 01 00 00 00 00\n#&gt; [51] 00 00 01 01 00 00\n#&gt; [1] 56\n#&gt; [1] 7"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#bytes-being-interpreted-5",
+    "href": "slides/2-digital-environment.html#bytes-being-interpreted-5",
+    "title": "Lecture 02",
+    "section": "Bytes Being Interpreted",
+    "text": "Bytes Being Interpreted\n\n\n\n# Character Object\n(x &lt;- \"ESS 330\")\n\n# Character Object to Raw Type\n# How R sees the data\n(y &lt;- charToRaw(x))\n\n# Raw to Bits\n# Whats on disk\n(z &lt;- rawToBits(y))\n\nlength(z)\n\nnchar(x)\n\nnchar(x) == (length(z)/8)\n\n\n\n#&gt; [1] \"ESS 330\"\n#&gt; [1] 45 53 53 20 33 33 30\n#&gt;  [1] 01 00 01 00 00 00 01 00 01 01 00 00 01 00 01 00 01 01 00 00 01 00 01 00 00\n#&gt; [26] 00 00 00 00 01 00 00 01 01 00 00 01 01 00 00 01 01 00 00 01 01 00 00 00 00\n#&gt; [51] 00 00 01 01 00 00\n#&gt; [1] 56\n#&gt; [1] 7\n#&gt; [1] TRUE\n\n\nExample"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#overview-of-file-types",
+    "href": "slides/2-digital-environment.html#overview-of-file-types",
+    "title": "Lecture 02",
+    "section": "Overview of File Types",
+    "text": "Overview of File Types\n\nText Files: Human-readable, easy to edit (e.g., .txt, .csv).\nBinary Files: Optimized for performance, not human-readable (e.g., .nc, .tif).\nStructured Files: Contain unified metadata and data (e.g., .json, .xlsx)."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#practical-contexts-for-files-in-ecosystem-science",
+    "href": "slides/2-digital-environment.html#practical-contexts-for-files-in-ecosystem-science",
+    "title": "Lecture 02",
+    "section": "Practical Contexts for Files in Ecosystem Science",
+    "text": "Practical Contexts for Files in Ecosystem Science\n\nCSV: Used for tabular field survey data (e.g., species counts, water quality measurements).\nGeoTIFF: Stores spatial data like satellite imagery or digital elevation models (DEMs).\nNetCDF: Common for data with space and time data (multi-dimensional arrays) like climate models, hydrological simulations, and multidimensional data.\nJSON/GeoJSON: Facilitates sharing geographic features in web applications or APIs.\nGPKG (GeoPackage): An open, standards-based format for spatial data that supports vector and raster data.\nSHP (Shapefile): Widely used for vector geographic data, though limited in attribute sizes and modern functionality."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#structure",
+    "href": "slides/2-digital-environment.html#structure",
+    "title": "Lecture 02",
+    "section": "Structure",
+    "text": "Structure\n\n\nProtocol (Scheme): https, ftp, s3, …\nSubdomain\nDomain Name\nTop Level Domain (TLD)\nPath/File (w/ extension!)\nParameters (APIs, databases, etc.)"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#servers-acts-as-a-file-system",
+    "href": "slides/2-digital-environment.html#servers-acts-as-a-file-system",
+    "title": "Lecture 02",
+    "section": "Servers acts as a file system",
+    "text": "Servers acts as a file system\nhttps://mikejohnson51.github.io/\n\n{Protocol (https)} / {subdomain} / {domain} / {top level domain}\n\n\nhttps://mikejohnson51.github.io/csu-ess-330/\n\nProtocol, subdomain, domain, TLD, path (repo)\n\n\n\nhttps://mikejohnson51.github.io/csu-ess-330/schedule.html\n\nProtocol, subdomain, domain, TLD, repo, file\n\n\n\nhttps://mikejohnson51.github.io/csu-ess-330/slides/1-welcome.html#/title-slide\n\nProtocol, subdomain, domain, TLD, repo, directory, file, component (html)"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#cloud",
+    "href": "slides/2-digital-environment.html#cloud",
+    "title": "Lecture 02",
+    "section": "Cloud",
+    "text": "Cloud\ns3://spatial-water-noaa/nwm/CONUS/ISLTYP.tif\n\n{Protocol (s3)} / {bucket} / {directory} / {file}"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#information",
+    "href": "slides/2-digital-environment.html#information",
+    "title": "Lecture 02",
+    "section": "Information",
+    "text": "Information\nhttps://www.etix.com/ticket/p/53375671/steel-pulse-50th-anniversary-tour-fort-collins-washingtons\n\n\n\n\n\n\n\nImportant\n\n\nindex.html is everywhere online (lets take a look!)"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#input-and-output",
+    "href": "slides/2-digital-environment.html#input-and-output",
+    "title": "Lecture 02",
+    "section": "Input and Output",
+    "text": "Input and Output\n\nI/O stands for Input/Output\nIt provides the guideline for how to read bytes, stored as a file, at a specific path\nLanguages (like R) have readers that take general directions (e.g. “0x89 0x50” is how a PNG file starts.) and interprets it to how the language needs the data"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#read-from-disk",
+    "href": "slides/2-digital-environment.html#read-from-disk",
+    "title": "Lecture 02",
+    "section": "Read from Disk",
+    "text": "Read from Disk\n\nimg &lt;- png::readPNG('images/03-bit-byte.png')"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#return-from-server-json",
+    "href": "slides/2-digital-environment.html#return-from-server-json",
+    "title": "Lecture 02",
+    "section": "Return from Server: JSON",
+    "text": "Return from Server: JSON\n\n'https://geoconnex.us/ref/mainstems/352913' |&gt; \n jsonlite::fromJSON() \n#&gt; $type\n#&gt; [1] \"Feature\"\n#&gt; \n#&gt; $properties\n#&gt; $properties$outlet_nhdpv2_comid\n#&gt; [1] \"https://geoconnex.us/nhdplusv2/comid/2903809\"\n#&gt; \n#&gt; $properties$outlet_nhdpv1_comid\n#&gt; NULL\n#&gt; \n#&gt; $properties$uri\n#&gt; [1] \"https://geoconnex.us/ref/mainstems/352913\"\n#&gt; \n#&gt; $properties$head_nhdpv2huc12\n#&gt; [1] \"https://geoconnex.us/nhdplusv2/huc12/101900070202\"\n#&gt; \n#&gt; $properties$head_2020huc12\n#&gt; [1] \"101900070202\"\n#&gt; \n#&gt; $properties$featuretype\n#&gt; [1] \"['https://www.opengis.net/def/schema/hy_features/hyf/HY_FlowPath', 'https://www.opengis.net/def/schema/hy_features/hyf/HY_WaterBody']\"\n#&gt; \n#&gt; $properties$outlet_nhdpv2huc12\n#&gt; [1] \"https://geoconnex.us/nhdplusv2/huc12/101900071008\"\n#&gt; \n#&gt; $properties$outlet_2020huc12\n#&gt; [1] \"101900071008\"\n#&gt; \n#&gt; $properties$downstream_mainstem_id\n#&gt; [1] \"https://geoconnex.us/ref/mainstems/313255\"\n#&gt; \n#&gt; $properties$lengthkm\n#&gt; [1] 200.5\n#&gt; \n#&gt; $properties$superseded\n#&gt; [1] FALSE\n#&gt; \n#&gt; $properties$encompassing_mainstem_basins\n#&gt; [1] \"['https://geoconnex.us/ref/mainstems/313255', 'https://geoconnex.us/ref/mainstems/312532', 'https://geoconnex.us/ref/mainstems/312091']\"\n#&gt; \n#&gt; $properties$outlet_drainagearea_sqkm\n#&gt; [1] 4875.9\n#&gt; \n#&gt; $properties$new_mainstemid\n#&gt; [1] \"\"\n#&gt; \n#&gt; $properties$name_at_outlet\n#&gt; [1] \"Cache la Poudre River\"\n#&gt; \n#&gt; $properties$head_rf1id\n#&gt; [1] 22904\n#&gt; \n#&gt; $properties$fid\n#&gt; [1] 18032\n#&gt; \n#&gt; $properties$name_at_outlet_gnis_id\n#&gt; [1] 205018\n#&gt; \n#&gt; $properties$outlet_rf1id\n#&gt; [1] 22867\n#&gt; \n#&gt; $properties$head_nhdpv2_comid\n#&gt; [1] \"https://geoconnex.us/nhdplusv2/comid/2902889\"\n#&gt; \n#&gt; $properties$head_nhdpv1_comid\n#&gt; NULL\n#&gt; \n#&gt; $properties$datasets\n#&gt;                                                        monitoringLocation\n#&gt; 1 https://sta.geoconnex.dev/collections/USGS/Things/items/'USGS-06752280'\n#&gt; 2 https://sta.geoconnex.dev/collections/USGS/Things/items/'USGS-06752280'\n#&gt; 3 https://sta.geoconnex.dev/collections/USGS/Things/items/'USGS-06752280'\n#&gt; 4 https://sta.geoconnex.dev/collections/USGS/Things/items/'USGS-06752280'\n#&gt;        siteName                                           datasetDescription\n#&gt; 1 USGS-06752280 Gage height / USGS-06752280-7176ea9161f94cbf8bd7b30aba7891fd\n#&gt; 2 USGS-06752280 Gage height / USGS-06752280-7176ea9161f94cbf8bd7b30aba7891fd\n#&gt; 3 USGS-06752280   Discharge / USGS-06752280-b9cc8727355d4de08f7c0826530c96ce\n#&gt; 4 USGS-06752280   Discharge / USGS-06752280-b9cc8727355d4de08f7c0826530c96ce\n#&gt;     type\n#&gt; 1 Stream\n#&gt; 2 Stream\n#&gt; 3 Stream\n#&gt; 4 Stream\n#&gt;                                                                            url\n#&gt; 1 https://waterdata.usgs.gov/monitoring-location/06752280/#parameterCode=00065\n#&gt; 2 https://waterdata.usgs.gov/monitoring-location/06752280/#parameterCode=00065\n#&gt; 3 https://waterdata.usgs.gov/monitoring-location/06752280/#parameterCode=00060\n#&gt; 4 https://waterdata.usgs.gov/monitoring-location/06752280/#parameterCode=00060\n#&gt;                                               variableMeasured variableUnit\n#&gt; 1 Gage height / USGS-06752280-7176ea9161f94cbf8bd7b30aba7891fd           ft\n#&gt; 2 Gage height / USGS-06752280-7176ea9161f94cbf8bd7b30aba7891fd           ft\n#&gt; 3   Discharge / USGS-06752280-b9cc8727355d4de08f7c0826530c96ce       ft^3/s\n#&gt; 4   Discharge / USGS-06752280-b9cc8727355d4de08f7c0826530c96ce       ft^3/s\n#&gt;   measurementTechnique                          temporalCoverage\n#&gt; 1          observation 2024-08-30T09:15:00Z/2024-09-09T18:00:00Z\n#&gt; 2          observation 2024-08-30T09:15:00Z/2024-09-09T18:00:00Z\n#&gt; 3          observation 2024-08-30T09:15:00Z/2024-09-09T18:00:00Z\n#&gt; 4          observation 2024-08-30T09:15:00Z/2024-09-09T18:00:00Z\n#&gt;                    distributionName\n#&gt; 1 USGS Instantaneous Values Service\n#&gt; 2             USGS SensorThings API\n#&gt; 3             USGS SensorThings API\n#&gt; 4 USGS Instantaneous Values Service\n#&gt;                                                                                                       distributionURL\n#&gt; 1                                https://waterservices.usgs.gov/nwis/iv/?sites=USGS:06752280¶meterCd=00065&format=rdb\n#&gt; 2 https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('7176ea9161f94cbf8bd7b30aba7891fd')?$expand=Thing,Observations\n#&gt; 3 https://labs.waterdata.usgs.gov/sta/v1.1/Datastreams('b9cc8727355d4de08f7c0826530c96ce')?$expand=Thing,Observations\n#&gt; 4                                https://waterservices.usgs.gov/nwis/iv/?sites=USGS:06752280¶meterCd=00060&format=rdb\n#&gt;          distributionFormat                                        wkt\n#&gt; 1 text/tab-separated-values POINT (-105.011365078564 40.5519269209862)\n#&gt; 2          application/json POINT (-105.011365078564 40.5519269209862)\n#&gt; 3          application/json POINT (-105.011365078564 40.5519269209862)\n#&gt; 4 text/tab-separated-values POINT (-105.011365078564 40.5519269209862)\n#&gt; \n#&gt; \n#&gt; $id\n#&gt; [1] \"352913\"\n#&gt; \n#&gt; $geometry\n#&gt; $geometry$type\n#&gt; [1] \"LineString\"\n#&gt; \n#&gt; $geometry$coordinates\n#&gt;             [,1]     [,2]\n#&gt;   [1,] -105.8107 40.42002\n#&gt;   [2,] -105.7947 40.43621\n#&gt;   [3,] -105.7852 40.44236\n#&gt;   [4,] -105.7735 40.44730\n#&gt;   [5,] -105.7606 40.45680\n#&gt;   [6,] -105.7513 40.46771\n#&gt;   [7,] -105.7444 40.46977\n#&gt;   [8,] -105.7345 40.46944\n#&gt;   [9,] -105.7318 40.47216\n#&gt;  [10,] -105.7320 40.47614\n#&gt;  [11,] -105.7383 40.48742\n#&gt;  [12,] -105.7356 40.49914\n#&gt;  [13,] -105.7376 40.50436\n#&gt;  [14,] -105.7371 40.51262\n#&gt;  [15,] -105.7421 40.51571\n#&gt;  [16,] -105.7427 40.51838\n#&gt;  [17,] -105.7473 40.52252\n#&gt;  [18,] -105.7499 40.53037\n#&gt;  [19,] -105.7526 40.53142\n#&gt;  [20,] -105.7547 40.54133\n#&gt;  [21,] -105.7642 40.54846\n#&gt;  [22,] -105.7739 40.55154\n#&gt;  [23,] -105.7793 40.55726\n#&gt;  [24,] -105.7907 40.56379\n#&gt;  [25,] -105.7984 40.57411\n#&gt;  [26,] -105.8025 40.57606\n#&gt;  [27,] -105.8041 40.58197\n#&gt;  [28,] -105.8016 40.58544\n#&gt;  [29,] -105.8042 40.58956\n#&gt;  [30,] -105.8044 40.59581\n#&gt;  [31,] -105.8002 40.59709\n#&gt;  [32,] -105.7954 40.61033\n#&gt;  [33,] -105.8007 40.61327\n#&gt;  [34,] -105.7993 40.61670\n#&gt;  [35,] -105.8005 40.62526\n#&gt;  [36,] -105.8074 40.63057\n#&gt;  [37,] -105.8062 40.63652\n#&gt;  [38,] -105.8094 40.64254\n#&gt;  [39,] -105.8102 40.65254\n#&gt;  [40,] -105.8129 40.65833\n#&gt;  [41,] -105.8092 40.66116\n#&gt;  [42,] -105.8092 40.66420\n#&gt;  [43,] -105.8039 40.67100\n#&gt;  [44,] -105.7970 40.66987\n#&gt;  [45,] -105.7869 40.67158\n#&gt;  [46,] -105.7764 40.67752\n#&gt;  [47,] -105.7662 40.68802\n#&gt;  [48,] -105.7609 40.69060\n#&gt;  [49,] -105.7587 40.69469\n#&gt;  [50,] -105.7591 40.69991\n#&gt;  [51,] -105.7544 40.70198\n#&gt;  [52,] -105.7538 40.70562\n#&gt;  [53,] -105.7495 40.70701\n#&gt;  [54,] -105.7511 40.70825\n#&gt;  [55,] -105.7461 40.71049\n#&gt;  [56,] -105.7413 40.71027\n#&gt;  [57,] -105.7398 40.71210\n#&gt;  [58,] -105.7374 40.71162\n#&gt;  [59,] -105.7328 40.71387\n#&gt;  [60,] -105.7276 40.71037\n#&gt;  [61,] -105.7253 40.70610\n#&gt;  [62,] -105.7217 40.70688\n#&gt;  [63,] -105.7159 40.70043\n#&gt;  [64,] -105.7073 40.69936\n#&gt;  [65,] -105.7065 40.70083\n#&gt;  [66,] -105.7040 40.69795\n#&gt;  [67,] -105.7013 40.69703\n#&gt;  [68,] -105.6996 40.69859\n#&gt;  [69,] -105.6936 40.69502\n#&gt;  [70,] -105.6871 40.69732\n#&gt;  [71,] -105.6797 40.69380\n#&gt;  [72,] -105.6768 40.69444\n#&gt;  [73,] -105.6742 40.69835\n#&gt;  [74,] -105.6679 40.69730\n#&gt;  [75,] -105.6624 40.70014\n#&gt;  [76,] -105.6502 40.70014\n#&gt;  [77,] -105.6355 40.70280\n#&gt;  [78,] -105.6274 40.70070\n#&gt;  [79,] -105.6243 40.69759\n#&gt;  [80,] -105.6196 40.69807\n#&gt;  [81,] -105.6063 40.69424\n#&gt;  [82,] -105.5992 40.69751\n#&gt;  [83,] -105.5818 40.69733\n#&gt;  [84,] -105.5772 40.69893\n#&gt;  [85,] -105.5740 40.69819\n#&gt;  [86,] -105.5670 40.70100\n#&gt;  [87,] -105.5621 40.69892\n#&gt;  [88,] -105.5538 40.70022\n#&gt;  [89,] -105.5386 40.69987\n#&gt;  [90,] -105.5309 40.69817\n#&gt;  [91,] -105.5227 40.69891\n#&gt;  [92,] -105.5191 40.69726\n#&gt;  [93,] -105.5195 40.69516\n#&gt;  [94,] -105.5158 40.69154\n#&gt;  [95,] -105.5127 40.69170\n#&gt;  [96,] -105.5087 40.68952\n#&gt;  [97,] -105.5027 40.69180\n#&gt;  [98,] -105.4943 40.69020\n#&gt;  [99,] -105.4913 40.68810\n#&gt; [100,] -105.4885 40.69046\n#&gt; [101,] -105.4862 40.68865\n#&gt; [102,] -105.4802 40.67479\n#&gt; [103,] -105.4777 40.67390\n#&gt; [104,] -105.4728 40.67521\n#&gt; [105,] -105.4713 40.68141\n#&gt; [106,] -105.4670 40.68325\n#&gt; [107,] -105.4625 40.68311\n#&gt; [108,] -105.4582 40.68012\n#&gt; [109,] -105.4553 40.68033\n#&gt; [110,] -105.4530 40.68326\n#&gt; [111,] -105.4468 40.68624\n#&gt; [112,] -105.4505 40.69434\n#&gt; [113,] -105.4450 40.69480\n#&gt; [114,] -105.4417 40.69748\n#&gt; [115,] -105.4347 40.69396\n#&gt; [116,] -105.4325 40.69073\n#&gt; [117,] -105.4357 40.68084\n#&gt; [118,] -105.4303 40.67707\n#&gt; [119,] -105.4292 40.67449\n#&gt; [120,] -105.4231 40.67671\n#&gt; [121,] -105.4180 40.67383\n#&gt; [122,] -105.4113 40.67884\n#&gt; [123,] -105.4123 40.68166\n#&gt; [124,] -105.4092 40.68392\n#&gt; [125,] -105.4039 40.68273\n#&gt; [126,] -105.3965 40.68457\n#&gt; [127,] -105.3940 40.68292\n#&gt; [128,] -105.3899 40.68285\n#&gt; [129,] -105.3880 40.68532\n#&gt; [130,] -105.3816 40.68358\n#&gt; [131,] -105.3769 40.68784\n#&gt; [132,] -105.3792 40.69168\n#&gt; [133,] -105.3766 40.69464\n#&gt; [134,] -105.3705 40.69230\n#&gt; [135,] -105.3717 40.68951\n#&gt; [136,] -105.3684 40.68727\n#&gt; [137,] -105.3627 40.68859\n#&gt; [138,] -105.3552 40.68820\n#&gt; [139,] -105.3455 40.69111\n#&gt; [140,] -105.3413 40.69072\n#&gt; [141,] -105.3368 40.69413\n#&gt; [142,] -105.3330 40.69310\n#&gt; [143,] -105.3294 40.69476\n#&gt; [144,] -105.3228 40.68948\n#&gt; [145,] -105.2996 40.68690\n#&gt; [146,] -105.2978 40.68990\n#&gt; [147,] -105.2954 40.68873\n#&gt; [148,] -105.2879 40.69014\n#&gt; [149,] -105.2888 40.69415\n#&gt; [150,] -105.2813 40.69588\n#&gt; [151,] -105.2804 40.69867\n#&gt; [152,] -105.2716 40.69608\n#&gt; [153,] -105.2646 40.69751\n#&gt; [154,] -105.2648 40.69298\n#&gt; [155,] -105.2553 40.69178\n#&gt; [156,] -105.2557 40.69766\n#&gt; [157,] -105.2458 40.70302\n#&gt; [158,] -105.2424 40.70346\n#&gt; [159,] -105.2411 40.70142\n#&gt; [160,] -105.2466 40.69878\n#&gt; [161,] -105.2420 40.69565\n#&gt; [162,] -105.2390 40.69067\n#&gt; [163,] -105.2363 40.69083\n#&gt; [164,] -105.2354 40.68902\n#&gt; [165,] -105.2367 40.68673\n#&gt; [166,] -105.2403 40.68598\n#&gt; [167,] -105.2364 40.68348\n#&gt; [168,] -105.2380 40.67122\n#&gt; [169,] -105.2326 40.66894\n#&gt; [170,] -105.2290 40.67203\n#&gt; [171,] -105.2251 40.66455\n#&gt; [172,] -105.2128 40.66273\n#&gt; [173,] -105.2109 40.65982\n#&gt; [174,] -105.2044 40.65926\n#&gt; [175,] -105.2016 40.66088\n#&gt; [176,] -105.1860 40.65664\n#&gt; [177,] -105.1738 40.64820\n#&gt; [178,] -105.1729 40.64195\n#&gt; [179,] -105.1678 40.63680\n#&gt; [180,] -105.1686 40.63163\n#&gt; [181,] -105.1667 40.62971\n#&gt; [182,] -105.1435 40.62473\n#&gt; [183,] -105.1390 40.62070\n#&gt; [184,] -105.1281 40.61912\n#&gt; [185,] -105.1206 40.61313\n#&gt; [186,] -105.1159 40.61411\n#&gt; [187,] -105.1136 40.61180\n#&gt; [188,] -105.1069 40.61210\n#&gt; [189,] -105.1033 40.60709\n#&gt; [190,] -105.0987 40.60443\n#&gt; [191,] -105.0926 40.60143\n#&gt; [192,] -105.0798 40.59838\n#&gt; [193,] -105.0712 40.59158\n#&gt; [194,] -105.0679 40.59177\n#&gt; [195,] -105.0696 40.58813\n#&gt; [196,] -105.0656 40.58710\n#&gt; [197,] -105.0656 40.58408\n#&gt; [198,] -105.0594 40.58332\n#&gt; [199,] -105.0582 40.58048\n#&gt; [200,] -105.0525 40.57981\n#&gt; [201,] -105.0481 40.57612\n#&gt; [202,] -105.0447 40.57850\n#&gt; [203,] -105.0351 40.57859\n#&gt; [204,] -105.0323 40.57250\n#&gt; [205,] -105.0279 40.57130\n#&gt; [206,] -105.0269 40.56611\n#&gt; [207,] -105.0229 40.56038\n#&gt; [208,] -105.0191 40.55860\n#&gt; [209,] -105.0169 40.55285\n#&gt; [210,] -105.0137 40.55081\n#&gt; [211,] -105.0093 40.55136\n#&gt; [212,] -105.0073 40.54840\n#&gt; [213,] -105.0025 40.54920\n#&gt; [214,] -104.9973 40.54249\n#&gt; [215,] -104.9995 40.53741\n#&gt; [216,] -104.9945 40.53128\n#&gt; [217,] -104.9892 40.53326\n#&gt; [218,] -104.9860 40.53086\n#&gt; [219,] -104.9858 40.52191\n#&gt; [220,] -104.9807 40.52148\n#&gt; [221,] -104.9808 40.51494\n#&gt; [222,] -104.9764 40.51622\n#&gt; [223,] -104.9748 40.50222\n#&gt; [224,] -104.9732 40.50117\n#&gt; [225,] -104.9704 40.50311\n#&gt; [226,] -104.9675 40.50229\n#&gt; [227,] -104.9680 40.49907\n#&gt; [228,] -104.9644 40.49724\n#&gt; [229,] -104.9677 40.49476\n#&gt; [230,] -104.9650 40.49072\n#&gt; [231,] -104.9662 40.48838\n#&gt; [232,] -104.9583 40.48550\n#&gt; [233,] -104.9575 40.48022\n#&gt; [234,] -104.9527 40.47862\n#&gt; [235,] -104.9506 40.47546\n#&gt; [236,] -104.9467 40.47604\n#&gt; [237,] -104.9417 40.47053\n#&gt; [238,] -104.9385 40.46998\n#&gt; [239,] -104.9373 40.47183\n#&gt; [240,] -104.9344 40.46961\n#&gt; [241,] -104.9303 40.46911\n#&gt; [242,] -104.9289 40.46660\n#&gt; [243,] -104.9242 40.46404\n#&gt; [244,] -104.9192 40.46395\n#&gt; [245,] -104.9208 40.46722\n#&gt; [246,] -104.9188 40.46932\n#&gt; [247,] -104.9168 40.46907\n#&gt; [248,] -104.9130 40.46475\n#&gt; [249,] -104.9163 40.46173\n#&gt; [250,] -104.9153 40.45967\n#&gt; [251,] -104.9106 40.46242\n#&gt; [252,] -104.9064 40.46281\n#&gt; [253,] -104.9054 40.45537\n#&gt; [254,] -104.9015 40.45528\n#&gt; [255,] -104.8977 40.45320\n#&gt; [256,] -104.8940 40.45505\n#&gt; [257,] -104.8897 40.44803\n#&gt; [258,] -104.8840 40.44647\n#&gt; [259,] -104.8836 40.44336\n#&gt; [260,] -104.8795 40.44148\n#&gt; [261,] -104.8765 40.44201\n#&gt; [262,] -104.8760 40.44020\n#&gt; [263,] -104.8783 40.43780\n#&gt; [264,] -104.8771 40.43647\n#&gt; [265,] -104.8736 40.43697\n#&gt; [266,] -104.8706 40.43997\n#&gt; [267,] -104.8670 40.44100\n#&gt; [268,] -104.8657 40.44530\n#&gt; [269,] -104.8625 40.44450\n#&gt; [270,] -104.8593 40.43926\n#&gt; [271,] -104.8539 40.44278\n#&gt; [272,] -104.8505 40.44132\n#&gt; [273,] -104.8477 40.44310\n#&gt; [274,] -104.8442 40.44310\n#&gt; [275,] -104.8386 40.44738\n#&gt; [276,] -104.8341 40.44445\n#&gt; [277,] -104.8313 40.44438\n#&gt; [278,] -104.8309 40.44758\n#&gt; [279,] -104.8279 40.44834\n#&gt; [280,] -104.8132 40.44666\n#&gt; [281,] -104.8076 40.44217\n#&gt; [282,] -104.8042 40.44526\n#&gt; [283,] -104.8009 40.44288\n#&gt; [284,] -104.7965 40.44429\n#&gt; [285,] -104.7999 40.44693\n#&gt; [286,] -104.7988 40.44853\n#&gt; [287,] -104.7875 40.44419\n#&gt; [288,] -104.7842 40.44701\n#&gt; [289,] -104.7800 40.44666\n#&gt; [290,] -104.7775 40.44821\n#&gt; [291,] -104.7760 40.44775\n#&gt; [292,] -104.7767 40.44547\n#&gt; [293,] -104.7734 40.44601\n#&gt; [294,] -104.7667 40.44012\n#&gt; [295,] -104.7652 40.44076\n#&gt; [296,] -104.7653 40.44383\n#&gt; [297,] -104.7676 40.44825\n#&gt; [298,] -104.7630 40.44772\n#&gt; [299,] -104.7627 40.44493\n#&gt; [300,] -104.7601 40.44433\n#&gt; [301,] -104.7554 40.45126\n#&gt; [302,] -104.7429 40.45225\n#&gt; [303,] -104.7305 40.44885\n#&gt; [304,] -104.7221 40.44988\n#&gt; [305,] -104.7175 40.44765\n#&gt; [306,] -104.7172 40.44522\n#&gt; [307,] -104.7116 40.44582\n#&gt; [308,] -104.7109 40.44188\n#&gt; [309,] -104.7063 40.44100\n#&gt; [310,] -104.7008 40.44235\n#&gt; [311,] -104.6966 40.44093\n#&gt; [312,] -104.6878 40.44075\n#&gt; [313,] -104.6887 40.43744\n#&gt; [314,] -104.6861 40.43277\n#&gt; [315,] -104.6829 40.42996\n#&gt; [316,] -104.6801 40.42382\n#&gt; [317,] -104.6739 40.41975\n#&gt; [318,] -104.6710 40.42220\n#&gt; [319,] -104.6665 40.42262\n#&gt; [320,] -104.6607 40.42054\n#&gt; [321,] -104.6518 40.42036\n#&gt; [322,] -104.6480 40.42162\n#&gt; [323,] -104.6396 40.41798\n#&gt; [324,] -104.6331 40.41999\n#&gt; [325,] -104.6293 40.41867\n#&gt; [326,] -104.6225 40.42214\n#&gt; [327,] -104.6195 40.41965\n#&gt; [328,] -104.6173 40.42244\n#&gt; [329,] -104.6091 40.42322\n#&gt; [330,] -104.6075 40.42535\n#&gt; [331,] -104.6022 40.42493\n#&gt; [332,] -104.6000 40.42158\n#&gt; \n#&gt; \n#&gt; $prev\n#&gt; [1] \"352803\"\n#&gt; \n#&gt; $`next`\n#&gt; [1] \"352986\"\n#&gt; \n#&gt; $links\n#&gt;                   type        rel                                   title\n#&gt; 1     application/json       root The landing page of this server as JSON\n#&gt; 2            text/html       root The landing page of this server as HTML\n#&gt; 3 application/geo+json       self                   This document as JSON\n#&gt; 4  application/ld+json  alternate          This document as RDF (JSON-LD)\n#&gt; 5            text/html  alternate                   This document as HTML\n#&gt; 6     application/json collection                     Reference Mainstems\n#&gt; 7     application/json       prev                                    &lt;NA&gt;\n#&gt; 8     application/json       next                                    &lt;NA&gt;\n#&gt;                                                                       href\n#&gt; 1                                    https://reference.geoconnex.us?f=json\n#&gt; 2                                    https://reference.geoconnex.us?f=html\n#&gt; 3                         https://geoconnex.us/ref/mainstems/352913?f=json\n#&gt; 4                       https://geoconnex.us/ref/mainstems/352913?f=jsonld\n#&gt; 5                         https://geoconnex.us/ref/mainstems/352913?f=html\n#&gt; 6                     https://reference.geoconnex.us/collections/mainstems\n#&gt; 7 https://reference.geoconnex.us/collections/mainstems/items/352803?f=json\n#&gt; 8 https://reference.geoconnex.us/collections/mainstems/items/352986?f=json"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#return-2-ogr",
+    "href": "slides/2-digital-environment.html#return-2-ogr",
+    "title": "Lecture 02",
+    "section": "Return 2: OGR",
+    "text": "Return 2: OGR\n\n'https://geoconnex.us/ref/mainstems/352913' |&gt; \n sf::read_sf() \n#&gt; Simple feature collection with 1 feature and 23 fields\n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -105.8129 ymin: 40.41798 xmax: -104.6 ymax: 40.71387\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 1 × 24\n#&gt;   id     name_at_outlet_gnis_id outlet_rf1id head_nhdpv2_comid head_nhdpv1_comid\n#&gt;   &lt;chr&gt;                   &lt;int&gt;        &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;            \n#&gt; 1 352913                 205018        22867 https://geoconne… &lt;NA&gt;             \n#&gt; # ℹ 19 more variables: fid &lt;int&gt;, outlet_nhdpv2_comid &lt;chr&gt;,\n#&gt; #   outlet_nhdpv1_comid &lt;chr&gt;, uri &lt;chr&gt;, head_nhdpv2huc12 &lt;chr&gt;,\n#&gt; #   head_2020huc12 &lt;chr&gt;, featuretype &lt;chr&gt;, outlet_nhdpv2huc12 &lt;chr&gt;,\n#&gt; #   outlet_2020huc12 &lt;chr&gt;, downstream_mainstem_id &lt;chr&gt;, lengthkm &lt;dbl&gt;,\n#&gt; #   superseded &lt;lgl&gt;, encompassing_mainstem_basins &lt;chr&gt;,\n#&gt; #   outlet_drainagearea_sqkm &lt;dbl&gt;, new_mainstemid &lt;chr&gt;, name_at_outlet &lt;chr&gt;,\n#&gt; #   head_rf1id &lt;int&gt;, datasets &lt;chr&gt;, geometry &lt;LINESTRING [°]&gt;\n\n\n\n'https://geoconnex.us/ref/mainstems/352913' |&gt; \n sf::read_sf() |&gt; \n mapview::mapview()"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#return-2-gdal",
+    "href": "slides/2-digital-environment.html#return-2-gdal",
+    "title": "Lecture 02",
+    "section": "Return 2: GDAL",
+    "text": "Return 2: GDAL\n\n's3://spatial-water-noaa/nwm/CONUS/ISLTYP.tif' |&gt; \n  terra::rast() |&gt; \n  terra::plot()"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#return-3-csv",
+    "href": "slides/2-digital-environment.html#return-3-csv",
+    "title": "Lecture 02",
+    "section": "Return 3: CSV",
+    "text": "Return 3: CSV\n\n'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv' |&gt; \n  readr::read_csv(n_max = 5)\n#&gt; # A tibble: 5 × 6\n#&gt;   date       county    state       fips cases deaths\n#&gt;   &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n#&gt; 1 2020-01-21 Snohomish Washington 53061     1      0\n#&gt; 2 2020-01-22 Snohomish Washington 53061     1      0\n#&gt; 3 2020-01-23 Snohomish Washington 53061     1      0\n#&gt; 4 2020-01-24 Cook      Illinois   17031     1      0\n#&gt; 5 2020-01-24 Snohomish Washington 53061     1      0"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#note-bytehttp-range-requests",
+    "href": "slides/2-digital-environment.html#note-bytehttp-range-requests",
+    "title": "Lecture 02",
+    "section": "Note: Byte/HTTP Range Requests",
+    "text": "Note: Byte/HTTP Range Requests\n\n\n\n\n\n\n\nByte range requests are a feature of HTTP. They allow clients to request only a portion of a resource\nStarted with video buffering and bandwidth conservation\nMassively valuable in cloud compute\nIntegral to cloud native geospatial"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#objects",
+    "href": "slides/2-digital-environment.html#objects",
+    "title": "Lecture 02",
+    "section": "Objects",
+    "text": "Objects\n\nObjects store data (values) (my.school = “UCSB”)\nObjects can be changed according to our needs. (my.school = “CSU”)\nA object provides us with named storage that our programs can manipulate.\n\nObjects have a human readable name\nAn operable value\nA location in memory where it is stored"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#so-how-do-we-define-objects",
+    "href": "slides/2-digital-environment.html#so-how-do-we-define-objects",
+    "title": "Lecture 02",
+    "section": "So how do we define objects?",
+    "text": "So how do we define objects?\n\nWe can read them from a location (local or remote)\n\n\n\npoudre.river &lt;-  sf::read_sf('https://geoconnex.us/ref/mainstems/352913') \n\n\n\n\npoudre.river\n#&gt; Simple feature collection with 1 feature and 23 fields\n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -105.8129 ymin: 40.41798 xmax: -104.6 ymax: 40.71387\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 1 × 24\n#&gt;   id     name_at_outlet_gnis_id outlet_rf1id head_nhdpv2_comid head_nhdpv1_comid\n#&gt;   &lt;chr&gt;                   &lt;int&gt;        &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;            \n#&gt; 1 352913                 205018        22867 https://geoconne… &lt;NA&gt;             \n#&gt; # ℹ 19 more variables: fid &lt;int&gt;, outlet_nhdpv2_comid &lt;chr&gt;,\n#&gt; #   outlet_nhdpv1_comid &lt;chr&gt;, uri &lt;chr&gt;, head_nhdpv2huc12 &lt;chr&gt;,\n#&gt; #   head_2020huc12 &lt;chr&gt;, featuretype &lt;chr&gt;, outlet_nhdpv2huc12 &lt;chr&gt;,\n#&gt; #   outlet_2020huc12 &lt;chr&gt;, downstream_mainstem_id &lt;chr&gt;, lengthkm &lt;dbl&gt;,\n#&gt; #   superseded &lt;lgl&gt;, encompassing_mainstem_basins &lt;chr&gt;,\n#&gt; #   outlet_drainagearea_sqkm &lt;dbl&gt;, new_mainstemid &lt;chr&gt;, name_at_outlet &lt;chr&gt;,\n#&gt; #   head_rf1id &lt;int&gt;, datasets &lt;chr&gt;, geometry &lt;LINESTRING [°]&gt;\n\n\nWe can define them in code!"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#object-names-values",
+    "href": "slides/2-digital-environment.html#object-names-values",
+    "title": "Lecture 02",
+    "section": "Object Names & Values",
+    "text": "Object Names & Values\n\nThe object name is arbitrary and helps reference values.\nNames are used by reader ( ) of the program\nvalues are “bound” to a name using the = or &lt;- assignment operators\n\n\n\na = 3\na &lt;- 3\n\n\n\n\nprint(a)\n#&gt; [1] 3\n\n\nThe result is the value 3 is bound to the name “a”. And R can interpret the name as the object/value it holds.\n\n\n\n\n3*a\n#&gt; [1] 9\n\na &lt;- 5\n\nrep(\"TEXT\", a)\n#&gt; [1] \"TEXT\" \"TEXT\" \"TEXT\" \"TEXT\" \"TEXT\""
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#binding-101",
+    "href": "slides/2-digital-environment.html#binding-101",
+    "title": "Lecture 02",
+    "section": "Binding 101",
+    "text": "Binding 101\nIt is easy to read this statement as “create an object, named x, containing the value 10”\n\n\nx &lt;- 10\n\n\nBut this is a simplification, in actuality:\n\nIt’s creating a object of value 10\nAnd binding that object to a name ‘x’\n\nTherefore the value (10) does not have a name, rather, the name (x) has a value"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#object-address",
+    "href": "slides/2-digital-environment.html#object-address",
+    "title": "Lecture 02",
+    "section": "Object Address",
+    "text": "Object Address\n\nObjects have unique identifiers.\nThese identifiers have a form that looks like the object’s memory “address”\nThe actual memory addresses changes every time the code is run, so we use these identifiers instead.\nIf you are interested in this, the Wikipedia page is great!\n\n\n\nx &lt;- 10\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x130c149e8\""
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#to-illustate-this",
+    "href": "slides/2-digital-environment.html#to-illustate-this",
+    "title": "Lecture 02",
+    "section": "To illustate this…",
+    "text": "To illustate this…\nIn the code below, y doesn’t make another copy of the value 10, but instead creates an additional binding to the existing object.\n\n\nx &lt;- 10\ny &lt;- x\n\nlobstr::obj_addr(x)\n#&gt; [1] \"0x1521092c8\"\nlobstr::obj_addr(y)\n#&gt; [1] \"0x1521092c8\""
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#computer-memory-like-a-dynamic-hard-disk",
+    "href": "slides/2-digital-environment.html#computer-memory-like-a-dynamic-hard-disk",
+    "title": "Lecture 02",
+    "section": "Computer Memory: Like a Dynamic Hard Disk",
+    "text": "Computer Memory: Like a Dynamic Hard Disk\n\nTemporary Storage: Just like a hard disk stores data, computer memory (RAM) stores data, but it is temporary. It holds data and instructions that are actively used by the CPU.\nDynamic: Unlike a static hard disk, memory is dynamic—it constantly updates as the system runs, reading and writing data quickly.\nFaster than Hard Disk: Memory operates at high speeds, enabling quicker access and retrieval of data compared to the relatively slower hard disk drives (HDDs).\nVolatility: Memory is volatile, meaning that once the computer is powered off, all stored data is lost. In contrast, hard disks retain data even when the system is powered down."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#this-is-why-memory-and-clearing-memory-matters",
+    "href": "slides/2-digital-environment.html#this-is-why-memory-and-clearing-memory-matters",
+    "title": "Lecture 02",
+    "section": "This is why memory (and clearing memory!) matters",
+    "text": "This is why memory (and clearing memory!) matters"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#so-what-can-we-do-with-objects",
+    "href": "slides/2-digital-environment.html#so-what-can-we-do-with-objects",
+    "title": "Lecture 02",
+    "section": "So what can we do with objects?",
+    "text": "So what can we do with objects?\n\nRemember our school example?\nWe wanted to store information about the school as named values:\n\n\n\nmy.school &lt;- \"CSU\"\nlat &lt;- 40.5715\nlng &lt;- -105.0752\n\n\nBut these are very different kinds of information with defined capabilities.\nWhat would happen if we tried to add lng to lat?\n\n\n\n\nlng + lat\n#&gt; [1] -64.5037\n\n\nWhat would happen if we tried to add lng to my.school?\n\n\n\n\nlng + my.school\n#&gt; Error in lng + my.school: non-numeric argument to binary operator\n\n\nWe see a non-numeric argument error telling us that name is not a numeric value. This is our first hint that values have different classes/types."
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#leading-up-to-next-class",
+    "href": "slides/2-digital-environment.html#leading-up-to-next-class",
+    "title": "Lecture 02",
+    "section": "Leading up to next class!",
+    "text": "Leading up to next class!\n\ncharToRaw(3)\n#&gt; Error in charToRaw(3): argument must be a character vector of length 1\ncharToRaw(\"3\")\n#&gt; [1] 33\n\nWhy is the value “3” different the the value 3?"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#summary",
+    "href": "slides/2-digital-environment.html#summary",
+    "title": "Lecture 02",
+    "section": "Summary:",
+    "text": "Summary:"
+  },
+  {
+    "objectID": "slides/2-digital-environment.html#next-time",
+    "href": "slides/2-digital-environment.html#next-time",
+    "title": "Lecture 02",
+    "section": "Next Time:",
+    "text": "Next Time:\n\n\n\n\n\n\n\nDaily Assignment: Set up Git and Github\n\n\n\n\n\n\n\n\n\nNext Topic: Data Types & Structures\n\n\n\n\n\n\n\nArtwork by @allison_horst"
   },
   {
     "objectID": "index.html#welcome",
@@ -119,18 +504,39 @@
     "text": "Apache License\nVersion 2.0, January 2004 &lt;http://www.apache.org/licenses/&gt;\n\nTerms and Conditions for use, reproduction, and distribution\n\n1. Definitions\n“License” shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n“Licensor” shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.\n“Legal Entity” shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, “control” means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.\n“You” (or “Your”) shall mean an individual or Legal Entity exercising permissions granted by this License.\n“Source” form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.\n“Object” form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.\n“Work” shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).\n“Derivative Works” shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.\n“Contribution” shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, “submitted” means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as “Not a Contribution.”\n“Contributor” shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.\n\n\n2. Grant of Copyright License\nSubject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.\n\n\n3. Grant of Patent License\nSubject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.\n\n\n4. Redistribution\nYou may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:\n\n(a) You must give any other recipients of the Work or Derivative Works a copy of this License; and\n(b) You must cause any modified files to carry prominent notices stating that You changed the files; and\n(c) You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and\n(d) If the Work includes a “NOTICE” text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.\n\nYou may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.\n\n\n5. Submission of Contributions\nUnless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.\n\n\n6. Trademarks\nThis License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.\n\n\n7. Disclaimer of Warranty\nUnless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.\n\n\n8. Limitation of Liability\nIn no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.\n\n\n9. Accepting Warranty or Additional Liability\nWhile redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.\nEND OF TERMS AND CONDITIONS\n\n\n\nAPPENDIX: How to apply the Apache License to your work\nTo apply the Apache License to your work, attach the following boilerplate notice, with the fields enclosed by brackets [] replaced with your own identifying information. (Don’t include the brackets!) The text should be enclosed in the appropriate comment syntax for the file format. We also recommend that a file or class name and description of purpose be included on the same “printed page” as the copyright notice for easier identification within third-party archives.\nCopyright [yyyy] [name of copyright owner]\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n  http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License."
   },
   {
+    "objectID": "labs/lab1.html",
+    "href": "labs/lab1.html",
+    "title": "Lab 1: Personal Portfolio",
+    "section": "",
+    "text": "This is a two week lab, and this site will be updated with the needed content at the beginning of each week."
+  },
+  {
+    "objectID": "labs/lab1.html#github-pages",
+    "href": "labs/lab1.html#github-pages",
+    "title": "Lab 1: Personal Portfolio",
+    "section": "GitHub Pages",
+    "text": "GitHub Pages\nGitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes them as a website. GitHub Pages is available for public repositories.\nThere are three types of GitHub Pages sites: project, user, and organization.\nWe are not interested in organization sites, and will focus on the details of user and project sites.\nIn this lab, we will be building your user site, and in future labs, you might build a project site.\n\n\nuser sites are connected to a GitHub account (not a project/repository). To publish a user site, you must create a repository named &lt;user&gt;.github.io. Active user sites are available at http(s)://&lt;username&gt;.github.io.\nproject sites are connected to a single project (repository). The source files for a project site are stored in the same repository as their project. Active project sites are available at URLs following the pattern: http(s)://&lt;username&gt;.github.io/&lt;repository&gt;.\n\nWhy are Github Pages cool? Well they are free. They are secure. And like the versioned code, all you need to do to modify a site is edit, commit, and push your changes."
+  },
+  {
+    "objectID": "labs/lab1.html#index.html",
+    "href": "labs/lab1.html#index.html",
+    "title": "Lab 1: Personal Portfolio",
+    "section": "index.html",
+    "text": "index.html\nindex.html is the most common name for the default page shown on a website. If you publish a website, and a server looks for the web address, the information rendered is likely stored in the index.html file. Therefore it is critical you have a file named index.html if you are going to host your own site.\nWe will use your websites landing page as an “about me” section to introduce yourself to our class and more broadly to the internet. Take some time to write a concise and clear paragraph introducing yourself, describing what you enjoy, and what you aim to do (within a professional context). Feel free to add hyperlinks to relevant accounts or other web pages using the Rmarkdown syntax."
+  },
+  {
     "objectID": "labs.html",
     "href": "labs.html",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Week\nLab\nLab Activity\n\n\n\n\n1\nNo Lab Meetings\n—"
+    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\nPersonal Portfolio \nIntro to Quarto\nBefore your Lab Week 4\n\n\n3\nPersonal Portfolio \n\nBefore your Lab Week 4"
   },
   {
     "objectID": "labs.html#labs",
     "href": "labs.html#labs",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Week\nLab\nLab Activity\n\n\n\n\n1\nNo Lab Meetings\n—"
+    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\nPersonal Portfolio \nIntro to Quarto\nBefore your Lab Week 4\n\n\n3\nPersonal Portfolio \n\nBefore your Lab Week 4"
   },
   {
     "objectID": "slides/1-welcome.html#section",
@@ -172,7 +578,7 @@
     "href": "slides/1-welcome.html#instructor-mike-johnson",
     "title": "1 - Introduction",
     "section": "Instructor: Mike Johnson",
-    "text": "Instructor: Mike Johnson\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeospatial Science & Technology Lead @ NOAA Office of Water Prediction\nPreviously, Chief Data Scientist for local consulting group\n\nGrew our division form 3 to 15 before transitioning\nGraduate student at UCSB where I developed\n\nPhD from UCSB in Geography\nOver 10 years of experience working in hydrology and ecosystem science\nPassionate about applying data science to solve environmental challenges\nExcited to share practical tools and insights to prepare you for real-world problem"
+    "text": "Instructor: Mike Johnson\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGeospatial Science & Technology Lead @ NOAA Office of Water Prediction\nPreviously, Chief Data Scientist for local consulting group\n\nGrew our division form 3 to 15 before transitioning\n\nPhD from UCSB in Geography\nOver 10 years of experience working in hydrology and ecosystem science\nPassionate about applying data science to solve environmental challenges\nExcited to share practical tools and insights to prepare you for real-world problem"
   },
   {
     "objectID": "slides/1-welcome.html#teaching-assistant-alan-cai",
@@ -200,7 +606,7 @@
     "href": "slides/1-welcome.html#course-structure-4-units",
     "title": "1 - Introduction",
     "section": "Course Structure: 4 Units",
-    "text": "Course Structure: 4 Units\n\nOpen Science and Tools (Weeks 1-3)\n\nIntroduction to reproducible workflows and software (R, Rmd, Git)\nHow do you interact with you computer whether you love it or hate it\n\nWorking with Data (Weeks 4-7)\n\nAll data is messy!\nHow do you refine it to answer questions you have in ways others will (1) care about and (2) understand\n\nModeling (Weeks 8-12)\n\nStatistical and simulation models to solve ecosystem-related problems\nPull the current back on “Machine Learning”\nUnderstand that “all” problems are either prediction or classification\n\nGeospatial Data (Weeks 13-16)\n\nAll problems are spatial, how can we add location information to our growing skill set?"
+    "text": "Course Structure: 4 Units\n\nOpen Science and Tools (Weeks 1-3)\n\nIntroduction to reproducible workflows and software (R, Rmd, Git)\nHow do you interact with you computer whether you love it or hate it\n\nWorking with Data (Weeks 4-7)\n\nAll data is messy!\nHow do you refine data to answer questions you have in ways others will care about and understand\n\nModeling (Weeks 8-12)\n\nStatistical and simulation models to solve ecosystem-related problems\nPull the current back on “Machine Learning”\nUnderstand that “all” problems are either prediction or classification\n\nGeospatial Data (Weeks 13-16)\n\nAll problems are spatial, how can we add location information to our growing skill set?"
   },
   {
     "objectID": "slides/1-welcome.html#course-components",
@@ -235,7 +641,7 @@
     "href": "slides/1-welcome.html#compute-needs",
     "title": "1 - Introduction",
     "section": "Compute Needs:",
-    "text": "Compute Needs:\n\n\n\n\n\n\n\nFor this class, we will be installing software and learning about how to organize and interact with our computers\nTo do this most effectively you will need your own computer running a full OS (not Chromebook)\nIf this is not possible, please reach out to me or your TA and we can find a solution"
+    "text": "Compute Needs:\n\n\n\n\n\n\n\nFor this class, we will be installing software and learning about how to organize and interact with our computers\nTo do this effectively you’ll need your own computer running a full OS (not Chromebook)\nIf this is not possible, please reach out to me or your TA and we can find a solution"
   },
   {
     "objectID": "slides/1-welcome.html#attendance",
@@ -250,6 +656,48 @@
     "title": "1 - Introduction",
     "section": "Next Time:",
     "text": "Next Time:\n\n\n\n\n\n\n\nDaily Assignment: Install R and RStudio\n\n\n\n\n\n\n\n\n\nNext Topic: Your Digital Environment\n\n\n\n\n\n\n\nArtwork by @allison_horst"
+  },
+  {
+    "objectID": "exercises/1-install-r.html",
+    "href": "exercises/1-install-r.html",
+    "title": "Daily Exercise 01",
+    "section": "",
+    "text": "Getting all the necessary software installed, configured, and playing nicely together is half the battle when first adopting an open source, reproducable scientific workflow. These steps have become increasingly easier over the years and we are here to help you if you hit a hurdle 😄\nWelcome to ESS 330, Quantitative Reasoning for Ecosystem Science! In this course, we’ll be using R and RStudio for data organization, manipulation, analysis, and visualization. You’ll become more familiar with both tools throughout the course.\nIt’s highly recommended to install these tools on your own laptop for convenience and the following step-by-step guide will walk you through installing R and RStudio on your computer, as well as introducing a few essential tools we’ll use throughout the quarter. If you encounter any issues during the process, don’t hesitate to contact me or a teaching assistant for assistance!"
+  },
+  {
+    "objectID": "exercises/1-install-r.html#macos-installation",
+    "href": "exercises/1-install-r.html#macos-installation",
+    "title": "Daily Exercise 01",
+    "section": "MacOS Installation  ",
+    "text": "MacOS Installation  \n\nInstall R\n\nDownload the latest release of R from CRAN (choose the .pkg version).\nSave the .pkg file and double-click it to start the installation. Follow the prompts to complete the installation.\n\n\n\n\n\n\n\nKnow your chip\n\n\n\nEnsure you download the correct version based on your Mac’s chip. If you’re unsure, click the apple icon in the menu bar → About This Mac, and check your chip (Intel or Apple).\n\n\n\n\nInstalling RStudio\n\nDownload RStudio for Mac.\nAfter downloading, double-click the .dmg file and move RStudio into your Applications folder.\n\n\nNow that R is installed, you can download and install RStudio."
+  },
+  {
+    "objectID": "exercises/1-install-r.html#windows-installation",
+    "href": "exercises/1-install-r.html#windows-installation",
+    "title": "Daily Exercise 01",
+    "section": "Windows Installation  ",
+    "text": "Windows Installation  \n\nInstalling R\n\nDownload the latest version of R for Windows from CRAN.\nInstall the downloaded .exe file as you would any other Windows application.\n\n\n\nInstalling RStudio\n\nDownload RStudio for Windows.\nRun the .exe installer and follow the prompts to complete the installation."
+  },
+  {
+    "objectID": "exercises/1-install-r.html#launch-rstudio",
+    "href": "exercises/1-install-r.html#launch-rstudio",
+    "title": "Daily Exercise 01",
+    "section": "Launch RStudio",
+    "text": "Launch RStudio\nOnce both R and RStudio are installed, locate and click the RStudio icon to launch the program. It should look like this:\n\n\n\nOpening RStudio will launch a workplace. If something like the below image appears for you, then you are all set!\n\nThroughout the quarter, we’ll be working extensively within this IDE. The layout and features will become more familiar as we progress. A few things to note now are:\n\nYour session is linked to a specific project (pink box).\n\nIn the blue box, you have:\n\nAn Environment tab that shows all the active objects in your session\nA Files tab that shows all the files and folders in your default (project) workplace\nA Plots tab that will show all your graphs once we start visualizing data.\n\nIn the red window you will write code and open scripts/markdown files.\nAll output will be printed to your console (yellow box). Code and prompts can be directly entered in the console but will not be saved after executing.\n\nYour layout and theme may not look like the above (all the elements are the same but arranged differently). If you want to change your theme and layout got to RStudio –&gt; Preferences.\nHere you can adjust the “Appearance” and “Pane Layout”. If you want your to look like mine, see below:"
+  },
+  {
+    "objectID": "exercises/1-install-r.html#installing-package",
+    "href": "exercises/1-install-r.html#installing-package",
+    "title": "Daily Exercise 01",
+    "section": "Installing Package",
+    "text": "Installing Package\nR comes loaded with many base packages and tools. There are also many additional tools that will make your life easier. Throughout this class, we’ll use packages that exist in the aggregate tidyverse package.\n\nTidyverse\nThe tidyverse contains a collection of very useful packages that play nicely together for data exploration, manipulation, wrangling and visualization (among other things). Packages can be installed from CRAN (Comprehensive R Archive Network) using the following pattern which should be typed in the console (yellow box):\n\ninstall.packages(\"tidyverse\")\n\nAfter you press ‘Enter,’ you should see a whole bunch of text streaming across the Console Window. This is a good sign and is simply logging what’s being downloaded/installed. This process can go on for a few minutes (the tidyverse has a lot of different components). You will know it’s done when the active cursor shows up again waiting for your next command.\nOnce it’s installed, you can ensure that everything worked by loading/attaching the tidyverse using the library call:\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter()     masks stats::filter()\n✖ dplyr::group_rows() masks kableExtra::group_rows()\n✖ dplyr::lag()        masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nWhen you press enter, some information will come up below the command. Don’t worry too much about it now as long as there are no errors!\nIf you got something similar to the above you’ve successfully installed R, RStudio, and the tidyverse package. Congratulations!"
+  },
+  {
+    "objectID": "exercises/1-install-r.html#assignment",
+    "href": "exercises/1-install-r.html#assignment",
+    "title": "Daily Exercise 01",
+    "section": "Assignment",
+    "text": "Assignment\nFor Exercise 01, your task is to install three additional packages: tidymodels, remotes, gapminder, and palmerpenguins. Once installed, clear the console by clicking the broom icon ( ) and run the following 4 lines of code:\n\nSys.getenv(\"LOGNAME\")\n\nversion$major\n\nRStudio.Version()$version\n\nc(\"tidymodels\", 'remotes', 'gapminder', 'palmerpenguins')  %in% rownames(installed.packages()) \n\nFor Exercise 01, submit a screenshot of the output to the Canvas dropbox. It should look like this:\n\nKey points to verify include:\n\nCorrect R version (4.x)\nCorrect RStudio version (2024.X.XXXX)\nAll three packages installed (4 TRUE values)\n\nOnce you’ve completed this, you can close RStudio—no need to save the workspace.\nNice work!"
   },
   {
     "objectID": "syllabus.html",
@@ -299,5 +747,152 @@
     "title": "Ecosystem Science and Sustainability 330",
     "section": "References",
     "text": "References\nI recommend the following reference if a topic peeks your interest. Versions of all of them are available for free at the following links:\n\nR Programming: Hadley Wickham et al., R for Data Science\nData Visualization: Claus E. Wilke, Fundamentals of Data Visualization.\nGeospatial Data Science: Robin Lovelace et al., Geocomputation with R\nMachine Learning: Max Kuhn and Julia Silge, Tidy Modeling with R\nCommunication: Quarto Guide"
+  },
+  {
+    "objectID": "slides/3-data-types.html#computers-via-r-convert-bytes---hex---value",
+    "href": "slides/3-data-types.html#computers-via-r-convert-bytes---hex---value",
+    "title": "Lecture 04",
+    "section": "Computers (via R) convert bytes <-> hex <-> value",
+    "text": "Computers (via R) convert bytes &lt;-&gt; hex &lt;-&gt; value"
+  },
+  {
+    "objectID": "slides/3-data-types.html#whats-the-difference-between-3-the-number-and-3-the-character",
+    "href": "slides/3-data-types.html#whats-the-difference-between-3-the-number-and-3-the-character",
+    "title": "Lecture 04",
+    "section": "What’s the difference between 3 (the number) and ‘3’ (the character)?",
+    "text": "What’s the difference between 3 (the number) and ‘3’ (the character)?\n\nTo us: meaning\nTo software: hows its handled\nTo a computer: nothing\n\n\n\ncharToRaw('3') %&gt;% rawToBits()\n[1] 01 01 00 00 01 01 00 00\nwriteBin(3, raw(), size = 8, endian = \"big\")\n[1] 40 08 00 00 00 00 00 00\n3 + 3\n[1] 6\n'3' + 3\nError in \"3\" + 3: non-numeric argument to binary operator"
+  },
+  {
+    "objectID": "slides/3-data-types.html#data-types-1",
+    "href": "slides/3-data-types.html#data-types-1",
+    "title": "Lecture 04",
+    "section": "Data Types",
+    "text": "Data Types\nValues in R can be one of 6 different types : 1. numeric (e.g. 2, 2.15) 2. integer (e.g. 2L) 3. character (e.g. \"x\", \"Welcome!\") 4. logical (e.g. TRUE, FALSE) 5. raw (e.g. holds bytes) 6. complex (e.g. 1+4i) - we are going to ignore\n\nThe class function tells us what kind of object is it (high-level)\nThe typeof function can tell us the object’s data type (low-level)"
+  },
+  {
+    "objectID": "slides/3-data-types.html#numeric",
+    "href": "slides/3-data-types.html#numeric",
+    "title": "Lecture 04",
+    "section": "1. Numeric",
+    "text": "1. Numeric\n\nValues with decimals\nOf type “double” in computer science terms\nDefault computational data type in R.\nDoubles can be specified in decimal (0.1234), scientific (1.23e4), or hexadecimal (0xcafe) form.\nThere are three special values unique to doubles: Inf, -Inf, and NaN (not a number)."
+  },
+  {
+    "objectID": "slides/3-data-types.html#section",
+    "href": "slides/3-data-types.html#section",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\n\n\n\n[1] 4.75"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-1",
+    "href": "slides/3-data-types.html#section-1",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\n\n\n\n[1] 4.75\n[1] \"numeric\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-2",
+    "href": "slides/3-data-types.html#section-2",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-3",
+    "href": "slides/3-data-types.html#section-3",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-4",
+    "href": "slides/3-data-types.html#section-4",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-5",
+    "href": "slides/3-data-types.html#section-5",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-6",
+    "href": "slides/3-data-types.html#section-6",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\nx / 4\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25\n[1] 1.1875"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-7",
+    "href": "slides/3-data-types.html#section-7",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 4.75)\nclass(x)\ntypeof(x)\n\nx * 2\nx + 2\nx - 5\nx / 4\n\n\nx == 4\n\n\n\n[1] 4.75\n[1] \"numeric\"\n[1] \"double\"\n[1] 9.5\n[1] 6.75\n[1] -0.25\n[1] 1.1875\n[1] FALSE"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-8",
+    "href": "slides/3-data-types.html#section-8",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\n\n\n\n[1] 2"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-9",
+    "href": "slides/3-data-types.html#section-9",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n\n\n\n[1] 2\n[1] \"double\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-10",
+    "href": "slides/3-data-types.html#section-10",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-11",
+    "href": "slides/3-data-types.html#section-11",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-12",
+    "href": "slides/3-data-types.html#section-12",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-13",
+    "href": "slides/3-data-types.html#section-13",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2"
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-14",
+    "href": "slides/3-data-types.html#section-14",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\ntypeof(t)\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2\n[1] \"double\""
+  },
+  {
+    "objectID": "slides/3-data-types.html#section-15",
+    "href": "slides/3-data-types.html#section-15",
+    "title": "Lecture 04",
+    "section": "",
+    "text": "(x = 2)  # defaults to numeric\ntypeof(x)\n(y = 2L)  # specifies integer\ntypeof(y)\nclass(y)\n\n(t = 1L / 5L)\ntypeof(t)\n\n## Casting\n\nas.integer(c(4.1, 5.2, 6.3, 6.4))\n\n\n\n[1] 2\n[1] \"double\"\n[1] 2\n[1] \"integer\"\n[1] \"integer\"\n[1] 0.2\n[1] \"double\"\n[1] 4 5 6 6"
+  },
+  {
+    "objectID": "slides/3-data-types.html#integer",
+    "href": "slides/3-data-types.html#integer",
+    "title": "Lecture 04",
+    "section": "2. Integer",
+    "text": "2. Integer\n\nValues without decimals\nTo create an integer in R you must follow the a number with an uppercase L.\nTake less memory then doubles but this is rarely an issue\nOne byte is 8 bits,\nEach bit can represent two values (0,1),\nOne byte can hold 28=256 values.\nused for (0 to 255) –or– (−128 to 127)."
   }
 ]

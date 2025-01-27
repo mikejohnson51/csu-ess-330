@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mike Johnson">
-<meta name="author" content="Alan Cai">
-<meta name="author" content="Jaque McVey">
 
-<title>Ecosystem Science and Sustainability 330 – ESS 330</title>
+<title>Lab 1: Personal Portfolio – ESS 330</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +20,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5b6eb65566b1f8a996f1287d789c0740.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c63d9198b28a859559c0f0cce9729cfa.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5b6eb65566b1f8a996f1287d789c0740.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c63d9198b28a859559c0f0cce9729cfa.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,20 +106,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./csu-rams-logo.png" alt="" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../csu-rams-logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">ESS 330</span>
     </a>
   </div>
@@ -99,19 +130,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
+    <a class="nav-link" href="../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./labs.html" aria-current="page"> 
+    <a class="nav-link" href="../labs.html"> 
 <span class="menu-text">Labs</span></a>
   </li>  
 </ul>
@@ -133,51 +164,39 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><i class="fa-solid fa-box-open" title="an open box" aria-label="box-open"></i> Goals(s)</a></li>
+  <li><a href="#jargon" id="toc-jargon" class="nav-link" data-scroll-target="#jargon"><i class="fa-solid fa-comment" aria-label="comment"></i> Jargon</a></li>
+  <li><a href="#website-hosting" id="toc-website-hosting" class="nav-link" data-scroll-target="#website-hosting"><i class="fa-solid fa-globe" aria-label="globe"></i> Website Hosting</a>
+  <ul class="collapse">
+  <li><a href="#github-pages" id="toc-github-pages" class="nav-link" data-scroll-target="#github-pages">GitHub Pages</a></li>
+  <li><a href="#index.html" id="toc-index.html" class="nav-link" data-scroll-target="#index.html">index.html</a></li>
+  </ul></li>
+  <li><a href="#week-1" id="toc-week-1" class="nav-link" data-scroll-target="#week-1"><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Week 1:</a></li>
+  <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2"><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Week 2:</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission"><i class="fa-solid fa-check-to-slot" aria-label="check-to-slot"></i> Submission:</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script src="https://use.fontawesome.com/5235085b15.js"></script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Ecosystem Science and Sustainability 330</h1>
-<p class="subtitle lead">Quantitative Reasoning for Ecosystem Science</p>
+<h1 class="title">Lab 1: Personal Portfolio</h1>
+<p class="subtitle lead">Quarto, Github, and RStudio IDE</p>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Authors</div>
-  <div class="quarto-title-meta-heading">Affiliations</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Mike Johnson, PhD <a href="mailto:mike.johnson@colostate.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            NOAA Office of Water Prediction
-          </p>
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Alan Cai <a href="mailto:Alan.Cai@colostate.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Colorado State University
-          </p>
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Jaque McVey <a href="mailto:jaque.mcvey@colostate.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Colorado State University
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    
   
     
   </div>
@@ -187,43 +206,205 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="labs" class="level2">
-<h2 class="anchored" data-anchor-id="labs">Labs</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Lab</th>
-<th>Lab Activity</th>
-<th>Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>No Lab Meetings</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td><a href="./labs/lab1.html">Personal Portfolio</a> <i class="fa-solid fa-globe" aria-label="globe"></i></td>
-<td><a href="https://r4ds.hadley.nz/quarto.html">Intro to Quarto</a></td>
-<td>Before your Lab Week 4</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td><a href="./labs/lab1.html">Personal Portfolio</a> <i class="fa-solid fa-globe" aria-label="globe"></i></td>
-<td></td>
-<td>Before your Lab Week 4</td>
-</tr>
-</tbody>
-</table>
+<p>This is a two week lab, and this site will be updated with the needed content at the beginning of each week.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><a href="https://quarto.org/">Quarto</a> is a publishing system built on <a href="https://pandoc.org/">Pandoc</a> that allows users to create dynamic content using R, Python, Julia, and ObservableJS (with plans to add more languages too!).</p>
+<p>R users have commonly used <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> for combining prose, code, and outputs into single “knitted” documents and Quarto extends all of RMarkdown’s best features (plus more!) to additional languages. In this lab you will create the skeleton for a personal web site using R, RStudio and Quarto and will host the site on Github.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/horst-quarto.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" alt="A schematic representing the numerous supported languages (R, Python, Observable, Julia), which Quarto supports for writing a variety of file types (html, PDF, Word docs, and more). Artwork by [Allison Horst](https://allisonhorst.com/allison-horst)"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="goals" class="level1">
+<h1><i class="fa-solid fa-box-open" title="an open box" aria-label="box-open"></i> Goals(s)</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+To follow along, you’ll need:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="https://cloud.r-project.org/">R</a> &amp; <a href="https://posit.co/download/rstudio-desktop/#download">RStudio</a> installed</li>
+<li>Quarto installed – <strong>Quarto is now included with RStudio v2022.07.1+ i.e.&nbsp;no need for a separate download / install if you have the latest version of RStudio</strong></li>
+<li>A <a href="https://github.com/">GitHub</a> account</li>
+<li><a href="https://git-scm.com/">Git</a> installed / configured</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Already you should have R and RStudio on your machine. You should also have a Github account and should be comfortable creating a new repository and connecting in to a new R Project in your <code>~/github</code> folder. Building on these, this lab has a few key learning objectives.</p>
+<ol type="1">
+<li><p>It will ensure you are comfortable with the tools of reproducible science including:</p>
+<ul>
+<li>RStudio (for developing),</li>
+<li>Quarto (for authoring)</li>
+<li>Github (for version control and publishing)</li>
+</ul></li>
+<li><p>It will provide a central repository for your work throughout the quarter</p></li>
+<li><p>It will become an artifact you can take with you to showcase your skills to future employers.</p></li>
+</ol>
+<p>By the end of this activity you will have:</p>
+<ol type="1">
+<li><p>Constructed a simple website with basic information</p></li>
+<li><p>Hosted it your personal Github for the world to see</p></li>
+<li><p>Been exposed to markdown, YMAL, CSS, HTML and website construction</p></li>
+<li><p>Practiced Forking and contributing to another repository.</p></li>
+</ol>
+<p>All said, the more time you put into refining, personalizing and developing this site through the quarter, the more it will benefit you in the long run, both in this class and beyond!</p>
+<p>Okay, let’s get started.</p>
+<hr>
+</section>
+<section id="jargon" class="level1">
+<h1><i class="fa-solid fa-comment" aria-label="comment"></i> Jargon</h1>
+<p>As with any field, web development (or web communication!) has its own lingo and toolsets. Here is a brief summary of the unfamiliar terms you will see in this activity:</p>
+<ul>
+<li><p><strong>URL</strong>: URL stands for Uniform Resource Locator and is a reference to a web resource specifying its location on a computer network and a mechanism for retrieving it. Think of it as a web address.</p></li>
+<li><p><strong>HTML</strong>: HTML stands for Hyper Text Markup Language. HTML is the standard markup language for Web pages. Remember that we knit our markdown (qmd) files to HTML.</p></li>
+<li><p><strong>YML (or YAML)</strong>: YAML (stands for “YAML Ain’t Markup Language”) is a human-readable data-serialization language. It is commonly used to configure “global” information. In Quarto files, it describes how the file should knit.</p></li>
+</ul>
+<div class="center-text">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/sass-css.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="The Sass and CSS logos"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="center-text gray-text">
+<p><em>The Sass and CSS logos</em></p>
+</div>
+</div>
+<ul>
+<li><p><strong>CSS</strong>: CSS stands for Cascading Style Sheets. CSS describes how HTML elements are displayed. Should a header (#) be blue? Green? Orange? CSS saves a lot of work because it can control the layout of multiple web pages at once.</p></li>
+<li><p><strong>Sass</strong>: Sass is a preprocessor scripting language that extends the capabilities of CSS. It provides a range of additional features and functionality that streamline the development process and make stylesheets more maintainable.</p></li>
+</ul>
+<p><a href="https://kasun-r-weerasinghe.medium.com/sass-vs-css-exploring-the-benefits-and-differences-ca98ea60f946#:~:text=In%20the%20world%20of%20web,write%20and%20manage%20their%20stylesheets.">sass vs css</a></p>
+</section>
+<section id="website-hosting" class="level1">
+<h1><i class="fa-solid fa-globe" aria-label="globe"></i> Website Hosting</h1>
+<section id="github-pages" class="level2">
+<h2 class="anchored" data-anchor-id="github-pages">GitHub Pages</h2>
+<p>GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository and publishes them as a website. GitHub Pages is available for <em>public</em> repositories.</p>
+<p>There are three types of GitHub Pages sites: <strong>project</strong>, <strong>user</strong>, and <strong>organization</strong>.</p>
+<p>We are <em>not</em> interested in <strong>organization</strong> sites, and will focus on the details of <strong>user</strong> and <strong>project</strong> sites.</p>
+<p>In this lab, we will be building your <strong>user site</strong>, and in future labs, you might build a <strong>project site</strong>.</p>
+<hr>
+<ul>
+<li><p><strong>user sites</strong> are connected to a GitHub <em>account</em> (not a project/repository). To publish a user site, you must create a repository named <code>&lt;user&gt;.github.io</code>. Active user sites are available at <code>http(s)://&lt;username&gt;.github.io</code>.</p></li>
+<li><p><strong>project sites</strong> are connected to a single project (repository). The source files for a <strong>project site</strong> are stored in the same repository as their project. Active project sites are available at URLs following the pattern: <code>http(s)://&lt;username&gt;.github.io/&lt;repository&gt;</code>.</p></li>
+</ul>
+<p>Why are Github Pages cool? Well they are free. They are secure. And like the versioned code, all you need to do to modify a site is edit, commit, and push your changes.</p>
+</section>
+<section id="index.html" class="level2">
+<h2 class="anchored" data-anchor-id="index.html">index.html</h2>
+<p><code>index.html</code> is the most common name for the default page shown on a website. If you publish a website, and a server looks for the web address, the information rendered is likely stored in the <code>index.html</code> file. Therefore it is critical you have a file named <code>index.html</code> if you are going to host your own site.</p>
+<p>We will use your websites landing page as an “about me” section to introduce yourself to our class and more broadly to the internet. Take some time to write a concise and clear paragraph introducing yourself, describing what you enjoy, and what you aim to do (within a professional context). Feel free to add hyperlinks to relevant accounts or other web pages using the Rmarkdown syntax.</p>
+</section>
+</section>
+<section id="week-1" class="level1">
+<h1><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Week 1:</h1>
+<p>Today’s lab will leverage the amazing material put together by <a href="https://samanthacsik.github.io/">Sam Csik</a> from UCSB. In this first week, we will focus on the following three tasks.</p>
+<ol type="1">
+<li>Building the scaffolding of your personal webpage</li>
+<li>Getting it connected to Github and deployed via Github Pages.</li>
+<li>Populating the introduction and CV/resume portion of the website.</li>
+</ol>
+<p>Next week, we will focus on:</p>
+<ol type="1">
+<li>Customizing your website to better represent your uniqueness</li>
+<li>Adding content from one of you favorite CSU projects</li>
+<li>Contributing to a class website through a fork–&gt;PR workflow</li>
+</ol>
+<p>To start this week, navigate to Sams webpage and begin working through the content!</p>
+<p><a href="https://samanthacsik.github.io/">https://ucsb-meds.github.io/creating-quarto-websites/</a></p>
+<p>Specifics for this class:</p>
+<p>In your navbar, we should see a tab for</p>
+<ol type="1">
+<li><p><code>About</code> (index.html): Your job is to make this paragraph meaningful to you, and to add a image of yourself (or something relevant to you) using Rmarkdown or HTML syntax. The image should be saved in the appropriate img folder following the basic structure of an solid project.</p></li>
+<li><p><code>CSU Projects</code>. This tab will be populated next week and through out the quarter. It can be populated initially with something like this:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Projects"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>In the Spring of <span class="dv">2025</span> I took a class Quantative Reasoning class based <span class="cf">in</span> R. I wrote some code, and did some cool data science. Here is a collection of links<span class="sc">!</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [Building a project website]()</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> In this assignment we built a static users site with Github Pages </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Includes a github repo <span class="cf">for</span> access to all the code.</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Look at how high quality my work is<span class="sc">!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Your job is to make this text meaningful to you, and to add the appropriate URL to the header. You must also describe what you learned in this activity in 3-5 bullet points. Do this in a way that is directed at showing an audience what you know, not as an exercise to satisfy me.</p>
+<ol start="3" type="1">
+<li><code>Resume</code>. Here you should store a more traditional resume/CV. This can be written in Quarto, or as a linked PDF.</li>
+</ol>
+<p>🎉 <strong>Congrats</strong> 🎉 you have created a personal website and hosted it online.</p>
+</section>
+<section id="week-2" class="level1">
+<h1><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Week 2:</h1>
+<p>…</p>
+</section>
+<section id="submission" class="level1">
+<h1><i class="fa-solid fa-check-to-slot" aria-label="check-to-slot"></i> Submission:</h1>
+<p>…</p>
 
 
 </section>
 
 </main> <!-- /main -->
+<script>
+  Reveal.addEventListener( 'slidechanged', function( event ) {
+    console.log("hello")
+    
+    slide_id = event.currentSlide.id
+    link = "annotations" + ".html#" + slide_id
+    
+    var annotation_div = document.createElement('div')
+    annotation_div.setAttribute("class", "annotation-link")
+    
+    var notes_link = document.createElement('a')
+    notes_link.setAttribute("href", link)
+    notes_link.setAttribute("target", "_blank")
+    
+    var iii = document.createElement('i')
+    iii.setAttribute("class", "fa fa-info")
+    notes_link.appendChild(iii)
+    
+    annotation_div.appendChild(notes_link)
+    
+    var tmp = event.currentTarget.getElementsByClassName("annotation-link")
+    if (tmp.length === 1) {
+      tmp[0].remove()
+    }
+    
+    if (event.currentSlide.classList.contains("annotation")) {
+      event.currentTarget.append(annotation_div)
+    }
+  } );
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Daily Exercise 02 – ESS 330</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5b6eb65566b1f8a996f1287d789c0740.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c63d9198b28a859559c0f0cce9729cfa.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../csu-rams-logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ESS 330</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../labs.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mikejohnson51/csu-ess-330/"> <i class="bi bi-github" role="img" aria-label="ESS 330">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#finding-the-terminal" id="toc-finding-the-terminal" class="nav-link" data-scroll-target="#finding-the-terminal">Finding the Terminal</a></li>
+  <li><a href="#useful-terminal-commands" id="toc-useful-terminal-commands" class="nav-link" data-scroll-target="#useful-terminal-commands">Useful Terminal Commands</a>
+  <ul class="collapse">
+  <li><a href="#pwd---print-working-directory" id="toc-pwd---print-working-directory" class="nav-link" data-scroll-target="#pwd---print-working-directory"><span class="code">pwd</span> - print working directory</a></li>
+  <li><a href="#ls---list-files" id="toc-ls---list-files" class="nav-link" data-scroll-target="#ls---list-files"><span class="code">ls</span> - list files</a></li>
+  <li><a href="#mkdir---make-a-directory" id="toc-mkdir---make-a-directory" class="nav-link" data-scroll-target="#mkdir---make-a-directory"><span class="code">mkdir</span> - make a directory</a></li>
+  <li><a href="#cd---change-directory" id="toc-cd---change-directory" class="nav-link" data-scroll-target="#cd---change-directory"><span class="code">cd</span> - change directory</a></li>
+  <li><a href="#create-a-file" id="toc-create-a-file" class="nav-link" data-scroll-target="#create-a-file">Create a file</a></li>
+  <li><a href="#clear---clear-your-terminal-window" id="toc-clear---clear-your-terminal-window" class="nav-link" data-scroll-target="#clear---clear-your-terminal-window"><span class="code">clear</span> - clear your terminal window</a></li>
+  </ul></li>
+  <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git">Installing git</a>
+  <ul class="collapse">
+  <li><a href="#step-1.-see-if-git-is-already-installed" id="toc-step-1.-see-if-git-is-already-installed" class="nav-link" data-scroll-target="#step-1.-see-if-git-is-already-installed">Step 1. See if git is already installed</a></li>
+  <li><a href="#step-2-manually-install-git" id="toc-step-2-manually-install-git" class="nav-link" data-scroll-target="#step-2-manually-install-git">Step 2: Manually install git</a>
+  <ul class="collapse">
+  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos">MacOS <i class="fa fa-apple" aria-hidden="true"></i></a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows <i class="fa fa-windows" aria-hidden="true"></i></a></li>
+  </ul></li>
+  <li><a href="#step-3-check-the-version" id="toc-step-3-check-the-version" class="nav-link" data-scroll-target="#step-3-check-the-version">Step 3: Check the version</a></li>
+  <li><a href="#note-for-windows-users" id="toc-note-for-windows-users" class="nav-link" data-scroll-target="#note-for-windows-users">Note for Windows Users</a></li>
+  </ul></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">Github</a>
+  <ul class="collapse">
+  <li><a href="#your-github" id="toc-your-github" class="nav-link" data-scroll-target="#your-github"><i class="fa fa-github" aria-hidden="true"></i> Your GitHub</a></li>
+  <li><a href="#finding-open-source-code" id="toc-finding-open-source-code" class="nav-link" data-scroll-target="#finding-open-source-code"><i class="fa fa-search" aria-hidden="true"></i> Finding Open Source code</a></li>
+  <li><a href="#telling-git-who-we-are" id="toc-telling-git-who-we-are" class="nav-link" data-scroll-target="#telling-git-who-we-are"><i class="fa fa-user" aria-hidden="true"></i> Telling Git who we are</a></li>
+  <li><a href="#githubs-local-home" id="toc-githubs-local-home" class="nav-link" data-scroll-target="#githubs-local-home"><i class="fa fa-home" aria-hidden="true"></i> GitHub’s local home</a></li>
+  </ul></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+<script src="https://use.fontawesome.com/5235085b15.js"></script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Daily Exercise 02</h1>
+<p class="subtitle lead">Meet Your Terminal, git, and Github</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The RStudio terminal provides access to the <strong>operating system (OS)</strong> shell from within the RStudio IDE. Beneath the surface of any OS is an entire world that can only be accessed only from the <strong>command line</strong>. The terminal is a gateway to that command line. <br><br>With it, instead of pointing and clicking, you can type commands and have your computer respond.</p>
+</div>
+</div>
+</div>
+<section id="goals" class="level1">
+<h1>Goals</h1>
+<ul>
+<li>Brief crash course in terminal commands</li>
+<li>Overcome the initial (and understandable!) anxiety associated with the terminal</li>
+<li>Install git on your machine</li>
+<li>Learn to execute simple tasks such as creating a file and navigating our system directory in the RStudio terminal</li>
+<li>Setup your Github account</li>
+</ul>
+</section>
+<section id="finding-the-terminal" class="level1">
+<h1>Finding the Terminal</h1>
+<p>The terminal is a computer application. On a Mac, it is most frequently accessed via your <em>Terminal</em> application, and on Windows, through <em>PowerShell</em>. Fortunately, RStudio provides a built in terminal that imitates these applications within the RStudio IDE. The <strong>Terminal</strong> tab can be found next to the <strong>Console tab</strong>. If it is not visible, show it via <code>Shift+Alt/Option+R</code> (or Tools &gt; Terminal &gt; New Terminal). Once visible, it should look something like this:</p>
+<p><img src="images/02-terminal-example.png" class="img-fluid"></p>
+</section>
+<section id="useful-terminal-commands" class="level1">
+<h1>Useful Terminal Commands</h1>
+<p>In ESS330 we are <em>only</em> interested in using the terminal for speeding up basic tasks such as creating new files and folders, exploring folder structures, and seeing what it can teach us about our computer system. As such we will introduce only 6 common commands that are useful for navigating a file system and creating files.</p>
+<div class="content-tip">
+<p>Use tab to autocomplete paths!</p>
+</div>
+<section id="pwd---print-working-directory" class="level3">
+<h3 class="anchored" data-anchor-id="pwd---print-working-directory"><span class="code">pwd</span> - print working directory</h3>
+<p><code>pwd</code> shows the directory or “folder” you are currently in.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/Users/mikejohnson/github/csu-ess-330/exercises</code></pre>
+</div>
+</div>
+</section>
+<section id="ls---list-files" class="level3">
+<h3 class="anchored" data-anchor-id="ls---list-files"><span class="code">ls</span> - list files</h3>
+<p><code>ls</code> shows the files in the current working directory. This is equivalent to looking at the files in your Finder/Explorer/File Manager. Use ls -a to also list hidden files, such as <code>.Rhistory</code> and <code>.git</code>. Here we look at all the files in current working directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1-install-r.html
+1-install-r.qmd
+2-terminal.qmd
+2-terminal.rmarkdown
+csu-css.scss
+footer-annotations.html
+header.html
+images</code></pre>
+</div>
+</div>
+</section>
+<section id="mkdir---make-a-directory" class="level3">
+<h3 class="anchored" data-anchor-id="mkdir---make-a-directory"><span class="code">mkdir</span> - make a directory</h3>
+<p><code>mkdir</code> creates a new directory (or folder) in the current working directory.</p>
+<p>If we wanted to add a directory in that path, we could do so like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my-folder</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1-install-r.html
+1-install-r.qmd
+2-terminal.qmd
+2-terminal.rmarkdown
+csu-css.scss
+footer-annotations.html
+header.html
+images
+my-folder</code></pre>
+</div>
+</div>
+<p>Notably we see our my-folder directory!</p>
+</section>
+<section id="cd---change-directory" class="level3">
+<h3 class="anchored" data-anchor-id="cd---change-directory"><span class="code">cd</span> - change directory</h3>
+<p><code>cd</code> allows you to navigate through directories by changing working directory. There are many ways to navigate:</p>
+<section id="go-to-subdirectory-of-current-working-directory" class="level4">
+<h4 class="anchored" data-anchor-id="go-to-subdirectory-of-current-working-directory">go to subdirectory of current working directory:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span> <span class="co"># start here</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my-folder</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span> <span class="co"># end here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/Users/mikejohnson/github/csu-ess-330/exercises
+/Users/mikejohnson/github/csu-ess-330/exercises/my-folder</code></pre>
+</div>
+</div>
+</section>
+<section id="go-to-parent-one-folder-up-of-current-working-directory-cd-.." class="level4">
+<h4 class="anchored" data-anchor-id="go-to-parent-one-folder-up-of-current-working-directory-cd-..">go to parent (one folder up) of current working directory: cd ..</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/Users/mikejohnson/github/csu-ess-330/exercises
+/Users/mikejohnson/github/csu-ess-330</code></pre>
+</div>
+</div>
+</section>
+<section id="go-to-your-home-directory-cd-or-simply-cd" class="level4">
+<h4 class="anchored" data-anchor-id="go-to-your-home-directory-cd-or-simply-cd">go to your “home” directory: cd ~ or simply cd</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/Users/mikejohnson/github/csu-ess-330/exercises
+/Users/mikejohnson</code></pre>
+</div>
+</div>
+</section>
+<section id="using-absolute-path-works-regardless-of-your-current-working-directory." class="level4">
+<h4 class="anchored" data-anchor-id="using-absolute-path-works-regardless-of-your-current-working-directory.">Using absolute path, works regardless of your current working directory:.</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /Users/mikejohnson/github/csu-ess-330</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/Users/mikejohnson/github/csu-ess-330/exercises
+/Users/mikejohnson/github/csu-ess-330</code></pre>
+</div>
+</div>
+<p>Windows uses a slightly different syntax with the slashes between the folder names reversed, , e.g.&nbsp;cd C:_USERNAME.</p>
+<div class="content-tip">
+<p>Pro tip 1: Dragging and dropping a file or folder into the terminal window will paste the absolute path into the window. Although this does not apply to the RStudio Terminal</p>
+</div>
+<div class="content-tip">
+<p>Pro tip 2: Use the tab key to autocomplete unambiguous directory and file names. Hit tab twice to see all ambiguous options.</p>
+</div>
+</section>
+</section>
+<section id="create-a-file" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-file">Create a file</h3>
+<p>On a MacOS or Linux machine (anything running Bash) <span class="code">touch</span> can be used to create a new file with a defined name and extension in the working directory. For example, we can create a new R file in our working directory as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> new-r-file.R</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1-install-r.html
+1-install-r.qmd
+2-terminal.qmd
+2-terminal.rmarkdown
+csu-css.scss
+footer-annotations.html
+header.html
+images
+my-folder
+new-r-file.R</code></pre>
+</div>
+</div>
+<p>On a Windows machine (anything running Powershell) <span class="code">$null &gt;</span> can be used to create a new file with a defined name and extension in the working directory. Essentially, this is piping no data (null) into a new file. For example, we can create a new R file in our working directory as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="va">$null</span> <span class="op">&gt;</span> new-r-file.R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="clear---clear-your-terminal-window" class="level3">
+<h3 class="anchored" data-anchor-id="clear---clear-your-terminal-window"><span class="code">clear</span> - clear your terminal window</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>clear</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="installing-git" class="level1">
+<h1>Installing git</h1>
+<p>Now we are going to use our terminal to find/install git. But what is git?</p>
+<p><br></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“Git is a free and open source, distributed, version control system designed to handle everything from small to very large projects with speed and efficiency.”</p>
+</div>
+</div>
+<section id="step-1.-see-if-git-is-already-installed" class="level2">
+<h2 class="anchored" data-anchor-id="step-1.-see-if-git-is-already-installed">Step 1. See if git is already installed</h2>
+<p>In your terminal, type the following (note: PC USERS type <span class="code">where git</span>) and hit <code>Enter</code>.</p>
+<p>If <code>git</code> is installed, it will return a path like below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>/usr/bin/git</code></pre>
+</div>
+</div>
+<p>You may be prompted to install git automatically – do it! If you are not automatically prompted to install, continue to Step 2 to install manually.</p>
+<p>If you have git installed, or it automatically installed, consider yourself fortunate and move to section 3. Otherwise…</p>
+</section>
+<section id="step-2-manually-install-git" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-manually-install-git">Step 2: Manually install git</h2>
+<p><span class="code">You should only have to do this if git was <strong>NOT</strong> found in Step 1 !!!</span></p>
+<section id="macos" class="level3">
+<h3 class="anchored" data-anchor-id="macos">MacOS <i class="fa fa-apple" aria-hidden="true"></i></h3>
+<p>Install the Xcode command line tools (not all of Xcode), which includes Git, by typing the following in your terminal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows <i class="fa fa-windows" aria-hidden="true"></i></h3>
+<p>Install <a href="https://gitforwindows.org/">Git for Windows</a>, also known as “Git Bash”, to get Git and some other useful tools, such as the Bash shell.</p>
+<p>‘Git for Windows’ places the Git executable in the conventional location, which will help you and other programs (like RStudio) find and use it.</p>
+<p>When asked about “Adjusting your PATH environment”, make sure to select “<em>Git from the command line and also from 3rd-party software</em>”. Otherwise, accept the defaults unless you have <strong>specific</strong> reasons not to.</p>
+<p>Once git is installed - restart RStudio and make sure that you can see the git pathway (which/where git) in the terminal. Once installed, continue to Step 3.</p>
+</section>
+</section>
+<section id="step-3-check-the-version" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-check-the-version">Step 3: Check the version</h2>
+<p>Once you have git installed, you can also type <code>git --version</code> (then press Enter) to see the version of git you have. Like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>git version 2.39.5 (Apple Git-154)</code></pre>
+</div>
+</div>
+</section>
+<section id="note-for-windows-users" class="level2">
+<h2 class="anchored" data-anchor-id="note-for-windows-users">Note for Windows Users</h2>
+<p>Git Bash is an application for Windows environments which provides an emulation layer for a Git command line experience. Bash (or zsh) is default shell on Linux and macOS. Git Bash is a package that installs Bash, some common bash utilities, and Git on a Windows operating system. To use bash in R Studio, you can change the setting in your profile by going to Tools -&gt; Global Options -&gt; Terminal</p>
+<p><img src="images/02-git-bash.png"></p>
+<p>If you change these settings, then you will be able to use the “Mac” commands above like <code>touch</code>.</p>
+</section>
+</section>
+<section id="github" class="level1">
+<h1>Github</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>GitHub provides a platform for hosting software developed using Git. It offers the version control functionality of Git, plus its own features. While Git is a <strong>command line tool</strong>, GitHub provides a Web-based graphical interface.</p>
+</div>
+</div>
+<section id="your-github" class="level2">
+<h2 class="anchored" data-anchor-id="your-github"><i class="fa fa-github" aria-hidden="true"></i> Your GitHub</h2>
+<ul>
+<li>Go to <a href="https://github.com">GitHub</a> to register an account.</li>
+<li>Choose your <code>user.name</code> and email wisely! Your user.name will appear on all websites we build, and will eventually become a “long-form” business card to advertise your work online.</li>
+<li>Both your email and <code>user.name</code> will be used in the next steps so make sure to remember them</li>
+<li>Fill in your profile information including email, location, ect and change your profile image
+<ul>
+<li>The image does <em>NOT</em> have to be a personal picture but should <em>not</em> remain the pixelated Github Avatar.</li>
+</ul></li>
+</ul>
+</section>
+<section id="finding-open-source-code" class="level2">
+<h2 class="anchored" data-anchor-id="finding-open-source-code"><i class="fa fa-search" aria-hidden="true"></i> Finding Open Source code</h2>
+<p>GitHub is full of open source code that you can use, borrow, find, etc. To find your first repository search for <code>mikejohnson51/csu-ess-330</code>. This should take you to the repository for this course!</p>
+<p><img src="images/02-class-repo.png" width="70%"></p>
+<p>In the upper right hand corner you see three options:</p>
+<ol type="1">
+<li><strong>watch</strong>: will notify you via email when changes to the repo are made</li>
+<li><strong>star</strong>: this will place the repo in your “stared” repositories making it easy to find latter</li>
+<li><strong>fork</strong>: this makes a copy of the current repo in your account that you can modify and build on.</li>
+</ol>
+<p>Watching a repo can be nice, but for a class like this - which is updated every day - the notifications will be a lot.</p>
+<p>For now, please <strong>star</strong> <code>csu-ess-330</code> so that you can easily find it and I will have easy access to your accounts (you can always “unstar” after the course).</p>
+<p>We will deal with forking repositories latter!</p>
+</section>
+<section id="telling-git-who-we-are" class="level2">
+<h2 class="anchored" data-anchor-id="telling-git-who-we-are"><i class="fa fa-user" aria-hidden="true"></i> Telling Git who we are</h2>
+<p>Now you have Git locally and you have a Github account that you’ve used to find published projects. Lets connect them…</p>
+<p>The first thing we need to do is tell git who we are. Git comes with a tool called <code>git config</code> that lets us set the configuration variables that control how Git looks and operates.</p>
+<p>In the RStudio Terminal, enter the following, where <code>YOUR NAME</code> is what you want git to know you by (this can be your user.name or real name)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">'YOUR NAME'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So what did we just do? We used the terminal to tell git (a local program) to set a global configuration variable, called user.name, to a specified value. Next, tell git the email associated with your GitHub account in the same way …</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">'Your Email Here'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When you are done, you can list your global configuration variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--list</span> <span class="at">--global</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>user.name=mikejohnson51
+user.email=mikecp11@gmail.com
+credential.helper=osxkeychain
+init.defaultbranch=main</code></pre>
+</div>
+</div>
+<p>So long as your <strong>user.name</strong> and <strong>user.email</strong> are consistent with your entries you are doing great 👍!</p>
+</section>
+<section id="githubs-local-home" class="level2">
+<h2 class="anchored" data-anchor-id="githubs-local-home"><i class="fa fa-home" aria-hidden="true"></i> GitHub’s local home</h2>
+<p>Ok the last thing! This is a matter of convenience rather the necessity but we will create a local directory on our computers to house all git-enabled projects.</p>
+<p>To do this, create a folder called <code>github</code> in the <strong>home</strong> directory of your computer. We can quickly do this by changing to our home directory (<code>cd</code>) and making a new folder (<code>mkdir</code>) called github:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> github</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="assignment" class="level1">
+<h1>Assignment</h1>
+<p>For this assignment two things must be submitted:</p>
+<ol type="1">
+<li>Screenshot of your git config global variables (e.g.)</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--list</span> <span class="at">--global</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>a URL to your github account (e.g.):</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>mikejohnson51</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Going to your link, should show something like this (image, info, and star count &gt; 1)</p>
+<p><img src="images/assignment-02.png" width="80%"></p>
+<p>These should be submitted on the Canvas dropbox.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+  Reveal.addEventListener( 'slidechanged', function( event ) {
+    console.log("hello")
+    
+    slide_id = event.currentSlide.id
+    link = "annotations" + ".html#" + slide_id
+    
+    var annotation_div = document.createElement('div')
+    annotation_div.setAttribute("class", "annotation-link")
+    
+    var notes_link = document.createElement('a')
+    notes_link.setAttribute("href", link)
+    notes_link.setAttribute("target", "_blank")
+    
+    var iii = document.createElement('i')
+    iii.setAttribute("class", "fa fa-info")
+    notes_link.appendChild(iii)
+    
+    annotation_div.appendChild(notes_link)
+    
+    var tmp = event.currentTarget.getElementsByClassName("annotation-link")
+    if (tmp.length === 1) {
+      tmp[0].remove()
+    }
+    
+    if (event.currentSlide.classList.contains("annotation")) {
+      event.currentTarget.append(annotation_div)
+    }
+  } );
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
