@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Daily Exercise 01 – ESS 330</title>
+<title>Daily Exercise 03 – ESS 330</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -167,35 +167,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-r-and-rstudio" id="toc-getting-r-and-rstudio" class="nav-link active" data-scroll-target="#getting-r-and-rstudio">Getting R and RStudio</a>
+  <li><a href="#create" id="toc-create" class="nav-link active" data-scroll-target="#create"><svg viewbox="0 0 448 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg> Create</a></li>
+  <li><a href="#connect-to-rstudio" id="toc-connect-to-rstudio" class="nav-link" data-scroll-target="#connect-to-rstudio"><svg viewbox="0 0 581 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg> Connect to RStudio</a></li>
+  <li><a href="#structure-your-project" id="toc-structure-your-project" class="nav-link" data-scroll-target="#structure-your-project"><svg viewbox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M257.981 272.971L63.638 467.314c-9.373 9.373-24.569 9.373-33.941 0L7.029 444.647c-9.357-9.357-9.375-24.522-.04-33.901L161.011 256 6.99 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L257.981 239.03c9.373 9.372 9.373 24.568 0 33.941zM640 456v-32c0-13.255-10.745-24-24-24H312c-13.255 0-24 10.745-24 24v32c0 13.255 10.745 24 24 24h304c13.255 0 24-10.745 24-24z"></path></svg> Structure your Project</a></li>
+  <li><a href="#git-workflow" id="toc-git-workflow" class="nav-link" data-scroll-target="#git-workflow"><svg viewbox="0 0 384 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z"></path></svg> Git Workflow</a></li>
+  <li><a href="#git-github" id="toc-git-github" class="nav-link" data-scroll-target="#git-github"><svg viewbox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> Git –&gt; Github</a>
   <ul class="collapse">
-  <li><a href="#macos-installation" id="toc-macos-installation" class="nav-link" data-scroll-target="#macos-installation">MacOS Installation <svg viewbox="0 0 384 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path></svg></a>
-  <ul class="collapse">
-  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r">Install R</a></li>
-  <li><a href="#installing-rstudio" id="toc-installing-rstudio" class="nav-link" data-scroll-target="#installing-rstudio">Installing RStudio</a></li>
+  <li><a href="#to-make-sure" id="toc-to-make-sure" class="nav-link" data-scroll-target="#to-make-sure">To make sure:</a></li>
   </ul></li>
-  <li><a href="#windows-installation" id="toc-windows-installation" class="nav-link" data-scroll-target="#windows-installation">Windows Installation <svg viewbox="0 0 448 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"></path></svg></a>
-  <ul class="collapse">
-  <li><a href="#installing-r" id="toc-installing-r" class="nav-link" data-scroll-target="#installing-r">Installing R</a></li>
-  <li><a href="#installing-rstudio-1" id="toc-installing-rstudio-1" class="nav-link" data-scroll-target="#installing-rstudio-1">Installing RStudio</a></li>
-  </ul></li>
-  <li><a href="#launch-rstudio" id="toc-launch-rstudio" class="nav-link" data-scroll-target="#launch-rstudio">Launch RStudio</a></li>
-  <li><a href="#installing-package" id="toc-installing-package" class="nav-link" data-scroll-target="#installing-package">Installing Package</a>
-  <ul class="collapse">
-  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">Tidyverse</a></li>
-  </ul></li>
-  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
-  </ul></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment"><svg viewbox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path></svg> Assignment</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script src="https://use.fontawesome.com/5235085b15.js"></script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Daily Exercise 01</h1>
-<p class="subtitle lead">Get R &amp; RStudio</p>
+<h1 class="title">Daily Exercise 03</h1>
+<p class="subtitle lead">Your first Project</p>
 </div>
 
 
@@ -212,175 +203,230 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<blockquote class="blockquote">
-<p>Getting all the necessary software installed, configured, and playing nicely together is half the battle when first adopting an open source, reproducable scientific workflow. These steps have become increasingly easier over the years and we are here to help you if you hit a hurdle 😄</p>
-</blockquote>
-<p>Welcome to ESS 330, <em>Quantitative Reasoning for Ecosystem Science</em>! In this course, we’ll be using <a href="https://www.r-project.org">R</a> and <a href="https://www.rstudio.com">RStudio</a> for data organization, manipulation, analysis, and visualization. You’ll become more familiar with both tools throughout the course.</p>
-<p>It’s highly recommended to install these tools on your own laptop for convenience and the following step-by-step guide will walk you through installing R and RStudio on your computer, as well as introducing a few essential tools we’ll use throughout the quarter. If you encounter any issues during the process, don’t hesitate to contact me or a teaching assistant for assistance!</p>
-<section id="do-you-already-have-r-installed" class="level4">
-<h4 class="anchored" data-anchor-id="do-you-already-have-r-installed">Do you already have R installed?</h4>
-<p>If you already have an older versions of R or RStudio it’s a good idea to check if updates are available. To check your current R version, open RStudio and type the following command in the console:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>               _                           
-platform       aarch64-apple-darwin20      
-arch           aarch64                     
-os             darwin20                    
-system         aarch64, darwin20           
-status                                     
-major          4                           
-minor          4.2                         
-year           2024                        
-month          10                          
-day            31                          
-svn rev        87279                       
-language       R                           
-version.string R version 4.4.2 (2024-10-31)
-nickname       Pile of Leaves              </code></pre>
-</div>
-</div>
-<p>To check your RStudio version, go to RStudio → About RStudio.</p>
-<p>If you don’t have at least <span style="     color: red !important;">R 4.0.XXX</span> and <span style="     color: blue !important;">RStudio 2024.X.XXX</span>. Proceed with this document.</p>
-</section>
-<section id="getting-r-and-rstudio" class="level1">
-<h1>Getting R and RStudio</h1>
-<p>R is a programming language and free software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. The R language is widely used for developing statistical software and data analysis. R also provides unparalleled opportunities for analyzing spatial data for spatial modeling.</p>
-<p>RStudio is an integrated development environment (IDE) for R. Combined the R language and RStudio IDE provide the open-source, free, toolkit for this course.</p>
-<section id="macos-installation" class="level2">
-<h2 class="anchored" data-anchor-id="macos-installation">MacOS Installation <svg viewbox="0 0 384 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path></svg></h2>
-<section id="install-r" class="level3">
-<h3 class="anchored" data-anchor-id="install-r">Install R</h3>
-<ol type="1">
-<li><a href="https://cran.r-project.org/bin/macosx/">Download</a> the latest release of R from CRAN (choose the .pkg version).</li>
-<li>Save the .pkg file and double-click it to start the installation. Follow the prompts to complete the installation.</li>
-</ol>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Know your chip
+<div class="callout-body-container">
+<p>So far you have done a LOT!! You’ve installed a programming language and IDE, you’ve mastered some terminal commands, you’ve installed a version control system, and created a GitHub Account. All in the first 2 days of class!</p>
+<p>The assignment for today is to set up your first project using the R Terminal, Github, and RStudio Projects.</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Ensure you download the correct version based on your Mac’s chip. If you’re unsure, click the apple icon in the menu bar → About This Mac, and check your chip (Intel or Apple).</p>
 </div>
-</div>
-</section>
-<section id="installing-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="installing-rstudio">Installing RStudio</h3>
+<p>For the purposes of ESS 330, the things you’ll need to do with GitHub are:</p>
 <ol type="1">
-<li><a href="https://rstudio.com/products/rstudio/download/#download">Download</a> RStudio for Mac.</li>
-<li>After downloading, double-click the <code>.dmg</code> file and move RStudio into your Applications folder.</li>
+<li>Create new GitHub repositories (INITIALIZE) and/or copy existing ones (FORK)</li>
+<li>Get that repo talking with your local R/RStudio (CLONE)</li>
+<li>Modify files on your computer</li>
+<li>Push them back to your version of the repo (STAGE/COMMIT/PUSH workflow)</li>
 </ol>
+<section id="create" class="level2">
+<h2 class="anchored" data-anchor-id="create"><svg viewbox="0 0 448 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg> Create</h2>
+<p>The first thing we want to do is create a new repository on your Github account. After logging in, look in the upper right hand corner of your account for the “+” button. Click on that and select “New repository”:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/new-repo2.png" class="img-fluid figure-img" style="width:190.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This will create a new repository and prompt a new window that looks like:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/blank-repo.png" class="img-fluid figure-img" style="width:190.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Here, we can fill in the metadata for our new repo:</p>
 <ul>
-<li>Now that R is installed, you can download and install RStudio.</li>
+<li>Let call it: <code>hello-world</code></li>
+<li>Give it an informative description: <code>My first Github Repository!</code></li>
+<li>Keep it “Public”</li>
+<li><svg viewbox="0 0 448 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg">
+<path d="M400 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm0 400H48V80h352v352zm-35.864-241.724L191.547 361.48c-4.705 4.667-12.303 4.637-16.97-.068l-90.781-91.516c-4.667-4.705-4.637-12.303.069-16.971l22.719-22.536c4.705-4.667 12.303-4.637 16.97.069l59.792 60.277 141.352-140.216c4.705-4.667 12.303-4.637 16.97.068l22.536 22.718c4.667 4.706 4.637 12.304-.068 16.971z"></path>
+</svg>
+Initialize it with a README</li>
+<li>Keep .gitignore and License as NONE</li>
+<li>Confrim “Create repository”</li>
 </ul>
+<p>Awesome! You created your own first Github Repository</p>
 </section>
-</section>
-<section id="windows-installation" class="level2">
-<h2 class="anchored" data-anchor-id="windows-installation">Windows Installation <svg viewbox="0 0 448 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"></path></svg></h2>
-<section id="installing-r" class="level3">
-<h3 class="anchored" data-anchor-id="installing-r">Installing R</h3>
+<section id="connect-to-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="connect-to-rstudio"><svg viewbox="0 0 581 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg> Connect to RStudio</h2>
+<p>We now need to ensure that RStudio can communicate with that GitHub Repository. By doing this we will be able sync our local files with a remote copy, make changes/additions, and the publish those changes back to remote repo. This “pulling” from and “pushing” to is the basic Github workflow.</p>
+<p>To practice this, lets walk through the steps of cloning a copy of the empty “hello-world” repo.</p>
 <ol type="1">
-<li><a href="https://cran.r-project.org/bin/windows/base/">Download</a> the latest version of R for Windows from CRAN.</li>
-<li>Install the downloaded <code>.exe</code> file as you would any other Windows application.</li>
+<li>first navigate to (<code>YOUR USERNAME/hello-world</code>).</li>
+<li>In a new repo, look for the quick setup option. The URL listed provides a dedicated path to the repo that RStudio can use to communicate (remember our URL based “filepaths”). Copy that link (easiest to click the clippy icon) and return to (or launch) RStudio.</li>
 </ol>
-</section>
-<section id="installing-rstudio-1" class="level3">
-<h3 class="anchored" data-anchor-id="installing-rstudio-1">Installing RStudio</h3>
-<ol type="1">
-<li><a href="https://rstudio.com/products/rstudio/download/#download">Download</a> RStudio for Windows.</li>
-<li>Run the <code>.exe</code> installer and follow the prompts to complete the installation.</li>
-</ol>
-</section>
-</section>
-<section id="launch-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="launch-rstudio">Launch RStudio</h2>
-<p>Once both R and RStudio are installed, locate and click the RStudio icon to launch the program. It should look like this:</p>
-<center>
-<img src="images/rstudio-logo.png" class="img-fluid" style="width:10.0%">
-</center>
-<p>Opening RStudio will launch a workplace. If something like the below image appears for you, then you are all set!</p>
-<p><img src="images/rstudio-panels.png" class="img-fluid"></p>
-<p>Throughout the quarter, we’ll be working extensively within this IDE. The layout and features will become more familiar as we progress. A few things to note now are:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/url-copy.png" class="img-fluid figure-img" style="width:190.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Once in RStudio, create a new version controlled project using the Github URL
 <ul>
-<li>Your session is linked to a specific project (<span style="     color: pink !important;">pink</span> box).<br>
-</li>
-<li>In the <span style="     color: blue !important;">blue</span> box, you have:
-<ul>
-<li>An <em>Environment</em> tab that shows all the active objects in your session</li>
-<li>A <em>Files</em> tab that shows all the files and folders in your default (project) workplace</li>
-<li>A <em>Plots</em> tab that will show all your graphs once we start visualizing data.</li>
+<li><code>File --&gt; New Project --&gt; Version Control --&gt; Git</code></li>
 </ul></li>
-<li>In the <span style="     color: red !important;">red</span> window you will write code and open scripts/markdown files.</li>
-<li>All output will be printed to your console (<span style="     color: gold !important;">yellow</span> box). Code and prompts can be directly entered in the console but will not be saved after executing.</li>
-</ul>
-<p>Your layout and theme may not look like the above (all the elements are the same but arranged differently). If you want to change your theme and layout got to RStudio –&gt; Preferences.</p>
-<p>Here you can adjust the “Appearance” and “Pane Layout”. If you want your to look like mine, see below:</p>
-<p><img src="images/rstudio-appearance.png" class="img-fluid" style="width:50.0%"><img src="images/rstudio-layout.png" class="img-fluid" style="width:50.0%"></p>
+<li>To provide the metadata for this project lets do the following:
+<ul>
+<li>Paste the URL you copied into the <em>Repository URL</em> section, and press TAB</li>
+<li>Keep the default <em>Project directory name</em> that matches the GitHub project</li>
+<li>Create the project as a sub directory of your <code>~/github</code> folder created in the last activity</li>
+<li>Optional: select ‘Open in new session’ (if you’re already working on stuff that you don’t want to close)</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/hello-world-rstudio.png" class="img-fluid figure-img" style="width:190.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Click create!</li>
+</ol>
+<p>Congratulations! You just created a git-enabled project. You will know you are successful if you see the Git tab somewhere in your RStudio IDE (mine is next to “History” and “Environment”).</p>
 </section>
-<section id="installing-package" class="level2">
-<h2 class="anchored" data-anchor-id="installing-package">Installing Package</h2>
-<p>R comes loaded with many base packages and tools. There are also many additional tools that will make your life easier. Throughout this class, we’ll use packages that exist in the aggregate <code>tidyverse</code> package.</p>
-<section id="tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="tidyverse">Tidyverse</h3>
-<p>The <code>tidyverse</code> contains a collection of very useful packages that play nicely together for data exploration, manipulation, wrangling and visualization (among other things). Packages can be installed from CRAN (Comprehensive R Archive Network) using the following pattern which should be typed in the console (<span style="     color: gold !important;">yellow</span> box):</p>
+<section id="structure-your-project" class="level2">
+<h2 class="anchored" data-anchor-id="structure-your-project"><svg viewbox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M257.981 272.971L63.638 467.314c-9.373 9.373-24.569 9.373-33.941 0L7.029 444.647c-9.357-9.357-9.375-24.522-.04-33.901L161.011 256 6.99 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L257.981 239.03c9.373 9.372 9.373 24.568 0 33.941zM640 456v-32c0-13.255-10.745-24-24-24H312c-13.255 0-24 10.745-24 24v32c0 13.255 10.745 24 24 24h304c13.255 0 24-10.745 24-24z"></path></svg> Structure your Project</h2>
+<p>To start out this project take what we learned today in lecture and construct a skeleton for a project. If you think carefully you should only need 4 terminal prompts. I will start you with the first:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>After you press ‘Enter,’ you should see a whole bunch of text streaming across the Console Window. This is a good sign and is simply logging what’s being downloaded/installed. This process can go on for a few minutes (the <code>tidyverse</code> has a lot of different components). You will know it’s done when the active cursor shows up again waiting for your next command.</p>
-<p>Once it’s installed, you can ensure that everything worked by loading/attaching the <code>tidyverse</code> using the library call:</p>
+<p>Using <code>cd</code> to navigate, add one <code>qmd</code> file and one <code>R</code> file in the correct directories. Use (<code>touch</code>/<code>$null &gt;</code>) to create them.</p>
+<p>Once you’ve built your skeleton, open your README.md from the RStudio file viewer and enter the following, replacing the ‘XXXX’ with your info:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter()     masks stats::filter()
-✖ dplyr::group_rows() masks kableExtra::group_rows()
-✖ dplyr::lag()        masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># My first Project</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">## **Course**: ESS 330</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">## **Name**: XXXXX</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">## **Year**: XXXXX</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">## **Major**: XXXXX</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">## **OS**: XXXXX</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How does your structure look compared to what we discussed in lecture? Do you have a place for data? What about images? Source Code? Docs?</p>
+</section>
+<section id="git-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="git-workflow"><svg viewbox="0 0 384 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M384 144c0-44.2-35.8-80-80-80s-80 35.8-80 80c0 36.4 24.3 67.1 57.5 76.8-.6 16.1-4.2 28.5-11 36.9-15.4 19.2-49.3 22.4-85.2 25.7-28.2 2.6-57.4 5.4-81.3 16.9v-144c32.5-10.2 56-40.5 56-76.3 0-44.2-35.8-80-80-80S0 35.8 0 80c0 35.8 23.5 66.1 56 76.3v199.3C23.5 365.9 0 396.2 0 432c0 44.2 35.8 80 80 80s80-35.8 80-80c0-34-21.2-63.1-51.2-74.6 3.1-5.2 7.8-9.8 14.9-13.4 16.2-8.2 40.4-10.4 66.1-12.8 42.2-3.9 90-8.4 118.2-43.4 14-17.4 21.1-39.8 21.6-67.9 31.6-10.8 54.4-40.7 54.4-75.9zM80 64c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16zm0 384c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zm224-320c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16 7.2-16 16-16z"></path></svg> Git Workflow</h2>
+<p>You know that Git is a version control software that allows us to track changes in files. You also know Github is a web platform for hosting and working with git enabled projects…</p>
+<p>Version control is kind of weird. Not only are you keeping current files, but you are keeping past versions of your files. BUT, you dont want to archive each and every little change. Instead, your versions (think snapshots) have to be determined by you, through commits.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/commit-use.png" class="img-fluid figure-img" style="width:190.0%"></p>
+</figure>
 </div>
 </div>
-<p>When you press enter, some information will come up below the command. Don’t worry too much about it now as long as there are no errors!</p>
-<p>If you got something similar to the above you’ve successfully installed <strong>R</strong>, <strong>RStudio</strong>, and the <strong>tidyverse</strong> package. Congratulations!</p>
+</div>
+<p>Armed with that idea, it is time to introduce the <code>Git tab</code> in RStudio. If you click on the Git tab, you will see all the files that have changed from the last commit.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/git-tab.png" class="img-fluid figure-img" style="width:190.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>To stage files, select the empty box (under ‘Staged’) next to each file
+<ul>
+<li>To select all files, click in the Git tab, and click CMND+SHIFT+A (Mac) or CRTL+SHIFT+A (Windows)</li>
+</ul></li>
+<li>Add your checked files by clicking Commit</li>
+<li>In the dialogue box, enter a brief commit message (e.g.&nbsp;“Initial Project Structure”) and press ‘Commit’ to stage these files to git.</li>
+</ul>
+</section>
+<section id="git-github" class="level2">
+<h2 class="anchored" data-anchor-id="git-github"><svg viewbox="0 0 496 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> Git –&gt; Github</h2>
+<p>In order to allows Github and your .git archive to talk to each other securly, you’ll need to set up a Personal Access Token (PAT). This process needs to be done very infrequently (~90 days). To do this, in your R console enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a personal access token for authentication:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will lauch a broswer were you can enter the following information:</p>
+<ul>
+<li>Describe the Use Case (e.g.&nbsp;“RStudio”)</li>
+<li>Set expire to 90 days for ease</li>
+<li>Generate Token</li>
+<li>Copy the Token and return to RStudio</li>
+</ul>
+<p>With you copied Token, enter the following function changing out “your-PAT” with the copied token:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## set personal access token:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">## If credentials is not installed, do you remember how to install a package?</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>credentials<span class="sc">::</span><span class="fu">set_github_pat</span>(<span class="st">"your-PAT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once done, you can verify the tool (github) under the scope of “user” is connected with <code>git_sitrep</code>. Specifically you should see that <code>Personal access token for "https://github.com": &lt;discovered&gt;</code> and your associated email.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">git_sitrep</span>(<span class="at">tool =</span> <span class="st">"github"</span>, <span class="at">scope =</span> <span class="st">"user"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Finally, with your Github account authorized, you can press the upward green push arrow in the Git Pane to “Push” your changes to GitHub.</p></li>
+<li><p>If you receive no errors then you successfully staged, committed and pushed your project to <code>YOUR USERNAME/hello-world</code></p></li>
+</ul>
+<section id="to-make-sure" class="level3">
+<h3 class="anchored" data-anchor-id="to-make-sure">To make sure:</h3>
+<ul>
+<li><p>Go to GitHub and refresh the repo page.</p></li>
+<li><p>You should see the files you recently committed and the associated rendered README. If this is true. You are done - Great work!</p></li>
+</ul>
 </section>
 </section>
 <section id="assignment" class="level2">
-<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
-<p>For Exercise 01, your task is to install three additional packages: <code>tidymodels</code>, <code>remotes</code>, <code>gapminder</code>, and <code>palmerpenguins</code>. Once installed, clear the console by clicking the broom icon (<svg viewbox="0 0 640 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M256.47 216.77l86.73 109.18s-16.6 102.36-76.57 150.12C206.66 523.85 0 510.19 0 510.19s3.8-23.14 11-55.43l94.62-112.17c3.97-4.7-.87-11.62-6.65-9.5l-60.4 22.09c14.44-41.66 32.72-80.04 54.6-97.47 59.97-47.76 163.3-40.94 163.3-40.94zM636.53 31.03l-19.86-25c-5.49-6.9-15.52-8.05-22.41-2.56l-232.48 177.8-34.14-42.97c-5.09-6.41-15.14-5.21-18.59 2.21l-25.33 54.55 86.73 109.18 58.8-12.45c8-1.69 11.42-11.2 6.34-17.6l-34.09-42.92 232.48-177.8c6.89-5.48 8.04-15.53 2.55-22.44z"></path></svg>) and run the following 4 lines of code:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"LOGNAME"</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>version<span class="sc">$</span>major</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">RStudio.Version</span>()<span class="sc">$</span>version</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"tidymodels"</span>, <span class="st">'remotes'</span>, <span class="st">'gapminder'</span>, <span class="st">'palmerpenguins'</span>)  <span class="sc">%in%</span> <span class="fu">rownames</span>(<span class="fu">installed.packages</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>For Exercise 01, submit a screenshot of the output to the Canvas dropbox. It should look like this:</p>
-<p><img src="images/assignment-01.png" class="img-fluid"></p>
-<p>Key points to verify include:</p>
-<ul>
-<li>Correct R version (4.x)</li>
-<li>Correct RStudio version (2024.X.XXXX)</li>
-<li>All three packages installed (4 <code>TRUE</code> values)</li>
-</ul>
-<p>Once you’ve completed this, you can close RStudio—no need to save the workspace.</p>
-<p>Nice work!</p>
+<h2 class="anchored" data-anchor-id="assignment"><svg viewbox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"> <path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path></svg> Assignment</h2>
+<p>For this assignment submit the URL to your <code>hello-world</code> repository to the Canvas dropbox.</p>
+<p>And 🎉 congrats 🎉! All the setup technical setup is done for this course and we are on to bigger and more fun things!</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
+<script>
+  Reveal.addEventListener( 'slidechanged', function( event ) {
+    console.log("hello")
+    
+    slide_id = event.currentSlide.id
+    link = "annotations" + ".html#" + slide_id
+    
+    var annotation_div = document.createElement('div')
+    annotation_div.setAttribute("class", "annotation-link")
+    
+    var notes_link = document.createElement('a')
+    notes_link.setAttribute("href", link)
+    notes_link.setAttribute("target", "_blank")
+    
+    var iii = document.createElement('i')
+    iii.setAttribute("class", "fa fa-info")
+    notes_link.appendChild(iii)
+    
+    annotation_div.appendChild(notes_link)
+    
+    var tmp = event.currentTarget.getElementsByClassName("annotation-link")
+    if (tmp.length === 1) {
+      tmp[0].remove()
+    }
+    
+    if (event.currentSlide.classList.contains("annotation")) {
+      event.currentTarget.append(annotation_div)
+    }
+  } );
+
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
