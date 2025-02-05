@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Mike Johnson">
-  <meta name="dcterms.date" content="2025-01-28">
+  <meta name="dcterms.date" content="2025-01-31">
   <title>ESS 330 – Lecture 04</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -209,14 +209,18 @@ Mike Johnson
 </div>
 </div>
 
-  <p class="date">2025-01-28</p>
+  <p class="date">2025-01-31</p>
 </section>
 <section>
 <section id="data-structures" class="title-slide slide level1 center">
 <h1>Data Structures</h1>
 
 </section>
-<h3 id="storing-more-then-one-value-requires-structure.">Storing more then one value requires structure.</h3>
+<section id="storing-more-then-one-value-requires-structure." class="slide level2">
+<h2>Storing more then one value requires structure.</h2>
+</section>
+<section id="vectors" class="slide level2">
+<h2>Vectors</h2>
 <ul>
 <li><p>Vectors come in two types: <strong>atomic</strong> and <strong>lists</strong></p></li>
 <li><p>For atomic vectors, all elements must have the same <strong>type</strong>;</p></li>
@@ -224,8 +228,10 @@ Mike Johnson
 <li><p>NULL serves as a generic zero length vector.</p></li>
 <li><p>This diagram - taken from <a href="https://adv-r.hadley.nz/vectors-chap.html">here</a> illustrates the basic relationships:</p></li>
 </ul>
-<p><img src="image/04-vec-list-01.png"></p>
-<h3 id="atomic-vectors">Atomic Vectors</h3>
+
+<img src="image/04-vec-list-01.png" class="r-stretch"></section>
+<section id="atomic-vectors" class="slide level2">
+<h2>Atomic Vectors</h2>
 <ul>
 <li><p>A vector containing one type of data is called an “atom”</p>
 <ul>
@@ -236,8 +242,20 @@ Mike Johnson
 <li><p>Collectively integer and double vectors are known as numeric vectors.</p></li>
 <li><p>Complex and raw atomic vectors are rare.</p></li>
 </ul>
-<p><img src="images/04-data-types.png" width="40%"></p>
-<p><img src="images/04-vec-list-02.png"></p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><img src="images/04-data-types.png" width="70%"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><img src="images/04-vec-list-02.png" width="70%"></p>
+</div>
+</div>
+</div>
+</section>
 <section id="atoms" class="slide level2">
 <h2>Atoms</h2>
 <div class="columns">
@@ -248,7 +266,7 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5</code></pre>
 </div>
 </div></div>
 </section>
@@ -263,8 +281,8 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"</code></pre>
 </div>
 </div></div>
 </section>
@@ -280,9 +298,9 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3</code></pre>
 </div>
 </div></div>
 </section>
@@ -300,10 +318,10 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3</code></pre>
 </div>
 </div></div>
 </section>
@@ -322,11 +340,11 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3
-[1] "integer"</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3
+#&gt; [1] "integer"</code></pre>
 </div>
 </div></div>
 </section>
@@ -346,12 +364,12 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3
-[1] "integer"
-[1] 3</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3
+#&gt; [1] "integer"
+#&gt; [1] 3</code></pre>
 </div>
 </div></div>
 </section>
@@ -373,13 +391,13 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3
-[1] "integer"
-[1] 3
-[1]  TRUE FALSE FALSE  TRUE</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3
+#&gt; [1] "integer"
+#&gt; [1] 3
+#&gt; [1]  TRUE FALSE FALSE  TRUE</code></pre>
 </div>
 </div></div>
 </section>
@@ -402,14 +420,14 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3
-[1] "integer"
-[1] 3
-[1]  TRUE FALSE FALSE  TRUE
-[1] "logical"</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3
+#&gt; [1] "integer"
+#&gt; [1] 3
+#&gt; [1]  TRUE FALSE FALSE  TRUE
+#&gt; [1] "logical"</code></pre>
 </div>
 </div></div>
 </section>
@@ -433,15 +451,15 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3
-[1] "integer"
-[1] 3
-[1]  TRUE FALSE FALSE  TRUE
-[1] "logical"
-[1] 4</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3
+#&gt; [1] "integer"
+#&gt; [1] 3
+#&gt; [1]  TRUE FALSE FALSE  TRUE
+#&gt; [1] "logical"
+#&gt; [1] 4</code></pre>
 </div>
 </div></div>
 </section>
@@ -467,16 +485,16 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3
-[1] "integer"
-[1] 3
-[1]  TRUE FALSE FALSE  TRUE
-[1] "logical"
-[1] 4
-[1] "GIS"           "is"            "Great!"        "GIS is Great!"</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3
+#&gt; [1] "integer"
+#&gt; [1] 3
+#&gt; [1]  TRUE FALSE FALSE  TRUE
+#&gt; [1] "logical"
+#&gt; [1] 4
+#&gt; [1] "GIS"           "is"            "Great!"        "GIS is Great!"</code></pre>
 </div>
 </div></div>
 </section>
@@ -503,17 +521,17 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3
-[1] "integer"
-[1] 3
-[1]  TRUE FALSE FALSE  TRUE
-[1] "logical"
-[1] 4
-[1] "GIS"           "is"            "Great!"        "GIS is Great!"
-[1] "character"</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3
+#&gt; [1] "integer"
+#&gt; [1] 3
+#&gt; [1]  TRUE FALSE FALSE  TRUE
+#&gt; [1] "logical"
+#&gt; [1] 4
+#&gt; [1] "GIS"           "is"            "Great!"        "GIS is Great!"
+#&gt; [1] "character"</code></pre>
 </div>
 </div></div>
 </section>
@@ -541,18 +559,18 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1.9 2.0 3.5
-[1] "double"
-[1] 3
-[1]  1 17  3
-[1] "integer"
-[1] 3
-[1]  TRUE FALSE FALSE  TRUE
-[1] "logical"
-[1] 4
-[1] "GIS"           "is"            "Great!"        "GIS is Great!"
-[1] "character"
-[1] 4</code></pre>
+<pre><code>#&gt; [1] 1.9 2.0 3.5
+#&gt; [1] "double"
+#&gt; [1] 3
+#&gt; [1]  1 17  3
+#&gt; [1] "integer"
+#&gt; [1] 3
+#&gt; [1]  TRUE FALSE FALSE  TRUE
+#&gt; [1] "logical"
+#&gt; [1] 4
+#&gt; [1] "GIS"           "is"            "Great!"        "GIS is Great!"
+#&gt; [1] "character"
+#&gt; [1] 4</code></pre>
 </div>
 </div></div>
 </section>
@@ -573,7 +591,7 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  5  6  7  8 NA</code></pre>
+<pre><code>#&gt; [1]  5  6  7  8 NA</code></pre>
 </div>
 </div></div>
 </section>
@@ -587,8 +605,8 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  5  6  7  8 NA
-[1] NA</code></pre>
+<pre><code>#&gt; [1]  5  6  7  8 NA
+#&gt; [1] NA</code></pre>
 </div>
 </div></div>
 </section>
@@ -603,9 +621,9 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  5  6  7  8 NA
-[1] NA
-[1] 6.5</code></pre>
+<pre><code>#&gt; [1]  5  6  7  8 NA
+#&gt; [1] NA
+#&gt; [1] 6.5</code></pre>
 </div>
 </div></div>
 </section>
@@ -622,9 +640,9 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  5  6  7  8 NA
-[1] NA
-[1] 6.5</code></pre>
+<pre><code>#&gt; [1]  5  6  7  8 NA
+#&gt; [1] NA
+#&gt; [1] 6.5</code></pre>
 </div>
 </div></div>
 </section>
@@ -642,10 +660,10 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  5  6  7  8 NA
-[1] NA
-[1] 6.5
-[1] NA NA NA NA</code></pre>
+<pre><code>#&gt; [1]  5  6  7  8 NA
+#&gt; [1] NA
+#&gt; [1] 6.5
+#&gt; [1] NA NA NA NA</code></pre>
 </div>
 </div></div>
 </section>
@@ -665,11 +683,11 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  5  6  7  8 NA
-[1] NA
-[1] 6.5
-[1] NA NA NA NA
-[1]  TRUE FALSE  TRUE FALSE</code></pre>
+<pre><code>#&gt; [1]  5  6  7  8 NA
+#&gt; [1] NA
+#&gt; [1] 6.5
+#&gt; [1] NA NA NA NA
+#&gt; [1]  TRUE FALSE  TRUE FALSE</code></pre>
 </div>
 </div></div>
 </section>
@@ -694,7 +712,7 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "a" "1"</code></pre>
+<pre><code>#&gt; [1] "a" "1"</code></pre>
 </div>
 </div></div>
 </section>
@@ -709,8 +727,8 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "a" "1"
-[1] "a"    "TRUE"</code></pre>
+<pre><code>#&gt; [1] "a" "1"
+#&gt; [1] "a"    "TRUE"</code></pre>
 </div>
 </div></div>
 </section>
@@ -727,9 +745,9 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "a" "1"
-[1] "a"    "TRUE"
-[1] 4.5 1.0</code></pre>
+<pre><code>#&gt; [1] "a" "1"
+#&gt; [1] "a"    "TRUE"
+#&gt; [1] 4.5 1.0</code></pre>
 </div>
 </div></div>
 </section>
@@ -748,10 +766,10 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "a" "1"
-[1] "a"    "TRUE"
-[1] 4.5 1.0
-[1] "1"   "18"  "GIS"</code></pre>
+<pre><code>#&gt; [1] "a" "1"
+#&gt; [1] "a"    "TRUE"
+#&gt; [1] 4.5 1.0
+#&gt; [1] "1"   "18"  "GIS"</code></pre>
 </div>
 </div></div>
 </section>
@@ -772,11 +790,11 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "a" "1"
-[1] "a"    "TRUE"
-[1] 4.5 1.0
-[1] "1"   "18"  "GIS"
-[1]  1 18 NA</code></pre>
+<pre><code>#&gt; [1] "a" "1"
+#&gt; [1] "a"    "TRUE"
+#&gt; [1] 4.5 1.0
+#&gt; [1] "1"   "18"  "GIS"
+#&gt; [1]  1 18 NA</code></pre>
 </div>
 </div></div>
 </section>
@@ -799,39 +817,39 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "a" "1"
-[1] "a"    "TRUE"
-[1] 4.5 1.0
-[1] "1"   "18"  "GIS"
-[1]  1 18 NA
-[1] NA NA NA</code></pre>
+<pre><code>#&gt; [1] "a" "1"
+#&gt; [1] "a"    "TRUE"
+#&gt; [1] 4.5 1.0
+#&gt; [1] "1"   "18"  "GIS"
+#&gt; [1]  1 18 NA
+#&gt; [1] NA NA NA</code></pre>
 </div>
 </div></div>
 </section>
 <section id="names" class="slide level2">
 <h2>Names</h2>
 <ul>
-<li><p>In addition to naming the object, you can name elements making the “referancable”</p></li>
+<li><p>In addition to naming the object, you can name elements making the “referenceable”</p></li>
 <li><p>names should be unique, and non-missing</p></li>
 </ul>
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>(x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">2</span>, <span class="at">c =</span> <span class="dv">3</span>))</span>
-<span id="cb49-2"><a></a>a b c </span>
-<span id="cb49-3"><a></a><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> </span>
+<span id="cb49-2"><a></a><span class="co">#&gt; a b c </span></span>
+<span id="cb49-3"><a></a><span class="co">#&gt; 1 2 3</span></span>
 <span id="cb49-4"><a></a></span>
 <span id="cb49-5"><a></a><span class="co"># Using the attribute names()</span></span>
 <span id="cb49-6"><a></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"d"</span>, <span class="st">"e"</span>, <span class="st">"f"</span>)</span>
 <span id="cb49-7"><a></a><span class="fu">names</span>(x)</span>
-<span id="cb49-8"><a></a>[<span class="dv">1</span>] <span class="st">"d"</span> <span class="st">"e"</span> <span class="st">"f"</span></span>
+<span id="cb49-8"><a></a><span class="co">#&gt; [1] "d" "e" "f"</span></span>
 <span id="cb49-9"><a></a>x</span>
-<span id="cb49-10"><a></a>d e f </span>
-<span id="cb49-11"><a></a><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> </span>
+<span id="cb49-10"><a></a><span class="co">#&gt; d e f </span></span>
+<span id="cb49-11"><a></a><span class="co">#&gt; 1 2 3</span></span>
 <span id="cb49-12"><a></a></span>
 <span id="cb49-13"><a></a><span class="co"># With the function setNames():</span></span>
 <span id="cb49-14"><a></a>(x <span class="ot">&lt;-</span> <span class="fu">setNames</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="st">"g"</span>, <span class="st">"h"</span>, <span class="st">"i"</span>)))</span>
-<span id="cb49-15"><a></a>g h i </span>
-<span id="cb49-16"><a></a><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-15"><a></a><span class="co">#&gt; g h i </span></span>
+<span id="cb49-16"><a></a><span class="co">#&gt; 1 2 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -861,10 +879,10 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9</code></pre>
 </div>
 </div></div>
 </section>
@@ -881,14 +899,14 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    4    5    6
-[3,]    7    8    9</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    2    3
+#&gt; [2,]    4    5    6
+#&gt; [3,]    7    8    9</code></pre>
 </div>
 </div></div>
 </section>
@@ -908,15 +926,15 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    4    5    6
-[3,]    7    8    9
-[1] 3 3</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    2    3
+#&gt; [2,]    4    5    6
+#&gt; [3,]    7    8    9
+#&gt; [1] 3 3</code></pre>
 </div>
 </div></div>
 </section>
@@ -939,15 +957,15 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    4    5    6
-[3,]    7    8    9
-[1] 3 3</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    2    3
+#&gt; [2,]    4    5    6
+#&gt; [3,]    7    8    9
+#&gt; [1] 3 3</code></pre>
 </div>
 </div></div>
 </section>
@@ -972,19 +990,19 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    4    5    6
-[3,]    7    8    9
-[1] 3 3
-     A B C
-[1,] 1 2 3
-[2,] 4 5 6
-[3,] 7 8 9</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    2    3
+#&gt; [2,]    4    5    6
+#&gt; [3,]    7    8    9
+#&gt; [1] 3 3
+#&gt;      A B C
+#&gt; [1,] 1 2 3
+#&gt; [2,] 4 5 6
+#&gt; [3,] 7 8 9</code></pre>
 </div>
 </div></div>
 </section>
@@ -1003,19 +1021,19 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>, , 1
-
-     [,1] [,2]
-[1,]    1    4
-[2,]    2    5
-[3,]    3    6
-
-, , 2
-
-     [,1] [,2]
-[1,]    7   10
-[2,]    8   11
-[3,]    9   12</code></pre>
+<pre><code>#&gt; , , 1
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    4
+#&gt; [2,]    2    5
+#&gt; [3,]    3    6
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    7   10
+#&gt; [2,]    8   11
+#&gt; [3,]    9   12</code></pre>
 </div>
 </div></div>
 </section>
@@ -1030,30 +1048,30 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>, , 1
-
-     [,1] [,2]
-[1,]    1    4
-[2,]    2    5
-[3,]    3    6
-
-, , 2
-
-     [,1] [,2]
-[1,]    7   10
-[2,]    8   11
-[3,]    9   12
-, , 1
-
-     [,1] [,2] [,3]
-[1,]    1    3    5
-[2,]    2    4    6
-
-, , 2
-
-     [,1] [,2] [,3]
-[1,]    7    9   11
-[2,]    8   10   12</code></pre>
+<pre><code>#&gt; , , 1
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    4
+#&gt; [2,]    2    5
+#&gt; [3,]    3    6
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    7   10
+#&gt; [2,]    8   11
+#&gt; [3,]    9   12
+#&gt; , , 1
+#&gt; 
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    3    5
+#&gt; [2,]    2    4    6
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    7    9   11
+#&gt; [2,]    8   10   12</code></pre>
 </div>
 </div></div>
 <ul>
@@ -1063,16 +1081,16 @@ Mike Johnson
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a></a><span class="fu">str</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))                   <span class="co"># 1d vector</span></span>
-<span id="cb64-2"><a></a> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></span>
+<span id="cb64-2"><a></a><span class="co">#&gt;  int [1:3] 1 2 3</span></span>
 <span id="cb64-3"><a></a></span>
 <span id="cb64-4"><a></a><span class="fu">str</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">1</span>))   <span class="co"># column vector</span></span>
-<span id="cb64-5"><a></a> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></span>
+<span id="cb64-5"><a></a><span class="co">#&gt;  int [1:3, 1] 1 2 3</span></span>
 <span id="cb64-6"><a></a></span>
 <span id="cb64-7"><a></a><span class="fu">str</span>(<span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">1</span>))   <span class="co"># row vector</span></span>
-<span id="cb64-8"><a></a> int [<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></span>
+<span id="cb64-8"><a></a><span class="co">#&gt;  int [1, 1:3] 1 2 3</span></span>
 <span id="cb64-9"><a></a></span>
 <span id="cb64-10"><a></a><span class="fu">str</span>(<span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">3</span>))           <span class="co"># "array" vector</span></span>
-<span id="cb64-11"><a></a> int [<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>(<span class="dv">1</span>d)] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb64-11"><a></a><span class="co">#&gt;  int [1:3(1d)] 1 2 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="lists" class="slide level2">
@@ -1087,37 +1105,36 @@ Mike Johnson
 <span id="cb65-4"><a></a>  <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>), </span>
 <span id="cb65-5"><a></a>  <span class="fu">c</span>(<span class="fl">2.3</span>, <span class="fl">5.9</span>)</span>
 <span id="cb65-6"><a></a>))</span>
-<span id="cb65-7"><a></a>[[<span class="dv">1</span>]]</span>
-<span id="cb65-8"><a></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
-<span id="cb65-9"><a></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span></span>
-<span id="cb65-10"><a></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span></span>
-<span id="cb65-11"><a></a></span>
-<span id="cb65-12"><a></a>[[<span class="dv">2</span>]]</span>
-<span id="cb65-13"><a></a>[<span class="dv">1</span>] <span class="st">"GIS is great!"</span></span>
-<span id="cb65-14"><a></a></span>
-<span id="cb65-15"><a></a>[[<span class="dv">3</span>]]</span>
-<span id="cb65-16"><a></a>[<span class="dv">1</span>]  <span class="cn">TRUE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span></span>
-<span id="cb65-17"><a></a></span>
-<span id="cb65-18"><a></a>[[<span class="dv">4</span>]]</span>
-<span id="cb65-19"><a></a>[<span class="dv">1</span>] <span class="fl">2.3</span> <span class="fl">5.9</span></span>
+<span id="cb65-7"><a></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb65-8"><a></a><span class="co">#&gt;      [,1] [,2]</span></span>
+<span id="cb65-9"><a></a><span class="co">#&gt; [1,]    1    3</span></span>
+<span id="cb65-10"><a></a><span class="co">#&gt; [2,]    2    4</span></span>
+<span id="cb65-11"><a></a><span class="co">#&gt; </span></span>
+<span id="cb65-12"><a></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb65-13"><a></a><span class="co">#&gt; [1] "GIS is great!"</span></span>
+<span id="cb65-14"><a></a><span class="co">#&gt; </span></span>
+<span id="cb65-15"><a></a><span class="co">#&gt; [[3]]</span></span>
+<span id="cb65-16"><a></a><span class="co">#&gt; [1]  TRUE FALSE  TRUE</span></span>
+<span id="cb65-17"><a></a><span class="co">#&gt; </span></span>
+<span id="cb65-18"><a></a><span class="co">#&gt; [[4]]</span></span>
+<span id="cb65-19"><a></a><span class="co">#&gt; [1] 2.3 5.9</span></span>
 <span id="cb65-20"><a></a></span>
 <span id="cb65-21"><a></a><span class="fu">typeof</span>(my_list)</span>
-<span id="cb65-22"><a></a>[<span class="dv">1</span>] <span class="st">"list"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb65-22"><a></a><span class="co">#&gt; [1] "list"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
-<section>
-<section id="lists-can-be-recursive" class="title-slide slide level1 center">
-<h1>Lists can be recursive</h1>
+</section>
+<section id="lists-can-be-recursive" class="slide level2">
+<h2>Lists can be recursive</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a></a>(<span class="at">list_list =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="st">"hi"</span>)))</span>
-<span id="cb66-2"><a></a>[[<span class="dv">1</span>]]</span>
-<span id="cb66-3"><a></a>[[<span class="dv">1</span>]][[<span class="dv">1</span>]]</span>
-<span id="cb66-4"><a></a>[<span class="dv">1</span>] <span class="st">"hi"</span></span>
+<span id="cb66-2"><a></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb66-3"><a></a><span class="co">#&gt; [[1]][[1]]</span></span>
+<span id="cb66-4"><a></a><span class="co">#&gt; [1] "hi"</span></span>
 <span id="cb66-5"><a></a></span>
 <span id="cb66-6"><a></a><span class="fu">str</span>(list_list)</span>
-<span id="cb66-7"><a></a>List of <span class="dv">1</span></span>
-<span id="cb66-8"><a></a> <span class="sc">$</span> <span class="er">:</span>List of <span class="dv">1</span></span>
-<span id="cb66-9"><a></a>  ..<span class="sc">$</span> <span class="er">:</span> chr <span class="st">"hi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb66-7"><a></a><span class="co">#&gt; List of 1</span></span>
+<span id="cb66-8"><a></a><span class="co">#&gt;  $ :List of 1</span></span>
+<span id="cb66-9"><a></a><span class="co">#&gt;   ..$ : chr "hi"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-frames" class="slide level2">
@@ -1156,7 +1173,7 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "list"</code></pre>
+<pre><code>#&gt; [1] "list"</code></pre>
 </div>
 </div></div>
 </section>
@@ -1174,15 +1191,15 @@ Mike Johnson
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "list"
-$names
-[1] "name"    "age"     "retired"
-
-$class
-[1] "data.frame"
-
-$row.names
-[1] 1 2 3</code></pre>
+<pre><code>#&gt; [1] "list"
+#&gt; $names
+#&gt; [1] "name"    "age"     "retired"
+#&gt; 
+#&gt; $class
+#&gt; [1] "data.frame"
+#&gt; 
+#&gt; $row.names
+#&gt; [1] 1 2 3</code></pre>
 </div>
 </div></div>
 </section>
@@ -1201,19 +1218,19 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] "list"
-$names
-[1] "name"    "age"     "retired"
-
-$class
-[1] "data.frame"
-
-$row.names
-[1] 1 2 3
-'data.frame':   3 obs. of  3 variables:
- $ name   : chr  "George" "Stan" "Carly"
- $ age    : num  75 15 31
- $ retired: logi  TRUE FALSE FALSE</code></pre>
+<pre><code>#&gt; [1] "list"
+#&gt; $names
+#&gt; [1] "name"    "age"     "retired"
+#&gt; 
+#&gt; $class
+#&gt; [1] "data.frame"
+#&gt; 
+#&gt; $row.names
+#&gt; [1] 1 2 3
+#&gt; 'data.frame':    3 obs. of  3 variables:
+#&gt;  $ name   : chr  "George" "Stan" "Carly"
+#&gt;  $ age    : num  75 15 31
+#&gt;  $ retired: logi  TRUE FALSE FALSE</code></pre>
 </div>
 </div></div>
 </section>
@@ -1226,7 +1243,7 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1 2 3 4</code></pre>
+<pre><code>#&gt; [1] 1 2 3 4</code></pre>
 </div>
 </div></div>
 </section>
@@ -1242,8 +1259,8 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1 2 3 4
-[1] "red"   "white" "green" NA     </code></pre>
+<pre><code>#&gt; [1] 1 2 3 4
+#&gt; [1] "red"   "white" "green" NA</code></pre>
 </div>
 </div></div>
 </section>
@@ -1262,9 +1279,9 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1 2 3 4
-[1] "red"   "white" "green" NA     
-[1]  TRUE  TRUE  TRUE FALSE</code></pre>
+<pre><code>#&gt; [1] 1 2 3 4
+#&gt; [1] "red"   "white" "green" NA
+#&gt; [1]  TRUE  TRUE  TRUE FALSE</code></pre>
 </div>
 </div></div>
 </section>
@@ -1285,14 +1302,14 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1] 1 2 3 4
-[1] "red"   "white" "green" NA     
-[1]  TRUE  TRUE  TRUE FALSE
-  num color boolean
-1   1   red    TRUE
-2   2 white    TRUE
-3   3 green    TRUE
-4   4  &lt;NA&gt;   FALSE</code></pre>
+<pre><code>#&gt; [1] 1 2 3 4
+#&gt; [1] "red"   "white" "green" NA
+#&gt; [1]  TRUE  TRUE  TRUE FALSE
+#&gt;   num color boolean
+#&gt; 1   1   red    TRUE
+#&gt; 2   2 white    TRUE
+#&gt; 3   3 green    TRUE
+#&gt; 4   4  &lt;NA&gt;   FALSE</code></pre>
 </div>
 </div></div>
 </section>
@@ -1310,13 +1327,13 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 4 × 3
-    num color boolean
-  &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  
-1     1 red   TRUE   
-2     2 white TRUE   
-3     3 green TRUE   
-4     4 &lt;NA&gt;  FALSE  </code></pre>
+<pre><code>#&gt; # A tibble: 4 × 3
+#&gt;     num color boolean
+#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  
+#&gt; 1     1 red   TRUE   
+#&gt; 2     2 white TRUE   
+#&gt; 3     3 green TRUE   
+#&gt; 4     4 &lt;NA&gt;  FALSE</code></pre>
 </div>
 </div></div>
 </section>
@@ -1332,14 +1349,14 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 4 × 3
-    num color boolean
-  &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  
-1     1 red   TRUE   
-2     2 white TRUE   
-3     3 green TRUE   
-4     4 &lt;NA&gt;  FALSE  
-[1] "tbl_df"     "tbl"        "data.frame"</code></pre>
+<pre><code>#&gt; # A tibble: 4 × 3
+#&gt;     num color boolean
+#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  
+#&gt; 1     1 red   TRUE   
+#&gt; 2     2 white TRUE   
+#&gt; 3     3 green TRUE   
+#&gt; 4     4 &lt;NA&gt;  FALSE
+#&gt; [1] "tbl_df"     "tbl"        "data.frame"</code></pre>
 </div>
 </div></div>
 </section>
@@ -1356,15 +1373,15 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 4 × 3
-    num color boolean
-  &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  
-1     1 red   TRUE   
-2     2 white TRUE   
-3     3 green TRUE   
-4     4 &lt;NA&gt;  FALSE  
-[1] "tbl_df"     "tbl"        "data.frame"
-[1] "list"</code></pre>
+<pre><code>#&gt; # A tibble: 4 × 3
+#&gt;     num color boolean
+#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  
+#&gt; 1     1 red   TRUE   
+#&gt; 2     2 white TRUE   
+#&gt; 3     3 green TRUE   
+#&gt; 4     4 &lt;NA&gt;  FALSE
+#&gt; [1] "tbl_df"     "tbl"        "data.frame"
+#&gt; [1] "list"</code></pre>
 </div>
 </div></div>
 </section>
@@ -1384,26 +1401,25 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 4 × 3
-    num color boolean
-  &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  
-1     1 red   TRUE   
-2     2 white TRUE   
-3     3 green TRUE   
-4     4 &lt;NA&gt;  FALSE  
-[1] "tbl_df"     "tbl"        "data.frame"
-[1] "list"
-  num color boolean
-1   1   red    TRUE
-2   2 white    TRUE
-3   3 green    TRUE
-4   4  &lt;NA&gt;   FALSE</code></pre>
+<pre><code>#&gt; # A tibble: 4 × 3
+#&gt;     num color boolean
+#&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;  
+#&gt; 1     1 red   TRUE   
+#&gt; 2     2 white TRUE   
+#&gt; 3     3 green TRUE   
+#&gt; 4     4 &lt;NA&gt;  FALSE
+#&gt; [1] "tbl_df"     "tbl"        "data.frame"
+#&gt; [1] "list"
+#&gt;   num color boolean
+#&gt; 1   1   red    TRUE
+#&gt; 2   2 white    TRUE
+#&gt; 3   3 green    TRUE
+#&gt; 4   4  &lt;NA&gt;   FALSE</code></pre>
 </div>
 </div></div>
-</section></section>
-<section>
-<section id="subsetting" class="title-slide slide level1 center">
-<h1>Subsetting</h1>
+</section>
+<section id="subsetting" class="slide level2">
+<h2>Subsetting</h2>
 <ul>
 <li>R’s subsetting operators are <strong>fast</strong> and powerful.</li>
 <li>Subsetting in R is easy to learn but hard to master.</li>
@@ -1422,7 +1438,7 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6</code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6</code></pre>
 </div>
 </div></div>
 </section>
@@ -1438,8 +1454,8 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6
-[1] 18</code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6
+#&gt; [1] 18</code></pre>
 </div>
 </div></div>
 </section>
@@ -1457,9 +1473,9 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6
-[1] 18
-[1] 18.0  9.6</code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6
+#&gt; [1] 18
+#&gt; [1] 18.0  9.6</code></pre>
 </div>
 </div></div>
 </section>
@@ -1479,10 +1495,10 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6
-[1] 18
-[1] 18.0  9.6
-[1] 3.4 7.0 9.6</code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6
+#&gt; [1] 18
+#&gt; [1] 18.0  9.6
+#&gt; [1] 3.4 7.0 9.6</code></pre>
 </div>
 </div></div>
 </section>
@@ -1504,11 +1520,11 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6
-[1] 18
-[1] 18.0  9.6
-[1] 3.4 7.0 9.6
-[1] 3.4 7.0</code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6
+#&gt; [1] 18
+#&gt; [1] 18.0  9.6
+#&gt; [1] 3.4 7.0 9.6
+#&gt; [1] 3.4 7.0</code></pre>
 </div>
 </div></div>
 </section>
@@ -1532,11 +1548,11 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6
-[1] 18
-[1] 18.0  9.6
-[1] 3.4 7.0 9.6
-[1] 3.4 7.0</code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6
+#&gt; [1] 18
+#&gt; [1] 18.0  9.6
+#&gt; [1] 3.4 7.0 9.6
+#&gt; [1] 3.4 7.0</code></pre>
 </div>
 </div></div>
 </section>
@@ -1562,13 +1578,13 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6
-[1] 18
-[1] 18.0  9.6
-[1] 3.4 7.0 9.6
-[1] 3.4 7.0
-  A 
-3.4 </code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6
+#&gt; [1] 18
+#&gt; [1] 18.0  9.6
+#&gt; [1] 3.4 7.0 9.6
+#&gt; [1] 3.4 7.0
+#&gt;   A 
+#&gt; 3.4</code></pre>
 </div>
 </div></div>
 </section>
@@ -1595,15 +1611,15 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6
-[1] 18
-[1] 18.0  9.6
-[1] 3.4 7.0 9.6
-[1] 3.4 7.0
-  A 
-3.4 
-   A    C 
- 3.4 18.0 </code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6
+#&gt; [1] 18
+#&gt; [1] 18.0  9.6
+#&gt; [1] 3.4 7.0 9.6
+#&gt; [1] 3.4 7.0
+#&gt;   A 
+#&gt; 3.4
+#&gt;    A    C 
+#&gt;  3.4 18.0</code></pre>
 </div>
 </div></div>
 </section>
@@ -1631,17 +1647,17 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>[1]  3.4  7.0 18.0  9.6
-[1] 18
-[1] 18.0  9.6
-[1] 3.4 7.0 9.6
-[1] 3.4 7.0
-  A 
-3.4 
-   A    C 
- 3.4 18.0 
-  A   A 
-3.4 3.4 </code></pre>
+<pre><code>#&gt; [1]  3.4  7.0 18.0  9.6
+#&gt; [1] 18
+#&gt; [1] 18.0  9.6
+#&gt; [1] 3.4 7.0 9.6
+#&gt; [1] 3.4 7.0
+#&gt;   A 
+#&gt; 3.4
+#&gt;    A    C 
+#&gt;  3.4 18.0
+#&gt;   A   A 
+#&gt; 3.4 3.4</code></pre>
 </div>
 </div></div>
 </section>
@@ -1655,10 +1671,10 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9</code></pre>
 </div>
 </div></div>
 </section>
@@ -1674,11 +1690,11 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-[1] 3 6 9</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt; [1] 3 6 9</code></pre>
 </div>
 </div></div>
 </section>
@@ -1695,12 +1711,12 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-[1] 3 6 9
-[1] 7 8 9</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt; [1] 3 6 9
+#&gt; [1] 7 8 9</code></pre>
 </div>
 </div></div>
 </section>
@@ -1718,13 +1734,13 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-[1] 3 6 9
-[1] 7 8 9
-[1] 9</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt; [1] 3 6 9
+#&gt; [1] 7 8 9
+#&gt; [1] 9</code></pre>
 </div>
 </div></div>
 </section>
@@ -1743,16 +1759,16 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-[1] 3 6 9
-[1] 7 8 9
-[1] 9
-     [,1] [,2]
-[1,]    1    4
-[2,]    2    5</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt; [1] 3 6 9
+#&gt; [1] 7 8 9
+#&gt; [1] 9
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    4
+#&gt; [2,]    2    5</code></pre>
 </div>
 </div></div>
 </section>
@@ -1772,19 +1788,19 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-[1] 3 6 9
-[1] 7 8 9
-[1] 9
-     [,1] [,2]
-[1,]    1    4
-[2,]    2    5
-     [,1] [,2] [,3]
-[1,]    2    5    8
-[2,]    3    6    9</code></pre>
+<pre><code>#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    4    7
+#&gt; [2,]    2    5    8
+#&gt; [3,]    3    6    9
+#&gt; [1] 3 6 9
+#&gt; [1] 7 8 9
+#&gt; [1] 9
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    4
+#&gt; [2,]    2    5
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    2    5    8
+#&gt; [2,]    3    6    9</code></pre>
 </div>
 </div></div>
 </section>
@@ -1797,23 +1813,23 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>, , 1
-
-     [,1] [,2]
-[1,]    1    3
-[2,]    2    4
-
-, , 2
-
-     [,1] [,2]
-[1,]    5    7
-[2,]    6    8
-
-, , 3
-
-     [,1] [,2]
-[1,]    9   11
-[2,]   10   12</code></pre>
+<pre><code>#&gt; , , 1
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    3
+#&gt; [2,]    2    4
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    5    7
+#&gt; [2,]    6    8
+#&gt; 
+#&gt; , , 3
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    9   11
+#&gt; [2,]   10   12</code></pre>
 </div>
 </div></div>
 </section>
@@ -1828,26 +1844,26 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>, , 1
-
-     [,1] [,2]
-[1,]    1    3
-[2,]    2    4
-
-, , 2
-
-     [,1] [,2]
-[1,]    5    7
-[2,]    6    8
-
-, , 3
-
-     [,1] [,2]
-[1,]    9   11
-[2,]   10   12
-     [,1] [,2] [,3]
-[1,]    1    5    9
-[2,]    3    7   11</code></pre>
+<pre><code>#&gt; , , 1
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    3
+#&gt; [2,]    2    4
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    5    7
+#&gt; [2,]    6    8
+#&gt; 
+#&gt; , , 3
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    9   11
+#&gt; [2,]   10   12
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    5    9
+#&gt; [2,]    3    7   11</code></pre>
 </div>
 </div></div>
 </section>
@@ -1863,29 +1879,29 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>, , 1
-
-     [,1] [,2]
-[1,]    1    3
-[2,]    2    4
-
-, , 2
-
-     [,1] [,2]
-[1,]    5    7
-[2,]    6    8
-
-, , 3
-
-     [,1] [,2]
-[1,]    9   11
-[2,]   10   12
-     [,1] [,2] [,3]
-[1,]    1    5    9
-[2,]    3    7   11
-     [,1] [,2] [,3]
-[1,]    1    5    9
-[2,]    2    6   10</code></pre>
+<pre><code>#&gt; , , 1
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    3
+#&gt; [2,]    2    4
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    5    7
+#&gt; [2,]    6    8
+#&gt; 
+#&gt; , , 3
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    9   11
+#&gt; [2,]   10   12
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    5    9
+#&gt; [2,]    3    7   11
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    5    9
+#&gt; [2,]    2    6   10</code></pre>
 </div>
 </div></div>
 </section>
@@ -1902,32 +1918,32 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>, , 1
-
-     [,1] [,2]
-[1,]    1    3
-[2,]    2    4
-
-, , 2
-
-     [,1] [,2]
-[1,]    5    7
-[2,]    6    8
-
-, , 3
-
-     [,1] [,2]
-[1,]    9   11
-[2,]   10   12
-     [,1] [,2] [,3]
-[1,]    1    5    9
-[2,]    3    7   11
-     [,1] [,2] [,3]
-[1,]    1    5    9
-[2,]    2    6   10
-     [,1] [,2]
-[1,]    1    3
-[2,]    2    4</code></pre>
+<pre><code>#&gt; , , 1
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    3
+#&gt; [2,]    2    4
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    5    7
+#&gt; [2,]    6    8
+#&gt; 
+#&gt; , , 3
+#&gt; 
+#&gt;      [,1] [,2]
+#&gt; [1,]    9   11
+#&gt; [2,]   10   12
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    5    9
+#&gt; [2,]    3    7   11
+#&gt;      [,1] [,2] [,3]
+#&gt; [1,]    1    5    9
+#&gt; [2,]    2    6   10
+#&gt;      [,1] [,2]
+#&gt; [1,]    1    3
+#&gt; [2,]    2    4</code></pre>
 </div>
 </div></div>
 </section>
@@ -1943,14 +1959,14 @@ $row.names
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>$name
-[1] "George" "Stan"   "Carly" 
-
-$age
-[1] 75 15 31
-
-$retired
-[1]  TRUE FALSE FALSE</code></pre>
+<pre><code>#&gt; $name
+#&gt; [1] "George" "Stan"   "Carly" 
+#&gt; 
+#&gt; $age
+#&gt; [1] 75 15 31
+#&gt; 
+#&gt; $retired
+#&gt; [1]  TRUE FALSE FALSE</code></pre>
 </div>
 </div></div>
 </section>
@@ -1967,15 +1983,15 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>$name
-[1] "George" "Stan"   "Carly" 
-
-$age
-[1] 75 15 31
-
-$retired
-[1]  TRUE FALSE FALSE
-[1] "George" "Stan"   "Carly" </code></pre>
+<pre><code>#&gt; $name
+#&gt; [1] "George" "Stan"   "Carly" 
+#&gt; 
+#&gt; $age
+#&gt; [1] 75 15 31
+#&gt; 
+#&gt; $retired
+#&gt; [1]  TRUE FALSE FALSE
+#&gt; [1] "George" "Stan"   "Carly"</code></pre>
 </div>
 </div></div>
 </section>
@@ -1993,16 +2009,16 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>$name
-[1] "George" "Stan"   "Carly" 
-
-$age
-[1] 75 15 31
-
-$retired
-[1]  TRUE FALSE FALSE
-[1] "George" "Stan"   "Carly" 
-[1] "George"</code></pre>
+<pre><code>#&gt; $name
+#&gt; [1] "George" "Stan"   "Carly" 
+#&gt; 
+#&gt; $age
+#&gt; [1] 75 15 31
+#&gt; 
+#&gt; $retired
+#&gt; [1]  TRUE FALSE FALSE
+#&gt; [1] "George" "Stan"   "Carly"
+#&gt; [1] "George"</code></pre>
 </div>
 </div></div>
 </section>
@@ -2022,17 +2038,17 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>$name
-[1] "George" "Stan"   "Carly" 
-
-$age
-[1] 75 15 31
-
-$retired
-[1]  TRUE FALSE FALSE
-[1] "George" "Stan"   "Carly" 
-[1] "George"
-[1] "George" "Stan"   "Carly" </code></pre>
+<pre><code>#&gt; $name
+#&gt; [1] "George" "Stan"   "Carly" 
+#&gt; 
+#&gt; $age
+#&gt; [1] 75 15 31
+#&gt; 
+#&gt; $retired
+#&gt; [1]  TRUE FALSE FALSE
+#&gt; [1] "George" "Stan"   "Carly"
+#&gt; [1] "George"
+#&gt; [1] "George" "Stan"   "Carly"</code></pre>
 </div>
 </div></div>
 </section>
@@ -2053,18 +2069,18 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>$name
-[1] "George" "Stan"   "Carly" 
-
-$age
-[1] 75 15 31
-
-$retired
-[1]  TRUE FALSE FALSE
-[1] "George" "Stan"   "Carly" 
-[1] "George"
-[1] "George" "Stan"   "Carly" 
-[1] "George"</code></pre>
+<pre><code>#&gt; $name
+#&gt; [1] "George" "Stan"   "Carly" 
+#&gt; 
+#&gt; $age
+#&gt; [1] 75 15 31
+#&gt; 
+#&gt; $retired
+#&gt; [1]  TRUE FALSE FALSE
+#&gt; [1] "George" "Stan"   "Carly"
+#&gt; [1] "George"
+#&gt; [1] "George" "Stan"   "Carly"
+#&gt; [1] "George"</code></pre>
 </div>
 </div></div>
 </section>
@@ -2087,33 +2103,32 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>$name
-[1] "George" "Stan"   "Carly" 
-
-$age
-[1] 75 15 31
-
-$retired
-[1]  TRUE FALSE FALSE
-[1] "George" "Stan"   "Carly" 
-[1] "George"
-[1] "George" "Stan"   "Carly" 
-[1] "George"
-[1] "George"</code></pre>
+<pre><code>#&gt; $name
+#&gt; [1] "George" "Stan"   "Carly" 
+#&gt; 
+#&gt; $age
+#&gt; [1] 75 15 31
+#&gt; 
+#&gt; $retired
+#&gt; [1]  TRUE FALSE FALSE
+#&gt; [1] "George" "Stan"   "Carly"
+#&gt; [1] "George"
+#&gt; [1] "George" "Stan"   "Carly"
+#&gt; [1] "George"
+#&gt; [1] "George"</code></pre>
 </div>
 </div></div>
-</section></section>
-<section>
-<section id="lists-are-not-matrices" class="title-slide slide level1 center">
-<h1>Lists are not Matrices</h1>
+</section>
+<section id="lists-are-not-matrices" class="slide level2">
+<h2>Lists are not Matrices</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a></a><span class="co"># The name "Stan"</span></span>
 <span id="cb140-2"><a></a>ll[<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb140-3"><a></a>Error <span class="cf">in</span> ll[<span class="dv">1</span>, <span class="dv">2</span>]<span class="sc">:</span> incorrect number of dimensions</span>
+<span id="cb140-3"><a></a><span class="co">#&gt; Error in ll[1, 2]: incorrect number of dimensions</span></span>
 <span id="cb140-4"><a></a></span>
 <span id="cb140-5"><a></a><span class="co"># Stans Information</span></span>
 <span id="cb140-6"><a></a>ll[<span class="dv">2</span>,]</span>
-<span id="cb140-7"><a></a>Error <span class="cf">in</span> ll[<span class="dv">2</span>, ]<span class="sc">:</span> incorrect number of dimensions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb140-7"><a></a><span class="co">#&gt; Error in ll[2, ]: incorrect number of dimensions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="enter-data.frames" class="slide level2">
@@ -2127,10 +2142,10 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>    name age retired
-1 George  75    TRUE
-2   Stan  15   FALSE
-3  Carly  31   FALSE</code></pre>
+<pre><code>#&gt;     name age retired
+#&gt; 1 George  75    TRUE
+#&gt; 2   Stan  15   FALSE
+#&gt; 3  Carly  31   FALSE</code></pre>
 </div>
 </div></div>
 </section>
@@ -2148,11 +2163,11 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>    name age retired
-1 George  75    TRUE
-2   Stan  15   FALSE
-3  Carly  31   FALSE
-[1] 75</code></pre>
+<pre><code>#&gt;     name age retired
+#&gt; 1 George  75    TRUE
+#&gt; 2   Stan  15   FALSE
+#&gt; 3  Carly  31   FALSE
+#&gt; [1] 75</code></pre>
 </div>
 </div></div>
 </section>
@@ -2171,13 +2186,13 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>    name age retired
-1 George  75    TRUE
-2   Stan  15   FALSE
-3  Carly  31   FALSE
-[1] 75
-  name age retired
-2 Stan  15   FALSE</code></pre>
+<pre><code>#&gt;     name age retired
+#&gt; 1 George  75    TRUE
+#&gt; 2   Stan  15   FALSE
+#&gt; 3  Carly  31   FALSE
+#&gt; [1] 75
+#&gt;   name age retired
+#&gt; 2 Stan  15   FALSE</code></pre>
 </div>
 </div></div>
 </section>
@@ -2199,14 +2214,14 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>    name age retired
-1 George  75    TRUE
-2   Stan  15   FALSE
-3  Carly  31   FALSE
-[1] 75
-  name age retired
-2 Stan  15   FALSE
-[1] "George"</code></pre>
+<pre><code>#&gt;     name age retired
+#&gt; 1 George  75    TRUE
+#&gt; 2   Stan  15   FALSE
+#&gt; 3  Carly  31   FALSE
+#&gt; [1] 75
+#&gt;   name age retired
+#&gt; 2 Stan  15   FALSE
+#&gt; [1] "George"</code></pre>
 </div>
 </div></div>
 </section>
@@ -2229,15 +2244,15 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>    name age retired
-1 George  75    TRUE
-2   Stan  15   FALSE
-3  Carly  31   FALSE
-[1] 75
-  name age retired
-2 Stan  15   FALSE
-[1] "George"
-[1] "George"</code></pre>
+<pre><code>#&gt;     name age retired
+#&gt; 1 George  75    TRUE
+#&gt; 2   Stan  15   FALSE
+#&gt; 3  Carly  31   FALSE
+#&gt; [1] 75
+#&gt;   name age retired
+#&gt; 2 Stan  15   FALSE
+#&gt; [1] "George"
+#&gt; [1] "George"</code></pre>
 </div>
 </div></div>
 </section>
@@ -2260,20 +2275,22 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>    name age retired
-1 George  75    TRUE
-2   Stan  15   FALSE
-3  Carly  31   FALSE
-[1] 75
-  name age retired
-2 Stan  15   FALSE
-[1] "George"
-[1] "George"</code></pre>
+<pre><code>#&gt;     name age retired
+#&gt; 1 George  75    TRUE
+#&gt; 2   Stan  15   FALSE
+#&gt; 3  Carly  31   FALSE
+#&gt; [1] 75
+#&gt;   name age retired
+#&gt; 2 Stan  15   FALSE
+#&gt; [1] "George"
+#&gt; [1] "George"</code></pre>
 </div>
 </div></div>
-</section>
-<section id="real-data-examples" class="slide level2">
-<h2>Real data examples</h2>
+</section></section>
+<section>
+<section id="real-data-examples" class="title-slide slide level1 center">
+<h1>Real data examples</h1>
+
 </section>
 <section id="storm-dataset" class="slide level2">
 <h2>Storm Dataset</h2>
@@ -2282,7 +2299,7 @@ $retired
 <li><code>dplyr</code> (part of the tidyverse) has a <code>storms</code> dataset</li>
 </ul>
 
-<img data-src="figures/unnamed-chunk-6-1.png" width="576" class="r-stretch"></section>
+<img data-src="figures/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="storms" class="slide level2">
 <h2>Storms</h2>
 <div class="columns">
@@ -2293,14 +2310,14 @@ $retired
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 3 × 13
-  name   year month   day  hour   lat  long status       category  wind pressure
-  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
-1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
-2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
-3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
-# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
-#   hurricane_force_diameter &lt;int&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 3 × 13
+#&gt;   name   year month   day  hour   lat  long status       category  wind pressure
+#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
+#&gt; 1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
+#&gt; 2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
+#&gt; 3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
+#&gt; # ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
+#&gt; #   hurricane_force_diameter &lt;int&gt;</code></pre>
 </div>
 </div></div>
 </section>
@@ -2311,20 +2328,20 @@ $retired
 <div class="cell">
 <div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a></a><span class="co">#preview dataset</span></span>
 <span id="cb155-2"><a></a><span class="fu">head</span>(storms,<span class="dv">3</span>)</span>
-<span id="cb155-3"><a></a><span class="co"># Get data diminsions</span></span>
+<span id="cb155-3"><a></a><span class="co"># Get data dimensions</span></span>
 <span id="cb155-4"><a></a><span class="fu">dim</span>(storms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 3 × 13
-  name   year month   day  hour   lat  long status       category  wind pressure
-  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
-1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
-2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
-3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
-# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
-#   hurricane_force_diameter &lt;int&gt;
-[1] 19537    13</code></pre>
+<pre><code>#&gt; # A tibble: 3 × 13
+#&gt;   name   year month   day  hour   lat  long status       category  wind pressure
+#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
+#&gt; 1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
+#&gt; 2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
+#&gt; 3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
+#&gt; # ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
+#&gt; #   hurricane_force_diameter &lt;int&gt;
+#&gt; [1] 19537    13</code></pre>
 </div>
 </div></div>
 </section>
@@ -2335,174 +2352,87 @@ $retired
 <div class="cell">
 <div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a></a><span class="co">#preview dataset</span></span>
 <span id="cb157-2"><a></a><span class="fu">head</span>(storms,<span class="dv">3</span>)</span>
-<span id="cb157-3"><a></a><span class="co"># Get data diminsions</span></span>
+<span id="cb157-3"><a></a><span class="co"># Get data dimensions</span></span>
 <span id="cb157-4"><a></a><span class="fu">dim</span>(storms)</span>
 <span id="cb157-5"><a></a><span class="fu">str</span>(storms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 3 × 13
-  name   year month   day  hour   lat  long status       category  wind pressure
-  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
-1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
-2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
-3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
-# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
-#   hurricane_force_diameter &lt;int&gt;
-[1] 19537    13
-tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
- $ name                        : chr [1:19537] "Amy" "Amy" "Amy" "Amy" ...
- $ year                        : num [1:19537] 1975 1975 1975 1975 1975 ...
- $ month                       : num [1:19537] 6 6 6 6 6 6 6 6 6 6 ...
- $ day                         : int [1:19537] 27 27 27 27 28 28 28 28 29 29 ...
- $ hour                        : num [1:19537] 0 6 12 18 0 6 12 18 0 6 ...
- $ lat                         : num [1:19537] 27.5 28.5 29.5 30.5 31.5 32.4 33.3 34 34.4 34 ...
- $ long                        : num [1:19537] -79 -79 -79 -79 -78.8 -78.7 -78 -77 -75.8 -74.8 ...
- $ status                      : Factor w/ 9 levels "disturbance",..: 7 7 7 7 7 7 7 7 8 8 ...
- $ category                    : num [1:19537] NA NA NA NA NA NA NA NA NA NA ...
- $ wind                        : int [1:19537] 25 25 25 25 25 25 25 30 35 40 ...
- $ pressure                    : int [1:19537] 1013 1013 1013 1013 1012 1012 1011 1006 1004 1002 ...
- $ tropicalstorm_force_diameter: int [1:19537] NA NA NA NA NA NA NA NA NA NA ...
- $ hurricane_force_diameter    : int [1:19537] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
+<pre><code>#&gt; # A tibble: 3 × 13
+#&gt;   name   year month   day  hour   lat  long status       category  wind pressure
+#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
+#&gt; 1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
+#&gt; 2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
+#&gt; 3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
+#&gt; # ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
+#&gt; #   hurricane_force_diameter &lt;int&gt;
+#&gt; [1] 19537    13
+#&gt; tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
+#&gt;  $ name                        : chr [1:19537] "Amy" "Amy" "Amy" "Amy" ...
+#&gt;  $ year                        : num [1:19537] 1975 1975 1975 1975 1975 ...
+#&gt;  $ month                       : num [1:19537] 6 6 6 6 6 6 6 6 6 6 ...
+#&gt;  $ day                         : int [1:19537] 27 27 27 27 28 28 28 28 29 29 ...
+#&gt;  $ hour                        : num [1:19537] 0 6 12 18 0 6 12 18 0 6 ...
+#&gt;  $ lat                         : num [1:19537] 27.5 28.5 29.5 30.5 31.5 32.4 33.3 34 34.4 34 ...
+#&gt;  $ long                        : num [1:19537] -79 -79 -79 -79 -78.8 -78.7 -78 -77 -75.8 -74.8 ...
+#&gt;  $ status                      : Factor w/ 9 levels "disturbance",..: 7 7 7 7 7 7 7 7 8 8 ...
+#&gt;  $ category                    : num [1:19537] NA NA NA NA NA NA NA NA NA NA ...
+#&gt;  $ wind                        : int [1:19537] 25 25 25 25 25 25 25 30 35 40 ...
+#&gt;  $ pressure                    : int [1:19537] 1013 1013 1013 1013 1012 1012 1011 1006 1004 1002 ...
+#&gt;  $ tropicalstorm_force_diameter: int [1:19537] NA NA NA NA NA NA NA NA NA NA ...
+#&gt;  $ hurricane_force_diameter    : int [1:19537] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
 </div>
 </div></div>
 </section>
-<section id="storms-3" class="slide level2">
-<h2>Storms</h2>
+<section id="storms-subset" class="slide level2">
+<h2>Storms Subset</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a></a><span class="co">#preview dataset</span></span>
-<span id="cb159-2"><a></a><span class="fu">head</span>(storms,<span class="dv">3</span>)</span>
-<span id="cb159-3"><a></a><span class="co"># Get data diminsions</span></span>
-<span id="cb159-4"><a></a><span class="fu">dim</span>(storms)</span>
-<span id="cb159-5"><a></a><span class="fu">str</span>(storms)</span>
-<span id="cb159-6"><a></a></span>
-<span id="cb159-7"><a></a>storms<span class="sc">$</span>name[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a></a>storms<span class="sc">$</span>name[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 3 × 13
-  name   year month   day  hour   lat  long status       category  wind pressure
-  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
-1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
-2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
-3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
-# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
-#   hurricane_force_diameter &lt;int&gt;
-[1] 19537    13
-tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
- $ name                        : chr [1:19537] "Amy" "Amy" "Amy" "Amy" ...
- $ year                        : num [1:19537] 1975 1975 1975 1975 1975 ...
- $ month                       : num [1:19537] 6 6 6 6 6 6 6 6 6 6 ...
- $ day                         : int [1:19537] 27 27 27 27 28 28 28 28 29 29 ...
- $ hour                        : num [1:19537] 0 6 12 18 0 6 12 18 0 6 ...
- $ lat                         : num [1:19537] 27.5 28.5 29.5 30.5 31.5 32.4 33.3 34 34.4 34 ...
- $ long                        : num [1:19537] -79 -79 -79 -79 -78.8 -78.7 -78 -77 -75.8 -74.8 ...
- $ status                      : Factor w/ 9 levels "disturbance",..: 7 7 7 7 7 7 7 7 8 8 ...
- $ category                    : num [1:19537] NA NA NA NA NA NA NA NA NA NA ...
- $ wind                        : int [1:19537] 25 25 25 25 25 25 25 30 35 40 ...
- $ pressure                    : int [1:19537] 1013 1013 1013 1013 1012 1012 1011 1006 1004 1002 ...
- $ tropicalstorm_force_diameter: int [1:19537] NA NA NA NA NA NA NA NA NA NA ...
- $ hurricane_force_diameter    : int [1:19537] NA NA NA NA NA NA NA NA NA NA ...
-[1] "Amy" "Amy" "Amy" "Amy" "Amy"</code></pre>
+<pre><code>#&gt; [1] "Amy" "Amy" "Amy" "Amy" "Amy"</code></pre>
 </div>
 </div></div>
 </section>
-<section id="storms-4" class="slide level2">
-<h2>Storms</h2>
+<section id="storms-subset-1" class="slide level2">
+<h2>Storms Subset</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a></a><span class="co">#preview dataset</span></span>
-<span id="cb161-2"><a></a><span class="fu">head</span>(storms,<span class="dv">3</span>)</span>
-<span id="cb161-3"><a></a><span class="co"># Get data diminsions</span></span>
-<span id="cb161-4"><a></a><span class="fu">dim</span>(storms)</span>
-<span id="cb161-5"><a></a><span class="fu">str</span>(storms)</span>
-<span id="cb161-6"><a></a></span>
-<span id="cb161-7"><a></a>storms<span class="sc">$</span>name[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb161-8"><a></a>storms[[<span class="dv">1</span>]][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a></a>storms<span class="sc">$</span>name[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb161-2"><a></a>storms[[<span class="dv">1</span>]][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 3 × 13
-  name   year month   day  hour   lat  long status       category  wind pressure
-  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
-1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
-2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
-3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
-# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
-#   hurricane_force_diameter &lt;int&gt;
-[1] 19537    13
-tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
- $ name                        : chr [1:19537] "Amy" "Amy" "Amy" "Amy" ...
- $ year                        : num [1:19537] 1975 1975 1975 1975 1975 ...
- $ month                       : num [1:19537] 6 6 6 6 6 6 6 6 6 6 ...
- $ day                         : int [1:19537] 27 27 27 27 28 28 28 28 29 29 ...
- $ hour                        : num [1:19537] 0 6 12 18 0 6 12 18 0 6 ...
- $ lat                         : num [1:19537] 27.5 28.5 29.5 30.5 31.5 32.4 33.3 34 34.4 34 ...
- $ long                        : num [1:19537] -79 -79 -79 -79 -78.8 -78.7 -78 -77 -75.8 -74.8 ...
- $ status                      : Factor w/ 9 levels "disturbance",..: 7 7 7 7 7 7 7 7 8 8 ...
- $ category                    : num [1:19537] NA NA NA NA NA NA NA NA NA NA ...
- $ wind                        : int [1:19537] 25 25 25 25 25 25 25 30 35 40 ...
- $ pressure                    : int [1:19537] 1013 1013 1013 1013 1012 1012 1011 1006 1004 1002 ...
- $ tropicalstorm_force_diameter: int [1:19537] NA NA NA NA NA NA NA NA NA NA ...
- $ hurricane_force_diameter    : int [1:19537] NA NA NA NA NA NA NA NA NA NA ...
-[1] "Amy" "Amy" "Amy" "Amy" "Amy"
-[1] "Amy" "Amy" "Amy" "Amy" "Amy"</code></pre>
+<pre><code>#&gt; [1] "Amy" "Amy" "Amy" "Amy" "Amy"
+#&gt; [1] "Amy" "Amy" "Amy" "Amy" "Amy"</code></pre>
 </div>
 </div></div>
 </section>
-<section id="storms-5" class="slide level2">
-<h2>Storms</h2>
+<section id="storms-subset-2" class="slide level2">
+<h2>Storms Subset</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a></a><span class="co">#preview dataset</span></span>
-<span id="cb163-2"><a></a><span class="fu">head</span>(storms,<span class="dv">3</span>)</span>
-<span id="cb163-3"><a></a><span class="co"># Get data diminsions</span></span>
-<span id="cb163-4"><a></a><span class="fu">dim</span>(storms)</span>
-<span id="cb163-5"><a></a><span class="fu">str</span>(storms)</span>
-<span id="cb163-6"><a></a></span>
-<span id="cb163-7"><a></a>storms<span class="sc">$</span>name[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb163-8"><a></a>storms[[<span class="dv">1</span>]][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
-<span id="cb163-9"><a></a>storms[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a></a>storms<span class="sc">$</span>name[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb163-2"><a></a>storms[[<span class="dv">1</span>]][<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<span id="cb163-3"><a></a>storms[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 3 × 13
-  name   year month   day  hour   lat  long status       category  wind pressure
-  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
-1 Amy    1975     6    27     0  27.5   -79 tropical de…       NA    25     1013
-2 Amy    1975     6    27     6  28.5   -79 tropical de…       NA    25     1013
-3 Amy    1975     6    27    12  29.5   -79 tropical de…       NA    25     1013
-# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
-#   hurricane_force_diameter &lt;int&gt;
-[1] 19537    13
-tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
- $ name                        : chr [1:19537] "Amy" "Amy" "Amy" "Amy" ...
- $ year                        : num [1:19537] 1975 1975 1975 1975 1975 ...
- $ month                       : num [1:19537] 6 6 6 6 6 6 6 6 6 6 ...
- $ day                         : int [1:19537] 27 27 27 27 28 28 28 28 29 29 ...
- $ hour                        : num [1:19537] 0 6 12 18 0 6 12 18 0 6 ...
- $ lat                         : num [1:19537] 27.5 28.5 29.5 30.5 31.5 32.4 33.3 34 34.4 34 ...
- $ long                        : num [1:19537] -79 -79 -79 -79 -78.8 -78.7 -78 -77 -75.8 -74.8 ...
- $ status                      : Factor w/ 9 levels "disturbance",..: 7 7 7 7 7 7 7 7 8 8 ...
- $ category                    : num [1:19537] NA NA NA NA NA NA NA NA NA NA ...
- $ wind                        : int [1:19537] 25 25 25 25 25 25 25 30 35 40 ...
- $ pressure                    : int [1:19537] 1013 1013 1013 1013 1012 1012 1011 1006 1004 1002 ...
- $ tropicalstorm_force_diameter: int [1:19537] NA NA NA NA NA NA NA NA NA NA ...
- $ hurricane_force_diameter    : int [1:19537] NA NA NA NA NA NA NA NA NA NA ...
-[1] "Amy" "Amy" "Amy" "Amy" "Amy"
-[1] "Amy" "Amy" "Amy" "Amy" "Amy"
-# A tibble: 5 × 5
-  name   year month   day  hour
-  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
-1 Amy    1975     6    27     0
-2 Amy    1975     6    27     6
-3 Amy    1975     6    27    12
-4 Amy    1975     6    27    18
-5 Amy    1975     6    28     0</code></pre>
+<pre><code>#&gt; [1] "Amy" "Amy" "Amy" "Amy" "Amy"
+#&gt; [1] "Amy" "Amy" "Amy" "Amy" "Amy"
+#&gt; # A tibble: 5 × 5
+#&gt;   name   year month   day  hour
+#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;
+#&gt; 1 Amy    1975     6    27     0
+#&gt; 2 Amy    1975     6    27     6
+#&gt; 3 Amy    1975     6    27    12
+#&gt; 4 Amy    1975     6    27    18
+#&gt; 5 Amy    1975     6    28     0</code></pre>
 </div>
 </div></div>
 </section>
@@ -2515,22 +2445,22 @@ tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 189 × 13
-   name   year month   day  hour   lat  long status      category  wind pressure
-   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
- 1 Ana    1979     6    19    12  10   -45   tropical d…       NA    25     1011
- 2 Ana    1979     6    19    18  10.2 -46   tropical d…       NA    25     1011
- 3 Ana    1979     6    20     0  10.5 -47   tropical d…       NA    25     1010
- 4 Ana    1979     6    20     6  10.9 -48.1 tropical d…       NA    25     1010
- 5 Ana    1979     6    20    12  11.3 -49.2 tropical d…       NA    25     1010
- 6 Ana    1979     6    20    18  11.8 -50.2 tropical d…       NA    25     1009
- 7 Ana    1979     6    21     0  12.3 -51.1 tropical d…       NA    30     1009
- 8 Ana    1979     6    21     6  12.9 -51.9 tropical d…       NA    30     1008
- 9 Ana    1979     6    21    12  13.5 -52.7 tropical d…       NA    30     1008
-10 Ana    1979     6    21    18  13.9 -53.5 tropical d…       NA    30     1007
-# ℹ 179 more rows
-# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
-#   hurricane_force_diameter &lt;int&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 189 × 13
+#&gt;    name   year month   day  hour   lat  long status      category  wind pressure
+#&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
+#&gt;  1 Ana    1979     6    19    12  10   -45   tropical d…       NA    25     1011
+#&gt;  2 Ana    1979     6    19    18  10.2 -46   tropical d…       NA    25     1011
+#&gt;  3 Ana    1979     6    20     0  10.5 -47   tropical d…       NA    25     1010
+#&gt;  4 Ana    1979     6    20     6  10.9 -48.1 tropical d…       NA    25     1010
+#&gt;  5 Ana    1979     6    20    12  11.3 -49.2 tropical d…       NA    25     1010
+#&gt;  6 Ana    1979     6    20    18  11.8 -50.2 tropical d…       NA    25     1009
+#&gt;  7 Ana    1979     6    21     0  12.3 -51.1 tropical d…       NA    30     1009
+#&gt;  8 Ana    1979     6    21     6  12.9 -51.9 tropical d…       NA    30     1008
+#&gt;  9 Ana    1979     6    21    12  13.5 -52.7 tropical d…       NA    30     1008
+#&gt; 10 Ana    1979     6    21    18  13.9 -53.5 tropical d…       NA    30     1007
+#&gt; # ℹ 179 more rows
+#&gt; # ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
+#&gt; #   hurricane_force_diameter &lt;int&gt;</code></pre>
 </div>
 </div></div>
 </section>
@@ -2544,23 +2474,23 @@ tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code># A tibble: 189 × 13
-   name   year month   day  hour   lat  long status      category  wind pressure
-   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
- 1 Ana    1979     6    19    12  10   -45   tropical d…       NA    25     1011
- 2 Ana    1979     6    19    18  10.2 -46   tropical d…       NA    25     1011
- 3 Ana    1979     6    20     0  10.5 -47   tropical d…       NA    25     1010
- 4 Ana    1979     6    20     6  10.9 -48.1 tropical d…       NA    25     1010
- 5 Ana    1979     6    20    12  11.3 -49.2 tropical d…       NA    25     1010
- 6 Ana    1979     6    20    18  11.8 -50.2 tropical d…       NA    25     1009
- 7 Ana    1979     6    21     0  12.3 -51.1 tropical d…       NA    30     1009
- 8 Ana    1979     6    21     6  12.9 -51.9 tropical d…       NA    30     1008
- 9 Ana    1979     6    21    12  13.5 -52.7 tropical d…       NA    30     1008
-10 Ana    1979     6    21    18  13.9 -53.5 tropical d…       NA    30     1007
-# ℹ 179 more rows
-# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
-#   hurricane_force_diameter &lt;int&gt;
-[1] 1979 1985 1991 1997 2003 2009 2015 2021</code></pre>
+<pre><code>#&gt; # A tibble: 189 × 13
+#&gt;    name   year month   day  hour   lat  long status      category  wind pressure
+#&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;
+#&gt;  1 Ana    1979     6    19    12  10   -45   tropical d…       NA    25     1011
+#&gt;  2 Ana    1979     6    19    18  10.2 -46   tropical d…       NA    25     1011
+#&gt;  3 Ana    1979     6    20     0  10.5 -47   tropical d…       NA    25     1010
+#&gt;  4 Ana    1979     6    20     6  10.9 -48.1 tropical d…       NA    25     1010
+#&gt;  5 Ana    1979     6    20    12  11.3 -49.2 tropical d…       NA    25     1010
+#&gt;  6 Ana    1979     6    20    18  11.8 -50.2 tropical d…       NA    25     1009
+#&gt;  7 Ana    1979     6    21     0  12.3 -51.1 tropical d…       NA    30     1009
+#&gt;  8 Ana    1979     6    21     6  12.9 -51.9 tropical d…       NA    30     1008
+#&gt;  9 Ana    1979     6    21    12  13.5 -52.7 tropical d…       NA    30     1008
+#&gt; 10 Ana    1979     6    21    18  13.9 -53.5 tropical d…       NA    30     1007
+#&gt; # ℹ 179 more rows
+#&gt; # ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,
+#&gt; #   hurricane_force_diameter &lt;int&gt;
+#&gt; [1] 1979 1985 1991 1997 2003 2009 2015 2021</code></pre>
 </div>
 </div></div>
 </section>
@@ -2591,7 +2521,7 @@ tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="figures/ana2_auto_02_output-1.png" width="576"></p>
+<p><img data-src="figures/ana2_auto_02_output-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2607,17 +2537,17 @@ tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
- [1,]    1   11   21   31   41   51   61   71   81    91
- [2,]    2   12   22   32   42   52   62   72   82    92
- [3,]    3   13   23   33   43   53   63   73   83    93
- [4,]    4   14   24   34   44   54   64   74   84    94
- [5,]    5   15   25   35   45   55   65   75   85    95
- [6,]    6   16   26   36   46   56   66   76   86    96
- [7,]    7   17   27   37   47   57   67   77   87    97
- [8,]    8   18   28   38   48   58   68   78   88    98
- [9,]    9   19   29   39   49   59   69   79   89    99
-[10,]   10   20   30   40   50   60   70   80   90   100</code></pre>
+<pre><code>#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+#&gt;  [1,]    1   11   21   31   41   51   61   71   81    91
+#&gt;  [2,]    2   12   22   32   42   52   62   72   82    92
+#&gt;  [3,]    3   13   23   33   43   53   63   73   83    93
+#&gt;  [4,]    4   14   24   34   44   54   64   74   84    94
+#&gt;  [5,]    5   15   25   35   45   55   65   75   85    95
+#&gt;  [6,]    6   16   26   36   46   56   66   76   86    96
+#&gt;  [7,]    7   17   27   37   47   57   67   77   87    97
+#&gt;  [8,]    8   18   28   38   48   58   68   78   88    98
+#&gt;  [9,]    9   19   29   39   49   59   69   79   89    99
+#&gt; [10,]   10   20   30   40   50   60   70   80   90   100</code></pre>
 </div>
 </div></div>
 </section>
@@ -2626,19 +2556,20 @@ tibble [19,537 × 13] (S3: tbl_df/tbl/data.frame)
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">nrow =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb173-2"><a></a>  <span class="fu">raster</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">nrow =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb173-2"><a></a>  terra<span class="sc">::</span><span class="fu">rast</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>class      : RasterLayer 
-dimensions : 10, 10, 100  (nrow, ncol, ncell)
-resolution : 0.1, 0.1  (x, y)
-extent     : 0, 1, 0, 1  (xmin, xmax, ymin, ymax)
-crs        : NA 
-source     : memory
-names      : layer 
-values     : 1, 100  (min, max)</code></pre>
+<pre><code>#&gt; class       : SpatRaster 
+#&gt; dimensions  : 10, 10, 1  (nrow, ncol, nlyr)
+#&gt; resolution  : 1, 1  (x, y)
+#&gt; extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)
+#&gt; coord. ref. :  
+#&gt; source(s)   : memory
+#&gt; name        : lyr.1 
+#&gt; min value   :     1 
+#&gt; max value   :   100</code></pre>
 </div>
 </div></div>
 </section>
@@ -2647,19 +2578,51 @@ values     : 1, 100  (min, max)</code></pre>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="at">nrow =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb175-2"><a></a>  <span class="fu">raster</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb175-3"><a></a>  rasterVis<span class="sc">::</span><span class="fu">levelplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a></a><span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="figures/raster_auto_03_output-1.png" width="576"></p>
-</figure>
-</div>
-</div>
+<pre><code>#&gt; , , 1
+#&gt; 
+#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+#&gt;  [1,]    1   11   21   31   41   51   61   71   81    91
+#&gt;  [2,]    2   12   22   32   42   52   62   72   82    92
+#&gt;  [3,]    3   13   23   33   43   53   63   73   83    93
+#&gt;  [4,]    4   14   24   34   44   54   64   74   84    94
+#&gt;  [5,]    5   15   25   35   45   55   65   75   85    95
+#&gt;  [6,]    6   16   26   36   46   56   66   76   86    96
+#&gt;  [7,]    7   17   27   37   47   57   67   77   87    97
+#&gt;  [8,]    8   18   28   38   48   58   68   78   88    98
+#&gt;  [9,]    9   19   29   39   49   59   69   79   89    99
+#&gt; [10,]   10   20   30   40   50   60   70   80   90   100
+#&gt; 
+#&gt; , , 2
+#&gt; 
+#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+#&gt;  [1,]  101  111  121  131  141  151  161  171  181   191
+#&gt;  [2,]  102  112  122  132  142  152  162  172  182   192
+#&gt;  [3,]  103  113  123  133  143  153  163  173  183   193
+#&gt;  [4,]  104  114  124  134  144  154  164  174  184   194
+#&gt;  [5,]  105  115  125  135  145  155  165  175  185   195
+#&gt;  [6,]  106  116  126  136  146  156  166  176  186   196
+#&gt;  [7,]  107  117  127  137  147  157  167  177  187   197
+#&gt;  [8,]  108  118  128  138  148  158  168  178  188   198
+#&gt;  [9,]  109  119  129  139  149  159  169  179  189   199
+#&gt; [10,]  110  120  130  140  150  160  170  180  190   200
+#&gt; 
+#&gt; , , 3
+#&gt; 
+#&gt;       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+#&gt;  [1,]  201  211  221  231  241  251  261  271  281   291
+#&gt;  [2,]  202  212  222  232  242  252  262  272  282   292
+#&gt;  [3,]  203  213  223  233  243  253  263  273  283   293
+#&gt;  [4,]  204  214  224  234  244  254  264  274  284   294
+#&gt;  [5,]  205  215  225  235  245  255  265  275  285   295
+#&gt;  [6,]  206  216  226  236  246  256  266  276  286   296
+#&gt;  [7,]  207  217  227  237  247  257  267  277  287   297
+#&gt;  [8,]  208  218  228  238  248  258  268  278  288   298
+#&gt;  [9,]  209  219  229  239  249  259  269  279  289   299
+#&gt; [10,]  210  220  230  240  250  260  270  280  290   300</code></pre>
 </div>
 </div></div>
 </section>
@@ -2668,96 +2631,432 @@ values     : 1, 100  (min, max)</code></pre>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a></a><span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a></a><span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">3</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb177-2"><a></a>  terra<span class="sc">::</span><span class="fu">rast</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<pre><code>, , 1
-
-      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
- [1,]    1   11   21   31   41   51   61   71   81    91
- [2,]    2   12   22   32   42   52   62   72   82    92
- [3,]    3   13   23   33   43   53   63   73   83    93
- [4,]    4   14   24   34   44   54   64   74   84    94
- [5,]    5   15   25   35   45   55   65   75   85    95
- [6,]    6   16   26   36   46   56   66   76   86    96
- [7,]    7   17   27   37   47   57   67   77   87    97
- [8,]    8   18   28   38   48   58   68   78   88    98
- [9,]    9   19   29   39   49   59   69   79   89    99
-[10,]   10   20   30   40   50   60   70   80   90   100
-
-, , 2
-
-      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
- [1,]  101  111  121  131  141  151  161  171  181   191
- [2,]  102  112  122  132  142  152  162  172  182   192
- [3,]  103  113  123  133  143  153  163  173  183   193
- [4,]  104  114  124  134  144  154  164  174  184   194
- [5,]  105  115  125  135  145  155  165  175  185   195
- [6,]  106  116  126  136  146  156  166  176  186   196
- [7,]  107  117  127  137  147  157  167  177  187   197
- [8,]  108  118  128  138  148  158  168  178  188   198
- [9,]  109  119  129  139  149  159  169  179  189   199
-[10,]  110  120  130  140  150  160  170  180  190   200
-
-, , 3
-
-      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
- [1,]  201  211  221  231  241  251  261  271  281   291
- [2,]  202  212  222  232  242  252  262  272  282   292
- [3,]  203  213  223  233  243  253  263  273  283   293
- [4,]  204  214  224  234  244  254  264  274  284   294
- [5,]  205  215  225  235  245  255  265  275  285   295
- [6,]  206  216  226  236  246  256  266  276  286   296
- [7,]  207  217  227  237  247  257  267  277  287   297
- [8,]  208  218  228  238  248  258  268  278  288   298
- [9,]  209  219  229  239  249  259  269  279  289   299
-[10,]  210  220  230  240  250  260  270  280  290   300</code></pre>
+<pre><code>#&gt; class       : SpatRaster 
+#&gt; dimensions  : 10, 10, 3  (nrow, ncol, nlyr)
+#&gt; resolution  : 1, 1  (x, y)
+#&gt; extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)
+#&gt; coord. ref. :  
+#&gt; source(s)   : memory
+#&gt; names       : lyr.1, lyr.2, lyr.3 
+#&gt; min values  :     1,   101,   201 
+#&gt; max values  :   100,   200,   300</code></pre>
 </div>
 </div></div>
+</section></section>
+<section>
+<section id="r-packages" class="title-slide slide level1 center">
+<h1>R Packages</h1>
+<ul>
+<li>In R, the fundamental unit of shareable code is the package.</li>
+</ul>
+<p>–</p>
+<ul>
+<li>Bundles together code, data, documentation, and tests, in a way that is easy to share.
+<center>
+<img src="lec-img/05-r-package.jpg" width="75%">
+</center></li>
+</ul>
 </section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a></a><span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb178-2"><a></a>  <span class="fu">brick</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="cell">
-<pre><code>class      : RasterBrick 
-dimensions : 10, 10, 100, 3  (nrow, ncol, ncell, nlayers)
-resolution : 0.1, 0.1  (x, y)
-extent     : 0, 1, 0, 1  (xmin, xmax, ymin, ymax)
-crs        : NA 
-source     : memory
-names      : layer.1, layer.2, layer.3 
-min values :       1,     101,     201 
-max values :     100,     200,     300 </code></pre>
-</div>
-</div></div>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="cran" class="title-slide slide level1 center">
+<h1>CRAN</h1>
+<ul>
+<li>The “Comprehensive R Archive Network” (CRAN) is a collection of sites which carry identical material, consisting of the R distribution(s) and contributed packages</li>
+</ul>
+<center>
+<img src="lec-img/05-CRAN.png" width="75%">
+</center>
 </section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div class="columns">
-<div class="column" style="width:40%;">
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="cran-1" class="title-slide slide level1 center">
+<h1>CRAN</h1>
+<ul>
+<li>CRAN enforces a Repository Policy that ensures contributed code is safe and works (meaning it works not necessarily that its good :))</li>
+</ul>
+<p>–</p>
+<ul>
+<li>This huge variety of packages is one of the reasons that R is so successful: the chances are that someone has already solved a problem that you’re working on, and you can benefit from their work by downloading their package.</li>
+</ul>
+<p>–</p>
+<p>You already know how to use packages:</p>
+<p>–</p>
+<p>You install them from CRAN with</p>
+<ul>
+<li><p>You install them from CRAN with install.packages(“XXX”).</p></li>
+<li><p>You use them in R with library(“XXX”).</p></li>
+<li><p>You get help on them with package ?XXX</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="install-vs-attach" class="title-slide slide level1 center">
+<h1>Install vs Attach</h1>
+<center>
+<img src="lec-img/05-r-package.jpg" width="50%"> <img src="lec-img/05-install_vs_library.jpeg" width="50%">
+</center>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="what-is-a-function" class="title-slide slide level1 center">
+<h1>What is a function:</h1>
+<p>A function is a set of statements (directions) organized together to perform a specific task. R has a large number of in-built functions and the user can create their own functions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb180"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a></a><span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">300</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb180-2"><a></a>  <span class="fu">brick</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb180-3"><a></a>  rasterVis<span class="sc">::</span><span class="fu">levelplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb179-2"><a></a><span class="fu">lsf.str</span>(<span class="st">"package:dplyr"</span>)</span>
+<span id="cb179-3"><a></a><span class="co">#&gt; %&gt;% : function (lhs, rhs)  </span></span>
+<span id="cb179-4"><a></a><span class="co">#&gt; across : function (.cols, .fns, ..., .names = NULL, .unpack = FALSE)  </span></span>
+<span id="cb179-5"><a></a><span class="co">#&gt; add_count : function (x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())  </span></span>
+<span id="cb179-6"><a></a><span class="co">#&gt; add_count_ : function (x, vars, wt = NULL, sort = FALSE)  </span></span>
+<span id="cb179-7"><a></a><span class="co">#&gt; add_row : function (.data, ..., .before = NULL, .after = NULL)  </span></span>
+<span id="cb179-8"><a></a><span class="co">#&gt; add_rownames : function (df, var = "rowname")  </span></span>
+<span id="cb179-9"><a></a><span class="co">#&gt; add_tally : function (x, wt = NULL, sort = FALSE, name = NULL)  </span></span>
+<span id="cb179-10"><a></a><span class="co">#&gt; add_tally_ : function (x, wt, sort = FALSE)  </span></span>
+<span id="cb179-11"><a></a><span class="co">#&gt; all_equal : function (target, current, ignore_col_order = TRUE, ignore_row_order = TRUE, </span></span>
+<span id="cb179-12"><a></a><span class="co">#&gt;     convert = FALSE, ...)  </span></span>
+<span id="cb179-13"><a></a><span class="co">#&gt; all_of : function (x)  </span></span>
+<span id="cb179-14"><a></a><span class="co">#&gt; all_vars : function (expr)  </span></span>
+<span id="cb179-15"><a></a><span class="co">#&gt; anti_join : function (x, y, by = NULL, copy = FALSE, ...)  </span></span>
+<span id="cb179-16"><a></a><span class="co">#&gt; any_of : function (x, ..., vars = NULL)  </span></span>
+<span id="cb179-17"><a></a><span class="co">#&gt; any_vars : function (expr)  </span></span>
+<span id="cb179-18"><a></a><span class="co">#&gt; arrange : function (.data, ..., .by_group = FALSE)  </span></span>
+<span id="cb179-19"><a></a><span class="co">#&gt; arrange_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-20"><a></a><span class="co">#&gt; arrange_all : function (.tbl, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  </span></span>
+<span id="cb179-21"><a></a><span class="co">#&gt; arrange_at : function (.tbl, .vars, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  </span></span>
+<span id="cb179-22"><a></a><span class="co">#&gt; arrange_if : function (.tbl, .predicate, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  </span></span>
+<span id="cb179-23"><a></a><span class="co">#&gt; as_data_frame : function (x, ...)  </span></span>
+<span id="cb179-24"><a></a><span class="co">#&gt; as_label : function (x)  </span></span>
+<span id="cb179-25"><a></a><span class="co">#&gt; as_tibble : function (x, ..., .rows = NULL, .name_repair = c("check_unique", "unique", </span></span>
+<span id="cb179-26"><a></a><span class="co">#&gt;     "universal", "minimal"), rownames = pkgconfig::get_config("tibble::rownames", </span></span>
+<span id="cb179-27"><a></a><span class="co">#&gt;     NULL))  </span></span>
+<span id="cb179-28"><a></a><span class="co">#&gt; as.tbl : function (x, ...)  </span></span>
+<span id="cb179-29"><a></a><span class="co">#&gt; auto_copy : function (x, y, copy = FALSE, ...)  </span></span>
+<span id="cb179-30"><a></a><span class="co">#&gt; bench_tbls : function (tbls, op, ..., times = 10)  </span></span>
+<span id="cb179-31"><a></a><span class="co">#&gt; between : function (x, left, right)  </span></span>
+<span id="cb179-32"><a></a><span class="co">#&gt; bind_cols : function (..., .name_repair = c("unique", "universal", "check_unique", </span></span>
+<span id="cb179-33"><a></a><span class="co">#&gt;     "minimal"))  </span></span>
+<span id="cb179-34"><a></a><span class="co">#&gt; bind_rows : function (..., .id = NULL)  </span></span>
+<span id="cb179-35"><a></a><span class="co">#&gt; c_across : function (cols)  </span></span>
+<span id="cb179-36"><a></a><span class="co">#&gt; case_match : function (.x, ..., .default = NULL, .ptype = NULL)  </span></span>
+<span id="cb179-37"><a></a><span class="co">#&gt; case_when : function (..., .default = NULL, .ptype = NULL, .size = NULL)  </span></span>
+<span id="cb179-38"><a></a><span class="co">#&gt; changes : function (x, y)  </span></span>
+<span id="cb179-39"><a></a><span class="co">#&gt; check_dbplyr : function ()  </span></span>
+<span id="cb179-40"><a></a><span class="co">#&gt; coalesce : function (..., .ptype = NULL, .size = NULL)  </span></span>
+<span id="cb179-41"><a></a><span class="co">#&gt; collapse : function (x, ...)  </span></span>
+<span id="cb179-42"><a></a><span class="co">#&gt; collect : function (x, ...)  </span></span>
+<span id="cb179-43"><a></a><span class="co">#&gt; combine : function (...)  </span></span>
+<span id="cb179-44"><a></a><span class="co">#&gt; common_by : function (by = NULL, x, y)  </span></span>
+<span id="cb179-45"><a></a><span class="co">#&gt; compare_tbls : function (tbls, op, ref = NULL, compare = equal_data_frame, ...)  </span></span>
+<span id="cb179-46"><a></a><span class="co">#&gt; compare_tbls2 : function (tbls_x, tbls_y, op, ref = NULL, compare = equal_data_frame, ...)  </span></span>
+<span id="cb179-47"><a></a><span class="co">#&gt; compute : function (x, ...)  </span></span>
+<span id="cb179-48"><a></a><span class="co">#&gt; consecutive_id : function (...)  </span></span>
+<span id="cb179-49"><a></a><span class="co">#&gt; contains : function (match, ignore.case = TRUE, vars = NULL)  </span></span>
+<span id="cb179-50"><a></a><span class="co">#&gt; copy_to : function (dest, df, name = deparse(substitute(df)), overwrite = FALSE, </span></span>
+<span id="cb179-51"><a></a><span class="co">#&gt;     ...)  </span></span>
+<span id="cb179-52"><a></a><span class="co">#&gt; count : function (x, ..., wt = NULL, sort = FALSE, name = NULL)  </span></span>
+<span id="cb179-53"><a></a><span class="co">#&gt; count_ : function (x, vars, wt = NULL, sort = FALSE, .drop = group_by_drop_default(x))  </span></span>
+<span id="cb179-54"><a></a><span class="co">#&gt; cross_join : function (x, y, ..., copy = FALSE, suffix = c(".x", ".y"))  </span></span>
+<span id="cb179-55"><a></a><span class="co">#&gt; cumall : function (x)  </span></span>
+<span id="cb179-56"><a></a><span class="co">#&gt; cumany : function (x)  </span></span>
+<span id="cb179-57"><a></a><span class="co">#&gt; cume_dist : function (x)  </span></span>
+<span id="cb179-58"><a></a><span class="co">#&gt; cummean : function (x)  </span></span>
+<span id="cb179-59"><a></a><span class="co">#&gt; cur_column : function ()  </span></span>
+<span id="cb179-60"><a></a><span class="co">#&gt; cur_data : function ()  </span></span>
+<span id="cb179-61"><a></a><span class="co">#&gt; cur_data_all : function ()  </span></span>
+<span id="cb179-62"><a></a><span class="co">#&gt; cur_group : function ()  </span></span>
+<span id="cb179-63"><a></a><span class="co">#&gt; cur_group_id : function ()  </span></span>
+<span id="cb179-64"><a></a><span class="co">#&gt; cur_group_rows : function ()  </span></span>
+<span id="cb179-65"><a></a><span class="co">#&gt; current_vars : function (...)  </span></span>
+<span id="cb179-66"><a></a><span class="co">#&gt; data_frame : function (...)  </span></span>
+<span id="cb179-67"><a></a><span class="co">#&gt; db_analyze : function (con, table, ...)  </span></span>
+<span id="cb179-68"><a></a><span class="co">#&gt; db_begin : function (con, ...)  </span></span>
+<span id="cb179-69"><a></a><span class="co">#&gt; db_commit : function (con, ...)  </span></span>
+<span id="cb179-70"><a></a><span class="co">#&gt; db_create_index : function (con, table, columns, name = NULL, unique = FALSE, ...)  </span></span>
+<span id="cb179-71"><a></a><span class="co">#&gt; db_create_indexes : function (con, table, indexes = NULL, unique = FALSE, ...)  </span></span>
+<span id="cb179-72"><a></a><span class="co">#&gt; db_create_table : function (con, table, types, temporary = FALSE, ...)  </span></span>
+<span id="cb179-73"><a></a><span class="co">#&gt; db_data_type : function (con, fields)  </span></span>
+<span id="cb179-74"><a></a><span class="co">#&gt; db_desc : function (x)  </span></span>
+<span id="cb179-75"><a></a><span class="co">#&gt; db_drop_table : function (con, table, force = FALSE, ...)  </span></span>
+<span id="cb179-76"><a></a><span class="co">#&gt; db_explain : function (con, sql, ...)  </span></span>
+<span id="cb179-77"><a></a><span class="co">#&gt; db_has_table : function (con, table)  </span></span>
+<span id="cb179-78"><a></a><span class="co">#&gt; db_insert_into : function (con, table, values, ...)  </span></span>
+<span id="cb179-79"><a></a><span class="co">#&gt; db_list_tables : function (con)  </span></span>
+<span id="cb179-80"><a></a><span class="co">#&gt; db_query_fields : function (con, sql, ...)  </span></span>
+<span id="cb179-81"><a></a><span class="co">#&gt; db_query_rows : function (con, sql, ...)  </span></span>
+<span id="cb179-82"><a></a><span class="co">#&gt; db_rollback : function (con, ...)  </span></span>
+<span id="cb179-83"><a></a><span class="co">#&gt; db_save_query : function (con, sql, name, temporary = TRUE, ...)  </span></span>
+<span id="cb179-84"><a></a><span class="co">#&gt; db_write_table : function (con, table, types, values, temporary = FALSE, ...)  </span></span>
+<span id="cb179-85"><a></a><span class="co">#&gt; dense_rank : function (x)  </span></span>
+<span id="cb179-86"><a></a><span class="co">#&gt; desc : function (x)  </span></span>
+<span id="cb179-87"><a></a><span class="co">#&gt; dim_desc : function (x)  </span></span>
+<span id="cb179-88"><a></a><span class="co">#&gt; distinct : function (.data, ..., .keep_all = FALSE)  </span></span>
+<span id="cb179-89"><a></a><span class="co">#&gt; distinct_ : function (.data, ..., .dots, .keep_all = FALSE)  </span></span>
+<span id="cb179-90"><a></a><span class="co">#&gt; distinct_all : function (.tbl, .funs = list(), ..., .keep_all = FALSE)  </span></span>
+<span id="cb179-91"><a></a><span class="co">#&gt; distinct_at : function (.tbl, .vars, .funs = list(), ..., .keep_all = FALSE)  </span></span>
+<span id="cb179-92"><a></a><span class="co">#&gt; distinct_if : function (.tbl, .predicate, .funs = list(), ..., .keep_all = FALSE)  </span></span>
+<span id="cb179-93"><a></a><span class="co">#&gt; distinct_prepare : function (.data, vars, group_vars = character(), .keep_all = FALSE, caller_env = caller_env(2), </span></span>
+<span id="cb179-94"><a></a><span class="co">#&gt;     error_call = caller_env())  </span></span>
+<span id="cb179-95"><a></a><span class="co">#&gt; do : function (.data, ...)  </span></span>
+<span id="cb179-96"><a></a><span class="co">#&gt; do_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-97"><a></a><span class="co">#&gt; dplyr_col_modify : function (data, cols)  </span></span>
+<span id="cb179-98"><a></a><span class="co">#&gt; dplyr_reconstruct : function (data, template)  </span></span>
+<span id="cb179-99"><a></a><span class="co">#&gt; dplyr_row_slice : function (data, i, ...)  </span></span>
+<span id="cb179-100"><a></a><span class="co">#&gt; ends_with : function (match, ignore.case = TRUE, vars = NULL)  </span></span>
+<span id="cb179-101"><a></a><span class="co">#&gt; enexpr : function (arg)  </span></span>
+<span id="cb179-102"><a></a><span class="co">#&gt; enexprs : function (..., .named = FALSE, .ignore_empty = c("trailing", "none", "all"), </span></span>
+<span id="cb179-103"><a></a><span class="co">#&gt;     .ignore_null = c("none", "all"), .unquote_names = TRUE, .homonyms = c("keep", </span></span>
+<span id="cb179-104"><a></a><span class="co">#&gt;         "first", "last", "error"), .check_assign = FALSE)  </span></span>
+<span id="cb179-105"><a></a><span class="co">#&gt; enquo : function (arg)  </span></span>
+<span id="cb179-106"><a></a><span class="co">#&gt; enquos : function (..., .named = FALSE, .ignore_empty = c("trailing", "none", "all"), </span></span>
+<span id="cb179-107"><a></a><span class="co">#&gt;     .ignore_null = c("none", "all"), .unquote_names = TRUE, .homonyms = c("keep", </span></span>
+<span id="cb179-108"><a></a><span class="co">#&gt;         "first", "last", "error"), .check_assign = FALSE)  </span></span>
+<span id="cb179-109"><a></a><span class="co">#&gt; ensym : function (arg)  </span></span>
+<span id="cb179-110"><a></a><span class="co">#&gt; ensyms : function (..., .named = FALSE, .ignore_empty = c("trailing", "none", "all"), </span></span>
+<span id="cb179-111"><a></a><span class="co">#&gt;     .ignore_null = c("none", "all"), .unquote_names = TRUE, .homonyms = c("keep", </span></span>
+<span id="cb179-112"><a></a><span class="co">#&gt;         "first", "last", "error"), .check_assign = FALSE)  </span></span>
+<span id="cb179-113"><a></a><span class="co">#&gt; eval_tbls : function (tbls, op)  </span></span>
+<span id="cb179-114"><a></a><span class="co">#&gt; eval_tbls2 : function (tbls_x, tbls_y, op)  </span></span>
+<span id="cb179-115"><a></a><span class="co">#&gt; everything : function (vars = NULL)  </span></span>
+<span id="cb179-116"><a></a><span class="co">#&gt; explain : function (x, ...)  </span></span>
+<span id="cb179-117"><a></a><span class="co">#&gt; expr : function (expr)  </span></span>
+<span id="cb179-118"><a></a><span class="co">#&gt; failwith : function (default = NULL, f, quiet = FALSE)  </span></span>
+<span id="cb179-119"><a></a><span class="co">#&gt; filter : function (.data, ..., .by = NULL, .preserve = FALSE)  </span></span>
+<span id="cb179-120"><a></a><span class="co">#&gt; filter_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-121"><a></a><span class="co">#&gt; filter_all : function (.tbl, .vars_predicate, .preserve = FALSE)  </span></span>
+<span id="cb179-122"><a></a><span class="co">#&gt; filter_at : function (.tbl, .vars, .vars_predicate, .preserve = FALSE)  </span></span>
+<span id="cb179-123"><a></a><span class="co">#&gt; filter_if : function (.tbl, .predicate, .vars_predicate, .preserve = FALSE)  </span></span>
+<span id="cb179-124"><a></a><span class="co">#&gt; first : function (x, order_by = NULL, default = NULL, na_rm = FALSE)  </span></span>
+<span id="cb179-125"><a></a><span class="co">#&gt; full_join : function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ..., keep = NULL)  </span></span>
+<span id="cb179-126"><a></a><span class="co">#&gt; funs : function (..., .args = list())  </span></span>
+<span id="cb179-127"><a></a><span class="co">#&gt; funs_ : function (dots, args = list(), env = base_env())  </span></span>
+<span id="cb179-128"><a></a><span class="co">#&gt; glimpse : function (x, width = NULL, ...)  </span></span>
+<span id="cb179-129"><a></a><span class="co">#&gt; group_by : function (.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))  </span></span>
+<span id="cb179-130"><a></a><span class="co">#&gt; group_by_ : function (.data, ..., .dots = list(), add = FALSE)  </span></span>
+<span id="cb179-131"><a></a><span class="co">#&gt; group_by_all : function (.tbl, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  </span></span>
+<span id="cb179-132"><a></a><span class="co">#&gt; group_by_at : function (.tbl, .vars, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  </span></span>
+<span id="cb179-133"><a></a><span class="co">#&gt; group_by_drop_default : function (.tbl)  </span></span>
+<span id="cb179-134"><a></a><span class="co">#&gt; group_by_if : function (.tbl, .predicate, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  </span></span>
+<span id="cb179-135"><a></a><span class="co">#&gt; group_by_prepare : function (.data, ..., .add = FALSE, .dots = deprecated(), add = deprecated(), </span></span>
+<span id="cb179-136"><a></a><span class="co">#&gt;     error_call = caller_env())  </span></span>
+<span id="cb179-137"><a></a><span class="co">#&gt; group_cols : function (vars = NULL, data = NULL)  </span></span>
+<span id="cb179-138"><a></a><span class="co">#&gt; group_data : function (.data)  </span></span>
+<span id="cb179-139"><a></a><span class="co">#&gt; group_indices : function (.data, ...)  </span></span>
+<span id="cb179-140"><a></a><span class="co">#&gt; group_indices_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-141"><a></a><span class="co">#&gt; group_keys : function (.tbl, ...)  </span></span>
+<span id="cb179-142"><a></a><span class="co">#&gt; group_map : function (.data, .f, ..., .keep = FALSE)  </span></span>
+<span id="cb179-143"><a></a><span class="co">#&gt; group_modify : function (.data, .f, ..., .keep = FALSE)  </span></span>
+<span id="cb179-144"><a></a><span class="co">#&gt; group_nest : function (.tbl, ..., .key = "data", keep = FALSE)  </span></span>
+<span id="cb179-145"><a></a><span class="co">#&gt; group_rows : function (.data)  </span></span>
+<span id="cb179-146"><a></a><span class="co">#&gt; group_size : function (x)  </span></span>
+<span id="cb179-147"><a></a><span class="co">#&gt; group_split : function (.tbl, ..., .keep = TRUE)  </span></span>
+<span id="cb179-148"><a></a><span class="co">#&gt; group_trim : function (.tbl, .drop = group_by_drop_default(.tbl))  </span></span>
+<span id="cb179-149"><a></a><span class="co">#&gt; group_vars : function (x)  </span></span>
+<span id="cb179-150"><a></a><span class="co">#&gt; group_walk : function (.data, .f, ..., .keep = FALSE)  </span></span>
+<span id="cb179-151"><a></a><span class="co">#&gt; grouped_df : function (data, vars, drop = group_by_drop_default(data))  </span></span>
+<span id="cb179-152"><a></a><span class="co">#&gt; groups : function (x)  </span></span>
+<span id="cb179-153"><a></a><span class="co">#&gt; id : function (.variables, drop = FALSE)  </span></span>
+<span id="cb179-154"><a></a><span class="co">#&gt; ident : function (...)  </span></span>
+<span id="cb179-155"><a></a><span class="co">#&gt; if_all : function (.cols, .fns, ..., .names = NULL)  </span></span>
+<span id="cb179-156"><a></a><span class="co">#&gt; if_any : function (.cols, .fns, ..., .names = NULL)  </span></span>
+<span id="cb179-157"><a></a><span class="co">#&gt; if_else : function (condition, true, false, missing = NULL, ..., ptype = NULL, size = NULL)  </span></span>
+<span id="cb179-158"><a></a><span class="co">#&gt; inner_join : function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ..., keep = NULL)  </span></span>
+<span id="cb179-159"><a></a><span class="co">#&gt; intersect : function (x, y, ...)  </span></span>
+<span id="cb179-160"><a></a><span class="co">#&gt; is_grouped_df : function (x)  </span></span>
+<span id="cb179-161"><a></a><span class="co">#&gt; is.grouped_df : function (x)  </span></span>
+<span id="cb179-162"><a></a><span class="co">#&gt; is.src : function (x)  </span></span>
+<span id="cb179-163"><a></a><span class="co">#&gt; is.tbl : function (x)  </span></span>
+<span id="cb179-164"><a></a><span class="co">#&gt; join_by : function (...)  </span></span>
+<span id="cb179-165"><a></a><span class="co">#&gt; lag : function (x, n = 1L, default = NULL, order_by = NULL, ...)  </span></span>
+<span id="cb179-166"><a></a><span class="co">#&gt; last : function (x, order_by = NULL, default = NULL, na_rm = FALSE)  </span></span>
+<span id="cb179-167"><a></a><span class="co">#&gt; last_col : function (offset = 0L, vars = NULL)  </span></span>
+<span id="cb179-168"><a></a><span class="co">#&gt; last_dplyr_warnings : function (n = 5)  </span></span>
+<span id="cb179-169"><a></a><span class="co">#&gt; lead : function (x, n = 1L, default = NULL, order_by = NULL, ...)  </span></span>
+<span id="cb179-170"><a></a><span class="co">#&gt; left_join : function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ..., keep = NULL)  </span></span>
+<span id="cb179-171"><a></a><span class="co">#&gt; location : function (df)  </span></span>
+<span id="cb179-172"><a></a><span class="co">#&gt; lst : function (...)  </span></span>
+<span id="cb179-173"><a></a><span class="co">#&gt; make_tbl : function (subclass, ...)  </span></span>
+<span id="cb179-174"><a></a><span class="co">#&gt; matches : function (match, ignore.case = TRUE, perl = FALSE, vars = NULL)  </span></span>
+<span id="cb179-175"><a></a><span class="co">#&gt; min_rank : function (x)  </span></span>
+<span id="cb179-176"><a></a><span class="co">#&gt; mutate : function (.data, ...)  </span></span>
+<span id="cb179-177"><a></a><span class="co">#&gt; mutate_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-178"><a></a><span class="co">#&gt; mutate_all : function (.tbl, .funs, ...)  </span></span>
+<span id="cb179-179"><a></a><span class="co">#&gt; mutate_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  </span></span>
+<span id="cb179-180"><a></a><span class="co">#&gt; mutate_each : function (tbl, funs, ...)  </span></span>
+<span id="cb179-181"><a></a><span class="co">#&gt; mutate_each_ : function (tbl, funs, vars)  </span></span>
+<span id="cb179-182"><a></a><span class="co">#&gt; mutate_if : function (.tbl, .predicate, .funs, ...)  </span></span>
+<span id="cb179-183"><a></a><span class="co">#&gt; n : function ()  </span></span>
+<span id="cb179-184"><a></a><span class="co">#&gt; n_distinct : function (..., na.rm = FALSE)  </span></span>
+<span id="cb179-185"><a></a><span class="co">#&gt; n_groups : function (x)  </span></span>
+<span id="cb179-186"><a></a><span class="co">#&gt; na_if : function (x, y)  </span></span>
+<span id="cb179-187"><a></a><span class="co">#&gt; near : function (x, y, tol = .Machine$double.eps^0.5)  </span></span>
+<span id="cb179-188"><a></a><span class="co">#&gt; nest_by : function (.data, ..., .key = "data", .keep = FALSE)  </span></span>
+<span id="cb179-189"><a></a><span class="co">#&gt; nest_join : function (x, y, by = NULL, copy = FALSE, keep = NULL, name = NULL, ...)  </span></span>
+<span id="cb179-190"><a></a><span class="co">#&gt; new_grouped_df : function (x, groups, ..., class = character())  </span></span>
+<span id="cb179-191"><a></a><span class="co">#&gt; new_rowwise_df : function (data, group_data = NULL, ..., class = character())  </span></span>
+<span id="cb179-192"><a></a><span class="co">#&gt; nth : function (x, n, order_by = NULL, default = NULL, na_rm = FALSE)  </span></span>
+<span id="cb179-193"><a></a><span class="co">#&gt; ntile : function (x = row_number(), n)  </span></span>
+<span id="cb179-194"><a></a><span class="co">#&gt; num_range : function (prefix, range, suffix = "", width = NULL, vars = NULL)  </span></span>
+<span id="cb179-195"><a></a><span class="co">#&gt; one_of : function (..., .vars = NULL)  </span></span>
+<span id="cb179-196"><a></a><span class="co">#&gt; order_by : function (order_by, call)  </span></span>
+<span id="cb179-197"><a></a><span class="co">#&gt; percent_rank : function (x)  </span></span>
+<span id="cb179-198"><a></a><span class="co">#&gt; pick : function (...)  </span></span>
+<span id="cb179-199"><a></a><span class="co">#&gt; progress_estimated : function (n, min_time = 0)  </span></span>
+<span id="cb179-200"><a></a><span class="co">#&gt; pull : function (.data, var = -1, name = NULL, ...)  </span></span>
+<span id="cb179-201"><a></a><span class="co">#&gt; quo : function (expr)  </span></span>
+<span id="cb179-202"><a></a><span class="co">#&gt; quo_name : function (quo)  </span></span>
+<span id="cb179-203"><a></a><span class="co">#&gt; quos : function (..., .named = FALSE, .ignore_empty = c("trailing", "none", "all"), </span></span>
+<span id="cb179-204"><a></a><span class="co">#&gt;     .unquote_names = TRUE)  </span></span>
+<span id="cb179-205"><a></a><span class="co">#&gt; recode : function (.x, ..., .default = NULL, .missing = NULL)  </span></span>
+<span id="cb179-206"><a></a><span class="co">#&gt; recode_factor : function (.x, ..., .default = NULL, .missing = NULL, .ordered = FALSE)  </span></span>
+<span id="cb179-207"><a></a><span class="co">#&gt; reframe : function (.data, ..., .by = NULL)  </span></span>
+<span id="cb179-208"><a></a><span class="co">#&gt; relocate : function (.data, ..., .before = NULL, .after = NULL)  </span></span>
+<span id="cb179-209"><a></a><span class="co">#&gt; rename : function (.data, ...)  </span></span>
+<span id="cb179-210"><a></a><span class="co">#&gt; rename_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-211"><a></a><span class="co">#&gt; rename_all : function (.tbl, .funs = list(), ...)  </span></span>
+<span id="cb179-212"><a></a><span class="co">#&gt; rename_at : function (.tbl, .vars, .funs = list(), ...)  </span></span>
+<span id="cb179-213"><a></a><span class="co">#&gt; rename_if : function (.tbl, .predicate, .funs = list(), ...)  </span></span>
+<span id="cb179-214"><a></a><span class="co">#&gt; rename_vars : function (vars = chr(), ..., strict = TRUE)  </span></span>
+<span id="cb179-215"><a></a><span class="co">#&gt; rename_vars_ : function (vars, args)  </span></span>
+<span id="cb179-216"><a></a><span class="co">#&gt; rename_with : function (.data, .fn, .cols = everything(), ...)  </span></span>
+<span id="cb179-217"><a></a><span class="co">#&gt; right_join : function (x, y, by = NULL, copy = FALSE, suffix = c(".x", ".y"), ..., keep = NULL)  </span></span>
+<span id="cb179-218"><a></a><span class="co">#&gt; row_number : function (x)  </span></span>
+<span id="cb179-219"><a></a><span class="co">#&gt; rows_append : function (x, y, ..., copy = FALSE, in_place = FALSE)  </span></span>
+<span id="cb179-220"><a></a><span class="co">#&gt; rows_delete : function (x, y, by = NULL, ..., unmatched = c("error", "ignore"), copy = FALSE, </span></span>
+<span id="cb179-221"><a></a><span class="co">#&gt;     in_place = FALSE)  </span></span>
+<span id="cb179-222"><a></a><span class="co">#&gt; rows_insert : function (x, y, by = NULL, ..., conflict = c("error", "ignore"), copy = FALSE, </span></span>
+<span id="cb179-223"><a></a><span class="co">#&gt;     in_place = FALSE)  </span></span>
+<span id="cb179-224"><a></a><span class="co">#&gt; rows_patch : function (x, y, by = NULL, ..., unmatched = c("error", "ignore"), copy = FALSE, </span></span>
+<span id="cb179-225"><a></a><span class="co">#&gt;     in_place = FALSE)  </span></span>
+<span id="cb179-226"><a></a><span class="co">#&gt; rows_update : function (x, y, by = NULL, ..., unmatched = c("error", "ignore"), copy = FALSE, </span></span>
+<span id="cb179-227"><a></a><span class="co">#&gt;     in_place = FALSE)  </span></span>
+<span id="cb179-228"><a></a><span class="co">#&gt; rows_upsert : function (x, y, by = NULL, ..., copy = FALSE, in_place = FALSE)  </span></span>
+<span id="cb179-229"><a></a><span class="co">#&gt; rowwise : function (data, ...)  </span></span>
+<span id="cb179-230"><a></a><span class="co">#&gt; same_src : function (x, y)  </span></span>
+<span id="cb179-231"><a></a><span class="co">#&gt; sample_frac : function (tbl, size = 1, replace = FALSE, weight = NULL, .env = NULL, ...)  </span></span>
+<span id="cb179-232"><a></a><span class="co">#&gt; sample_n : function (tbl, size, replace = FALSE, weight = NULL, .env = NULL, ...)  </span></span>
+<span id="cb179-233"><a></a><span class="co">#&gt; select : function (.data, ...)  </span></span>
+<span id="cb179-234"><a></a><span class="co">#&gt; select_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-235"><a></a><span class="co">#&gt; select_all : function (.tbl, .funs = list(), ...)  </span></span>
+<span id="cb179-236"><a></a><span class="co">#&gt; select_at : function (.tbl, .vars, .funs = list(), ...)  </span></span>
+<span id="cb179-237"><a></a><span class="co">#&gt; select_if : function (.tbl, .predicate, .funs = list(), ...)  </span></span>
+<span id="cb179-238"><a></a><span class="co">#&gt; select_var : function (vars, var = -1)  </span></span>
+<span id="cb179-239"><a></a><span class="co">#&gt; select_vars : function (vars = chr(), ..., include = chr(), exclude = chr())  </span></span>
+<span id="cb179-240"><a></a><span class="co">#&gt; select_vars_ : function (vars, args, include = chr(), exclude = chr())  </span></span>
+<span id="cb179-241"><a></a><span class="co">#&gt; semi_join : function (x, y, by = NULL, copy = FALSE, ...)  </span></span>
+<span id="cb179-242"><a></a><span class="co">#&gt; setdiff : function (x, y, ...)  </span></span>
+<span id="cb179-243"><a></a><span class="co">#&gt; setequal : function (x, y, ...)  </span></span>
+<span id="cb179-244"><a></a><span class="co">#&gt; show_query : function (x, ...)  </span></span>
+<span id="cb179-245"><a></a><span class="co">#&gt; slice : function (.data, ..., .by = NULL, .preserve = FALSE)  </span></span>
+<span id="cb179-246"><a></a><span class="co">#&gt; slice_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-247"><a></a><span class="co">#&gt; slice_head : function (.data, ..., n, prop, by = NULL)  </span></span>
+<span id="cb179-248"><a></a><span class="co">#&gt; slice_max : function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE, na_rm = FALSE)  </span></span>
+<span id="cb179-249"><a></a><span class="co">#&gt; slice_min : function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE, na_rm = FALSE)  </span></span>
+<span id="cb179-250"><a></a><span class="co">#&gt; slice_sample : function (.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE)  </span></span>
+<span id="cb179-251"><a></a><span class="co">#&gt; slice_tail : function (.data, ..., n, prop, by = NULL)  </span></span>
+<span id="cb179-252"><a></a><span class="co">#&gt; sql : function (...)  </span></span>
+<span id="cb179-253"><a></a><span class="co">#&gt; sql_escape_ident : function (con, x)  </span></span>
+<span id="cb179-254"><a></a><span class="co">#&gt; sql_escape_string : function (con, x)  </span></span>
+<span id="cb179-255"><a></a><span class="co">#&gt; sql_join : function (con, x, y, vars, type = "inner", by = NULL, ...)  </span></span>
+<span id="cb179-256"><a></a><span class="co">#&gt; sql_select : function (con, select, from, where = NULL, group_by = NULL, having = NULL, </span></span>
+<span id="cb179-257"><a></a><span class="co">#&gt;     order_by = NULL, limit = NULL, distinct = FALSE, ...)  </span></span>
+<span id="cb179-258"><a></a><span class="co">#&gt; sql_semi_join : function (con, x, y, anti = FALSE, by = NULL, ...)  </span></span>
+<span id="cb179-259"><a></a><span class="co">#&gt; sql_set_op : function (con, x, y, method)  </span></span>
+<span id="cb179-260"><a></a><span class="co">#&gt; sql_subquery : function (con, from, name = random_table_name(), ...)  </span></span>
+<span id="cb179-261"><a></a><span class="co">#&gt; sql_translate_env : function (con)  </span></span>
+<span id="cb179-262"><a></a><span class="co">#&gt; src : function (subclass, ...)  </span></span>
+<span id="cb179-263"><a></a><span class="co">#&gt; src_df : function (pkg = NULL, env = NULL)  </span></span>
+<span id="cb179-264"><a></a><span class="co">#&gt; src_local : function (tbl, pkg = NULL, env = NULL)  </span></span>
+<span id="cb179-265"><a></a><span class="co">#&gt; src_mysql : function (dbname, host = NULL, port = 0L, username = "root", password = "", </span></span>
+<span id="cb179-266"><a></a><span class="co">#&gt;     ...)  </span></span>
+<span id="cb179-267"><a></a><span class="co">#&gt; src_postgres : function (dbname = NULL, host = NULL, port = NULL, user = NULL, password = NULL, </span></span>
+<span id="cb179-268"><a></a><span class="co">#&gt;     ...)  </span></span>
+<span id="cb179-269"><a></a><span class="co">#&gt; src_sqlite : function (path, create = FALSE)  </span></span>
+<span id="cb179-270"><a></a><span class="co">#&gt; src_tbls : function (x, ...)  </span></span>
+<span id="cb179-271"><a></a><span class="co">#&gt; starts_with : function (match, ignore.case = TRUE, vars = NULL)  </span></span>
+<span id="cb179-272"><a></a><span class="co">#&gt; summarise : function (.data, ..., .by = NULL, .groups = NULL)  </span></span>
+<span id="cb179-273"><a></a><span class="co">#&gt; summarise_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-274"><a></a><span class="co">#&gt; summarise_all : function (.tbl, .funs, ...)  </span></span>
+<span id="cb179-275"><a></a><span class="co">#&gt; summarise_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  </span></span>
+<span id="cb179-276"><a></a><span class="co">#&gt; summarise_each : function (tbl, funs, ...)  </span></span>
+<span id="cb179-277"><a></a><span class="co">#&gt; summarise_each_ : function (tbl, funs, vars)  </span></span>
+<span id="cb179-278"><a></a><span class="co">#&gt; summarise_if : function (.tbl, .predicate, .funs, ...)  </span></span>
+<span id="cb179-279"><a></a><span class="co">#&gt; summarize : function (.data, ..., .by = NULL, .groups = NULL)  </span></span>
+<span id="cb179-280"><a></a><span class="co">#&gt; summarize_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-281"><a></a><span class="co">#&gt; summarize_all : function (.tbl, .funs, ...)  </span></span>
+<span id="cb179-282"><a></a><span class="co">#&gt; summarize_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  </span></span>
+<span id="cb179-283"><a></a><span class="co">#&gt; summarize_each : function (tbl, funs, ...)  </span></span>
+<span id="cb179-284"><a></a><span class="co">#&gt; summarize_each_ : function (tbl, funs, vars)  </span></span>
+<span id="cb179-285"><a></a><span class="co">#&gt; summarize_if : function (.tbl, .predicate, .funs, ...)  </span></span>
+<span id="cb179-286"><a></a><span class="co">#&gt; sym : function (x)  </span></span>
+<span id="cb179-287"><a></a><span class="co">#&gt; symdiff : function (x, y, ...)  </span></span>
+<span id="cb179-288"><a></a><span class="co">#&gt; syms : function (x)  </span></span>
+<span id="cb179-289"><a></a><span class="co">#&gt; tally : function (x, wt = NULL, sort = FALSE, name = NULL)  </span></span>
+<span id="cb179-290"><a></a><span class="co">#&gt; tally_ : function (x, wt, sort = FALSE)  </span></span>
+<span id="cb179-291"><a></a><span class="co">#&gt; tbl : function (src, ...)  </span></span>
+<span id="cb179-292"><a></a><span class="co">#&gt; tbl_df : function (data)  </span></span>
+<span id="cb179-293"><a></a><span class="co">#&gt; tbl_nongroup_vars : function (x)  </span></span>
+<span id="cb179-294"><a></a><span class="co">#&gt; tbl_ptype : function (.data)  </span></span>
+<span id="cb179-295"><a></a><span class="co">#&gt; tbl_vars : function (x)  </span></span>
+<span id="cb179-296"><a></a><span class="co">#&gt; tibble : function (..., .rows = NULL, .name_repair = c("check_unique", "unique", </span></span>
+<span id="cb179-297"><a></a><span class="co">#&gt;     "universal", "minimal"))  </span></span>
+<span id="cb179-298"><a></a><span class="co">#&gt; top_frac : function (x, n, wt)  </span></span>
+<span id="cb179-299"><a></a><span class="co">#&gt; top_n : function (x, n, wt)  </span></span>
+<span id="cb179-300"><a></a><span class="co">#&gt; transmute : function (.data, ...)  </span></span>
+<span id="cb179-301"><a></a><span class="co">#&gt; transmute_ : function (.data, ..., .dots = list())  </span></span>
+<span id="cb179-302"><a></a><span class="co">#&gt; transmute_all : function (.tbl, .funs, ...)  </span></span>
+<span id="cb179-303"><a></a><span class="co">#&gt; transmute_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  </span></span>
+<span id="cb179-304"><a></a><span class="co">#&gt; transmute_if : function (.tbl, .predicate, .funs, ...)  </span></span>
+<span id="cb179-305"><a></a><span class="co">#&gt; tribble : function (...)  </span></span>
+<span id="cb179-306"><a></a><span class="co">#&gt; type_sum : function (x)  </span></span>
+<span id="cb179-307"><a></a><span class="co">#&gt; ungroup : function (x, ...)  </span></span>
+<span id="cb179-308"><a></a><span class="co">#&gt; union : function (x, y, ...)  </span></span>
+<span id="cb179-309"><a></a><span class="co">#&gt; union_all : function (x, y, ...)  </span></span>
+<span id="cb179-310"><a></a><span class="co">#&gt; validate_grouped_df : function (x, check_bounds = FALSE)  </span></span>
+<span id="cb179-311"><a></a><span class="co">#&gt; validate_rowwise_df : function (x)  </span></span>
+<span id="cb179-312"><a></a><span class="co">#&gt; vars : function (...)  </span></span>
+<span id="cb179-313"><a></a><span class="co">#&gt; where : function (fn)  </span></span>
+<span id="cb179-314"><a></a><span class="co">#&gt; with_groups : function (.data, .groups, .f, ...)  </span></span>
+<span id="cb179-315"><a></a><span class="co">#&gt; with_order : function (order_by, fun, x, ...)  </span></span>
+<span id="cb179-316"><a></a><span class="co">#&gt; wrap_dbplyr_obj : function (obj_name)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div><div class="column" style="width:60%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="figures/raster2_auto_03_output-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
+</section>
+<section id="signature" class="slide level2">
+<h2>Signature</h2>
+<ul>
+<li>What is the name, what are the inputs.</li>
+</ul>
+<p><code>add_count_ : function (x, vars, wt = NULL, sort = FALSE)</code></p>
+<p>–</p>
+</section>
+<section id="access" class="slide level2">
+<h2>Access</h2>
+<p>We can access the functions that come with a package in 2 ways:</p>
+<ol type="1">
+<li><p>By attaching the package to the working session (library)</p></li>
+<li><p>By referencing the package directly (<code>rmarkdown::render_site()</code>)</p></li>
+</ol>
+<p>–</p>
+</section>
+<section id="help" class="slide level2">
+<h2>Help</h2>
+<ul>
+<li>We can get help about a function by placing a ? in front of of the function</li>
+</ul>
+<p><code>?dplyr::select</code></p>
 </section>
 <section id="next-time" class="slide level2">
 <h2>Next Time:</h2>
@@ -2768,7 +3067,7 @@ max values :     100,     200,     300 </code></pre>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <blockquote>
-<p>Daily Assignment: <a href="../exercises/3-first-project.html">Your First Project</a></p>
+<p>Daily Assignment: <a href="../exercises/3-first-project.html">Folking &amp; Quarto</a></p>
 </blockquote>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -2783,10 +3082,9 @@ max values :     100,     200,     300 </code></pre>
 </div>
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
+<div>
 <figure>
-<p><img data-src="images/rproj-image.png" width="640"></p>
-<figcaption>Artwork by <a href="https://x.com/allison_horst"><span class="citation" data-cites="allison_horst">@allison_horst</span></a></figcaption>
+<p><img data-src="images/forking.jpg" width="343"></p>
 </figure>
 </div>
 </div>
@@ -2833,7 +3131,7 @@ max values :     100,     200,     300 </code></pre>
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': true,
+'smaller': false,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -2980,7 +3278,7 @@ max values :     100,     200,     300 </code></pre>
         // specified using percentage units.
         width: 1600,
 
-        height: 900,
+        height: 1000,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,

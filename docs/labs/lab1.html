@@ -181,7 +181,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#specifics-for-this-class" id="toc-specifics-for-this-class" class="nav-link" data-scroll-target="#specifics-for-this-class">Specifics for this class:</a></li>
   </ul></li>
   <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2"><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Week 2:</a></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission"><i class="fa-solid fa-check-to-slot" aria-label="check-to-slot"></i> Submission:</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission"><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Submission:</a>
+  <ul class="collapse">
+  <li><a href="#rubric" id="toc-rubric" class="nav-link" data-scroll-target="#rubric">Rubric</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -326,7 +330,7 @@ To follow along, you’ll need:
 </section>
 <section id="week-1" class="level1">
 <h1><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Week 1:</h1>
-<p>Today’s lab will leverage the amazing material put together by <a href="https://samanthacsik.github.io/">Sam Csik</a> from UCSB. In this first week, we will focus on the following three tasks.</p>
+<p>This week lab will leverage the amazing material put together by <a href="https://samanthacsik.github.io/">Sam Csik</a> from UCSB. In this first week, we will focus on the following three tasks.</p>
 <ol type="1">
 <li>Building the scaffolding of your personal webpage</li>
 <li>Getting it connected to Github and deployed via Github Pages.</li>
@@ -336,17 +340,16 @@ To follow along, you’ll need:
 <ol type="1">
 <li>Customizing your website to better represent your uniqueness</li>
 <li>Adding content from one of you favorite CSU projects</li>
-<li>Contributing to a class website through a fork–&gt;PR workflow</li>
+<li>Contributing to a class website through a <code>fork--&gt;PR workflow</code></li>
 </ol>
 <p>To start this week, you will work closely with your TA’s and the content put together below:</p>
 <p><a href="https://ucsb-meds.github.io/creating-quarto-websites/">Creating Quarto Websites</a></p>
 <section id="specifics-for-this-class" class="level2">
 <h2 class="anchored" data-anchor-id="specifics-for-this-class">Specifics for this class:</h2>
-<p>By the beginning of next weeks lab, you should have you site deployed to GithHub and have a tab for the following sections:</p>
-<ol type="1">
-<li><code>About</code> (index.html): Your job is to make this paragraph meaningful to you, and to add a image of yourself (or something relevant to you). Think about the following when writing the section.</li>
-</ol>
-<p>I cannot emphasize enough that anytime I read an application, if there is a website I’ll go to it, and if there is a short bio, I read it. It is a very good way to make a strong technical and personal first impression.</p>
+<p>By the beginning of next weeks lab, you should have your site deployed to Github and have a tab for the following three sections:</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>About</code> (index.qmd): Your job is to make this paragraph meaningful to you, and to add a image of yourself (or something relevant to you). Think about the following when writing the section.</label></li>
+</ul>
 <blockquote class="blockquote">
 <p>[What adjectives describe your personal brand (i.e.&nbsp;you, your skills / expertise, your motivations, your achievements? Choose 3-5.]</p>
 </blockquote>
@@ -356,9 +359,10 @@ To follow along, you’ll need:
 <blockquote class="blockquote">
 <p>[What audience(s) do you want your website to serve / reach?]</p>
 </blockquote>
-<ol start="2" type="1">
-<li><code>CSU Projects</code>. This tab will be populated next week and through out the quarter. It can be populated initially with something like this:</li>
-</ol>
+<p>I cannot emphasize enough that anytime I read an application, if there is a website I’ll go to it, and if there is a short bio, I read it. It is a very good way to make a strong technical and personal first impression.</p>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>CSU Projects</code> (projects.qmd) . This tab will be populated next week and through out the quarter. It can be populated initially with something like this:</label></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Projects"</span></span>
@@ -373,19 +377,197 @@ To follow along, you’ll need:
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Look at how high quality my work is<span class="sc">!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Your job is to make this text meaningful to you, and to add the appropriate URL to the header. You must also describe what you learned in this activity in 3-5 bullet points. Do this in a way that is directed at showing an audience what you know, not as an exercise to satisfy me.</p>
-<ol start="3" type="1">
-<li><code>Resume</code>. Here you should store a more traditional resume/CV. This can be written in Quarto, or as a linked PDF.</li>
-</ol>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>Resume</code> (resume.qmd). Here you should store a more traditional resume/CV. This can be written in Quarto, or as a linked PDF.</label></li>
+</ul>
 <p>🎉 <strong>Congrats</strong> 🎉 you have created a personal website and hosted it online.</p>
 </section>
 </section>
 <section id="week-2" class="level1">
 <h1><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Week 2:</h1>
-<p>…</p>
+<p>Given last weeks lab, you should now have a basic version of your website up and running. At minimum it should look something like this, and be accessible from the Github pages URL associated with your repo:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/webpage-basic.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Today, we’ll learn how to customize the appearance of our site using Sass &amp; CSS.</p>
+<p>The base material for this week can be found <a href="https://ucsb-meds.github.io/customizing-quarto-websites/#/lets-start-styling">here</a></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that we are not starting at the beginning of that presentation but rather slide 7!</p>
+</div>
+</div>
+<p>Throughout this lab, work with your TA and classmates to enhance your website in the following ways:</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox">Add a template to your <code>index.qmd</code></label></p>
+<ul>
+<li>Choose from one of the 5 listed <a href="https://quarto.org/docs/websites/website-about.html#templates">here</a></li>
+</ul></li>
+<li><p><label><input type="checkbox">Add your Professional Buttons</label></p>
+<ul>
+<li>At minimum, Github needs to be linked and perhaps linkedin and/or email</li>
+</ul></li>
+<li><p><label><input type="checkbox">Customize your navbar so that <code>Home</code>, <code>About</code>, <code>Resume</code>, and <code>Projects</code> are visible by modifying your _quarto.yml.</label></p></li>
+<li><p><label><input type="checkbox">Add a Page Footer with a left and right side content</label></p></li>
+<li><p><label><input type="checkbox"><strong>EXTRA CREDIT</strong>: Add a personal favicon</label></p></li>
+<li><p><label><input type="checkbox">(Ignore the section <code>Checkout other website tools</code>)</label></p></li>
+<li><p><label><input type="checkbox">Create a .scss file with a personal color scheme.</label></p>
+<ul>
+<li>This <a href="https://www.canva.com/colors/color-wheel/">site</a> can be helpful!</li>
+</ul></li>
+<li><p><label><input type="checkbox">Populate a few <a href="https://quarto.org/docs/output-formats/html-themes.html#sass-variables">Quarto Sass Variables</a> with your color palette</label></p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that we are not going to the end of the presentation but rather stopping on slide 34! There’s is a ton of great information in the remaining slides if you are interested in Web Development or Web based graphic design. For the purposes (and current )</p>
+</div>
+</div>
 </section>
 <section id="submission" class="level1">
-<h1><i class="fa-solid fa-check-to-slot" aria-label="check-to-slot"></i> Submission:</h1>
-<p>…</p>
+<h1><i class="fa-solid fa-calendar-week" aria-label="calendar-week"></i> Submission:</h1>
+<p>I have created a repository <a href="https://github.com/mikejohnson51/people-of-ess-330">here</a> for our class. Notice, it is similar to the site you just built!</p>
+<p>To submit your assignment, you must do the following:</p>
+<ol type="1">
+<li>Fork the above repo</li>
+<li>Clone a local copy as an RProject in your <code>~/github</code> directory</li>
+<li>Create a new csv file in the people directory with the naming convention <code>{first}_{last}.csv</code>
+<ul>
+<li>Remember that csv stands for comma separated values!</li>
+<li>In line 1 of your new file copy the following:</li>
+</ul></li>
+</ol>
+<blockquote class="blockquote">
+<p>first,last,website,major,interest,hometown_lat,hometown_lng</p>
+</blockquote>
+<ol start="4" type="1">
+<li>In Line 2, populate those sections with your own information. A sample file can be found under my name.</li>
+<li>Ensure that you can read you file with <code>readr::read_csv()</code></li>
+<li>Commit your changes to your local copy.</li>
+<li>Push the changes to your online repo.</li>
+<li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork">Submit a pull request</a> to have your modifications merged with my master branch doing the following:</li>
+</ol>
+<ul>
+<li>On GitHub, navigate to the main page of your version of the <code>people-of-ess-330</code> repository.</li>
+<li>Above the list of files, click Pull request.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01-pull-request.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="The Sass and CSS logos"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Use the base branch drop down menu to select the branch you’d like to merge your changes into (my main), then use the compare branch drop-down menu to choose the topic branch you made your changes in (your main).</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01-open-pull-request.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="The Sass and CSS logos"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Type a title and description for your pull request. This should be something like ** LASTNAME: Lab 1 Submission**</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01-describe-pull-request.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="The Sass and CSS logos"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Create a pull request that is ready for review, by clicking “Create Pull Request”.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/01-button-pull-request.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" alt="The Sass and CSS logos"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>When you do this, I will merge your changes into the main site. In addition, submit your webpage URL to the appropriate Canvas dropbox.</p>
+<section id="rubric" class="level2">
+<h2 class="anchored" data-anchor-id="rubric">Rubric</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"><strong>Github repo</strong> (10)</label>
+<ul class="task-list">
+<li><label><input type="checkbox">With a description and website URL in the “about”</label></li>
+</ul></li>
+<li><label><input type="checkbox"><strong>Clear RProject Structure</strong> (10)</label>
+<ul class="task-list">
+<li><label><input type="checkbox">.Rproj</label></li>
+<li><label><input type="checkbox">img folder</label></li>
+</ul></li>
+<li><label><input type="checkbox"><strong>yml</strong> (20)</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Applies a theme</label></li>
+<li><label><input type="checkbox">Contains a complete navbar</label></li>
+<li><label><input type="checkbox">Applies a .scss file</label></li>
+<li><label><input type="checkbox">with link to your github account</label></li>
+</ul></li>
+<li><label><input type="checkbox"><strong>index qmd/html</strong> (10)</label>
+<ul>
+<li><label><input type="checkbox">Contains an image of yourself</label></li>
+<li><label><input type="checkbox">Concise “about me” paragraph depicting your interests and career aspirations (remember this is professional webpage)</label></li>
+<li>Applied template</li>
+<li>Social links are present</li>
+</ul></li>
+<li><label><input type="checkbox"><strong>projects qmd/html</strong> (10)</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Project description with link to home page (index.html)<br>
+</label></li>
+<li><label><input type="checkbox">Summary of skills gained in this project</label></li>
+</ul></li>
+<li><label><input type="checkbox"><strong>Resume qmd/html</strong> (10)</label>
+<ul class="task-list">
+<li><label><input type="checkbox">minimal CV</label></li>
+</ul></li>
+<li><label><input type="checkbox"><strong>All links work (from https)</strong> (10)<br>
+</label></li>
+<li><label><input type="checkbox"><strong>Submitted as a pull request</strong> (20)</label></li>
+</ul>
+<p>Extra Credit: Create a unique favicon (10)</p>
+<p><strong>Total:</strong> 100 points</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>So what did we learn in this process, and why does it matter for environmental science? Well, data science as a whole is moving toward a more open, collaborative future—one where sharing, contributing, and understanding others’ work is not just encouraged but expected. Your ability to document, communicate, and maintain reproducible workflows using Quarto and GitHub is a crucial step toward that future.</p>
+<p>Beyond that, version control isn’t just about managing code—it’s about managing ideas, tracking progress, and working effectively with others. The skills you’ve built here extend far beyond personal websites. Whether you’re analyzing climate trends, modeling hydrologic systems, or working with geospatial data, these same tools will help you keep your work transparent, reproducible, and impactful.</p>
+<p>I also hope you gained some confidence. Most of you had never touched the tools we used or heard of things like YML, HTML, or CSS before this project. A huge part of becoming a data scientist is exposure to what exists in the wild. The fact that you installed, tested, and used all of these technologies to create something tangible is no small feat. That process—diving into the unknown, figuring things out, and making it work is what data science is all about.</p>
+<p>And let’s talk about your professional future. You now have something tangible to show beyond a bullet point on a resume. In a world where job applications are increasingly automated and competitive, a well-crafted online presence—one that demonstrates technical skills and intellectual curiosity—can set you apart.</p>
+<p>So take pride in this! If this felt like a lot, that’s because it was—and yet, you did it. This is the foundation for meaningful work in data science and environmental research. Keep building on it.</p>
 
 
 </section>
