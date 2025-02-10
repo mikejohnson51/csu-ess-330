@@ -81,6 +81,5 @@ Use the `dplyr` verbs to report the **5** states with the _worst_ current death/
 (**Hint:** `filter`, `group_by`, `summarize`, `mutate`, `arrange`, `slice`)
 
 ```{r}
-```
 
-# END
+```

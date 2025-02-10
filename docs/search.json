@@ -1446,14 +1446,14 @@
     "href": "slides/5-data-structures.html#cran",
     "title": "Lecture 05",
     "section": "CRAN",
-    "text": "CRAN\n\nThe “Comprehensive R Archive Network” (CRAN) is a collection of sites which carry identical material, consisting of the R distribution(s) and contributed packages\n\n\n\nCRAN enforces a Repository Policy that ensures contributed code is safe and works (meaning it works not necessarily that its good :))\nThis huge variety of packages is one of the reasons that R is so successful: the chances are that someone has already solved a problem that you’re working on, and you can benefit from their work by downloading their package."
+    "text": "CRAN\n\nThe “Comprehensive R Archive Network” (CRAN) is a collection of sites which carry identical material, consisting of the R distribution(s) and contributed packages\n\n\n\n\nCRAN enforces a Repository Policy that ensures contributed code is safe and works (meaning it works not necessarily that its good :))\nThis huge variety of packages is one of the reasons that R is so successful: the chances are that someone has already solved a problem that you’re working on, and you can benefit from their work by downloading their package."
   },
   {
     "objectID": "slides/5-data-structures.html#you-already-know-how-to-use-packages",
     "href": "slides/5-data-structures.html#you-already-know-how-to-use-packages",
     "title": "Lecture 05",
     "section": "You already know how to use packages:",
-    "text": "You already know how to use packages:\n\nYou install them from CRAN with install.packages(\"XXX\").\nYou install them from Github with remotes::install_github(\"USERNAME/REPO\").\nYou use them in R with library(\"XXX\").\nYou get help on them with package ?XXX"
+    "text": "You already know how to use packages:\n\nYou install them from CRAN with install.packages(\"XXX\").\n\n\n\nYou install them from Github with remotes::install_github(\"USERNAME/REPO\").\n\n\n\n\nYou use them in R with library(\"XXX\")\n\n\n\n\nYou get help on them with package ?XXX"
   },
   {
     "objectID": "slides/5-data-structures.html#install-vs.-attach",
@@ -1467,7 +1467,7 @@
     "href": "slides/5-data-structures.html#what-is-a-function",
     "title": "Lecture 05",
     "section": "What is a function:",
-    "text": "What is a function:\n\nA function is a set of statements (directions) organized together to perform a specific task. R has a large number of in-built functions and the user can create their own functions.\n\n\nlibrary(tidyverse)\nlsf.str(\"package:dplyr\")\n#&gt; %&gt;% : function (lhs, rhs)  \n#&gt; across : function (.cols, .fns, ..., .names = NULL, .unpack = FALSE)  \n#&gt; add_count : function (x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())  \n#&gt; add_count_ : function (x, vars, wt = NULL, sort = FALSE)  \n#&gt; add_row : function (.data, ..., .before = NULL, .after = NULL)  \n#&gt; add_rownames : function (df, var = \"rowname\")  \n#&gt; add_tally : function (x, wt = NULL, sort = FALSE, name = NULL)  \n#&gt; add_tally_ : function (x, wt, sort = FALSE)  \n#&gt; all_equal : function (target, current, ignore_col_order = TRUE, ignore_row_order = TRUE, \n#&gt;     convert = FALSE, ...)  \n#&gt; all_of : function (x)  \n#&gt; all_vars : function (expr)  \n#&gt; anti_join : function (x, y, by = NULL, copy = FALSE, ...)  \n#&gt; any_of : function (x, ..., vars = NULL)  \n#&gt; any_vars : function (expr)  \n#&gt; arrange : function (.data, ..., .by_group = FALSE)  \n#&gt; arrange_ : function (.data, ..., .dots = list())  \n#&gt; arrange_all : function (.tbl, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  \n#&gt; arrange_at : function (.tbl, .vars, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  \n#&gt; arrange_if : function (.tbl, .predicate, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  \n#&gt; as_data_frame : function (x, ...)  \n#&gt; as_label : function (x)  \n#&gt; as_tibble : function (x, ..., .rows = NULL, .name_repair = c(\"check_unique\", \"unique\", \n#&gt;     \"universal\", \"minimal\"), rownames = pkgconfig::get_config(\"tibble::rownames\", \n#&gt;     NULL))  \n#&gt; as.tbl : function (x, ...)  \n#&gt; auto_copy : function (x, y, copy = FALSE, ...)  \n#&gt; bench_tbls : function (tbls, op, ..., times = 10)  \n#&gt; between : function (x, left, right)  \n#&gt; bind_cols : function (..., .name_repair = c(\"unique\", \"universal\", \"check_unique\", \n#&gt;     \"minimal\"))  \n#&gt; bind_rows : function (..., .id = NULL)  \n#&gt; c_across : function (cols)  \n#&gt; case_match : function (.x, ..., .default = NULL, .ptype = NULL)  \n#&gt; case_when : function (..., .default = NULL, .ptype = NULL, .size = NULL)  \n#&gt; changes : function (x, y)  \n#&gt; check_dbplyr : function ()  \n#&gt; coalesce : function (..., .ptype = NULL, .size = NULL)  \n#&gt; collapse : function (x, ...)  \n#&gt; collect : function (x, ...)  \n#&gt; combine : function (...)  \n#&gt; common_by : function (by = NULL, x, y)  \n#&gt; compare_tbls : function (tbls, op, ref = NULL, compare = equal_data_frame, ...)  \n#&gt; compare_tbls2 : function (tbls_x, tbls_y, op, ref = NULL, compare = equal_data_frame, ...)  \n#&gt; compute : function (x, ...)  \n#&gt; consecutive_id : function (...)  \n#&gt; contains : function (match, ignore.case = TRUE, vars = NULL)  \n#&gt; copy_to : function (dest, df, name = deparse(substitute(df)), overwrite = FALSE, \n#&gt;     ...)  \n#&gt; count : function (x, ..., wt = NULL, sort = FALSE, name = NULL)  \n#&gt; count_ : function (x, vars, wt = NULL, sort = FALSE, .drop = group_by_drop_default(x))  \n#&gt; cross_join : function (x, y, ..., copy = FALSE, suffix = c(\".x\", \".y\"))  \n#&gt; cumall : function (x)  \n#&gt; cumany : function (x)  \n#&gt; cume_dist : function (x)  \n#&gt; cummean : function (x)  \n#&gt; cur_column : function ()  \n#&gt; cur_data : function ()  \n#&gt; cur_data_all : function ()  \n#&gt; cur_group : function ()  \n#&gt; cur_group_id : function ()  \n#&gt; cur_group_rows : function ()  \n#&gt; current_vars : function (...)  \n#&gt; data_frame : function (...)  \n#&gt; db_analyze : function (con, table, ...)  \n#&gt; db_begin : function (con, ...)  \n#&gt; db_commit : function (con, ...)  \n#&gt; db_create_index : function (con, table, columns, name = NULL, unique = FALSE, ...)  \n#&gt; db_create_indexes : function (con, table, indexes = NULL, unique = FALSE, ...)  \n#&gt; db_create_table : function (con, table, types, temporary = FALSE, ...)  \n#&gt; db_data_type : function (con, fields)  \n#&gt; db_desc : function (x)  \n#&gt; db_drop_table : function (con, table, force = FALSE, ...)  \n#&gt; db_explain : function (con, sql, ...)  \n#&gt; db_has_table : function (con, table)  \n#&gt; db_insert_into : function (con, table, values, ...)  \n#&gt; db_list_tables : function (con)  \n#&gt; db_query_fields : function (con, sql, ...)  \n#&gt; db_query_rows : function (con, sql, ...)  \n#&gt; db_rollback : function (con, ...)  \n#&gt; db_save_query : function (con, sql, name, temporary = TRUE, ...)  \n#&gt; db_write_table : function (con, table, types, values, temporary = FALSE, ...)  \n#&gt; dense_rank : function (x)  \n#&gt; desc : function (x)  \n#&gt; dim_desc : function (x)  \n#&gt; distinct : function (.data, ..., .keep_all = FALSE)  \n#&gt; distinct_ : function (.data, ..., .dots, .keep_all = FALSE)  \n#&gt; distinct_all : function (.tbl, .funs = list(), ..., .keep_all = FALSE)  \n#&gt; distinct_at : function (.tbl, .vars, .funs = list(), ..., .keep_all = FALSE)  \n#&gt; distinct_if : function (.tbl, .predicate, .funs = list(), ..., .keep_all = FALSE)  \n#&gt; distinct_prepare : function (.data, vars, group_vars = character(), .keep_all = FALSE, caller_env = caller_env(2), \n#&gt;     error_call = caller_env())  \n#&gt; do : function (.data, ...)  \n#&gt; do_ : function (.data, ..., .dots = list())  \n#&gt; dplyr_col_modify : function (data, cols)  \n#&gt; dplyr_reconstruct : function (data, template)  \n#&gt; dplyr_row_slice : function (data, i, ...)  \n#&gt; ends_with : function (match, ignore.case = TRUE, vars = NULL)  \n#&gt; enexpr : function (arg)  \n#&gt; enexprs : function (..., .named = FALSE, .ignore_empty = c(\"trailing\", \"none\", \"all\"), \n#&gt;     .ignore_null = c(\"none\", \"all\"), .unquote_names = TRUE, .homonyms = c(\"keep\", \n#&gt;         \"first\", \"last\", \"error\"), .check_assign = FALSE)  \n#&gt; enquo : function (arg)  \n#&gt; enquos : function (..., .named = FALSE, .ignore_empty = c(\"trailing\", \"none\", \"all\"), \n#&gt;     .ignore_null = c(\"none\", \"all\"), .unquote_names = TRUE, .homonyms = c(\"keep\", \n#&gt;         \"first\", \"last\", \"error\"), .check_assign = FALSE)  \n#&gt; ensym : function (arg)  \n#&gt; ensyms : function (..., .named = FALSE, .ignore_empty = c(\"trailing\", \"none\", \"all\"), \n#&gt;     .ignore_null = c(\"none\", \"all\"), .unquote_names = TRUE, .homonyms = c(\"keep\", \n#&gt;         \"first\", \"last\", \"error\"), .check_assign = FALSE)  \n#&gt; eval_tbls : function (tbls, op)  \n#&gt; eval_tbls2 : function (tbls_x, tbls_y, op)  \n#&gt; everything : function (vars = NULL)  \n#&gt; explain : function (x, ...)  \n#&gt; expr : function (expr)  \n#&gt; failwith : function (default = NULL, f, quiet = FALSE)  \n#&gt; filter : function (.data, ..., .by = NULL, .preserve = FALSE)  \n#&gt; filter_ : function (.data, ..., .dots = list())  \n#&gt; filter_all : function (.tbl, .vars_predicate, .preserve = FALSE)  \n#&gt; filter_at : function (.tbl, .vars, .vars_predicate, .preserve = FALSE)  \n#&gt; filter_if : function (.tbl, .predicate, .vars_predicate, .preserve = FALSE)  \n#&gt; first : function (x, order_by = NULL, default = NULL, na_rm = FALSE)  \n#&gt; full_join : function (x, y, by = NULL, copy = FALSE, suffix = c(\".x\", \".y\"), ..., keep = NULL)  \n#&gt; funs : function (..., .args = list())  \n#&gt; funs_ : function (dots, args = list(), env = base_env())  \n#&gt; glimpse : function (x, width = NULL, ...)  \n#&gt; group_by : function (.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))  \n#&gt; group_by_ : function (.data, ..., .dots = list(), add = FALSE)  \n#&gt; group_by_all : function (.tbl, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  \n#&gt; group_by_at : function (.tbl, .vars, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  \n#&gt; group_by_drop_default : function (.tbl)  \n#&gt; group_by_if : function (.tbl, .predicate, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  \n#&gt; group_by_prepare : function (.data, ..., .add = FALSE, .dots = deprecated(), add = deprecated(), \n#&gt;     error_call = caller_env())  \n#&gt; group_cols : function (vars = NULL, data = NULL)  \n#&gt; group_data : function (.data)  \n#&gt; group_indices : function (.data, ...)  \n#&gt; group_indices_ : function (.data, ..., .dots = list())  \n#&gt; group_keys : function (.tbl, ...)  \n#&gt; group_map : function (.data, .f, ..., .keep = FALSE)  \n#&gt; group_modify : function (.data, .f, ..., .keep = FALSE)  \n#&gt; group_nest : function (.tbl, ..., .key = \"data\", keep = FALSE)  \n#&gt; group_rows : function (.data)  \n#&gt; group_size : function (x)  \n#&gt; group_split : function (.tbl, ..., .keep = TRUE)  \n#&gt; group_trim : function (.tbl, .drop = group_by_drop_default(.tbl))  \n#&gt; group_vars : function (x)  \n#&gt; group_walk : function (.data, .f, ..., .keep = FALSE)  \n#&gt; grouped_df : function (data, vars, drop = group_by_drop_default(data))  \n#&gt; groups : function (x)  \n#&gt; id : function (.variables, drop = FALSE)  \n#&gt; ident : function (...)  \n#&gt; if_all : function (.cols, .fns, ..., .names = NULL)  \n#&gt; if_any : function (.cols, .fns, ..., .names = NULL)  \n#&gt; if_else : function (condition, true, false, missing = NULL, ..., ptype = NULL, size = NULL)  \n#&gt; inner_join : function (x, y, by = NULL, copy = FALSE, suffix = c(\".x\", \".y\"), ..., keep = NULL)  \n#&gt; intersect : function (x, y, ...)  \n#&gt; is_grouped_df : function (x)  \n#&gt; is.grouped_df : function (x)  \n#&gt; is.src : function (x)  \n#&gt; is.tbl : function (x)  \n#&gt; join_by : function (...)  \n#&gt; lag : function (x, n = 1L, default = NULL, order_by = NULL, ...)  \n#&gt; last : function (x, order_by = NULL, default = NULL, na_rm = FALSE)  \n#&gt; last_col : function (offset = 0L, vars = NULL)  \n#&gt; last_dplyr_warnings : function (n = 5)  \n#&gt; lead : function (x, n = 1L, default = NULL, order_by = NULL, ...)  \n#&gt; left_join : function (x, y, by = NULL, copy = FALSE, suffix = c(\".x\", \".y\"), ..., keep = NULL)  \n#&gt; location : function (df)  \n#&gt; lst : function (...)  \n#&gt; make_tbl : function (subclass, ...)  \n#&gt; matches : function (match, ignore.case = TRUE, perl = FALSE, vars = NULL)  \n#&gt; min_rank : function (x)  \n#&gt; mutate : function (.data, ...)  \n#&gt; mutate_ : function (.data, ..., .dots = list())  \n#&gt; mutate_all : function (.tbl, .funs, ...)  \n#&gt; mutate_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  \n#&gt; mutate_each : function (tbl, funs, ...)  \n#&gt; mutate_each_ : function (tbl, funs, vars)  \n#&gt; mutate_if : function (.tbl, .predicate, .funs, ...)  \n#&gt; n : function ()  \n#&gt; n_distinct : function (..., na.rm = FALSE)  \n#&gt; n_groups : function (x)  \n#&gt; na_if : function (x, y)  \n#&gt; near : function (x, y, tol = .Machine$double.eps^0.5)  \n#&gt; nest_by : function (.data, ..., .key = \"data\", .keep = FALSE)  \n#&gt; nest_join : function (x, y, by = NULL, copy = FALSE, keep = NULL, name = NULL, ...)  \n#&gt; new_grouped_df : function (x, groups, ..., class = character())  \n#&gt; new_rowwise_df : function (data, group_data = NULL, ..., class = character())  \n#&gt; nth : function (x, n, order_by = NULL, default = NULL, na_rm = FALSE)  \n#&gt; ntile : function (x = row_number(), n)  \n#&gt; num_range : function (prefix, range, suffix = \"\", width = NULL, vars = NULL)  \n#&gt; one_of : function (..., .vars = NULL)  \n#&gt; order_by : function (order_by, call)  \n#&gt; percent_rank : function (x)  \n#&gt; pick : function (...)  \n#&gt; progress_estimated : function (n, min_time = 0)  \n#&gt; pull : function (.data, var = -1, name = NULL, ...)  \n#&gt; quo : function (expr)  \n#&gt; quo_name : function (quo)  \n#&gt; quos : function (..., .named = FALSE, .ignore_empty = c(\"trailing\", \"none\", \"all\"), \n#&gt;     .unquote_names = TRUE)  \n#&gt; recode : function (.x, ..., .default = NULL, .missing = NULL)  \n#&gt; recode_factor : function (.x, ..., .default = NULL, .missing = NULL, .ordered = FALSE)  \n#&gt; reframe : function (.data, ..., .by = NULL)  \n#&gt; relocate : function (.data, ..., .before = NULL, .after = NULL)  \n#&gt; rename : function (.data, ...)  \n#&gt; rename_ : function (.data, ..., .dots = list())  \n#&gt; rename_all : function (.tbl, .funs = list(), ...)  \n#&gt; rename_at : function (.tbl, .vars, .funs = list(), ...)  \n#&gt; rename_if : function (.tbl, .predicate, .funs = list(), ...)  \n#&gt; rename_vars : function (vars = chr(), ..., strict = TRUE)  \n#&gt; rename_vars_ : function (vars, args)  \n#&gt; rename_with : function (.data, .fn, .cols = everything(), ...)  \n#&gt; right_join : function (x, y, by = NULL, copy = FALSE, suffix = c(\".x\", \".y\"), ..., keep = NULL)  \n#&gt; row_number : function (x)  \n#&gt; rows_append : function (x, y, ..., copy = FALSE, in_place = FALSE)  \n#&gt; rows_delete : function (x, y, by = NULL, ..., unmatched = c(\"error\", \"ignore\"), copy = FALSE, \n#&gt;     in_place = FALSE)  \n#&gt; rows_insert : function (x, y, by = NULL, ..., conflict = c(\"error\", \"ignore\"), copy = FALSE, \n#&gt;     in_place = FALSE)  \n#&gt; rows_patch : function (x, y, by = NULL, ..., unmatched = c(\"error\", \"ignore\"), copy = FALSE, \n#&gt;     in_place = FALSE)  \n#&gt; rows_update : function (x, y, by = NULL, ..., unmatched = c(\"error\", \"ignore\"), copy = FALSE, \n#&gt;     in_place = FALSE)  \n#&gt; rows_upsert : function (x, y, by = NULL, ..., copy = FALSE, in_place = FALSE)  \n#&gt; rowwise : function (data, ...)  \n#&gt; same_src : function (x, y)  \n#&gt; sample_frac : function (tbl, size = 1, replace = FALSE, weight = NULL, .env = NULL, ...)  \n#&gt; sample_n : function (tbl, size, replace = FALSE, weight = NULL, .env = NULL, ...)  \n#&gt; select : function (.data, ...)  \n#&gt; select_ : function (.data, ..., .dots = list())  \n#&gt; select_all : function (.tbl, .funs = list(), ...)  \n#&gt; select_at : function (.tbl, .vars, .funs = list(), ...)  \n#&gt; select_if : function (.tbl, .predicate, .funs = list(), ...)  \n#&gt; select_var : function (vars, var = -1)  \n#&gt; select_vars : function (vars = chr(), ..., include = chr(), exclude = chr())  \n#&gt; select_vars_ : function (vars, args, include = chr(), exclude = chr())  \n#&gt; semi_join : function (x, y, by = NULL, copy = FALSE, ...)  \n#&gt; setdiff : function (x, y, ...)  \n#&gt; setequal : function (x, y, ...)  \n#&gt; show_query : function (x, ...)  \n#&gt; slice : function (.data, ..., .by = NULL, .preserve = FALSE)  \n#&gt; slice_ : function (.data, ..., .dots = list())  \n#&gt; slice_head : function (.data, ..., n, prop, by = NULL)  \n#&gt; slice_max : function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE, na_rm = FALSE)  \n#&gt; slice_min : function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE, na_rm = FALSE)  \n#&gt; slice_sample : function (.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE)  \n#&gt; slice_tail : function (.data, ..., n, prop, by = NULL)  \n#&gt; sql : function (...)  \n#&gt; sql_escape_ident : function (con, x)  \n#&gt; sql_escape_string : function (con, x)  \n#&gt; sql_join : function (con, x, y, vars, type = \"inner\", by = NULL, ...)  \n#&gt; sql_select : function (con, select, from, where = NULL, group_by = NULL, having = NULL, \n#&gt;     order_by = NULL, limit = NULL, distinct = FALSE, ...)  \n#&gt; sql_semi_join : function (con, x, y, anti = FALSE, by = NULL, ...)  \n#&gt; sql_set_op : function (con, x, y, method)  \n#&gt; sql_subquery : function (con, from, name = random_table_name(), ...)  \n#&gt; sql_translate_env : function (con)  \n#&gt; src : function (subclass, ...)  \n#&gt; src_df : function (pkg = NULL, env = NULL)  \n#&gt; src_local : function (tbl, pkg = NULL, env = NULL)  \n#&gt; src_mysql : function (dbname, host = NULL, port = 0L, username = \"root\", password = \"\", \n#&gt;     ...)  \n#&gt; src_postgres : function (dbname = NULL, host = NULL, port = NULL, user = NULL, password = NULL, \n#&gt;     ...)  \n#&gt; src_sqlite : function (path, create = FALSE)  \n#&gt; src_tbls : function (x, ...)  \n#&gt; starts_with : function (match, ignore.case = TRUE, vars = NULL)  \n#&gt; summarise : function (.data, ..., .by = NULL, .groups = NULL)  \n#&gt; summarise_ : function (.data, ..., .dots = list())  \n#&gt; summarise_all : function (.tbl, .funs, ...)  \n#&gt; summarise_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  \n#&gt; summarise_each : function (tbl, funs, ...)  \n#&gt; summarise_each_ : function (tbl, funs, vars)  \n#&gt; summarise_if : function (.tbl, .predicate, .funs, ...)  \n#&gt; summarize : function (.data, ..., .by = NULL, .groups = NULL)  \n#&gt; summarize_ : function (.data, ..., .dots = list())  \n#&gt; summarize_all : function (.tbl, .funs, ...)  \n#&gt; summarize_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  \n#&gt; summarize_each : function (tbl, funs, ...)  \n#&gt; summarize_each_ : function (tbl, funs, vars)  \n#&gt; summarize_if : function (.tbl, .predicate, .funs, ...)  \n#&gt; sym : function (x)  \n#&gt; symdiff : function (x, y, ...)  \n#&gt; syms : function (x)  \n#&gt; tally : function (x, wt = NULL, sort = FALSE, name = NULL)  \n#&gt; tally_ : function (x, wt, sort = FALSE)  \n#&gt; tbl : function (src, ...)  \n#&gt; tbl_df : function (data)  \n#&gt; tbl_nongroup_vars : function (x)  \n#&gt; tbl_ptype : function (.data)  \n#&gt; tbl_vars : function (x)  \n#&gt; tibble : function (..., .rows = NULL, .name_repair = c(\"check_unique\", \"unique\", \n#&gt;     \"universal\", \"minimal\"))  \n#&gt; top_frac : function (x, n, wt)  \n#&gt; top_n : function (x, n, wt)  \n#&gt; transmute : function (.data, ...)  \n#&gt; transmute_ : function (.data, ..., .dots = list())  \n#&gt; transmute_all : function (.tbl, .funs, ...)  \n#&gt; transmute_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  \n#&gt; transmute_if : function (.tbl, .predicate, .funs, ...)  \n#&gt; tribble : function (...)  \n#&gt; type_sum : function (x)  \n#&gt; ungroup : function (x, ...)  \n#&gt; union : function (x, y, ...)  \n#&gt; union_all : function (x, y, ...)  \n#&gt; validate_grouped_df : function (x, check_bounds = FALSE)  \n#&gt; validate_rowwise_df : function (x)  \n#&gt; vars : function (...)  \n#&gt; where : function (fn)  \n#&gt; with_groups : function (.data, .groups, .f, ...)  \n#&gt; with_order : function (order_by, fun, x, ...)  \n#&gt; wrap_dbplyr_obj : function (obj_name)"
+    "text": "What is a function:\n\nA function is a set of statements (directions) organized together to perform a specific task. R has a large number of in-built functions and the user can create their own functions.\n\n\n\nlibrary(tidyverse)\nlsf.str(\"package:dplyr\")\n#&gt; %&gt;% : function (lhs, rhs)  \n#&gt; across : function (.cols, .fns, ..., .names = NULL, .unpack = FALSE)  \n#&gt; add_count : function (x, ..., wt = NULL, sort = FALSE, name = NULL, .drop = deprecated())  \n#&gt; add_count_ : function (x, vars, wt = NULL, sort = FALSE)  \n#&gt; add_row : function (.data, ..., .before = NULL, .after = NULL)  \n#&gt; add_rownames : function (df, var = \"rowname\")  \n#&gt; add_tally : function (x, wt = NULL, sort = FALSE, name = NULL)  \n#&gt; add_tally_ : function (x, wt, sort = FALSE)  \n#&gt; all_equal : function (target, current, ignore_col_order = TRUE, ignore_row_order = TRUE, \n#&gt;     convert = FALSE, ...)  \n#&gt; all_of : function (x)  \n#&gt; all_vars : function (expr)  \n#&gt; anti_join : function (x, y, by = NULL, copy = FALSE, ...)  \n#&gt; any_of : function (x, ..., vars = NULL)  \n#&gt; any_vars : function (expr)  \n#&gt; arrange : function (.data, ..., .by_group = FALSE)  \n#&gt; arrange_ : function (.data, ..., .dots = list())  \n#&gt; arrange_all : function (.tbl, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  \n#&gt; arrange_at : function (.tbl, .vars, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  \n#&gt; arrange_if : function (.tbl, .predicate, .funs = list(), ..., .by_group = FALSE, .locale = NULL)  \n#&gt; as_data_frame : function (x, ...)  \n#&gt; as_label : function (x)  \n#&gt; as_tibble : function (x, ..., .rows = NULL, .name_repair = c(\"check_unique\", \"unique\", \n#&gt;     \"universal\", \"minimal\"), rownames = pkgconfig::get_config(\"tibble::rownames\", \n#&gt;     NULL))  \n#&gt; as.tbl : function (x, ...)  \n#&gt; auto_copy : function (x, y, copy = FALSE, ...)  \n#&gt; bench_tbls : function (tbls, op, ..., times = 10)  \n#&gt; between : function (x, left, right)  \n#&gt; bind_cols : function (..., .name_repair = c(\"unique\", \"universal\", \"check_unique\", \n#&gt;     \"minimal\"))  \n#&gt; bind_rows : function (..., .id = NULL)  \n#&gt; c_across : function (cols)  \n#&gt; case_match : function (.x, ..., .default = NULL, .ptype = NULL)  \n#&gt; case_when : function (..., .default = NULL, .ptype = NULL, .size = NULL)  \n#&gt; changes : function (x, y)  \n#&gt; check_dbplyr : function ()  \n#&gt; coalesce : function (..., .ptype = NULL, .size = NULL)  \n#&gt; collapse : function (x, ...)  \n#&gt; collect : function (x, ...)  \n#&gt; combine : function (...)  \n#&gt; common_by : function (by = NULL, x, y)  \n#&gt; compare_tbls : function (tbls, op, ref = NULL, compare = equal_data_frame, ...)  \n#&gt; compare_tbls2 : function (tbls_x, tbls_y, op, ref = NULL, compare = equal_data_frame, ...)  \n#&gt; compute : function (x, ...)  \n#&gt; consecutive_id : function (...)  \n#&gt; contains : function (match, ignore.case = TRUE, vars = NULL)  \n#&gt; copy_to : function (dest, df, name = deparse(substitute(df)), overwrite = FALSE, \n#&gt;     ...)  \n#&gt; count : function (x, ..., wt = NULL, sort = FALSE, name = NULL)  \n#&gt; count_ : function (x, vars, wt = NULL, sort = FALSE, .drop = group_by_drop_default(x))  \n#&gt; cross_join : function (x, y, ..., copy = FALSE, suffix = c(\".x\", \".y\"))  \n#&gt; cumall : function (x)  \n#&gt; cumany : function (x)  \n#&gt; cume_dist : function (x)  \n#&gt; cummean : function (x)  \n#&gt; cur_column : function ()  \n#&gt; cur_data : function ()  \n#&gt; cur_data_all : function ()  \n#&gt; cur_group : function ()  \n#&gt; cur_group_id : function ()  \n#&gt; cur_group_rows : function ()  \n#&gt; current_vars : function (...)  \n#&gt; data_frame : function (...)  \n#&gt; db_analyze : function (con, table, ...)  \n#&gt; db_begin : function (con, ...)  \n#&gt; db_commit : function (con, ...)  \n#&gt; db_create_index : function (con, table, columns, name = NULL, unique = FALSE, ...)  \n#&gt; db_create_indexes : function (con, table, indexes = NULL, unique = FALSE, ...)  \n#&gt; db_create_table : function (con, table, types, temporary = FALSE, ...)  \n#&gt; db_data_type : function (con, fields)  \n#&gt; db_desc : function (x)  \n#&gt; db_drop_table : function (con, table, force = FALSE, ...)  \n#&gt; db_explain : function (con, sql, ...)  \n#&gt; db_has_table : function (con, table)  \n#&gt; db_insert_into : function (con, table, values, ...)  \n#&gt; db_list_tables : function (con)  \n#&gt; db_query_fields : function (con, sql, ...)  \n#&gt; db_query_rows : function (con, sql, ...)  \n#&gt; db_rollback : function (con, ...)  \n#&gt; db_save_query : function (con, sql, name, temporary = TRUE, ...)  \n#&gt; db_write_table : function (con, table, types, values, temporary = FALSE, ...)  \n#&gt; dense_rank : function (x)  \n#&gt; desc : function (x)  \n#&gt; dim_desc : function (x)  \n#&gt; distinct : function (.data, ..., .keep_all = FALSE)  \n#&gt; distinct_ : function (.data, ..., .dots, .keep_all = FALSE)  \n#&gt; distinct_all : function (.tbl, .funs = list(), ..., .keep_all = FALSE)  \n#&gt; distinct_at : function (.tbl, .vars, .funs = list(), ..., .keep_all = FALSE)  \n#&gt; distinct_if : function (.tbl, .predicate, .funs = list(), ..., .keep_all = FALSE)  \n#&gt; distinct_prepare : function (.data, vars, group_vars = character(), .keep_all = FALSE, caller_env = caller_env(2), \n#&gt;     error_call = caller_env())  \n#&gt; do : function (.data, ...)  \n#&gt; do_ : function (.data, ..., .dots = list())  \n#&gt; dplyr_col_modify : function (data, cols)  \n#&gt; dplyr_reconstruct : function (data, template)  \n#&gt; dplyr_row_slice : function (data, i, ...)  \n#&gt; ends_with : function (match, ignore.case = TRUE, vars = NULL)  \n#&gt; enexpr : function (arg)  \n#&gt; enexprs : function (..., .named = FALSE, .ignore_empty = c(\"trailing\", \"none\", \"all\"), \n#&gt;     .ignore_null = c(\"none\", \"all\"), .unquote_names = TRUE, .homonyms = c(\"keep\", \n#&gt;         \"first\", \"last\", \"error\"), .check_assign = FALSE)  \n#&gt; enquo : function (arg)  \n#&gt; enquos : function (..., .named = FALSE, .ignore_empty = c(\"trailing\", \"none\", \"all\"), \n#&gt;     .ignore_null = c(\"none\", \"all\"), .unquote_names = TRUE, .homonyms = c(\"keep\", \n#&gt;         \"first\", \"last\", \"error\"), .check_assign = FALSE)  \n#&gt; ensym : function (arg)  \n#&gt; ensyms : function (..., .named = FALSE, .ignore_empty = c(\"trailing\", \"none\", \"all\"), \n#&gt;     .ignore_null = c(\"none\", \"all\"), .unquote_names = TRUE, .homonyms = c(\"keep\", \n#&gt;         \"first\", \"last\", \"error\"), .check_assign = FALSE)  \n#&gt; eval_tbls : function (tbls, op)  \n#&gt; eval_tbls2 : function (tbls_x, tbls_y, op)  \n#&gt; everything : function (vars = NULL)  \n#&gt; explain : function (x, ...)  \n#&gt; expr : function (expr)  \n#&gt; failwith : function (default = NULL, f, quiet = FALSE)  \n#&gt; filter : function (.data, ..., .by = NULL, .preserve = FALSE)  \n#&gt; filter_ : function (.data, ..., .dots = list())  \n#&gt; filter_all : function (.tbl, .vars_predicate, .preserve = FALSE)  \n#&gt; filter_at : function (.tbl, .vars, .vars_predicate, .preserve = FALSE)  \n#&gt; filter_if : function (.tbl, .predicate, .vars_predicate, .preserve = FALSE)  \n#&gt; first : function (x, order_by = NULL, default = NULL, na_rm = FALSE)  \n#&gt; full_join : function (x, y, by = NULL, copy = FALSE, suffix = c(\".x\", \".y\"), ..., keep = NULL)  \n#&gt; funs : function (..., .args = list())  \n#&gt; funs_ : function (dots, args = list(), env = base_env())  \n#&gt; glimpse : function (x, width = NULL, ...)  \n#&gt; group_by : function (.data, ..., .add = FALSE, .drop = group_by_drop_default(.data))  \n#&gt; group_by_ : function (.data, ..., .dots = list(), add = FALSE)  \n#&gt; group_by_all : function (.tbl, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  \n#&gt; group_by_at : function (.tbl, .vars, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  \n#&gt; group_by_drop_default : function (.tbl)  \n#&gt; group_by_if : function (.tbl, .predicate, .funs = list(), ..., .add = FALSE, .drop = group_by_drop_default(.tbl))  \n#&gt; group_by_prepare : function (.data, ..., .add = FALSE, .dots = deprecated(), add = deprecated(), \n#&gt;     error_call = caller_env())  \n#&gt; group_cols : function (vars = NULL, data = NULL)  \n#&gt; group_data : function (.data)  \n#&gt; group_indices : function (.data, ...)  \n#&gt; group_indices_ : function (.data, ..., .dots = list())  \n#&gt; group_keys : function (.tbl, ...)  \n#&gt; group_map : function (.data, .f, ..., .keep = FALSE)  \n#&gt; group_modify : function (.data, .f, ..., .keep = FALSE)  \n#&gt; group_nest : function (.tbl, ..., .key = \"data\", keep = FALSE)  \n#&gt; group_rows : function (.data)  \n#&gt; group_size : function (x)  \n#&gt; group_split : function (.tbl, ..., .keep = TRUE)  \n#&gt; group_trim : function (.tbl, .drop = group_by_drop_default(.tbl))  \n#&gt; group_vars : function (x)  \n#&gt; group_walk : function (.data, .f, ..., .keep = FALSE)  \n#&gt; grouped_df : function (data, vars, drop = group_by_drop_default(data))  \n#&gt; groups : function (x)  \n#&gt; id : function (.variables, drop = FALSE)  \n#&gt; ident : function (...)  \n#&gt; if_all : function (.cols, .fns, ..., .names = NULL)  \n#&gt; if_any : function (.cols, .fns, ..., .names = NULL)  \n#&gt; if_else : function (condition, true, false, missing = NULL, ..., ptype = NULL, size = NULL)  \n#&gt; inner_join : function (x, y, by = NULL, copy = FALSE, suffix = c(\".x\", \".y\"), ..., keep = NULL)  \n#&gt; intersect : function (x, y, ...)  \n#&gt; is_grouped_df : function (x)  \n#&gt; is.grouped_df : function (x)  \n#&gt; is.src : function (x)  \n#&gt; is.tbl : function (x)  \n#&gt; join_by : function (...)  \n#&gt; lag : function (x, n = 1L, default = NULL, order_by = NULL, ...)  \n#&gt; last : function (x, order_by = NULL, default = NULL, na_rm = FALSE)  \n#&gt; last_col : function (offset = 0L, vars = NULL)  \n#&gt; last_dplyr_warnings : function (n = 5)  \n#&gt; lead : function (x, n = 1L, default = NULL, order_by = NULL, ...)  \n#&gt; left_join : function (x, y, by = NULL, copy = FALSE, suffix = c(\".x\", \".y\"), ..., keep = NULL)  \n#&gt; location : function (df)  \n#&gt; lst : function (...)  \n#&gt; make_tbl : function (subclass, ...)  \n#&gt; matches : function (match, ignore.case = TRUE, perl = FALSE, vars = NULL)  \n#&gt; min_rank : function (x)  \n#&gt; mutate : function (.data, ...)  \n#&gt; mutate_ : function (.data, ..., .dots = list())  \n#&gt; mutate_all : function (.tbl, .funs, ...)  \n#&gt; mutate_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  \n#&gt; mutate_each : function (tbl, funs, ...)  \n#&gt; mutate_each_ : function (tbl, funs, vars)  \n#&gt; mutate_if : function (.tbl, .predicate, .funs, ...)  \n#&gt; n : function ()  \n#&gt; n_distinct : function (..., na.rm = FALSE)  \n#&gt; n_groups : function (x)  \n#&gt; na_if : function (x, y)  \n#&gt; near : function (x, y, tol = .Machine$double.eps^0.5)  \n#&gt; nest_by : function (.data, ..., .key = \"data\", .keep = FALSE)  \n#&gt; nest_join : function (x, y, by = NULL, copy = FALSE, keep = NULL, name = NULL, ...)  \n#&gt; new_grouped_df : function (x, groups, ..., class = character())  \n#&gt; new_rowwise_df : function (data, group_data = NULL, ..., class = character())  \n#&gt; nth : function (x, n, order_by = NULL, default = NULL, na_rm = FALSE)  \n#&gt; ntile : function (x = row_number(), n)  \n#&gt; num_range : function (prefix, range, suffix = \"\", width = NULL, vars = NULL)  \n#&gt; one_of : function (..., .vars = NULL)  \n#&gt; order_by : function (order_by, call)  \n#&gt; percent_rank : function (x)  \n#&gt; pick : function (...)  \n#&gt; progress_estimated : function (n, min_time = 0)  \n#&gt; pull : function (.data, var = -1, name = NULL, ...)  \n#&gt; quo : function (expr)  \n#&gt; quo_name : function (quo)  \n#&gt; quos : function (..., .named = FALSE, .ignore_empty = c(\"trailing\", \"none\", \"all\"), \n#&gt;     .unquote_names = TRUE)  \n#&gt; recode : function (.x, ..., .default = NULL, .missing = NULL)  \n#&gt; recode_factor : function (.x, ..., .default = NULL, .missing = NULL, .ordered = FALSE)  \n#&gt; reframe : function (.data, ..., .by = NULL)  \n#&gt; relocate : function (.data, ..., .before = NULL, .after = NULL)  \n#&gt; rename : function (.data, ...)  \n#&gt; rename_ : function (.data, ..., .dots = list())  \n#&gt; rename_all : function (.tbl, .funs = list(), ...)  \n#&gt; rename_at : function (.tbl, .vars, .funs = list(), ...)  \n#&gt; rename_if : function (.tbl, .predicate, .funs = list(), ...)  \n#&gt; rename_vars : function (vars = chr(), ..., strict = TRUE)  \n#&gt; rename_vars_ : function (vars, args)  \n#&gt; rename_with : function (.data, .fn, .cols = everything(), ...)  \n#&gt; right_join : function (x, y, by = NULL, copy = FALSE, suffix = c(\".x\", \".y\"), ..., keep = NULL)  \n#&gt; row_number : function (x)  \n#&gt; rows_append : function (x, y, ..., copy = FALSE, in_place = FALSE)  \n#&gt; rows_delete : function (x, y, by = NULL, ..., unmatched = c(\"error\", \"ignore\"), copy = FALSE, \n#&gt;     in_place = FALSE)  \n#&gt; rows_insert : function (x, y, by = NULL, ..., conflict = c(\"error\", \"ignore\"), copy = FALSE, \n#&gt;     in_place = FALSE)  \n#&gt; rows_patch : function (x, y, by = NULL, ..., unmatched = c(\"error\", \"ignore\"), copy = FALSE, \n#&gt;     in_place = FALSE)  \n#&gt; rows_update : function (x, y, by = NULL, ..., unmatched = c(\"error\", \"ignore\"), copy = FALSE, \n#&gt;     in_place = FALSE)  \n#&gt; rows_upsert : function (x, y, by = NULL, ..., copy = FALSE, in_place = FALSE)  \n#&gt; rowwise : function (data, ...)  \n#&gt; same_src : function (x, y)  \n#&gt; sample_frac : function (tbl, size = 1, replace = FALSE, weight = NULL, .env = NULL, ...)  \n#&gt; sample_n : function (tbl, size, replace = FALSE, weight = NULL, .env = NULL, ...)  \n#&gt; select : function (.data, ...)  \n#&gt; select_ : function (.data, ..., .dots = list())  \n#&gt; select_all : function (.tbl, .funs = list(), ...)  \n#&gt; select_at : function (.tbl, .vars, .funs = list(), ...)  \n#&gt; select_if : function (.tbl, .predicate, .funs = list(), ...)  \n#&gt; select_var : function (vars, var = -1)  \n#&gt; select_vars : function (vars = chr(), ..., include = chr(), exclude = chr())  \n#&gt; select_vars_ : function (vars, args, include = chr(), exclude = chr())  \n#&gt; semi_join : function (x, y, by = NULL, copy = FALSE, ...)  \n#&gt; setdiff : function (x, y, ...)  \n#&gt; setequal : function (x, y, ...)  \n#&gt; show_query : function (x, ...)  \n#&gt; slice : function (.data, ..., .by = NULL, .preserve = FALSE)  \n#&gt; slice_ : function (.data, ..., .dots = list())  \n#&gt; slice_head : function (.data, ..., n, prop, by = NULL)  \n#&gt; slice_max : function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE, na_rm = FALSE)  \n#&gt; slice_min : function (.data, order_by, ..., n, prop, by = NULL, with_ties = TRUE, na_rm = FALSE)  \n#&gt; slice_sample : function (.data, ..., n, prop, by = NULL, weight_by = NULL, replace = FALSE)  \n#&gt; slice_tail : function (.data, ..., n, prop, by = NULL)  \n#&gt; sql : function (...)  \n#&gt; sql_escape_ident : function (con, x)  \n#&gt; sql_escape_string : function (con, x)  \n#&gt; sql_join : function (con, x, y, vars, type = \"inner\", by = NULL, ...)  \n#&gt; sql_select : function (con, select, from, where = NULL, group_by = NULL, having = NULL, \n#&gt;     order_by = NULL, limit = NULL, distinct = FALSE, ...)  \n#&gt; sql_semi_join : function (con, x, y, anti = FALSE, by = NULL, ...)  \n#&gt; sql_set_op : function (con, x, y, method)  \n#&gt; sql_subquery : function (con, from, name = random_table_name(), ...)  \n#&gt; sql_translate_env : function (con)  \n#&gt; src : function (subclass, ...)  \n#&gt; src_df : function (pkg = NULL, env = NULL)  \n#&gt; src_local : function (tbl, pkg = NULL, env = NULL)  \n#&gt; src_mysql : function (dbname, host = NULL, port = 0L, username = \"root\", password = \"\", \n#&gt;     ...)  \n#&gt; src_postgres : function (dbname = NULL, host = NULL, port = NULL, user = NULL, password = NULL, \n#&gt;     ...)  \n#&gt; src_sqlite : function (path, create = FALSE)  \n#&gt; src_tbls : function (x, ...)  \n#&gt; starts_with : function (match, ignore.case = TRUE, vars = NULL)  \n#&gt; summarise : function (.data, ..., .by = NULL, .groups = NULL)  \n#&gt; summarise_ : function (.data, ..., .dots = list())  \n#&gt; summarise_all : function (.tbl, .funs, ...)  \n#&gt; summarise_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  \n#&gt; summarise_each : function (tbl, funs, ...)  \n#&gt; summarise_each_ : function (tbl, funs, vars)  \n#&gt; summarise_if : function (.tbl, .predicate, .funs, ...)  \n#&gt; summarize : function (.data, ..., .by = NULL, .groups = NULL)  \n#&gt; summarize_ : function (.data, ..., .dots = list())  \n#&gt; summarize_all : function (.tbl, .funs, ...)  \n#&gt; summarize_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  \n#&gt; summarize_each : function (tbl, funs, ...)  \n#&gt; summarize_each_ : function (tbl, funs, vars)  \n#&gt; summarize_if : function (.tbl, .predicate, .funs, ...)  \n#&gt; sym : function (x)  \n#&gt; symdiff : function (x, y, ...)  \n#&gt; syms : function (x)  \n#&gt; tally : function (x, wt = NULL, sort = FALSE, name = NULL)  \n#&gt; tally_ : function (x, wt, sort = FALSE)  \n#&gt; tbl : function (src, ...)  \n#&gt; tbl_df : function (data)  \n#&gt; tbl_nongroup_vars : function (x)  \n#&gt; tbl_ptype : function (.data)  \n#&gt; tbl_vars : function (x)  \n#&gt; tibble : function (..., .rows = NULL, .name_repair = c(\"check_unique\", \"unique\", \n#&gt;     \"universal\", \"minimal\"))  \n#&gt; top_frac : function (x, n, wt)  \n#&gt; top_n : function (x, n, wt)  \n#&gt; transmute : function (.data, ...)  \n#&gt; transmute_ : function (.data, ..., .dots = list())  \n#&gt; transmute_all : function (.tbl, .funs, ...)  \n#&gt; transmute_at : function (.tbl, .vars, .funs, ..., .cols = NULL)  \n#&gt; transmute_if : function (.tbl, .predicate, .funs, ...)  \n#&gt; tribble : function (...)  \n#&gt; type_sum : function (x)  \n#&gt; ungroup : function (x, ...)  \n#&gt; union : function (x, y, ...)  \n#&gt; union_all : function (x, y, ...)  \n#&gt; validate_grouped_df : function (x, check_bounds = FALSE)  \n#&gt; validate_rowwise_df : function (x)  \n#&gt; vars : function (...)  \n#&gt; where : function (fn)  \n#&gt; with_groups : function (.data, .groups, .f, ...)  \n#&gt; with_order : function (order_by, fun, x, ...)  \n#&gt; wrap_dbplyr_obj : function (obj_name)"
   },
   {
     "objectID": "slides/5-data-structures.html#signature",
@@ -1509,84 +1509,84 @@
     "href": "slides/5-data-structures.html#atoms",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\n\n\n\n#&gt; [1] 1.9 2.0 3.5"
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\n\n\n\n#&gt; [1] 1.9 2.0 3.5"
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-1",
     "href": "slides/5-data-structures.html#atoms-1",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\""
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\""
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-2",
     "href": "slides/5-data-structures.html#atoms-2",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3"
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3"
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-3",
     "href": "slides/5-data-structures.html#atoms-3",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3"
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3"
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-4",
     "href": "slides/5-data-structures.html#atoms-4",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\ntypeof(int_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\""
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\ntypeof(int_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\""
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-5",
     "href": "slides/5-data-structures.html#atoms-5",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3"
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3"
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-6",
     "href": "slides/5-data-structures.html#atoms-6",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec = c(TRUE, FALSE, F, T))\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE"
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec &lt;- c(TRUE, FALSE, F, T))\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE"
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-7",
     "href": "slides/5-data-structures.html#atoms-7",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec = c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\""
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec &lt;- c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\""
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-8",
     "href": "slides/5-data-structures.html#atoms-8",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec = c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\nlength(lg_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\"\n#&gt; [1] 4"
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec &lt;- c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\nlength(lg_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\"\n#&gt; [1] 4"
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-9",
     "href": "slides/5-data-structures.html#atoms-9",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec = c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\nlength(lg_vec)\n\n(char_vec = c(\"ESS\", \"is\", \"Great!\"))\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\"\n#&gt; [1] 4\n#&gt; [1] \"ESS\"    \"is\"     \"Great!\""
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec &lt;- c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\nlength(lg_vec)\n\n(char_vec &lt;- c(\"ESS\", \"is\", \"Great!\"))\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\"\n#&gt; [1] 4\n#&gt; [1] \"ESS\"    \"is\"     \"Great!\""
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-10",
     "href": "slides/5-data-structures.html#atoms-10",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec = c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\nlength(lg_vec)\n\n(char_vec = c(\"ESS\", \"is\", \"Great!\"))\ntypeof(char_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\"\n#&gt; [1] 4\n#&gt; [1] \"ESS\"    \"is\"     \"Great!\"\n#&gt; [1] \"character\""
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec &lt;- c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\nlength(lg_vec)\n\n(char_vec &lt;- c(\"ESS\", \"is\", \"Great!\"))\ntypeof(char_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\"\n#&gt; [1] 4\n#&gt; [1] \"ESS\"    \"is\"     \"Great!\"\n#&gt; [1] \"character\""
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-11",
     "href": "slides/5-data-structures.html#atoms-11",
     "title": "Lecture 05",
     "section": "Atoms",
-    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec = c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec = c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec = c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\nlength(lg_vec)\n\n(char_vec = c(\"ESS\", \"is\", \"Great!\"))\ntypeof(char_vec)\nlength(char_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\"\n#&gt; [1] 4\n#&gt; [1] \"ESS\"    \"is\"     \"Great!\"\n#&gt; [1] \"character\"\n#&gt; [1] 3"
+    "text": "Atoms\n\n\n\n# Numeric\n(dbl_vec &lt;- c(1.9,2,3.5))\ntypeof(dbl_vec)\nlength(dbl_vec)\n\n(int_vec &lt;- c(1L, 17L, 3L))\ntypeof(int_vec)\nlength(int_vec)\n\n(lg_vec &lt;- c(TRUE, FALSE, F, T))\ntypeof(lg_vec)\nlength(lg_vec)\n\n(char_vec &lt;- c(\"ESS\", \"is\", \"Great!\"))\ntypeof(char_vec)\nlength(char_vec)\n\n\n\n#&gt; [1] 1.9 2.0 3.5\n#&gt; [1] \"double\"\n#&gt; [1] 3\n#&gt; [1]  1 17  3\n#&gt; [1] \"integer\"\n#&gt; [1] 3\n#&gt; [1]  TRUE FALSE FALSE  TRUE\n#&gt; [1] \"logical\"\n#&gt; [1] 4\n#&gt; [1] \"ESS\"    \"is\"     \"Great!\"\n#&gt; [1] \"character\"\n#&gt; [1] 3"
   },
   {
     "objectID": "slides/5-data-structures.html#missing-values",
@@ -1600,42 +1600,42 @@
     "href": "slides/5-data-structures.html#missing-values-1",
     "title": "Lecture 05",
     "section": "Missing Values",
-    "text": "Missing Values\n\n\n\n(vec = c(5,6,7,8,NA))\n\n\n\n#&gt; [1]  5  6  7  8 NA"
+    "text": "Missing Values\n\n\n\n(vec &lt;- c(5,6,7,8,NA))\n\n\n\n#&gt; [1]  5  6  7  8 NA"
   },
   {
     "objectID": "slides/5-data-structures.html#missing-values-2",
     "href": "slides/5-data-structures.html#missing-values-2",
     "title": "Lecture 05",
     "section": "Missing Values",
-    "text": "Missing Values\n\n\n\n(vec = c(5,6,7,8,NA))\nmean(vec)\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA"
+    "text": "Missing Values\n\n\n\n(vec &lt;- c(5,6,7,8,NA))\nmean(vec)\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA"
   },
   {
     "objectID": "slides/5-data-structures.html#missing-values-3",
     "href": "slides/5-data-structures.html#missing-values-3",
     "title": "Lecture 05",
     "section": "Missing Values",
-    "text": "Missing Values\n\n\n\n(vec = c(5,6,7,8,NA))\nmean(vec)\nmean(vec, na.rm = TRUE)\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA\n#&gt; [1] 6.5"
+    "text": "Missing Values\n\n\n\n(vec &lt;- c(5,6,7,8,NA))\nmean(vec)\nmean(vec, na.rm = TRUE)\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA\n#&gt; [1] 6.5"
   },
   {
     "objectID": "slides/5-data-structures.html#missing-values-4",
     "href": "slides/5-data-structures.html#missing-values-4",
     "title": "Lecture 05",
     "section": "Missing Values",
-    "text": "Missing Values\n\n\n\n(vec = c(5,6,7,8,NA))\nmean(vec)\nmean(vec, na.rm = TRUE)\n\nx &lt;- c(NA, 50, NA, 9)\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA\n#&gt; [1] 6.5"
+    "text": "Missing Values\n\n\n\n(vec &lt;- c(5,6,7,8,NA))\nmean(vec)\nmean(vec, na.rm = TRUE)\n\nx &lt;- c(NA, 50, NA, 9)\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA\n#&gt; [1] 6.5"
   },
   {
     "objectID": "slides/5-data-structures.html#missing-values-5",
     "href": "slides/5-data-structures.html#missing-values-5",
     "title": "Lecture 05",
     "section": "Missing Values",
-    "text": "Missing Values\n\n\n\n(vec = c(5,6,7,8,NA))\nmean(vec)\nmean(vec, na.rm = TRUE)\n\nx &lt;- c(NA, 50, NA, 9)\nx == NA\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA\n#&gt; [1] 6.5\n#&gt; [1] NA NA NA NA"
+    "text": "Missing Values\n\n\n\n(vec &lt;- c(5,6,7,8,NA))\nmean(vec)\nmean(vec, na.rm = TRUE)\n\nx &lt;- c(NA, 50, NA, 9)\nx == NA\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA\n#&gt; [1] 6.5\n#&gt; [1] NA NA NA NA"
   },
   {
     "objectID": "slides/5-data-structures.html#missing-values-6",
     "href": "slides/5-data-structures.html#missing-values-6",
     "title": "Lecture 05",
     "section": "Missing Values",
-    "text": "Missing Values\n\n\n\n(vec = c(5,6,7,8,NA))\nmean(vec)\nmean(vec, na.rm = TRUE)\n\nx &lt;- c(NA, 50, NA, 9)\nx == NA\n\nis.na(x)\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA\n#&gt; [1] 6.5\n#&gt; [1] NA NA NA NA\n#&gt; [1]  TRUE FALSE  TRUE FALSE"
+    "text": "Missing Values\n\n\n\n(vec &lt;- c(5,6,7,8,NA))\nmean(vec)\nmean(vec, na.rm = TRUE)\n\nx &lt;- c(NA, 50, NA, 9)\nx == NA\n\nis.na(x)\n\n\n\n#&gt; [1]  5  6  7  8 NA\n#&gt; [1] NA\n#&gt; [1] 6.5\n#&gt; [1] NA NA NA NA\n#&gt; [1]  TRUE FALSE  TRUE FALSE"
   },
   {
     "objectID": "slides/5-data-structures.html#atoms-must-be-of-the-same-type",
@@ -1712,35 +1712,35 @@
     "href": "slides/5-data-structures.html#matrices",
     "title": "Lecture 05",
     "section": "Matrices",
-    "text": "Matrices\n\n\n\n# Use matrix\n(mat = matrix(1:9, nrow = 3))\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9"
+    "text": "Matrices\n\n\n\n(a &lt;- c(1:9))\n\n\n\n#&gt; [1] 1 2 3 4 5 6 7 8 9"
   },
   {
     "objectID": "slides/5-data-structures.html#matrices-1",
     "href": "slides/5-data-structures.html#matrices-1",
     "title": "Lecture 05",
     "section": "Matrices",
-    "text": "Matrices\n\n\n\n# Use matrix\n(mat = matrix(1:9, nrow = 3))\n\n# Use matrix\n(mat2 = matrix(1:9, nrow = 3, byrow = TRUE))\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    2    3\n#&gt; [2,]    4    5    6\n#&gt; [3,]    7    8    9"
+    "text": "Matrices\n\n\n\n(a &lt;- c(1:9))\n\n# Use matrix\n(mat &lt;- matrix(a, nrow = 3))\n\n\n\n#&gt; [1] 1 2 3 4 5 6 7 8 9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9"
   },
   {
     "objectID": "slides/5-data-structures.html#matrices-2",
     "href": "slides/5-data-structures.html#matrices-2",
     "title": "Lecture 05",
     "section": "Matrices",
-    "text": "Matrices\n\n\n\n# Use matrix\n(mat = matrix(1:9, nrow = 3))\n\n# Use matrix\n(mat2 = matrix(1:9, nrow = 3, byrow = TRUE))\n\n## dim returns dimensions of an object\ndim(mat2)\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    2    3\n#&gt; [2,]    4    5    6\n#&gt; [3,]    7    8    9\n#&gt; [1] 3 3"
+    "text": "Matrices\n\n\n\n(a &lt;- c(1:9))\n\n# Use matrix\n(mat &lt;- matrix(a, nrow = 3))\n\n# Use matrix\n(mat2 &lt;- matrix(a, nrow = 3, byrow = TRUE))\n\n\n\n#&gt; [1] 1 2 3 4 5 6 7 8 9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    2    3\n#&gt; [2,]    4    5    6\n#&gt; [3,]    7    8    9"
   },
   {
     "objectID": "slides/5-data-structures.html#matrices-3",
     "href": "slides/5-data-structures.html#matrices-3",
     "title": "Lecture 05",
     "section": "Matrices",
-    "text": "Matrices\n\n\n\n# Use matrix\n(mat = matrix(1:9, nrow = 3))\n\n# Use matrix\n(mat2 = matrix(1:9, nrow = 3, byrow = TRUE))\n\n## dim returns dimensions of an object\ndim(mat2)\n\n# set names using colnames\ncolnames(mat2) = c(\"A\", \"B\", \"C\")\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    2    3\n#&gt; [2,]    4    5    6\n#&gt; [3,]    7    8    9\n#&gt; [1] 3 3"
+    "text": "Matrices\n\n\n\n(a &lt;- c(1:9))\n\n# Use matrix\n(mat &lt;- matrix(a, nrow = 3))\n\n# Use matrix\n(mat2 &lt;- matrix(a, nrow = 3, byrow = TRUE))\n\n## dim returns dimensions of an object\ndim(mat2)\n\n\n\n#&gt; [1] 1 2 3 4 5 6 7 8 9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    2    3\n#&gt; [2,]    4    5    6\n#&gt; [3,]    7    8    9\n#&gt; [1] 3 3"
   },
   {
     "objectID": "slides/5-data-structures.html#matrices-4",
     "href": "slides/5-data-structures.html#matrices-4",
     "title": "Lecture 05",
     "section": "Matrices",
-    "text": "Matrices\n\n\n\n# Use matrix\n(mat = matrix(1:9, nrow = 3))\n\n# Use matrix\n(mat2 = matrix(1:9, nrow = 3, byrow = TRUE))\n\n## dim returns dimensions of an object\ndim(mat2)\n\n# set names using colnames\ncolnames(mat2) = c(\"A\", \"B\", \"C\")\n\nmat2\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    2    3\n#&gt; [2,]    4    5    6\n#&gt; [3,]    7    8    9\n#&gt; [1] 3 3\n#&gt;      A B C\n#&gt; [1,] 1 2 3\n#&gt; [2,] 4 5 6\n#&gt; [3,] 7 8 9"
+    "text": "Matrices\n\n\n\n(a &lt;- c(1:9))\n\n# Use matrix\n(mat &lt;- matrix(a, nrow = 3))\n\n# Use matrix\n(mat2 &lt;- matrix(a, nrow = 3, byrow = TRUE))\n\n## dim returns dimensions of an object\ndim(mat2)\n\n# set names using colnames\ncolnames(mat2) &lt;- c(\"A\", \"B\", \"C\")\n\n\n\n#&gt; [1] 1 2 3 4 5 6 7 8 9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    2    3\n#&gt; [2,]    4    5    6\n#&gt; [3,]    7    8    9\n#&gt; [1] 3 3"
   },
   {
     "objectID": "slides/5-data-structures.html#arrays",
@@ -1761,14 +1761,14 @@
     "href": "slides/5-data-structures.html#arrays-2",
     "title": "Lecture 05",
     "section": "Arrays",
-    "text": "Arrays\n\n\n\na &lt;-  c(1:12)\n\narray(a, dim = c(2,3,2))\n\n\n\n#&gt; , , 1\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    3    5\n#&gt; [2,]    2    4    6\n#&gt; \n#&gt; , , 2\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    7    9   11\n#&gt; [2,]    8   10   12\n\n\n\nA vector without a dim attribute set is often thought of as 1-dimensional, but actually has NULL dimensions.\n\n\ndim(a)\n#&gt; NULL"
+    "text": "Arrays\n\n\n\na &lt;-  c(1:12)\n\narray(a, dim = c(2,3,2))\n\n\n\n#&gt; , , 1\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    3    5\n#&gt; [2,]    2    4    6\n#&gt; \n#&gt; , , 2\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    7    9   11\n#&gt; [2,]    8   10   12"
   },
   {
     "objectID": "slides/5-data-structures.html#why",
     "href": "slides/5-data-structures.html#why",
     "title": "Lecture 05",
     "section": "Why?",
-    "text": "Why?\n\nMatrices with a single row or single column, or arrays with a single dimension are 1D. They may print similarly, but will behave differently. The differences aren’t too important, but it’s useful to know they exist in case you get strange output from a function (tapply() is a frequent offender). As always, use str() to reveal the differences.\n\n\nstr(c(1:3))                  # 1d vector\n#&gt;  int [1:3] 1 2 3\n\nstr(matrix(1:3, ncol = 1))   # column vector\n#&gt;  int [1:3, 1] 1 2 3\n\nstr(matrix(1:3, nrow = 1))   # row vector\n#&gt;  int [1, 1:3] 1 2 3\n\nstr(array(1:3, 3))           # \"array\" vector\n#&gt;  int [1:3(1d)] 1 2 3"
+    "text": "Why?\n\nMatrices with a single row or single column, or arrays with a single dimension are 1D.\nThey may print similarly, but will behave differently.\nThe differences aren’t too important, but it’s useful to know they exist in case you get strange output from a function (tapply() is a frequent offender).\nAs always, use str() to reveal the differences.\n\n\nstr(c(1:3))                  # 1d vector\n#&gt;  int [1:3] 1 2 3\n\nstr(matrix(1:3, ncol = 1))   # column vector\n#&gt;  int [1:3, 1] 1 2 3\n\nstr(matrix(1:3, nrow = 1))   # row vector\n#&gt;  int [1, 1:3] 1 2 3\n\nstr(array(1:3, 3))           # \"array\" vector\n#&gt;  int [1:3(1d)] 1 2 3"
   },
   {
     "objectID": "slides/5-data-structures.html#lists-heterogenous-data",
@@ -1782,7 +1782,7 @@
     "href": "slides/5-data-structures.html#lists-can-be-recursive",
     "title": "Lecture 05",
     "section": "Lists can be recursive",
-    "text": "Lists can be recursive\n\n# list of lists of lists ...\n(list_list = list(list(\"hi\")))\n#&gt; [[1]]\n#&gt; [[1]][[1]]\n#&gt; [1] \"hi\"\n\nstr(list_list)\n#&gt; List of 1\n#&gt;  $ :List of 1\n#&gt;   ..$ : chr \"hi\""
+    "text": "Lists can be recursive\n\n# list of lists ...\n(list_list &lt;- list(list(\"hi\")))\n#&gt; [[1]]\n#&gt; [[1]][[1]]\n#&gt; [1] \"hi\"\n\nstr(list_list)\n#&gt; List of 1\n#&gt;  $ :List of 1\n#&gt;   ..$ : chr \"hi\""
   },
   {
     "objectID": "slides/5-data-structures.html#data-frames",
@@ -1845,7 +1845,7 @@
     "href": "slides/5-data-structures.html#data.frame-example-3",
     "title": "Lecture 05",
     "section": "data.frame example",
-    "text": "data.frame example\n\n\n\n(num &lt;- c(1,2,3,4))\n\n(color &lt;- c(\"red\", \"white\", \"green\", NA))\n\n(boolean &lt;- c(TRUE,TRUE,TRUE,FALSE))\n\n(df = data.frame(num, color, boolean))\n\n\n\n#&gt; [1] 1 2 3 4\n#&gt; [1] \"red\"   \"white\" \"green\" NA\n#&gt; [1]  TRUE  TRUE  TRUE FALSE\n#&gt;   num color boolean\n#&gt; 1   1   red    TRUE\n#&gt; 2   2 white    TRUE\n#&gt; 3   3 green    TRUE\n#&gt; 4   4  &lt;NA&gt;   FALSE"
+    "text": "data.frame example\n\n\n\n(num &lt;- c(1,2,3,4))\n\n(color &lt;- c(\"red\", \"white\", \"green\", NA))\n\n(boolean &lt;- c(TRUE,TRUE,TRUE,FALSE))\n\n(df &lt;- data.frame(num, color, boolean))\n\n\n\n#&gt; [1] 1 2 3 4\n#&gt; [1] \"red\"   \"white\" \"green\" NA\n#&gt; [1]  TRUE  TRUE  TRUE FALSE\n#&gt;   num color boolean\n#&gt; 1   1   red    TRUE\n#&gt; 2   2 white    TRUE\n#&gt; 3   3 green    TRUE\n#&gt; 4   4  &lt;NA&gt;   FALSE"
   },
   {
     "objectID": "slides/5-data-structures.html#subsetting",
@@ -1859,105 +1859,105 @@
     "href": "slides/5-data-structures.html#subset-atomics",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-atomics-1",
     "href": "slides/5-data-structures.html#subset-atomics-1",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\nx[3]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\nx[3]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-atomics-2",
     "href": "slides/5-data-structures.html#subset-atomics-2",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-atomics-3",
     "href": "slides/5-data-structures.html#subset-atomics-3",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-atomics-4",
     "href": "slides/5-data-structures.html#subset-atomics-4",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-atomics-5",
     "href": "slides/5-data-structures.html#subset-atomics-5",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\nx &lt;- setNames(x, c('A', 'B','C','D'))\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\nx &lt;- setNames(x, c('A', 'B','C','D'))\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-atomics-6",
     "href": "slides/5-data-structures.html#subset-atomics-6",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\nx &lt;- setNames(x, c('A', 'B','C','D'))\n\nx[\"A\"]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0\n#&gt;   A \n#&gt; 3.4"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\nx &lt;- setNames(x, c('A', 'B','C','D'))\n\nx[\"A\"]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0\n#&gt;   A \n#&gt; 3.4"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-atomics-7",
     "href": "slides/5-data-structures.html#subset-atomics-7",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\nx &lt;- setNames(x, c('A', 'B','C','D'))\n\nx[\"A\"]\nx[c(\"A\", \"C\")]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0\n#&gt;   A \n#&gt; 3.4\n#&gt;    A    C \n#&gt;  3.4 18.0"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\nx &lt;- setNames(x, c('A', 'B','C','D'))\n\nx[\"A\"]\nx[c(\"A\", \"C\")]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0\n#&gt;   A \n#&gt; 3.4\n#&gt;    A    C \n#&gt;  3.4 18.0"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-atomics-8",
     "href": "slides/5-data-structures.html#subset-atomics-8",
     "title": "Lecture 05",
     "section": "Subset Atomics",
-    "text": "Subset Atomics\n\n\n\n\n(x = c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\nx &lt;- setNames(x, c('A', 'B','C','D'))\n\nx[\"A\"]\nx[c(\"A\", \"C\")]\nx[c(\"A\", \"A\")]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0\n#&gt;   A \n#&gt; 3.4\n#&gt;    A    C \n#&gt;  3.4 18.0\n#&gt;   A   A \n#&gt; 3.4 3.4"
+    "text": "Subset Atomics\n\n\n\n(x &lt;- c(3.4, 7, 18, 9.6))\n\nx[3]\n\nx[c(3,4)]\n\nx[-3]\n\nx[c(T,T,F,F)]\n\nx &lt;- setNames(x, c('A', 'B','C','D'))\n\nx[\"A\"]\nx[c(\"A\", \"C\")]\nx[c(\"A\", \"A\")]\n\n\n\n#&gt; [1]  3.4  7.0 18.0  9.6\n#&gt; [1] 18\n#&gt; [1] 18.0  9.6\n#&gt; [1] 3.4 7.0 9.6\n#&gt; [1] 3.4 7.0\n#&gt;   A \n#&gt; 3.4\n#&gt;    A    C \n#&gt;  3.4 18.0\n#&gt;   A   A \n#&gt; 3.4 3.4"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-matrices",
     "href": "slides/5-data-structures.html#subset-matrices",
     "title": "Lecture 05",
     "section": "Subset Matrices",
-    "text": "Subset Matrices\n\n\n\n\n(x = matrix(1:9, nrow = 3))\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9"
+    "text": "Subset Matrices\n\n\n\n(x &lt;- matrix(1:9, nrow = 3))\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-matrices-1",
     "href": "slides/5-data-structures.html#subset-matrices-1",
     "title": "Lecture 05",
     "section": "Subset Matrices",
-    "text": "Subset Matrices\n\n\n\n\n(x = matrix(1:9, nrow = 3))\n\nx[3,]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9"
+    "text": "Subset Matrices\n\n\n\n(x &lt;- matrix(1:9, nrow = 3))\n\nx[3,]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-matrices-2",
     "href": "slides/5-data-structures.html#subset-matrices-2",
     "title": "Lecture 05",
     "section": "Subset Matrices",
-    "text": "Subset Matrices\n\n\n\n\n(x = matrix(1:9, nrow = 3))\n\nx[3,]\nx[,3]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9\n#&gt; [1] 7 8 9"
+    "text": "Subset Matrices\n\n\n\n(x &lt;- matrix(1:9, nrow = 3))\n\nx[3,]\nx[,3]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9\n#&gt; [1] 7 8 9"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-matrices-3",
     "href": "slides/5-data-structures.html#subset-matrices-3",
     "title": "Lecture 05",
     "section": "Subset Matrices",
-    "text": "Subset Matrices\n\n\n\n\n(x = matrix(1:9, nrow = 3))\n\nx[3,]\nx[,3]\nx[3,3]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9\n#&gt; [1] 7 8 9\n#&gt; [1] 9"
+    "text": "Subset Matrices\n\n\n\n(x &lt;- matrix(1:9, nrow = 3))\n\nx[3,]\nx[,3]\nx[3,3]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9\n#&gt; [1] 7 8 9\n#&gt; [1] 9"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-matrices-4",
     "href": "slides/5-data-structures.html#subset-matrices-4",
     "title": "Lecture 05",
     "section": "Subset Matrices",
-    "text": "Subset Matrices\n\n\n\n\n(x = matrix(1:9, nrow = 3))\n\nx[3,]\nx[,3]\nx[3,3]\nx[1:2,1:2]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9\n#&gt; [1] 7 8 9\n#&gt; [1] 9\n#&gt;      [,1] [,2]\n#&gt; [1,]    1    4\n#&gt; [2,]    2    5"
+    "text": "Subset Matrices\n\n\n\n(x &lt;- matrix(1:9, nrow = 3))\n\nx[3,]\nx[,3]\nx[3,3]\nx[1:2,1:2]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9\n#&gt; [1] 7 8 9\n#&gt; [1] 9\n#&gt;      [,1] [,2]\n#&gt; [1,]    1    4\n#&gt; [2,]    2    5"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-matrices-5",
     "href": "slides/5-data-structures.html#subset-matrices-5",
     "title": "Lecture 05",
     "section": "Subset Matrices",
-    "text": "Subset Matrices\n\n\n\n\n(x = matrix(1:9, nrow = 3))\n\nx[3,]\nx[,3]\nx[3,3]\nx[1:2,1:2]\nx[-1,]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9\n#&gt; [1] 7 8 9\n#&gt; [1] 9\n#&gt;      [,1] [,2]\n#&gt; [1,]    1    4\n#&gt; [2,]    2    5\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    2    5    8\n#&gt; [2,]    3    6    9"
+    "text": "Subset Matrices\n\n\n\n(x &lt;- matrix(1:9, nrow = 3))\n\nx[3,]\nx[,3]\nx[3,3]\nx[1:2,1:2]\nx[-1,]\n\n\n\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; [1] 3 6 9\n#&gt; [1] 7 8 9\n#&gt; [1] 9\n#&gt;      [,1] [,2]\n#&gt; [1,]    1    4\n#&gt; [2,]    2    5\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    2    5    8\n#&gt; [2,]    3    6    9"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-arrays",
@@ -1992,42 +1992,42 @@
     "href": "slides/5-data-structures.html#subset-lists",
     "title": "Lecture 05",
     "section": "Subset Lists",
-    "text": "Subset Lists\n\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE"
+    "text": "Subset Lists\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE"
   },
   {
     "objectID": "slides/5-data-structures.html#subset-lists-1",
     "href": "slides/5-data-structures.html#subset-lists-1",
     "title": "Lecture 05",
     "section": "Subset Lists",
-    "text": "Subset Lists\n\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\""
+    "text": "Subset Lists\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\""
   },
   {
     "objectID": "slides/5-data-structures.html#subset-lists-2",
     "href": "slides/5-data-structures.html#subset-lists-2",
     "title": "Lecture 05",
     "section": "Subset Lists",
-    "text": "Subset Lists\n\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\nll$name[1]\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\""
+    "text": "Subset Lists\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\nll$name[1]\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\""
   },
   {
     "objectID": "slides/5-data-structures.html#subset-lists-3",
     "href": "slides/5-data-structures.html#subset-lists-3",
     "title": "Lecture 05",
     "section": "Subset Lists",
-    "text": "Subset Lists\n\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\nll$name[1]\n\nll[[1]]\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\"\n#&gt; [1] \"George\" \"Stan\"   \"Carly\""
+    "text": "Subset Lists\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\nll$name[1]\n\nll[[1]]\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\"\n#&gt; [1] \"George\" \"Stan\"   \"Carly\""
   },
   {
     "objectID": "slides/5-data-structures.html#subset-lists-4",
     "href": "slides/5-data-structures.html#subset-lists-4",
     "title": "Lecture 05",
     "section": "Subset Lists",
-    "text": "Subset Lists\n\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\nll$name[1]\n\nll[[1]]\nll[[1]][1]\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\"\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\""
+    "text": "Subset Lists\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\nll$name[1]\n\nll[[1]]\nll[[1]][1]\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\"\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\""
   },
   {
     "objectID": "slides/5-data-structures.html#subset-lists-5",
     "href": "slides/5-data-structures.html#subset-lists-5",
     "title": "Lecture 05",
     "section": "Subset Lists",
-    "text": "Subset Lists\n\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\nll$name[1]\n\nll[[1]]\nll[[1]][1]\n\nll[['name']][1]\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\"\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\"\n#&gt; [1] \"George\""
+    "text": "Subset Lists\n\n\n\n(ll &lt;- list(name = c(\"George\", \"Stan\", \"Carly\"),\n            age  = c(75,15,31),\n            retired = c(T,F,F)))\nll$name\nll$name[1]\n\nll[[1]]\nll[[1]][1]\n\nll[['name']][1]\n\n\n\n#&gt; $name\n#&gt; [1] \"George\" \"Stan\"   \"Carly\" \n#&gt; \n#&gt; $age\n#&gt; [1] 75 15 31\n#&gt; \n#&gt; $retired\n#&gt; [1]  TRUE FALSE FALSE\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\"\n#&gt; [1] \"George\" \"Stan\"   \"Carly\"\n#&gt; [1] \"George\"\n#&gt; [1] \"George\""
   },
   {
     "objectID": "slides/5-data-structures.html#lists-are-not-matrices",
@@ -2118,42 +2118,42 @@
     "href": "slides/5-data-structures.html#storms-subset-1",
     "title": "Lecture 05",
     "section": "Storms Subset",
-    "text": "Storms Subset\n\n\n\nstorms$name[1:5]\nstorms[[1]][1:5]\n\n\n\n#&gt; [1] \"Amy\" \"Amy\" \"Amy\" \"Amy\" \"Amy\"\n#&gt; [1] \"Amy\" \"Amy\" \"Amy\" \"Amy\" \"Amy\""
+    "text": "Storms Subset\n\n\n\nstorms$name[1:5]\n\nstorms[[1]][1:5]\n\n\n\n#&gt; [1] \"Amy\" \"Amy\" \"Amy\" \"Amy\" \"Amy\"\n#&gt; [1] \"Amy\" \"Amy\" \"Amy\" \"Amy\" \"Amy\""
   },
   {
     "objectID": "slides/5-data-structures.html#storms-subset-2",
     "href": "slides/5-data-structures.html#storms-subset-2",
     "title": "Lecture 05",
     "section": "Storms Subset",
-    "text": "Storms Subset\n\n\n\nstorms$name[1:5]\nstorms[[1]][1:5]\nstorms[1:5,1:5]\n\n\n\n#&gt; [1] \"Amy\" \"Amy\" \"Amy\" \"Amy\" \"Amy\"\n#&gt; [1] \"Amy\" \"Amy\" \"Amy\" \"Amy\" \"Amy\"\n#&gt; # A tibble: 5 × 5\n#&gt;   name   year month   day  hour\n#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;\n#&gt; 1 Amy    1975     6    27     0\n#&gt; 2 Amy    1975     6    27     6\n#&gt; 3 Amy    1975     6    27    12\n#&gt; 4 Amy    1975     6    27    18\n#&gt; 5 Amy    1975     6    28     0"
+    "text": "Storms Subset\n\n\n\nstorms$name[1:5]\n\nstorms[[1]][1:5]\n\nstorms[1:5,1:5]\n\n\n\n#&gt; [1] \"Amy\" \"Amy\" \"Amy\" \"Amy\" \"Amy\"\n#&gt; [1] \"Amy\" \"Amy\" \"Amy\" \"Amy\" \"Amy\"\n#&gt; # A tibble: 5 × 5\n#&gt;   name   year month   day  hour\n#&gt;   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt;\n#&gt; 1 Amy    1975     6    27     0\n#&gt; 2 Amy    1975     6    27     6\n#&gt; 3 Amy    1975     6    27    12\n#&gt; 4 Amy    1975     6    27    18\n#&gt; 5 Amy    1975     6    28     0"
   },
   {
     "objectID": "slides/5-data-structures.html#hurricane-ana",
     "href": "slides/5-data-structures.html#hurricane-ana",
     "title": "Lecture 05",
     "section": "Hurricane Ana",
-    "text": "Hurricane Ana\n\n\n\n(ana = storms[storms$name == \"Ana\",])\n\n\n\n#&gt; # A tibble: 189 × 13\n#&gt;    name   year month   day  hour   lat  long status      category  wind pressure\n#&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n#&gt;  1 Ana    1979     6    19    12  10   -45   tropical d…       NA    25     1011\n#&gt;  2 Ana    1979     6    19    18  10.2 -46   tropical d…       NA    25     1011\n#&gt;  3 Ana    1979     6    20     0  10.5 -47   tropical d…       NA    25     1010\n#&gt;  4 Ana    1979     6    20     6  10.9 -48.1 tropical d…       NA    25     1010\n#&gt;  5 Ana    1979     6    20    12  11.3 -49.2 tropical d…       NA    25     1010\n#&gt;  6 Ana    1979     6    20    18  11.8 -50.2 tropical d…       NA    25     1009\n#&gt;  7 Ana    1979     6    21     0  12.3 -51.1 tropical d…       NA    30     1009\n#&gt;  8 Ana    1979     6    21     6  12.9 -51.9 tropical d…       NA    30     1008\n#&gt;  9 Ana    1979     6    21    12  13.5 -52.7 tropical d…       NA    30     1008\n#&gt; 10 Ana    1979     6    21    18  13.9 -53.5 tropical d…       NA    30     1007\n#&gt; # ℹ 179 more rows\n#&gt; # ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#&gt; #   hurricane_force_diameter &lt;int&gt;"
+    "text": "Hurricane Ana\n\n\n\nana &lt;- storms[storms$name == \"Ana\",]"
   },
   {
     "objectID": "slides/5-data-structures.html#hurricane-ana-1",
     "href": "slides/5-data-structures.html#hurricane-ana-1",
     "title": "Lecture 05",
     "section": "Hurricane Ana",
-    "text": "Hurricane Ana\n\n\n\n(ana = storms[storms$name == \"Ana\",])\nunique(ana$year)\n\n\n\n#&gt; # A tibble: 189 × 13\n#&gt;    name   year month   day  hour   lat  long status      category  wind pressure\n#&gt;    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n#&gt;  1 Ana    1979     6    19    12  10   -45   tropical d…       NA    25     1011\n#&gt;  2 Ana    1979     6    19    18  10.2 -46   tropical d…       NA    25     1011\n#&gt;  3 Ana    1979     6    20     0  10.5 -47   tropical d…       NA    25     1010\n#&gt;  4 Ana    1979     6    20     6  10.9 -48.1 tropical d…       NA    25     1010\n#&gt;  5 Ana    1979     6    20    12  11.3 -49.2 tropical d…       NA    25     1010\n#&gt;  6 Ana    1979     6    20    18  11.8 -50.2 tropical d…       NA    25     1009\n#&gt;  7 Ana    1979     6    21     0  12.3 -51.1 tropical d…       NA    30     1009\n#&gt;  8 Ana    1979     6    21     6  12.9 -51.9 tropical d…       NA    30     1008\n#&gt;  9 Ana    1979     6    21    12  13.5 -52.7 tropical d…       NA    30     1008\n#&gt; 10 Ana    1979     6    21    18  13.9 -53.5 tropical d…       NA    30     1007\n#&gt; # ℹ 179 more rows\n#&gt; # ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#&gt; #   hurricane_force_diameter &lt;int&gt;\n#&gt; [1] 1979 1985 1991 1997 2003 2009 2015 2021"
+    "text": "Hurricane Ana\n\n\n\nana &lt;- storms[storms$name == \"Ana\",]\n\ndim(ana)\n\n\n\n#&gt; [1] 189  13"
   },
   {
     "objectID": "slides/5-data-structures.html#hurricane-ana-2",
     "href": "slides/5-data-structures.html#hurricane-ana-2",
     "title": "Lecture 05",
     "section": "Hurricane Ana",
-    "text": "Hurricane Ana\n\n\n\nana_2009 = ana[ana$year == 2009,]"
+    "text": "Hurricane Ana\n\n\n\nana &lt;- storms[storms$name == \"Ana\",]\n\ndim(ana)\n\nunique(ana$year)\n\n\n\n#&gt; [1] 189  13\n#&gt; [1] 1979 1985 1991 1997 2003 2009 2015 2021"
   },
   {
     "objectID": "slides/5-data-structures.html#hurricane-ana-3",
     "href": "slides/5-data-structures.html#hurricane-ana-3",
     "title": "Lecture 05",
     "section": "Hurricane Ana",
-    "text": "Hurricane Ana\n\n\n\nana_2009 = ana[ana$year == 2009,]\n\n{plot(ana_2009$long, ana_2009$lat,\n     col = ana_2009$day, pch = 16, cex = 2)\nlines(ana_2009$long, ana_2009$lat)}"
+    "text": "Hurricane Ana\n\n\n\nana_2009 &lt;- ana[ana$year == 2009,]"
   },
   {
     "objectID": "slides/5-data-structures.html#section",
@@ -2167,14 +2167,14 @@
     "href": "slides/5-data-structures.html#section-1",
     "title": "Lecture 05",
     "section": "",
-    "text": "m = matrix(1:100, nrow = 10)\nmr = terra::rast()"
+    "text": "m = matrix(1:100, nrow = 10)\nmr = terra::rast(m)"
   },
   {
     "objectID": "slides/5-data-structures.html#section-2",
     "href": "slides/5-data-structures.html#section-2",
     "title": "Lecture 05",
     "section": "",
-    "text": "m = matrix(1:100, nrow = 10)\nmr = terra::rast()\nterra::plot(mr)"
+    "text": "m = matrix(1:100, nrow = 10)\nmr = terra::rast(m)\nterra::plot(mr)"
   },
   {
     "objectID": "slides/5-data-structures.html#real-data",
@@ -2188,7 +2188,7 @@
     "href": "slides/5-data-structures.html#daily-assignment",
     "title": "Lecture 05",
     "section": "Daily Assignment:",
-    "text": "Daily Assignment:\nCopy this into a Qmd file, answer the questions posed, and submit the rendered HTML file to canvas:\n\n# Attach the `palmerspenguins` package\n\n# 1. Examine at the dataset using the ?Help page\n\n# 2. what is the class of the penguins dataset?\n\n# 3. what is the structure of the penguins dataset?\n\n# 4. what are the dimensions of the penguins dataset?\n\n# 5. what are the column names of the penguins dataset?\n\n# 6. what type of data is `flipper_length_mm` and `Island`?\n\n# 7. what is the mean flipper length of the penguins?\n\n# 8. what is the standard deviation of flipper length in the penguins?\n\n# 9. what is the median body mass of the penguins?\n\n# 10. what is the Island of the 100th penguin?"
+    "text": "Daily Assignment:\nCopy this into a Qmd file, answer the questions posed, and submit the rendered HTML file to Canvas:\n\n# Attach the `palmerspenguins` package\n\n# 1. Examine at the dataset using the ?Help page\n\n# 2. what is the class of the penguins dataset?\n\n# 3. what is the structure of the penguins dataset?\n\n# 4. what are the dimensions of the penguins dataset?\n\n# 5. what are the column names of the penguins dataset?\n\n# 6. what type of data is `flipper_length_mm` and `Island`?\n\n# 7. what is the mean flipper length of the penguins?\n\n# 8. what is the standard deviation of flipper length in the penguins?\n\n# 9. what is the median body mass of the penguins?\n\n# 10. what is the Island of the 100th penguin?"
   },
   {
     "objectID": "resources/day-6-exercise.html",
@@ -2231,5 +2231,82 @@
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Question 4:",
     "text": "Question 4:\nUse the dplyr verbs to report the 5 states with the worst current death/case ratio.\n(Hint: filter, group_by, summarize, mutate, arrange, slice)"
+  },
+  {
+    "objectID": "slides/5-data-structures.html#grading-checking",
+    "href": "slides/5-data-structures.html#grading-checking",
+    "title": "Lecture 05",
+    "section": "Grading Checking",
+    "text": "Grading Checking\n\nSo far we have been lenient with Daily Assignments. This was to give you all a chance to overcome any personal/compute challenges.\nDaily Assignments not turned in by EOD today will not be counted\nRemember, Daily Assignments are pass/fail based on effort. Labs are graded by quality of product\nWith respect to your Lab 1 websites, they should resemble something you would want a possible employer to see."
+  },
+  {
+    "objectID": "slides/5-data-structures.html#atomic-vectors-homogeneous-data",
+    "href": "slides/5-data-structures.html#atomic-vectors-homogeneous-data",
+    "title": "Lecture 05",
+    "section": "Atomic Vectors: Homogeneous Data",
+    "text": "Atomic Vectors: Homogeneous Data\n\nA vector containing one type of data is called an atom\n\nAtoms can created using the c() (combine) function.\nThe length can be checked with length()\n\n\n\n\nThere are four primary types of atomic vectors: logical, integer, double, and character (which contains strings).\nCollectively integer and double vectors are known as numeric vectors.\nComplex and raw atomic vectors are rare."
+  },
+  {
+    "objectID": "slides/5-data-structures.html#matrices-5",
+    "href": "slides/5-data-structures.html#matrices-5",
+    "title": "Lecture 05",
+    "section": "Matrices",
+    "text": "Matrices\n\n\n\n(a &lt;- c(1:9))\n\n# Use matrix\n(mat &lt;- matrix(a, nrow = 3))\n\n# Use matrix\n(mat2 &lt;- matrix(a, nrow = 3, byrow = TRUE))\n\n## dim returns dimensions of an object\ndim(mat2)\n\n# set names using colnames\ncolnames(mat2) &lt;- c(\"A\", \"B\", \"C\")\n\nmat2\n\n\n\n#&gt; [1] 1 2 3 4 5 6 7 8 9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    2    3\n#&gt; [2,]    4    5    6\n#&gt; [3,]    7    8    9\n#&gt; [1] 3 3\n#&gt;      A B C\n#&gt; [1,] 1 2 3\n#&gt; [2,] 4 5 6\n#&gt; [3,] 7 8 9"
+  },
+  {
+    "objectID": "slides/5-data-structures.html#note-on-null",
+    "href": "slides/5-data-structures.html#note-on-null",
+    "title": "Lecture 05",
+    "section": "Note on NULL",
+    "text": "Note on NULL\n\nA vector without a dim attribute set is often thought of as 1-dimensional, but actually has NULL dimensions.\n\n\ndim(a)\n#&gt; NULL"
+  },
+  {
+    "objectID": "slides/5-data-structures.html#structured-lists",
+    "href": "slides/5-data-structures.html#structured-lists",
+    "title": "Lecture 05",
+    "section": "Structured Lists",
+    "text": "Structured Lists\n\nA data.frame is a data structure built on top of lists\n\n\nclass(data.frame())\n#&gt; [1] \"data.frame\"\ntypeof(data.frame())\n#&gt; [1] \"list\"\n\n\na named list of vectors.\ndata.frames are one of the biggest and most important ideas in R\nUnlike a regular list - the length of each vector in a data.frame must be the same.\nThis gives data frames a rectangular structure and explains why they share the properties of both matrices and lists"
+  },
+  {
+    "objectID": "slides/5-data-structures.html#real-gridded-data",
+    "href": "slides/5-data-structures.html#real-gridded-data",
+    "title": "Lecture 05",
+    "section": "Real Gridded Data:",
+    "text": "Real Gridded Data:\n\n\nlibrary(climateR); library(AOI)\n(x = getGridMET(AOI = aoi_get(state = \"CO\"), \n                varname = \"tmmx\", \n                startDate = \"2025-01-01\"))\n#&gt; $daily_maximum_temperature\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 99, 169, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 0.04166669, 0.04166669  (x, y)\n#&gt; extent      : -109.0792, -102.0375, 36.9625, 41.0875  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : +proj=longlat +ellps=WGS84 +no_defs \n#&gt; source(s)   : memory\n#&gt; name        : tmmx_2025-01-01 \n#&gt; min value   :           261.9 \n#&gt; max value   :           281.6 \n#&gt; unit        :               K \n#&gt; time        : 2025-01-01 UTC\n\nplot(x[[1]])"
+  },
+  {
+    "objectID": "slides/5-data-structures.html#raster-data",
+    "href": "slides/5-data-structures.html#raster-data",
+    "title": "Lecture 05",
+    "section": "Raster Data",
+    "text": "Raster Data\n\n\n\nm &lt;- matrix(1:100, nrow = 10)"
+  },
+  {
+    "objectID": "slides/5-data-structures.html#raster-data-1",
+    "href": "slides/5-data-structures.html#raster-data-1",
+    "title": "Lecture 05",
+    "section": "Raster Data",
+    "text": "Raster Data\n\n\n\nm &lt;- matrix(1:100, nrow = 10)\n(mr &lt;- terra::rast(m) )\n\n\n\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 10, 10, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 1, 1  (x, y)\n#&gt; extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. :  \n#&gt; source(s)   : memory\n#&gt; name        : lyr.1 \n#&gt; min value   :     1 \n#&gt; max value   :   100"
+  },
+  {
+    "objectID": "slides/5-data-structures.html#raster-data-2",
+    "href": "slides/5-data-structures.html#raster-data-2",
+    "title": "Lecture 05",
+    "section": "Raster Data",
+    "text": "Raster Data\n\n\n\nm &lt;- matrix(1:100, nrow = 10)\n(mr &lt;- terra::rast(m) )\nterra::plot(mr)\n\n\n\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 10, 10, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 1, 1  (x, y)\n#&gt; extent      : 0, 10, 0, 10  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. :  \n#&gt; source(s)   : memory\n#&gt; name        : lyr.1 \n#&gt; min value   :     1 \n#&gt; max value   :   100\n\n\n\n\n\n\n\n\n\n🔮 Looking forward 🔮\n\nRaster objects objects are built on multi-dimensional arrays, where each layer corresponds to a separate array slice.\nLike base R matrices, raster objects store values in a column-major order, meaning data is arranged column-wise in memory, optimizing performance for certain matrix operations."
+  },
+  {
+    "objectID": "slides/5-data-structures.html#hurricane-ana-4",
+    "href": "slides/5-data-structures.html#hurricane-ana-4",
+    "title": "Lecture 05",
+    "section": "Hurricane Ana",
+    "text": "Hurricane Ana\n\n\n\nana_2009 &lt;- ana[ana$year == 2009,]\n\n{plot(ana_2009$long, ana_2009$lat,\n     col = ana_2009$day, pch = 16, cex = 2)\nlines(ana_2009$long, ana_2009$lat)}"
+  },
+  {
+    "objectID": "slides/5-data-structures.html#hurricane-ana-5",
+    "href": "slides/5-data-structures.html#hurricane-ana-5",
+    "title": "Lecture 05",
+    "section": "Hurricane Ana",
+    "text": "Hurricane Ana\n\n\n\nana_2009 = ana[ana$year == 2009,]\n\n{plot(ana_2009$long, ana_2009$lat,\n     col = ana_2009$day, pch = 16, cex = 2)\nlines(ana_2009$long, ana_2009$lat)}"
   }
 ]
