@@ -970,14 +970,14 @@
     "href": "slides/3-data-types.html#object-address",
     "title": "Lecture 03",
     "section": "Object Address",
-    "text": "Object Address\n\nObjects have unique identifiers.\nThese identifiers have a form that looks like the object’s memory “address”\nThe actual memory addresses changes every time the code is run, so we use these identifiers instead.\nIf you are interested in this, the Wikipedia page is great!\n\n\n\nx &lt;- 10\n\nlobstr::obj_addr(x)\n[1] \"0x137668038\""
+    "text": "Object Address\n\nObjects have unique identifiers.\nThese identifiers have a form that looks like the object’s memory “address”\nThe actual memory addresses changes every time the code is run, so we use these identifiers instead.\nIf you are interested in this, the Wikipedia page is great!\n\n\n\nx &lt;- 10\n\nlobstr::obj_addr(x)\n[1] \"0x153c7da38\""
   },
   {
     "objectID": "slides/3-data-types.html#to-illustate-this",
     "href": "slides/3-data-types.html#to-illustate-this",
     "title": "Lecture 03",
     "section": "To illustate this…",
-    "text": "To illustate this…\nIn the code below, y doesn’t make another copy of the value 10, but instead creates an additional binding to the existing object.\n\n\nx &lt;- 10\ny &lt;- x\n\nrlang::obj_address(x)\n[1] \"0x16a940c88\"\nrlang::obj_address(y)\n[1] \"0x16a940c88\"\n\n\n\nEqually, if we create two unique objects (even with the same value), they are different:\n\n\n\nx2 &lt;- 10\ny2 &lt;- 10\n\nrlang::obj_address(x2)\n[1] \"0x16acb8870\"\nrlang::obj_address(y2)\n[1] \"0x16accc010\"\n\n\n\nThis is because the values are buffered in memory rather then on hard disk!"
+    "text": "To illustate this…\nIn the code below, y doesn’t make another copy of the value 10, but instead creates an additional binding to the existing object.\n\n\nx &lt;- 10\ny &lt;- x\n\nrlang::obj_address(x)\n[1] \"0x153f70c88\"\nrlang::obj_address(y)\n[1] \"0x153f70c88\"\n\n\n\nEqually, if we create two unique objects (even with the same value), they are different:\n\n\n\nx2 &lt;- 10\ny2 &lt;- 10\n\nrlang::obj_address(x2)\n[1] \"0x135e57e70\"\nrlang::obj_address(y2)\n[1] \"0x135e6b610\"\n\n\n\nThis is because the values are buffered in memory rather then on hard disk!"
   },
   {
     "objectID": "slides/3-data-types.html#computer-memory-like-a-dynamic-hard-disk",
@@ -1313,7 +1313,7 @@
     "href": "slides/3-data-types.html#raws-7",
     "title": "Lecture 03",
     "section": "Raws",
-    "text": "Raws\n\n\n\n(x &lt;- charToRaw(\"GIS is great!\"))\ntypeof(x)\n\nx[1]\nrawToChar(x[1])\nrawToHex(x[1])\nrawToChar(x)\nrawToBits(x)\n\nraw\n\n\n\n [1] 47 49 53 20 69 73 20 67 72 65 61 74 21\n[1] \"raw\"\n[1] 47\n[1] \"G\"\n[1] \"47\"\n[1] \"GIS is great!\"\n  [1] 01 01 01 00 00 00 01 00 01 00 00 01 00 00 01 00 01 01 00 00 01 00 01 00 00\n [26] 00 00 00 00 01 00 00 01 00 00 01 00 01 01 00 01 01 00 00 01 01 01 00 00 00\n [51] 00 00 00 01 00 00 01 01 01 00 00 01 01 00 00 01 00 00 01 01 01 00 01 00 01\n [76] 00 00 01 01 00 01 00 00 00 00 01 01 00 00 00 01 00 01 01 01 00 01 00 00 00\n[101] 00 01 00 00\nfunction (length = 0L) \n.Internal(vector(\"raw\", length))\n&lt;bytecode: 0x1129762e8&gt;\n&lt;environment: namespace:base&gt;"
+    "text": "Raws\n\n\n\n(x &lt;- charToRaw(\"GIS is great!\"))\ntypeof(x)\n\nx[1]\nrawToChar(x[1])\nrawToHex(x[1])\nrawToChar(x)\nrawToBits(x)\n\nraw\n\n\n\n [1] 47 49 53 20 69 73 20 67 72 65 61 74 21\n[1] \"raw\"\n[1] 47\n[1] \"G\"\n[1] \"47\"\n[1] \"GIS is great!\"\n  [1] 01 01 01 00 00 00 01 00 01 00 00 01 00 00 01 00 01 01 00 00 01 00 01 00 00\n [26] 00 00 00 00 01 00 00 01 00 00 01 00 01 01 00 01 01 00 00 01 01 01 00 00 00\n [51] 00 00 00 01 00 00 01 01 01 00 00 01 01 00 00 01 00 00 01 01 01 00 01 00 01\n [76] 00 00 01 01 00 01 00 00 00 00 01 01 00 00 00 01 00 01 01 01 00 01 00 00 00\n[101] 00 01 00 00\nfunction (length = 0L) \n.Internal(vector(\"raw\", length))\n&lt;bytecode: 0x1258be2e8&gt;\n&lt;environment: namespace:base&gt;"
   },
   {
     "objectID": "slides/3-data-types.html#bonus-time",
