@@ -2189,5 +2189,47 @@
     "title": "Lecture 05",
     "section": "Daily Assignment:",
     "text": "Daily Assignment:\nCopy this into a Qmd file, answer the questions posed, and submit the rendered HTML file to canvas:\n\n# Attach the `palmerspenguins` package\n\n# 1. Examine at the dataset using the ?Help page\n\n# 2. what is the class of the penguins dataset?\n\n# 3. what is the structure of the penguins dataset?\n\n# 4. what are the dimensions of the penguins dataset?\n\n# 5. what are the column names of the penguins dataset?\n\n# 6. what type of data is `flipper_length_mm` and `Island`?\n\n# 7. what is the mean flipper length of the penguins?\n\n# 8. what is the standard deviation of flipper length in the penguins?\n\n# 9. what is the median body mass of the penguins?\n\n# 10. what is the Island of the 100th penguin?"
+  },
+  {
+    "objectID": "resources/day-6-exercise.html",
+    "href": "resources/day-6-exercise.html",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "We are going to practice some data wrangling skills using a real-world dataset about COVID cases curated and maintained by the New York Times. The data has been used to create reports and data visualizations like this, and are archived on a GitHub repo here. Looking at the README in this repository we read:\n\n“We are providing two sets of data with cumulative counts of coronavirus cases and deaths: one with our most current numbers for each geography and another with historical data showing the tally for each day for each geography … the historical files are the final counts at the end of each day … The historical and live data are released in three files, one for each of these geographic levels: U.S., states and counties. A smaller file with only the most recent 30 days of data is also available”\n\nFor this lab we will use the historic, recent, country level data which is stored as an updating CSV at this URL:\n\nhttps://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-recent.csv\n\n\n\n\nI will get you started this week, in the following code chunk, I am attaching the tidyverse package; saving the NY-Times URL as a value called “url”; and I am reading that URL into an object called covid\n\nlibrary(tidyverse)\nurl = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-recent.csv'\ncovid = read_csv(url)\nhead(covid, 5)\n\n# A tibble: 5 × 6\n  date       county  state   fips  cases deaths\n  &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;\n1 2023-02-22 Autauga Alabama 01001 19732    230\n2 2023-02-22 Baldwin Alabama 01003 69641    724\n3 2023-02-22 Barbour Alabama 01005  7451    112\n4 2023-02-22 Bibb    Alabama 01007  8067    109\n5 2023-02-22 Blount  Alabama 01009 18616    261\n\n\nHint: You can print the top X rows of a data.frame with slice.\n\nslice(covid, 1:5)\n\nto print the top 5 columns of the raw covid object"
+  },
+  {
+    "objectID": "resources/day-6-exercise.html#covid-19-data",
+    "href": "resources/day-6-exercise.html#covid-19-data",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "",
+    "text": "We are going to practice some data wrangling skills using a real-world dataset about COVID cases curated and maintained by the New York Times. The data has been used to create reports and data visualizations like this, and are archived on a GitHub repo here. Looking at the README in this repository we read:\n\n“We are providing two sets of data with cumulative counts of coronavirus cases and deaths: one with our most current numbers for each geography and another with historical data showing the tally for each day for each geography … the historical files are the final counts at the end of each day … The historical and live data are released in three files, one for each of these geographic levels: U.S., states and counties. A smaller file with only the most recent 30 days of data is also available”\n\nFor this lab we will use the historic, recent, country level data which is stored as an updating CSV at this URL:\n\nhttps://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-recent.csv\n\n\n\n\nI will get you started this week, in the following code chunk, I am attaching the tidyverse package; saving the NY-Times URL as a value called “url”; and I am reading that URL into an object called covid\n\nlibrary(tidyverse)\nurl = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties-recent.csv'\ncovid = read_csv(url)\nhead(covid, 5)\n\n# A tibble: 5 × 6\n  date       county  state   fips  cases deaths\n  &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;\n1 2023-02-22 Autauga Alabama 01001 19732    230\n2 2023-02-22 Baldwin Alabama 01003 69641    724\n3 2023-02-22 Barbour Alabama 01005  7451    112\n4 2023-02-22 Bibb    Alabama 01007  8067    109\n5 2023-02-22 Blount  Alabama 01009 18616    261\n\n\nHint: You can print the top X rows of a data.frame with slice.\n\nslice(covid, 1:5)\n\nto print the top 5 columns of the raw covid object"
+  },
+  {
+    "objectID": "resources/day-6-exercise.html#question-1",
+    "href": "resources/day-6-exercise.html#question-1",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Question 1:",
+    "text": "Question 1:\nUse dplyr verbs to create a data.frame of the 5 counties with the most current cases. Remember, the cases and deaths are cumulative, so you only need to deal with the data for the most current (max) date.\n(Hint: filter, arrange, slice)"
+  },
+  {
+    "objectID": "resources/day-6-exercise.html#question-2",
+    "href": "resources/day-6-exercise.html#question-2",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Question 2:",
+    "text": "Question 2:\nUse dplyr verbs to create a data.frame of the 5 states with the most cases current cases.\n(Hint: filter, group_by, summarize, arrange, slice)"
+  },
+  {
+    "objectID": "resources/day-6-exercise.html#question-3",
+    "href": "resources/day-6-exercise.html#question-3",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Question 3:",
+    "text": "Question 3:\nUse the dplyr verbs to report the 5 counties with the worst current death/cases ratio: (e.g.\\(100* (deaths/cases)\\))\n(Hint: You will need to remove those where cases == 0 and county == Unknown) (Hint: filter, mutate, arrange, slice)"
+  },
+  {
+    "objectID": "resources/day-6-exercise.html#question-4",
+    "href": "resources/day-6-exercise.html#question-4",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Question 4:",
+    "text": "Question 4:\nUse the dplyr verbs to report the 5 states with the worst current death/case ratio.\n(Hint: filter, group_by, summarize, mutate, arrange, slice)"
   }
 ]
