@@ -1537,56 +1537,56 @@
     "href": "labs/lab2.html#filtering-rows",
     "title": "Lab 2: Minnesota tree growth",
     "section": "1. Filtering rows",
-    "text": "1. Filtering rows\nfilter() creates row subsets that satisfy a condition involving values in one or more columns. The first argument in filter() is the data.frame from which you want to subset rows. Conditional statements passed as separate arguments are combined with the & operator.\n\n\n\n\n\n\n\n\n\nFor this lab, you will read in the Minnesota tree growth dataset from the trees_dat.csv file found from Dyrad and saved to your data folder.\n\nQuestion 1: Read in the Minnesota tree growth dataset. How many records are there in the dataset?\n\n\nQuestion 2: How many trees are in stand 1?\n\n\nQuestion 3: How many trees are of the Abies balsamea and Pinus strobus species?\n\n\nQuestion 4: How many trees are older then 200 years old in the last year of the dataset?"
+    "text": "1. Filtering rows\nfilter() creates row subsets that satisfy a condition involving values in one or more columns. The first argument in filter() is the data.frame from which you want to subset rows. Conditional statements passed as separate arguments are combined with the & operator.\n\n\n\n\n\n\n\n\n\nFor this lab, you will read in the Minnesota tree growth dataset from the trees_dat.csv file found from Dyrad and saved to your data folder.\n\nQuestion 1: Read in the Minnesota tree growth dataset. Use glimpse to understand the structure and names of the dataset. Decribe the structure and what you see in the dataset?\n\n\nQuestion 2: How many reocrds have been made in stand 1?\n\n\nQuestion 3: How many records of the Abies balsamea and Pinus strobus species have been made?\n\n\nQuestion 4: How many trees are older then 200 years old in the last year of the dataset?"
   },
   {
     "objectID": "labs/lab2.html#slicing-rows",
     "href": "labs/lab2.html#slicing-rows",
     "title": "Lab 2: Minnesota tree growth",
     "section": "2. Slicing rows",
-    "text": "2. Slicing rows\nYou can use the slice() family of functions to extract a chunk of your rows by their position in the dataset.\nThis function family includes:\nslice(X:Y): filters out rows X to Y (where X and Y are numbers). slice_max / slice_min - filters for observations with the max/min values for a variable V. slice_head/slice_tail - return the first and last row of the given data.frame, respectively slice_sample - return a random subset of rows, with or without replacement, and with specified selection probability\nChange the n argument in these functions to return more than one row (i.e., the default argument is n = 1), or use the prop argument to return the desired proportion of rows.\n\nQuestion 5: What is the oldest tree in the dataset found using slice_max?\n\n\nQuestion 6: Using slice_max, find the oldest 5 trees, limit the query to those in year 2007. Use the help docs to understand optional parameters\n\n\nQuestion 7: Using slice_sample, how many trees are in a 30% sample?"
+    "text": "2. Slicing rows\nYou can use the slice() family of functions to extract a chunk of your rows by their position in the dataset.\nThis function family includes:\nslice(X:Y): filters out rows X to Y (where X and Y are numbers). slice_max / slice_min - filters for observations with the max/min values for a variable V. slice_head/slice_tail - return the first and last row of the given data.frame, respectively slice_sample - return a random subset of rows, with or without replacement, and with specified selection probability\nChange the n argument in these functions to return more than one row (i.e., the default argument is n = 1), or use the prop argument to return the desired proportion of rows.\n\nQuestion 5: What is the oldest tree in the dataset found using slice_max?\n\n\nQuestion 6: Find the oldest 5 trees recorded in 2001. Use the help docs to understand optional parameters\n\n\nQuestion 7: Using slice_sample, how many trees are in a 30% sample of those recorded in 2002?"
   },
   {
     "objectID": "labs/lab2.html#arranging-rows",
     "href": "labs/lab2.html#arranging-rows",
     "title": "Lab 2: Minnesota tree growth",
     "section": "3. Arranging Rows",
-    "text": "3. Arranging Rows\narrange() orders rows based on values in one or more columns. If you specify more than one column, each additional column is used to break ties in values of preceding columns. The default behavior is to sort column values in ascending order (i.e., smallest values at the top). If you want to sort column values in descending order, put the column name inside **desc().\narrange() doesn’t change the number of rows, only their order. Row order doesn’t typically matter when analyzing data; however, order is often important for understanding and communicating data structure.\n\nQuestion 8: Filter all trees in stand 5 in the maximum year. Sort this subset by descending radius at breast height (rad_ib) and use slice_head() to get the top three trees. Report the tree IDs"
+    "text": "3. Arranging Rows\narrange() orders rows based on values in one or more columns. If you specify more than one column, each additional column is used to break ties in values of preceding columns. The default behavior is to sort column values in ascending order (i.e., smallest values at the top). If you want to sort column values in descending order, put the column name inside **desc().\narrange() doesn’t change the number of rows, only their order. Row order doesn’t typically matter when analyzing data; however, order is often important for understanding and communicating data structure.\n\nQuestion 8: Filter all trees in stand 5 in 2007. Sort this subset by descending radius at breast height (rad_ib) and use slice_head() to get the top three trees. Report the tree IDs"
   },
   {
     "objectID": "labs/lab2.html#reducing-columns",
     "href": "labs/lab2.html#reducing-columns",
     "title": "Lab 2: Minnesota tree growth",
     "section": "4. Reducing Columns",
-    "text": "4. Reducing Columns\nAnother common task is to select a subset of columns in the dataset. This is accomplished using select().\n\nQuestion 9: Reduce your full data.frame to [treeID, year, and radius at breast height]. Filter to only those in year 2007, and use slice to pull the top 3 rows.\n\n\nQuestion 10: Use select to remove the radius at breast height column\n\n\nQuestion 11: Look at the help document for dplyr::select and examine the “Overview of selection features”. Identify an option (there are multiple) that would help select all columns with the string “ID” in the name.\n\nThe & and | operators provide additional flexibility for specifying columns to retain or exclude. Use & to identify the intersection between two column sets (i.e., those columns that are in both sets). Use | to identify the union of two column sets (i.e., all columns in at least one set).\n\nQuestion 12: Find a selection pattern that captures all columns with either ‘ID’ or ‘stand’ in the name. Use a member of the slice family to return the last 3 rows."
+    "text": "4. Reducing Columns\nAnother common task is to select a subset of columns in the dataset. This is accomplished using select().\n\nQuestion 9: Reduce your full data.frame to [treeID, stand, year, and radius at breast height]. Filter to only those in stand 3 with records from 2007, and use slice_min to pull the smallest three trees meaured that year.\n\n\nQuestion 10: Use select to remove the stand column. Use glimspe to show the dataset.\n\n\nQuestion 11: Look at the help document for dplyr::select and examine the “Overview of selection features”. Identify an option (there are multiple) that would help select all columns with the string “ID” in the name. Using glimpse to view the remaining dataset\n\nThe & and | operators provide additional flexibility for specifying columns to retain or exclude. Use & to identify the intersection between two column sets (i.e., those columns that are in both sets). Use | to identify the union of two column sets (i.e., all columns in at least one set).\n\nQuestion 12: Find a selection pattern that captures all columns with either ‘ID’ or ‘stand’ in the name. Use glimpse to verify the selection."
   },
   {
     "objectID": "labs/lab2.html#renaming-columns",
     "href": "labs/lab2.html#renaming-columns",
     "title": "Lab 2: Minnesota tree growth",
     "section": "5. Renaming columns",
-    "text": "5. Renaming columns\nIt’s easy to rename data.frame columns using rename(). The first argument in rename() is the data.frame containing columns to rename and subsequent arguments takes the form new_name = old_name.\n\n\n\n\n\n\n\n\n\n\n**Question 13: Looking back at the data dictionary, rename rad_inc and inc to include _[unit] in the name. Unlike earlier options, be sure that this renaming is permanent, and stays with your data.frame (e.g. &lt;-). Print the names of your new data.frame**"
+    "text": "5. Renaming columns\nIt’s easy to rename data.frame columns using rename(). The first argument in rename() is the data.frame containing columns to rename and subsequent arguments takes the form new_name = old_name.\n\n\n\n\n\n\n\n\n\n\nQuestion 13: Looking back at the data dictionary, rename rad_inc and inc to include _[unit] in the name. Unlike earlier options, be sure that this renaming is permanent, and stays with your data.frame (e.g. &lt;-). Use glimpse to view your new data.frame."
   },
   {
     "objectID": "labs/lab2.html#creating-new-columns",
     "href": "labs/lab2.html#creating-new-columns",
     "title": "Lab 2: Minnesota tree growth",
     "section": "6. Creating new columns",
-    "text": "6. Creating new columns\nmutate() creates new columns (or modifies existing ones) and adds them to the right side of an existing data.frame. The first argument in mutate() is the data.frame to be augmented and subsequent arguments define the new columns. This function is useful because exiting columns in the data.frame can be referenced when defining new columns.\n\n\n\n\n\n\n\n\n\n\nQuestion 14: A key measurement in forestry in “basal area column”. The metric is computed with the formula:  BA(m2) = 0.00007854⋅DBH^2  Where DBH is the diameter at breast height (cm). Use mutate to compute both DBH in centimeters, and BA_m2. What is the mean BA_m2 of the the species POTR (in year 2007)"
+    "text": "6. Creating new columns\nmutate() creates new columns (or modifies existing ones) and adds them to the right side of an existing data.frame. The first argument in mutate() is the data.frame to be augmented and subsequent arguments define the new columns. This function is useful because exiting columns in the data.frame can be referenced when defining new columns.\n\n\n\n\n\n\n\n\n\n\nQuestion 14: A key measurement in forestry in “basal area column”. The metric is computed with the formula:  BA(m2) = 0.00007854⋅DBH^2  Where DBH is the diameter at breast height (cm). Use mutate to compute DBH in centimeters, and BA in m2 (HINT: Make sure rad_ib is in cm prior to computing the diameter!). What is the mean BA_m2 of the the species POTR in 2007?"
   },
   {
     "objectID": "labs/lab2.html#case_when-if_else",
     "href": "labs/lab2.html#case_when-if_else",
     "title": "Lab 2: Minnesota tree growth",
     "section": "7. case_when / if_else",
-    "text": "7. case_when / if_else\nMayn times the values we want to assign a new column using mutate() are conditional on the values in other columns. One approach is to use the dplyr’s if_else() function, which is defined as if_else(condition, true, false, missing = NULL), where condition is a logical vector created using one or more vectors and logical operators.\n\nQuestion 15: Lets say that for the sake of our study, trees are not established untill they are 5 years of age. Use if_else to add a boolean column to our dataset called established that is TRUE if the age is greater then 5 and FALSE if less then or equal to five. Once added, use filter to determine how many records are from estabilshed trees?\n\ncase_when() provides a vectorized way to apply multiple conditional statements. It is commonly used for creating new variables based on conditions. In case_when(), each condition is evaluated in order, and the first one that is TRUE determines the output. case_when() takes one or more arguments, where each argument, is a two-sided formula where the left side is separated by the right side by a tilde symbol ~. The left side is a logical vector created using one or more vectors and logical operators. The right side is the value to use when the left side is TRUE. If no cases are TRUE (i.e., none of the arguments’ left sides are TRUE) then a NA is returned. The TRUE ~ default_result at the end serves as a catch-all for any observation that does not meet a defined condition:\n\n\n\n\n\n\n\n\n\nSyntax:\ncase_when(\n  condition1 ~ result1,\n  condition2 ~ result2,\n  condition3 ~ result3,\n  TRUE ~ default_result\n)\nIn forestry, DBH_cm can be used to classify a tree using the following classification:\n\n\n\nlow\nhigh\nclass\n\n\n\n\n0\n2.5\n“seedling”\n\n\n2.5\n10\n“sapling”\n\n\n10\n30\n“pole”\n\n\n30\n-\n“sawlog”\n\n\n\n\nQuestion 16: Use mutate and case_when to add a new column to you data.frame that classifies each tree into the proper DBH_class. Once done, limit your dataset to the year 2007 and report the number of each class with table. (Hint: table requires a vector input, not a data.frame)"
+    "text": "7. case_when / if_else\nMayn times the values we want to assign a new column using mutate() are conditional on the values in other columns. One approach is to use the dplyr’s if_else() function, which is defined as if_else(condition, true, false, missing = NULL), where condition is a logical vector created using one or more vectors and logical operators.\n\nQuestion 15: Lets say for the sake of our study, trees are not established until they are 5 years of age. Use if_else to add a boolean column to our dataset called established that is TRUE if the age is greater then 5 and FALSE if less then or equal to five. Once added, use count (see ?count) to determine how many records are from estabilshed trees?\n\ncase_when() provides a vectorized way to apply multiple conditional statements. It is commonly used for creating new variables based on conditions. In case_when(), each condition is evaluated in order, and the first one that is TRUE determines the output. case_when() takes one or more arguments, where each argument, is a two-sided formula where the left side is separated by the right side by a tilde symbol ~. The left side is a logical vector created using one or more vectors and logical operators. The right side is the value to use when the left side is TRUE. If no cases are TRUE (i.e., none of the arguments’ left sides are TRUE) then a NA is returned. The TRUE ~ default_result at the end serves as a catch-all for any observation that does not meet a defined condition:\n\n\n\n\n\n\n\n\n\nSyntax:\ncase_when(\n  condition1 ~ result1,\n  condition2 ~ result2,\n  condition3 ~ result3,\n  TRUE ~ default_result\n)\nIn forestry, DBH_cm can be used to classify a tree using the following classification:\n\n\n\nlow\nhigh\nclass\n\n\n\n\n0\n2.5\n“seedling”\n\n\n2.5\n10\n“sapling”\n\n\n10\n30\n“pole”\n\n\n30\n-\n“sawlog”\n\n\n\n\nQuestion 16: Use mutate and case_when to add a new column to you data.frame that classifies each tree into the proper DBH_class. Once done, limit your dataset to the year 2007 and report the number of each class with count."
   },
   {
     "objectID": "labs/lab2.html#summarizing",
     "href": "labs/lab2.html#summarizing",
     "title": "Lab 2: Minnesota tree growth",
     "section": "8. Summarizing",
-    "text": "8. Summarizing\nsummarize() collapses a data.frame to a single row. We can use summarize() to compute summary statistics for one or more columns in a data.frame. The first argument in summarize() is the data.frame and subsequent arguments define how rows should be collapsed.\n\nQuestion 17: Compute the mean DBH and standard deviation of DBH for all trees in 2007. Explain the values you found and their statistical meaning.\n\nsummarize() is often the most useful when applied to groups of data (e.g species) rather then entire datasets!"
+    "text": "8. Summarizing\nsummarize() collapses a data.frame to a single row. We can use summarize() to compute summary statistics for one or more columns in a data.frame. The first argument in summarize() is the data.frame and subsequent arguments define how rows should be collapsed.\n\nQuestion 17: Compute the mean DBH (in cm) and standard deviation of DBH (in cm) for all trees in 2007. Explain the values you found and their statistical meaning.\n\nsummarize() is often the most useful when applied to groups of data (e.g species) rather then entire datasets!"
   },
   {
     "objectID": "labs/lab2.html#grouped-data",
@@ -1600,7 +1600,7 @@
     "href": "labs/lab2.html#counting",
     "title": "Lab 2: Minnesota tree growth",
     "section": "10. Counting",
-    "text": "10. Counting\nWe often need to know the number of rows, perhaps by group, within a dataset. Rows are counted using the n() helper function, which is a context dependent function used within dplyr verb functions. It takes no arguments and returns the context specific group size. We see n() used most often in summarize() and mutate() to count rows in groups.\nThe number of distinct values in a discrete variable is also often of interest (e.g., number of distinct plot numbers or species). n_distinct() returns the number of unique values in one or more variable. Like n(), when applied to a grouped data.frame within a verb function,n_distinct() returns the number of group specific distinct values:\n\nQuestion 19: Find the number of unique years with records in the data set. \n\n\nQuestion 20: Determine the stands with the largest number of unique years recorded. Report all stands with largest (or tied with the largest) temporal record."
+    "text": "10. Counting\nWe often need to know the number of rows, perhaps by group, within a dataset. Rows are counted using the n() helper function, which is a context dependent function used within dplyr verb functions. It takes no arguments and returns the context specific group size. We see n() used most often in summarize() and mutate() to count rows in groups.\nThe number of distinct values in a discrete variable is also often of interest (e.g., number of distinct plot numbers or species). n_distinct() returns the number of unique values in one or more variable. Like n(), when applied to a grouped data.frame within a verb function,n_distinct() returns the number of group specific distinct values:\n\nQuestion 19: In a single summarize call, find the number of unique years with records in the data set along with the first and last year recorded?\n\n\nQuestion 20: Determine the stands with the largest number of unique years recorded. Report all stands with largest (or tied with the largest) temporal record."
   },
   {
     "objectID": "labs.html",
@@ -2889,5 +2889,509 @@
     "title": "Lecture 06",
     "section": "SQL",
     "text": "SQL\n\nSQL (Structured Query Language) provides a language for databases to store, retrieve, and manage data.\nUsed in all major databases – PostgreSQL, MySQL, SQL Server, and more.\nEssential for data jobs – Analysts, scientists, and engineers rely on it.\nUtilized everywhere in business & tech – From small apps to big companies to governments\n\n\nYou just learned many of the basic concepts!"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#data-visualization",
+    "href": "slides/7-data-viz.html#data-visualization",
+    "title": "Lecture 07",
+    "section": "Data Visualization",
+    "text": "Data Visualization"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggplot",
+    "href": "slides/7-data-viz.html#ggplot",
+    "title": "Lecture 07",
+    "section": "ggplot",
+    "text": "ggplot\n\nggplot2 is a library is based on the grammar of graphics\n\n\n\nthe idea is you can build every graph from the same few components:\n\na data set\ngeom(s)\na coordinate system\n\n\n\n\n\nggplot2 provides a programmatic interface for specifying\nwhat variables to plot,\nhow they are displayed,\ngeneral visual properties."
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggplot-1",
+    "href": "slides/7-data-viz.html#ggplot-1",
+    "title": "Lecture 07",
+    "section": "ggplot",
+    "text": "ggplot\n\nTherefore, we only need minimal changes if the underlying data changes or if we decide to change our visual.\nThis helps create publication quality plots with minimal amounts of adjustments and tweaking.\nggplot likes data in the ‘long’ format: i.e., a column for every dimension, and a row for every observation. (more on this latter!!)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#components-of-a-ggplot",
+    "href": "slides/7-data-viz.html#components-of-a-ggplot",
+    "title": "Lecture 07",
+    "section": "Components of a ggplot:",
+    "text": "Components of a ggplot:\n\nggplot graphics are built step by step by adding new elements and layers\n\n\n\nData\nGeometry (geom)\nAesthetic mapping\nTheme\n\n\n\n\nElements of a plot are layered by iteritavly adding elements\nThese can be added in a series of 5 steps:\n\nSetup\nLayers\nLabels\nFacets\nThemes"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#example-data-for-today",
+    "href": "slides/7-data-viz.html#example-data-for-today",
+    "title": "Lecture 07",
+    "section": "Example Data for today …",
+    "text": "Example Data for today …\n\nlibrary(gapminder); library(dplyr);library(ggplot2)\n\n(gm2007 = filter(gapminder, year == 2007))\n#&gt; # A tibble: 142 × 6\n#&gt;    country     continent  year lifeExp       pop gdpPercap\n#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n#&gt;  1 Afghanistan Asia       2007    43.8  31889923      975.\n#&gt;  2 Albania     Europe     2007    76.4   3600523     5937.\n#&gt;  3 Algeria     Africa     2007    72.3  33333216     6223.\n#&gt;  4 Angola      Africa     2007    42.7  12420476     4797.\n#&gt;  5 Argentina   Americas   2007    75.3  40301927    12779.\n#&gt;  6 Australia   Oceania    2007    81.2  20434176    34435.\n#&gt;  7 Austria     Europe     2007    79.8   8199783    36126.\n#&gt;  8 Bahrain     Asia       2007    75.6    708573    29796.\n#&gt;  9 Bangladesh  Asia       2007    64.1 150448339     1391.\n#&gt; 10 Belgium     Europe     2007    79.4  10392226    33693.\n#&gt; # ℹ 132 more rows"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#the-setup-canvas",
+    "href": "slides/7-data-viz.html#the-setup-canvas",
+    "title": "Lecture 07",
+    "section": "1. The Setup: canvas",
+    "text": "1. The Setup: canvas\n\n\nAn empty canvas can be initialized with ggplot()\n\n\nggplot()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#the-setup-data",
+    "href": "slides/7-data-viz.html#the-setup-data",
+    "title": "Lecture 07",
+    "section": "1. The Setup: data",
+    "text": "1. The Setup: data\n\n\nEvery ggplot requires a data argument (data.frame/tibble)\n\n\nggplot(data = gm2007)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#the-setup-aesthetic-mappings",
+    "href": "slides/7-data-viz.html#the-setup-aesthetic-mappings",
+    "title": "Lecture 07",
+    "section": "1. The Setup: Aesthetic Mappings",
+    "text": "1. The Setup: Aesthetic Mappings\n\n\n\nAesthetic mappings describe how variables in the data are visualized\nDenoted by the aes argument\nCan be set in ggplot() and/or in individual layers.\nAesthetic mappings in the ggplot() call, can be seen by all geom layers.\nThe X and Y axis of the plot as well colors, sizes, shapes, fills are all aesthetic.\nIf you want to have an aesthetic fixed (that is not vary based on a variable) you need to specify it outside the aes()\n\n\n\nggplot(data = gm2007, \n       aes(x = gdpPercap, \n           y = lifeExp))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#layers",
+    "href": "slides/7-data-viz.html#layers",
+    "title": "Lecture 07",
+    "section": "2. Layers",
+    "text": "2. Layers\n\nThe + sign is used to add layers to a ggplot setup\nLayers can define geometries, compute summary statistics, define what scales to use, or even change styles.\nIn general a plot construction will look like this:\n\n\nDATA  |&gt;  \n  ggplot(aes(x, y)) + \n  LAYER 1 + \n  LAYER 2 + \n  …"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#layers-geometry",
+    "href": "slides/7-data-viz.html#layers-geometry",
+    "title": "Lecture 07",
+    "section": "2. Layers: Geometry",
+    "text": "2. Layers: Geometry\n\nMany layers in ggplot2 are called ‘geoms’.\ngeoms are the geometric objects (points, lines, bars, etc.) that can be placed on a graph to visualize the X-Y mapping of the input data/aes\nThey are called using functions that start with geom_*.\nExamples include:\n\npoints (geom_point, for scatter plots, dot plots, etc)\nlines (geom_line, for time series, trend lines, etc)\nboxplots (geom_boxplot)\n… and many more!\n\n\n\n\n#&gt;  [1] \"geom_abline\"            \"geom_area\"              \"geom_bar\"              \n#&gt;  [4] \"geom_bin_2d\"            \"geom_bin2d\"             \"geom_blank\"            \n#&gt;  [7] \"geom_boxplot\"           \"geom_col\"               \"geom_contour\"          \n#&gt; [10] \"geom_contour_filled\"    \"geom_count\"             \"geom_crossbar\"         \n#&gt; [13] \"geom_curve\"             \"geom_density\"           \"geom_density_2d\"       \n#&gt; [16] \"geom_density_2d_filled\" \"geom_density2d\"         \"geom_density2d_filled\" \n#&gt; [19] \"geom_dotplot\"           \"geom_errorbar\"          \"geom_errorbarh\"        \n#&gt; [22] \"geom_freqpoly\"          \"geom_function\"          \"geom_hex\"              \n#&gt; [25] \"geom_histogram\"         \"geom_hline\"             \"geom_jitter\"           \n#&gt; [28] \"geom_label\"             \"geom_line\"              \"geom_linerange\"        \n#&gt; [31] \"geom_map\"               \"geom_path\"              \"geom_point\"            \n#&gt; [34] \"geom_pointrange\"        \"geom_polygon\"           \"geom_qq\"               \n#&gt; [37] \"geom_qq_line\"           \"geom_quantile\"          \"geom_raster\"           \n#&gt; [40] \"geom_rect\"              \"geom_ribbon\"            \"geom_rug\"              \n#&gt; [43] \"geom_segment\"           \"geom_sf\"                \"geom_sf_label\"         \n#&gt; [46] \"geom_sf_text\"           \"geom_smooth\"            \"geom_spoke\"            \n#&gt; [49] \"geom_step\"              \"geom_text\"              \"geom_tile\"             \n#&gt; [52] \"geom_violin\"            \"geom_vline\""
+  },
+  {
+    "objectID": "slides/7-data-viz.html#layers-geometry-1",
+    "href": "slides/7-data-viz.html#layers-geometry-1",
+    "title": "Lecture 07",
+    "section": "2. Layers: Geometry",
+    "text": "2. Layers: Geometry\n\nA plot must have at least one geom, but there is no maximum.\nAdding geoms to a ggplot follows the pattern:\n\n\nggplot(data = &lt;DATA&gt;, aes(X, Y)) + \n  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))\n  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))\n\n\nNote again that the aesthetics placed in the ggplot call are the global parameters for the plot, and the aethetics placed in each geom are specific to that geom."
+  },
+  {
+    "objectID": "slides/7-data-viz.html#a-first-geom_",
+    "href": "slides/7-data-viz.html#a-first-geom_",
+    "title": "Lecture 07",
+    "section": "A first geom_* …",
+    "text": "A first geom_* …\n\n\n\nggplot(data = gm2007,\n       aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#a-first-geom_-1",
+    "href": "slides/7-data-viz.html#a-first-geom_-1",
+    "title": "Lecture 07",
+    "section": "A first geom_* …",
+    "text": "A first geom_* …\n\n\n\nggplot(data = gm2007,\n       aes(x = gdpPercap, y = lifeExp)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#layers-geometry-2",
+    "href": "slides/7-data-viz.html#layers-geometry-2",
+    "title": "Lecture 07",
+    "section": "2. Layers: Geometry",
+    "text": "2. Layers: Geometry\n\n\nLike the set up, geoms can be modified with aesthetics (aes). Examples include:\n\nposition (i.e., on the x and y axes)\ncolor (“outside” color)\nfill (“inside” color)\nshape\nline type\nsize\n\nEach geom accepts only a subset of these aesthetics\n(refer to the geom help pages (e.g. ?geom_point) to see what mappings each geom accepts."
+  },
+  {
+    "objectID": "slides/7-data-viz.html#layers-data.frame-drivenfixed",
+    "href": "slides/7-data-viz.html#layers-data.frame-drivenfixed",
+    "title": "Lecture 07",
+    "section": "2. Layers: data.frame driven/fixed?",
+    "text": "2. Layers: data.frame driven/fixed?\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) + \n  geom_point(col = \"red\")\n\n\n\n\n\n\n\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) + \n  geom_point(aes(col = continent))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example",
+    "href": "slides/7-data-viz.html#for-our-example",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007,\n       aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-1",
+    "href": "slides/7-data-viz.html#for-our-example-1",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007,\n       aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent,\n                 size = pop))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-2",
+    "href": "slides/7-data-viz.html#for-our-example-2",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007,\n       aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent,\n                 size = pop)) +\n  geom_smooth(color = \"black\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-3",
+    "href": "slides/7-data-viz.html#for-our-example-3",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007,\n       aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent,\n                 size = pop)) +\n  geom_smooth(color = \"black\") +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-4",
+    "href": "slides/7-data-viz.html#for-our-example-4",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007,\n       aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent,\n                 size = pop)) +\n  geom_smooth(color = \"black\") +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\") +\n  geom_vline(xintercept = mean(gm2007$gdpPercap), color = \"gray\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#labels",
+    "href": "slides/7-data-viz.html#labels",
+    "title": "Lecture 07",
+    "section": "3. Labels",
+    "text": "3. Labels\n\nNow that you have drawn the main parts of the graph. You might want to add labs that clarify what is being shown.\nThis can be done using the labs layer.\nThe most typical are: title, x, and y but other options exist!"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-5",
+    "href": "slides/7-data-viz.html#for-our-example-5",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-6",
+    "href": "slides/7-data-viz.html#for-our-example-6",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-7",
+    "href": "slides/7-data-viz.html#for-our-example-7",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-8",
+    "href": "slides/7-data-viz.html#for-our-example-8",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5) +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-9",
+    "href": "slides/7-data-viz.html#for-our-example-9",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5) +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\") +\n  geom_vline(xintercept = mean(gm2007$gdpPercap), color = \"gray\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#for-our-example-10",
+    "href": "slides/7-data-viz.html#for-our-example-10",
+    "title": "Lecture 07",
+    "section": "For our example…",
+    "text": "For our example…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5) +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\") +\n  geom_vline(xintercept = mean(gm2007$gdpPercap), color = \"gray\") +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facets",
+    "href": "slides/7-data-viz.html#facets",
+    "title": "Lecture 07",
+    "section": "4. Facets",
+    "text": "4. Facets\n\nIn the previous chart, we showed a scatterplot for all countries plotted in the same chart. What if you want one chart for each continent?\nSuch separation is called faceting\nfacet_wrap() takes in a formula as the argument.\nFormulas look like this RHS ~ LHS (where RHS = right hand side, LHS = left hand side)\n\nThe item on the RHS corresponds to the column. The item on the LHS defines the rows.\n\nIn facet_wrap, the scales of the X and Y axis are fixed to accommodate all points by default.\nThis makes the comparison of values more meaningful because they would be in the same scale.\nThe scales can be made free by setting the argument scales=free."
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-wrap",
+    "href": "slides/7-data-viz.html#facet-wrap",
+    "title": "Lecture 07",
+    "section": "Facet Wrap…",
+    "text": "Facet Wrap…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-wrap-1",
+    "href": "slides/7-data-viz.html#facet-wrap-1",
+    "title": "Lecture 07",
+    "section": "Facet Wrap…",
+    "text": "Facet Wrap…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-wrap-2",
+    "href": "slides/7-data-viz.html#facet-wrap-2",
+    "title": "Lecture 07",
+    "section": "Facet Wrap…",
+    "text": "Facet Wrap…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-wrap-3",
+    "href": "slides/7-data-viz.html#facet-wrap-3",
+    "title": "Lecture 07",
+    "section": "Facet Wrap…",
+    "text": "Facet Wrap…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5) +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-wrap-4",
+    "href": "slides/7-data-viz.html#facet-wrap-4",
+    "title": "Lecture 07",
+    "section": "Facet Wrap…",
+    "text": "Facet Wrap…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5) +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\") +\n  geom_vline(xintercept = mean(gm2007$gdpPercap), color = \"gray\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-wrap-5",
+    "href": "slides/7-data-viz.html#facet-wrap-5",
+    "title": "Lecture 07",
+    "section": "Facet Wrap…",
+    "text": "Facet Wrap…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5) +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\") +\n  geom_vline(xintercept = mean(gm2007$gdpPercap), color = \"gray\") +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-wrap-6",
+    "href": "slides/7-data-viz.html#facet-wrap-6",
+    "title": "Lecture 07",
+    "section": "Facet Wrap…",
+    "text": "Facet Wrap…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5) +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\") +\n  geom_vline(xintercept = mean(gm2007$gdpPercap), color = \"gray\") +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  facet_wrap(~continent)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-wrap-7",
+    "href": "slides/7-data-viz.html#facet-wrap-7",
+    "title": "Lecture 07",
+    "section": "Facet Wrap…",
+    "text": "Facet Wrap…\n\n\n\nggplot(data = gm2007, aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  geom_smooth(color = \"black\", size = .5) +\n  geom_hline(yintercept = mean(gm2007$lifeExp), color = \"gray\") +\n  geom_vline(xintercept = mean(gm2007$gdpPercap), color = \"gray\") +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  facet_wrap(~continent) +\n  facet_wrap(~continent, scales = \"free\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-grids",
+    "href": "slides/7-data-viz.html#facet-grids",
+    "title": "Lecture 07",
+    "section": "Facet Grids…",
+    "text": "Facet Grids…\n\n\n\ngapminder\n\n\n\n#&gt; # A tibble: 1,704 × 6\n#&gt;    country     continent  year lifeExp      pop gdpPercap\n#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n#&gt;  1 Afghanistan Asia       1952    28.8  8425333      779.\n#&gt;  2 Afghanistan Asia       1957    30.3  9240934      821.\n#&gt;  3 Afghanistan Asia       1962    32.0 10267083      853.\n#&gt;  4 Afghanistan Asia       1967    34.0 11537966      836.\n#&gt;  5 Afghanistan Asia       1972    36.1 13079460      740.\n#&gt;  6 Afghanistan Asia       1977    38.4 14880372      786.\n#&gt;  7 Afghanistan Asia       1982    39.9 12881816      978.\n#&gt;  8 Afghanistan Asia       1987    40.8 13867957      852.\n#&gt;  9 Afghanistan Asia       1992    41.7 16317921      649.\n#&gt; 10 Afghanistan Asia       1997    41.8 22227415      635.\n#&gt; # ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-grids-1",
+    "href": "slides/7-data-viz.html#facet-grids-1",
+    "title": "Lecture 07",
+    "section": "Facet Grids…",
+    "text": "Facet Grids…\n\n\n\ngapminder %&gt;%\n  filter(year %in% c(1952, 1977, 2007))\n\n\n\n#&gt; # A tibble: 426 × 6\n#&gt;    country     continent  year lifeExp      pop gdpPercap\n#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n#&gt;  1 Afghanistan Asia       1952    28.8  8425333      779.\n#&gt;  2 Afghanistan Asia       1977    38.4 14880372      786.\n#&gt;  3 Afghanistan Asia       2007    43.8 31889923      975.\n#&gt;  4 Albania     Europe     1952    55.2  1282697     1601.\n#&gt;  5 Albania     Europe     1977    68.9  2509048     3533.\n#&gt;  6 Albania     Europe     2007    76.4  3600523     5937.\n#&gt;  7 Algeria     Africa     1952    43.1  9279525     2449.\n#&gt;  8 Algeria     Africa     1977    58.0 17152804     4910.\n#&gt;  9 Algeria     Africa     2007    72.3 33333216     6223.\n#&gt; 10 Angola      Africa     1952    30.0  4232095     3521.\n#&gt; # ℹ 416 more rows"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-grids-2",
+    "href": "slides/7-data-viz.html#facet-grids-2",
+    "title": "Lecture 07",
+    "section": "Facet Grids…",
+    "text": "Facet Grids…\n\n\n\ngapminder %&gt;%\n  filter(year %in% c(1952, 1977, 2007)) %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-grids-3",
+    "href": "slides/7-data-viz.html#facet-grids-3",
+    "title": "Lecture 07",
+    "section": "Facet Grids…",
+    "text": "Facet Grids…\n\n\n\ngapminder %&gt;%\n  filter(year %in% c(1952, 1977, 2007)) %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(size = pop))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-grids-4",
+    "href": "slides/7-data-viz.html#facet-grids-4",
+    "title": "Lecture 07",
+    "section": "Facet Grids…",
+    "text": "Facet Grids…\n\n\n\ngapminder %&gt;%\n  filter(year %in% c(1952, 1977, 2007)) %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-grids-5",
+    "href": "slides/7-data-viz.html#facet-grids-5",
+    "title": "Lecture 07",
+    "section": "Facet Grids…",
+    "text": "Facet Grids…\n\n\n\ngapminder %&gt;%\n  filter(year %in% c(1952, 1977, 2007)) %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  facet_wrap(year~continent)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-grids-6",
+    "href": "slides/7-data-viz.html#facet-grids-6",
+    "title": "Lecture 07",
+    "section": "Facet Grids…",
+    "text": "Facet Grids…\n\n\n\ngapminder %&gt;%\n  filter(year %in% c(1952, 1977, 2007)) %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  facet_wrap(year~continent) +\n  facet_grid(year~continent)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#facet-grids-7",
+    "href": "slides/7-data-viz.html#facet-grids-7",
+    "title": "Lecture 07",
+    "section": "Facet Grids…",
+    "text": "Facet Grids…\n\n\n\ngapminder %&gt;%\n  filter(year %in% c(1952, 1977, 2007)) %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  facet_wrap(year~continent) +\n  facet_grid(year~continent) +\n  facet_grid(continent~year)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#theme",
+    "href": "slides/7-data-viz.html#theme",
+    "title": "Lecture 07",
+    "section": "5. Theme",
+    "text": "5. Theme\n\nGreat! Now we just need to polish our plots…\nggplot offers a themeing system:\n\n\nelements specify the non-data elements that you can control. For example,\n\n\nplot.title controls the appearance of the plot title;\naxis.ticks.x controls the ticks on the x axis;\nlegend.key.height, controls the height of the keys in the legend.\n\n\nEach element is associated with an element function, which describes the visual properties. For example,\n\n\nelement_text() sets the font size, color and face of text elements like plot.title.\n\n\nThe theme() function which allows you to override default elements:\n\nFor example theme(plot.title = element_text(color = \"red\"))."
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes",
+    "href": "slides/7-data-viz.html#built-in-themes",
+    "title": "Lecture 07",
+    "section": "Built in themes",
+    "text": "Built in themes\nWow! Thats a lot :) Fortunately, ggplot comes with many default themes that set all of the theme elements to values designed to work together harmoniously.\n\n#&gt;  [1] \"theme_bw\"       \"theme_classic\"  \"theme_dark\"     \"theme_get\"     \n#&gt;  [5] \"theme_gray\"     \"theme_grey\"     \"theme_light\"    \"theme_linedraw\"\n#&gt;  [9] \"theme_minimal\"  \"theme_replace\"  \"theme_set\"      \"theme_test\"    \n#&gt; [13] \"theme_update\"   \"theme_void\""
+  },
+  {
+    "objectID": "slides/7-data-viz.html#theme_bw",
+    "href": "slides/7-data-viz.html#theme_bw",
+    "title": "Lecture 07",
+    "section": "theme_bw()",
+    "text": "theme_bw()\n\ntheme_bw\n#&gt; function (base_size = 11, base_family = \"\", base_line_size = base_size/22, \n#&gt;     base_rect_size = base_size/22) \n#&gt; {\n#&gt;     theme_grey(base_size = base_size, base_family = base_family, \n#&gt;         base_line_size = base_line_size, base_rect_size = base_rect_size) %+replace% \n#&gt;         theme(panel.background = element_rect(fill = \"white\", \n#&gt;             colour = NA), panel.border = element_rect(fill = NA, \n#&gt;             colour = \"grey20\"), panel.grid = element_line(colour = \"grey92\"), \n#&gt;             panel.grid.minor = element_line(linewidth = rel(0.5)), \n#&gt;             strip.background = element_rect(fill = \"grey85\", \n#&gt;                 colour = \"grey20\"), complete = TRUE)\n#&gt; }\n#&gt; &lt;bytecode: 0x11c3fbb50&gt;\n#&gt; &lt;environment: namespace:ggplot2&gt;"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-1",
+    "href": "slides/7-data-viz.html#built-in-themes-1",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007\n\n\n\n#&gt; # A tibble: 142 × 6\n#&gt;    country     continent  year lifeExp       pop gdpPercap\n#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n#&gt;  1 Afghanistan Asia       2007    43.8  31889923      975.\n#&gt;  2 Albania     Europe     2007    76.4   3600523     5937.\n#&gt;  3 Algeria     Africa     2007    72.3  33333216     6223.\n#&gt;  4 Angola      Africa     2007    42.7  12420476     4797.\n#&gt;  5 Argentina   Americas   2007    75.3  40301927    12779.\n#&gt;  6 Australia   Oceania    2007    81.2  20434176    34435.\n#&gt;  7 Austria     Europe     2007    79.8   8199783    36126.\n#&gt;  8 Bahrain     Asia       2007    75.6    708573    29796.\n#&gt;  9 Bangladesh  Asia       2007    64.1 150448339     1391.\n#&gt; 10 Belgium     Europe     2007    79.4  10392226    33693.\n#&gt; # ℹ 132 more rows"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-2",
+    "href": "slides/7-data-viz.html#built-in-themes-2",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-3",
+    "href": "slides/7-data-viz.html#built-in-themes-3",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-4",
+    "href": "slides/7-data-viz.html#built-in-themes-4",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-5",
+    "href": "slides/7-data-viz.html#built-in-themes-5",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-6",
+    "href": "slides/7-data-viz.html#built-in-themes-6",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  theme_bw() +\n  theme_dark()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-7",
+    "href": "slides/7-data-viz.html#built-in-themes-7",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  theme_bw() +\n  theme_dark() +\n  theme_gray()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-8",
+    "href": "slides/7-data-viz.html#built-in-themes-8",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  theme_bw() +\n  theme_dark() +\n  theme_gray() +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#built-in-themes-9",
+    "href": "slides/7-data-viz.html#built-in-themes-9",
+    "title": "Lecture 07",
+    "section": "Built in Themes…",
+    "text": "Built in Themes…\n\n\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  theme_bw() +\n  theme_dark() +\n  theme_gray() +\n  theme_minimal() +\n  theme_light()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package",
+    "href": "slides/7-data-viz.html#ggtheme-package",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-1",
+    "href": "slides/7-data-viz.html#ggtheme-package-1",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007\n\n\n\n#&gt; # A tibble: 142 × 6\n#&gt;    country     continent  year lifeExp       pop gdpPercap\n#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n#&gt;  1 Afghanistan Asia       2007    43.8  31889923      975.\n#&gt;  2 Albania     Europe     2007    76.4   3600523     5937.\n#&gt;  3 Algeria     Africa     2007    72.3  33333216     6223.\n#&gt;  4 Angola      Africa     2007    42.7  12420476     4797.\n#&gt;  5 Argentina   Americas   2007    75.3  40301927    12779.\n#&gt;  6 Australia   Oceania    2007    81.2  20434176    34435.\n#&gt;  7 Austria     Europe     2007    79.8   8199783    36126.\n#&gt;  8 Bahrain     Asia       2007    75.6    708573    29796.\n#&gt;  9 Bangladesh  Asia       2007    64.1 150448339     1391.\n#&gt; 10 Belgium     Europe     2007    79.4  10392226    33693.\n#&gt; # ℹ 132 more rows"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-2",
+    "href": "slides/7-data-viz.html#ggtheme-package-2",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-3",
+    "href": "slides/7-data-viz.html#ggtheme-package-3",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-4",
+    "href": "slides/7-data-viz.html#ggtheme-package-4",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\")"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-5",
+    "href": "slides/7-data-viz.html#ggtheme-package-5",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  ggthemes::theme_stata()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-6",
+    "href": "slides/7-data-viz.html#ggtheme-package-6",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  ggthemes::theme_stata() +\n  ggthemes::theme_economist()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-7",
+    "href": "slides/7-data-viz.html#ggtheme-package-7",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  ggthemes::theme_stata() +\n  ggthemes::theme_economist() +\n  ggthemes::theme_economist_white()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-8",
+    "href": "slides/7-data-viz.html#ggtheme-package-8",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  ggthemes::theme_stata() +\n  ggthemes::theme_economist() +\n  ggthemes::theme_economist_white() +\n  ggthemes::theme_fivethirtyeight()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-9",
+    "href": "slides/7-data-viz.html#ggtheme-package-9",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  ggthemes::theme_stata() +\n  ggthemes::theme_economist() +\n  ggthemes::theme_economist_white() +\n  ggthemes::theme_fivethirtyeight() +\n  ggthemes::theme_gdocs()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-10",
+    "href": "slides/7-data-viz.html#ggtheme-package-10",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  ggthemes::theme_stata() +\n  ggthemes::theme_economist() +\n  ggthemes::theme_economist_white() +\n  ggthemes::theme_fivethirtyeight() +\n  ggthemes::theme_gdocs() +\n  ggthemes::theme_excel()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-11",
+    "href": "slides/7-data-viz.html#ggtheme-package-11",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  ggthemes::theme_stata() +\n  ggthemes::theme_economist() +\n  ggthemes::theme_economist_white() +\n  ggthemes::theme_fivethirtyeight() +\n  ggthemes::theme_gdocs() +\n  ggthemes::theme_excel() +\n  ggthemes::theme_wsj()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggtheme-package-12",
+    "href": "slides/7-data-viz.html#ggtheme-package-12",
+    "title": "Lecture 07",
+    "section": "ggtheme package…",
+    "text": "ggtheme package…\n\n\n\nlibrary(ggthemes)\n\ngm2007 %&gt;%\n  ggplot(aes(x = gdpPercap, y = lifeExp)) +\n  geom_point(aes(color = continent, size = pop)) +\n  labs(title = \"Per capita GDP versus life expectency in 2007\",\n       x = \"Per Capita GDP\",\n       y = \"Life Expectancy\",\n       caption = \"Based on Hans Rosling Plots\",\n       subtitle = 'Data Source: Gapminder',\n       color = \"\",\n       size = \"Population\") +\n  ggthemes::theme_stata() +\n  ggthemes::theme_economist() +\n  ggthemes::theme_economist_white() +\n  ggthemes::theme_fivethirtyeight() +\n  ggthemes::theme_gdocs() +\n  ggthemes::theme_excel() +\n  ggthemes::theme_wsj() +\n  ggthemes::theme_hc()"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#saving-a-ggplot-element",
+    "href": "slides/7-data-viz.html#saving-a-ggplot-element",
+    "title": "Lecture 07",
+    "section": "Saving a ggplot element…",
+    "text": "Saving a ggplot element…\n\nRemember that in R, we assign object to names. We have seen examples including values, data structures, and functions:\n\n\nx = 10 \nclass(x)\n#&gt; [1] \"numeric\"\n\n\nggplot outputs are also objects!\n\n\ngg = ggplot()\nclass(gg)\n#&gt; [1] \"gg\"     \"ggplot\"\n\nlobstr::obj_addr(gg)\n#&gt; [1] \"0x11f66b178\""
+  },
+  {
+    "objectID": "slides/7-data-viz.html#ggsave",
+    "href": "slides/7-data-viz.html#ggsave",
+    "title": "Lecture 07",
+    "section": "ggsave()",
+    "text": "ggsave()\n\nggplot comes with a function ggsave, that write a gg object to a file path (with path, name, extension)\n\n\nggsave(gg, file = \"img/my-beatuiful-plot.png\")\n\n# or #\n\ngg  |&gt;  \n  ggsave(file = \"img/my-beatuiful-plot.png\", \n         width = 8, \n         units = c(\"in\"))"
+  },
+  {
+    "objectID": "slides/7-data-viz.html#assignment",
+    "href": "slides/7-data-viz.html#assignment",
+    "title": "Lecture 07",
+    "section": "Assignment",
+    "text": "Assignment\nIn your geog13-daily-exercises\n\nMake a new R directory (mkdir R from the parent directory)\nCreate a new R file called day-06.R (touch R/day-06.R)\nOpen that file.\n\n\nThis is an R script. Unlike Rmarkdown it will not knit, but unlike the console, it will save and keep your code.\n\n\nIn this file add your name, date, and the purpose of the script as comments (preceded by #)\nNow, read in the COVID-19 data from the URL like yesterday"
   }
 ]
