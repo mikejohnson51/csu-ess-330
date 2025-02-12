@@ -170,33 +170,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#intro-to-dplyr" id="toc-intro-to-dplyr" class="nav-link active" data-scroll-target="#intro-to-dplyr">Intro to <code>dplyr</code>:</a>
   <ul class="collapse">
   <li><a href="#key-features-of-dplyr" id="toc-key-features-of-dplyr" class="nav-link" data-scroll-target="#key-features-of-dplyr">Key Features of dplyr</a></li>
-  <li><a href="#rows" id="toc-rows" class="nav-link" data-scroll-target="#rows">Rows:</a></li>
-  <li><a href="#columns" id="toc-columns" class="nav-link" data-scroll-target="#columns">Columns:</a></li>
-  <li><a href="#groups-of-rows" id="toc-groups-of-rows" class="nav-link" data-scroll-target="#groups-of-rows">Groups of rows:</a></li>
-  <li><a href="#glimpse" id="toc-glimpse" class="nav-link" data-scroll-target="#glimpse">Glimpse</a></li>
-  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping">Piping</a>
+  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a>
   <ul class="collapse">
-  <li><a href="#base-r-pipe-introduced-in-r-4.1.0-the-native-pipe-works-similarly-to-the-magrittr-pipe-but-is-built-into-base-r." id="toc-base-r-pipe-introduced-in-r-4.1.0-the-native-pipe-works-similarly-to-the-magrittr-pipe-but-is-built-into-base-r." class="nav-link" data-scroll-target="#base-r-pipe-introduced-in-r-4.1.0-the-native-pipe-works-similarly-to-the-magrittr-pipe-but-is-built-into-base-r.">Base R Pipe (|&gt;): Introduced in R 4.1.0, the native pipe (|&gt;) works similarly to the magrittr pipe (%&gt;%) but is built into base R.</a></li>
-  <li><a href="#tidyverse-pipe" id="toc-tidyverse-pipe" class="nav-link" data-scroll-target="#tidyverse-pipe">Tidyverse Pipe (%&gt;%)</a></li>
-  <li><a href="#key-differences" id="toc-key-differences" class="nav-link" data-scroll-target="#key-differences">Key Differences</a></li>
+  <li><a href="#piping" id="toc-piping" class="nav-link" data-scroll-target="#piping">Piping</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#minnesota-tree-growth-data" id="toc-minnesota-tree-growth-data" class="nav-link" data-scroll-target="#minnesota-tree-growth-data">Minnesota tree growth data:</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows">1 Filtering rows</a></li>
+  <li><a href="#filtering-rows" id="toc-filtering-rows" class="nav-link" data-scroll-target="#filtering-rows">1. Filtering rows</a></li>
   <li><a href="#slicing-rows" id="toc-slicing-rows" class="nav-link" data-scroll-target="#slicing-rows">2. Slicing rows</a></li>
-  <li><a href="#arranging-rows" id="toc-arranging-rows" class="nav-link" data-scroll-target="#arranging-rows">3 Arranging Rows</a></li>
-  <li><a href="#reducing-columns" id="toc-reducing-columns" class="nav-link" data-scroll-target="#reducing-columns">4 Reducing Columns</a></li>
+  <li><a href="#arranging-rows" id="toc-arranging-rows" class="nav-link" data-scroll-target="#arranging-rows">3. Arranging Rows</a></li>
+  <li><a href="#reducing-columns" id="toc-reducing-columns" class="nav-link" data-scroll-target="#reducing-columns">4. Reducing Columns</a></li>
   <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns">5. Renaming columns</a></li>
-  <li><a href="#creating-new-columns" id="toc-creating-new-columns" class="nav-link" data-scroll-target="#creating-new-columns">6 Creating new columns</a></li>
-  <li><a href="#case_when-if_esle" id="toc-case_when-if_esle" class="nav-link" data-scroll-target="#case_when-if_esle">7 case_when / if_esle</a></li>
+  <li><a href="#creating-new-columns" id="toc-creating-new-columns" class="nav-link" data-scroll-target="#creating-new-columns">6. Creating new columns</a></li>
+  <li><a href="#case_when-if_else" id="toc-case_when-if_else" class="nav-link" data-scroll-target="#case_when-if_else">7. case_when / if_else</a></li>
   <li><a href="#summarizing" id="toc-summarizing" class="nav-link" data-scroll-target="#summarizing">8. Summarizing</a></li>
-  <li><a href="#grouped-data" id="toc-grouped-data" class="nav-link" data-scroll-target="#grouped-data">9 Grouped data</a>
+  <li><a href="#grouped-data" id="toc-grouped-data" class="nav-link" data-scroll-target="#grouped-data">9. Grouped data</a>
   <ul class="collapse">
   <li><a href="#how-do-dplyr-functions-behave-given-a-grouped-data.frame" id="toc-how-do-dplyr-functions-behave-given-a-grouped-data.frame" class="nav-link" data-scroll-target="#how-do-dplyr-functions-behave-given-a-grouped-data.frame">How do <code>dplyr</code> functions behave given a grouped <code>data.frame</code>?</a></li>
   </ul></li>
-  <li><a href="#counting" id="toc-counting" class="nav-link" data-scroll-target="#counting">10 Counting</a></li>
+  <li><a href="#counting" id="toc-counting" class="nav-link" data-scroll-target="#counting">10. Counting</a></li>
   </ul></li>
   <li><a href="#final-question" id="toc-final-question" class="nav-link" data-scroll-target="#final-question">Final Question:</a></li>
   <li><a href="#rubric" id="toc-rubric" class="nav-link" data-scroll-target="#rubric">Rubric</a></li>
@@ -240,122 +234,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Intro to <code>dplyr</code>:</h1>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../slides/images/dplyr.jpg" class="img-fluid figure-img" width="600"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
 </div>
 </div>
 <p><code>dplyr</code> is an R package that provides a set of functions designed for data manipulation and transformation, making it easier to work with data frames (or tibbles). It is part of the tidyverse ecosystem and is widely used for data wrangling tasks such as filtering, selecting, summarizing, and mutating data.</p>
 <section id="key-features-of-dplyr" class="level2">
 <h2 class="anchored" data-anchor-id="key-features-of-dplyr">Key Features of dplyr</h2>
+<ol type="1">
+<li><strong>Pipe-friendly</strong> (<code>%&gt;%</code>/<code>|&gt;</code>): Works seamlessly with the pipe operators.</li>
+<li><strong>Efficient</strong>: Built on top of Rcpp for fast performance.</li>
+<li><strong>Consistent Grammar</strong>:Uses a consistent set of verbs for data manipulation.</li>
+</ol>
+<p>The primary verbs can be organized into three categories based on the component of the dataset they most commonly operate on:</p>
+<section id="rows" class="level4">
+<h4 class="anchored" data-anchor-id="rows">Rows:</h4>
 <ul>
-<li>Pipe-friendly (%&gt;%/|&gt;) – Works seamlessly with the pipe operator from the magrittr package.</li>
-<li>Efficient – Built on top of Rcpp for fast performance.</li>
-<li>Consistent Grammar – Uses a consistent set of verbs for data manipulation.</li>
-</ul>
-<p>These verbs can be organized into three categories based on the component of the dataset upon which they (most commonly) operate:</p>
-</section>
-<section id="rows" class="level2">
-<h2 class="anchored" data-anchor-id="rows">Rows:</h2>
-<ul>
-<li><code>filter()</code> subset rows based on column values.</li>
-<li><code>slice()</code> subset rows based on index.</li>
-<li><code>arrange()</code> change row order.</li>
-</ul>
-</section>
-<section id="columns" class="level2">
-<h2 class="anchored" data-anchor-id="columns">Columns:</h2>
-<ul>
-<li><code>select()</code> subset columns based on name or characteristics.</li>
-<li><code>mutate()</code> change column values or create new columns.</li>
-<li><code>rename()</code> change column name.</li>
+<li><code>filter()</code>: subset rows based on column values.</li>
+<li><code>slice()</code>: subset rows based on index.</li>
+<li><code>arrange()</code>: change row order.</li>
 </ul>
 </section>
-<section id="groups-of-rows" class="level2">
-<h2 class="anchored" data-anchor-id="groups-of-rows">Groups of rows:</h2>
+<section id="columns" class="level4">
+<h4 class="anchored" data-anchor-id="columns">Columns:</h4>
 <ul>
-<li><code>summarize()</code> collapse multiple rows into a single row.</li>
-<li><code>n()</code>/<code>n_distint()</code> count group membership</li>
+<li><code>select()</code>: subset columns based on name or characteristics.</li>
+<li><code>mutate()</code>: change column values or create new columns.</li>
+<li><code>rename()</code>: change column name.</li>
 </ul>
 </section>
-<section id="glimpse" class="level2">
-<h2 class="anchored" data-anchor-id="glimpse">Glimpse</h2>
-<p><code>glimpse()</code> is a function from the <code>dplyr</code> package that provides a compact and easy-to-read summary of a data.frame. It is similar to <code>str()</code>, but with a more readable format. Its key features are that it:</p>
+<section id="groups-of-rows" class="level4">
+<h4 class="anchored" data-anchor-id="groups-of-rows">Groups of rows:</h4>
 <ul>
-<li>Displays the number of rows and columns.</li>
-<li>Shows column names, types, and a preview of values.</li>
-<li>Prints data in a transposed format (variables as rows instead of columns).</li>
+<li><code>summarize()</code>: collapse multiple rows into a single row.</li>
+<li><code>n()</code>/<code>n_distint()</code>: count group membership</li>
+</ul>
+</section>
+</section>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<ul>
+<li><code>glimpse()</code> provides a compact and easy-to-read summary of a data.frame. It is similar to <code>str()</code>, but with a more readable format. Its key features are that it:</li>
 </ul>
 <p>We will use glimpse to report on our outputs in each question through this lab!</p>
-</section>
-<section id="piping" class="level2">
-<h2 class="anchored" data-anchor-id="piping">Piping</h2>
-<p>The pipe operator (|&gt;) in R is used to streamline code by passing the result of one function directly into the next function as the first argument. This makes code more readable and reduces the need for nested function calls.</p>
-<section id="base-r-pipe-introduced-in-r-4.1.0-the-native-pipe-works-similarly-to-the-magrittr-pipe-but-is-built-into-base-r." class="level3">
-<h3 class="anchored" data-anchor-id="base-r-pipe-introduced-in-r-4.1.0-the-native-pipe-works-similarly-to-the-magrittr-pipe-but-is-built-into-base-r.">Base R Pipe (|&gt;): Introduced in R 4.1.0, the native pipe (|&gt;) works similarly to the magrittr pipe (%&gt;%) but is built into base R.</h3>
-<p><strong>Example 1: Without Pipe</strong> This code calculates the mean of a vector and rounds the result.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
-<p><strong>Example 2: Using native pipe |&gt; </strong></p>
-<p>Here, the output of each function is passed to the next, making it easier to read.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
-</section>
-<section id="tidyverse-pipe" class="level3">
-<h3 class="anchored" data-anchor-id="tidyverse-pipe">Tidyverse Pipe (%&gt;%)</h3>
-<p>From the <code>magrittr</code> package (and used in <code>dplyr</code>), <code>%&gt;%</code> allows greater flexibility than <code>|&gt;</code>, such as:</p>
+<section id="piping" class="level3">
+<h3 class="anchored" data-anchor-id="piping">Piping</h3>
+<p>The pipe operator (<code>|&gt;</code>) in R is used to streamline code by passing the result of one function directly into the next function as the <em>first argument</em>.</p>
 <ul>
-<li>Using placeholders (.) when the first argument isn’t where the function expects input.</li>
-<li>Automatically handling non-standard evaluation in dplyr.</li>
+<li><p>Base R Pipe (<code>|&gt;</code>): Introduced in R 4.1.0, the native pipe works similarly to the magrittr pipe (%&gt;%) but is built into base R.</p></li>
+<li><p>Tidyverse Pipe (%&gt;%): allows greater flexibility than <code>|&gt;</code>, such as using placeholders (.) when the first argument isn’t where the function expects input and automatically handling non-standard evaluation in dplyr. Must be loaded with <code>dplyr</code>/<code>magrittr</code></p></li>
 </ul>
-<p><strong>Example 3: Using %&gt;% pipe</strong></p>
-<p>This filters cars with mpg &gt; 20, selects relevant columns, and sorts them by mpg in descending order.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(mpg <span class="sc">&gt;</span> <span class="dv">20</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, cyl, hp) <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                mpg cyl  hp
-Toyota Corolla 33.9   4  65
-Fiat 128       32.4   4  66
-Honda Civic    30.4   4  52
-Lotus Europa   30.4   4 113
-Fiat X1-9      27.3   4  66
-Porsche 914-2  26.0   4  91
-Merc 240D      24.4   4  62
-Datsun 710     22.8   4  93
-Merc 230       22.8   4  95
-Toyota Corona  21.5   4  97
-Hornet 4 Drive 21.4   6 110
-Volvo 142E     21.4   4 109
-Mazda RX4      21.0   6 110
-Mazda RX4 Wag  21.0   6 110</code></pre>
-</div>
-</div>
-</section>
-<section id="key-differences" class="level3">
-<h3 class="anchored" data-anchor-id="key-differences">Key Differences</h3>
+<section id="key-differences" class="level4">
+<h4 class="anchored" data-anchor-id="key-differences">Key Differences</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 22%">
@@ -387,7 +323,33 @@ Mazda RX4 Wag  21.0   6 110</code></pre>
 </tr>
 </tbody>
 </table>
-<p>If you’re using tidyverse/dplyr, %&gt;% is still widely used. If you’re sticking to base R, |&gt; is the better choice.</p>
+<p><strong>Example 1: Without Pipe</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p><strong>Example 2: Using native pipe |&gt; </strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p><strong>Example 3: Using %&gt;% pipe</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>If you’re using <code>tidyverse</code>/<code>dplyr</code>, <code>%&gt;%</code> is still widely used. If you’re sticking to base R, <code>|&gt;</code> is the better choice.</p>
+</section>
 </section>
 </section>
 </section>
@@ -395,37 +357,101 @@ Mazda RX4 Wag  21.0   6 110</code></pre>
 <h1>Minnesota tree growth data:</h1>
 <p>To start this lab, create a new Rproj with the proper structure (docs, images, data) and create a copy of this quarto file in it.</p>
 <p>This lab is centered around exploring data manipulation with <code>dplyr</code> using a long term tree growth observation record from Minnisota. The Minnesota tree growth dataset can be found as part of the paper <a href="https://site.uvm.edu/tdamato/files/2021/05/Itter-et-al.-2017-EC-APPS.pdf">Variable effects of climate on forest growth in relation to climate extremes, disturbance, and forest dynamics</a>. As with most (good) papers, a data availability statement at the end of this paper tells us the data used in the study can be found on <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.18pm5">Dyrad</a>. From the attached <code>README</code> we see the following data description:</p>
-<p><code>tree_dat.csv</code> – Annual radial growth increments for individual trees.</p>
-<p>Variables included in the tree data set are as follows. - <treeid>: unique tree identifier (total of 2,291 trees)<br>
-- <standid>: unique stand identifier (total of 35 stands)<br>
-- <stand>: alpha-numeric stand code<br>
-- <year>: year of growth (study period equals 1897 to 2007)<br>
-- <species>: species code (15 unique species, see below)<br>
-ABBA: Abies balsamea<br>
-ACRU: Acer rubrum<br>
-ACSA: Acer saccharum<br>
-BEPA: Betula papyrifera<br>
-FRNI: Fraxinus nigra<br>
-LALA: Larix laricina<br>
-PIBA: Pinus banksiana<br>
-PIGL: Picea glauca<br>
-PIMA: Picea mariana<br>
-PIRE: Pinus resinosa<br>
-PIST: Pinus strobus<br>
-POGR: Populus grandidentata<br>
-POTR: Populus tremuloides<br>
-QURU: Quercus rubra<br>
-THOC: Thuja occidentalis<br>
-- <age>: age of tree during year of growth<br>
-- <inc>: linear growth increment (mm)<br>
-- <rad_ib>: estimated inside bark radius of tree at breast height at the end of the year of grow (mm)<br>
-</rad_ib></inc></age></species></year></stand></standid></treeid></p>
+<p><code>tree_dat.csv</code> – Annual radial growth increments for individual trees. Variables included in the tree data set are as follows.</p>
+<ul>
+<li><p><strong>treeID</strong>: unique tree identifier (total of 2,291 trees)<br>
+</p></li>
+<li><p><strong>standID</strong>: unique stand identifier (total of 35 stands)<br>
+</p></li>
+<li><p><strong>stand</strong>: alpha-numeric stand code<br>
+</p></li>
+<li><p><strong>year</strong>: year of growth (study period equals 1897 to 2007)<br>
+</p></li>
+<li><p><strong>species</strong>: species code (15 unique species, see below)<br>
+</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ABBA</td>
+<td>Abies balsamea</td>
+</tr>
+<tr class="even">
+<td>ACRU</td>
+<td>Acer rubrum</td>
+</tr>
+<tr class="odd">
+<td>ACSA</td>
+<td>Acer saccharum</td>
+</tr>
+<tr class="even">
+<td>BEPA</td>
+<td>Betula papyrifera</td>
+</tr>
+<tr class="odd">
+<td>FRNI</td>
+<td>Fraxinus nigra</td>
+</tr>
+<tr class="even">
+<td>LALA</td>
+<td>Larix laricina</td>
+</tr>
+<tr class="odd">
+<td>PIBA</td>
+<td>Pinus banksiana</td>
+</tr>
+<tr class="even">
+<td>PIGL</td>
+<td>Picea glauca</td>
+</tr>
+<tr class="odd">
+<td>PIMA</td>
+<td>Picea mariana</td>
+</tr>
+<tr class="even">
+<td>PIRE</td>
+<td>Pinus resinosa</td>
+</tr>
+<tr class="odd">
+<td>PIST</td>
+<td>Pinus strobus</td>
+</tr>
+<tr class="even">
+<td>POGR</td>
+<td>Populus grandidentata</td>
+</tr>
+<tr class="odd">
+<td>POTR</td>
+<td>Populus tremuloides</td>
+</tr>
+<tr class="even">
+<td>QURU</td>
+<td>Quercus rubra</td>
+</tr>
+<tr class="odd">
+<td>THOC</td>
+<td>Thuja occidentalis</td>
+</tr>
+</tbody>
+</table></li>
+<li><p><strong>age</strong>: age of tree during year of growth<br>
+</p></li>
+<li><p><strong>inc</strong>: linear growth increment (mm)<br>
+</p></li>
+<li><p><strong>rad_ib</strong>: estimated inside bark radius of tree at breast height at the end of the year of grow (mm)<br>
+</p></li>
+</ul>
 <p>Go to the above Dyrad site, and download this data sticking it into your data directory (unzipped).</p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
 <section id="filtering-rows" class="level2">
-<h2 class="anchored" data-anchor-id="filtering-rows">1 Filtering rows</h2>
+<h2 class="anchored" data-anchor-id="filtering-rows">1. Filtering rows</h2>
 <p><code>filter()</code> creates row subsets that satisfy a condition involving values in one or more columns. The first argument in <code>filter()</code> is the <code>data.frame</code> from which you want to subset rows. Conditional statements passed as separate arguments are combined with the &amp; operator.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -444,13 +470,10 @@ THOC: Thuja occidentalis<br>
 <p><strong>Question 2: How many trees are in stand 1?</strong></p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Question 3: How many trees are of the Abies balsamea (<code>ABBA</code>) and Pinus strobus (<code>PIST</code>) species?</strong></p>
+<p><strong>Question 3: How many trees are of the Abies balsamea and Pinus strobus species?</strong></p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Question 4: From the above subset, how many are there of each ABBA and PIST?</strong></p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Question 5: How many trees are older then 200 years old in the last year of the dataset?</strong></p>
+<p><strong>Question 4: How many trees are older then 200 years old in the last year of the dataset?</strong></p>
 </blockquote>
 </section>
 <section id="slicing-rows" class="level2">
@@ -460,65 +483,95 @@ THOC: Thuja occidentalis<br>
 <p><code>slice(X:Y)</code>: filters out rows X to Y (where X and Y are numbers). <code>slice_max / slice_min</code> - filters for observations with the max/min values for a variable V. <code>slice_head</code>/<code>slice_tail</code> - return the first and last row of the given data.frame, respectively <code>slice_sample</code> - return a random subset of rows, with or without replacement, and with specified selection probability</p>
 <p>Change the n argument in these functions to return more than one row (i.e., the default argument is n = 1), or use the prop argument to return the desired proportion of rows.</p>
 <blockquote class="blockquote">
-<p><strong>Question 6: What is the oldest tree in the dataset found using slice_max?</strong></p>
+<p><strong>Question 5: What is the oldest tree in the dataset found using slice_max?</strong></p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Question 7: Using slice_max, find the oldest 5 trees, limit the query to those in year 2007. Use the help docs to understand optional parameters</strong></p>
+<p><strong>Question 6: Using slice_max, find the oldest 5 trees, limit the query to those in year 2007. Use the help docs to understand optional parameters</strong></p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Question 8: Using slice_sample, how many trees are in a 30% sample?</strong></p>
+<p><strong>Question 7: Using slice_sample, how many trees are in a 30% sample?</strong></p>
 </blockquote>
 </section>
 <section id="arranging-rows" class="level2">
-<h2 class="anchored" data-anchor-id="arranging-rows">3 Arranging Rows</h2>
+<h2 class="anchored" data-anchor-id="arranging-rows">3. Arranging Rows</h2>
 <p><code>arrange()</code> orders rows based on values in one or more columns. If you specify more than one column, each additional column is used to break ties in values of preceding columns. The default behavior is to sort column values in <strong>ascending</strong> order (i.e., smallest values at the top). If you want to sort column values in descending order, put the column name inside **desc(<em>)</em>.</p>
 <p><code>arrange()</code> doesn’t change the number of rows, only their order. Row order doesn’t typically matter when analyzing data; however, order is often important for understanding and communicating data structure.</p>
 <blockquote class="blockquote">
-<p><strong>Question 9: Filter all trees in stand 5 in the maximum year. Sort this subset by <em>descending</em> radius at breast height (rad_ib) and use slice_head() to get the top three trees. Report the tree IDs</strong></p>
+<p><strong>Question 8: Filter all trees in stand 5 in the maximum year. Sort this subset by <em>descending</em> radius at breast height (rad_ib) and use slice_head() to get the top three trees. Report the tree IDs</strong></p>
 </blockquote>
 </section>
 <section id="reducing-columns" class="level2">
-<h2 class="anchored" data-anchor-id="reducing-columns">4 Reducing Columns</h2>
-<p>Another common task is to select a subset of columns in the dataset. This is accomplished using <code>select()</code>. &gt; <strong>Question 10: Reduce your full <code>data.frame</code> to [treeID, year, and radius at breast height]. Filter to only those in year 2007, and use slice to pull the top 3 rows.</strong></p>
+<h2 class="anchored" data-anchor-id="reducing-columns">4. Reducing Columns</h2>
+<p>Another common task is to select a subset of columns in the dataset. This is accomplished using <code>select()</code>.</p>
 <blockquote class="blockquote">
-<p><strong>Question 11: Use select to <em>remove</em> the radius at breast height column</strong></p>
+<p><strong>Question 9: Reduce your full <code>data.frame</code> to [treeID, year, and radius at breast height]. Filter to only those in year 2007, and use slice to pull the top 3 rows.</strong></p>
 </blockquote>
 <blockquote class="blockquote">
-<p><strong>Question 12: Look at the help document for dplyr::select and examine the “Overview of selection features”. Identify an option (there are multiple) that would help select all columns with the string “ID” in the name.</strong></p>
+<p><strong>Question 10: Use select to <em>remove</em> the radius at breast height column</strong></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Question 11: Look at the help document for dplyr::select and examine the “Overview of selection features”. Identify an option (there are multiple) that would help select all columns with the string “ID” in the name.</strong></p>
 </blockquote>
 <p>The <code>&amp;</code> and <code>|</code> operators provide additional flexibility for specifying columns to retain or exclude. Use <code>&amp;</code> to identify the intersection between two column sets (i.e., those columns that are in both sets). Use <code>|</code> to identify the union of two column sets (i.e., all columns in at least one set).</p>
 <blockquote class="blockquote">
-<p><strong>Question 13: Find a selection pattern that captures all columns with either ‘ID’ or ‘stand’ in the name. Use a member of the slice family to return the last 3 rows. </strong></p>
+<p><strong>Question 12: Find a selection pattern that captures all columns with either ‘ID’ or ‘stand’ in the name. Use a member of the slice family to return the last 3 rows. </strong></p>
 </blockquote>
 </section>
 <section id="renaming-columns" class="level2">
 <h2 class="anchored" data-anchor-id="renaming-columns">5. Renaming columns</h2>
 <p>It’s easy to rename data.frame columns using rename(). The first argument in rename() is the data.frame containing columns to rename and subsequent arguments takes the form new_name = old_name.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../slides/images/rename.png" class="img-fluid figure-img" width="1920"></p>
+</figure>
+</div>
+</div>
+</div>
 <blockquote class="blockquote">
-<p>**Question 14: Looking back at the data dictionary, rename rad_inc and inc to include _{unit} in the name. Unlike earlier options, be sure that this renaming is permanent, and stays with your data.frame (e.g.&nbsp;<code>&lt;-</code>). Print the names of your new data.frame **</p>
+<p>**Question 13: Looking back at the data dictionary, rename rad_inc and inc to include _[unit] in the name. Unlike earlier options, be sure that this renaming is permanent, and stays with your data.frame (e.g.&nbsp;<code>&lt;-</code>). Print the names of your new data.frame**</p>
 </blockquote>
 </section>
 <section id="creating-new-columns" class="level2">
-<h2 class="anchored" data-anchor-id="creating-new-columns">6 Creating new columns</h2>
+<h2 class="anchored" data-anchor-id="creating-new-columns">6. Creating new columns</h2>
 <p><code>mutate()</code> creates new columns (or modifies existing ones) and adds them to the right side of an existing <code>data.frame</code>. The first argument in <code>mutate()</code> is the <code>data.frame</code> to be augmented and subsequent arguments define the new columns. This function is useful because exiting columns in the <code>data.frame</code> can be referenced when defining new columns.</p>
-<p>Sometimes, we want a <code>data.frame</code> that includes only newly created columns, or a combination of original and new columns. In this case we use transmute(). For example, as illustrated in Figure 7.7, say we want to make ba using dbh in trees, but this time we want the new data.frame to include only the columns id, year, and ba (i.e., we don’t want to retain dbh). Also notice in Figure 7.7, we can carryover columns unchanged by just listing their names in transmute arguments.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../slides/images/dplyr_mutate.jpg" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
 <blockquote class="blockquote">
-<p><strong>Question 15: Looking back at the data dictionary, rename <code>rad_inc</code> and <code>inc</code> to include<code>_{unit}</code> in the name. Unlike earlier options, be sure that this renaming is permanent, and stays with your data.frame through reassignment (e.g.&nbsp;<code>&lt;-</code>). Print the names of your new data.frame </strong></p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>Question 16: A key measurement in forestry in “basal area column”. The metric is computed with the formula: <br> BA(m2) = 0.00007854⋅DBH^2 <br> Where DBH is the diameter at breast height (cm). Use mutate to compute both DBH in centimeters, and BA_m2. What is the mean BA_m2 of the the species <code>POTR</code> (in year 2007)</strong></p>
+<p><strong>Question 14: A key measurement in forestry in “basal area column”. The metric is computed with the formula: <br> BA(m2) = 0.00007854⋅DBH^2 <br> Where DBH is the diameter at breast height (cm). Use mutate to compute both DBH in centimeters, and BA_m2. What is the mean BA_m2 of the the species <code>POTR</code> (in year 2007)</strong></p>
 </blockquote>
 </section>
-<section id="case_when-if_esle" class="level2">
-<h2 class="anchored" data-anchor-id="case_when-if_esle">7 case_when / if_esle</h2>
-<p>case_when() is a function that provides a vectorized way to apply multiple conditional statements. It is commonly used for creating new variables based on conditions. Each condition is evaluated in order, and the first one that is TRUE determines the output. case_when() takes one or more arguments, where each argument, or case, is a two-sided formula where the left side is separated by the right side by a tilde symbol ~. The left side is a logical vector created using one or more vectors and logical operators in Section 4.7. The right side is the value to use when the left side is TRUE. If no cases are TRUE (i.e., none of the arguments’ left sides are TRUE) then a NA is returned. The <code>TRUE ~ default_result</code> at the end serves as a catch-all for any observation that does not meet a defined condition:</p>
+<section id="case_when-if_else" class="level2">
+<h2 class="anchored" data-anchor-id="case_when-if_else">7. case_when / if_else</h2>
+<p>Mayn times the values we want to assign a new column using <code>mutate()</code> are conditional on the values in other columns. One approach is to use the dplyr’s <code>if_else()</code> function, which is defined as <code>if_else(condition, true, false, missing = NULL)</code>, where condition is a logical vector created using one or more vectors and logical operators.</p>
+<blockquote class="blockquote">
+<p><strong>Question 15: Lets say that for the sake of our study, trees are not established untill they are 5 years of age. Use if_else to add a boolean column to our dataset called established that is TRUE if the age is greater then 5 and FALSE if less then or equal to five. Once added, use filter to determine how many records are from estabilshed trees?</strong></p>
+</blockquote>
+<p><code>case_when()</code> provides a vectorized way to apply multiple conditional statements. It is commonly used for creating new variables based on conditions. In <code>case_when()</code>, each condition is evaluated in order, and the first one that is TRUE determines the output. <code>case_when()</code> takes one or more arguments, where each argument, is a two-sided formula where the left side is separated by the right side by a tilde symbol ~. The left side is a logical vector created using one or more vectors and logical operators. The right side is the value to use when the left side is TRUE. If no cases are TRUE (i.e., none of the arguments’ left sides are TRUE) then a NA is returned. The <code>TRUE ~ default_result</code> at the end serves as a catch-all for any observation that does not meet a defined condition:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../slides/images/dplyr_case_when.png" class="img-fluid figure-img" width="1920"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>Syntax:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">case_when</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  condition1 <span class="sc">~</span> result1,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  condition2 <span class="sc">~</span> result2,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  condition3 <span class="sc">~</span> result3,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> default_result</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">case_when</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  condition1 <span class="sc">~</span> result1,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  condition2 <span class="sc">~</span> result2,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  condition3 <span class="sc">~</span> result3,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> default_result</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In forestry, DBH_cm can be used to classify a tree using the following classification:</p>
 <table class="caption-top table">
 <thead>
@@ -552,40 +605,51 @@ THOC: Thuja occidentalis<br>
 </tbody>
 </table>
 <blockquote class="blockquote">
-<p><strong>Question 17: Use mutate and case_when to add a new column to you data.frame that classifies each tree into the proper DBH_class. Once done, limit your dataset to the year 2007 and report the number of each class with table. (Hint: table requires a vector input, not a data.frame)</strong></p>
+<p><strong>Question 16: Use <code>mutate</code> and <code>case_when</code> to add a new column to you data.frame that classifies each tree into the proper DBH_class. Once done, limit your dataset to the year 2007 and report the number of each class with table. (Hint: table requires a vector input, not a data.frame)</strong></p>
 </blockquote>
 </section>
 <section id="summarizing" class="level2">
 <h2 class="anchored" data-anchor-id="summarizing">8. Summarizing</h2>
 <p><code>summarize()</code> collapses a <code>data.frame</code> to a single row. We can use <code>summarize()</code> to compute summary statistics for one or more columns in a <code>data.frame</code>. The first argument in <code>summarize()</code> is the data.frame and subsequent arguments define how rows should be collapsed.</p>
 <blockquote class="blockquote">
-<p><strong>Question 18: Compute the mean DBH and standard deviation of DBH for all trees in 2007. Explain the values you found and their statistical meaning.</strong></p>
+<p><strong>Question 17: Compute the mean DBH and standard deviation of DBH for all trees in 2007. Explain the values you found and their statistical meaning.</strong></p>
 </blockquote>
 <p><code>summarize()</code> is often the most useful when applied to groups of data (e.g species) rather then entire datasets!</p>
 </section>
 <section id="grouped-data" class="level2">
-<h2 class="anchored" data-anchor-id="grouped-data">9 Grouped data</h2>
+<h2 class="anchored" data-anchor-id="grouped-data">9. Grouped data</h2>
 <p><code>group_by()</code> is used to group data by one or more variables. It is commonly used in conjunction with functions like <code>summarize()</code>, <code>mutate()</code>, or <code>filter()</code> to perform operations on subsets of data within a data.frame.</p>
 <p>The first argument in <code>group_by()</code> is the d<code>ata.frame</code> to group and subsequent arguments identify the columns, or combination of columns, that define row membership to a group.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>trees_by_id <span class="ot">&lt;-</span> <span class="fu">group_by</span>(trees, treeID)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(trees_by_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>trees_by_id <span class="ot">&lt;-</span> <span class="fu">group_by</span>(trees, treeID)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(trees_by_id)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rows: 131,386</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Columns: 13</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Groups: treeID [2,291]</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ treeID    &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ standID   &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ stand     &lt;chr&gt; "A1", "A1", "A1", "A1", "A1", "A1", "A1", "A1", "A1", "A1", "A1"…</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $ year      &lt;int&gt; 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970…</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>#&gt; Rows: 131,386 #&gt; Columns: 13 #&gt; Groups: treeID [2,291] #&gt; $ treeID <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1… #&gt; $ standID <int> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1… #&gt; $ stand <chr> “A1”, “A1”, “A1”, “A1”, “A1”, “A1”, “A1”, “A1”, “A1”, “A1”, “A1”… #&gt; $ year <int> 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970…</int></chr></int></int></p>
 <section id="how-do-dplyr-functions-behave-given-a-grouped-data.frame" class="level3">
 <h3 class="anchored" data-anchor-id="how-do-dplyr-functions-behave-given-a-grouped-data.frame">How do <code>dplyr</code> functions behave given a grouped <code>data.frame</code>?</h3>
 <p>If <code>filter()</code> is passed a grouped data.frame and the filtering condition uses a summary function or group characteristic (e.g., number of rows computed using the n()), the result will be group specific. Similarly, <code>slice()</code> and its various flavors subset rows within each group.Passing grouped and ungrouped data to <code>arrange()</code> gives the same result, unless you set the function’s optional argument <code>.by_group</code> to TRUE, in which case it will order first by the grouping. Recall, the functions select(), rename(), mutate(), transmute(), and relocate() operate on data.frame columns. Because <code>rename()</code> only affects the column name and position, its behavior is the same given grouped or ungrouped data. Similarly, a grouped select() is the same as an ungrouped select(), except grouping columns are always included in the resulting column subset. Similar to a grouped <code>filter()</code>, a grouped <code>mutate()</code> has different behavior if your new column definition uses a summary function or some other group specific characteristic (e.g.&nbsp;max/min/n()/lag/diff, etc.). As mentioned, <code>summarize()</code> is most useful when applied to grouped data. Given a grouped<code>data.frame</code>, column summaries requested from <code>summarize()</code> are applied to each group. Each time you apply <code>summarize()</code> to a grouped <code>data.frame</code>, the default behavior is to remove the last grouping level.</p>
 <blockquote class="blockquote">
-<p><strong>Question 19: Compute the <em>per species</em> mean tree age using only those ages recorded in 2003. Identify the three species with the oldest mean age.</strong></p>
+<p><strong>Question 18: Compute the <em>per species</em> mean tree age using only those ages recorded in 2003. Identify the three species with the oldest mean age.</strong></p>
 </blockquote>
 </section>
 </section>
 <section id="counting" class="level2">
-<h2 class="anchored" data-anchor-id="counting">10 Counting</h2>
+<h2 class="anchored" data-anchor-id="counting">10. Counting</h2>
 <p>We often need to know the number of rows, perhaps by group, within a dataset. Rows are counted using the <code>n()</code> helper function, which is a <em>context dependent function</em> used within <code>dplyr</code> verb functions. It takes no arguments and returns the context specific group size. We see <code>n()</code> used most often in <code>summarize()</code> and <code>mutate()</code> to count rows in groups.</p>
 <p>The number of distinct values in a discrete variable is also often of interest (e.g., number of distinct plot numbers or species). <code>n_distinct()</code> returns the number of unique values in one or more variable. Like <code>n()</code>, when applied to a grouped <code>data.frame</code> within a verb function,<code>n_distinct()</code> returns the number of group specific distinct values:</p>
 <blockquote class="blockquote">
-<p><strong>Question 20: (1) Compute the number of unique years with records in the data set. (2) Determine the stands with the largest number of unique years recorded. Report all stands with largest (or tied wit the largest) temporal record. </strong></p>
+<p><strong>Question 19: Find the number of unique years with records in the data set. </strong></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Question 20: Determine the stands with the largest number of unique years recorded. Report all stands with largest (or tied with the largest) temporal record. </strong></p>
 </blockquote>
 </section>
 </section>
