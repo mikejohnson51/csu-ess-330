@@ -1,0 +1,4 @@
+first,last,website,major,interest,hometown_lat,hometown_lng
+Kate, Laidlaw, Kate Laidlaw, Ecosystem Science and Sustainability, 43.07_85.61
+readr::read_csv()
+  
