@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../favicon.ico" rel="icon">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Mike Johnson">
+  <meta name="dcterms.date" content="2025-02-16">
+  <title>ESS 330 – Lecture 09</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-be8ed9a3cdcbe7a498a633334f8d1033.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+<script src="https://use.fontawesome.com/5235085b15.js"></script>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#1E4D2B" class="quarto-title-block center">
+  <h1 class="title">Lecture 09</h1>
+  <p class="subtitle">Formats &amp; EDA</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Mike Johnson 
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:mike.johnson@colostate.edu">mike.johnson@colostate.edu</a>
+</div>
+</div>
+</div>
+
+  <p class="date">2025-02-16</p>
+</section>
+<section>
+<section id="pivots" class="title-slide slide level1 center">
+<h1>Pivots</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">'images/pivot_monsters.png'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="images/pivot_monsters.png" width="320" class="r-stretch"></section>
+<section id="data-structure-vs-data-format" class="slide level2">
+<h2>Data <strong>structure</strong> vs Data <strong>format</strong></h2>
+<ul>
+<li class="fragment"><p><code>data.frames</code> are a list with atomic vecotrs of the same length.</p></li>
+<li class="fragment"><p><code>data.frames</code> (and list and vector) are data structures</p></li>
+<li class="fragment"><p>The format of the <code>data.frame</code> however can be widely variable….</p></li>
+</ul>
+</section></section>
+<section>
+<section id="for-example" class="title-slide slide level1 center">
+<h1>For example …</h1>
+<p>You can represent the same underlying data in multiple ways. Each of these stores data for country, population and cases in a different way….</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<pre><code># A tibble: 8 × 4
+  country  year type       value
+  &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;
+1 Brazil   1952 lifeExp     50.9
+2 Brazil   1952 gdpPercap 2109. 
+3 Brazil   2007 lifeExp     72.4
+4 Brazil   2007 gdpPercap 9066. 
+5 India    1952 lifeExp     37.4
+6 India    1952 gdpPercap  547. 
+7 India    2007 lifeExp     64.7
+8 India    2007 gdpPercap 2452. 
+# A tibble: 4 × 3
+  country  year values              
+  &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;               
+1 Brazil   1952 50.917 / 2108.944355
+2 Brazil   2007 72.39 / 9065.800825 
+3 India    1952 37.373 / 546.5657493
+4 India    2007 64.698 / 2452.210407</code></pre>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 4 × 4
+  country  year lifeExp gdpPercap
+  &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1 Brazil   1952    50.9     2109.
+2 Brazil   2007    72.4     9066.
+3 India    1952    37.4      547.
+4 India    2007    64.7     2452.
+# A tibble: 2 × 3
+  country `1952` `2007`
+  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+1 Brazil   2109.  9066.
+2 India     547.  2452.
+# A tibble: 2 × 3
+  country `1952` `2007`
+  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+1 Brazil    50.9   72.4
+2 India     37.4   64.7</code></pre>
+</div>
+</div></div>
+</section>
+<section id="data-format-the-quest-for-tidy-data" class="slide level2">
+<h2>Data Format – the quest for <a href="https://r4ds.had.co.nz/tidy-data.html">“tidy data”</a></h2>
+<ul>
+<li class="fragment"><p>These are all representations of the same underlying data, but they are not equally easy to use. One dataset, the <a href="https://www.jstatsoft.org/article/view/v059i10">tidy dataset</a>, will be much easier to work with inside the <strong>tidy</strong>verse.</p></li>
+<li class="fragment"><p>Tidy data demands three interrelated rules</p></li>
+<li class="fragment"><p>Each variable must have its own column.</p></li>
+<li class="fragment"><p>Each observation must have its own row.</p></li>
+<li class="fragment"><p>Each value must have its own cell.</p></li>
+</ul>
+<div class="fragment">
+<p><img src="images/07-tidy.png" width="50%"></p>
+<p>It’s impossible to only satisfy <span class="math inline">\(2/3\)</span> so … an simpler guideline:</p>
+<ol type="1">
+<li class="fragment">Put each dataset in a tibble.</li>
+<li class="fragment">Put each variable in a column.</li>
+</ol>
+</div>
+</section>
+<section id="the-world-is-messy" class="slide level2">
+<h2>The world is messy …</h2>
+<ul>
+<li class="fragment"><p>For most real problems, you’ll need to do some cleaning/tidying</p></li>
+<li class="fragment"><p>Once you understand what data you have, you typically have to resolve one of two common issues:</p>
+<ul>
+<li class="fragment">One variable might be spread across multiple columns.</li>
+<li class="fragment">One observation might be scattered across multiple rows.</li>
+</ul></li>
+<li class="fragment"><p>To fix these, we look at the <code>tidyr</code> package (within the tidyverse)</p></li>
+</ul>
+</section>
+<section id="longer" class="slide level2">
+<h2>Longer</h2>
+<ul>
+<li class="fragment">A common issues is a dataset where some of the column names are not <em>names</em>, but rather <strong>values</strong> we want:</li>
+</ul>
+<div class="cell">
+<pre><code># A tibble: 2 × 3
+  country `1952` `2007`
+  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;
+1 Brazil    50.9   72.4
+2 India     37.4   64.7</code></pre>
+</div>
+</section>
+<section id="longer-and-narrower" class="slide level2">
+<h2>Longer (and narrower)</h2>
+<ul>
+<li class="fragment">To make the column names an attribute of the dataset, we need to pivot the data</li>
+<li class="fragment">This pivot will effectively make the data longer and narrower…</li>
+<li class="fragment">To do this we look to <code>tidyr::pivot_longer()</code></li>
+</ul>
+<center>
+<img src="images/07-longer.png" width="75%">
+</center>
+</section>
+<section id="longer-1" class="slide level2">
+<h2>Longer</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>lifeExp_tab</span>
+<span id="cb5-2"><a></a><span class="co"># A tibble: 2 × 3</span></span>
+<span id="cb5-3"><a></a>  country <span class="st">`</span><span class="at">1952</span><span class="st">`</span> <span class="st">`</span><span class="at">2007</span><span class="st">`</span></span>
+<span id="cb5-4"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>  <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb5-5"><a></a><span class="dv">1</span> Brazil    <span class="fl">50.9</span>   <span class="fl">72.4</span></span>
+<span id="cb5-6"><a></a><span class="dv">2</span> India     <span class="fl">37.4</span>   <span class="fl">64.7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>lifeExp_tab <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">1952</span><span class="st">`</span>, <span class="st">`</span><span class="at">2007</span><span class="st">`</span>), </span>
+<span id="cb6-3"><a></a>               <span class="at">names_to =</span> <span class="st">"year"</span>, </span>
+<span id="cb6-4"><a></a>               <span class="at">values_to =</span> <span class="st">"lifeExp"</span>)</span>
+<span id="cb6-5"><a></a><span class="co"># A tibble: 4 × 3</span></span>
+<span id="cb6-6"><a></a>  country year  lifeExp</span>
+<span id="cb6-7"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>chr<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb6-8"><a></a><span class="dv">1</span> Brazil  <span class="dv">1952</span>     <span class="fl">50.9</span></span>
+<span id="cb6-9"><a></a><span class="dv">2</span> Brazil  <span class="dv">2007</span>     <span class="fl">72.4</span></span>
+<span id="cb6-10"><a></a><span class="dv">3</span> India   <span class="dv">1952</span>     <span class="fl">37.4</span></span>
+<span id="cb6-11"><a></a><span class="dv">4</span> India   <span class="dv">2007</span>     <span class="fl">64.7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="putting-it-together" class="slide level2">
+<h2>Putting it together …</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>long4a <span class="ot">=</span> lifeExp_tab <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1952</span><span class="st">`</span>, <span class="st">`</span><span class="at">2007</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"lifeExp"</span>)</span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a>long4b <span class="ot">=</span> gdpPercap_tab <span class="sc">|&gt;</span> </span>
+<span id="cb7-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(<span class="st">`</span><span class="at">1952</span><span class="st">`</span>, <span class="st">`</span><span class="at">2007</span><span class="st">`</span>), <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"gdpPercap"</span>)</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a><span class="fu">left_join</span>(long4a, long4b)</span>
+<span id="cb7-8"><a></a><span class="co"># A tibble: 4 × 4</span></span>
+<span id="cb7-9"><a></a>  country year  lifeExp gdpPercap</span>
+<span id="cb7-10"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>chr<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb7-11"><a></a><span class="dv">1</span> Brazil  <span class="dv">1952</span>     <span class="fl">50.9</span>     <span class="fl">2109.</span></span>
+<span id="cb7-12"><a></a><span class="dv">2</span> Brazil  <span class="dv">2007</span>     <span class="fl">72.4</span>     <span class="fl">9066.</span></span>
+<span id="cb7-13"><a></a><span class="dv">3</span> India   <span class="dv">1952</span>     <span class="fl">37.4</span>      <span class="fl">547.</span></span>
+<span id="cb7-14"><a></a><span class="dv">4</span> India   <span class="dv">2007</span>     <span class="fl">64.7</span>     <span class="fl">2452.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="wider-and-shorter" class="slide level2">
+<h2>Wider (and shorter)</h2>
+<ul>
+<li class="fragment"><p><code>pivot_wider()</code> is the opposite of <code>pivot_longer()</code>.</p></li>
+<li class="fragment"><p>We use it to solve the opposite problem… when an observation is scattered across multiple rows.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>table2</span>
+<span id="cb8-2"><a></a><span class="co"># A tibble: 8 × 4</span></span>
+<span id="cb8-3"><a></a>  country  year type       value</span>
+<span id="cb8-4"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb8-5"><a></a><span class="dv">1</span> Brazil   <span class="dv">1952</span> lifeExp     <span class="fl">50.9</span></span>
+<span id="cb8-6"><a></a><span class="dv">2</span> Brazil   <span class="dv">1952</span> gdpPercap <span class="fl">2109.</span> </span>
+<span id="cb8-7"><a></a><span class="dv">3</span> Brazil   <span class="dv">2007</span> lifeExp     <span class="fl">72.4</span></span>
+<span id="cb8-8"><a></a><span class="dv">4</span> Brazil   <span class="dv">2007</span> gdpPercap <span class="fl">9066.</span> </span>
+<span id="cb8-9"><a></a><span class="dv">5</span> India    <span class="dv">1952</span> lifeExp     <span class="fl">37.4</span></span>
+<span id="cb8-10"><a></a><span class="dv">6</span> India    <span class="dv">1952</span> gdpPercap  <span class="fl">547.</span> </span>
+<span id="cb8-11"><a></a><span class="dv">7</span> India    <span class="dv">2007</span> lifeExp     <span class="fl">64.7</span></span>
+<span id="cb8-12"><a></a><span class="dv">8</span> India    <span class="dv">2007</span> gdpPercap <span class="fl">2452.</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="wider-and-shorter-1" class="slide level2">
+<h2>Wider (and shorter)</h2>
+<ul>
+<li class="fragment">To allow an attribute to define a variable name, we need to pivot the data</li>
+<li class="fragment">This pivot will effectively make the data wider and shorter</li>
+<li class="fragment">To do this we look to <code>tidyr::pivot_wider()</code></li>
+</ul>
+<center>
+<img src="images/07-wider.png" width="75%">
+</center>
+</section>
+<section id="wider" class="slide level2">
+<h2>Wider</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>table2</span>
+<span id="cb9-2"><a></a><span class="co"># A tibble: 8 × 4</span></span>
+<span id="cb9-3"><a></a>  country  year type       value</span>
+<span id="cb9-4"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb9-5"><a></a><span class="dv">1</span> Brazil   <span class="dv">1952</span> lifeExp     <span class="fl">50.9</span></span>
+<span id="cb9-6"><a></a><span class="dv">2</span> Brazil   <span class="dv">1952</span> gdpPercap <span class="fl">2109.</span> </span>
+<span id="cb9-7"><a></a><span class="dv">3</span> Brazil   <span class="dv">2007</span> lifeExp     <span class="fl">72.4</span></span>
+<span id="cb9-8"><a></a><span class="dv">4</span> Brazil   <span class="dv">2007</span> gdpPercap <span class="fl">9066.</span> </span>
+<span id="cb9-9"><a></a><span class="dv">5</span> India    <span class="dv">1952</span> lifeExp     <span class="fl">37.4</span></span>
+<span id="cb9-10"><a></a><span class="dv">6</span> India    <span class="dv">1952</span> gdpPercap  <span class="fl">547.</span> </span>
+<span id="cb9-11"><a></a><span class="dv">7</span> India    <span class="dv">2007</span> lifeExp     <span class="fl">64.7</span></span>
+<span id="cb9-12"><a></a><span class="dv">8</span> India    <span class="dv">2007</span> gdpPercap <span class="fl">2452.</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>table2 <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> type, <span class="at">values_from =</span> value)</span>
+<span id="cb10-3"><a></a><span class="co"># A tibble: 4 × 4</span></span>
+<span id="cb10-4"><a></a>  country  year lifeExp gdpPercap</span>
+<span id="cb10-5"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb10-6"><a></a><span class="dv">1</span> Brazil   <span class="dv">1952</span>    <span class="fl">50.9</span>     <span class="fl">2109.</span></span>
+<span id="cb10-7"><a></a><span class="dv">2</span> Brazil   <span class="dv">2007</span>    <span class="fl">72.4</span>     <span class="fl">9066.</span></span>
+<span id="cb10-8"><a></a><span class="dv">3</span> India    <span class="dv">1952</span>    <span class="fl">37.4</span>      <span class="fl">547.</span></span>
+<span id="cb10-9"><a></a><span class="dv">4</span> India    <span class="dv">2007</span>    <span class="fl">64.7</span>     <span class="fl">2452.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="when-wide-is-right" class="slide level2">
+<h2>When <strong>wide</strong> is right!</h2>
+<ul>
+<li class="fragment">All <code>dplyr</code> data manipulation works on columns and rows</li>
+<li class="fragment">So when we are <code>filtering</code>, <code>selecting</code>, <code>mutating</code>, <code>grouping</code>, and <code>summarizing</code> wide data is best</li>
+</ul>
+</section>
+<section id="when-long-is-right" class="slide level2">
+<h2>When long is right!</h2>
+<ul>
+<li class="fragment">Yesterday we noted that ggplot prefers data to be long.</li>
+<li class="fragment">This is because when applying aesthetics or facets we want the variable to be an attribute of the dataset</li>
+</ul>
+</section>
+<section id="for-example-1" class="slide level2">
+<h2>For example …</h2>
+</section>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="wide" class="slide level2">
+<h2>Wide</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>table1 <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span></span>
+<span id="cb11-3"><a></a><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> country)) <span class="sc">+</span> </span>
+<span id="cb11-4"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>country) <span class="sc">+</span> </span>
+<span id="cb11-5"><a></a><span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb11-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/unnamed-chunk-13-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="long" class="slide level2">
+<h2>Long</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>table2 <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb12-3"><a></a><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> country)) <span class="sc">+</span> </span>
+<span id="cb12-4"><a></a>  <span class="fu">facet_grid</span>(type<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span> </span>
+<span id="cb12-5"><a></a><span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb12-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/unnamed-chunk-14-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<section id="pivot-within-workflow" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 1,704 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-1" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb15-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 60 × 6
+   country continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Canada  Americas   1952    68.8 14785584    11367.
+ 2 Canada  Americas   1957    70.0 17010154    12490.
+ 3 Canada  Americas   1962    71.3 18985849    13462.
+ 4 Canada  Americas   1967    72.1 20819767    16077.
+ 5 Canada  Americas   1972    72.9 22284500    18971.
+ 6 Canada  Americas   1977    74.2 23796400    22091.
+ 7 Canada  Americas   1982    75.8 25201900    22899.
+ 8 Canada  Americas   1987    76.9 26549700    26627.
+ 9 Canada  Americas   1992    78.0 28523502    26343.
+10 Canada  Americas   1997    78.6 30305843    28955.
+# ℹ 50 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-2" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb17-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 60 × 4
+   country  year lifeExp gdpPercap
+   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Canada   1952    68.8    11367.
+ 2 Canada   1957    70.0    12490.
+ 3 Canada   1962    71.3    13462.
+ 4 Canada   1967    72.1    16077.
+ 5 Canada   1972    72.9    18971.
+ 6 Canada   1977    74.2    22091.
+ 7 Canada   1982    75.8    22899.
+ 8 Canada   1987    76.9    26627.
+ 9 Canada   1992    78.0    26343.
+10 Canada   1997    78.6    28955.
+# ℹ 50 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-3" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb19-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 120 × 4
+   country  year name        value
+   &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;
+ 1 Canada   1952 lifeExp      68.8
+ 2 Canada   1952 gdpPercap 11367. 
+ 3 Canada   1957 lifeExp      70.0
+ 4 Canada   1957 gdpPercap 12490. 
+ 5 Canada   1962 lifeExp      71.3
+ 6 Canada   1962 gdpPercap 13462. 
+ 7 Canada   1967 lifeExp      72.1
+ 8 Canada   1967 gdpPercap 16077. 
+ 9 Canada   1972 lifeExp      72.9
+10 Canada   1972 gdpPercap 18971. 
+# ℹ 110 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-4" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb21-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb21-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb21-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_05_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-5" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb22-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb22-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb22-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_06_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-6" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb23-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb23-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb23-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_07_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-7" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb24-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb24-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb24-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb24-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb24-10"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb24-11"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb24-12"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_08_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-8" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb25-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb25-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb25-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb25-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb25-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb25-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb25-10"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb25-11"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb25-12"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb25-13"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_09_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-9" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb26-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb26-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb26-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb26-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb26-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb26-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb26-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb26-10"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb26-11"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb26-12"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb26-13"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb26-14"><a></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_10_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-10" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb27-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb27-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb27-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb27-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb27-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb27-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb27-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb27-10"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb27-11"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb27-12"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb27-13"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb27-14"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb27-15"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_11_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-11" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb28-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb28-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb28-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb28-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb28-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb28-10"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb28-11"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb28-12"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb28-13"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb28-14"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb28-15"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb28-16"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_12_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-12" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb29-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb29-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb29-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb29-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb29-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb29-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb29-10"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb29-11"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb29-12"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb29-13"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb29-14"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb29-15"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb29-16"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb29-17"><a></a>  <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_13_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-13" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb30-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>, <span class="st">"Mexico"</span>, <span class="st">"Nicaragua"</span>, <span class="st">"Honduras"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb30-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb30-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb30-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb30-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb30-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb30-10"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb30-11"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb30-12"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb30-13"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb30-14"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb30-15"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb30-16"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb30-17"><a></a>  <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb30-18"><a></a>  <span class="fu">theme</span>(<span class="at">plot.caption  =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"gray50"</span>, <span class="at">face =</span> <span class="st">"italic"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_14_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="internal-groupings" class="slide level2">
+<h2>Internal groupings</h2>
+<ul>
+<li class="fragment"><code>nest()</code> and <code>map()</code> are functions from the <code>tidyverse</code>, primarily used with the <code>tidyr</code> and <code>purrr</code> packages.</li>
+<li class="fragment">They allow for efficient <strong>list-column workflows</strong> and functional programming in R.</li>
+<li class="fragment">Useful for <strong>grouped operations</strong>, <strong>iterative calculations</strong>, and <strong>data wrangling</strong>.</li>
+</ul>
+</section>
+<section id="what-is-nest" class="slide level2">
+<h2>What is <code>nest()</code>?</h2>
+<ul>
+<li class="fragment"><code>nest()</code> converts a grouped dataset into a <strong>list-column</strong> format.</li>
+<li class="fragment">It allows you to keep related observations together in <strong>nested data frames</strong>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb31-2"><a></a>  <span class="at">group =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>), <span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb31-3"><a></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb31-4"><a></a>)</span>
+<span id="cb31-5"><a></a></span>
+<span id="cb31-6"><a></a>data</span>
+<span id="cb31-7"><a></a>  group x</span>
+<span id="cb31-8"><a></a><span class="dv">1</span>     A <span class="dv">1</span></span>
+<span id="cb31-9"><a></a><span class="dv">2</span>     A <span class="dv">2</span></span>
+<span id="cb31-10"><a></a><span class="dv">3</span>     A <span class="dv">3</span></span>
+<span id="cb31-11"><a></a><span class="dv">4</span>     B <span class="dv">4</span></span>
+<span id="cb31-12"><a></a><span class="dv">5</span>     B <span class="dv">5</span></span>
+<span id="cb31-13"><a></a><span class="dv">6</span>     B <span class="dv">6</span></span>
+<span id="cb31-14"><a></a></span>
+<span id="cb31-15"><a></a>nested_data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
+<span id="cb31-16"><a></a>  <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span>group)</span>
+<span id="cb31-17"><a></a></span>
+<span id="cb31-18"><a></a>nested_data</span>
+<span id="cb31-19"><a></a><span class="co"># A tibble: 2 × 2</span></span>
+<span id="cb31-20"><a></a>  group data            </span>
+<span id="cb31-21"><a></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>list<span class="sc">&gt;</span>          </span>
+<span id="cb31-22"><a></a><span class="dv">1</span> A     <span class="sc">&lt;</span>tibble [<span class="dv">3</span> × <span class="dv">1</span>]<span class="sc">&gt;</span></span>
+<span id="cb31-23"><a></a><span class="dv">2</span> B     <span class="sc">&lt;</span>tibble [<span class="dv">3</span> × <span class="dv">1</span>]<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explanation:</strong> - The <code>data</code> tibble contains two groups (A and B) with corresponding <code>x</code> values. - <code>nest(data = -group)</code> creates a new tibble where each <code>group</code> has a nested data frame containing the <code>x</code> values.</p>
+</section>
+<section id="what-is-map" class="slide level2">
+<h2>What is <code>map()</code>?</h2>
+<ul>
+<li class="fragment"><code>map()</code> is from the <strong>purrr</strong> package and applies a function over a list or vector.</li>
+<li class="fragment">It works similarly to <code>lapply()</code> but with better integration into <code>tidyverse</code> workflows.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>nested_data <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a></a>  <span class="fu">mutate</span>(<span class="at">mean_x =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">mean</span>(.x<span class="sc">$</span>x)))</span>
+<span id="cb32-3"><a></a><span class="co"># A tibble: 2 × 3</span></span>
+<span id="cb32-4"><a></a>  group data             mean_x   </span>
+<span id="cb32-5"><a></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>list<span class="sc">&gt;</span>           <span class="er">&lt;</span>list<span class="sc">&gt;</span>   </span>
+<span id="cb32-6"><a></a><span class="dv">1</span> A     <span class="sc">&lt;</span>tibble [<span class="dv">3</span> × <span class="dv">1</span>]<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl [<span class="dv">1</span>]<span class="sc">&gt;</span></span>
+<span id="cb32-7"><a></a><span class="dv">2</span> B     <span class="sc">&lt;</span>tibble [<span class="dv">3</span> × <span class="dv">1</span>]<span class="sc">&gt;</span> <span class="er">&lt;</span>dbl [<span class="dv">1</span>]<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Explanation:</strong> - The <code>.x</code> notation inside <code>map()</code> refers to the data frame stored in the <code>data</code> column. - <code>.x$x</code> accesses the <code>x</code> column within each nested data frame to compute the mean.</p>
+</section>
+<section id="combining-nest-and-map" class="slide level2">
+<h2>Combining <code>nest()</code> and <code>map()</code></h2>
+<ul>
+<li class="fragment"><code>nest()</code> structures the data into groups.</li>
+<li class="fragment"><code>map()</code> applies functions to each nested dataset.</li>
+<li class="fragment">Can be used for <strong>modeling, summaries, and transformations</strong>.</li>
+</ul>
+<h3 id="example-linear-regression-by-group">Example: Linear Regression by Group</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>model_results <span class="ot">&lt;-</span> nested_data <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">lm</span>(x <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> .x)))</span>
+<span id="cb33-3"><a></a></span>
+<span id="cb33-4"><a></a>model_results</span>
+<span id="cb33-5"><a></a><span class="co"># A tibble: 2 × 3</span></span>
+<span id="cb33-6"><a></a>  group data             model </span>
+<span id="cb33-7"><a></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>list<span class="sc">&gt;</span>           <span class="er">&lt;</span>list<span class="sc">&gt;</span></span>
+<span id="cb33-8"><a></a><span class="dv">1</span> A     <span class="sc">&lt;</span>tibble [<span class="dv">3</span> × <span class="dv">1</span>]<span class="sc">&gt;</span> <span class="er">&lt;</span>lm<span class="sc">&gt;</span>  </span>
+<span id="cb33-9"><a></a><span class="dv">2</span> B     <span class="sc">&lt;</span>tibble [<span class="dv">3</span> × <span class="dv">1</span>]<span class="sc">&gt;</span> <span class="er">&lt;</span>lm<span class="sc">&gt;</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="what-is-broom" class="slide level2">
+<h2>What is broom?</h2>
+<ul>
+<li class="fragment">The broom package helps tidy up model outputs for further analysis or reporting.</li>
+<li class="fragment">It converts model objects (like from lm()) into tidy data frames that are easy to manipulate.</li>
+</ul>
+<h3 id="key-functions-from-broom-include">Key functions from broom include:</h3>
+<p><code>tidy()</code> for converting model coefficients and statistics into a data frame. <code>glance()</code> for providing a one-row summary of a model’s performance. <code>augment()</code> for adding model diagnostics (e.g., residuals, fitted values) to the original data.</p>
+</section>
+<section id="extracting-model-summaries" class="slide level2">
+<h2>Extracting Model Summaries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>model_results <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a></a>  <span class="fu">mutate</span>(<span class="at">summary =</span> <span class="fu">map</span>(model, broom<span class="sc">::</span>tidy)) <span class="sc">|&gt;</span> </span>
+<span id="cb34-3"><a></a>  <span class="fu">unnest</span>(summary)</span>
+<span id="cb34-4"><a></a><span class="co"># A tibble: 2 × 8</span></span>
+<span id="cb34-5"><a></a>  group data             model  term        estimate std.error statistic p.value</span>
+<span id="cb34-6"><a></a>  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="er">&lt;</span>list<span class="sc">&gt;</span>           <span class="er">&lt;</span>list<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>          <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb34-7"><a></a><span class="dv">1</span> A     <span class="sc">&lt;</span>tibble [<span class="dv">3</span> × <span class="dv">1</span>]<span class="sc">&gt;</span> <span class="er">&lt;</span>lm<span class="sc">&gt;</span>   (Intercept)        <span class="dv">2</span>     <span class="fl">0.577</span>      <span class="fl">3.46</span>  <span class="fl">0.0742</span></span>
+<span id="cb34-8"><a></a><span class="dv">2</span> B     <span class="sc">&lt;</span>tibble [<span class="dv">3</span> × <span class="dv">1</span>]<span class="sc">&gt;</span> <span class="er">&lt;</span>lm<span class="sc">&gt;</span>   (Intercept)        <span class="dv">5</span>     <span class="fl">0.577</span>      <span class="fl">8.66</span>  <span class="fl">0.0131</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Explanation: - The tidy() function extracts the coefficients from the linear models stored in the model column and formats them into a tidy data frame. - This makes it easier to summarize or report on the results.</p>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p><code>nest()</code> is useful for grouping and restructuring data. <code>map()</code> enables functional programming and efficient iteration. <code>broom</code>provides a way to tidy up model outputs for easier interpretation and reporting.</p>
+<p>Together, they provide a powerful framework for handling grouped analyses in R.</p>
+</section>
+<section id="many-identically-structured-data.frames" class="slide level2">
+<h2>Many identically structured data.frames</h2>
+<p>Binding rows</p>
+<ul>
+<li class="fragment"><code>bind_rows()</code> and <code>bind_cols()</code> are functions from the <code>dplyr</code> package.</li>
+<li class="fragment">They are used to combine data frames by rows or columns.</li>
+</ul>
+</section>
+<section id="bind_rows" class="slide level2">
+<h2>bind_rows()</h2>
+<ul>
+<li class="fragment">Used to stack data frames on top of each other.</li>
+<li class="fragment">Useful when datasets have the same column names and types.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">value =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>))</span>
+<span id="cb35-2"><a></a>df2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">value =</span> <span class="fu">c</span>(<span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span>))</span>
+<span id="cb35-3"><a></a></span>
+<span id="cb35-4"><a></a>combined_rows <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df1, df2)</span>
+<span id="cb35-5"><a></a></span>
+<span id="cb35-6"><a></a><span class="fu">glimpse</span>(combined_rows)</span>
+<span id="cb35-7"><a></a>Rows<span class="sc">:</span> <span class="dv">6</span></span>
+<span id="cb35-8"><a></a>Columns<span class="sc">:</span> <span class="dv">2</span></span>
+<span id="cb35-9"><a></a><span class="sc">$</span> id    <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span></span>
+<span id="cb35-10"><a></a><span class="sc">$</span> value <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>, <span class="st">"F"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="bind_cols" class="slide level2">
+<h2>bind_cols()</h2>
+<ul>
+<li class="fragment">Used to combine data frames side by side.</li>
+<li class="fragment">Requires the data frames to have the same number of rows.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>df3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">score =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>))</span>
+<span id="cb36-2"><a></a>df4 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">rank =</span> <span class="fu">c</span>(<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>))</span>
+<span id="cb36-3"><a></a></span>
+<span id="cb36-4"><a></a>combined_cols <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(df3, df4)</span>
+<span id="cb36-5"><a></a></span>
+<span id="cb36-6"><a></a><span class="fu">glimpse</span>(combined_cols)</span>
+<span id="cb36-7"><a></a>Rows<span class="sc">:</span> <span class="dv">3</span></span>
+<span id="cb36-8"><a></a>Columns<span class="sc">:</span> <span class="dv">2</span></span>
+<span id="cb36-9"><a></a><span class="sc">$</span> score <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span></span>
+<span id="cb36-10"><a></a><span class="sc">$</span> rank  <span class="sc">&lt;</span>chr<span class="sc">&gt;</span> <span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li class="fragment"><code>bind_rows()</code>: Combines data frames vertically.</li>
+<li class="fragment"><code>bind_cols()</code>: Combines data frames horizontally.</li>
+<li class="fragment">Both functions preserve column types and handle missing values where necessary.</li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../csu-rams-logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://github.com/mikejohnson51/csu-ess-330/">ESS 330: Quantitative Reasoning for Ecosystem Science</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': true,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 1000,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+      Reveal.addEventListener( 'slidechanged', function( event ) {
+        console.log("hello")
+        
+        slide_id = event.currentSlide.id
+        link = "annotations" + ".html#" + slide_id
+        
+        var annotation_div = document.createElement('div')
+        annotation_div.setAttribute("class", "annotation-link")
+        
+        var notes_link = document.createElement('a')
+        notes_link.setAttribute("href", link)
+        notes_link.setAttribute("target", "_blank")
+        
+        var iii = document.createElement('i')
+        iii.setAttribute("class", "fa fa-info")
+        notes_link.appendChild(iii)
+        
+        annotation_div.appendChild(notes_link)
+        
+        var tmp = event.currentTarget.getElementsByClassName("annotation-link")
+        if (tmp.length === 1) {
+          tmp[0].remove()
+        }
+        
+        if (event.currentSlide.classList.contains("annotation")) {
+          event.currentTarget.append(annotation_div)
+        }
+      } );
+
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
