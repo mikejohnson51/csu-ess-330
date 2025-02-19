@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Mike Johnson">
-  <meta name="dcterms.date" content="2025-02-15">
+  <meta name="dcterms.date" content="2025-02-18">
   <title>ESS 330 – Lecture 08</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -190,6 +190,8 @@
   </style>
   <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  <link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+  <script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>
 </head>
 <body class="quarto-light">
 <script src="https://use.fontawesome.com/5235085b15.js"></script>
@@ -198,7 +200,7 @@
 
 <section id="title-slide" data-background-color="#1E4D2B" class="quarto-title-block center">
   <h1 class="title">Lecture 08</h1>
-  <p class="subtitle">Relations &amp; Format</p>
+  <p class="subtitle">Relations &amp; Data Format</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -211,22 +213,20 @@ Mike Johnson
 </div>
 </div>
 
-  <p class="date">2025-02-15</p>
+  <p class="date">2025-02-18</p>
 </section>
 <section>
 <section id="picking-back-up" class="title-slide slide level1 center">
 <h1>Picking back up!</h1>
 <p>We’ve covered many topics on how to manipulate and reshape a single data.frame:</p>
-<p><strong>Data</strong>: Types &amp; structures</p>
-<p><strong>Manipulation</strong>: <code>dplyr</code> verbs: grammar of data manipulation</p>
-<p><strong>Visualization</strong>: <code>ggplot2</code>: grammar of data visualizaton</p>
-<p><strong>Today</strong>: When one table is not enough …</p>
+<p><strong>Storage vs Implementation</strong>: Bytes/Bytes vs Interpretation <strong>Location</strong>: remote/local/memory <strong>Data</strong>: types &amp; structures <strong>Manipulation</strong>: <code>dplyr</code> verbs: grammar of data manipulation <strong>Visualization</strong>: <code>ggplot2</code>: grammar of data visualization</p>
+<p><strong>Today</strong>: When one table is not enough, when tidy isn’t “right”</p>
 </section>
 <section id="yesterdays-assignment" class="slide level2">
 <h2>Yesterdays Assignment</h2>
 <ol type="1">
-<li class="fragment"><p>Make a <em>faceted</em> line plot (<em>geom_line</em>) of the <strong>6</strong> states with <strong>most</strong> cases. Your X axis should be the <em>date</em> and the y axis <em>cases</em>.</p></li>
-<li class="fragment"><p>Make a column plot (<code>geom_col</code>) of daily total cases in the <strong>USA</strong>. Your X axis should be the <em>date</em> and the y axis <em>cases</em>.</p></li>
+<li><p>Make a <em>faceted</em> line plot (<em>geom_line</em>) of the <strong>6</strong> states with <strong>most</strong> cases. Your X axis should be the <em>date</em> and the y axis <em>cases</em>.</p></li>
+<li><p>Make a column plot (<code>geom_col</code>) of daily total cases in the <strong>USA</strong>. Your X axis should be the <em>date</em> and the y axis <em>cases</em>.</p></li>
 </ol>
 <div class="fragment">
 <div class="cell">
@@ -1453,20 +1453,20 @@ Mike Johnson
 <section id="relational-data" class="slide level2">
 <h2>Relational Data</h2>
 <ul>
-<li class="fragment"><p>There will come a time when you need data from different sources.</p></li>
-<li class="fragment"><p>When this happens we must join – or merge – mutliple tables</p></li>
-<li class="fragment"><p>Multiple tables of data are called *relational data** because the relations are an equal part of the data</p></li>
-<li class="fragment"><p>To merge data, we have to find a point of <em>commonality</em></p></li>
-<li class="fragment"><p>That point – or attribute – of <em>commonality</em> is the <em>realtion</em></p></li>
+<li><p>There will come a time when you need data from different sources.</p></li>
+<li><p>When this happens we must join – or merge – multiple tables</p></li>
+<li><p>Multiple tables of data are called *relational data** because the relations are an equal part of the data</p></li>
+<li><p>To merge data, we have to find a point of <em>commonality</em></p></li>
+<li><p>That point – or attribute – of <em>commonality</em> is the <em>relation</em></p></li>
 </ul>
 </section>
 <section id="relational-verbs" class="slide level2">
 <h2>Relational Verbs</h2>
 <p>To work with relational data we need “verbs” that work with <em>pairs</em> (<strong>2</strong>) of tables.</p>
 <ul>
-<li class="fragment"><p><strong>Mutating joins</strong>: add <em>new</em> variables to one table from matching observations in another.</p></li>
-<li class="fragment"><p><strong>Filtering joins</strong>: filter observations from one table if they match an observation in the other table.</p></li>
-<li class="fragment"><p><strong>Set operations</strong>: treat observations as if they were set elements.</p></li>
+<li><p><strong>Mutating joins</strong>: add <em>new</em> variables to one table from matching observations in another.</p></li>
+<li><p><strong>Filtering joins</strong>: filter observations from one table if they match an observation in the other table.</p></li>
+<li><p><strong>Set operations</strong>: treat observations as if they were set elements.</p></li>
 </ul>
 <div class="fragment">
 <p>The most common place to find relational data is in a relational database management system (or RDBMS)</p>
@@ -1475,33 +1475,33 @@ Mike Johnson
 <section id="keys" class="slide level2">
 <h2>Keys</h2>
 <ul>
-<li class="fragment"><p>The <em>variables</em> used to connect a pair tables are called <strong>keys</strong>.</p></li>
-<li class="fragment"><p>A key is a variable (or set of variables) that uniquely identifies an observation or “unit”.</p></li>
-<li class="fragment"><p>Sometimes, a single variable is enough…</p>
+<li><p>The <em>variables</em> used to connect a pair tables are called <strong>keys</strong>.</p></li>
+<li><p>A key is a variable (or set of variables) that uniquely identifies an observation or “unit”.</p></li>
+<li><p>Sometimes, a single variable is enough…</p>
 <ul>
-<li class="fragment">For example, each county in the USA is uniquely identified by its FIP code.</li>
-<li class="fragment">Each state is unique identified by its name</li>
-<li class="fragment">…</li>
+<li>For example, each county in the USA is uniquely identified by its FIP code.</li>
+<li>Each state is unique identified by its name</li>
+<li>…</li>
 </ul></li>
-<li class="fragment"><p>In other cases, multiple variables may be needed.</p></li>
+<li><p>In other cases, multiple variables may be needed.</p></li>
 </ul>
 </section>
 <section id="keys-1" class="slide level2">
 <h2>Keys</h2>
 <p>There are two types of keys:</p>
 <ul>
-<li class="fragment"><p><strong>Primary keys</strong>: <em>uniquely</em> identify observations in its own table.</p></li>
-<li class="fragment"><p><strong>Foreign keys</strong>: <em>uniquely</em> identify observations in another table.</p></li>
-<li class="fragment"><p>A <em>primary</em> key and a corresponding <em>foreign</em> key form a <em>relation.</em></p></li>
-<li class="fragment"><p>Relations are typically one-to-many but can be one-to-one</p></li>
+<li><p><strong>Primary keys</strong>: <em>uniquely</em> identify observations in its own table.</p></li>
+<li><p><strong>Foreign keys</strong>: <em>uniquely</em> identify observations in another table.</p></li>
+<li><p>A <em>primary</em> key and a corresponding <em>foreign</em> key form a <em>relation.</em></p></li>
+<li><p>Relations are typically one-to-many but can be one-to-one</p></li>
 </ul>
 </section>
 <section id="a-quick-note-on-surrogate-keys" class="slide level2">
 <h2>A quick note on surrogate keys</h2>
 <ul>
-<li class="fragment"><p>Sometimes a table doesn’t have an explicit primary key.</p></li>
-<li class="fragment"><p>If a table lacks a primary key, it’s sometimes useful to add one with <code>mutate()</code> and <code>row_number()</code>.</p></li>
-<li class="fragment"><p>Doing this creates a surrogate key.</p></li>
+<li><p>Sometimes a table doesn’t have an explicit primary key.</p></li>
+<li><p>If a table lacks a primary key, it’s sometimes useful to add one with <code>mutate()</code> and <code>row_number()</code>.</p></li>
+<li><p>Doing this creates a surrogate key.</p></li>
 </ul>
 <div class="fragment">
 <div class="cell">
@@ -2194,9 +2194,9 @@ Mike Johnson
 <section id="filtering-joins" class="slide level2">
 <h2>Filtering Joins</h2>
 <ul>
-<li class="fragment"><p>“Filtering” joins keep cases from the LHS that have a defined relation from the RHS</p></li>
-<li class="fragment"><p>Keeps or removes observations from the first table</p></li>
-<li class="fragment"><p>Doesn’t add new variables</p></li>
+<li><p>“Filtering” joins keep cases from the LHS that have a defined relation from the RHS</p></li>
+<li><p>Keeps or removes observations from the first table</p></li>
+<li><p>Doesn’t add new variables</p></li>
 </ul>
 
 <img data-src="images/filtering-joins.png" width="274" class="r-stretch"></section>
@@ -2528,17 +2528,17 @@ Mike Johnson
 <section id="return-to-the-covid-example" class="slide level2">
 <h2>Return to the COVID example!</h2>
 <p>So far, we’ve looked at raw COVID counts. With a lot of data, raw counts are very misleading</p>
-<p>For example does comparing the total cases in California really compare to total cases in PHode Island given the difference in populaion?</p>
+<p>For example does comparing the total cases in California really compare to total cases in Rhode Island given the difference in population?</p>
 <p>Here is a perfect example of time when multiple datasets are needed to best answer a question!</p>
 
 <img data-src="images/states-by-population.webp" class="r-stretch"></section>
 <section id="population-data" class="slide level2">
 <h2>Population data</h2>
 <ul>
-<li class="fragment"><p>The U.S. Census is the primary agency tasked with understanding our population</p></li>
-<li class="fragment"><p>Google-ing for population data leads us to <a href="https://www.census.gov/data/datasets/time-series/demo/popest/2010s-state-total.html">here</a></p></li>
-<li class="fragment"><p>At the bottom of the page we can see their FTP (File Transfer Protocol) server</p></li>
-<li class="fragment"><p>Once there, clicking on <code>2020-2024/state/totals/</code> leads us to a .csv URL we can read from!</p></li>
+<li><p>The U.S. Census is the primary agency tasked with understanding our population</p></li>
+<li><p>Google-ing for population data leads us to <a href="https://www.census.gov/data/datasets/time-series/demo/popest/2010s-state-total.html">here</a></p></li>
+<li><p>At the bottom of the page we can see their FTP (File Transfer Protocol) server</p></li>
+<li><p>Once there, clicking on <code>2020-2024/state/totals/</code> leads us to a .csv URL we can read from!</p></li>
 </ul>
 </section>
 <section id="population-data-1" class="slide level2">
@@ -2934,7 +2934,7 @@ Mike Johnson
 <span id="cb100-7"><a></a>  <span class="fu">mutate</span>(<span class="at">perCapCases =</span> cases <span class="sc">/</span> pop2024_per100k) <span class="sc">|&gt;</span></span>
 <span id="cb100-8"><a></a>  <span class="fu">slice_max</span>(perCapCases, <span class="at">n =</span> <span class="dv">6</span>) <span class="sc">|&gt;</span></span>
 <span id="cb100-9"><a></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb100-10"><a></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> state, <span class="at">y =</span> perCapCases))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb100-10"><a></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(state, <span class="sc">-</span>perCapCases), <span class="at">y =</span> perCapCases))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:40%;">
 <div class="cell">
@@ -2962,7 +2962,7 @@ Mike Johnson
 <span id="cb101-7"><a></a>  <span class="fu">mutate</span>(<span class="at">perCapCases =</span> cases <span class="sc">/</span> pop2024_per100k) <span class="sc">|&gt;</span></span>
 <span id="cb101-8"><a></a>  <span class="fu">slice_max</span>(perCapCases, <span class="at">n =</span> <span class="dv">6</span>) <span class="sc">|&gt;</span></span>
 <span id="cb101-9"><a></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb101-10"><a></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> state, <span class="at">y =</span> perCapCases)) <span class="sc">+</span></span>
+<span id="cb101-10"><a></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(state, <span class="sc">-</span>perCapCases), <span class="at">y =</span> perCapCases)) <span class="sc">+</span></span>
 <span id="cb101-11"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Covid Cases per 100k (Top States)"</span>,</span>
 <span id="cb101-12"><a></a>       <span class="at">x =</span> <span class="st">"State"</span>,</span>
 <span id="cb101-13"><a></a>       <span class="at">y =</span> <span class="st">"Cases per 100k population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2993,7 +2993,7 @@ Mike Johnson
 <span id="cb102-7"><a></a>  <span class="fu">mutate</span>(<span class="at">perCapCases =</span> cases <span class="sc">/</span> pop2024_per100k) <span class="sc">|&gt;</span></span>
 <span id="cb102-8"><a></a>  <span class="fu">slice_max</span>(perCapCases, <span class="at">n =</span> <span class="dv">6</span>) <span class="sc">|&gt;</span></span>
 <span id="cb102-9"><a></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb102-10"><a></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> state, <span class="at">y =</span> perCapCases)) <span class="sc">+</span></span>
+<span id="cb102-10"><a></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(state, <span class="sc">-</span>perCapCases), <span class="at">y =</span> perCapCases)) <span class="sc">+</span></span>
 <span id="cb102-11"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Covid Cases per 100k (Top States)"</span>,</span>
 <span id="cb102-12"><a></a>       <span class="at">x =</span> <span class="st">"State"</span>,</span>
 <span id="cb102-13"><a></a>       <span class="at">y =</span> <span class="st">"Cases per 100k population"</span>) <span class="sc">+</span></span>
@@ -3010,6 +3010,769 @@ Mike Johnson
 </div>
 </div>
 </div></div>
+</section>
+<section id="data-structure-vs-data-format" class="slide level2">
+<h2>Data <strong>structure</strong> vs Data <strong>format</strong></h2>
+<ul>
+<li><p><code>data.frames</code> are a list with atomic vectors of the same length.</p></li>
+<li><p><code>data.frames</code> (and list and vector) are data structures</p></li>
+<li><p>The format of the <code>data.frame</code> however can be widely variable….</p></li>
+</ul>
+</section>
+<section id="for-example" class="slide level2">
+<h2>For example …</h2>
+<p>You can represent the same underlying data in multiple ways. Each of these stores data for country, population and cases in a different way….</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-d34d8578{}.cl-d34a8e68{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d34bf050{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d34bf05a{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d34bfc6c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d34bfc6d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d34bfc76{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d34bfc77{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d34bfc78{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d34bfc80{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d34d8578"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d34bfc6c"><p class="cl-d34bf050"><span class="cl-d34a8e68">country</span></p></th><th class="cl-d34bfc6d"><p class="cl-d34bf05a"><span class="cl-d34a8e68">year</span></p></th><th class="cl-d34bfc6c"><p class="cl-d34bf050"><span class="cl-d34a8e68">type</span></p></th><th class="cl-d34bfc6d"><p class="cl-d34bf05a"><span class="cl-d34a8e68">value</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">Brazil</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">1,952</span></p></td><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">lifeExp</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">50.9170</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">Brazil</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">1,952</span></p></td><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">gdpPercap</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">2,108.9444</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">Brazil</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">2,007</span></p></td><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">lifeExp</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">72.3900</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">Brazil</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">2,007</span></p></td><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">gdpPercap</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">9,065.8008</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">India</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">1,952</span></p></td><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">lifeExp</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">37.3730</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">India</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">1,952</span></p></td><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">gdpPercap</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">546.5657</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">India</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">2,007</span></p></td><td class="cl-d34bfc76"><p class="cl-d34bf050"><span class="cl-d34a8e68">lifeExp</span></p></td><td class="cl-d34bfc77"><p class="cl-d34bf05a"><span class="cl-d34a8e68">64.6980</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d34bfc78"><p class="cl-d34bf050"><span class="cl-d34a8e68">India</span></p></td><td class="cl-d34bfc80"><p class="cl-d34bf05a"><span class="cl-d34a8e68">2,007</span></p></td><td class="cl-d34bfc78"><p class="cl-d34bf050"><span class="cl-d34a8e68">gdpPercap</span></p></td><td class="cl-d34bfc80"><p class="cl-d34bf05a"><span class="cl-d34a8e68">2,452.2104</span></p></td></tr></tbody></table></div>
+</div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-d3536df8{}.cl-d3513eb6{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d3522844{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d352284e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d35232a8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35232a9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35232aa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35232ab{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35232b2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35232b3{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d3536df8"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d35232a8"><p class="cl-d3522844"><span class="cl-d3513eb6">country</span></p></th><th class="cl-d35232a9"><p class="cl-d352284e"><span class="cl-d3513eb6">year</span></p></th><th class="cl-d35232a8"><p class="cl-d3522844"><span class="cl-d3513eb6">values</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d35232aa"><p class="cl-d3522844"><span class="cl-d3513eb6">Brazil</span></p></td><td class="cl-d35232ab"><p class="cl-d352284e"><span class="cl-d3513eb6">1,952</span></p></td><td class="cl-d35232aa"><p class="cl-d3522844"><span class="cl-d3513eb6">50.917 / 2108.944355</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d35232aa"><p class="cl-d3522844"><span class="cl-d3513eb6">Brazil</span></p></td><td class="cl-d35232ab"><p class="cl-d352284e"><span class="cl-d3513eb6">2,007</span></p></td><td class="cl-d35232aa"><p class="cl-d3522844"><span class="cl-d3513eb6">72.39 / 9065.800825</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d35232aa"><p class="cl-d3522844"><span class="cl-d3513eb6">India</span></p></td><td class="cl-d35232ab"><p class="cl-d352284e"><span class="cl-d3513eb6">1,952</span></p></td><td class="cl-d35232aa"><p class="cl-d3522844"><span class="cl-d3513eb6">37.373 / 546.5657493</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d35232b2"><p class="cl-d3522844"><span class="cl-d3513eb6">India</span></p></td><td class="cl-d35232b3"><p class="cl-d352284e"><span class="cl-d3513eb6">2,007</span></p></td><td class="cl-d35232b2"><p class="cl-d3522844"><span class="cl-d3513eb6">64.698 / 2452.210407</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-d35ad0c0{}.cl-d357cc72{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d3593fee{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d3593fef{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d359509c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d359509d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35950a6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35950a7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35950a8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35950a9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d35ad0c0"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d359509c"><p class="cl-d3593fee"><span class="cl-d357cc72">country</span></p></th><th class="cl-d359509d"><p class="cl-d3593fef"><span class="cl-d357cc72">year</span></p></th><th class="cl-d359509d"><p class="cl-d3593fef"><span class="cl-d357cc72">lifeExp</span></p></th><th class="cl-d359509d"><p class="cl-d3593fef"><span class="cl-d357cc72">gdpPercap</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d35950a6"><p class="cl-d3593fee"><span class="cl-d357cc72">Brazil</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">1,952</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">50.917</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">2,108.9444</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d35950a6"><p class="cl-d3593fee"><span class="cl-d357cc72">Brazil</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">2,007</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">72.390</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">9,065.8008</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d35950a6"><p class="cl-d3593fee"><span class="cl-d357cc72">India</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">1,952</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">37.373</span></p></td><td class="cl-d35950a7"><p class="cl-d3593fef"><span class="cl-d357cc72">546.5657</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d35950a8"><p class="cl-d3593fee"><span class="cl-d357cc72">India</span></p></td><td class="cl-d35950a9"><p class="cl-d3593fef"><span class="cl-d357cc72">2,007</span></p></td><td class="cl-d35950a9"><p class="cl-d3593fef"><span class="cl-d357cc72">64.698</span></p></td><td class="cl-d35950a9"><p class="cl-d3593fef"><span class="cl-d357cc72">2,452.2104</span></p></td></tr></tbody></table></div>
+</div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-d3606fda{}.cl-d35e20b8{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d35f2b70{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d35f2b71{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d35f3548{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35f3552{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35f3553{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35f3554{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35f355c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d35f355d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d3606fda"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d35f3548"><p class="cl-d35f2b70"><span class="cl-d35e20b8">country</span></p></th><th class="cl-d35f3552"><p class="cl-d35f2b71"><span class="cl-d35e20b8">1952</span></p></th><th class="cl-d35f3552"><p class="cl-d35f2b71"><span class="cl-d35e20b8">2007</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d35f3553"><p class="cl-d35f2b70"><span class="cl-d35e20b8">Brazil</span></p></td><td class="cl-d35f3554"><p class="cl-d35f2b71"><span class="cl-d35e20b8">2,108.9444</span></p></td><td class="cl-d35f3554"><p class="cl-d35f2b71"><span class="cl-d35e20b8">9,065.801</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d35f355c"><p class="cl-d35f2b70"><span class="cl-d35e20b8">India</span></p></td><td class="cl-d35f355d"><p class="cl-d35f2b71"><span class="cl-d35e20b8">546.5657</span></p></td><td class="cl-d35f355d"><p class="cl-d35f2b71"><span class="cl-d35e20b8">2,452.210</span></p></td></tr></tbody></table></div>
+</div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-d37153e0{}.cl-d36f0b6c{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d3701278{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d3701279{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d3701c64{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3701c65{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3701c6e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3701c6f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3701c70{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3701c78{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d37153e0"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d3701c64"><p class="cl-d3701278"><span class="cl-d36f0b6c">country</span></p></th><th class="cl-d3701c65"><p class="cl-d3701279"><span class="cl-d36f0b6c">1952</span></p></th><th class="cl-d3701c65"><p class="cl-d3701279"><span class="cl-d36f0b6c">2007</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d3701c6e"><p class="cl-d3701278"><span class="cl-d36f0b6c">Brazil</span></p></td><td class="cl-d3701c6f"><p class="cl-d3701279"><span class="cl-d36f0b6c">50.917</span></p></td><td class="cl-d3701c6f"><p class="cl-d3701279"><span class="cl-d36f0b6c">72.390</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d3701c70"><p class="cl-d3701278"><span class="cl-d36f0b6c">India</span></p></td><td class="cl-d3701c78"><p class="cl-d3701279"><span class="cl-d36f0b6c">37.373</span></p></td><td class="cl-d3701c78"><p class="cl-d3701279"><span class="cl-d36f0b6c">64.698</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="data-format-the-quest-for-tidy-data" class="slide level2">
+<h2>Data Format – the quest for <a href="https://r4ds.had.co.nz/tidy-data.html">“tidy data”</a></h2>
+<p>These are all representations of the same underlying data, but they are not equally easy to use. One dataset, the <a href="https://www.jstatsoft.org/article/view/v059i10">tidy dataset</a>, will be much easier to work with inside the <strong>tidy</strong>verse.</p>
+<div class="fragment">
+<blockquote>
+<p>Tidy data demands three interrelated rules</p>
+</blockquote>
+<ul>
+<li>Each variable must have its own column.</li>
+<li>Each observation must have its own row.</li>
+<li>Each value must have its own cell.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="images/07-tidy.png" width="640"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>It’s impossible to only satisfy <span class="math inline">\(2/3\)</span> so … an simpler guideline:</p>
+<ul>
+<li>Put each dataset in a tibble.</li>
+<li>Put each variable in a column.</li>
+</ul>
+</div>
+</section>
+<section id="but-the-world-is-messy" class="slide level2">
+<h2>BUT … the world is messy …</h2>
+
+<img data-src="images/messy-data.jpg" width="640" class="r-stretch"><ul>
+<li>For most real problems, you’ll need to do some cleaning/tidying …</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Once you understand what data you have, you typically have to resolve one of two common issues:
+<ul>
+<li>One <strong>variable</strong> might be spread across multiple columns.</li>
+<li>One <strong>observation</strong> might be scattered across multiple rows.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>To fix these, we look at the <code>tidyr</code> package (within the <code>tidyverse</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb103-2"><a></a></span>
+<span id="cb103-3"><a></a><span class="st">"tidyr"</span> <span class="sc">%in%</span> <span class="fu">tidyverse_packages</span>()</span>
+<span id="cb103-4"><a></a>[<span class="dv">1</span>] <span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="longer" class="slide level2">
+<h2>Longer</h2>
+<ul>
+<li>A common issue is a dataset where some of the columns are not <em>names</em>, but rather <strong>values</strong> we want:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-d37d2a08{}.cl-d37aa044{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d37aa04e{font-family:'Helvetica';font-size:24pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d37baf84{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d37baf8e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d37bbaa6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d37bbaa7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d37bbab0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d37bbab1{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d37bbaba{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d37bbabb{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d37d2a08"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d37bbaa6"><p class="cl-d37baf84"><span class="cl-d37aa044">country</span></p></th><th class="cl-d37bbaa7"><p class="cl-d37baf8e"><span class="cl-d37aa044">1952</span></p></th><th class="cl-d37bbaa7"><p class="cl-d37baf8e"><span class="cl-d37aa044">2007</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d37bbab0"><p class="cl-d37baf84"><span class="cl-d37aa04e">Brazil</span></p></td><td class="cl-d37bbab1"><p class="cl-d37baf8e"><span class="cl-d37aa04e">50.917</span></p></td><td class="cl-d37bbab1"><p class="cl-d37baf8e"><span class="cl-d37aa04e">72.390</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d37bbaba"><p class="cl-d37baf84"><span class="cl-d37aa04e">India</span></p></td><td class="cl-d37bbabb"><p class="cl-d37baf8e"><span class="cl-d37aa04e">37.373</span></p></td><td class="cl-d37bbabb"><p class="cl-d37baf8e"><span class="cl-d37aa04e">64.698</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</section>
+<section id="longer-and-narrower" class="slide level2">
+<h2>Longer (and narrower)</h2>
+<ul>
+<li>In long format, each observation is recorded in a single row, with a column for the variable and another for the value.</li>
+<li>To make the column names an variable, we need to pivot the data making the data longer and narrower…</li>
+<li>To do this we look to <code>tidyr::pivot_longer()</code></li>
+</ul>
+
+<img data-src="images/07-longer.png" width="448" class="r-stretch"></section>
+<section id="longer-1" class="slide level2">
+<h2>Longer</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a></a>flextable<span class="sc">::</span><span class="fu">flextable</span>(lifeExp_tab) <span class="sc">|&gt;</span> </span>
+<span id="cb104-2"><a></a>  <span class="fu">fontsize</span>(<span class="at">size =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-d384ab48{}.cl-d3824588{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d3824592{font-family:'Helvetica';font-size:24pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d38355d6{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d38355d7{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d3835f86{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3835f90{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3835f91{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3835f92{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3835f9a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3835f9b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d384ab48"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d3835f86"><p class="cl-d38355d6"><span class="cl-d3824588">country</span></p></th><th class="cl-d3835f90"><p class="cl-d38355d7"><span class="cl-d3824588">1952</span></p></th><th class="cl-d3835f90"><p class="cl-d38355d7"><span class="cl-d3824588">2007</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d3835f91"><p class="cl-d38355d6"><span class="cl-d3824592">Brazil</span></p></td><td class="cl-d3835f92"><p class="cl-d38355d7"><span class="cl-d3824592">50.917</span></p></td><td class="cl-d3835f92"><p class="cl-d38355d7"><span class="cl-d3824592">72.390</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d3835f9a"><p class="cl-d38355d6"><span class="cl-d3824592">India</span></p></td><td class="cl-d3835f9b"><p class="cl-d38355d7"><span class="cl-d3824592">37.373</span></p></td><td class="cl-d3835f9b"><p class="cl-d38355d7"><span class="cl-d3824592">64.698</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a></a>lifeExp_tab <span class="sc">|&gt;</span> </span>
+<span id="cb105-2"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">1952</span><span class="st">`</span>, <span class="st">`</span><span class="at">2007</span><span class="st">`</span>), </span>
+<span id="cb105-3"><a></a>               <span class="at">names_to =</span> <span class="st">"year"</span>, </span>
+<span id="cb105-4"><a></a>               <span class="at">values_to =</span> <span class="st">"lifeExp"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb105-5"><a></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb105-6"><a></a>  <span class="fu">fontsize</span>(<span class="at">size =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-d38ab178{}.cl-d38823fe{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d3882408{font-family:'Helvetica';font-size:24pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-d389149e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d389149f{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-d3891e4e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3891e58{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3891e59{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3891e5a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3891e5b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d3891e62{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-d38ab178"><thead><tr style="overflow-wrap:break-word;"><th class="cl-d3891e4e"><p class="cl-d389149e"><span class="cl-d38823fe">country</span></p></th><th class="cl-d3891e4e"><p class="cl-d389149e"><span class="cl-d38823fe">year</span></p></th><th class="cl-d3891e58"><p class="cl-d389149f"><span class="cl-d38823fe">lifeExp</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-d3891e59"><p class="cl-d389149e"><span class="cl-d3882408">Brazil</span></p></td><td class="cl-d3891e59"><p class="cl-d389149e"><span class="cl-d3882408">1952</span></p></td><td class="cl-d3891e5a"><p class="cl-d389149f"><span class="cl-d3882408">50.917</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d3891e59"><p class="cl-d389149e"><span class="cl-d3882408">Brazil</span></p></td><td class="cl-d3891e59"><p class="cl-d389149e"><span class="cl-d3882408">2007</span></p></td><td class="cl-d3891e5a"><p class="cl-d389149f"><span class="cl-d3882408">72.390</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d3891e59"><p class="cl-d389149e"><span class="cl-d3882408">India</span></p></td><td class="cl-d3891e59"><p class="cl-d389149e"><span class="cl-d3882408">1952</span></p></td><td class="cl-d3891e5a"><p class="cl-d389149f"><span class="cl-d3882408">37.373</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-d3891e5b"><p class="cl-d389149e"><span class="cl-d3882408">India</span></p></td><td class="cl-d3891e5b"><p class="cl-d389149e"><span class="cl-d3882408">2007</span></p></td><td class="cl-d3891e62"><p class="cl-d389149f"><span class="cl-d3882408">64.698</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="wider-and-shorter" class="slide level2">
+<h2>Wider (and shorter)</h2>
+<ul>
+<li><p><code>pivot_wider()</code> is the opposite of <code>pivot_longer()</code>.</p></li>
+<li><p>We use it to solve the opposite problem… when an observation is scattered across multiple rows.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a></a>table_long</span>
+<span id="cb106-2"><a></a><span class="co"># A tibble: 8 × 4</span></span>
+<span id="cb106-3"><a></a>  country  year type       value</span>
+<span id="cb106-4"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb106-5"><a></a><span class="dv">1</span> Brazil   <span class="dv">1952</span> lifeExp     <span class="fl">50.9</span></span>
+<span id="cb106-6"><a></a><span class="dv">2</span> Brazil   <span class="dv">1952</span> gdpPercap <span class="fl">2109.</span> </span>
+<span id="cb106-7"><a></a><span class="dv">3</span> Brazil   <span class="dv">2007</span> lifeExp     <span class="fl">72.4</span></span>
+<span id="cb106-8"><a></a><span class="dv">4</span> Brazil   <span class="dv">2007</span> gdpPercap <span class="fl">9066.</span> </span>
+<span id="cb106-9"><a></a><span class="dv">5</span> India    <span class="dv">1952</span> lifeExp     <span class="fl">37.4</span></span>
+<span id="cb106-10"><a></a><span class="dv">6</span> India    <span class="dv">1952</span> gdpPercap  <span class="fl">547.</span> </span>
+<span id="cb106-11"><a></a><span class="dv">7</span> India    <span class="dv">2007</span> lifeExp     <span class="fl">64.7</span></span>
+<span id="cb106-12"><a></a><span class="dv">8</span> India    <span class="dv">2007</span> gdpPercap <span class="fl">2452.</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="wider-and-shorter-1" class="slide level2">
+<h2>Wider (and shorter)</h2>
+<ul>
+<li>To allow an variable to become a set of columns, we need to pivot the data making the data wider and shorter</li>
+<li>To do this we use <code>tidyr::pivot_wider()</code></li>
+</ul>
+
+<img data-src="images/07-wider.png" width="448" class="r-stretch"></section>
+<section id="wider" class="slide level2">
+<h2>Wider</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a></a>table_long</span>
+<span id="cb107-2"><a></a><span class="co"># A tibble: 8 × 4</span></span>
+<span id="cb107-3"><a></a>  country  year type       value</span>
+<span id="cb107-4"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb107-5"><a></a><span class="dv">1</span> Brazil   <span class="dv">1952</span> lifeExp     <span class="fl">50.9</span></span>
+<span id="cb107-6"><a></a><span class="dv">2</span> Brazil   <span class="dv">1952</span> gdpPercap <span class="fl">2109.</span> </span>
+<span id="cb107-7"><a></a><span class="dv">3</span> Brazil   <span class="dv">2007</span> lifeExp     <span class="fl">72.4</span></span>
+<span id="cb107-8"><a></a><span class="dv">4</span> Brazil   <span class="dv">2007</span> gdpPercap <span class="fl">9066.</span> </span>
+<span id="cb107-9"><a></a><span class="dv">5</span> India    <span class="dv">1952</span> lifeExp     <span class="fl">37.4</span></span>
+<span id="cb107-10"><a></a><span class="dv">6</span> India    <span class="dv">1952</span> gdpPercap  <span class="fl">547.</span> </span>
+<span id="cb107-11"><a></a><span class="dv">7</span> India    <span class="dv">2007</span> lifeExp     <span class="fl">64.7</span></span>
+<span id="cb107-12"><a></a><span class="dv">8</span> India    <span class="dv">2007</span> gdpPercap <span class="fl">2452.</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a></a>table_long <span class="sc">|&gt;</span></span>
+<span id="cb108-2"><a></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> type, </span>
+<span id="cb108-3"><a></a>                <span class="at">values_from =</span> value)</span>
+<span id="cb108-4"><a></a><span class="co"># A tibble: 4 × 4</span></span>
+<span id="cb108-5"><a></a>  country  year lifeExp gdpPercap</span>
+<span id="cb108-6"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb108-7"><a></a><span class="dv">1</span> Brazil   <span class="dv">1952</span>    <span class="fl">50.9</span>     <span class="fl">2109.</span></span>
+<span id="cb108-8"><a></a><span class="dv">2</span> Brazil   <span class="dv">2007</span>    <span class="fl">72.4</span>     <span class="fl">9066.</span></span>
+<span id="cb108-9"><a></a><span class="dv">3</span> India    <span class="dv">1952</span>    <span class="fl">37.4</span>      <span class="fl">547.</span></span>
+<span id="cb108-10"><a></a><span class="dv">4</span> India    <span class="dv">2007</span>    <span class="fl">64.7</span>     <span class="fl">2452.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+<ul>
+<li>Remember the idea of “binding”? Where a set of values are “bound” to a name?</li>
+</ul>
+<p><strong>You job:</strong> - Always consider what - for <em>your</em> analysis - is a name and what is data</p>
+<ul>
+<li><p>Often your needs don’t match the way data was collected/curated by others!</p></li>
+<li><p>Your needs can range dramatically within a workflow as well</p>
+<ul>
+<li>What needs to be manipulated?</li>
+<li>How do you establish keys?</li>
+<li>What is needed for visualization?</li>
+<li>…</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-1" class="slide level2">
+<h2>Example</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="wide">Wide</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a></a><span class="co"># All country/Year/GDP combinations are unique rows</span></span>
+<span id="cb109-2"><a></a>table_wide</span>
+<span id="cb109-3"><a></a><span class="co"># A tibble: 4 × 4</span></span>
+<span id="cb109-4"><a></a>  country  year lifeExp gdpPercap</span>
+<span id="cb109-5"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>int<span class="sc">&gt;</span>   <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>     <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb109-6"><a></a><span class="dv">1</span> Brazil   <span class="dv">1952</span>    <span class="fl">50.9</span>     <span class="fl">2109.</span></span>
+<span id="cb109-7"><a></a><span class="dv">2</span> Brazil   <span class="dv">2007</span>    <span class="fl">72.4</span>     <span class="fl">9066.</span></span>
+<span id="cb109-8"><a></a><span class="dv">3</span> India    <span class="dv">1952</span>    <span class="fl">37.4</span>      <span class="fl">547.</span></span>
+<span id="cb109-9"><a></a><span class="dv">4</span> India    <span class="dv">2007</span>    <span class="fl">64.7</span>     <span class="fl">2452.</span></span>
+<span id="cb109-10"><a></a></span>
+<span id="cb109-11"><a></a>table_wide <span class="sc">|&gt;</span> </span>
+<span id="cb109-12"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> gdpPercap)) <span class="sc">+</span></span>
+<span id="cb109-13"><a></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> country)) <span class="sc">+</span> </span>
+<span id="cb109-14"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>country) <span class="sc">+</span> </span>
+<span id="cb109-15"><a></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb109-16"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/unnamed-chunk-56-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="long">Long</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a></a><span class="co"># All country/Year/LifeExp/GDP combinations are unique rows</span></span>
+<span id="cb110-2"><a></a>table_long</span>
+<span id="cb110-3"><a></a><span class="co"># A tibble: 8 × 4</span></span>
+<span id="cb110-4"><a></a>  country  year type       value</span>
+<span id="cb110-5"><a></a>  <span class="sc">&lt;</span>fct<span class="sc">&gt;</span>   <span class="er">&lt;</span>int<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>      <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb110-6"><a></a><span class="dv">1</span> Brazil   <span class="dv">1952</span> lifeExp     <span class="fl">50.9</span></span>
+<span id="cb110-7"><a></a><span class="dv">2</span> Brazil   <span class="dv">1952</span> gdpPercap <span class="fl">2109.</span> </span>
+<span id="cb110-8"><a></a><span class="dv">3</span> Brazil   <span class="dv">2007</span> lifeExp     <span class="fl">72.4</span></span>
+<span id="cb110-9"><a></a><span class="dv">4</span> Brazil   <span class="dv">2007</span> gdpPercap <span class="fl">9066.</span> </span>
+<span id="cb110-10"><a></a><span class="dv">5</span> India    <span class="dv">1952</span> lifeExp     <span class="fl">37.4</span></span>
+<span id="cb110-11"><a></a><span class="dv">6</span> India    <span class="dv">1952</span> gdpPercap  <span class="fl">547.</span> </span>
+<span id="cb110-12"><a></a><span class="dv">7</span> India    <span class="dv">2007</span> lifeExp     <span class="fl">64.7</span></span>
+<span id="cb110-13"><a></a><span class="dv">8</span> India    <span class="dv">2007</span> gdpPercap <span class="fl">2452.</span> </span>
+<span id="cb110-14"><a></a></span>
+<span id="cb110-15"><a></a>table_long <span class="sc">|&gt;</span> </span>
+<span id="cb110-16"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb110-17"><a></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> country)) <span class="sc">+</span> </span>
+<span id="cb110-18"><a></a>  <span class="fu">facet_grid</span>(type<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span> </span>
+<span id="cb110-19"><a></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> </span>
+<span id="cb110-20"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/unnamed-chunk-57-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a></a>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 1,704 × 6
+   country     continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Afghanistan Asia       1952    28.8  8425333      779.
+ 2 Afghanistan Asia       1957    30.3  9240934      821.
+ 3 Afghanistan Asia       1962    32.0 10267083      853.
+ 4 Afghanistan Asia       1967    34.0 11537966      836.
+ 5 Afghanistan Asia       1972    36.1 13079460      740.
+ 6 Afghanistan Asia       1977    38.4 14880372      786.
+ 7 Afghanistan Asia       1982    39.9 12881816      978.
+ 8 Afghanistan Asia       1987    40.8 13867957      852.
+ 9 Afghanistan Asia       1992    41.7 16317921      649.
+10 Afghanistan Asia       1997    41.8 22227415      635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-1" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb113-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb113-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 24 × 6
+   country continent  year lifeExp      pop gdpPercap
+   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+ 1 Canada  Americas   1952    68.8 14785584    11367.
+ 2 Canada  Americas   1957    70.0 17010154    12490.
+ 3 Canada  Americas   1962    71.3 18985849    13462.
+ 4 Canada  Americas   1967    72.1 20819767    16077.
+ 5 Canada  Americas   1972    72.9 22284500    18971.
+ 6 Canada  Americas   1977    74.2 23796400    22091.
+ 7 Canada  Americas   1982    75.8 25201900    22899.
+ 8 Canada  Americas   1987    76.9 26549700    26627.
+ 9 Canada  Americas   1992    78.0 28523502    26343.
+10 Canada  Americas   1997    78.6 30305843    28955.
+# ℹ 14 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-2" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb115-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb115-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb115-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 24 × 4
+   country  year lifeExp gdpPercap
+   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Canada   1952    68.8    11367.
+ 2 Canada   1957    70.0    12490.
+ 3 Canada   1962    71.3    13462.
+ 4 Canada   1967    72.1    16077.
+ 5 Canada   1972    72.9    18971.
+ 6 Canada   1977    74.2    22091.
+ 7 Canada   1982    75.8    22899.
+ 8 Canada   1987    76.9    26627.
+ 9 Canada   1992    78.0    26343.
+10 Canada   1997    78.6    28955.
+# ℹ 14 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-3" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb117-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb117-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb117-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb117-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<pre><code># A tibble: 48 × 4
+   country  year name        value
+   &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;
+ 1 Canada   1952 lifeExp      68.8
+ 2 Canada   1952 gdpPercap 11367. 
+ 3 Canada   1957 lifeExp      70.0
+ 4 Canada   1957 gdpPercap 12490. 
+ 5 Canada   1962 lifeExp      71.3
+ 6 Canada   1962 gdpPercap 13462. 
+ 7 Canada   1967 lifeExp      72.1
+ 8 Canada   1967 gdpPercap 16077. 
+ 9 Canada   1972 lifeExp      72.9
+10 Canada   1972 gdpPercap 18971. 
+# ℹ 38 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-4" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb119-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb119-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb119-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb119-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb119-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_05_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-5" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb120-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb120-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb120-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb120-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb120-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb120-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_06_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-6" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb121-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb121-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb121-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb121-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb121-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb121-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb121-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_07_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-7" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb122-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb122-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb122-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb122-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb122-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb122-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb122-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb122-9"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_08_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-8" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb123-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb123-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb123-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb123-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb123-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb123-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb123-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb123-9"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb123-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb123-11"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb123-12"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb123-13"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_09_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-9" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb124-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb124-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb124-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb124-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb124-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb124-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb124-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb124-9"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb124-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb124-11"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb124-12"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb124-13"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb124-14"><a></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_10_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-10" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb125-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb125-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb125-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb125-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb125-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb125-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb125-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb125-9"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb125-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb125-11"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb125-12"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb125-13"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb125-14"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb125-15"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_11_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-11" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb126-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb126-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb126-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb126-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb126-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb126-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb126-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb126-9"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb126-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb126-11"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb126-12"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb126-13"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb126-14"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb126-15"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb126-16"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_12_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-12" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb127-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb127-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb127-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb127-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb127-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb127-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb127-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb127-9"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb127-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb127-11"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb127-12"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb127-13"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb127-14"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb127-15"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb127-16"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb127-17"><a></a>  <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">face =</span> <span class="st">"bold"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_13_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="pivot-within-workflow-13" class="slide level2">
+<h2>Pivot within workflow…</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb128-2"><a></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span></span>
+<span id="cb128-3"><a></a>           <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"United States"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb128-4"><a></a>  <span class="fu">select</span>(country, year, lifeExp, gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb128-5"><a></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(<span class="st">'lifeExp'</span>, <span class="st">'gdpPercap'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb128-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb128-7"><a></a>  <span class="fu">geom_line</span>(<span class="at">col =</span> <span class="st">'gray80'</span>) <span class="sc">+</span></span>
+<span id="cb128-8"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> country)) <span class="sc">+</span></span>
+<span id="cb128-9"><a></a>  <span class="fu">facet_grid</span>(name<span class="sc">~</span>country, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb128-10"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Year"</span>,</span>
+<span id="cb128-11"><a></a>       <span class="at">title =</span> <span class="st">"North America: GDP &amp; Life Expectancy"</span>,</span>
+<span id="cb128-12"><a></a>       <span class="at">subtitle =</span> <span class="st">"1950-2007"</span>,</span>
+<span id="cb128-13"><a></a>       <span class="at">caption =</span> <span class="st">"Data: Gapminder R package"</span>) <span class="sc">+</span></span>
+<span id="cb128-14"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb128-15"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb128-16"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb128-17"><a></a>  <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">face =</span> <span class="st">"bold"</span>)) <span class="sc">+</span></span>
+<span id="cb128-18"><a></a>  <span class="fu">theme</span>(<span class="at">plot.caption  =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"gray50"</span>, <span class="at">face =</span> <span class="st">"italic"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/pivot-long_auto_14_output-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<h4 id="when-to-use-long-data"><strong>When to Use Long Data?</strong></h4>
+<ul>
+<li>Easier for aggregation, analysis, and plotting.<br>
+</li>
+<li>Works well with ggplot2 and other tidyverse tools.<br>
+</li>
+<li>Facilitates handling of missing values.<br>
+</li>
+<li>Preferred for repeated measures or time series data.<br>
+</li>
+</ul>
+<h4 id="when-to-use-wide-data"><strong>When to Use Wide Data?</strong></h4>
+<ul>
+<li>Simpler for certain analyses (e.g., regression models).<br>
+</li>
+<li>Easier to read when dealing with few variables.<br>
+</li>
+<li>Can be easier for sharing datasets with non-technical audiences.<br>
+</li>
+</ul>
+</section>
+<section id="assignment" class="slide level2">
+<h2>Assignment</h2>
+<p>In your <code>ess-330-daily-exercises/R</code> directory</p>
+<ol type="1">
+<li>Create a new file called <code>day-08.R</code></li>
+<li>Open that file.</li>
+<li>Add your name, date, and the purpose of the script as comments (preceded by #)</li>
+</ol>
+</section>
+<section id="assignment-1" class="slide level2">
+<h2>Assignment</h2>
+<p><strong>Question 1</strong>: Make a <em>faceted</em> plot of the cumulative cases &amp; deaths by USA region. Your <em>x</em> axis should be the <em>date</em> and the <em>y</em> axis value/count. To do this you will need to join and pivot the COVID-19 data.</p>
+<p>We can break this task into 7 steps:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ol type="1">
+<li><strong>Read</strong> in the COVID-19 data<br>
+</li>
+<li><strong>Create</strong> a new data.frame using the available <code>state.abb</code>, <code>state.name</code>, <code>state.region</code> objects in base R. Be intentional about creating a primary key to match to the COVID data!</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">region =</span> state.region,</span>
+<span id="cb129-2"><a></a>                ...,</span>
+<span id="cb129-3"><a></a>                ...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li><strong>Join</strong> your new data.frame to the raw COVID data. Think about <code>right</code>, <code>inner</code>, <code>left</code>, or <code>full</code> join…</li>
+<li><strong>split-apply</strong> the joined data to determine the daily, cumulative, cases and deaths for each region</li>
+<li><strong>Pivot</strong> your data from wide format to long</li>
+<li><strong>Plot</strong> your data in a compelling way (setup, layers, labels, facets, themes)</li>
+<li><strong>Save</strong> the image to your <code>img</code> directory with a good file name and extension!</li>
+</ol>
+</div><div class="column" style="width:60%;">
+<center>
+<img src="images/07-daily-exercise.png" width="80%">
+</center>
+</div></div>
+</section>
+<section id="submission" class="slide level2">
+<h2>Submission:</h2>
+<ul>
+<li><p>Push your work to Github</p></li>
+<li><p>Turn in your Rscript, image, and repo URL to the Canvas dropbox</p></li>
+</ul>
 
 
 </section></section>

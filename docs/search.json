@@ -340,7 +340,7 @@
     "href": "slides/8-relations.html#relational-data",
     "title": "Lecture 08",
     "section": "Relational Data",
-    "text": "Relational Data\n\nThere will come a time when you need data from different sources.\nWhen this happens we must join – or merge – mutliple tables\nMultiple tables of data are called *relational data** because the relations are an equal part of the data\nTo merge data, we have to find a point of commonality\nThat point – or attribute – of commonality is the realtion"
+    "text": "Relational Data\n\nThere will come a time when you need data from different sources.\nWhen this happens we must join – or merge – multiple tables\nMultiple tables of data are called *relational data** because the relations are an equal part of the data\nTo merge data, we have to find a point of commonality\nThat point – or attribute – of commonality is the relation"
   },
   {
     "objectID": "slides/8-relations.html#relational-verbs",
@@ -445,7 +445,7 @@
     "href": "slides/8-relations.html#return-to-the-covid-example",
     "title": "Lecture 08",
     "section": "Return to the COVID example!",
-    "text": "Return to the COVID example!\nSo far, we’ve looked at raw COVID counts. With a lot of data, raw counts are very misleading\nFor example does comparing the total cases in California really compare to total cases in PHode Island given the difference in populaion?\nHere is a perfect example of time when multiple datasets are needed to best answer a question!"
+    "text": "Return to the COVID example!\nSo far, we’ve looked at raw COVID counts. With a lot of data, raw counts are very misleading\nFor example does comparing the total cases in California really compare to total cases in Rhode Island given the difference in population?\nHere is a perfect example of time when multiple datasets are needed to best answer a question!"
   },
   {
     "objectID": "slides/8-relations.html#population-data",
@@ -557,21 +557,21 @@
     "href": "slides/8-relations.html#re-do-the-analysis-9",
     "title": "Lecture 08",
     "section": "Re-do the Analysis",
-    "text": "Re-do the Analysis\n\n\n\ncovid |&gt;\n  filter(date == max(date)) |&gt;\n  group_by(state) |&gt;\n  summarize(cases = sum(cases, na.rm = TRUE)) |&gt;\n  ungroup() |&gt;\n  inner_join(pop, by = c(\"state\" = \"name\")) |&gt;\n  mutate(perCapCases = cases / pop2024_per100k) |&gt;\n  slice_max(perCapCases, n = 6) |&gt;\n  ggplot() +\n  geom_col(aes(x = state, y = perCapCases))"
+    "text": "Re-do the Analysis\n\n\n\ncovid |&gt;\n  filter(date == max(date)) |&gt;\n  group_by(state) |&gt;\n  summarize(cases = sum(cases, na.rm = TRUE)) |&gt;\n  ungroup() |&gt;\n  inner_join(pop, by = c(\"state\" = \"name\")) |&gt;\n  mutate(perCapCases = cases / pop2024_per100k) |&gt;\n  slice_max(perCapCases, n = 6) |&gt;\n  ggplot() +\n  geom_col(aes(x = reorder(state, -perCapCases), y = perCapCases))"
   },
   {
     "objectID": "slides/8-relations.html#re-do-the-analysis-10",
     "href": "slides/8-relations.html#re-do-the-analysis-10",
     "title": "Lecture 08",
     "section": "Re-do the Analysis",
-    "text": "Re-do the Analysis\n\n\n\ncovid |&gt;\n  filter(date == max(date)) |&gt;\n  group_by(state) |&gt;\n  summarize(cases = sum(cases, na.rm = TRUE)) |&gt;\n  ungroup() |&gt;\n  inner_join(pop, by = c(\"state\" = \"name\")) |&gt;\n  mutate(perCapCases = cases / pop2024_per100k) |&gt;\n  slice_max(perCapCases, n = 6) |&gt;\n  ggplot() +\n  geom_col(aes(x = state, y = perCapCases)) +\n  labs(title = \"Covid Cases per 100k (Top States)\",\n       x = \"State\",\n       y = \"Cases per 100k population\")"
+    "text": "Re-do the Analysis\n\n\n\ncovid |&gt;\n  filter(date == max(date)) |&gt;\n  group_by(state) |&gt;\n  summarize(cases = sum(cases, na.rm = TRUE)) |&gt;\n  ungroup() |&gt;\n  inner_join(pop, by = c(\"state\" = \"name\")) |&gt;\n  mutate(perCapCases = cases / pop2024_per100k) |&gt;\n  slice_max(perCapCases, n = 6) |&gt;\n  ggplot() +\n  geom_col(aes(x = reorder(state, -perCapCases), y = perCapCases)) +\n  labs(title = \"Covid Cases per 100k (Top States)\",\n       x = \"State\",\n       y = \"Cases per 100k population\")"
   },
   {
     "objectID": "slides/8-relations.html#re-do-the-analysis-11",
     "href": "slides/8-relations.html#re-do-the-analysis-11",
     "title": "Lecture 08",
     "section": "Re-do the Analysis",
-    "text": "Re-do the Analysis\n\n\n\ncovid |&gt;\n  filter(date == max(date)) |&gt;\n  group_by(state) |&gt;\n  summarize(cases = sum(cases, na.rm = TRUE)) |&gt;\n  ungroup() |&gt;\n  inner_join(pop, by = c(\"state\" = \"name\")) |&gt;\n  mutate(perCapCases = cases / pop2024_per100k) |&gt;\n  slice_max(perCapCases, n = 6) |&gt;\n  ggplot() +\n  geom_col(aes(x = state, y = perCapCases)) +\n  labs(title = \"Covid Cases per 100k (Top States)\",\n       x = \"State\",\n       y = \"Cases per 100k population\") +\n  theme_linedraw()"
+    "text": "Re-do the Analysis\n\n\n\ncovid |&gt;\n  filter(date == max(date)) |&gt;\n  group_by(state) |&gt;\n  summarize(cases = sum(cases, na.rm = TRUE)) |&gt;\n  ungroup() |&gt;\n  inner_join(pop, by = c(\"state\" = \"name\")) |&gt;\n  mutate(perCapCases = cases / pop2024_per100k) |&gt;\n  slice_max(perCapCases, n = 6) |&gt;\n  ggplot() +\n  geom_col(aes(x = reorder(state, -perCapCases), y = perCapCases)) +\n  labs(title = \"Covid Cases per 100k (Top States)\",\n       x = \"State\",\n       y = \"Cases per 100k population\") +\n  theme_linedraw()"
   },
   {
     "objectID": "slides/6-data-manipulation.html#subsetting",
@@ -1600,7 +1600,7 @@
     "href": "schedule.html#component-2-working-with-data",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 2: Working with Data",
-    "text": "Component 2: Working with Data\nBuild confidence in wrangling, visualizing, and analyzing data. This section covers importing and cleaning data sets, working with joins, and creating effective visualizations. You’ll also delve into study design, hypothesis testing, and statistical analyses spanning uni-variate, bivariate, and multivariate techniques.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nImport, clean, and merge data sets from diverse sources using core tidyverse packages.\nConduct hypothesis testing and interpret results.\nCreate impact visualizations to communicate findings.\n\n\n\n\n\n Lecture 05 (w4): Data Structures\n Lecture 06 (w4): Data Manipulation (dplyr)\n Lecture 07 (w5): Data Visualization (ggplot2)\n Lecture 08 (w5): Data Relations (dplyr)\n Lecture 09 (w6): Data formats (tidyr)\n Lecture 10 (w6): EDA, ggpubr,patchwork\n Lecture 11 (w7): Hypothesis Testing & Statistics\n Lecture 12 (w7): Statistics\n Lecture 13 (w8): Regression\n Lecture 14 (w8): Tidymodels, Project Introduction\n\nExercise 05: Building subsets\nExercise 06: Manipulating Data\nExercise 07: Your first plots\nExercise 08:\nExercise 09:\nExercise 10:\nExercise 11:\nExercise 12:\nExercise 13:\nExercise 14:"
+    "text": "Component 2: Working with Data\nBuild confidence in wrangling, visualizing, and analyzing data. This section covers importing and cleaning data sets, working with joins, and creating effective visualizations. You’ll also delve into study design, hypothesis testing, and statistical analyses spanning uni-variate, bivariate, and multivariate techniques.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nImport, clean, and merge data sets from diverse sources using core tidyverse packages.\nConduct hypothesis testing and interpret results.\nCreate impact visualizations to communicate findings.\n\n\n\n\n\n Lecture 05 (w4): Data Structures\n Lecture 06 (w4): Data Manipulation (dplyr)\n Lecture 07 (w5): Data Visualization (ggplot2)\n Lecture 08 (w5): Data Relations & Forms (tidyr)\n Lecture 09 (w6): Nests, maps, and models (purr)\n Lecture 10 (w6): EDA and Normality (ggpubr)\n Lecture 11 (w7): Hypothesis Testing & P Values\n Lecture 12 (w7): Statistical Tests\n Lecture 13 (w8): Regression Deep Dive\n Lecture 14 (w8): Tidymodels, Project Introduction\n\nExercise 05: Building subsets\nExercise 06: Manipulating Data\nExercise 07: Your first plots\nExercise 08:Joins & Pivots\nExercise 09:\nExercise 10:\nExercise 11:\nExercise 12:\nExercise 13:\nExercise 14:"
   },
   {
     "objectID": "schedule.html#spring-break-w9",
@@ -1614,7 +1614,7 @@
     "href": "schedule.html#component-3-modeling",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 3: Modeling",
-    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 15 (w10): ML: Data Engineering\n Lecture 16 (w10): ML: Model Classes\n Lecture 17 (w11): ML: Model Selection\n Lecture 18 (w11): ML: Evaluation & Tuning\n Lecture 19 (w12): Time series Analysis\n Lecture 20 (w12): Time series Forecasting\n\nExercise 15:\nExercise 16:\nExercise 17:\nExercise 18:\nExercise 19:\nExercise 20:"
+    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 15 (w10): ML: Data Engineering\n Lecture 16 (w10): ML: Model Classes\n Lecture 17 (w11): ML: Model Selection\n Lecture 18 (w11): ML: Evaluation & Tuning\n Lecture 19 (w12): Timeseries Analysis\n Lecture 20 (w12): Timeseries Forecasting\n\nExercise 15:\nExercise 16:\nExercise 17:\nExercise 18:\nExercise 19:\nExercise 20:"
   },
   {
     "objectID": "schedule.html#component-4-geospatial",
@@ -1712,14 +1712,14 @@
     "href": "labs.html",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\n Personal Portfolio\nIntroductions\nFriday Week 4 @ 5:00pm\n\n\n3\n Personal Portfolio\nIntro to Quarto\nFriday Week 4 @ 5:00pm\n\n\n4\n Minnesota tree growth\nData Transform\nFriday Week 5 @ 5:00pm\n\n\n5\n COVID Wrangling\nflextable\nFriday Week 7 @ 5:00pm\n\n\n6\n COVID Wrangling\nggpubr\nFriday Week 7 @ 5:00pm\n\n\n7\n Statistcs In R\n\n\n\n\n8\n Statistcs In R\n\n\n\n\n9\nSpring Break\n—\n—\n\n\n10\n\n\n\n\n\n11\n\n\n\n\n\n12\n\n\n\n\n\n13\n\n\n\n\n\n14\n\n\n\n\n\n15\n\n\n\n\n\n16"
+    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\n Personal Portfolio\nIntroductions\nFriday Week 4 @ 5:00pm\n\n\n3\n Personal Portfolio\nIntro to Quarto\nFriday Week 4 @ 5:00pm\n\n\n4\n Minnesota tree growth\nData Transform\nFriday Week 5 @ 5:00pm\n\n\n5\n COVID Wrangling\nflextable\nFriday Week 7 @ 5:00pm\n\n\n6\n COVID Wrangling\n–\nFriday Week 7 @ 5:00pm\n\n\n7\n Statistcs In R\nggpubr\n\n\n\n8\n Statistcs In R\n\n\n\n\n9\nSpring Break\n—\n—\n\n\n10\n\n\n\n\n\n11\n\n\n\n\n\n12\n\n\n\n\n\n13\n\n\n\n\n\n14\n\n\n\n\n\n15\n\n\n\n\n\n16"
   },
   {
     "objectID": "labs.html#labs",
     "href": "labs.html#labs",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\n Personal Portfolio\nIntroductions\nFriday Week 4 @ 5:00pm\n\n\n3\n Personal Portfolio\nIntro to Quarto\nFriday Week 4 @ 5:00pm\n\n\n4\n Minnesota tree growth\nData Transform\nFriday Week 5 @ 5:00pm\n\n\n5\n COVID Wrangling\nflextable\nFriday Week 7 @ 5:00pm\n\n\n6\n COVID Wrangling\nggpubr\nFriday Week 7 @ 5:00pm\n\n\n7\n Statistcs In R\n\n\n\n\n8\n Statistcs In R\n\n\n\n\n9\nSpring Break\n—\n—\n\n\n10\n\n\n\n\n\n11\n\n\n\n\n\n12\n\n\n\n\n\n13\n\n\n\n\n\n14\n\n\n\n\n\n15\n\n\n\n\n\n16"
+    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\n Personal Portfolio\nIntroductions\nFriday Week 4 @ 5:00pm\n\n\n3\n Personal Portfolio\nIntro to Quarto\nFriday Week 4 @ 5:00pm\n\n\n4\n Minnesota tree growth\nData Transform\nFriday Week 5 @ 5:00pm\n\n\n5\n COVID Wrangling\nflextable\nFriday Week 7 @ 5:00pm\n\n\n6\n COVID Wrangling\n–\nFriday Week 7 @ 5:00pm\n\n\n7\n Statistcs In R\nggpubr\n\n\n\n8\n Statistcs In R\n\n\n\n\n9\nSpring Break\n—\n—\n\n\n10\n\n\n\n\n\n11\n\n\n\n\n\n12\n\n\n\n\n\n13\n\n\n\n\n\n14\n\n\n\n\n\n15\n\n\n\n\n\n16"
   },
   {
     "objectID": "exercises/3-first-project.html",
@@ -3987,7 +3987,7 @@
     "href": "slides/9-formats-eda.html#data-format-the-quest-for-tidy-data",
     "title": "Lecture 09",
     "section": "Data Format – the quest for “tidy data”",
-    "text": "Data Format – the quest for “tidy data”\n\nThese are all representations of the same underlying data, but they are not equally easy to use. One dataset, the tidy dataset, will be much easier to work with inside the tidyverse.\nTidy data demands three interrelated rules\nEach variable must have its own column.\nEach observation must have its own row.\nEach value must have its own cell.\n\n\n\nIt’s impossible to only satisfy \\(2/3\\) so … an simpler guideline:\n\nPut each dataset in a tibble.\nPut each variable in a column."
+    "text": "Data Format – the quest for “tidy data”\n\nThese are all representations of the same underlying data, but they are not equally easy to use. One dataset, the tidy dataset, will be much easier to work with inside the tidyverse.\nTidy data demands three interrelated rules\nEach variable must have its own column.\nEach observation must have its own row.\nEach value must have its own cell.\n\n\n\nIt’s impossible to only satisfy \\(2/3\\) so … a simpler guideline:\n\nPut each dataset in a tibble.\nPut each variable in a column."
   },
   {
     "objectID": "slides/9-formats-eda.html#the-world-is-messy",
@@ -4254,5 +4254,649 @@
     "title": "Lecture 09",
     "section": "Summary",
     "text": "Summary\n\nbind_rows(): Combines data frames vertically.\nbind_cols(): Combines data frames horizontally.\nBoth functions preserve column types and handle missing values where necessary."
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#for-example",
+    "href": "slides/9-formats-eda.html#for-example",
+    "title": "Lecture 09",
+    "section": "For example …",
+    "text": "For example …\nYou can represent the same underlying data in multiple ways. Each of these stores data for country, population and cases in a different way….\n\n\n\n# A tibble: 8 × 4\n  country  year type       value\n  &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;\n1 Brazil   1952 lifeExp     50.9\n2 Brazil   1952 gdpPercap 2109. \n3 Brazil   2007 lifeExp     72.4\n4 Brazil   2007 gdpPercap 9066. \n5 India    1952 lifeExp     37.4\n6 India    1952 gdpPercap  547. \n7 India    2007 lifeExp     64.7\n8 India    2007 gdpPercap 2452. \n# A tibble: 4 × 3\n  country  year values              \n  &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;               \n1 Brazil   1952 50.917 / 2108.944355\n2 Brazil   2007 72.39 / 9065.800825 \n3 India    1952 37.373 / 546.5657493\n4 India    2007 64.698 / 2452.210407\n\n\n\n# A tibble: 4 × 4\n  country  year lifeExp gdpPercap\n  &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1 Brazil   1952    50.9     2109.\n2 Brazil   2007    72.4     9066.\n3 India    1952    37.4      547.\n4 India    2007    64.7     2452.\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452.\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7"
+  },
+  {
+    "objectID": "slides/8-relations.html#submission",
+    "href": "slides/8-relations.html#submission",
+    "title": "Lecture 08",
+    "section": "Submission:",
+    "text": "Submission:\n\nPush your work to Github\nTurn in your Rscript, image, and repo URL to the Canvas dropbox"
+  },
+  {
+    "objectID": "slides/8-relations.html#data-structure-vs-data-format",
+    "href": "slides/8-relations.html#data-structure-vs-data-format",
+    "title": "Lecture 08",
+    "section": "Data structure vs Data format",
+    "text": "Data structure vs Data format\n\ndata.frames are a list with atomic vectors of the same length.\ndata.frames (and list and vector) are data structures\nThe format of the data.frame however can be widely variable…."
+  },
+  {
+    "objectID": "slides/8-relations.html#for-example",
+    "href": "slides/8-relations.html#for-example",
+    "title": "Lecture 08",
+    "section": "For example …",
+    "text": "For example …\nYou can represent the same underlying data in multiple ways. Each of these stores data for country, population and cases in a different way….\n\n\n\n\ncountryyeartypevalueBrazil1,952lifeExp50.9170Brazil1,952gdpPercap2,108.9444Brazil2,007lifeExp72.3900Brazil2,007gdpPercap9,065.8008India1,952lifeExp37.3730India1,952gdpPercap546.5657India2,007lifeExp64.6980India2,007gdpPercap2,452.2104\n\n\ncountryyearvaluesBrazil1,95250.917 / 2108.944355Brazil2,00772.39 / 9065.800825India1,95237.373 / 546.5657493India2,00764.698 / 2452.210407\n\n\n\n\n\ncountryyearlifeExpgdpPercapBrazil1,95250.9172,108.9444Brazil2,00772.3909,065.8008India1,95237.373546.5657India2,00764.6982,452.2104\n\n\ncountry19522007Brazil2,108.94449,065.801India546.56572,452.210\n\n\ncountry19522007Brazil50.91772.390India37.37364.698"
+  },
+  {
+    "objectID": "slides/8-relations.html#longer",
+    "href": "slides/8-relations.html#longer",
+    "title": "Lecture 08",
+    "section": "Longer",
+    "text": "Longer\n\nA common issue is a dataset where some of the columns are not names, but rather values we want:\n\n\n\ncountry19522007Brazil50.91772.390India37.37364.698"
+  },
+  {
+    "objectID": "slides/8-relations.html#longer-and-narrower",
+    "href": "slides/8-relations.html#longer-and-narrower",
+    "title": "Lecture 08",
+    "section": "Longer (and narrower)",
+    "text": "Longer (and narrower)\n\nIn long format, each observation is recorded in a single row, with a column for the variable and another for the value.\nTo make the column names an variable, we need to pivot the data making the data longer and narrower…\nTo do this we look to tidyr::pivot_longer()"
+  },
+  {
+    "objectID": "slides/8-relations.html#longer-1",
+    "href": "slides/8-relations.html#longer-1",
+    "title": "Lecture 08",
+    "section": "Longer",
+    "text": "Longer\n\n\n\nflextable::flextable(lifeExp_tab) |&gt; \n  fontsize(size = 24)\n\ncountry19522007Brazil50.91772.390India37.37364.698\n\n\n\n\nlifeExp_tab |&gt; \n  pivot_longer(cols = c(`1952`, `2007`), \n               names_to = \"year\", \n               values_to = \"lifeExp\") |&gt; \n  flextable::flextable() |&gt; \n  fontsize(size = 24)\n\ncountryyearlifeExpBrazil195250.917Brazil200772.390India195237.373India200764.698"
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together",
+    "href": "slides/8-relations.html#putting-it-together",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7"
+  },
+  {
+    "objectID": "slides/8-relations.html#wider-and-shorter",
+    "href": "slides/8-relations.html#wider-and-shorter",
+    "title": "Lecture 08",
+    "section": "Wider (and shorter)",
+    "text": "Wider (and shorter)\n\npivot_wider() is the opposite of pivot_longer().\nWe use it to solve the opposite problem… when an observation is scattered across multiple rows.\n\n\ntable_long\n# A tibble: 8 × 4\n  country  year type       value\n  &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;\n1 Brazil   1952 lifeExp     50.9\n2 Brazil   1952 gdpPercap 2109. \n3 Brazil   2007 lifeExp     72.4\n4 Brazil   2007 gdpPercap 9066. \n5 India    1952 lifeExp     37.4\n6 India    1952 gdpPercap  547. \n7 India    2007 lifeExp     64.7\n8 India    2007 gdpPercap 2452."
+  },
+  {
+    "objectID": "slides/8-relations.html#wider-and-shorter-1",
+    "href": "slides/8-relations.html#wider-and-shorter-1",
+    "title": "Lecture 08",
+    "section": "Wider (and shorter)",
+    "text": "Wider (and shorter)\n\nTo allow an variable to become a set of columns, we need to pivot the data making the data wider and shorter\nTo do this we use tidyr::pivot_wider()"
+  },
+  {
+    "objectID": "slides/8-relations.html#wider",
+    "href": "slides/8-relations.html#wider",
+    "title": "Lecture 08",
+    "section": "Wider",
+    "text": "Wider\n\n\n\ntable_long\n# A tibble: 8 × 4\n  country  year type       value\n  &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;\n1 Brazil   1952 lifeExp     50.9\n2 Brazil   1952 gdpPercap 2109. \n3 Brazil   2007 lifeExp     72.4\n4 Brazil   2007 gdpPercap 9066. \n5 India    1952 lifeExp     37.4\n6 India    1952 gdpPercap  547. \n7 India    2007 lifeExp     64.7\n8 India    2007 gdpPercap 2452. \n\n\n\ntable_long |&gt;\n    pivot_wider(names_from = type, \n                values_from = value)\n# A tibble: 4 × 4\n  country  year lifeExp gdpPercap\n  &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1 Brazil   1952    50.9     2109.\n2 Brazil   2007    72.4     9066.\n3 India    1952    37.4      547.\n4 India    2007    64.7     2452."
+  },
+  {
+    "objectID": "slides/8-relations.html#when-wide-is-right",
+    "href": "slides/8-relations.html#when-wide-is-right",
+    "title": "Lecture 08",
+    "section": "When wide is right!",
+    "text": "When wide is right!\n\nAll dplyr data manipulation works on columns and rows\nSo when we are filtering, selecting, mutating, grouping, and summarizing wide data is best"
+  },
+  {
+    "objectID": "slides/8-relations.html#when-long-is-right",
+    "href": "slides/8-relations.html#when-long-is-right",
+    "title": "Lecture 08",
+    "section": "When long is right!",
+    "text": "When long is right!\n\nYesterday we noted that ggplot prefers data to be long.\nThis is because when applying aesthetics or facets we want the variable to be an attribute of the dataset"
+  },
+  {
+    "objectID": "slides/8-relations.html#for-example-1",
+    "href": "slides/8-relations.html#for-example-1",
+    "title": "Lecture 08",
+    "section": "For example …",
+    "text": "For example …\n\n\nWide\n\ntable_wide |&gt; \n  ggplot(aes(x = year, y = gdpPercap)) +\n  geom_line(aes(color = country)) + \n  facet_wrap(~country) + \n  theme_bw() + \n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\nLong\n\ntable_long |&gt; \n  ggplot(aes(x = year, y = value)) +\n  geom_line(aes(color = country)) + \n  facet_grid(type~country, scales = \"free_y\") + \n  theme_bw() + \n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#wide",
+    "href": "slides/8-relations.html#wide",
+    "title": "Lecture 08",
+    "section": "Wide",
+    "text": "Wide\n\ntable1 |&gt; \nggplot(aes(x = year, y = gdpPercap)) +\ngeom_line(aes(color = country)) + \n  facet_wrap(~country) + \ntheme_bw() + \n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#long",
+    "href": "slides/8-relations.html#long",
+    "title": "Lecture 08",
+    "section": "Long",
+    "text": "Long\n\ntable2 |&gt; \nggplot(aes(x = year, y = value)) +\ngeom_line(aes(color = country)) + \n  facet_grid(type~country, scales = \"free_y\") + \ntheme_bw() + \n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow",
+    "href": "slides/8-relations.html#pivot-within-workflow",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder\n\n\n\n# A tibble: 1,704 × 6\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Afghanistan Asia       1957    30.3  9240934      821.\n 3 Afghanistan Asia       1962    32.0 10267083      853.\n 4 Afghanistan Asia       1967    34.0 11537966      836.\n 5 Afghanistan Asia       1972    36.1 13079460      740.\n 6 Afghanistan Asia       1977    38.4 14880372      786.\n 7 Afghanistan Asia       1982    39.9 12881816      978.\n 8 Afghanistan Asia       1987    40.8 13867957      852.\n 9 Afghanistan Asia       1992    41.7 16317921      649.\n10 Afghanistan Asia       1997    41.8 22227415      635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-1",
+    "href": "slides/8-relations.html#pivot-within-workflow-1",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\"))\n\n\n\n# A tibble: 24 × 6\n   country continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Canada  Americas   1952    68.8 14785584    11367.\n 2 Canada  Americas   1957    70.0 17010154    12490.\n 3 Canada  Americas   1962    71.3 18985849    13462.\n 4 Canada  Americas   1967    72.1 20819767    16077.\n 5 Canada  Americas   1972    72.9 22284500    18971.\n 6 Canada  Americas   1977    74.2 23796400    22091.\n 7 Canada  Americas   1982    75.8 25201900    22899.\n 8 Canada  Americas   1987    76.9 26549700    26627.\n 9 Canada  Americas   1992    78.0 28523502    26343.\n10 Canada  Americas   1997    78.6 30305843    28955.\n# ℹ 14 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-2",
+    "href": "slides/8-relations.html#pivot-within-workflow-2",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap)\n\n\n\n# A tibble: 24 × 4\n   country  year lifeExp gdpPercap\n   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n 1 Canada   1952    68.8    11367.\n 2 Canada   1957    70.0    12490.\n 3 Canada   1962    71.3    13462.\n 4 Canada   1967    72.1    16077.\n 5 Canada   1972    72.9    18971.\n 6 Canada   1977    74.2    22091.\n 7 Canada   1982    75.8    22899.\n 8 Canada   1987    76.9    26627.\n 9 Canada   1992    78.0    26343.\n10 Canada   1997    78.6    28955.\n# ℹ 14 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-3",
+    "href": "slides/8-relations.html#pivot-within-workflow-3",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap'))\n\n\n\n# A tibble: 48 × 4\n   country  year name        value\n   &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;\n 1 Canada   1952 lifeExp      68.8\n 2 Canada   1952 gdpPercap 11367. \n 3 Canada   1957 lifeExp      70.0\n 4 Canada   1957 gdpPercap 12490. \n 5 Canada   1962 lifeExp      71.3\n 6 Canada   1962 gdpPercap 13462. \n 7 Canada   1967 lifeExp      72.1\n 8 Canada   1967 gdpPercap 16077. \n 9 Canada   1972 lifeExp      72.9\n10 Canada   1972 gdpPercap 18971. \n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-4",
+    "href": "slides/8-relations.html#pivot-within-workflow-4",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value))"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-5",
+    "href": "slides/8-relations.html#pivot-within-workflow-5",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80')"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-6",
+    "href": "slides/8-relations.html#pivot-within-workflow-6",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country))"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-7",
+    "href": "slides/8-relations.html#pivot-within-workflow-7",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  facet_grid(name~country, scales = \"free_y\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-8",
+    "href": "slides/8-relations.html#pivot-within-workflow-8",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  facet_grid(name~country, scales = \"free_y\") +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-9",
+    "href": "slides/8-relations.html#pivot-within-workflow-9",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  facet_grid(name~country, scales = \"free_y\") +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  theme_linedraw()"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-10",
+    "href": "slides/8-relations.html#pivot-within-workflow-10",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  facet_grid(name~country, scales = \"free_y\") +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  theme_linedraw() +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-11",
+    "href": "slides/8-relations.html#pivot-within-workflow-11",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  facet_grid(name~country, scales = \"free_y\") +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  theme_linedraw() +\n  theme(legend.position = \"none\") +\n  theme(axis.text.x = element_text(angle = 90, face = \"bold\"))"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-12",
+    "href": "slides/8-relations.html#pivot-within-workflow-12",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  facet_grid(name~country, scales = \"free_y\") +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  theme_linedraw() +\n  theme(legend.position = \"none\") +\n  theme(axis.text.x = element_text(angle = 90, face = \"bold\")) +\n  theme(plot.subtitle = element_text(color = \"navy\", face = \"bold\"))"
+  },
+  {
+    "objectID": "slides/8-relations.html#pivot-within-workflow-13",
+    "href": "slides/8-relations.html#pivot-within-workflow-13",
+    "title": "Lecture 08",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  facet_grid(name~country, scales = \"free_y\") +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  theme_linedraw() +\n  theme(legend.position = \"none\") +\n  theme(axis.text.x = element_text(angle = 90, face = \"bold\")) +\n  theme(plot.subtitle = element_text(color = \"navy\", face = \"bold\")) +\n  theme(plot.caption  = element_text(color = \"gray50\", face = \"italic\"))"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow",
+    "href": "slides/remark-test.html#pivot-within-workflow",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder\n\n\n\n#&gt; # A tibble: 1,704 × 6\n#&gt;    country     continent  year lifeExp      pop gdpPercap\n#&gt;    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n#&gt;  1 Afghanistan Asia       1952    28.8  8425333      779.\n#&gt;  2 Afghanistan Asia       1957    30.3  9240934      821.\n#&gt;  3 Afghanistan Asia       1962    32.0 10267083      853.\n#&gt;  4 Afghanistan Asia       1967    34.0 11537966      836.\n#&gt;  5 Afghanistan Asia       1972    36.1 13079460      740.\n#&gt;  6 Afghanistan Asia       1977    38.4 14880372      786.\n#&gt;  7 Afghanistan Asia       1982    39.9 12881816      978.\n#&gt;  8 Afghanistan Asia       1987    40.8 13867957      852.\n#&gt;  9 Afghanistan Asia       1992    41.7 16317921      649.\n#&gt; 10 Afghanistan Asia       1997    41.8 22227415      635.\n#&gt; # ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-1",
+    "href": "slides/remark-test.html#pivot-within-workflow-1",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\"))\n\n\n\n#&gt; # A tibble: 60 × 6\n#&gt;    country continent  year lifeExp      pop gdpPercap\n#&gt;    &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n#&gt;  1 Canada  Americas   1952    68.8 14785584    11367.\n#&gt;  2 Canada  Americas   1957    70.0 17010154    12490.\n#&gt;  3 Canada  Americas   1962    71.3 18985849    13462.\n#&gt;  4 Canada  Americas   1967    72.1 20819767    16077.\n#&gt;  5 Canada  Americas   1972    72.9 22284500    18971.\n#&gt;  6 Canada  Americas   1977    74.2 23796400    22091.\n#&gt;  7 Canada  Americas   1982    75.8 25201900    22899.\n#&gt;  8 Canada  Americas   1987    76.9 26549700    26627.\n#&gt;  9 Canada  Americas   1992    78.0 28523502    26343.\n#&gt; 10 Canada  Americas   1997    78.6 30305843    28955.\n#&gt; # ℹ 50 more rows"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-2",
+    "href": "slides/remark-test.html#pivot-within-workflow-2",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap)\n\n\n\n#&gt; # A tibble: 60 × 4\n#&gt;    country  year lifeExp gdpPercap\n#&gt;    &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n#&gt;  1 Canada   1952    68.8    11367.\n#&gt;  2 Canada   1957    70.0    12490.\n#&gt;  3 Canada   1962    71.3    13462.\n#&gt;  4 Canada   1967    72.1    16077.\n#&gt;  5 Canada   1972    72.9    18971.\n#&gt;  6 Canada   1977    74.2    22091.\n#&gt;  7 Canada   1982    75.8    22899.\n#&gt;  8 Canada   1987    76.9    26627.\n#&gt;  9 Canada   1992    78.0    26343.\n#&gt; 10 Canada   1997    78.6    28955.\n#&gt; # ℹ 50 more rows"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-3",
+    "href": "slides/remark-test.html#pivot-within-workflow-3",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap'))\n\n\n\n#&gt; # A tibble: 120 × 4\n#&gt;    country  year name        value\n#&gt;    &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;\n#&gt;  1 Canada   1952 lifeExp      68.8\n#&gt;  2 Canada   1952 gdpPercap 11367. \n#&gt;  3 Canada   1957 lifeExp      70.0\n#&gt;  4 Canada   1957 gdpPercap 12490. \n#&gt;  5 Canada   1962 lifeExp      71.3\n#&gt;  6 Canada   1962 gdpPercap 13462. \n#&gt;  7 Canada   1967 lifeExp      72.1\n#&gt;  8 Canada   1967 gdpPercap 16077. \n#&gt;  9 Canada   1972 lifeExp      72.9\n#&gt; 10 Canada   1972 gdpPercap 18971. \n#&gt; # ℹ 110 more rows"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-4",
+    "href": "slides/remark-test.html#pivot-within-workflow-4",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value))"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-5",
+    "href": "slides/remark-test.html#pivot-within-workflow-5",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80')"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-6",
+    "href": "slides/remark-test.html#pivot-within-workflow-6",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country))"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-7",
+    "href": "slides/remark-test.html#pivot-within-workflow-7",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\")"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-8",
+    "href": "slides/remark-test.html#pivot-within-workflow-8",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  facet_grid(name~country, scales = \"free_y\")"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-9",
+    "href": "slides/remark-test.html#pivot-within-workflow-9",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  facet_grid(name~country, scales = \"free_y\") +\n  theme_linedraw()"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-10",
+    "href": "slides/remark-test.html#pivot-within-workflow-10",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  facet_grid(name~country, scales = \"free_y\") +\n  theme_linedraw() +\n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-11",
+    "href": "slides/remark-test.html#pivot-within-workflow-11",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  facet_grid(name~country, scales = \"free_y\") +\n  theme_linedraw() +\n  theme(legend.position = \"none\") +\n  theme(axis.text.x = element_text(angle = 90, face = \"bold\"))"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-12",
+    "href": "slides/remark-test.html#pivot-within-workflow-12",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  facet_grid(name~country, scales = \"free_y\") +\n  theme_linedraw() +\n  theme(legend.position = \"none\") +\n  theme(axis.text.x = element_text(angle = 90, face = \"bold\")) +\n  theme(plot.subtitle = element_text(color = \"navy\", face = \"bold\"))"
+  },
+  {
+    "objectID": "slides/remark-test.html#pivot-within-workflow-13",
+    "href": "slides/remark-test.html#pivot-within-workflow-13",
+    "title": "test",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  facet_grid(name~country, scales = \"free_y\") +\n  theme_linedraw() +\n  theme(legend.position = \"none\") +\n  theme(axis.text.x = element_text(angle = 90, face = \"bold\")) +\n  theme(plot.subtitle = element_text(color = \"navy\", face = \"bold\")) +\n  theme(plot.caption  = element_text(color = \"gray50\", face = \"italic\"))"
+  },
+  {
+    "objectID": "slides/8-relations.html#data-format-the-quest-for-tidy-data",
+    "href": "slides/8-relations.html#data-format-the-quest-for-tidy-data",
+    "title": "Lecture 08",
+    "section": "Data Format – the quest for “tidy data”",
+    "text": "Data Format – the quest for “tidy data”\nThese are all representations of the same underlying data, but they are not equally easy to use. One dataset, the tidy dataset, will be much easier to work with inside the tidyverse.\n\n\nTidy data demands three interrelated rules\n\n\nEach variable must have its own column.\nEach observation must have its own row.\nEach value must have its own cell.\n\n\n\n\n\n\n\n\n\n\n\n\nIt’s impossible to only satisfy \\(2/3\\) so … an simpler guideline:\n\nPut each dataset in a tibble.\nPut each variable in a column."
+  },
+  {
+    "objectID": "slides/8-relations.html#the-world-is-messy",
+    "href": "slides/8-relations.html#the-world-is-messy",
+    "title": "Lecture 08",
+    "section": "The world is messy …",
+    "text": "The world is messy …\n\n\nFor most real problems, you’ll need to do some cleaning/tidying …\n\n\n\nOnce you understand what data you have, you typically have to resolve one of two common issues:\n\nOne variable might be spread across multiple columns.\nOne observation might be scattered across multiple rows.\n\n\n\n\n\nTo fix these, we look at the tidyr package (within the tidyverse)\n\n\nlibrary(tidyr)\n\n\"tidyr\" %in% tidyverse_packages()\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together-1",
+    "href": "slides/8-relations.html#putting-it-together-1",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\ngdpPercap_tab\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452."
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together-2",
+    "href": "slides/8-relations.html#putting-it-together-2",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\ngdpPercap_tab\n\nlifeExp_tab\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452.\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7"
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together-3",
+    "href": "slides/8-relations.html#putting-it-together-3",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\ngdpPercap_tab\n\nlifeExp_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"lifeExp\")\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452.\n# A tibble: 4 × 3\n  country year  lifeExp\n  &lt;fct&gt;   &lt;chr&gt;   &lt;dbl&gt;\n1 Brazil  1952     50.9\n2 Brazil  2007     72.4\n3 India   1952     37.4\n4 India   2007     64.7"
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together-4",
+    "href": "slides/8-relations.html#putting-it-together-4",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\ngdpPercap_tab\n\nlifeExp_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"lifeExp\") -&gt;\n  long4a\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452."
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together-5",
+    "href": "slides/8-relations.html#putting-it-together-5",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\ngdpPercap_tab\n\nlifeExp_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"lifeExp\") -&gt;\n  long4a\n\ngdpPercap_tab\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452.\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452."
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together-6",
+    "href": "slides/8-relations.html#putting-it-together-6",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\ngdpPercap_tab\n\nlifeExp_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"lifeExp\") -&gt;\n  long4a\n\ngdpPercap_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"gdpPercap\")\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452.\n# A tibble: 4 × 3\n  country year  gdpPercap\n  &lt;fct&gt;   &lt;chr&gt;     &lt;dbl&gt;\n1 Brazil  1952      2109.\n2 Brazil  2007      9066.\n3 India   1952       547.\n4 India   2007      2452."
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together-7",
+    "href": "slides/8-relations.html#putting-it-together-7",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\ngdpPercap_tab\n\nlifeExp_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"lifeExp\") -&gt;\n  long4a\n\ngdpPercap_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"gdpPercap\") -&gt;\n  long4b\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452."
+  },
+  {
+    "objectID": "slides/8-relations.html#putting-it-together-8",
+    "href": "slides/8-relations.html#putting-it-together-8",
+    "title": "Lecture 08",
+    "section": "Putting it together …",
+    "text": "Putting it together …\n\n\n\nlifeExp_tab\ngdpPercap_tab\n\nlifeExp_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"lifeExp\") -&gt;\n  long4a\n\ngdpPercap_tab |&gt;\n  pivot_longer(c(`1952`, `2007`), names_to = \"year\", values_to = \"gdpPercap\") -&gt;\n  long4b\n\nleft_join(long4a, long4b)\n\n\n\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil    50.9   72.4\n2 India     37.4   64.7\n# A tibble: 2 × 3\n  country `1952` `2007`\n  &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt;\n1 Brazil   2109.  9066.\n2 India     547.  2452.\n# A tibble: 4 × 4\n  country year  lifeExp gdpPercap\n  &lt;fct&gt;   &lt;chr&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1 Brazil  1952     50.9     2109.\n2 Brazil  2007     72.4     9066.\n3 India   1952     37.4      547.\n4 India   2007     64.7     2452."
+  },
+  {
+    "objectID": "slides/8-relations.html#when",
+    "href": "slides/8-relations.html#when",
+    "title": "Lecture 08",
+    "section": "When …",
+    "text": "When …\nwide is right!\n\nAll dplyr data manipulation works on columns and rows\nSo when we are filtering, selecting, mutating, grouping, and summarizing wide data is best\n\nlong is right!\n\nYesterday we noted that ggplot prefers data to be long.\nThis is because when applying aesthetics or facets we want the variable to be an attribute of the dataset"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\nlibrary(sf)\n\nus_wind &lt;- \"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2018/2018-11-06/us_wind.csv\" %&gt;% \n  read_csv()  %&gt;% \n  select(p_year, case_id, t_state)\n\nstates = USAboundaries::us_states(resolution = \"low\")  %&gt;% \n  select(state_abbr, area_m2 = aland) |&gt; \n  mutate(area_sqkm = area_m2 / 1e-6, area_m2 = NULL) |&gt; \n  sf::st_drop_geometry()\n  \nregion = data.frame(state_abbr = state.abb, region = state.region)"
+  },
+  {
+    "objectID": "slides/8-relations.html#our-3-datasets",
+    "href": "slides/8-relations.html#our-3-datasets",
+    "title": "Lecture 08",
+    "section": "Our 3 datasets…",
+    "text": "Our 3 datasets…\n\n\n\n\n\nState File\n\n\nstate_abbr\narea_sqkm\n\n\n\n\nCA\n4.036712e+17\n\n\nWI\n1.402922e+17\n\n\nID\n2.140499e+17\n\n\nMN\n2.062322e+17\n\n\nIA\n1.446597e+17\n\n\nMO\n1.780526e+17\n\n\n\n\n\n\n\n\n\nWind Turbines\n\n\np_year\ncase_id\nt_state\n\n\n\n\n1987\n3073429\nCA\n\n\n1987\n3071522\nCA\n\n\n1987\n3073425\nCA\n\n\n1987\n3071569\nCA\n\n\n1987\n3005252\nCA\n\n\n1987\n3003862\nCA\n\n\n\n\n\n\nRegion Classification\n\n\nstate_abbr\nregion\n\n\n\n\nAL\nSouth\n\n\nAK\nWest\n\n\nAZ\nWest\n\n\nAR\nSouth\n\n\nCA\nWest\n\n\nCO\nWest"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-1",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-1",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind\n\n\n\n# A tibble: 58,185 × 3\n   p_year case_id t_state\n    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  \n 1   1987 3073429 CA     \n 2   1987 3071522 CA     \n 3   1987 3073425 CA     \n 4   1987 3071569 CA     \n 5   1987 3005252 CA     \n 6   1987 3003862 CA     \n 7   1987 3073370 CA     \n 8   1987 3010101 CA     \n 9   1987 3073324 CA     \n10   1987 3072659 CA     \n# ℹ 58,175 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-2",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-2",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state)\n\n\n\n# A tibble: 58,185 × 3\n# Groups:   t_state [45]\n   p_year case_id t_state\n    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  \n 1   1987 3073429 CA     \n 2   1987 3071522 CA     \n 3   1987 3073425 CA     \n 4   1987 3071569 CA     \n 5   1987 3005252 CA     \n 6   1987 3003862 CA     \n 7   1987 3073370 CA     \n 8   1987 3010101 CA     \n 9   1987 3073324 CA     \n10   1987 3072659 CA     \n# ℹ 58,175 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-3",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-3",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())\n\n\n\n# A tibble: 45 × 2\n   t_state     n\n   &lt;chr&gt;   &lt;int&gt;\n 1 AK        141\n 2 AR          1\n 3 AZ        144\n 4 CA       9037\n 5 CO       2278\n 6 CT          3\n 7 DE          1\n 8 FL          1\n 9 GU          1\n10 HI        124\n# ℹ 35 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-4",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-4",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" ))\n\n\n\n# A tibble: 44 × 3\n   t_state     n area_sqkm\n   &lt;chr&gt;   &lt;int&gt;     &lt;dbl&gt;\n 1 AK        141   1.48e18\n 2 AR          1   1.35e17\n 3 AZ        144   2.94e17\n 4 CA       9037   4.04e17\n 5 CO       2278   2.68e17\n 6 CT          3   1.25e16\n 7 DE          1   5.05e15\n 8 FL          1   1.39e17\n 9 HI        124   1.66e16\n10 IA       4280   1.45e17\n# ℹ 34 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-5",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-5",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" ))\n\n\n\n# A tibble: 43 × 4\n   t_state     n area_sqkm region       \n   &lt;chr&gt;   &lt;int&gt;     &lt;dbl&gt; &lt;fct&gt;        \n 1 AK        141   1.48e18 West         \n 2 AR          1   1.35e17 South        \n 3 AZ        144   2.94e17 West         \n 4 CA       9037   4.04e17 West         \n 5 CO       2278   2.68e17 West         \n 6 CT          3   1.25e16 Northeast    \n 7 DE          1   5.05e15 South        \n 8 FL          1   1.39e17 South        \n 9 HI        124   1.66e16 West         \n10 IA       4280   1.45e17 North Central\n# ℹ 33 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-6",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-6",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm)\n\n\n\n# A tibble: 43 × 5\n   t_state     n area_sqkm region         perArea\n   &lt;chr&gt;   &lt;int&gt;     &lt;dbl&gt; &lt;fct&gt;            &lt;dbl&gt;\n 1 AK        141   1.48e18 West          9.53e-17\n 2 AR          1   1.35e17 South         7.43e-18\n 3 AZ        144   2.94e17 West          4.89e-16\n 4 CA       9037   4.04e17 West          2.24e-14\n 5 CO       2278   2.68e17 West          8.49e-15\n 6 CT          3   1.25e16 Northeast     2.39e-16\n 7 DE          1   5.05e15 South         1.98e-16\n 8 FL          1   1.39e17 South         7.20e-18\n 9 HI        124   1.66e16 West          7.45e-15\n10 IA       4280   1.45e17 North Central 2.96e-14\n# ℹ 33 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-7",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-7",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-8",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-8",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide\n\n\nggplot(wind_wide, aes(x = reorder(t_state, -perArea), y = perArea))"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-9",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-9",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide\n\n\nggplot(wind_wide, aes(x = reorder(t_state, -perArea), y = perArea)) +\n  geom_col(aes(fill = region))"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-10",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-10",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide\n\n\nggplot(wind_wide, aes(x = reorder(t_state, -perArea), y = perArea)) +\n  geom_col(aes(fill = region)) +\n  facet_wrap(~region)"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-11",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-11",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide\n\n\nggplot(wind_wide, aes(x = reorder(t_state, -perArea), y = perArea)) +\n  geom_col(aes(fill = region)) +\n  facet_wrap(~region) +\n  facet_wrap(~region, scales = \"free_x\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-12",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-12",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide\n\n\nggplot(wind_wide, aes(x = reorder(t_state, -perArea), y = perArea)) +\n  geom_col(aes(fill = region)) +\n  facet_wrap(~region) +\n  facet_wrap(~region, scales = \"free_x\") +\n  labs(title = \"Wind turbines per km2 by state\",\n       x = \"State\", y = \"Turbines per km2\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-13",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-13",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide\n\n\nggplot(wind_wide, aes(x = reorder(t_state, -perArea), y = perArea)) +\n  geom_col(aes(fill = region)) +\n  facet_wrap(~region) +\n  facet_wrap(~region, scales = \"free_x\") +\n  labs(title = \"Wind turbines per km2 by state\",\n       x = \"State\", y = \"Turbines per km2\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-14",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-14",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide\n\n\nggplot(wind_wide, aes(x = reorder(t_state, -perArea), y = perArea)) +\n  geom_col(aes(fill = region)) +\n  facet_wrap(~region) +\n  facet_wrap(~region, scales = \"free_x\") +\n  labs(title = \"Wind turbines per km2 by state\",\n       x = \"State\", y = \"Turbines per km2\") +\n  theme_bw() +\n  theme(axis.text.x = element_text(angle = 90))"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-15",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-15",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  group_by(t_state) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  mutate(perArea = n / area_sqkm) -&gt;\n  wind_wide\n\n\nggplot(wind_wide, aes(x = reorder(t_state, -perArea), y = perArea)) +\n  geom_col(aes(fill = region)) +\n  facet_wrap(~region) +\n  facet_wrap(~region, scales = \"free_x\") +\n  labs(title = \"Wind turbines per km2 by state\",\n       x = \"State\", y = \"Turbines per km2\") +\n  theme_bw() +\n  theme(axis.text.x = element_text(angle = 90)) +\n  theme(legend.position  = 'none')"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-16",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-16",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind\n\n\n\n# A tibble: 58,185 × 3\n   p_year case_id t_state\n    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  \n 1   1987 3073429 CA     \n 2   1987 3071522 CA     \n 3   1987 3073425 CA     \n 4   1987 3071569 CA     \n 5   1987 3005252 CA     \n 6   1987 3003862 CA     \n 7   1987 3073370 CA     \n 8   1987 3010101 CA     \n 9   1987 3073324 CA     \n10   1987 3072659 CA     \n# ℹ 58,175 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-17",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-17",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010))\n\n\n\n# A tibble: 3,042 × 3\n   p_year case_id t_state\n    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  \n 1   2010 3036454 CA     \n 2   2010 3036468 CA     \n 3   2010 3036512 CA     \n 4   2010 3036507 CA     \n 5   2010 3033195 CA     \n 6   2010 3036460 CA     \n 7   2010 3036489 CA     \n 8   2010 3036470 CA     \n 9   2010 3036455 CA     \n10   2010 3036518 CA     \n# ℹ 3,032 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-18",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-18",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year)\n\n\n\n# A tibble: 3,042 × 3\n# Groups:   t_state, p_year [40]\n   p_year case_id t_state\n    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  \n 1   2010 3036454 CA     \n 2   2010 3036468 CA     \n 3   2010 3036512 CA     \n 4   2010 3036507 CA     \n 5   2010 3033195 CA     \n 6   2010 3036460 CA     \n 7   2010 3036489 CA     \n 8   2010 3036470 CA     \n 9   2010 3036455 CA     \n10   2010 3036518 CA     \n# ℹ 3,032 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-19",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-19",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())\n\n\n\n# A tibble: 40 × 3\n# Groups:   t_state [35]\n   t_state p_year     n\n   &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt;\n 1 AK        2000     2\n 2 AK        2010    13\n 3 AZ        2010    31\n 4 CA        2000    10\n 5 CA        2010   212\n 6 CO        2010    35\n 7 CT        2010     1\n 8 DE        2010     1\n 9 IA        2010     5\n10 ID        2010   134\n# ℹ 30 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-20",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-20",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" ))\n\n\n\n# A tibble: 40 × 4\n# Groups:   t_state [35]\n   t_state p_year     n area_sqkm\n   &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt;\n 1 AK        2000     2   1.48e18\n 2 AK        2010    13   1.48e18\n 3 AZ        2010    31   2.94e17\n 4 CA        2000    10   4.04e17\n 5 CA        2010   212   4.04e17\n 6 CO        2010    35   2.68e17\n 7 CT        2010     1   1.25e16\n 8 DE        2010     1   5.05e15\n 9 IA        2010     5   1.45e17\n10 ID        2010   134   2.14e17\n# ℹ 30 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-21",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-21",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" ))\n\n\n\n# A tibble: 40 × 5\n# Groups:   t_state [35]\n   t_state p_year     n area_sqkm region       \n   &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt; &lt;fct&gt;        \n 1 AK        2000     2   1.48e18 West         \n 2 AK        2010    13   1.48e18 West         \n 3 AZ        2010    31   2.94e17 West         \n 4 CA        2000    10   4.04e17 West         \n 5 CA        2010   212   4.04e17 West         \n 6 CO        2010    35   2.68e17 West         \n 7 CT        2010     1   1.25e16 Northeast    \n 8 DE        2010     1   5.05e15 South        \n 9 IA        2010     5   1.45e17 North Central\n10 ID        2010   134   2.14e17 West         \n# ℹ 30 more rows"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-22",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-22",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) -&gt;\n  wind_long"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-23",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-23",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) -&gt;\n  wind_long\n\nggplot(wind_long, aes(x = reorder(t_state, -n), y = n))"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-24",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-24",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) -&gt;\n  wind_long\n\nggplot(wind_long, aes(x = reorder(t_state, -n), y = n)) +\n  geom_col(aes(fill = region))"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-25",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-25",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) -&gt;\n  wind_long\n\nggplot(wind_long, aes(x = reorder(t_state, -n), y = n)) +\n  geom_col(aes(fill = region)) +\n  facet_grid(p_year~region)"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-26",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-26",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) -&gt;\n  wind_long\n\nggplot(wind_long, aes(x = reorder(t_state, -n), y = n)) +\n  geom_col(aes(fill = region)) +\n  facet_grid(p_year~region) +\n  labs(title = \"Wind turbines per km2 by state\",\n       x = \"State\", y = \"Turbines per km2\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-27",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-27",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) -&gt;\n  wind_long\n\nggplot(wind_long, aes(x = reorder(t_state, -n), y = n)) +\n  geom_col(aes(fill = region)) +\n  facet_grid(p_year~region) +\n  labs(title = \"Wind turbines per km2 by state\",\n       x = \"State\", y = \"Turbines per km2\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-28",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-28",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) -&gt;\n  wind_long\n\nggplot(wind_long, aes(x = reorder(t_state, -n), y = n)) +\n  geom_col(aes(fill = region)) +\n  facet_grid(p_year~region) +\n  labs(title = \"Wind turbines per km2 by state\",\n       x = \"State\", y = \"Turbines per km2\") +\n  theme_bw() +\n  theme(axis.text.x = element_text(angle = 90))"
+  },
+  {
+    "objectID": "slides/8-relations.html#regionstate-windmills-per-km2-29",
+    "href": "slides/8-relations.html#regionstate-windmills-per-km2-29",
+    "title": "Lecture 08",
+    "section": "Region/State windmills per km2…",
+    "text": "Region/State windmills per km2…\n\n\n\nus_wind |&gt;\n  filter(p_year %in% c(2000,2010)) |&gt;\n  group_by(t_state, p_year) |&gt;\n  summarise(n = n())  |&gt;\n  inner_join(states, by = c(\"t_state\" = \"state_abbr\" )) |&gt;\n  inner_join(region, by = c(\"t_state\" = \"state_abbr\" )) -&gt;\n  wind_long\n\nggplot(wind_long, aes(x = reorder(t_state, -n), y = n)) +\n  geom_col(aes(fill = region)) +\n  facet_grid(p_year~region) +\n  labs(title = \"Wind turbines per km2 by state\",\n       x = \"State\", y = \"Turbines per km2\") +\n  theme_bw() +\n  theme(axis.text.x = element_text(angle = 90)) +\n  theme(legend.position  = 'none')"
+  },
+  {
+    "objectID": "slides/8-relations.html#assignment",
+    "href": "slides/8-relations.html#assignment",
+    "title": "Lecture 08",
+    "section": "Assignment",
+    "text": "Assignment\nIn your ess-330-daily-exercises/R directory\n\nCreate a new file called day-08.R\nOpen that file.\nAdd your name, date, and the purpose of the script as comments (preceded by #)"
+  },
+  {
+    "objectID": "slides/8-relations.html#summary",
+    "href": "slides/8-relations.html#summary",
+    "title": "Lecture 08",
+    "section": "Summary",
+    "text": "Summary\nWhen to Use Long Data?\n\nEasier for aggregation, analysis, and plotting.\n\nWorks well with ggplot2 and other tidyverse tools.\n\nFacilitates handling of missing values.\n\nPreferred for repeated measures or time series data.\n\n\nWhen to Use Wide Data?\n\nSimpler for certain analyses (e.g., regression models).\n\nEasier to read when dealing with few variables.\n\nCan be easier for sharing datasets with non-technical audiences."
+  },
+  {
+    "objectID": "slides/8-relations.html#but-the-world-is-messy",
+    "href": "slides/8-relations.html#but-the-world-is-messy",
+    "title": "Lecture 08",
+    "section": "BUT … the world is messy …",
+    "text": "BUT … the world is messy …\n\n\nFor most real problems, you’ll need to do some cleaning/tidying …\n\n\n\nOnce you understand what data you have, you typically have to resolve one of two common issues:\n\nOne variable might be spread across multiple columns.\nOne observation might be scattered across multiple rows.\n\n\n\n\n\nTo fix these, we look at the tidyr package (within the tidyverse)\n\n\nlibrary(tidyr)\n\n\"tidyr\" %in% tidyverse_packages()\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/8-relations.html#example",
+    "href": "slides/8-relations.html#example",
+    "title": "Lecture 08",
+    "section": "Example",
+    "text": "Example\n\nRemember the idea of “binding”? Where a set of values are “bound” to a name?\n\nYou job: - Always consider what - for your analysis - is a name and what is data\n\nOften your needs don’t match the way data was collected/curated by others!\nYour needs can range dramatically within a workflow as well\n\nWhat needs to be manipulated?\nHow do you establish keys?\nWhat is needed for visualization?\n…"
+  },
+  {
+    "objectID": "slides/8-relations.html#example-1",
+    "href": "slides/8-relations.html#example-1",
+    "title": "Lecture 08",
+    "section": "Example",
+    "text": "Example\n\n\nWide\n\n# All country/Year/GDP combinations are unique rows\ntable_wide\n# A tibble: 4 × 4\n  country  year lifeExp gdpPercap\n  &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1 Brazil   1952    50.9     2109.\n2 Brazil   2007    72.4     9066.\n3 India    1952    37.4      547.\n4 India    2007    64.7     2452.\n\ntable_wide |&gt; \n  ggplot(aes(x = year, y = gdpPercap)) +\n  geom_line(aes(color = country)) + \n  facet_wrap(~country) + \n  theme_bw() + \n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\nLong\n\n# All country/Year/LifeExp/GDP combinations are unique rows\ntable_long\n# A tibble: 8 × 4\n  country  year type       value\n  &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;\n1 Brazil   1952 lifeExp     50.9\n2 Brazil   1952 gdpPercap 2109. \n3 Brazil   2007 lifeExp     72.4\n4 Brazil   2007 gdpPercap 9066. \n5 India    1952 lifeExp     37.4\n6 India    1952 gdpPercap  547. \n7 India    2007 lifeExp     64.7\n8 India    2007 gdpPercap 2452. \n\ntable_long |&gt; \n  ggplot(aes(x = year, y = value)) +\n  geom_line(aes(color = country)) + \n  facet_grid(type~country, scales = \"free_y\") + \n  theme_bw() + \n  theme(legend.position = \"none\")"
+  },
+  {
+    "objectID": "slides/8-relations.html#assignment-1",
+    "href": "slides/8-relations.html#assignment-1",
+    "title": "Lecture 08",
+    "section": "Assignment",
+    "text": "Assignment\nQuestion 1: Make a faceted plot of the cumulative cases & deaths by USA region. Your x axis should be the date and the y axis value/count. To do this you will need to join and pivot the COVID-19 data.\nWe can break this task into 7 steps:\n\n\n\nRead in the COVID-19 data\n\nCreate a new data.frame using the available state.abb, state.name, state.region objects in base R. Be intentional about creating a primary key to match to the COVID data!\n\n\ndf = data.frame(region = state.region,\n                ...,\n                ...)\n\n\nJoin your new data.frame to the raw COVID data. Think about right, inner, left, or full join…\nsplit-apply the joined data to determine the daily, cumulative, cases and deaths for each region\nPivot your data from wide format to long\nPlot your data in a compelling way (setup, layers, labels, facets, themes)\nSave the image to your img directory with a good file name and extension!"
   }
 ]
