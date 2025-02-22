@@ -1971,7 +1971,7 @@
     "href": "labs/lab3.html#steps",
     "title": "Lab 3: COVID-19",
     "section": "Steps:",
-    "text": "Steps:\n\nStart by reading in the data from the NY-Times URL with read_csv (make sure to attach the tidyverse)\n\n\n\nCode\nlibrary(tidyverse); library(flextable)\ndata = read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')\n\n\n\nCreate an object called my.date and set it as “2022-01-01” - ensure this is a date object:. Create a object called my.state and set it to “Colorado”.\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nIn R, as.Date() is a function used to convert character strings, numeric values, or other date-related objects into Date objects. It ensures that dates are stored in the correct format for date-based calculations and manipulations.\n\n\nCode\ntxt &lt;- \"2025-02-15\"\nclass(txt)\n\n\n[1] \"character\"\n\n\nCode\ndate_example &lt;- as.Date(txt)\nclass(date_example)\n\n\n[1] \"Date\"\n\n\n\n\n\n\nThe URL based data read from Github is considered our “raw data”. Remember to always leave “raw-data-raw” and to generate meaningful subsets as you go.\n\nStart by making a subset that limits (filter) the data to Colorado and add a new column (mutate) with the daily new cases using diff/lag by county (group_by). Do the same for new deaths as well.\n(Hint: you will need some combination of filter, group_by, arrange, mutate, diff/lag, and ungroup)\n\nUsing your subset, generate (2) tables. The first should show the 5 counties with the most CUMULATIVE cases, and the second should show the 5 counties with the most NEW cases. Remember to use your my.date object as a proxy for today’s date:\n\nYour tables should have clear column names and descriptive captions."
+    "text": "Steps:\n\nStart by reading in the data from the NY-Times URL with read_csv (make sure to attach the tidyverse)\n\n\n\nCode\nlibrary(tidyverse); library(flextable)\ndata = read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')\n\n\n\nCreate an object called my.date and set it as “2022-02-01” - ensure this is a date object:. Create a object called my.state and set it to “Colorado”.\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nIn R, as.Date() is a function used to convert character strings, numeric values, or other date-related objects into Date objects. It ensures that dates are stored in the correct format for date-based calculations and manipulations.\n\n\nCode\ntxt &lt;- \"2025-02-15\"\nclass(txt)\n\n\n[1] \"character\"\n\n\nCode\ndate_example &lt;- as.Date(txt)\nclass(date_example)\n\n\n[1] \"Date\"\n\n\n\n\n\n\nThe URL based data read from Github is considered our “raw data”. Remember to always leave “raw-data-raw” and to generate meaningful subsets as you go.\n\nStart by making a subset that limits (filter) the data to Colorado and add a new column (mutate) with the daily new cases using diff/lag by county (group_by). Do the same for new deaths as well.\n(Hint: you will need some combination of filter, group_by, arrange, mutate, diff/lag, and ungroup)\n\nUsing your subset, generate (2) tables. The first should show the 5 counties with the most CUMULATIVE cases, and the second should show the 5 counties with the most NEW cases. Remember to use your my.date object as a proxy for today’s date:\n\nYour tables should have clear column names and descriptive captions."
   },
   {
     "objectID": "labs/lab3.html#steps-1",
@@ -4085,63 +4085,63 @@
     "href": "slides/9-formats-eda.html#pivot-within-workflow",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder\n\n\n\n# A tibble: 1,704 × 6\n   country     continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       1952    28.8  8425333      779.\n 2 Afghanistan Asia       1957    30.3  9240934      821.\n 3 Afghanistan Asia       1962    32.0 10267083      853.\n 4 Afghanistan Asia       1967    34.0 11537966      836.\n 5 Afghanistan Asia       1972    36.1 13079460      740.\n 6 Afghanistan Asia       1977    38.4 14880372      786.\n 7 Afghanistan Asia       1982    39.9 12881816      978.\n 8 Afghanistan Asia       1987    40.8 13867957      852.\n 9 Afghanistan Asia       1992    41.7 16317921      649.\n10 Afghanistan Asia       1997    41.8 22227415      635.\n# ℹ 1,694 more rows"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp))"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-1",
     "href": "slides/9-formats-eda.html#pivot-within-workflow-1",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\"))\n\n\n\n# A tibble: 60 × 6\n   country continent  year lifeExp      pop gdpPercap\n   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 Canada  Americas   1952    68.8 14785584    11367.\n 2 Canada  Americas   1957    70.0 17010154    12490.\n 3 Canada  Americas   1962    71.3 18985849    13462.\n 4 Canada  Americas   1967    72.1 20819767    16077.\n 5 Canada  Americas   1972    72.9 22284500    18971.\n 6 Canada  Americas   1977    74.2 23796400    22091.\n 7 Canada  Americas   1982    75.8 25201900    22899.\n 8 Canada  Americas   1987    76.9 26549700    26627.\n 9 Canada  Americas   1992    78.0 28523502    26343.\n10 Canada  Americas   1997    78.6 30305843    28955.\n# ℹ 50 more rows"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\")"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-2",
     "href": "slides/9-formats-eda.html#pivot-within-workflow-2",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap)\n\n\n\n# A tibble: 60 × 4\n   country  year lifeExp gdpPercap\n   &lt;fct&gt;   &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n 1 Canada   1952    68.8    11367.\n 2 Canada   1957    70.0    12490.\n 3 Canada   1962    71.3    13462.\n 4 Canada   1967    72.1    16077.\n 5 Canada   1972    72.9    18971.\n 6 Canada   1977    74.2    22091.\n 7 Canada   1982    75.8    22899.\n 8 Canada   1987    76.9    26627.\n 9 Canada   1992    78.0    26343.\n10 Canada   1997    78.6    28955.\n# ℹ 50 more rows"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2)"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-3",
     "href": "slides/9-formats-eda.html#pivot-within-workflow-3",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap'))\n\n\n\n# A tibble: 120 × 4\n   country  year name        value\n   &lt;fct&gt;   &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;\n 1 Canada   1952 lifeExp      68.8\n 2 Canada   1952 gdpPercap 11367. \n 3 Canada   1957 lifeExp      70.0\n 4 Canada   1957 gdpPercap 12490. \n 5 Canada   1962 lifeExp      71.3\n 6 Canada   1962 gdpPercap 13462. \n 7 Canada   1967 lifeExp      72.1\n 8 Canada   1967 gdpPercap 16077. \n 9 Canada   1972 lifeExp      72.9\n10 Canada   1972 gdpPercap 18971. \n# ℹ 110 more rows"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\")"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-4",
     "href": "slides/9-formats-eda.html#pivot-within-workflow-4",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value))"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2)"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-5",
     "href": "slides/9-formats-eda.html#pivot-within-workflow-5",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80')"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2) +\n  annotate(\"text\", label = \"Gapminder mean\",\n           x = 63, y = .1,\n           size = 4)"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-6",
     "href": "slides/9-formats-eda.html#pivot-within-workflow-6",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country))"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2) +\n  annotate(\"text\", label = \"Gapminder mean\",\n           x = 63, y = .1,\n           size = 4) +\n   annotate(\"text\", label = \"Predicted mean\",\n            x = 73.5, y = .1,\n            size = 4, col = \"red\")"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-7",
     "href": "slides/9-formats-eda.html#pivot-within-workflow-7",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\")"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2) +\n  annotate(\"text\", label = \"Gapminder mean\",\n           x = 63, y = .1,\n           size = 4) +\n   annotate(\"text\", label = \"Predicted mean\",\n            x = 73.5, y = .1,\n            size = 4, col = \"red\") +\n  theme_bw()"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-8",
     "href": "slides/9-formats-eda.html#pivot-within-workflow-8",
     "title": "Lecture 09",
     "section": "Pivot within workflow…",
-    "text": "Pivot within workflow…\n\n\n\ngapminder |&gt;\n  filter(country %in%\n           c(\"Canada\", \"United States\", \"Mexico\", \"Nicaragua\", \"Honduras\")) |&gt;\n  select(country, year, lifeExp, gdpPercap) |&gt;\n  pivot_longer(cols = c('lifeExp', 'gdpPercap')) |&gt;\n  ggplot(aes(x = year, y = value)) +\n  geom_line(col = 'gray80') +\n  geom_point(aes(col = country)) +\n  labs(x = \"\", y = \"Year\",\n       title = \"North America: GDP & Life Expectancy\",\n       subtitle = \"1950-2007\",\n       caption = \"Data: Gapminder R package\") +\n  facet_grid(name~country, scales = \"free_y\")"
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2) +\n  annotate(\"text\", label = \"Gapminder mean\",\n           x = 63, y = .1,\n           size = 4) +\n   annotate(\"text\", label = \"Predicted mean\",\n            x = 73.5, y = .1,\n            size = 4, col = \"red\") +\n  theme_bw() +\n  labs(title = 'Predicted Life Expectancy of Randomly Generated Countries',\n       subtitle = \"Normal Distribution assumption from Gapminder 2007\",\n       x = \"Predicted Life Expectancy\",\n       y = 'Density')"
   },
   {
     "objectID": "slides/9-formats-eda.html#pivot-within-workflow-9",
@@ -4190,7 +4190,7 @@
     "href": "slides/9-formats-eda.html#what-is-nest",
     "title": "Lecture 09",
     "section": "What is nest()?",
-    "text": "What is nest()?\n\nnest() converts a grouped dataset into a list-column format.\nIt allows you to keep related observations together in nested data frames.\n\n\ndata &lt;- data.frame(\n  group = rep(c(\"A\", \"B\"), each = 3),\n  x = c(1, 2, 3, 4, 5, 6)\n)\n\ndata\n  group x\n1     A 1\n2     A 2\n3     A 3\n4     B 4\n5     B 5\n6     B 6\n\nnested_data &lt;- data |&gt; \n  nest(data = -group)\n\nnested_data\n# A tibble: 2 × 2\n  group data            \n  &lt;chr&gt; &lt;list&gt;          \n1 A     &lt;tibble [3 × 1]&gt;\n2 B     &lt;tibble [3 × 1]&gt;\n\nExplanation: - The data tibble contains two groups (A and B) with corresponding x values. - nest(data = -group) creates a new tibble where each group has a nested data frame containing the x values."
+    "text": "What is nest()?\n\nnest() converts a grouped dataset into a list-column format.\nIt allows you to keep related observations together in nested data.frames.\n\n\ndata &lt;- data.frame(\n  group = rep(c(\"A\", \"B\"), each = 3),\n  x = c(1, 2, 3, 4, 5, 6),\n  y = c(2, 4, 6, 8, 10, 12)\n)\n\ndata\n  group x  y\n1     A 1  2\n2     A 2  4\n3     A 3  6\n4     B 4  8\n5     B 5 10\n6     B 6 12\n\nnested_data &lt;- data |&gt; \n  nest(data = -group)\n\nnested_data\n# A tibble: 2 × 2\n  group data            \n  &lt;chr&gt; &lt;list&gt;          \n1 A     &lt;tibble [3 × 2]&gt;\n2 B     &lt;tibble [3 × 2]&gt;\n\nnested_data$data[[1]]\n# A tibble: 3 × 2\n      x     y\n  &lt;dbl&gt; &lt;dbl&gt;\n1     1     2\n2     2     4\n3     3     6\n\nnested_data$data[[1]]$x\n[1] 1 2 3\n\nnested_data$group[[1]]\n[1] \"A\"\n\nExplanation: - The data tibble contains two groups (A and B) with corresponding x values. - nest(data = -group) creates a new tibble where each group has a nested data frame containing the x values."
   },
   {
     "objectID": "slides/9-formats-eda.html#what-is-map",
@@ -4204,7 +4204,7 @@
     "href": "slides/9-formats-eda.html#combining-nest-and-map",
     "title": "Lecture 09",
     "section": "Combining nest() and map()",
-    "text": "Combining nest() and map()\n\nnest() structures the data into groups.\nmap() applies functions to each nested dataset.\nCan be used for modeling, summaries, and transformations.\n\nExample: Linear Regression by Group\n\nmodel_results &lt;- nested_data |&gt; \n  mutate(model = map(data, ~lm(x ~ 1, data = .x)))\n\nmodel_results\n# A tibble: 2 × 3\n  group data             model \n  &lt;chr&gt; &lt;list&gt;           &lt;list&gt;\n1 A     &lt;tibble [3 × 1]&gt; &lt;lm&gt;  \n2 B     &lt;tibble [3 × 1]&gt; &lt;lm&gt;"
+    "text": "Combining nest() and map()\n\nnest() structures the data into groups.\nmap() applies functions to each nested dataset.\nCan be used for modeling, summaries, and transformations.\n\nExample: Linear Regression by Group\n\n(nested_data &lt;- nest(gm2007, -continent))\n# A tibble: 5 × 2\n  continent data             \n  &lt;fct&gt;     &lt;list&gt;           \n1 Asia      &lt;tibble [33 × 5]&gt;\n2 Europe    &lt;tibble [30 × 5]&gt;\n3 Africa    &lt;tibble [52 × 5]&gt;\n4 Americas  &lt;tibble [25 × 5]&gt;\n5 Oceania   &lt;tibble [2 × 5]&gt; \n\nmodel_results &lt;- nested_data |&gt; \n  mutate(model = map(data, ~lm(lifeExp ~ gdpPercap, data = .x)))\n\nmodel_results$continent[1]\n[1] Asia\nLevels: Africa Americas Asia Europe Oceania\nmodel_results$model[[1]]\n\nCall:\nlm(formula = lifeExp ~ gdpPercap, data = .x)\n\nCoefficients:\n(Intercept)    gdpPercap  \n  6.589e+01    3.878e-04  \nclass(model_results$model[[1]])\n[1] \"lm\"\nsummary(model_results$model[[1]])\n\nCall:\nlm(formula = lifeExp ~ gdpPercap, data = .x)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-22.4409  -2.3685   0.9101   4.4345   7.4111 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 6.589e+01  1.369e+00  48.123  &lt; 2e-16 ***\ngdpPercap   3.878e-04  7.320e-05   5.298 9.13e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 5.861 on 31 degrees of freedom\nMultiple R-squared:  0.4752,    Adjusted R-squared:  0.4583 \nF-statistic: 28.07 on 1 and 31 DF,  p-value: 9.13e-06\n\n\n(model_results &lt;- nested_data |&gt;\n  mutate(model = map(data, ~lm(lifeExp ~ gdpPercap, data = .x)),\n         summary = map(model, summary)))\n# A tibble: 5 × 4\n  continent data              model  summary   \n  &lt;fct&gt;     &lt;list&gt;            &lt;list&gt; &lt;list&gt;    \n1 Asia      &lt;tibble [33 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt;\n2 Europe    &lt;tibble [30 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt;\n3 Africa    &lt;tibble [52 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt;\n4 Americas  &lt;tibble [25 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt;\n5 Oceania   &lt;tibble [2 × 5]&gt;  &lt;lm&gt;   &lt;smmry.lm&gt;\n\nmodel_results |&gt; \n  mutate(r2 = map_dbl(summary, \"r.squared\"))\n# A tibble: 5 × 5\n  continent data              model  summary       r2\n  &lt;fct&gt;     &lt;list&gt;            &lt;list&gt; &lt;list&gt;     &lt;dbl&gt;\n1 Asia      &lt;tibble [33 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt; 0.475\n2 Europe    &lt;tibble [30 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt; 0.722\n3 Africa    &lt;tibble [52 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt; 0.148\n4 Americas  &lt;tibble [25 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt; 0.349\n5 Oceania   &lt;tibble [2 × 5]&gt;  &lt;lm&gt;   &lt;smmry.lm&gt; 1"
   },
   {
     "objectID": "slides/9-formats-eda.html#what-is-broom",
@@ -4218,7 +4218,7 @@
     "href": "slides/9-formats-eda.html#extracting-model-summaries",
     "title": "Lecture 09",
     "section": "Extracting Model Summaries",
-    "text": "Extracting Model Summaries\n\nmodel_results |&gt; \n  mutate(summary = map(model, broom::tidy)) |&gt; \n  unnest(summary)\n# A tibble: 2 × 8\n  group data             model  term        estimate std.error statistic p.value\n  &lt;chr&gt; &lt;list&gt;           &lt;list&gt; &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n1 A     &lt;tibble [3 × 1]&gt; &lt;lm&gt;   (Intercept)        2     0.577      3.46  0.0742\n2 B     &lt;tibble [3 × 1]&gt; &lt;lm&gt;   (Intercept)        5     0.577      8.66  0.0131\n\nExplanation: - The tidy() function extracts the coefficients from the linear models stored in the model column and formats them into a tidy data frame. - This makes it easier to summarize or report on the results."
+    "text": "Extracting Model Summaries\n\nmodel_example = nested_data |&gt; \n  mutate(model   = map(data, ~lm(lifeExp ~ gdpPercap, data = .x)),\n         summary = map(model, broom::tidy)) \n\nnested_data |&gt; \n  mutate(model   = map(data, ~lm(lifeExp ~ gdpPercap, data = .x)),\n         summary = map(model, broom::glance)) |&gt; \n  unnest(summary)\n# A tibble: 5 × 15\n  continent data     model  r.squared adj.r.squared  sigma statistic   p.value\n  &lt;fct&gt;     &lt;list&gt;   &lt;list&gt;     &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Asia      &lt;tibble&gt; &lt;lm&gt;       0.475         0.458   5.86     28.1    9.13e-6\n2 Europe    &lt;tibble&gt; &lt;lm&gt;       0.722         0.713   1.60     72.9    2.80e-9\n3 Africa    &lt;tibble&gt; &lt;lm&gt;       0.148         0.131   8.98      8.69   4.86e-3\n4 Americas  &lt;tibble&gt; &lt;lm&gt;       0.349         0.321   3.66     12.3    1.87e-3\n5 Oceania   &lt;tibble&gt; &lt;lm&gt;       1           NaN     NaN       NaN    NaN      \n# ℹ 7 more variables: df &lt;dbl&gt;, logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;,\n#   deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\nmodel_example |&gt; \n  unnest(summary) \n# A tibble: 10 × 8\n   continent data     model  term        estimate std.error statistic    p.value\n   &lt;fct&gt;     &lt;list&gt;   &lt;list&gt; &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Asia      &lt;tibble&gt; &lt;lm&gt;   (Intercept)  6.59e+1   1.37e+0     48.1    1.07e-30\n 2 Asia      &lt;tibble&gt; &lt;lm&gt;   gdpPercap    3.88e-4   7.32e-5      5.30   9.13e- 6\n 3 Europe    &lt;tibble&gt; &lt;lm&gt;   (Intercept)  7.23e+1   6.94e-1    104.     8.50e-38\n 4 Europe    &lt;tibble&gt; &lt;lm&gt;   gdpPercap    2.15e-4   2.51e-5      8.54   2.80e- 9\n 5 Africa    &lt;tibble&gt; &lt;lm&gt;   (Intercept)  5.16e+1   1.64e+0     31.4    1.38e-34\n 6 Africa    &lt;tibble&gt; &lt;lm&gt;   gdpPercap    1.02e-3   3.47e-4      2.95   4.86e- 3\n 7 Americas  &lt;tibble&gt; &lt;lm&gt;   (Intercept)  7.06e+1   1.12e+0     63.1    2.77e-27\n 8 Americas  &lt;tibble&gt; &lt;lm&gt;   gdpPercap    2.70e-4   7.69e-5      3.51   1.87e- 3\n 9 Oceania   &lt;tibble&gt; &lt;lm&gt;   (Intercept)  7.74e+1 NaN          NaN    NaN       \n10 Oceania   &lt;tibble&gt; &lt;lm&gt;   gdpPercap    1.11e-4 NaN          NaN    NaN       \n\nExplanation: - The tidy() function extracts the coefficients from the linear models stored in the model column and formats them into a tidy data frame. - This makes it easier to summarize or report on the results.\n\nx = nested_data|&gt; \n  mutate(model = map(data, ~ lm(lifeExp ~ gdpPercap, data = .x))) |&gt; \n  mutate(lm = map(model, broom::tidy),\n         summary   = map(model, summary),\n         r2 = map_dbl(summary, \"r.squared\")) |&gt; \n  unnest(lm) |&gt; \n  select(-data, -model)\n\n\ny = select(x, continent, term, estimate) \n\npivot_wider(y, names_from = continent, values_from = estimate) |&gt; \n  janitor::clean_names()\n# A tibble: 2 × 6\n  term             asia    europe   africa  americas   oceania\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept) 65.9      72.3      51.6     70.6      77.4     \n2 gdpPercap    0.000388  0.000215  0.00102  0.000270  0.000111\n\nz = pivot_wider(y, names_from = term, values_from = estimate) |&gt; \n  janitor::clean_names()\n\nggplot(data = z, aes(x = continent, y = intercept, fill = continent)) +\n  geom_col() +\n  ggthemes::theme_clean() + \n  theme(legend.position = \"bottom\") + \n  labs(title = \"Life Expectancy vs GDP per Capita by Continent\",\n       x = \"Continent\",\n       y = \"Linear Model Intercept\")\n\n\n\n\n\n\n\n\nggplot(data = y, aes(x = continent, y = estimate, fill = continent)) +\n  geom_col() +\n  facet_wrap(~term, scales = \"free_y\") + \n  scale_fill_manual(values = as.vector(pals::alphabet2(5))) +\n  scale_fill_manual(values = as.vector(pals::ocean.haline(5))) +\n  scale_fill_manual(values = pals::brewer.dark2(5)) +\n  scale_fill_manual(values = pals::tol.rainbow(5)) +\n  ggthemes::theme_clean() + \n  theme(legend.position = \"bottom\") + \n  labs(title = \"Life Expectancy vs GDP per Capita by Continent\",\n       x = \"Continent\",\n       y = \"Linear Model Intercept\")"
   },
   {
     "objectID": "slides/9-formats-eda.html#conclusion",
@@ -4253,7 +4253,7 @@
     "href": "slides/9-formats-eda.html#summary",
     "title": "Lecture 09",
     "section": "Summary",
-    "text": "Summary\n\nbind_rows(): Combines data frames vertically.\nbind_cols(): Combines data frames horizontally.\nBoth functions preserve column types and handle missing values where necessary."
+    "text": "Summary\nlm() is a powerful function for linear regression in R.\nsummary() provides key insights.\nDiagnostic plots help validate assumptions.\nPredictions can be made for new data with predict()"
   },
   {
     "objectID": "slides/9-formats-eda.html#for-example",
@@ -4898,5 +4898,390 @@
     "title": "Lecture 08",
     "section": "Assignment",
     "text": "Assignment\nQuestion 1: Make a faceted plot of the cumulative cases & deaths by USA region. Your x axis should be the date and the y axis value/count. To do this you will need to join and pivot the COVID-19 data.\nWe can break this task into 7 steps:\n\n\n\nRead in the COVID-19 data\n\nCreate a new data.frame using the available state.abb, state.name, state.region objects in base R. Be intentional about creating a primary key to match to the COVID data!\n\n\ndf = data.frame(region = state.region,\n                ...,\n                ...)\n\n\nJoin your new data.frame to the raw COVID data. Think about right, inner, left, or full join…\nsplit-apply the joined data to determine the daily, cumulative, cases and deaths for each region\nPivot your data from wide format to long\nPlot your data in a compelling way (setup, layers, labels, facets, themes)\nSave the image to your img directory with a good file name and extension!"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#so-far",
+    "href": "slides/9-formats-eda.html#so-far",
+    "title": "Lecture 09",
+    "section": "So far!",
+    "text": "So far!\n\nWe have learned about the data.frame/tibble structure and how is is built on top of list structures in R.\nRemember that lists can be recursive?\n\n\n# list of lists ...\n(list_list &lt;- list(list(\"hi\")))\n[[1]]\n[[1]][[1]]\n[1] \"hi\"\n\nstr(list_list)\nList of 1\n $ :List of 1\n  ..$ : chr \"hi\""
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#last-assignment",
+    "href": "slides/9-formats-eda.html#last-assignment",
+    "title": "Lecture 09",
+    "section": "Last Assignment",
+    "text": "Last Assignment\n\nWe created a data.frame documenting the name/abbrivation/region relationship of US state\nIn each case, the column was define by a character atomic vector\n\n\ndf &lt;- data.frame(region = state.region,\n                 state_abbr = state.abb,\n                 state.name = state.name)\n\nhead(df)\n  region state_abbr state.name\n1  South         AL    Alabama\n2   West         AK     Alaska\n3   West         AZ    Arizona\n4  South         AR   Arkansas\n5   West         CA California\n6   West         CO   Colorado"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#remember-vectors",
+    "href": "slides/9-formats-eda.html#remember-vectors",
+    "title": "Lecture 09",
+    "section": "Remember … Vectors",
+    "text": "Remember … Vectors\n\nVectors come in two types: atomic and lists\nFor atomic vectors, all elements must have the same type;\nFor lists, elements can have different types.\nNULL serves as a generic zero length vector.\nThis diagram - taken from here - illustrates the basic relationships:\n\n\n\n\ndf$list_element = vector(\"list\", length = nrow(df))\n\nhead(df)\n  region state_abbr state.name list_element\n1  South         AL    Alabama         NULL\n2   West         AK     Alaska         NULL\n3   West         AZ    Arizona         NULL\n4  South         AR   Arkansas         NULL\n5   West         CA California         NULL\n6   West         CO   Colorado         NULL"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#remember-groups",
+    "href": "slides/9-formats-eda.html#remember-groups",
+    "title": "Lecture 09",
+    "section": "Remember Groups?",
+    "text": "Remember Groups?\nGroups extende the data.frame structure by ADDING more aatributes to the object This is simualr to how a matrix or array extends the attomic vector structure by adding more attributes (e.g. dim())\n\ngm2007 &lt;-  gapminder |&gt; \n  select(continent, year, lifeExp, gdpPercap) |&gt; \n  filter(year == 2007)\n\ngrouped_data = group_by(gm2007, continent)\n\ngroup_vars(grouped_data)  # Shows the grouping variables\n[1] \"continent\"\ngroups(grouped_data)      # Shows the full grouping structure\n[[1]]\ncontinent\ngroup_size(grouped_data)  # Shows number of observations per group\n[1] 52 25 33 30  2\ngroup_keys(grouped_data)  # Shows the keys used to group the data\n# A tibble: 5 × 1\n  continent\n  &lt;fct&gt;    \n1 Africa   \n2 Americas \n3 Asia     \n4 Europe   \n5 Oceania  \ngroup_indices(grouped_data)\n  [1] 3 4 1 1 2 5 4 3 3 4 1 2 4 1 2 4 1 1 3 1 2 1 1 2 3 2 1 1 1 2 1 4 2 4 4 1 2\n [38] 2 1 2 1 1 1 4 4 1 1 4 1 4 2 1 1 2 2 3 4 4 3 3 3 3 4 3 4 2 3 3 1 3 3 3 3 1\n [75] 1 1 1 1 3 1 1 1 2 3 4 1 1 3 1 3 4 5 2 1 1 4 3 3 2 2 2 3 4 4 2 1 4 1 1 3 1\n[112] 4 1 3 4 4 1 1 4 3 1 1 4 4 3 3 1 3 1 2 1 4 1 4 2 2 2 3 3 3 1 1"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#remember-that-dplyr-verbs-respect-groups",
+    "href": "slides/9-formats-eda.html#remember-that-dplyr-verbs-respect-groups",
+    "title": "Lecture 09",
+    "section": "Remember that dplyr verbs respect groups",
+    "text": "Remember that dplyr verbs respect groups\n\ngm2007 |&gt; \n  summarise(n = n(), mean_lifeExp = mean(lifeExp), mean_gdpPercap = mean(gdpPercap))\n# A tibble: 1 × 3\n      n mean_lifeExp mean_gdpPercap\n  &lt;int&gt;        &lt;dbl&gt;          &lt;dbl&gt;\n1   142         67.0         11680.\n\n\ngrouped_data |&gt; \n  summarise(n = n(), mean_lifeExp = mean(lifeExp), mean_gdpPercap = mean(gdpPercap))\n# A tibble: 5 × 4\n  continent     n mean_lifeExp mean_gdpPercap\n  &lt;fct&gt;     &lt;int&gt;        &lt;dbl&gt;          &lt;dbl&gt;\n1 Africa       52         54.8          3089.\n2 Americas     25         73.6         11003.\n3 Asia         33         70.7         12473.\n4 Europe       30         77.6         25054.\n5 Oceania       2         80.7         29810.\n\nIt does this by using the group_indices as internal filter objects! (e.g. do X for group 1, then 2, then 3, …)"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#today",
+    "href": "slides/9-formats-eda.html#today",
+    "title": "Lecture 09",
+    "section": "Today",
+    "text": "Today\n\nLinear Models: Introduction to Models in R\n\n\nDeep Dive on OLS in a few weels\n\n\nUnderstanding the nest/map approach"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#the-lm-function-in-r",
+    "href": "slides/9-formats-eda.html#the-lm-function-in-r",
+    "title": "Lecture 09",
+    "section": "The lm() Function in R",
+    "text": "The lm() Function in R\nBasic Syntax:\n\nmodel &lt;- lm(y ~ x, data = dataset)\n\nWhere:\n\ny: Dependent variable (response).\n~: Describes a formula as LHS ~ RHS (remember facet_*)\nx: Independent variable (predictor).\ndataset: data.frame containing variables.\n\nExample:\n\ngm2007 &lt;-  filter(gapminder, year == 2007)\nlm_model &lt;- lm(lifeExp ~ gdpPercap, data = gm2007)\n\n\n\nlm_model\n\nCall:\nlm(formula = lifeExp ~ gdpPercap, data = gm2007)\n\nCoefficients:\n(Intercept)    gdpPercap  \n  5.957e+01    6.371e-04"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#multiple-linear-regression",
+    "href": "slides/9-formats-eda.html#multiple-linear-regression",
+    "title": "Lecture 09",
+    "section": "Multiple Linear Regression",
+    "text": "Multiple Linear Regression\nSyntax for Multiple Predictors:\n\nlm_model &lt;- lm(y ~ x1 + x2 + x3, data = dataset)\n\n\nAllows for multiple independent variables.\n\nlm_model &lt;- lm(lifeExp ~ gdpPercap + pop, data = gm2007)\n\n\n\nAllows for interaction terms with *\n\nlm_model &lt;- lm(lifeExp ~ gdpPercap + pop + pop*gdpPercap, data = gm2007)"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#viewing-model-summary",
+    "href": "slides/9-formats-eda.html#viewing-model-summary",
+    "title": "Lecture 09",
+    "section": "Viewing Model Summary",
+    "text": "Viewing Model Summary\nUse summary() to inspect results. Provides coefficients, R-squared, p-values, etc.\n\nsummary(lm_model)\n\nCall:\nlm(formula = lifeExp ~ gdpPercap + pop + pop * gdpPercap, data = gm2007)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.466  -5.910   1.877   6.942  13.393 \n\nCoefficients:\n                Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    5.910e+01  1.056e+00  55.947   &lt;2e-16 ***\ngdpPercap      6.575e-04  6.393e-05  10.284   &lt;2e-16 ***\npop            9.386e-09  6.428e-09   1.460    0.146    \ngdpPercap:pop -4.595e-13  7.586e-13  -0.606    0.546    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.89 on 138 degrees of freedom\nMultiple R-squared:  0.4693,    Adjusted R-squared:  0.4578 \nF-statistic: 40.68 on 3 and 138 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#diagnostic-plots-checking-assumptions",
+    "href": "slides/9-formats-eda.html#diagnostic-plots-checking-assumptions",
+    "title": "Lecture 09",
+    "section": "Diagnostic Plots: Checking Assumptions",
+    "text": "Diagnostic Plots: Checking Assumptions\n\n\n\nResiduals vs. Fitted: Check linearity.\nNormal Q-Q: Check normality.\nScale-Location: Check homoscedasticity.\nResiduals vs. Leverage: Detect influential points.\n\n\n\npar(mfrow = c(2,2))\nplot(lm_model)"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#making-predictions-using-lm",
+    "href": "slides/9-formats-eda.html#making-predictions-using-lm",
+    "title": "Lecture 09",
+    "section": "Making predictions using lm()",
+    "text": "Making predictions using lm()\nMake Predictions:\n\n(new_data &lt;- summarise(gm2007,\n                       gdpPercap = mean(gdpPercap),\n                       pop = mean(pop)))\n# A tibble: 1 × 2\n  gdpPercap       pop\n      &lt;dbl&gt;     &lt;dbl&gt;\n1    11680. 44021220.\n\n\n\npredict(lm_model, new_data)\n      1 \n66.9592"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#across-a-population",
+    "href": "slides/9-formats-eda.html#across-a-population",
+    "title": "Lecture 09",
+    "section": "Across a population",
+    "text": "Across a population\n\n\n\n\n\n\nPipe Notes\n\n\nRemember the difference in pipes described in lab 2?\nTidyverse Pipe (%&gt;%)\nFrom the magrittr package (and used in dplyr), %&gt;% allows greater flexibility than |&gt;, such as:\n\nUsing placeholders (.) when the first argument isn’t where the function expects input.\nAutomatically handling non-standard evaluation in dplyr.\n\n\n\n\n\n(new_data &lt;- summarise(gm2007,\n                       gdpPercap = mean(gdpPercap),\n                       pop = mean(pop)))\n# A tibble: 1 × 2\n  gdpPercap       pop\n      &lt;dbl&gt;     &lt;dbl&gt;\n1    11680. 44021220.\n\ndf = data.frame(country = 1:100) |&gt; \n  mutate(gdpPercap = abs(rnorm(n(), mean(gm2007$gdpPercap), sd(gm2007$gdpPercap))),\n         pop = abs(rnorm(n(), mean(gm2007$pop), sd(gm2007$pop)))) %&gt;%\n  mutate(lifeExp = predict(lm_model, .))"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#linear-models-as-the-basis-for-machine-learning",
+    "href": "slides/9-formats-eda.html#linear-models-as-the-basis-for-machine-learning",
+    "title": "Lecture 09",
+    "section": "Linear Models as the Basis for Machine Learning",
+    "text": "Linear Models as the Basis for Machine Learning\nWhy is lm() Fundamental to ML?\nLinear regression is the simplest form of a predictive model.\nForms the basis of many ML algorithms, such as:\n\nLogistic Regression (for classification)\nSupport Vector Machines (linear kernel)\nNeural Networks (linear combinations in layers)\nGeneralized Linear Models (GLMs)\nRegularization techniques like Ridge and Lasso regression extend lm() to prevent overfitting.\n\nMany deep learning models rely on matrix multiplication, a fundamental concept in linear regression."
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#challenge",
+    "href": "slides/9-formats-eda.html#challenge",
+    "title": "Lecture 09",
+    "section": "Challenge!",
+    "text": "Challenge!\nStarting with the gapminder dataset, compute a continent-by-contient regression of lifeExp ~ gdpPercap\n\ngapminder |&gt; \n  filter(year == 2007) |&gt; \n  group_by(continent) %&gt;% \n  mutate(lm = lm(lifeExp ~ gdpPercap, data = .))\nError in `mutate()`:\nℹ In argument: `lm = lm(lifeExp ~ gdpPercap, data = .)`.\nℹ In group 1: `continent = Africa`.\nCaused by error:\n! `lm` must be a vector, not a &lt;lm&gt; object."
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#unnest",
+    "href": "slides/9-formats-eda.html#unnest",
+    "title": "Lecture 09",
+    "section": "Unnest",
+    "text": "Unnest\n\nMuch like ungroup removes a group structure, unnest removes a nest structure\n\n\nunnest(nested_data, data)\n# A tibble: 6 × 3\n  group     x     y\n  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 A         1     2\n2 A         2     4\n3 A         3     6\n4 B         4     8\n5 B         5    10\n6 B         6    12"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#working-over-list-columns",
+    "href": "slides/9-formats-eda.html#working-over-list-columns",
+    "title": "Lecture 09",
+    "section": "Working over list-columns",
+    "text": "Working over list-columns\nVerbs like mutate work well across columns, but cannot work over nested lists (e.g. a list-column of a data.frame (list!))\n\nFor this, we need additional tooling.\n\n\nlibrary(purrr)\n\n\"purrr\" %in% tidyverse_packages()\n[1] TRUE"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#what-is-purrrmap",
+    "href": "slides/9-formats-eda.html#what-is-purrrmap",
+    "title": "Lecture 09",
+    "section": "What is purrr::map()?",
+    "text": "What is purrr::map()?\n\nmap() is from the purrr package and applies a function over a list or vector.\nIt works similarly to lapply() but with better integration into tidyverse workflows.\n\n\nnested_data |&gt; \n  mutate(mean_x = map(data, ~mean(.x$x)))\n# A tibble: 2 × 3\n  group data             mean_x   \n  &lt;chr&gt; &lt;list&gt;           &lt;list&gt;   \n1 A     &lt;tibble [3 × 2]&gt; &lt;dbl [1]&gt;\n2 B     &lt;tibble [3 × 2]&gt; &lt;dbl [1]&gt;\n\nExplanation: - The .x notation inside map() refers to the data frame stored in the data column. - .x$x accesses the x column within each nested data frame to compute the mean.\n\nnested_data |&gt; \n  mutate(mean_x = map(data, ~mean(.x$x))) |&gt; \n  unnest(mean_x)\n# A tibble: 2 × 3\n  group data             mean_x\n  &lt;chr&gt; &lt;list&gt;            &lt;dbl&gt;\n1 A     &lt;tibble [3 × 2]&gt;      2\n2 B     &lt;tibble [3 × 2]&gt;      5\n\n\nnested_data |&gt; \n  mutate(mean_x = map_dbl(data, ~mean(.x$x))) \n# A tibble: 2 × 3\n  group data             mean_x\n  &lt;chr&gt; &lt;list&gt;            &lt;dbl&gt;\n1 A     &lt;tibble [3 × 2]&gt;      2\n2 B     &lt;tibble [3 × 2]&gt;      5"
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#so-what",
+    "href": "slides/9-formats-eda.html#so-what",
+    "title": "Lecture 09",
+    "section": "So what?",
+    "text": "So what?\nSo you might be asking why all this extra work over group_by/summarize?\n\n(gm2007 &lt;-  filter(gapminder, year == 2007) )\n# A tibble: 142 × 6\n   country     continent  year lifeExp       pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       2007    43.8  31889923      975.\n 2 Albania     Europe     2007    76.4   3600523     5937.\n 3 Algeria     Africa     2007    72.3  33333216     6223.\n 4 Angola      Africa     2007    42.7  12420476     4797.\n 5 Argentina   Americas   2007    75.3  40301927    12779.\n 6 Australia   Oceania    2007    81.2  20434176    34435.\n 7 Austria     Europe     2007    79.8   8199783    36126.\n 8 Bahrain     Asia       2007    75.6    708573    29796.\n 9 Bangladesh  Asia       2007    64.1 150448339     1391.\n10 Belgium     Europe     2007    79.4  10392226    33693.\n# ℹ 132 more rows\n\ngm2007 |&gt; \n  group_by(continent) %&gt;% \n  mutate(lm = lm(lifeExp ~ gdpPercap, data = .))\nError in `mutate()`:\nℹ In argument: `lm = lm(lifeExp ~ gdpPercap, data = .)`.\nℹ In group 1: `continent = Africa`.\nCaused by error:\n! `lm` must be a vector, not a &lt;lm&gt; object."
+  },
+  {
+    "objectID": "slides/9-formats-eda.html#assignment",
+    "href": "slides/9-formats-eda.html#assignment",
+    "title": "Lecture 09",
+    "section": "Assignment",
+    "text": "Assignment\n\nlibrary(palmerpenguins)\n\n\nxx = penguins |&gt; \n  nest(-species) |&gt; \n  mutate(lm = map(data, ~lm(body_mass_g~flipper_length_mm, data = .x)),\n         summary = map(lm, broom::glance)) |&gt; \n  unnest(summary)\n\nggplot(xx) +\n  geom_col(aes(x = species, y =  r.squared))"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html",
+    "href": "slides/9-nests-lm.html",
+    "title": "Lecture 09",
+    "section": "",
+    "text": "We have learned about the data.frame/tibble structure and how is is built on top of list structures in R.\nRemember that lists can be recursive?\n\n\n# list of lists ...\n(list_list &lt;- list(list(\"hi\")))\n[[1]]\n[[1]][[1]]\n[1] \"hi\"\n\nstr(list_list)\nList of 1\n $ :List of 1\n  ..$ : chr \"hi\""
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#so-far",
+    "href": "slides/9-nests-lm.html#so-far",
+    "title": "Lecture 09",
+    "section": "",
+    "text": "We have learned about the data.frame/tibble structure and how is is built on top of list structures in R.\nRemember that lists can be recursive?\n\n\n# list of lists ...\n(list_list &lt;- list(list(\"hi\")))\n[[1]]\n[[1]][[1]]\n[1] \"hi\"\n\nstr(list_list)\nList of 1\n $ :List of 1\n  ..$ : chr \"hi\""
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#last-assignment",
+    "href": "slides/9-nests-lm.html#last-assignment",
+    "title": "Lecture 09",
+    "section": "Last Assignment",
+    "text": "Last Assignment\n\nWe created a data.frame documenting the name/abbrivation/region relationship of US states\nIn each case, the column was defined by a character atomic vector\n\n\ndf &lt;- data.frame(region = state.region,\n                 state_abbr = state.abb,\n                 state.name = state.name)\n\nhead(df)\n  region state_abbr state.name\n1  South         AL    Alabama\n2   West         AK     Alaska\n3   West         AZ    Arizona\n4  South         AR   Arkansas\n5   West         CA California\n6   West         CO   Colorado"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#remember-vectors",
+    "href": "slides/9-nests-lm.html#remember-vectors",
+    "title": "Lecture 09",
+    "section": "Remember … Vectors?",
+    "text": "Remember … Vectors?\n\nVectors come in two types: atomic and lists\nFor atomic vectors, all elements must have the same type;\nFor lists, elements can have different types.\nNULL serves as a generic zero length vector.\nThis diagram - taken from here - illustrates the basic relationships:\n\n\n\n\n\n\n\n\n\n\n. . .\n\ndf$list_element = vector(\"list\", length = nrow(df))\n\nhead(df)\n  region state_abbr state.name list_element\n1  South         AL    Alabama         NULL\n2   West         AK     Alaska         NULL\n3   West         AZ    Arizona         NULL\n4  South         AR   Arkansas         NULL\n5   West         CA California         NULL\n6   West         CO   Colorado         NULL"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#section",
+    "href": "slides/9-nests-lm.html#section",
+    "title": "Lecture 09",
+    "section": "",
+    "text": "While atomic vecotrs must store base R data types (Logical, character, numeric)\n\n\n\n\n\n\n\n\n\nlists can store whatever they want!"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#now-remember-groups",
+    "href": "slides/9-nests-lm.html#now-remember-groups",
+    "title": "Lecture 09",
+    "section": "Now, remember Groups?",
+    "text": "Now, remember Groups?\n\nGroups extend the data.frame structure by ADDING more attributes to the object This is simualr to how a matrix or array extends the attomic vector structure by adding more attributes (e.g. dim())\n\n\ngm2007 &lt;-  gapminder |&gt; \n  select(continent, year, lifeExp, gdpPercap) |&gt; \n  filter(year == 2007)\n\ngrouped_data = group_by(gm2007, continent)\n\nattributes(grouped_data)$groups\n# A tibble: 5 × 2\n  continent       .rows\n  &lt;fct&gt;     &lt;list&lt;int&gt;&gt;\n1 Africa           [52]\n2 Americas         [25]\n3 Asia             [33]\n4 Europe           [30]\n5 Oceania           [2]\n\ngroup_vars(grouped_data)  # Shows the grouping variables\n[1] \"continent\"\ngroups(grouped_data)      # Shows the full grouping structure\n[[1]]\ncontinent\ngroup_size(grouped_data)  # Shows number of observations per group\n[1] 52 25 33 30  2\ngroup_keys(grouped_data)  # Shows the keys used to group the data\n# A tibble: 5 × 1\n  continent\n  &lt;fct&gt;    \n1 Africa   \n2 Americas \n3 Asia     \n4 Europe   \n5 Oceania  \ngroup_indices(grouped_data) # Shows the divison\n  [1] 3 4 1 1 2 5 4 3 3 4 1 2 4 1 2 4 1 1 3 1 2 1 1 2 3 2 1 1 1 2 1 4 2 4 4 1 2\n [38] 2 1 2 1 1 1 4 4 1 1 4 1 4 2 1 1 2 2 3 4 4 3 3 3 3 4 3 4 2 3 3 1 3 3 3 3 1\n [75] 1 1 1 1 3 1 1 1 2 3 4 1 1 3 1 3 4 5 2 1 1 4 3 3 2 2 2 3 4 4 2 1 4 1 1 3 1\n[112] 4 1 3 4 4 1 1 4 3 1 1 4 4 3 3 1 3 1 2 1 4 1 4 2 2 2 3 3 3 1 1"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#remember-that-dplyr-verbs-respect-groups",
+    "href": "slides/9-nests-lm.html#remember-that-dplyr-verbs-respect-groups",
+    "title": "Lecture 09",
+    "section": "Remember that dplyr verbs respect groups",
+    "text": "Remember that dplyr verbs respect groups\n\n# Full data.set\ngm2007 |&gt; \n  summarise(n = n(), mean_lifeExp = mean(lifeExp), mean_gdpPercap = mean(gdpPercap))\n# A tibble: 1 × 3\n      n mean_lifeExp mean_gdpPercap\n  &lt;int&gt;        &lt;dbl&gt;          &lt;dbl&gt;\n1   142         67.0         11680.\n\n# Iterate by groups ... \ngrouped_data |&gt; \n  summarise(n = n(), mean_lifeExp = mean(lifeExp), mean_gdpPercap = mean(gdpPercap))\n# A tibble: 5 × 4\n  continent     n mean_lifeExp mean_gdpPercap\n  &lt;fct&gt;     &lt;int&gt;        &lt;dbl&gt;          &lt;dbl&gt;\n1 Africa       52         54.8          3089.\n2 Americas     25         73.6         11003.\n3 Asia         33         70.7         12473.\n4 Europe       30         77.6         25054.\n5 Oceania       2         80.7         29810.\n\nIt does this by using the group_indices as internal filter objects! (e.g. do X for group 1, then 2, then 3, …)\n\nlong_list = list()\n\nfor(i in unlist(group_keys(grouped_data))){\n  long_list[[i]] &lt;- dplyr::filter(gm2007, continent == i) |&gt; \n   summarise(continent = continent[1], n = n(), mean_lifeExp = mean(lifeExp), mean_gdpPercap = mean(gdpPercap))\n}\n\nbind_rows(long_list)\n# A tibble: 5 × 4\n  continent     n mean_lifeExp mean_gdpPercap\n  &lt;fct&gt;     &lt;int&gt;        &lt;dbl&gt;          &lt;dbl&gt;\n1 Africa       52         54.8          3089.\n2 Americas     25         73.6         11003.\n3 Asia         33         70.7         12473.\n4 Europe       30         77.6         25054.\n5 Oceania       2         80.7         29810."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#today",
+    "href": "slides/9-nests-lm.html#today",
+    "title": "Lecture 09",
+    "section": "Today",
+    "text": "Today\n\nLinear Models: Introduction to Models in R\n\n\nDeep Dive on OLS in a few weels\n\n\nUnderstanding the nest/map approach of"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#the-lm-function-in-r",
+    "href": "slides/9-nests-lm.html#the-lm-function-in-r",
+    "title": "Lecture 09",
+    "section": "The lm() Function in R",
+    "text": "The lm() Function in R\nBasic Syntax:\n\nmodel &lt;- lm(y ~ x, data = dataset)\n\nWhere:\n\ny: Dependent variable (response).\n~: Describes a formula as LHS ~ RHS (remember facet_*)\nx: Independent variable (predictor).\ndataset: data.frame containing variables.\n\nExample:\n\ngm2007 &lt;-  filter(gapminder, year == 2007)\nlm_model &lt;- lm(lifeExp ~ gdpPercap, data = gm2007)\n\n. . .\n\nlm_model\n\nCall:\nlm(formula = lifeExp ~ gdpPercap, data = gm2007)\n\nCoefficients:\n(Intercept)    gdpPercap  \n  5.957e+01    6.371e-04"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#multiple-linear-regression",
+    "href": "slides/9-nests-lm.html#multiple-linear-regression",
+    "title": "Lecture 09",
+    "section": "Multiple Linear Regression",
+    "text": "Multiple Linear Regression\nSyntax for Multiple Predictors:\n\nlm_model &lt;- lm(y ~ x1 + x2 + x3, data = dataset)\n\n. . .\nAllows for multiple independent variables.\n\nlm_model &lt;- lm(lifeExp ~ gdpPercap + pop, data = gm2007)\n\n. . .\nAllows for interaction terms with *\n\nlm_model &lt;- lm(lifeExp ~ gdpPercap + pop + pop*gdpPercap, data = gm2007)"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#viewing-model-summary",
+    "href": "slides/9-nests-lm.html#viewing-model-summary",
+    "title": "Lecture 09",
+    "section": "Viewing Model Summary",
+    "text": "Viewing Model Summary\nUse summary() to inspect results. Provides coefficients, R-squared, p-values, etc.\n\nsummary(lm_model)\n\nCall:\nlm(formula = lifeExp ~ gdpPercap + pop + pop * gdpPercap, data = gm2007)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-22.466  -5.910   1.877   6.942  13.393 \n\nCoefficients:\n                Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    5.910e+01  1.056e+00  55.947   &lt;2e-16 ***\ngdpPercap      6.575e-04  6.393e-05  10.284   &lt;2e-16 ***\npop            9.386e-09  6.428e-09   1.460    0.146    \ngdpPercap:pop -4.595e-13  7.586e-13  -0.606    0.546    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.89 on 138 degrees of freedom\nMultiple R-squared:  0.4693,    Adjusted R-squared:  0.4578 \nF-statistic: 40.68 on 3 and 138 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#making-predictions-using-lm",
+    "href": "slides/9-nests-lm.html#making-predictions-using-lm",
+    "title": "Lecture 09",
+    "section": "Making predictions using lm()",
+    "text": "Making predictions using lm()\nMake Predictions:\n\n(new_data &lt;- summarise(gm2007,\n                       gdpPercap = mean(gdpPercap),\n                       pop = mean(pop)))\n# A tibble: 1 × 2\n  gdpPercap       pop\n      &lt;dbl&gt;     &lt;dbl&gt;\n1    11680. 44021220.\n\n. . .\n\npredict(lm_model, new_data)\n      1 \n66.9592"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#across-a-population",
+    "href": "slides/9-nests-lm.html#across-a-population",
+    "title": "Lecture 09",
+    "section": "Across a population",
+    "text": "Across a population\n\n\n\n\n\n\nPipe Notes\n\n\n\nRemember the difference in pipes described in lab 2?\n\nTidyverse Pipe (%&gt;%)\nFrom the magrittr package (and used in dplyr), %&gt;% allows greater flexibility than |&gt;, such as:\n\nUsing placeholders (.) when the first argument isn’t where the function expects input.\nAutomatically handling non-standard evaluation in dplyr.\n\n\n\n\n\n(new_data &lt;- summarise(gm2007,\n                       gdpPercap = mean(gdpPercap),\n                       pop = mean(pop)))\n# A tibble: 1 × 2\n  gdpPercap       pop\n      &lt;dbl&gt;     &lt;dbl&gt;\n1    11680. 44021220.\n\ndf = data.frame(country = 1:100) |&gt; \n  mutate(gdpPercap = abs(rnorm(n(), mean(gm2007$gdpPercap), sd(gm2007$gdpPercap))),\n         pop = abs(rnorm(n(), mean(gm2007$pop), sd(gm2007$pop)))) %&gt;%\n  mutate(lifeExp = predict(lm_model, .))"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp))"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow-1",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow-1",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\")"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow-2",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow-2",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2)"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow-3",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow-3",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\")"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow-4",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow-4",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2)"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow-5",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow-5",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2) +\n  annotate(\"text\", label = \"Gapminder mean\",\n           x = 63, y = .1,\n           size = 4)"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow-6",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow-6",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2) +\n  annotate(\"text\", label = \"Gapminder mean\",\n           x = 63, y = .1,\n           size = 4) +\n   annotate(\"text\", label = \"Predicted mean\",\n            x = 73.5, y = .1,\n            size = 4, col = \"red\")"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow-7",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow-7",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2) +\n  annotate(\"text\", label = \"Gapminder mean\",\n           x = 63, y = .1,\n           size = 4) +\n   annotate(\"text\", label = \"Predicted mean\",\n            x = 73.5, y = .1,\n            size = 4, col = \"red\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#pivot-within-workflow-8",
+    "href": "slides/9-nests-lm.html#pivot-within-workflow-8",
+    "title": "Lecture 09",
+    "section": "Pivot within workflow…",
+    "text": "Pivot within workflow…\n\n\n\nggplot(df, aes(x = lifeExp)) +\n   geom_histogram(aes(y = ..density..),\n                 colour = 1, fill = \"gray80\") +\n  geom_density(lwd = 1.2,\n               linetype = 2,\n               colour = 2) +\n  geom_vline(xintercept = mean(df$lifeExp), size = 2, col =\"red\") +\n  geom_vline(xintercept = mean(gm2007$lifeExp), size = 2) +\n  annotate(\"text\", label = \"Gapminder mean\",\n           x = 63, y = .1,\n           size = 4) +\n   annotate(\"text\", label = \"Predicted mean\",\n            x = 73.5, y = .1,\n            size = 4, col = \"red\") +\n  theme_bw() +\n  labs(title = 'Predicted Life Expectancy of Randomly Generated Countries',\n       subtitle = \"Normal Distribution assumption from Gapminder 2007\",\n       x = \"Predicted Life Expectancy\",\n       y = 'Density')"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#linear-models-as-the-basis-for-machine-learning",
+    "href": "slides/9-nests-lm.html#linear-models-as-the-basis-for-machine-learning",
+    "title": "Lecture 09",
+    "section": "Linear Models as the Basis for Machine Learning",
+    "text": "Linear Models as the Basis for Machine Learning\nWhy is lm() Fundamental to ML?\nLinear regression is the simplest form of a predictive model.\nForms the basis of many Machine Learning algorithms, such as:\n\nLogistic Regression (for classification)\nSupport Vector Machine (linear kernel)\nNeural Networks (linear combinations in layers)\nGeneralized Linear Models (GLMs)\nRegularization techniques like Ridge and Lasso regression extend lm() to prevent overfitting.\nMany deep learning models rely on matrix multiplication, a fundamental concept in linear regression."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#summary",
+    "href": "slides/9-nests-lm.html#summary",
+    "title": "Lecture 09",
+    "section": "Summary",
+    "text": "Summary\n\nlm() is a powerful function for linear regression in R.\n\nReturns an S3 object of class lm\n\nsummary() provides key insights.\nPredictions can be made for new data with predict()"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#challenge",
+    "href": "slides/9-nests-lm.html#challenge",
+    "title": "Lecture 09",
+    "section": "Challenge!",
+    "text": "Challenge!\nStarting with the gapminder dataset, compute a continent-by-contient regression of lifeExp ~ gdpPercap\n\ngapminder |&gt; \n  filter(year == 2007) |&gt; \n  group_by(continent) %&gt;% \n  mutate(lm = lm(lifeExp ~ gdpPercap, data = .))\nError in `mutate()`:\nℹ In argument: `lm = lm(lifeExp ~ gdpPercap, data = .)`.\nℹ In group 1: `continent = Africa`.\nCaused by error:\n! `lm` must be a vector, not a &lt;lm&gt; object."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#internal-groupings",
+    "href": "slides/9-nests-lm.html#internal-groupings",
+    "title": "Lecture 09",
+    "section": "Internal groupings",
+    "text": "Internal groupings\n\nnest() and map() are functions from the tidyverse, primarily used with the tidyr and purrr packages.\nThey allow for efficient list-column workflows and functional programming in R.\nUseful for grouped operations, iterative calculations, and data wrangling."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#what-is-nest",
+    "href": "slides/9-nests-lm.html#what-is-nest",
+    "title": "Lecture 09",
+    "section": "What is nest()?",
+    "text": "What is nest()?\n\nnest() converts a grouped dataset into a list-column format.\nIt allows you to keep related observations together in nested data.frames.\n\n\ndata &lt;- data.frame(\n  group = rep(c(\"A\", \"B\"), each = 3),\n  x = c(1, 2, 3, 4, 5, 6),\n  y = c(2, 4, 6, 8, 10, 12)\n)\n\ndata\n  group x  y\n1     A 1  2\n2     A 2  4\n3     A 3  6\n4     B 4  8\n5     B 5 10\n6     B 6 12\n\nnested_data &lt;- data |&gt; \n  nest(data = -group)\n\nnested_data\n# A tibble: 2 × 2\n  group data            \n  &lt;chr&gt; &lt;list&gt;          \n1 A     &lt;tibble [3 × 2]&gt;\n2 B     &lt;tibble [3 × 2]&gt;\n\nnested_data$data[[1]]\n# A tibble: 3 × 2\n      x     y\n  &lt;dbl&gt; &lt;dbl&gt;\n1     1     2\n2     2     4\n3     3     6\n\nnested_data$data[[1]]$x\n[1] 1 2 3\n\nnested_data$group[[1]]\n[1] \"A\"\n\nExplanation: - The data tibble contains two groups (A and B) with corresponding x values. - nest(data = -group) creates a new tibble where each group has a nested data frame containing the x values."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#unnest",
+    "href": "slides/9-nests-lm.html#unnest",
+    "title": "Lecture 09",
+    "section": "Unnest",
+    "text": "Unnest\n\nMuch like ungroup removes a group structure, unnest removes a nest structure\n\n\nunnest(nested_data, data)\n# A tibble: 6 × 3\n  group     x     y\n  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 A         1     2\n2 A         2     4\n3 A         3     6\n4 B         4     8\n5 B         5    10\n6 B         6    12"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#working-over-list-columns",
+    "href": "slides/9-nests-lm.html#working-over-list-columns",
+    "title": "Lecture 09",
+    "section": "Working over list-columns",
+    "text": "Working over list-columns\nVerbs like mutate work well across columns, but cannot work over nested lists (e.g. a list-column of a data.frame (list!))\n\nFor this, we need additional tooling.\n\n\nlibrary(purrr)\n\"purrr\" %in% tidyverse_packages()\n[1] TRUE\n\n\npurrr\npurrr is an R package that enhances functional programming by providing a consistent and powerful set of tools for working with lists and vectors. It is part of the tidyverse and helps simplify iteration, replacing traditional for loops and apply functions with more readable and efficient alternatives.\n\nKey Features of purrr:\n\nmap() Functions – Apply a function to each element of a list or vector.\n\nmap() → Returns a list\nmap_lgl() → Returns a logical vector\nmap_int() → Returns an integer vector\nmap_dbl() → Returns a double (numeric) vector\nmap_chr() → Returns a character vector\nmap2(.x, .y, .f) → Iterates over two vectors.\npmap(list(…), .f) → Iterates over multiple vectors."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#what-is-purrrmap",
+    "href": "slides/9-nests-lm.html#what-is-purrrmap",
+    "title": "Lecture 09",
+    "section": "What is purrr::map()?",
+    "text": "What is purrr::map()?\n\nmap() is from the purrr package and applies a function over a list or vector.\nIt works similarly to lapply() but with better integration into tidyverse workflows.\n\n\nnested_data |&gt; \n  mutate(mean_x = map(data, ~mean(.x$x)))\n# A tibble: 2 × 3\n  group data             mean_x   \n  &lt;chr&gt; &lt;list&gt;           &lt;list&gt;   \n1 A     &lt;tibble [3 × 2]&gt; &lt;dbl [1]&gt;\n2 B     &lt;tibble [3 × 2]&gt; &lt;dbl [1]&gt;\n\nExplanation: - The .x notation inside map() refers to the data frame stored in the data column. - .x$x accesses the x column within each nested data frame to compute the mean.\n\nnested_data |&gt; \n  mutate(mean_x = map(data, ~mean(.x$x))) |&gt; \n  unnest(mean_x)\n# A tibble: 2 × 3\n  group data             mean_x\n  &lt;chr&gt; &lt;list&gt;            &lt;dbl&gt;\n1 A     &lt;tibble [3 × 2]&gt;      2\n2 B     &lt;tibble [3 × 2]&gt;      5\n\n\nnested_data |&gt; \n  mutate(mean_x = map_dbl(data, ~mean(.x$x))) \n# A tibble: 2 × 3\n  group data             mean_x\n  &lt;chr&gt; &lt;list&gt;            &lt;dbl&gt;\n1 A     &lt;tibble [3 × 2]&gt;      2\n2 B     &lt;tibble [3 × 2]&gt;      5"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#so-what",
+    "href": "slides/9-nests-lm.html#so-what",
+    "title": "Lecture 09",
+    "section": "So what?",
+    "text": "So what?\nSo you might be asking why all this extra work over group_by/summarize?\n\n(gm2007 &lt;-  filter(gapminder, year == 2007) )\n# A tibble: 142 × 6\n   country     continent  year lifeExp       pop gdpPercap\n   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;\n 1 Afghanistan Asia       2007    43.8  31889923      975.\n 2 Albania     Europe     2007    76.4   3600523     5937.\n 3 Algeria     Africa     2007    72.3  33333216     6223.\n 4 Angola      Africa     2007    42.7  12420476     4797.\n 5 Argentina   Americas   2007    75.3  40301927    12779.\n 6 Australia   Oceania    2007    81.2  20434176    34435.\n 7 Austria     Europe     2007    79.8   8199783    36126.\n 8 Bahrain     Asia       2007    75.6    708573    29796.\n 9 Bangladesh  Asia       2007    64.1 150448339     1391.\n10 Belgium     Europe     2007    79.4  10392226    33693.\n# ℹ 132 more rows\n\ngm2007 |&gt; \n  group_by(continent) %&gt;% \n  mutate(lm = lm(lifeExp ~ gdpPercap, data = .))\nError in `mutate()`:\nℹ In argument: `lm = lm(lifeExp ~ gdpPercap, data = .)`.\nℹ In group 1: `continent = Africa`.\nCaused by error:\n! `lm` must be a vector, not a &lt;lm&gt; object."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#combining-nest-and-map",
+    "href": "slides/9-nests-lm.html#combining-nest-and-map",
+    "title": "Lecture 09",
+    "section": "Combining nest() and map()",
+    "text": "Combining nest() and map()\n\nnest() structures the data into groups.\nmap() applies functions to each nested dataset.\nCan be used for modeling, summaries, and transformations.\n\n\nExample: Linear Regression by Group\n\n(nested_data &lt;- nest(gm2007, -continent))\n# A tibble: 5 × 2\n  continent data             \n  &lt;fct&gt;     &lt;list&gt;           \n1 Asia      &lt;tibble [33 × 5]&gt;\n2 Europe    &lt;tibble [30 × 5]&gt;\n3 Africa    &lt;tibble [52 × 5]&gt;\n4 Americas  &lt;tibble [25 × 5]&gt;\n5 Oceania   &lt;tibble [2 × 5]&gt; \n\nmodel_results &lt;- nested_data |&gt; \n  mutate(model = map(data, ~lm(lifeExp ~ gdpPercap, data = .x)))\n\nmodel_results$continent[1]\n[1] Asia\nLevels: Africa Americas Asia Europe Oceania\nmodel_results$model[[1]]\n\nCall:\nlm(formula = lifeExp ~ gdpPercap, data = .x)\n\nCoefficients:\n(Intercept)    gdpPercap  \n  6.589e+01    3.878e-04  \nclass(model_results$model[[1]])\n[1] \"lm\"\nsummary(model_results$model[[1]])\n\nCall:\nlm(formula = lifeExp ~ gdpPercap, data = .x)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-22.4409  -2.3685   0.9101   4.4345   7.4111 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 6.589e+01  1.369e+00  48.123  &lt; 2e-16 ***\ngdpPercap   3.878e-04  7.320e-05   5.298 9.13e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 5.861 on 31 degrees of freedom\nMultiple R-squared:  0.4752,    Adjusted R-squared:  0.4583 \nF-statistic: 28.07 on 1 and 31 DF,  p-value: 9.13e-06\n\n\n\n\n\n\n\nS3 is a lightweight and flexible object-oriented system in R that allows defining custom classes by assigning a “class” attribute to lists or other base R objects. Methods for S3 classes are dispatched based on the generic function called, using a naming convention like generic.classname(), and R selects the appropriate method based on the object’s class. While S3 lacks formal encapsulation and inheritance mechanisms, it is widely used in R packages due to its simplicity and ease of extension.\n\n\n\n\n(model_results &lt;- nested_data |&gt;\n  mutate(model = map(data, ~lm(lifeExp ~ gdpPercap, data = .x)),\n         summary = map(model, summary)))\n# A tibble: 5 × 4\n  continent data              model  summary   \n  &lt;fct&gt;     &lt;list&gt;            &lt;list&gt; &lt;list&gt;    \n1 Asia      &lt;tibble [33 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt;\n2 Europe    &lt;tibble [30 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt;\n3 Africa    &lt;tibble [52 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt;\n4 Americas  &lt;tibble [25 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt;\n5 Oceania   &lt;tibble [2 × 5]&gt;  &lt;lm&gt;   &lt;smmry.lm&gt;\n\nmodel_results |&gt; \n  mutate(r2 = map_dbl(summary, \"r.squared\"))\n# A tibble: 5 × 5\n  continent data              model  summary       r2\n  &lt;fct&gt;     &lt;list&gt;            &lt;list&gt; &lt;list&gt;     &lt;dbl&gt;\n1 Asia      &lt;tibble [33 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt; 0.475\n2 Europe    &lt;tibble [30 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt; 0.722\n3 Africa    &lt;tibble [52 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt; 0.148\n4 Americas  &lt;tibble [25 × 5]&gt; &lt;lm&gt;   &lt;smmry.lm&gt; 0.349\n5 Oceania   &lt;tibble [2 × 5]&gt;  &lt;lm&gt;   &lt;smmry.lm&gt; 1"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#what-is-broom",
+    "href": "slides/9-nests-lm.html#what-is-broom",
+    "title": "Lecture 09",
+    "section": "What is broom?",
+    "text": "What is broom?\n\nThe broom package helps tidy up model outputs for further analysis or reporting.\nIt converts model objects (like from lm()) into tidy data frames that are easy to manipulate.\n\n\nlibrary(broom)\n\"broom\" %in% tidyverse_packages()\n[1] TRUE\n\n\nKey functions from broom include:\ntidy() for converting model coefficients and statistics into a data frame. glance() for providing a one-row summary of a model’s performance. augment() for adding model diagnostics (e.g., residuals, fitted values) to the original data."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#extracting-model-summaries",
+    "href": "slides/9-nests-lm.html#extracting-model-summaries",
+    "title": "Lecture 09",
+    "section": "Extracting Model Summaries",
+    "text": "Extracting Model Summaries\n\nmodel_example = nested_data |&gt; \n  mutate(model   = map(data, ~lm(lifeExp ~ gdpPercap, data = .x)),\n         summary = map(model, broom::tidy)) \n\nnested_data |&gt; \n  mutate(model   = map(data, ~lm(lifeExp ~ gdpPercap, data = .x)),\n         summary = map(model, broom::glance)) |&gt; \n  unnest(summary)\n# A tibble: 5 × 15\n  continent data     model  r.squared adj.r.squared  sigma statistic   p.value\n  &lt;fct&gt;     &lt;list&gt;   &lt;list&gt;     &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 Asia      &lt;tibble&gt; &lt;lm&gt;       0.475         0.458   5.86     28.1    9.13e-6\n2 Europe    &lt;tibble&gt; &lt;lm&gt;       0.722         0.713   1.60     72.9    2.80e-9\n3 Africa    &lt;tibble&gt; &lt;lm&gt;       0.148         0.131   8.98      8.69   4.86e-3\n4 Americas  &lt;tibble&gt; &lt;lm&gt;       0.349         0.321   3.66     12.3    1.87e-3\n5 Oceania   &lt;tibble&gt; &lt;lm&gt;       1           NaN     NaN       NaN    NaN      \n# ℹ 7 more variables: df &lt;dbl&gt;, logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;,\n#   deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n\nmodel_example |&gt; \n  unnest(summary) \n# A tibble: 10 × 8\n   continent data     model  term        estimate std.error statistic    p.value\n   &lt;fct&gt;     &lt;list&gt;   &lt;list&gt; &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Asia      &lt;tibble&gt; &lt;lm&gt;   (Intercept)  6.59e+1   1.37e+0     48.1    1.07e-30\n 2 Asia      &lt;tibble&gt; &lt;lm&gt;   gdpPercap    3.88e-4   7.32e-5      5.30   9.13e- 6\n 3 Europe    &lt;tibble&gt; &lt;lm&gt;   (Intercept)  7.23e+1   6.94e-1    104.     8.50e-38\n 4 Europe    &lt;tibble&gt; &lt;lm&gt;   gdpPercap    2.15e-4   2.51e-5      8.54   2.80e- 9\n 5 Africa    &lt;tibble&gt; &lt;lm&gt;   (Intercept)  5.16e+1   1.64e+0     31.4    1.38e-34\n 6 Africa    &lt;tibble&gt; &lt;lm&gt;   gdpPercap    1.02e-3   3.47e-4      2.95   4.86e- 3\n 7 Americas  &lt;tibble&gt; &lt;lm&gt;   (Intercept)  7.06e+1   1.12e+0     63.1    2.77e-27\n 8 Americas  &lt;tibble&gt; &lt;lm&gt;   gdpPercap    2.70e-4   7.69e-5      3.51   1.87e- 3\n 9 Oceania   &lt;tibble&gt; &lt;lm&gt;   (Intercept)  7.74e+1 NaN          NaN    NaN       \n10 Oceania   &lt;tibble&gt; &lt;lm&gt;   gdpPercap    1.11e-4 NaN          NaN    NaN       \n\nExplanation: - The tidy() function extracts the coefficients from the linear models stored in the model column and formats them into a tidy data frame. - This makes it easier to summarize or report on the results.\n\nx = nested_data|&gt; \n  mutate(model = map(data, ~ lm(lifeExp ~ gdpPercap, data = .x))) |&gt; \n  mutate(lm = map(model, broom::tidy),\n         summary   = map(model, summary),\n         r2 = map_dbl(summary, \"r.squared\")) |&gt; \n  unnest(lm) |&gt; \n  select(-data, -model)\n\n\ny = select(x, continent, term, estimate) \n\npivot_wider(y, names_from = continent, values_from = estimate) |&gt; \n  janitor::clean_names()\n# A tibble: 2 × 6\n  term             asia    europe   africa  americas   oceania\n  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept) 65.9      72.3      51.6     70.6      77.4     \n2 gdpPercap    0.000388  0.000215  0.00102  0.000270  0.000111\n\nz = pivot_wider(y, names_from = term, values_from = estimate) |&gt; \n  janitor::clean_names()\n\nggplot(data = z, aes(x = continent, y = intercept, fill = continent)) +\n  geom_col() +\n  ggthemes::theme_clean() + \n  theme(legend.position = \"bottom\") + \n  labs(title = \"Life Expectancy vs GDP per Capita by Continent\",\n       x = \"Continent\",\n       y = \"Linear Model Intercept\")\n\n\n\n\n\n\n\n\nggplot(data = y, aes(x = continent, y = estimate, fill = continent)) +\n  geom_col() +\n  facet_wrap(~term, scales = \"free_y\") + \n  scale_fill_manual(values = as.vector(pals::alphabet2(5))) +\n  scale_fill_manual(values = as.vector(pals::ocean.haline(5))) +\n  scale_fill_manual(values = pals::brewer.dark2(5)) +\n  scale_fill_manual(values = pals::tol.rainbow(5)) +\n  ggthemes::theme_clean() + \n  theme(legend.position = \"bottom\") + \n  labs(title = \"Life Expectancy vs GDP per Capita by Continent\",\n       x = \"Continent\",\n       y = \"Linear Model Intercept\")"
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#conclusion",
+    "href": "slides/9-nests-lm.html#conclusion",
+    "title": "Lecture 09",
+    "section": "Conclusion",
+    "text": "Conclusion\nnest() is useful for grouping and restructuring data. map() enables functional programming and efficient iteration. broomprovides a way to tidy up model outputs for easier interpretation and reporting.\nTogether, they provide a powerful framework for handling grouped analyses in R."
+  },
+  {
+    "objectID": "slides/9-nests-lm.html#assignment",
+    "href": "slides/9-nests-lm.html#assignment",
+    "title": "Lecture 09",
+    "section": "Assignment",
+    "text": "Assignment\n\nlibrary(palmerpenguins)\n\n\nxx = penguins |&gt; \n  nest(-species) |&gt; \n  mutate(lm = map(data, ~lm(body_mass_g~flipper_length_mm, data = .x)),\n         summary = map(lm, broom::glance)) |&gt; \n  unnest(summary)\n\nggplot(xx) +\n  geom_col(aes(x = species, y =  r.squared))"
   }
 ]
