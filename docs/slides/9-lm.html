@@ -13721,8 +13721,8 @@ W = 0.95801, p-value = 3.568e-08</code></pre>
 <span id="cb44-8"><a></a>Rows<span class="sc">:</span> <span class="dv">100</span></span>
 <span id="cb44-9"><a></a>Columns<span class="sc">:</span> <span class="dv">3</span></span>
 <span id="cb44-10"><a></a><span class="sc">$</span> penguin_id        <span class="sc">&lt;</span>int<span class="sc">&gt;</span> <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">1</span>…</span>
-<span id="cb44-11"><a></a><span class="sc">$</span> body_mass_g       <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="fl">3689.481</span>, <span class="fl">2946.295</span>, <span class="fl">3518.905</span>, <span class="fl">3875.702</span>, <span class="fl">4287.074</span>, <span class="dv">42</span>…</span>
-<span id="cb44-12"><a></a><span class="sc">$</span> flipper_length_mm <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="fl">193.1023</span>, <span class="fl">181.8094</span>, <span class="fl">190.5103</span>, <span class="fl">195.9319</span>, <span class="fl">202.1828</span>, <span class="dv">20</span>…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-11"><a></a><span class="sc">$</span> body_mass_g       <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="fl">2844.250</span>, <span class="fl">5389.636</span>, <span class="fl">5967.695</span>, <span class="fl">4042.323</span>, <span class="fl">3141.983</span>, <span class="dv">44</span>…</span>
+<span id="cb44-12"><a></a><span class="sc">$</span> flipper_length_mm <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="fl">180.2587</span>, <span class="fl">218.9366</span>, <span class="fl">227.7203</span>, <span class="fl">198.4638</span>, <span class="fl">184.7829</span>, <span class="dv">20</span>…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
@@ -13873,11 +13873,11 @@ W = 0.95801, p-value = 3.568e-08</code></pre>
 </section>
 <section id="challenge-." class="slide level2">
 <h2>Challenge ….</h2>
+<ul>
+<li>Starting with the Penguins dataset, compute a species-by-species regression of <code>Mass ~ Flipper Length</code></li>
+</ul>
 <div class="columns">
 <div class="column" style="width:50%;">
-<ul>
-<li>Starting with the Penguins dataset, compute a species-by-species regression of <code>lifeExp ~ gdpPercap</code></li>
-</ul>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -13887,7 +13887,8 @@ W = 0.95801, p-value = 3.568e-08</code></pre>
 </div>
 </div>
 </div>
-</div><p>:::{columns width=“50%”}</p><div class="cell">
+</div><div class="column" style="width:50%;">
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
@@ -13896,30 +13897,37 @@ W = 0.95801, p-value = 3.568e-08</code></pre>
 </div>
 </div>
 </div>
-</div>
-<p>:::</p>
+</div></div>
+<ul>
+<li>Coming next time …</li>
+</ul>
 </section>
-<section id="assignment" class="slide level2">
-<h2>Assignment</h2>
+<section id="todays-assignment" class="slide level2">
+<h2>Today’s Assignment</h2>
 <h4 id="using-the-airquality-from-r-datasets">Using the <code>airquality</code> from R datasets</h4>
 <ol type="1">
 <li><p>Use the help (?) function to learn more about the dataset</p></li>
 <li><p>Use <code>vis_dat</code> to check out the data. Does it need cleaning?</p></li>
 <li><p>Fit a linear model to the cleaned data to predict <code>Ozone</code> from one of the possible predictors of your choosing. Why did you chose thats variable?</p></li>
 <li><p>Using <code>summary()</code>, Does this seem like a valid model?</p></li>
+<li><p>Explain the R<sup>2</sup> found in a sentence.</p></li>
 </ol>
 </section>
-<section id="assignment-1" class="slide level2">
+<section id="assignment" class="slide level2">
 <h2>Assignment</h2>
-<ol start="5" type="1">
-<li><p>Explain the R<sup>2</sup> found in a sentence.</p></li>
+<ol start="6" type="1">
 <li><p>Use <code>broom::augment</code> to predict the Ozone of the cleaned data</p></li>
-<li><p>Use <code>ggplot</code> to plot the actual vs predicted Ozone</p></li>
-</ol>
-<ol type="a">
-<li>Add a red line to show where the actual and predicted values are equal This can be done by plotting a 1:1 line (e.g.&nbsp;intercept 0, slope 1) with <code>geom_abline(intercept = 0, slope = 1, color = "red")</code></li>
-<li>Add a subtitle to the plot showing the correlation between the actual and predicted values are equal This can be done by plotting a 1:1 line (e.g.&nbsp;intercept 0, slope 1) with</li>
-<li><code>paste("Correlation:", round(cor(a$Ozone, a$.fitted),2))</code> assuming your augmented data object is called <code>a</code></li>
+<li><p>Use <code>ggplot</code> to plot the actual vs predicted Ozone</p>
+<ul>
+<li>Add a red line to show where the actual and predicted values are equal
+<ul>
+<li>This can be done by plotting a 1:1 line (e.g.&nbsp;intercept 0, slope 1) with <code>geom_abline(intercept = 0, slope = 1, color = "red")</code></li>
+</ul></li>
+<li>Add a subtitle to the plot showing the correlation between the actual and predicted values are equal
+<ul>
+<li>This can be done with <code>paste("Correlation:", round(cor(a$Ozone, a$.fitted),2))</code> assuming your augmented data object is called <code>a</code></li>
+</ul></li>
+</ul></li>
 </ol>
 
 
