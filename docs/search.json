@@ -5743,8 +5743,8 @@
     "objectID": "slides/9-lm.html#last-assignment",
     "href": "slides/9-lm.html#last-assignment",
     "title": "Lecture 09/10",
-    "section": "",
-    "text": "We created a data.frame documenting the name/abbreviation/region relationship of US states\nIn each case, the column was defined by a character atomic vector\n\n. . .\n\ncovid &lt;- read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')\n\ndf &lt;- data.frame(region = state.region,\n                 abbr = state.abb,\n                 state = state.name) \nhead(df)\n  region abbr      state\n1  South   AL    Alabama\n2   West   AK     Alaska\n3   West   AZ    Arizona\n4  South   AR   Arkansas\n5   West   CA California\n6   West   CO   Colorado"
+    "section": "Last Assignment",
+    "text": "Last Assignment\n\nWe created a data.frame documenting the name/abbreviation/region relationship of US states\nIn each case, the column was defined by a character atomic vector\n\n\n\ncovid &lt;- read_csv('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv')\n\ndf &lt;- data.frame(region = state.region,\n                 abbr = state.abb,\n                 state = state.name) \nhead(df)\n  region abbr      state\n1  South   AL    Alabama\n2   West   AK     Alaska\n3   West   AZ    Arizona\n4  South   AR   Arkansas\n5   West   CA California\n6   West   CO   Colorado"
   },
   {
     "objectID": "slides/9-lm.html#last-assignment-1",
@@ -5821,28 +5821,28 @@
     "href": "slides/9-lm.html#types-of-models",
     "title": "Lecture 09/10",
     "section": "Types of Models",
-    "text": "Types of Models\n\nPhysical Models\n\nScale replicas of real-world systems.\nExample: A wind tunnel model of an airplane.\n\n\n\nConceptual Models\n\nDiagrams or frameworks illustrating relationships.\nExample: The water cycle.\n\n\n\nMathematical Models\n\nUse equations to describe processes.\nExample: Hydrologic models for streamflow prediction.\n\n\n\nStatistical Models\n\nUse data and probability to make predictions.\nExample: Regression models for climate trends."
+    "text": "Types of Models\nPhysical Models\n\nScale replicas of real-world systems.\nExample: A wind tunnel model of an airplane.\n\nConceptual Models\n\nDiagrams or frameworks illustrating relationships.\nExample: The water cycle.\n\nMathematical Models\n\nUse equations to describe processes.\nExample: Hydrologic models for streamflow prediction.\n\nStatistical Models\n\nUse data and probability to make predictions.\nExample: Regression models for climate trends."
   },
   {
     "objectID": "slides/9-lm.html#why-use-models",
     "href": "slides/9-lm.html#why-use-models",
     "title": "Lecture 09/10",
     "section": "Why Use Models?",
-    "text": "Why Use Models?\n\nModels …\n✅ allow testing scenarios without real-world risks.\n✅ provide insights into system behavior.\n✅ provide interpretability and easier communication\n✅ support improving understanding and making predictions.\n✅ are useful for decision-making and policy development.\n\n\n\nLimitations of Models\n🔴 Simplifications: Models are always approximations, not perfect representations if the critical driving forces aren’t captured, accuracy can be unpredictable.\n🔴 Uncertainty: Data quality and assumptions affect accuracy.\n🔴 Computational Cost: Some models require high processing power."
+    "text": "Why Use Models?\nModels …\n✅ allow testing scenarios without real-world risks.\n✅ provide insights into system behavior.\n✅ provide interpretability and easier communication\n✅ support improving understanding and making predictions.\n✅ are useful for decision-making and policy development.\n\nLimitations of Models\n🔴 Simplifications: Models are always approximations, not perfect representations if the critical driving forces aren’t captured, accuracy can be unpredictable.\n🔴 Uncertainty: Data quality and assumptions affect accuracy.\n🔴 Computational Cost: Some models require high processing power."
   },
   {
     "objectID": "slides/9-lm.html#bad-data-bad-model",
     "href": "slides/9-lm.html#bad-data-bad-model",
     "title": "Lecture 09/10",
     "section": "Bad Data = Bad Model",
-    "text": "Bad Data = Bad Model\n\n🚨 Garbage In, Garbage Out 🚨\n🔴 Poor Data Quality Leads to Poor Predictions\n\nIncomplete, inaccurate, or biased data skews model outcomes.\nNo amount of complex modeling can fix bad input data.\n\n⚠️️ Common Data Issues:\n\nMissing Values → Leads to biased or misleading insights.\nIncorrect Labels → Misguides supervised learning models.\nOutliers & Noise → Reduces model reliability.\nData Drift → Causes models to become outdated.\n\n✅ Key Takeaway: Better data = Better models. Prioritize data cleaning, validation, and monitoring before training models!"
+    "text": "Bad Data = Bad Model\n🚨 Garbage In, Garbage Out 🚨\n🔴 Poor Data Quality Leads to Poor Predictions\n\nIncomplete, inaccurate, or biased data skews model outcomes.\nNo amount of complex modeling can fix bad input data.\n\n⚠️️ Common Data Issues:\n\nMissing Values → Leads to biased or misleading insights.\nIncorrect Labels → Misguides supervised learning models.\nOutliers & Noise → Reduces model reliability.\nData Drift → Causes models to become outdated.\n\n✅ Key Takeaway: Better data = Better models. Prioritize data cleaning, validation, and monitoring before training models!"
   },
   {
     "objectID": "slides/9-lm.html#visualizing-data-with-visdat-in-r",
     "href": "slides/9-lm.html#visualizing-data-with-visdat-in-r",
     "title": "Lecture 09/10",
     "section": "Visualizing Data with visdat in R",
-    "text": "Visualizing Data with visdat in R\n\nWhat is visdat?\n\nvisdat is an R package for quick visualizations of data structure and missing values\nHelps diagnose issues in datasets before analysis\nKey Functions 🔹 vis_dat(data): Overview of data types\n\n🔹 vis_miss(data): Visualizes missing values\n🔹 vis_cor(data): Displays correlations\n🔹 vis_guess(data):Shows inferred data types\n\n\n\nWhy Use visdat?\n✅ Quick insights into data\n✅ Identifies missing values easily\n✅ Helps in preprocessing decisions"
+    "text": "Visualizing Data with visdat in R\nWhat is visdat?\n\nvisdat is an R package for quick visualizations of data structure and missing values\nHelps diagnose issues in datasets before analysis\nKey Functions 🔹 vis_dat(data): Overview of data types\n\n🔹 vis_miss(data): Visualizes missing values\n🔹 vis_cor(data): Displays correlations\n🔹 vis_guess(data):Shows inferred data types\n\nWhy Use visdat?\n✅ Quick insights into data\n✅ Identifies missing values easily\n✅ Helps in preprocessing decisions"
   },
   {
     "objectID": "slides/9-lm.html#examples",
@@ -5856,28 +5856,28 @@
     "href": "slides/9-lm.html#data-cleaning",
     "title": "Lecture 09/10",
     "section": "Data Cleaning",
-    "text": "Data Cleaning\n\nWhat is data cleaning?\n\nThe process of detecting, correcting, or removing corrupt, inaccurate, or incomplete data.\nEnsures data quality, reliability, and usability for analysis.\n\n\n\nWhy is data cleaning important?\n\nDuplicates and missing data can significantly impact the performance and reliability of machine learning and statistical models. Here’s how each issue affects modeling:"
+    "text": "Data Cleaning\nWhat is data cleaning?\n\nThe process of detecting, correcting, or removing corrupt, inaccurate, or incomplete data.\nEnsures data quality, reliability, and usability for analysis.\n\nWhy is data cleaning important?\n\nDuplicates and missing data can significantly impact the performance and reliability of machine learning and statistical models. Here’s how each issue affects modeling:"
   },
   {
     "objectID": "slides/9-lm.html#impact-of-duplicates",
     "href": "slides/9-lm.html#impact-of-duplicates",
     "title": "Lecture 09/10",
     "section": "Impact of Duplicates",
-    "text": "Impact of Duplicates\n\nBias in Model Training:\n🔴 If duplicates exist in the training data, the model may overfit to repeated observations, leading to an unrealistic representation of real-world data.\n\n\nSkewed Distributions:\n🔴 Duplicates can artificially inflate the frequency of certain patterns, misleading statistical analyses and causing models to favor duplicated values disproportionately.\n\n\nComputational Inefficiency:\n🔴 Extra, redundant data increases computational load, leading to longer training times and higher memory usage without adding new information.\n\n\nOverestimation of Model Performance:\n🔴 If duplicates exist in both training and test sets, the model might appear to perform better than it actually does because it has seen the exact data points before."
+    "text": "Impact of Duplicates\nBias in Model Training:\n🔴 If duplicates exist in the training data, the model may overfit to repeated observations, leading to an unrealistic representation of real-world data.\nSkewed Distributions:\n🔴 Duplicates can artificially inflate the frequency of certain patterns, misleading statistical analyses and causing models to favor duplicated values disproportionately.\nComputational Inefficiency:\n🔴 Extra, redundant data increases computational load, leading to longer training times and higher memory usage without adding new information.\nOverestimation of Model Performance:\n🔴 If duplicates exist in both training and test sets, the model might appear to perform better than it actually does because it has seen the exact data points before."
   },
   {
     "objectID": "slides/9-lm.html#impact-of-missing-data",
     "href": "slides/9-lm.html#impact-of-missing-data",
     "title": "Lecture 09/10",
     "section": "Impact of Missing Data",
-    "text": "Impact of Missing Data\n\nBias in Predictions:\n🔴 If missing values are not random (e.g., more missing values in a particular category), models trained on incomplete data may develop biased decision rules.\n\n\nReduced Model Accuracy:\n🔴 Missing values reduce the amount of information available to learn patterns, leading to weaker predictions and generalizations.\n\n\nIssues with Certain Algorithms:\n🔴 Some models, like linear regression and decision trees, can handle missing data through imputation or by ignoring missing values, but others (like most neural networks) require complete data.\n\n\nComplications in Feature Engineering:\n🔴 Many feature transformations, such as standardization and encoding, may not work correctly with missing values, leading to poor feature representation."
+    "text": "Impact of Missing Data\nBias in Predictions:\n🔴 If missing values are not random (e.g., more missing values in a particular category), models trained on incomplete data may develop biased decision rules.\nReduced Model Accuracy:\n🔴 Missing values reduce the amount of information available to learn patterns, leading to weaker predictions and generalizations.\nIssues with Certain Algorithms:\n🔴 Some models, like linear regression and decision trees, can handle missing data through imputation or by ignoring missing values, but others (like most neural networks) require complete data.\nComplications in Feature Engineering:\n🔴 Many feature transformations, such as standardization and encoding, may not work correctly with missing values, leading to poor feature representation."
   },
   {
     "objectID": "slides/9-lm.html#handling-duplicates-and-missing-data",
     "href": "slides/9-lm.html#handling-duplicates-and-missing-data",
     "title": "Lecture 09/10",
     "section": "Handling Duplicates and Missing Data",
-    "text": "Handling Duplicates and Missing Data\n\nOptions for Duplicates:\n\nRemove exact duplicates when they don’t add information.\nAnalyze near-duplicates to determine if they should be merged, retained, or removed.\n\n\ndf &lt;- df %&gt;% \n  distinct()\n\n\n\nFor Missing Data:\n\nUse imputation techniques (mean, median, mode, regression-based, or KNN imputation). -Remove records if missing data is minimal and its removal won’t introduce bias.\nUse models that handle missing data natively (e.g., XGBoost can handle missing values).\nProperly handling duplicates and missing data improves model performance, reliability, and interpretability, ensuring that predictions are more accurate and generalizable.\n\n\n## Removal\ndf &lt;- df %&gt;% \n  drop_na()\n\n# Imputation\ndf &lt;- df %&gt;% \n  mutate(x = mean(x, na.rm = TRUE))"
+    "text": "Handling Duplicates and Missing Data\nOptions for Duplicates:\n\nRemove exact duplicates when they don’t add information.\nAnalyze near-duplicates to determine if they should be merged, retained, or removed.\n\n\ndf &lt;- df %&gt;% \n  distinct()\n\nFor Missing Data:\n\nUse imputation techniques (mean, median, mode, regression-based, or KNN imputation). -Remove records if missing data is minimal and its removal won’t introduce bias.\nUse models that handle missing data natively (e.g., XGBoost can handle missing values).\nProperly handling duplicates and missing data improves model performance, reliability, and interpretability, ensuring that predictions are more accurate and generalizable.\n\n\n## Removal\ndf &lt;- df %&gt;% \n  drop_na()\n\n# Imputation\ndf &lt;- df %&gt;% \n  mutate(x = mean(x, na.rm = TRUE))"
   },
   {
     "objectID": "slides/9-lm.html#statistical-models-1",
@@ -5905,14 +5905,14 @@
     "href": "slides/9-lm.html#how-do-we-fine-the-line-of-best-fit",
     "title": "Lecture 09/10",
     "section": "How do we fine the “Line of Best Fit”?",
-    "text": "How do we fine the “Line of Best Fit”?\n\nMethod of Ordinary Least Squares (OLS)\nOrdinary Least Squares finds the line of best fit for a linear model (in the form of y = mx + b) by minimizing the sum of the residuals squared\n\nwhere:\n\nresiduals are the distance between the sample value (for the dependent variable) and the value predicted by the equation for each value of the independent variable."
+    "text": "How do we fine the “Line of Best Fit”?\nMethod of Ordinary Least Squares (OLS)\nOrdinary Least Squares finds the line of best fit for a linear model (in the form of y = mx + b) by minimizing the sum of the residuals squared\n\nwhere:\n\nresiduals are the distance between the sample value (for the dependent variable) and the value predicted by the equation for each value of the independent variable."
   },
   {
     "objectID": "slides/9-lm.html#four-main-assumptions-for-linear-regression",
     "href": "slides/9-lm.html#four-main-assumptions-for-linear-regression",
     "title": "Lecture 09/10",
     "section": "Four Main Assumptions for linear regression",
-    "text": "Four Main Assumptions for linear regression\n\nLinearity of the relationship between dependent and independent variables\n\n\nDot\n\n. . .\n\nIndependence of the errors (no serial correlation): Error in one measurement (observation) should not influence errors for any other observations\n\n. . .\n\nHomoscedasticty (constant variance) of the errors\n\nversus time\nversus the predicted values\n\n\n. . .\n\nNormality of the residuals"
+    "text": "Four Main Assumptions for linear regression\n\nLinearity of the relationship between dependent and independent variables\n\n\nDot\n\n\n\nIndependence of the errors (no serial correlation): Error in one measurement (observation) should not influence errors for any other observations\n\n\n\n\nHomoscedasticty (constant variance) of the errors\n\nversus time\nversus the predicted values\n\n\n\n\n\nNormality of the residuals"
   },
   {
     "objectID": "slides/9-lm.html#visualizing-residual-spread",
@@ -5926,14 +5926,14 @@
     "href": "slides/9-lm.html#model-explainabilty",
     "title": "Lecture 09/10",
     "section": "Model Explainabilty",
-    "text": "Model Explainabilty\n\nHow well does our equation describes the relationship between the dependent and independent variable?\n\nCoefficient of Determination (R2): the portion of the variance in the dependent variable that is predictable by the independent variable\n\n\n\nRanges from 0 to 1:\n\nR2 = 0: The value of the dependent variable cannot be predicted by the value of the independent variable (no correlation)\nR2 = 1: The value of the dependent variable is perfectly predictable given a value of the independent variable\nR2 = 0.9: 90% of variance in the dependent variable is predictable from the independent variable"
+    "text": "Model Explainabilty\nHow well does our equation describes the relationship between the dependent and independent variable?\n\nCoefficient of Determination (R2): the portion of the variance in the dependent variable that is predictable by the independent variable\n\nRanges from 0 to 1:\n\nR2 = 0: The value of the dependent variable cannot be predicted by the value of the independent variable (no correlation)\nR2 = 1: The value of the dependent variable is perfectly predictable given a value of the independent variable\nR2 = 0.9: 90% of variance in the dependent variable is predictable from the independent variable"
   },
   {
     "objectID": "slides/9-lm.html#model-explainabilty-1",
     "href": "slides/9-lm.html#model-explainabilty-1",
     "title": "Lecture 09/10",
     "section": "Model Explainabilty",
-    "text": "Model Explainabilty\n\n\n\n\n\n\nWarning\n\n\n\n🚨 Caution when interpreting R2 🚨 - It’s to describe a linear relationship - Higher R2 ≠ better (or more appropriate) model - “Low” R2 doesn’t mean it’s “bad”. R2 values aren’t good or bad. - R2 can be highly influenced by outliers. LOOK AT YOUR DATA!!"
+    "text": "Model Explainabilty\n\n\n\n\n\n\nWarning\n\n\n🚨 Caution when interpreting R2 🚨 - It’s to describe a linear relationship - Higher R2 ≠ better (or more appropriate) model - “Low” R2 doesn’t mean it’s “bad”. R2 values aren’t good or bad. - R2 can be highly influenced by outliers. LOOK AT YOUR DATA!!"
   },
   {
     "objectID": "slides/9-lm.html#the-lm-function-in-r",
@@ -5982,7 +5982,7 @@
     "href": "slides/9-lm.html#what-is-lm",
     "title": "Lecture 09/10",
     "section": "What is lm",
-    "text": "What is lm\n\nclass(model)\n[1] \"lm\"\ntypeof(model)\n[1] \"list\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is s3 class\n\n\n\nS3 is a lightweight and flexible object-oriented system in R that allows defining custom classes by assigning a “class” attribute to lists or other base R objects. Methods for S3 classes are dispatched based on the generic function called, using a naming convention like generic.classname(), and R selects the appropriate method based on the object’s class. While S3 lacks formal encapsulation and inheritance mechanisms, it is widely used in R packages due to its simplicity and ease of extension."
+    "text": "What is lm\n\nclass(model)\n[1] \"lm\"\ntypeof(model)\n[1] \"list\"\n\n\n\n\n\n\n\n\nWhat is s3 class\n\n\nS3 is a lightweight and flexible object-oriented system in R that allows defining custom classes by assigning a “class” attribute to lists or other base R objects. Methods for S3 classes are dispatched based on the generic function called, using a naming convention like generic.classname(), and R selects the appropriate method based on the object’s class. While S3 lacks formal encapsulation and inheritance mechanisms, it is widely used in R packages due to its simplicity and ease of extension."
   },
   {
     "objectID": "slides/9-lm.html#methods-for-classes",
@@ -6031,63 +6031,63 @@
     "href": "slides/9-lm.html#diagnostics",
     "title": "Lecture 09/10",
     "section": "Diagnostics",
-    "text": "Diagnostics\n\nResiduals vs Fitted Plot\n\n\n\nplot(model, which = 1)\n\n\n\n\n\n\n\n\n\n\nPurpose:\nChecks for non-linearity and homoscedasticity (constant variance of residuals).\n\n\nInterpretation:\n\nIdeally, points should be randomly scattered around the horizontal line at zero.\nIf you see a clear pattern (e.g., a curve), this suggests that your model is missing some non-linearity.\nIf residuals spread out more as fitted values increase, it suggests heteroscedasticity (non-constant variance)."
+    "text": "Diagnostics\nResiduals vs Fitted Plot\n\n\n\nplot(model, which = 1)\n\n\n\n\n\n\n\n\n\nPurpose:\nChecks for non-linearity and homoscedasticity (constant variance of residuals).\nInterpretation:\n\nIdeally, points should be randomly scattered around the horizontal line at zero.\nIf you see a clear pattern (e.g., a curve), this suggests that your model is missing some non-linearity.\nIf residuals spread out more as fitted values increase, it suggests heteroscedasticity (non-constant variance)."
   },
   {
     "objectID": "slides/9-lm.html#normal-q-q-plot",
     "href": "slides/9-lm.html#normal-q-q-plot",
     "title": "Lecture 09/10",
     "section": "Normal Q-Q Plot",
-    "text": "Normal Q-Q Plot\n\n\n\nplot(model, which = 2) \n\n\n\n\n\n\n\n\n\n\nPurpose:\nChecks if residuals are normally distributed.\n\n\nInterpretation:\n\nIf residuals follow a normal distribution, they should fall roughly along the 45-degree reference line.\nSystematic deviations (e.g., S-shaped curves) indicate non-normality, which might affect inference and prediction intervals."
+    "text": "Normal Q-Q Plot\n\n\n\nplot(model, which = 2) \n\n\n\n\n\n\n\n\n\nPurpose:\nChecks if residuals are normally distributed.\nInterpretation:\n\nIf residuals follow a normal distribution, they should fall roughly along the 45-degree reference line.\nSystematic deviations (e.g., S-shaped curves) indicate non-normality, which might affect inference and prediction intervals."
   },
   {
     "objectID": "slides/9-lm.html#scale-location-plot",
     "href": "slides/9-lm.html#scale-location-plot",
     "title": "Lecture 09/10",
     "section": "Scale-Location Plot",
-    "text": "Scale-Location Plot\n\n\n\nplot(model, which = 3)\n\n\n\n\n\n\n\n\n\n\nPurpose:\nChecks for homoscedasticity (constant variance of residuals).\n\n\nInterpretation:\n\nThis plot shows the square root of the standardized residuals against the fitted values.\nIf the spread (vertical axis) is roughly constant across fitted values, homoscedasticity is satisfied.\nA fan-like pattern (residuals increasing or decreasing with fitted values) indicates heteroscedasticity."
+    "text": "Scale-Location Plot\n\n\n\nplot(model, which = 3)\n\n\n\n\n\n\n\n\n\nPurpose:\nChecks for homoscedasticity (constant variance of residuals).\nInterpretation:\n\nThis plot shows the square root of the standardized residuals against the fitted values.\nIf the spread (vertical axis) is roughly constant across fitted values, homoscedasticity is satisfied.\nA fan-like pattern (residuals increasing or decreasing with fitted values) indicates heteroscedasticity."
   },
   {
     "objectID": "slides/9-lm.html#cooks-distance-plot",
     "href": "slides/9-lm.html#cooks-distance-plot",
     "title": "Lecture 09/10",
     "section": "Cook’s Distance Plot",
-    "text": "Cook’s Distance Plot\n\n\n\nplot(model, which = 4) \n\n\n\n\n\n\n\n\n\n\nPurpose:\nIdentifies influential data points that have a large impact on the model.\n\n\nInterpretation:\n\nCook’s distance measures how much the regression coefficients would change if a particular observation were removed.\nPoints with high Cook’s distance (typically above 0.5 or 1) should be examined, as they may disproportionately affect the model.\nIf a few points stand out, they might be outliers or high-leverage points, and you should investigate whether they are errors or legitimate influential points."
+    "text": "Cook’s Distance Plot\n\n\n\nplot(model, which = 4) \n\n\n\n\n\n\n\n\n\nPurpose:\nIdentifies influential data points that have a large impact on the model.\nInterpretation:\n\nCook’s distance measures how much the regression coefficients would change if a particular observation were removed.\nPoints with high Cook’s distance (typically above 0.5 or 1) should be examined, as they may disproportionately affect the model.\nIf a few points stand out, they might be outliers or high-leverage points, and you should investigate whether they are errors or legitimate influential points."
   },
   {
     "objectID": "slides/9-lm.html#residuals-vs-leverage-plot",
     "href": "slides/9-lm.html#residuals-vs-leverage-plot",
     "title": "Lecture 09/10",
     "section": "Residuals vs Leverage Plot",
-    "text": "Residuals vs Leverage Plot\n\n\n\nplot(model, which = 5) \n\n\n\n\n\n\n\n\n\n\nPurpose:\nIdentifies influential observations that might disproportionately affect the model.\n\n\nInterpretation:\n\nLeverage measures how extreme a point’s predictor values are.\nResiduals measure how far a point’s response value is from the fitted line.\nThe red dashed line represents Cook’s distance; points beyond this line might be influential.\nIf a point has both high leverage and large residuals, it might unduly influence the regression and should be investigated."
+    "text": "Residuals vs Leverage Plot\n\n\n\nplot(model, which = 5) \n\n\n\n\n\n\n\n\n\nPurpose:\nIdentifies influential observations that might disproportionately affect the model.\nInterpretation:\n\nLeverage measures how extreme a point’s predictor values are.\nResiduals measure how far a point’s response value is from the fitted line.\nThe red dashed line represents Cook’s distance; points beyond this line might be influential.\nIf a point has both high leverage and large residuals, it might unduly influence the regression and should be investigated."
   },
   {
     "objectID": "slides/9-lm.html#multiple-linear-regression",
     "href": "slides/9-lm.html#multiple-linear-regression",
     "title": "Lecture 09/10",
     "section": "Multiple Linear Regression",
-    "text": "Multiple Linear Regression\nSyntax for Multiple Predictors:\n\nlm_model &lt;- lm(y ~ x1 + x2 + x3, data = dataset)\n\n. . .\nAllows for multiple independent variables.\n\nlm(flipper_length_mm ~ body_mass_g + bill_depth_mm , data = data) |&gt; summary()\n\nCall:\nlm(formula = flipper_length_mm ~ body_mass_g + bill_depth_mm, \n    data = data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-19.9846  -4.1101   0.3261   4.3539  16.0328 \n\nCoefficients:\n                Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    1.705e+02  4.776e+00  35.688  &lt; 2e-16 ***\nbody_mass_g    1.344e-02  4.892e-04  27.481  &lt; 2e-16 ***\nbill_depth_mm -1.518e+00  2.000e-01  -7.588 3.35e-13 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 6.327 on 330 degrees of freedom\nMultiple R-squared:  0.7974,    Adjusted R-squared:  0.7962 \nF-statistic: 649.5 on 2 and 330 DF,  p-value: &lt; 2.2e-16"
+    "text": "Multiple Linear Regression\nSyntax for Multiple Predictors:\n\nlm_model &lt;- lm(y ~ x1 + x2 + x3, data = dataset)\n\n\nAllows for multiple independent variables.\n\nlm(flipper_length_mm ~ body_mass_g + bill_depth_mm , data = data) |&gt; summary()\n\nCall:\nlm(formula = flipper_length_mm ~ body_mass_g + bill_depth_mm, \n    data = data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-19.9846  -4.1101   0.3261   4.3539  16.0328 \n\nCoefficients:\n                Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    1.705e+02  4.776e+00  35.688  &lt; 2e-16 ***\nbody_mass_g    1.344e-02  4.892e-04  27.481  &lt; 2e-16 ***\nbill_depth_mm -1.518e+00  2.000e-01  -7.588 3.35e-13 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 6.327 on 330 degrees of freedom\nMultiple R-squared:  0.7974,    Adjusted R-squared:  0.7962 \nF-statistic: 649.5 on 2 and 330 DF,  p-value: &lt; 2.2e-16"
   },
   {
     "objectID": "slides/9-lm.html#interaction-terms",
     "href": "slides/9-lm.html#interaction-terms",
     "title": "Lecture 09/10",
     "section": "Interaction Terms",
-    "text": "Interaction Terms\nSyntax for Interacting Predictors:\n\nlm_model &lt;- lm(y ~ x1 * x2 , data = dataset)\n\n. . .\nAllows for interactions between variables.\n\nlm(flipper_length_mm ~ body_mass_g * bill_depth_mm, data = data) |&gt; \n  summary()\n\nCall:\nlm(formula = flipper_length_mm ~ body_mass_g * bill_depth_mm, \n    data = data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-19.3123  -4.0720   0.2732   4.5961  15.9274 \n\nCoefficients:\n                            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                1.404e+02  3.042e+01   4.615 5.63e-06 ***\nbody_mass_g                2.033e-02  6.895e-03   2.948  0.00342 ** \nbill_depth_mm              2.708e-01  1.798e+00   0.151  0.88035    \nbody_mass_g:bill_depth_mm -4.141e-04  4.136e-04  -1.001  0.31751    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 6.327 on 329 degrees of freedom\nMultiple R-squared:  0.798, Adjusted R-squared:  0.7962 \nF-statistic: 433.4 on 3 and 329 DF,  p-value: &lt; 2.2e-16"
+    "text": "Interaction Terms\nSyntax for Interacting Predictors:\n\nlm_model &lt;- lm(y ~ x1 * x2 , data = dataset)\n\n\nAllows for interactions between variables.\n\nlm(flipper_length_mm ~ body_mass_g * bill_depth_mm, data = data) |&gt; \n  summary()\n\nCall:\nlm(formula = flipper_length_mm ~ body_mass_g * bill_depth_mm, \n    data = data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-19.3123  -4.0720   0.2732   4.5961  15.9274 \n\nCoefficients:\n                            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)                1.404e+02  3.042e+01   4.615 5.63e-06 ***\nbody_mass_g                2.033e-02  6.895e-03   2.948  0.00342 ** \nbill_depth_mm              2.708e-01  1.798e+00   0.151  0.88035    \nbody_mass_g:bill_depth_mm -4.141e-04  4.136e-04  -1.001  0.31751    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 6.327 on 329 degrees of freedom\nMultiple R-squared:  0.798, Adjusted R-squared:  0.7962 \nF-statistic: 433.4 on 3 and 329 DF,  p-value: &lt; 2.2e-16"
   },
   {
     "objectID": "slides/9-lm.html#making-predictions-using-lm",
     "href": "slides/9-lm.html#making-predictions-using-lm",
     "title": "Lecture 09/10",
     "section": "Making predictions using lm()",
-    "text": "Making predictions using lm()\npredict is a generic function for predictions from the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument.\n\n(new_data &lt;- summarise(data, body_mass_g = mean(body_mass_g)))\n# A tibble: 1 × 1\n  body_mass_g\n        &lt;dbl&gt;\n1       4207.\n\n. . .\n\npredict(model, new_data)\n      1 \n200.967"
+    "text": "Making predictions using lm()\npredict is a generic function for predictions from the results of various model fitting functions. The function invokes particular methods which depend on the class of the first argument.\n\n(new_data &lt;- summarise(data, body_mass_g = mean(body_mass_g)))\n# A tibble: 1 × 1\n  body_mass_g\n        &lt;dbl&gt;\n1       4207.\n\n\n\npredict(model, new_data)\n      1 \n200.967"
   },
   {
     "objectID": "slides/9-lm.html#across-a-population",
     "href": "slides/9-lm.html#across-a-population",
     "title": "Lecture 09/10",
     "section": "Across a population",
-    "text": "Across a population\n\n\n\ndf = data.frame(penguin_id = 1:100) |&gt; \n  mutate(body_mass_g = abs(rnorm(n(), \n                           mean(data$body_mass_g), \n                           sd(data$body_mass_g)))) %&gt;%\n  mutate(flipper_length_mm = predict(model, .))\n\nglimpse(df)\nRows: 100\nColumns: 3\n$ penguin_id        &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1…\n$ body_mass_g       &lt;dbl&gt; 4903.981, 4761.101, 4484.671, 4473.527, 3704.374, 32…\n$ flipper_length_mm &lt;dbl&gt; 211.5569, 209.3858, 205.1854, 205.0161, 193.3286, 18…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPipe Notes\n\n\n\nRemember the difference in pipes described in lab 2?\n\nTidyverse Pipe (%&gt;%)\nFrom the magrittr package (and used in dplyr), %&gt;% allows greater flexibility than |&gt;, such as:\n\nUsing placeholders (.) when the first argument isn’t where the function expects input.\nAutomatically handling non-standard evaluation in dplyr."
+    "text": "Across a population\n\n\n\ndf = data.frame(penguin_id = 1:100) |&gt; \n  mutate(body_mass_g = abs(rnorm(n(), \n                           mean(data$body_mass_g), \n                           sd(data$body_mass_g)))) %&gt;%\n  mutate(flipper_length_mm = predict(model, .))\n\nglimpse(df)\nRows: 100\nColumns: 3\n$ penguin_id        &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1…\n$ body_mass_g       &lt;dbl&gt; 3236.049, 3607.256, 3818.298, 3473.630, 5173.473, 50…\n$ flipper_length_mm &lt;dbl&gt; 186.2122, 191.8528, 195.0597, 189.8223, 215.6519, 21…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPipe Notes\n\n\nRemember the difference in pipes described in lab 2?\nTidyverse Pipe (%&gt;%)\nFrom the magrittr package (and used in dplyr), %&gt;% allows greater flexibility than |&gt;, such as:\n\nUsing placeholders (.) when the first argument isn’t where the function expects input.\nAutomatically handling non-standard evaluation in dplyr."
   },
   {
     "objectID": "slides/9-lm.html#what-is-broom",
@@ -6108,28 +6108,28 @@
     "href": "slides/9-lm.html#linear-models-as-the-basis-for-machine-learning",
     "title": "Lecture 09/10",
     "section": "Linear Models as the Basis for Machine Learning",
-    "text": "Linear Models as the Basis for Machine Learning\n\nWhy is lm() Fundamental to ML?\nLinear regression is the simplest form of a predictive model and forms the basis of many ML algorithms, such as:\n\n\n1. Logistic Regression (for classification)\n\nExample: Predicting water contamination based on pH, turbidity, and dissolved oxygen. \n\n\n\n2. Support Vector Machines (Linear Kernel)\n\nExample: Classifying land cover types (urban vs. vegetation) using remote sensing data. \n\n\n\n3. Neural Networks (Linear Combinations in Layers)\n\nExample: Modeling soil moisture dynamics with meteorological variables."
+    "text": "Linear Models as the Basis for Machine Learning\nWhy is lm() Fundamental to ML?\nLinear regression is the simplest form of a predictive model and forms the basis of many ML algorithms, such as:\n1. Logistic Regression (for classification)\n\nExample: Predicting water contamination based on pH, turbidity, and dissolved oxygen. \n\n2. Support Vector Machines (Linear Kernel)\n\nExample: Classifying land cover types (urban vs. vegetation) using remote sensing data. \n\n3. Neural Networks (Linear Combinations in Layers)\n\nExample: Modeling soil moisture dynamics with meteorological variables."
   },
   {
     "objectID": "slides/9-lm.html#ols-based-ml-methods-in-environmental-science",
     "href": "slides/9-lm.html#ols-based-ml-methods-in-environmental-science",
     "title": "Lecture 09/10",
     "section": "OLS-Based ML Methods in Environmental Science",
-    "text": "OLS-Based ML Methods in Environmental Science\n\n4. Generalized Linear Models (GLMs)\n\nExample: Predicting species distribution based on climate variables (temperature, precipitation). \n\n\n\n5. Regularization: Ridge & Lasso Regression\n\nExample: Predicting air pollution levels (PM2.5) while selecting the most important features. \n\n\n\n6. Partial Least Squares Regression (PLSR)\n\nUseful for high-dimensional data (e.g., hyperspectral satellite imagery).\nExample: Predicting chlorophyll-a concentration in lakes."
+    "text": "OLS-Based ML Methods in Environmental Science\n4. Generalized Linear Models (GLMs)\n\nExample: Predicting species distribution based on climate variables (temperature, precipitation). \n\n5. Regularization: Ridge & Lasso Regression\n\nExample: Predicting air pollution levels (PM2.5) while selecting the most important features. \n\n6. Partial Least Squares Regression (PLSR)\n\nUseful for high-dimensional data (e.g., hyperspectral satellite imagery).\nExample: Predicting chlorophyll-a concentration in lakes."
   },
   {
     "objectID": "slides/9-lm.html#ols-based-ml-methods-in-environmental-science-1",
     "href": "slides/9-lm.html#ols-based-ml-methods-in-environmental-science-1",
     "title": "Lecture 09/10",
     "section": "OLS-Based ML Methods in Environmental Science",
-    "text": "OLS-Based ML Methods in Environmental Science\n\n7. Principal Component Regression (PCR)\n\nReduces collinearity using PCA before regression.\nExample: Identifying key meteorological drivers of air quality changes. \n\n\n\n8. Generalized Additive Models (GAMs)\n\nAllows nonlinear relationships using splines.\nExample: Modeling temperature impacts on species migration. \n\n\n\n9. Mixed-Effects Models (LMMs/GLMMs)\n\nHandles spatial and hierarchical dependencies.\nExample: Estimating streamflow changes across watersheds."
+    "text": "OLS-Based ML Methods in Environmental Science\n7. Principal Component Regression (PCR)\n\nReduces collinearity using PCA before regression.\nExample: Identifying key meteorological drivers of air quality changes. \n\n8. Generalized Additive Models (GAMs)\n\nAllows nonlinear relationships using splines.\nExample: Modeling temperature impacts on species migration. \n\n9. Mixed-Effects Models (LMMs/GLMMs)\n\nHandles spatial and hierarchical dependencies.\nExample: Estimating streamflow changes across watersheds."
   },
   {
     "objectID": "slides/9-lm.html#ols-based-ml-methods-in-environmental-science-2",
     "href": "slides/9-lm.html#ols-based-ml-methods-in-environmental-science-2",
     "title": "Lecture 09/10",
     "section": "OLS-Based ML Methods in Environmental Science",
-    "text": "OLS-Based ML Methods in Environmental Science\n\n10. Elastic Net Regression\n\nCombines Ridge & Lasso for variable selection and shrinkage.\nExample: Modeling urban heat island effects. \n\n\n\n11. Bayesian Regression\n\nIncorporates prior knowledge and uncertainty.\nExample: Predicting future drought probabilities based on historical trends. \n\n\n\n12. Deep Learning & Matrix Multiplication\n\nMany deep learning models extend OLS concepts through matrix operations.\nExample: Using CNNs for forest fire detection in satellite imagery."
+    "text": "OLS-Based ML Methods in Environmental Science\n10. Elastic Net Regression\n\nCombines Ridge & Lasso for variable selection and shrinkage.\nExample: Modeling urban heat island effects. \n\n11. Bayesian Regression\n\nIncorporates prior knowledge and uncertainty.\nExample: Predicting future drought probabilities based on historical trends. \n\n12. Deep Learning & Matrix Multiplication\n\nMany deep learning models extend OLS concepts through matrix operations.\nExample: Using CNNs for forest fire detection in satellite imagery."
   },
   {
     "objectID": "slides/9-lm.html#summary",
@@ -6164,7 +6164,7 @@
     "href": "slides/9-lm.html#todays-assignment",
     "title": "Lecture 09/10",
     "section": "Today’s Assignment",
-    "text": "Today’s Assignment\n\nUsing the airquality from R datasets\n\nUse the help (?) function to learn more about the dataset\nUse vis_dat to check out the data. Does it need cleaning?\nFit a linear model to the cleaned data to predict Ozone from one of the possible predictors of your choosing. Why did you chose that variable?\nUsing summary(), Does this seem like a valid model?\nExplain the R2 found in a sentence.\nUse broom::augment to predict the Ozone of the cleaned data\nUse ggplot to plot the actual vs predicted Ozone\n\nAdd a red line to show where the actual and predicted values are equal\n\nThis can be done by plotting a 1:1 line (e.g. intercept 0, slope 1) with geom_abline(intercept = 0, slope = 1, color = \"red\")\n\nAdd a subtitle to the plot showing the correlation between the actual and predicted values are equal\n\nThis can be done with paste(\"Correlation:\", round(cor(a$Ozone, a$.fitted),2)) assuming your augmented data object is called a"
+    "text": "Today’s Assignment\nUsing the airquality from R datasets\n\nUse the help (?) function to learn more about the dataset\nUse vis_dat to check out the data. Does it need cleaning?\nFit a linear model to the cleaned data to predict Ozone from one of the possible predictors of your choosing. Why did you chose that variable?\nUsing summary(), Does this seem like a valid model?\nExplain the R2 found in a sentence.\nUse broom::augment to predict the Ozone of the cleaned data\nUse ggplot to plot the actual vs predicted Ozone\n\nAdd a red line to show where the actual and predicted values are equal\n\nThis can be done by plotting a 1:1 line (e.g. intercept 0, slope 1) with geom_abline(intercept = 0, slope = 1, color = \"red\")\n\nAdd a subtitle to the plot showing the correlation between the actual and predicted values are equal\n\nThis can be done with paste(\"Correlation:\", round(cor(a$Ozone, a$.fitted),2)) assuming your augmented data object is called a"
   },
   {
     "objectID": "slides/9-lm.html",
@@ -6500,7 +6500,7 @@
     "href": "slides/9-lm.html#map",
     "title": "Lecture 09/10",
     "section": "1. map()",
-    "text": "1. map()\n\nThe map() function applies a function to each element of a list or vector and returns a list.\nIt works similarly to lapply() but with better integration into tidyverse workflows.\n\n\nnumbers &lt;- list(1, 2, 3, 4, 5)\nmap(numbers, ~ .x^2)\n[[1]]\n[1] 1\n\n[[2]]\n[1] 4\n\n[[3]]\n[1] 9\n\n[[4]]\n[1] 16\n\n[[5]]\n[1] 25\n\n\nExplanation:\n\nThe .x notation inside map() refers to the data frame being operated on."
+    "text": "1. map()\n\nThe map() function applies a function to each element of a list or vector and returns a list.\nIt works similarly to lapply() but with better integration into tidyverse workflows.\n\n\nnumbers &lt;- list(1, 2, 3, 4, 5)\nmap(numbers, ~ .x^2)\n[[1]]\n[1] 1\n\n[[2]]\n[1] 4\n\n[[3]]\n[1] 9\n\n[[4]]\n[1] 16\n\n[[5]]\n[1] 25\n\nExplanation:\n\nThe .x notation inside map() refers to the data frame being operated on."
   },
   {
     "objectID": "slides/9-lm.html#what-is-purrrmap",
@@ -6514,21 +6514,21 @@
     "href": "slides/9-lm.html#map_-variants",
     "title": "Lecture 09/10",
     "section": "2. map_*() Variants",
-    "text": "2. map_*() Variants\n\nmap() → Returns a list\nmap_lgl() → Returns a logical vector\nmap_int() → Returns an integer vector\nmap_dbl() → Returns a double (numeric) vector\nmap_chr() → Returns a character vector\n\n\nExample:\n\nnumbers &lt;- list(1, 2, 3, 4, 5)\nmap_dbl(numbers, ~ .x^2)\n[1]  1  4  9 16 25"
+    "text": "2. map_*() Variants\n\nmap() → Returns a list\nmap_lgl() → Returns a logical vector\nmap_int() → Returns an integer vector\nmap_dbl() → Returns a double (numeric) vector\nmap_chr() → Returns a character vector\n\nExample:\n\nnumbers &lt;- list(1, 2, 3, 4, 5)\nmap_dbl(numbers, ~ .x^2)\n[1]  1  4  9 16 25"
   },
   {
     "objectID": "slides/9-lm.html#map2",
     "href": "slides/9-lm.html#map2",
     "title": "Lecture 09/10",
     "section": "3. map2()",
-    "text": "3. map2()\nmap2() applies a function to two lists element-wise.\n\nExample:\n\nlist1 &lt;- list(1, 2, 3)\nlist2 &lt;- list(4, 5, 6)\nmap2(list1, list2, ~ .x + .y)\n[[1]]\n[1] 5\n\n[[2]]\n[1] 7\n\n[[3]]\n[1] 9"
+    "text": "3. map2()\nmap2() applies a function to two lists element-wise.\nExample:\n\nlist1 &lt;- list(1, 2, 3)\nlist2 &lt;- list(4, 5, 6)\nmap2(list1, list2, ~ .x + .y)\n[[1]]\n[1] 5\n\n[[2]]\n[1] 7\n\n[[3]]\n[1] 9"
   },
   {
     "objectID": "slides/9-lm.html#pmap",
     "href": "slides/9-lm.html#pmap",
     "title": "Lecture 09/10",
     "section": "4. pmap()",
-    "text": "4. pmap()\npmap() extends map2() to handle multiple lists.\n\nExample:\n\na &lt;- list(1, 2, 3)\nb &lt;- list(4, 5, 6)\nc &lt;- list(7, 8, 9)\npmap(list(a = a, b = b, c = c), function(a,b,c) a + b + c)\n[[1]]\n[1] 12\n\n[[2]]\n[1] 15\n\n[[3]]\n[1] 18"
+    "text": "4. pmap()\npmap() extends map2() to handle multiple lists.\nExample:\n\na &lt;- list(1, 2, 3)\nb &lt;- list(4, 5, 6)\nc &lt;- list(7, 8, 9)\npmap(list(a = a, b = b, c = c), function(a,b,c) a + b + c)\n[[1]]\n[1] 12\n\n[[2]]\n[1] 15\n\n[[3]]\n[1] 18"
   },
   {
     "objectID": "slides/9-lm.html#unnesting",
@@ -6556,7 +6556,7 @@
     "href": "slides/9-lm.html#extracting-model-summaries-with-broom",
     "title": "Lecture 09/10",
     "section": "Extracting Model Summaries with broom",
-    "text": "Extracting Model Summaries with broom\n\nnested_data |&gt; \n  mutate(model   = map(data, ~lm(flipper_length_mm ~ body_mass_g, data = .x)),\n         summary = map(model, broom::tidy)) |&gt; \n  unnest(summary) \n# A tibble: 6 × 8\n  species   data               model term  estimate std.error statistic  p.value\n  &lt;fct&gt;     &lt;list&gt;             &lt;lis&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 Adelie    &lt;tibble [146 × 7]&gt; &lt;lm&gt;  (Int…  1.66e+2  3.92         42.3  4.71e-83\n2 Adelie    &lt;tibble [146 × 7]&gt; &lt;lm&gt;  body…  6.61e-3  0.00105       6.30 3.40e- 9\n3 Gentoo    &lt;tibble [119 × 7]&gt; &lt;lm&gt;  (Int…  1.70e+2  4.37         38.9  1.02e-68\n4 Gentoo    &lt;tibble [119 × 7]&gt; &lt;lm&gt;  body…  9.34e-3  0.000853     10.9  1.25e-19\n5 Chinstrap &lt;tibble [68 × 7]&gt;  &lt;lm&gt;  (Int…  1.51e+2  6.57         23.0  2.98e-33\n6 Chinstrap &lt;tibble [68 × 7]&gt;  &lt;lm&gt;  body…  1.19e-2  0.00175       6.79 3.75e- 9\n\n\nExplanation:\n\nThe tidy() function extracts the coefficients from the linear models stored in the model column and formats them into a tidy data frame.\nThis makes it easier to summarize or report on the results."
+    "text": "Extracting Model Summaries with broom\n\nnested_data |&gt; \n  mutate(model   = map(data, ~lm(flipper_length_mm ~ body_mass_g, data = .x)),\n         summary = map(model, broom::tidy)) |&gt; \n  unnest(summary) \n# A tibble: 6 × 8\n  species   data               model term  estimate std.error statistic  p.value\n  &lt;fct&gt;     &lt;list&gt;             &lt;lis&gt; &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;\n1 Adelie    &lt;tibble [146 × 7]&gt; &lt;lm&gt;  (Int…  1.66e+2  3.92         42.3  4.71e-83\n2 Adelie    &lt;tibble [146 × 7]&gt; &lt;lm&gt;  body…  6.61e-3  0.00105       6.30 3.40e- 9\n3 Gentoo    &lt;tibble [119 × 7]&gt; &lt;lm&gt;  (Int…  1.70e+2  4.37         38.9  1.02e-68\n4 Gentoo    &lt;tibble [119 × 7]&gt; &lt;lm&gt;  body…  9.34e-3  0.000853     10.9  1.25e-19\n5 Chinstrap &lt;tibble [68 × 7]&gt;  &lt;lm&gt;  (Int…  1.51e+2  6.57         23.0  2.98e-33\n6 Chinstrap &lt;tibble [68 × 7]&gt;  &lt;lm&gt;  body…  1.19e-2  0.00175       6.79 3.75e- 9\n\nExplanation:\n\nThe tidy() function extracts the coefficients from the linear models stored in the model column and formats them into a tidy data frame.\nThis makes it easier to summarize or report on the results."
   },
   {
     "objectID": "slides/9-lm.html#final",
@@ -6836,14 +6836,14 @@
     "href": "slides/9-lm.html#challenge",
     "title": "Lecture 09/10",
     "section": "Challenge …",
-    "text": "Challenge …\n\ngroup_by(data, species) %&gt;% \n  mutate(model = lm(body_mass_g ~ flipper_length_mm, data = .))\nError in `mutate()`:\nℹ In argument: `model = lm(body_mass_g ~ flipper_length_mm, data = .)`.\nℹ In group 1: `species = Adelie`.\nCaused by error:\n! `model` must be a vector, not a &lt;lm&gt; object.\n\n\n! model must be a vector, not a  object."
+    "text": "Challenge …\n\ngroup_by(data, species) %&gt;% \n  mutate(model = lm(body_mass_g ~ flipper_length_mm, data = .))\nError in `mutate()`:\nℹ In argument: `model = lm(body_mass_g ~ flipper_length_mm, data = .)`.\nℹ In group 1: `species = Adelie`.\nCaused by error:\n! `model` must be a vector, not a &lt;lm&gt; object.\n\n! model must be a vector, not a  object."
   },
   {
     "objectID": "slides/9-lm.html#example-linear-regression-by-group",
     "href": "slides/9-lm.html#example-linear-regression-by-group",
     "title": "Lecture 09/10",
     "section": "Example: Linear Regression by Group",
-    "text": "Example: Linear Regression by Group\n\n(nested_data &lt;- penguins |&gt; \n   drop_na() |&gt; \n   nest(data = -species))\n# A tibble: 3 × 2\n  species   data              \n  &lt;fct&gt;     &lt;list&gt;            \n1 Adelie    &lt;tibble [146 × 7]&gt;\n2 Gentoo    &lt;tibble [119 × 7]&gt;\n3 Chinstrap &lt;tibble [68 × 7]&gt; \n\n. . .\n\nmodel_results &lt;- nested_data |&gt; \n  mutate(model = map(data, ~lm(flipper_length_mm ~ body_mass_g, data = .x)))\n\n. . .\n\nmodel_results$species[1]\n[1] Adelie\nLevels: Adelie Chinstrap Gentoo\nsummary(model_results$model[[1]])\n\nCall:\nlm(formula = flipper_length_mm ~ body_mass_g, data = .x)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-14.426  -3.669   0.239   3.422  17.955 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 1.656e+02  3.918e+00   42.27  &lt; 2e-16 ***\nbody_mass_g 6.610e-03  1.049e-03    6.30  3.4e-09 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 5.794 on 144 degrees of freedom\nMultiple R-squared:  0.2161,    Adjusted R-squared:  0.2106 \nF-statistic: 39.69 on 1 and 144 DF,  p-value: 3.402e-09"
+    "text": "Example: Linear Regression by Group\n\n(nested_data &lt;- penguins |&gt; \n   drop_na() |&gt; \n   nest(data = -species))\n# A tibble: 3 × 2\n  species   data              \n  &lt;fct&gt;     &lt;list&gt;            \n1 Adelie    &lt;tibble [146 × 7]&gt;\n2 Gentoo    &lt;tibble [119 × 7]&gt;\n3 Chinstrap &lt;tibble [68 × 7]&gt; \n\n\n\nmodel_results &lt;- nested_data |&gt; \n  mutate(model = map(data, ~lm(flipper_length_mm ~ body_mass_g, data = .x)))\n\n\n\n\nmodel_results$species[1]\n[1] Adelie\nLevels: Adelie Chinstrap Gentoo\nsummary(model_results$model[[1]])\n\nCall:\nlm(formula = flipper_length_mm ~ body_mass_g, data = .x)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-14.426  -3.669   0.239   3.422  17.955 \n\nCoefficients:\n             Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 1.656e+02  3.918e+00   42.27  &lt; 2e-16 ***\nbody_mass_g 6.610e-03  1.049e-03    6.30  3.4e-09 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 5.794 on 144 degrees of freedom\nMultiple R-squared:  0.2161,    Adjusted R-squared:  0.2106 \nF-statistic: 39.69 on 1 and 144 DF,  p-value: 3.402e-09"
   },
   {
     "objectID": "slides/9-lm.html#example-linear-regression-by-group-1",
@@ -6857,21 +6857,21 @@
     "href": "slides/9-lm.html#extracting-model-summaries-with-broom-1",
     "title": "Lecture 09/10",
     "section": "Extracting Model Summaries with broom",
-    "text": "Extracting Model Summaries with broom\n\nnested_data |&gt; \n  mutate(model   = map(data, ~lm(flipper_length_mm ~ body_mass_g, data = .x)),\n         summary = map(model, broom::glance)) |&gt;\n  unnest(summary)\n# A tibble: 3 × 15\n  species  data     model r.squared adj.r.squared sigma statistic  p.value    df\n  &lt;fct&gt;    &lt;list&gt;   &lt;lis&gt;     &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;\n1 Adelie   &lt;tibble&gt; &lt;lm&gt;      0.216         0.211  5.79      39.7 3.40e- 9     1\n2 Gentoo   &lt;tibble&gt; &lt;lm&gt;      0.506         0.502  4.65     120.  1.25e-19     1\n3 Chinstr… &lt;tibble&gt; &lt;lm&gt;      0.412         0.403  5.51      46.2 3.75e- 9     1\n# ℹ 6 more variables: logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;,\n#   df.residual &lt;int&gt;, nobs &lt;int&gt;\n\n\nExplanation:\n\nglance() accepts a model object and returns a tibble() with exactly one row of model summaries. The summaries are typically goodness of fit measures, p-values for hypothesis tests on residuals, or model convergence information."
+    "text": "Extracting Model Summaries with broom\n\nnested_data |&gt; \n  mutate(model   = map(data, ~lm(flipper_length_mm ~ body_mass_g, data = .x)),\n         summary = map(model, broom::glance)) |&gt;\n  unnest(summary)\n# A tibble: 3 × 15\n  species  data     model r.squared adj.r.squared sigma statistic  p.value    df\n  &lt;fct&gt;    &lt;list&gt;   &lt;lis&gt;     &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;\n1 Adelie   &lt;tibble&gt; &lt;lm&gt;      0.216         0.211  5.79      39.7 3.40e- 9     1\n2 Gentoo   &lt;tibble&gt; &lt;lm&gt;      0.506         0.502  4.65     120.  1.25e-19     1\n3 Chinstr… &lt;tibble&gt; &lt;lm&gt;      0.412         0.403  5.51      46.2 3.75e- 9     1\n# ℹ 6 more variables: logLik &lt;dbl&gt;, AIC &lt;dbl&gt;, BIC &lt;dbl&gt;, deviance &lt;dbl&gt;,\n#   df.residual &lt;int&gt;, nobs &lt;int&gt;\n\nExplanation:\n\nglance() accepts a model object and returns a tibble() with exactly one row of model summaries. The summaries are typically goodness of fit measures, p-values for hypothesis tests on residuals, or model convergence information."
   },
   {
     "objectID": "slides/9-lm.html#extracting-model-summaries-with-broom-2",
     "href": "slides/9-lm.html#extracting-model-summaries-with-broom-2",
     "title": "Lecture 09/10",
     "section": "Extracting Model Summaries with broom",
-    "text": "Extracting Model Summaries with broom\n\nnested_data |&gt; \n  mutate(model   = map(data, ~lm(flipper_length_mm ~ body_mass_g, data = .x)),\n         summary = map2(model, data, ~broom::augment(.x, newdata = .y))) |&gt; \n  unnest(summary)\n# A tibble: 333 × 12\n   species data     model  island bill_length_mm bill_depth_mm flipper_length_mm\n   &lt;fct&gt;   &lt;list&gt;   &lt;list&gt; &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;\n 1 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           39.1          18.7               181\n 2 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           39.5          17.4               186\n 3 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           40.3          18                 195\n 4 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           36.7          19.3               193\n 5 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           39.3          20.6               190\n 6 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           38.9          17.8               181\n 7 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           39.2          19.6               195\n 8 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           41.1          17.6               182\n 9 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           38.6          21.2               191\n10 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           34.6          21.1               198\n# ℹ 323 more rows\n# ℹ 5 more variables: body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;, .fitted &lt;dbl&gt;,\n#   .resid &lt;dbl&gt;\n\n\nExplanation:\n\naugment accepts a model object and a dataset and adds information about each observation in the dataset. Most commonly, this includes predicted values in the .fitted column, residuals in the .resid column, and standard errors for the fitted values in a .se.fit column. New columns always begin with a . prefix to avoid overwriting columns in the original dataset.\nSince augment requires the dataset and model, map2 is needed!!!"
+    "text": "Extracting Model Summaries with broom\n\nnested_data |&gt; \n  mutate(model   = map(data, ~lm(flipper_length_mm ~ body_mass_g, data = .x)),\n         summary = map2(model, data, ~broom::augment(.x, newdata = .y))) |&gt; \n  unnest(summary)\n# A tibble: 333 × 12\n   species data     model  island bill_length_mm bill_depth_mm flipper_length_mm\n   &lt;fct&gt;   &lt;list&gt;   &lt;list&gt; &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;\n 1 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           39.1          18.7               181\n 2 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           39.5          17.4               186\n 3 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           40.3          18                 195\n 4 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           36.7          19.3               193\n 5 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           39.3          20.6               190\n 6 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           38.9          17.8               181\n 7 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           39.2          19.6               195\n 8 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           41.1          17.6               182\n 9 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           38.6          21.2               191\n10 Adelie  &lt;tibble&gt; &lt;lm&gt;   Torge…           34.6          21.1               198\n# ℹ 323 more rows\n# ℹ 5 more variables: body_mass_g &lt;int&gt;, sex &lt;fct&gt;, year &lt;int&gt;, .fitted &lt;dbl&gt;,\n#   .resid &lt;dbl&gt;\n\nExplanation:\n\naugment accepts a model object and a dataset and adds information about each observation in the dataset. Most commonly, this includes predicted values in the .fitted column, residuals in the .resid column, and standard errors for the fitted values in a .se.fit column. New columns always begin with a . prefix to avoid overwriting columns in the original dataset.\nSince augment requires the dataset and model, map2 is needed!!!"
   },
   {
     "objectID": "slides/9-lm.html#ok-so-how-do-we-get-this-info",
     "href": "slides/9-lm.html#ok-so-how-do-we-get-this-info",
     "title": "Lecture 09/10",
     "section": "Ok! So how do we get this info?",
-    "text": "Ok! So how do we get this info?\n\nOption 1: Straight from the list structures\n\nnames(model)\n [1] \"coefficients\"  \"residuals\"     \"effects\"       \"rank\"         \n [5] \"fitted.values\" \"assign\"        \"qr\"            \"df.residual\"  \n [9] \"xlevels\"       \"call\"          \"terms\"         \"model\"        \nsummary(model)$r.squared\n[1] 0.7620922\nsummary(model)$coefficients\n                Estimate   Std. Error  t value      Pr(&gt;|t|)\n(Intercept) 137.03962089 1.9987694290 68.56200 1.130969e-197\nbody_mass_g   0.01519526 0.0004666539 32.56217 3.132836e-105\nsummary(model)$coefficients[1,1]\n[1] 137.0396"
+    "text": "Ok! So how do we get this info?\nOption 1: Straight from the list structures\n\nnames(model)\n [1] \"coefficients\"  \"residuals\"     \"effects\"       \"rank\"         \n [5] \"fitted.values\" \"assign\"        \"qr\"            \"df.residual\"  \n [9] \"xlevels\"       \"call\"          \"terms\"         \"model\"        \nsummary(model)$r.squared\n[1] 0.7620922\nsummary(model)$coefficients\n                Estimate   Std. Error  t value      Pr(&gt;|t|)\n(Intercept) 137.03962089 1.9987694290 68.56200 1.130969e-197\nbody_mass_g   0.01519526 0.0004666539 32.56217 3.132836e-105\nsummary(model)$coefficients[1,1]\n[1] 137.0396"
   },
   {
     "objectID": "slides/9-lm.html#option-2-broom",
