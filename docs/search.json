@@ -6983,7 +6983,7 @@
     "href": "slides/11-eda.html#introduction-to-eda",
     "title": "Lecture 11/12",
     "section": "Introduction to EDA",
-    "text": "Introduction to EDA\n\n\n\n\n\n\n\n\n\n\nExploratory Data Analysis (EDA) helps understand data structure.\nKey tasks:\n\nSummary statistics\nVisualizations\nIdentifying trends and outliers\n\nMuch of what you have been doing thus far (states with most cases, trees that grow the fastest, rates/changes through time) are all parts of EDA.\nToday we will focus on EDA from a statistical persepctive by focusing on aspects of the data needed to support the assumptions of models we might use (e.g. lm)\nA large part of EDA is understanding the distribution of the data which is very visual.\nWe will use ggpubr, a package that simplifies ggplot2-based plots to look at the properties descried."
+    "text": "Introduction to EDA\n\n\nExploratory Data Analysis (EDA) helps understand data structure.\nKey tasks:\n\nSummary statistics\nVisualizations\nIdentifying trends and outliers\n\nMuch of what you have been doing thus far (states with most cases, trees that grow the fastest, rates/changes through time) are all parts of EDA.\nToday we will focus on EDA from a statistical persepctive by focusing on aspects of the data needed to support the assumptions of models we might use (e.g. lm)\nA large part of EDA is understanding the distribution of the data which is very visual.\nWe will use ggpubr, a package that simplifies ggplot2-based plots to look at the properties descried."
   },
   {
     "objectID": "slides/11-eda.html#overview-of-ggpubr",
@@ -7011,7 +7011,7 @@
     "href": "slides/11-eda.html#example-usage",
     "title": "Lecture 11/12",
     "section": "Example Usage",
-    "text": "Example Usage\n\nBoxplot with Significance Testing\n\n# Boxplot with p-values\nggboxplot(ToothGrowth, x = \"supp\", y = \"len\",  color = \"supp\", palette = \"jco\") +\n  stat_compare_means(method = \"t.test\")"
+    "text": "Example Usage\nBoxplot with Significance Testing\n\n# Boxplot with p-values\nggboxplot(ToothGrowth, x = \"supp\", y = \"len\",  color = \"supp\", palette = \"jco\") +\n  stat_compare_means(method = \"t.test\")"
   },
   {
     "objectID": "slides/11-eda.html#scatter-plot-with-regression-line",
@@ -7032,7 +7032,7 @@
     "href": "slides/11-eda.html#arranging-multiple-plots",
     "title": "Lecture 11/12",
     "section": "Arranging Multiple Plots",
-    "text": "Arranging Multiple Plots\n\nggarrange() to combine plots side by side.\n\np1 &lt;- gghistogram(penguins, x = \"body_mass_g\", bins = 30, fill = \"species\")\np2 &lt;- ggboxplot(penguins, x = \"species\", y = \"body_mass_g\", fill = \"species\")\n\nggarrange(p1, p2, ncol = 2, nrow = 2)"
+    "text": "Arranging Multiple Plots\nggarrange() to combine plots side by side.\n\np1 &lt;- gghistogram(penguins, x = \"body_mass_g\", bins = 30, fill = \"species\")\np2 &lt;- ggboxplot(penguins, x = \"species\", y = \"body_mass_g\", fill = \"species\")\n\nggarrange(p1, p2, ncol = 2, nrow = 2)"
   },
   {
     "objectID": "slides/11-eda.html#what-is-eda",
@@ -7095,21 +7095,21 @@
     "href": "slides/11-eda.html#univariate-analysis-distribution-of-bill-length",
     "title": "Lecture 11/12",
     "section": "Univariate Analysis – Distribution of Bill Length",
-    "text": "Univariate Analysis – Distribution of Bill Length\n\nUnivariate analysis focuses on a single variable at a time.\nHistograms are a common visualization for univariate analysis.\n\n\n# Histogram of bill length\nggdensity(penguins, x = \"bill_length_mm\", add = \"mean\") + \n  labs(title = \"Distribution of Bill Length\", x = \"Bill Length (mm)\")\n\n\n\n\n\n\n\n\n📌 Key Insights: Most bill lengths are between 35-55 mm. Some outliers exist."
+    "text": "Univariate Analysis – Distribution of Bill Length\n\nUnivariate analysis focuses on a single variable at a time.\nHistograms are a common visualization for univariate analysis.\n\n\n# Histogram of bill length\nggdensity(penguins, x = \"bill_length_mm\", add = \"mean\") + \n  labs(title = \"Distribution of Bill Length\", x = \"Bill Length (mm)\")\n\n\n📌 Key Insights: Most bill lengths are between 35-55 mm. Some outliers exist."
   },
   {
     "objectID": "slides/11-eda.html#boxplot-for-outlier-detection",
     "href": "slides/11-eda.html#boxplot-for-outlier-detection",
     "title": "Lecture 11/12",
     "section": "Boxplot for Outlier Detection",
-    "text": "Boxplot for Outlier Detection\n\nBoxplots are useful for visualizing the distribution of a variable by groups.\nThey help identify outliers and compare distributions across categories.\nOutliers are points that fall outside the whiskers of the boxplot.\nOutliers may need further investigation.\n\n\n# Boxplot of bill length by species\nggboxplot(penguins, x = \"species\", y = \"bill_length_mm\",\n          color = \"species\", palette = \"jco\") +\n  labs(title = \"Bill Length Distribution by Species\")\n\n\n\n\n\n\n\n\n📌 Key Insights:\n- Different species have different bill length distributions.\n- Outliers may need further investigation."
+    "text": "Boxplot for Outlier Detection\n\nBoxplots are useful for visualizing the distribution of a variable by groups.\nThey help identify outliers and compare distributions across categories.\nOutliers are points that fall outside the whiskers of the boxplot.\nOutliers may need further investigation.\n\n\n# Boxplot of bill length by species\nggboxplot(penguins, x = \"species\", y = \"bill_length_mm\",\n          color = \"species\", palette = \"jco\") +\n  labs(title = \"Bill Length Distribution by Species\")\n\n\n📌 Key Insights:\n- Different species have different bill length distributions.\n- Outliers may need further investigation."
   },
   {
     "objectID": "slides/11-eda.html#bivariate-analysis-bill-length-vs.-depth",
     "href": "slides/11-eda.html#bivariate-analysis-bill-length-vs.-depth",
     "title": "Lecture 11/12",
     "section": "Bivariate Analysis – Bill Length vs. Depth",
-    "text": "Bivariate Analysis – Bill Length vs. Depth\n• Categorical + Categorical -&gt; Bar Plot (stacked or side-by-side) • Categorical + Continuous -&gt; Box Plot; Bar Plot (with summary statistics) • Continuous + Continuous -&gt; Scatter Plots and Line Plots\n\nBivariate analysis examines the relationship between two variables.\nScatter plots are commonly used for bivariate analysis.\nRegression lines can show trends in the data.\n\n\n# Scatter plot with regression line\nggscatter(penguins, x = \"bill_length_mm\", y = \"bill_depth_mm\",\n          color = \"species\", add = \"reg.line\", conf.int = TRUE) +\n  labs(title = \"Bill Length vs. Bill Depth\", \n       x = \"Bill Length (mm)\", y = \"Bill Depth (mm)\")\n\n\n\n\n\n\n\n\n📌 Key Insights:\n- Correlation between bill length and depth.\n- Species exhibit different trends."
+    "text": "Bivariate Analysis – Bill Length vs. Depth\n• Categorical + Categorical -&gt; Bar Plot (stacked or side-by-side) • Categorical + Continuous -&gt; Box Plot; Bar Plot (with summary statistics) • Continuous + Continuous -&gt; Scatter Plots and Line Plots\n\nBivariate analysis examines the relationship between two variables.\nScatter plots are commonly used for bivariate analysis.\nRegression lines can show trends in the data.\n\n\n# Scatter plot with regression line\nggscatter(penguins, x = \"bill_length_mm\", y = \"bill_depth_mm\",\n          color = \"species\", add = \"reg.line\", conf.int = TRUE) +\n  labs(title = \"Bill Length vs. Bill Depth\", \n       x = \"Bill Length (mm)\", y = \"Bill Depth (mm)\")\n\n\n📌 Key Insights:\n- Correlation between bill length and depth.\n- Species exhibit different trends."
   },
   {
     "objectID": "slides/11-eda.html#correlation-analysis",
@@ -7137,7 +7137,7 @@
     "href": "slides/11-eda.html#understanding-data-normality",
     "title": "Lecture 11/12",
     "section": "Understanding Data Normality",
-    "text": "Understanding Data Normality\n\nData normality is a fundamental concept in statistics describing how data is distributed.\nMany statistical tests assume normality because the normal distribution has well-defined properties that make inference more reliable.\nThe normal distribution, also known as the Gaussian distribution, is a symmetric, bell-shaped curve defined by two parameters:\nMean: The center of the distribution\nStandard deviation: The measure of spread\n\n\nProperties of a normal distribution:\n\nSymmetric about the mean\nFollows the empirical rule:\n\n~68% of values fall within 1 standard deviation of the mean\n~95% within 2 standard deviations\n~99.7% within 3 standard deviations\n\n\n\n# Generate a normal distribution and visualize it\nset.seed(123)\ndata &lt;- rnorm(1000, mean = 50, sd = 10)"
+    "text": "Understanding Data Normality\n\nData normality is a fundamental concept in statistics describing how data is distributed.\nMany statistical tests assume normality because the normal distribution has well-defined properties that make inference more reliable.\nThe normal distribution, also known as the Gaussian distribution, is a symmetric, bell-shaped curve defined by two parameters:\nMean: The center of the distribution\nStandard deviation: The measure of spread\n\nProperties of a normal distribution:\n\nSymmetric about the mean\nFollows the empirical rule:\n\n~68% of values fall within 1 standard deviation of the mean\n~95% within 2 standard deviations\n~99.7% within 3 standard deviations\n\n\n\n# Generate a normal distribution and visualize it\nset.seed(123)\ndata &lt;- rnorm(1000, mean = 50, sd = 10)"
   },
   {
     "objectID": "slides/11-eda.html#the-normal-distribution",
@@ -7158,14 +7158,14 @@
     "href": "slides/11-eda.html#assessing-normality",
     "title": "Lecture 11/12",
     "section": "Assessing Normality",
-    "text": "Assessing Normality\nSeveral methods can be used to check whether data is normally distributed:\n\nVisual Methods\n\nHistogram: A bar plot of data frequencies can show the shape of the distribution.\nBoxplot: Identifies skewness and outliers.\n\n\n\n\ngghistogram(data, y = \"density\", \n            bins = 30, fill = \"skyblue\", \n            add = \"mean\",\n            main = \"Histogram of Normally Distributed Data\",\n            color = \"black\", add_density = TRUE) \n\n\n\n\n\n\n\n\n\n\nggboxplot(data, title = \"Boxplot of Data\", fill = \"lightgreen\")"
+    "text": "Assessing Normality\nSeveral methods can be used to check whether data is normally distributed:\nVisual Methods\n\nHistogram: A bar plot of data frequencies can show the shape of the distribution.\nBoxplot: Identifies skewness and outliers.\n\n\n\n\ngghistogram(data, y = \"density\", \n            bins = 30, fill = \"skyblue\", \n            add = \"mean\",\n            main = \"Histogram of Normally Distributed Data\",\n            color = \"black\", add_density = TRUE) \n\n\n\n\n\n\n\n\n\n\nggboxplot(data, title = \"Boxplot of Data\", fill = \"lightgreen\")"
   },
   {
     "objectID": "slides/11-eda.html#checking-normality-with-q-q-plots",
     "href": "slides/11-eda.html#checking-normality-with-q-q-plots",
     "title": "Lecture 11/12",
     "section": "Checking Normality with Q-Q Plots",
-    "text": "Checking Normality with Q-Q Plots\n\nA Q-Q plot (quantile-quantile plot) is used to compare the distribution of a dataset to a normal distribution.\nIf the points lie approximately along the 45-degree line, the data is normally distributed.\n\n\nggqqplot(group_by(penguins, species), x = 'body_mass_g', color = \"species\") \n\n\n\n\n\n\n\n\n\nInterpretation:\n\nDeviations from the line suggest skewness or outliers.\nCan help assess whether transformations (e.g., log transformation) are needed."
+    "text": "Checking Normality with Q-Q Plots\n\nA Q-Q plot (quantile-quantile plot) is used to compare the distribution of a dataset to a normal distribution.\nIf the points lie approximately along the 45-degree line, the data is normally distributed.\n\n\nggqqplot(group_by(penguins, species), x = 'body_mass_g', color = \"species\") \n\n\n\nInterpretation:\n\nDeviations from the line suggest skewness or outliers.\nCan help assess whether transformations (e.g., log transformation) are needed."
   },
   {
     "objectID": "slides/11-eda.html#statistical-tests",
@@ -7242,7 +7242,7 @@
     "href": "slides/11-eda.html#key-tidymodels-packages",
     "title": "Lecture 11/12",
     "section": "Key tidymodels Packages",
-    "text": "Key tidymodels Packages\n📦 recipes: Feature engineering and preprocessing\n📦 parsnip: Unified interface for model specification\n📦 workflows: Streamlined modeling pipelines\n📦 tune: Hyperparameter tuning\n📦 rsample: Resampling and validation\n📦 yardstick: Model evaluation metrics\n\nknitr::include_graphics('images/tidymodels-packages.png')\n\n\n\n\n\n\n\ntidymodels::tidymodels_packages()\n [1] \"broom\"        \"cli\"          \"conflicted\"   \"dials\"        \"dplyr\"       \n [6] \"ggplot2\"      \"hardhat\"      \"infer\"        \"modeldata\"    \"parsnip\"     \n[11] \"purrr\"        \"recipes\"      \"rlang\"        \"rsample\"      \"rstudioapi\"  \n[16] \"tibble\"       \"tidyr\"        \"tune\"         \"workflows\"    \"workflowsets\"\n[21] \"yardstick\"    \"tidymodels\""
+    "text": "Key tidymodels Packages\n📦 recipes: Feature engineering and preprocessing\n📦 parsnip: Unified interface for model specification\n📦 workflows: Streamlined modeling pipelines\n📦 tune: Hyperparameter tuning\n📦 rsample: Resampling and validation\n📦 yardstick: Model evaluation metrics\n\nknitr::include_graphics('images/tidymodels-packages.png')\n\ntidymodels::tidymodels_packages()\n [1] \"broom\"        \"cli\"          \"conflicted\"   \"dials\"        \"dplyr\"       \n [6] \"ggplot2\"      \"hardhat\"      \"infer\"        \"modeldata\"    \"parsnip\"     \n[11] \"purrr\"        \"recipes\"      \"rlang\"        \"rsample\"      \"rstudioapi\"  \n[16] \"tibble\"       \"tidyr\"        \"tune\"         \"workflows\"    \"workflowsets\"\n[21] \"yardstick\"    \"tidymodels\""
   },
   {
     "objectID": "slides/11-eda.html#typcical-workflow-in-tidymodels",
@@ -7270,14 +7270,14 @@
     "href": "slides/11-eda.html#common-normalization-techniques",
     "title": "Lecture 11/12",
     "section": "Common Normalization Techniques",
-    "text": "Common Normalization Techniques\n\n1. Min-Max Scaling\n\nTransforms data into a fixed range (typically [0,1]).\nPreserves relationships but sensitive to outliers.\nFormula: \\[ x' = \\frac{x - x_{min}}{x_{max} - x_{min}} \\]\nImplemented using step_range() in recipes.\n\n\n\n2. Z-Score Standardization (Standard Scaling)\n\nCenters data to have zero mean and unit variance.\nMore robust to outliers compared to min-max scaling.\nFormula: \\[ x' = \\frac{x - \\mu}{\\sigma} \\]\nImplemented using step_normalize() in recipes.\n\n\n\n3. Robust Scaling\n\nUses median and interquartile range (IQR) for scaling.\nLess sensitive to outliers.\nFormula: \\[ x' = \\frac{x - median(x)}{IQR(x)} \\]\nImplemented using step_YeoJohnson() or step_BoxCox() in recipes.\n\n\n\n4. Log Transformation\n\nUseful for skewed distributions to reduce the impact of extreme values.\nImplemented using step_log() in recipes.\n\n\n\n5. Principal Component Analysis (PCA)\n\nProjects data into a lower-dimensional space while maintaining variance.\nUsed in high-dimensional datasets.\nImplemented using step_pca() in recipes."
+    "text": "Common Normalization Techniques\n1. Min-Max Scaling\n\nTransforms data into a fixed range (typically [0,1]).\nPreserves relationships but sensitive to outliers.\nFormula: \\[ x' = \\frac{x - x_{min}}{x_{max} - x_{min}} \\]\nImplemented using step_range() in recipes.\n\n2. Z-Score Standardization (Standard Scaling)\n\nCenters data to have zero mean and unit variance.\nMore robust to outliers compared to min-max scaling.\nFormula: \\[ x' = \\frac{x - \\mu}{\\sigma} \\]\nImplemented using step_normalize() in recipes.\n\n3. Robust Scaling\n\nUses median and interquartile range (IQR) for scaling.\nLess sensitive to outliers.\nFormula: \\[ x' = \\frac{x - median(x)}{IQR(x)} \\]\nImplemented using step_YeoJohnson() or step_BoxCox() in recipes.\n\n4. Log Transformation\n\nUseful for skewed distributions to reduce the impact of extreme values.\nImplemented using step_log() in recipes.\n\n5. Principal Component Analysis (PCA)\n\nProjects data into a lower-dimensional space while maintaining variance.\nUsed in high-dimensional datasets.\nImplemented using step_pca() in recipes."
   },
   {
     "objectID": "slides/11-eda.html#other-feature-engineering-tasks",
     "href": "slides/11-eda.html#other-feature-engineering-tasks",
     "title": "Lecture 11/12",
     "section": "Other Feature Engineering Tasks",
-    "text": "Other Feature Engineering Tasks\n\nHandling Missing Data\n\nstep_impute_mean()\nstep_impute_median()\nstep_impute_knn()\n\ncan be used to fill missing values.\n\n\nEncoding Categorical Variables\n\nstep_dummy() creates dummy variables for categorical features.\nstep_other() groups infrequent categories into an “other” category.\n\n\n\nCreating Interaction Terms\n\nstep_interact() generates interaction terms between predictors.\n\n\n\nFeature Extraction\n\nstep_pca() or step_ica() can be used to extract important components.\n\n\n\nText Feature Engineering\nstep_tokenize(), step_stopwords(), and step_tf() for text processing.\n\n\nBinning Numerical Data\nstep_bin2factor() converts continuous variables into categorical bins.\n\n\nPolynomial and Spline Features\nstep_poly() and step_bs() for generating polynomial and spline transformations."
+    "text": "Other Feature Engineering Tasks\nHandling Missing Data\n\nstep_impute_mean()\nstep_impute_median()\nstep_impute_knn()\n\ncan be used to fill missing values.\nEncoding Categorical Variables\n\nstep_dummy() creates dummy variables for categorical features.\nstep_other() groups infrequent categories into an “other” category.\n\nCreating Interaction Terms\n\nstep_interact() generates interaction terms between predictors.\n\nFeature Extraction\n\nstep_pca() or step_ica() can be used to extract important components.\n\nText Feature Engineering\nstep_tokenize(), step_stopwords(), and step_tf() for text processing.\nBinning Numerical Data\nstep_bin2factor() converts continuous variables into categorical bins.\nPolynomial and Spline Features\nstep_poly() and step_bs() for generating polynomial and spline transformations."
   },
   {
     "objectID": "slides/11-eda.html#example-workflow",
@@ -7319,14 +7319,14 @@
     "href": "slides/11-eda.html#side-note-setting-seeds-in-r-and-computer-science",
     "title": "Lecture 11/12",
     "section": "Side note: Setting Seeds in R and Computer Science",
-    "text": "Side note: Setting Seeds in R and Computer Science\nRandom number generation is crucial in simulations, resampling methods, and statistical modeling. However, to ensure reproducibility, we set a seed value.\n\nWhy set a seed?\n\nEnsures that random number generation is consistent across runs.\nFacilitates debugging and verification of statistical methods.\nAllows for reproducibility in machine learning, Monte Carlo simulations, bootstrapping, and other applications.\n\n\nset.seed(42)  # Setting seed for reproducibility\nsample1 &lt;- rnorm(10)\n\nset.seed(42)\nsample2 &lt;- rnorm(10)\n\nset.seed(43)\nsample3 &lt;- rnorm(10)\n\nidentical(sample1, sample2) \n[1] TRUE\nidentical(sample1, sample3) \n[1] FALSE"
+    "text": "Side note: Setting Seeds in R and Computer Science\nRandom number generation is crucial in simulations, resampling methods, and statistical modeling. However, to ensure reproducibility, we set a seed value.\nWhy set a seed?\n\nEnsures that random number generation is consistent across runs.\nFacilitates debugging and verification of statistical methods.\nAllows for reproducibility in machine learning, Monte Carlo simulations, bootstrapping, and other applications.\n\n\nset.seed(42)  # Setting seed for reproducibility\nsample1 &lt;- rnorm(10)\n\nset.seed(42)\nsample2 &lt;- rnorm(10)\n\nset.seed(43)\nsample3 &lt;- rnorm(10)\n\nidentical(sample1, sample2) \n[1] TRUE\nidentical(sample1, sample3) \n[1] FALSE"
   },
   {
     "objectID": "slides/11-eda.html#dealing-with-non-normal-data",
     "href": "slides/11-eda.html#dealing-with-non-normal-data",
     "title": "Lecture 11/12",
     "section": "Dealing with Non-Normal Data",
-    "text": "Dealing with Non-Normal Data\nIf data is not normally distributed, there are several approaches:\n\nOption 1: Transformation:\nApply transformations such as:\n\nLog transformation (useful for right-skewed data)\nSquare root transformation\nBox-Cox transformation\nExponential Transformation: Raising values to a power greater than 1.\nReflection and Log Transformation: If data has negative values, reflect it by subtracting from a constant before applying log transformation."
+    "text": "Dealing with Non-Normal Data\nIf data is not normally distributed, there are several approaches:\nOption 1: Transformation:\nApply transformations such as:\n\nLog transformation (useful for right-skewed data)\nSquare root transformation\nBox-Cox transformation\nExponential Transformation: Raising values to a power greater than 1.\nReflection and Log Transformation: If data has negative values, reflect it by subtracting from a constant before applying log transformation."
   },
   {
     "objectID": "slides/11-eda.html#resampling-methods",
@@ -7340,14 +7340,14 @@
     "href": "slides/11-eda.html#implementing-normalization-in-tidymodels",
     "title": "Lecture 11/12",
     "section": "Implementing Normalization in Tidymodels",
-    "text": "Implementing Normalization in Tidymodels\n\nExample Workflow\n\nlibrary(tidymodels)\n\n(recipe_obj &lt;- recipe(flipper_length_mm ~ \n                       bill_length_mm + body_mass_g + \n                       sex + island + species, \n                      data = penguins) |&gt; \n  step_impute_mean(all_numeric_predictors()) |&gt;\n  step_dummy(all_factor_predictors()) |&gt;\n  step_normalize(all_numeric_predictors()))\n\n# Prepare and apply transformations\nprep_recipe     &lt;- prep(recipe_obj, training = penguins) \n\nnormalized_data &lt;- bake(prep_recipe, new_data = NULL) |&gt; \n  mutate(species = penguins$species) |&gt; \n  drop_na()\n\nhead(normalized_data)\n# A tibble: 6 × 9\n  bill_length_mm body_mass_g flipper_length_mm sex_male island_Dream\n           &lt;dbl&gt;       &lt;dbl&gt;             &lt;int&gt;    &lt;dbl&gt;        &lt;dbl&gt;\n1         -0.886      -0.565               181    0.990       -0.750\n2         -0.812      -0.502               186   -1.01        -0.750\n3         -0.665      -1.19                195   -1.01        -0.750\n4         -1.33       -0.940               193   -1.01        -0.750\n5         -0.849      -0.690               190    0.990       -0.750\n6         -0.923      -0.721               181   -1.01        -0.750\n# ℹ 4 more variables: island_Torgersen &lt;dbl&gt;, species_Chinstrap &lt;dbl&gt;,\n#   species_Gentoo &lt;dbl&gt;, species &lt;fct&gt;\n\n\nExplanation:\n\nrecipe() defines preprocessing steps for modeling.\nstep_impute_mean(all_numeric_predictors()) standardizes all numerical predictors.\nstep_dummy(all_factor_predictors()) creates dummy variables for categorical predictors.\nstep_normalize(all_numeric_predictors())) standardizes all numerical predictors.\nprep() estimates parameters for transformations.\nbake() applies the transformations to the dataset."
+    "text": "Implementing Normalization in Tidymodels\nExample Workflow\n\nlibrary(tidymodels)\n\n(recipe_obj &lt;- recipe(flipper_length_mm ~ \n                       bill_length_mm + body_mass_g + \n                       sex + island + species, \n                      data = penguins) |&gt; \n  step_impute_mean(all_numeric_predictors()) |&gt;\n  step_dummy(all_factor_predictors()) |&gt;\n  step_normalize(all_numeric_predictors()))\n\n# Prepare and apply transformations\nprep_recipe     &lt;- prep(recipe_obj, training = penguins) \n\nnormalized_data &lt;- bake(prep_recipe, new_data = NULL) |&gt; \n  mutate(species = penguins$species) |&gt; \n  drop_na()\n\nhead(normalized_data)\n# A tibble: 6 × 9\n  bill_length_mm body_mass_g flipper_length_mm sex_male island_Dream\n           &lt;dbl&gt;       &lt;dbl&gt;             &lt;int&gt;    &lt;dbl&gt;        &lt;dbl&gt;\n1         -0.886      -0.565               181    0.990       -0.750\n2         -0.812      -0.502               186   -1.01        -0.750\n3         -0.665      -1.19                195   -1.01        -0.750\n4         -1.33       -0.940               193   -1.01        -0.750\n5         -0.849      -0.690               190    0.990       -0.750\n6         -0.923      -0.721               181   -1.01        -0.750\n# ℹ 4 more variables: island_Torgersen &lt;dbl&gt;, species_Chinstrap &lt;dbl&gt;,\n#   species_Gentoo &lt;dbl&gt;, species &lt;fct&gt;\n\nExplanation:\n\nrecipe() defines preprocessing steps for modeling.\nstep_impute_mean(all_numeric_predictors()) standardizes all numerical predictors.\nstep_dummy(all_factor_predictors()) creates dummy variables for categorical predictors.\nstep_normalize(all_numeric_predictors())) standardizes all numerical predictors.\nprep() estimates parameters for transformations.\nbake() applies the transformations to the dataset."
   },
   {
     "objectID": "slides/11-eda.html#your-tool-kit",
     "href": "slides/11-eda.html#your-tool-kit",
     "title": "Lecture 11/12",
-    "section": "",
-    "text": "readr: Importing data\ndplyr: Filter, select, mutate, summarize, grouping, and joining\ntidyr: pivoting, nesting\nggplot2: Data visualization\nbroom: Model tidying\npurrr: Functional programming\nvisdat: Visualizing missing data"
+    "section": "Your Tool Kit",
+    "text": "Your Tool Kit\n\nreadr: Importing data\ndplyr: Filter, select, mutate, summarize, grouping, and joining\ntidyr: pivoting, nesting\nggplot2: Data visualization\nbroom: Model tidying\npurrr: Functional programming\nvisdat: Visualizing missing data"
   },
   {
     "objectID": "slides/11-eda.html#eda-cehcklist",
@@ -7417,7 +7417,7 @@
     "href": "slides/11-eda.html#when-to-use-different-transformations",
     "title": "Lecture 11/12",
     "section": "When to Use Different Transformations:",
-    "text": "When to Use Different Transformations:\n\n\n\nTransformation\nWhen to Use\n\n\n\n\nLog\nRight-skewed data, positive values only\n\n\nSquare Root\nModerate right-skew, count data\n\n\nBox-Cox\nUnknown transformation type needed\n\n\nExponential\nLeft-skewed data\n\n\nReflection Log\nLeft-skewed data with negative values\n\n\n\n\nExamples\n\n# Log Transformation\nlog_data &lt;- log(data)\n\n#Sqrt Transformation\nsqrt_data &lt;- sqrt(data)\n\n# Box-Cox Transformation\nlibrary(MASS)\nbc &lt;- boxcox(lm(data ~ 1), lambda = seq(-2, 2, by = 0.1))\n\n\n\n\n\n\n\n\n# Exponential Transformation\nexp_data        &lt;- data^2  \n\n# Reflection and Log Transformation\nreflected_data  &lt;- max(data) - data + 1\nlog_transformed &lt;- log(reflected_data)"
+    "text": "When to Use Different Transformations:\n\n\n\nTransformation\nWhen to Use\n\n\n\n\nLog\nRight-skewed data, positive values only\n\n\nSquare Root\nModerate right-skew, count data\n\n\nBox-Cox\nUnknown transformation type needed\n\n\nExponential\nLeft-skewed data\n\n\nReflection Log\nLeft-skewed data with negative values\n\n\n\nExamples\n\n# Log Transformation\nlog_data &lt;- log(data)\n\n#Sqrt Transformation\nsqrt_data &lt;- sqrt(data)\n\n# Box-Cox Transformation\nlibrary(MASS)\nbc &lt;- boxcox(lm(data ~ 1), lambda = seq(-2, 2, by = 0.1))\n\n\n# Exponential Transformation\nexp_data        &lt;- data^2  \n\n# Reflection and Log Transformation\nreflected_data  &lt;- max(data) - data + 1\nlog_transformed &lt;- log(reflected_data)"
   },
   {
     "objectID": "slides/11-eda.html#option-2-use-nonparametric-methods-in-environmental-science",
@@ -7487,14 +7487,14 @@
     "href": "slides/11-eda.html#identify-data-issues",
     "title": "Lecture 11/12",
     "section": "Identify Data Issues",
-    "text": "Identify Data Issues\n\n\nOptions for Duplicates:\n\nRemove exact duplicates when they don’t add information.\nAnalyze near-duplicates to determine if they should be merged, retained, or removed.\n\n\ndf &lt;- distinct(df)\n\n\n\n\nFor Missing Data:\n\nUse imputation techniques (mean, median, mode, regression-based, or KNN imputation).\nRemove records if missing data is minimal and its removal won’t introduce bias.\nUse models that handle missing data natively (e.g., XGBoost can handle missing values).\nProperly handling duplicates and missing data improves model performance, reliability, and interpretability, ensuring that predictions are more accurate and generalizable.\n\n\n## Removal\ndf &lt;- drop_na(df)\n\n# Imputation\ndf &lt;- mutate(df, x = if_else(is.na(x), mean(x, na.rm = TRUE), x))\n\n\n\n\nOutlier Detection:\n\nIQR, Z-scores, clustering-based methods."
+    "text": "Identify Data Issues\n\nOptions for Duplicates:\n\nRemove exact duplicates when they don’t add information.\nAnalyze near-duplicates to determine if they should be merged, retained, or removed.\n\n\ndf &lt;- distinct(df)\n\n\nFor Missing Data:\n\nUse imputation techniques (mean, median, mode, regression-based, or KNN imputation).\nRemove records if missing data is minimal and its removal won’t introduce bias.\nUse models that handle missing data natively (e.g., XGBoost can handle missing values).\nProperly handling duplicates and missing data improves model performance, reliability, and interpretability, ensuring that predictions are more accurate and generalizable.\n\n\n## Removal\ndf &lt;- drop_na(df)\n\n# Imputation\ndf &lt;- mutate(df, x = if_else(is.na(x), mean(x, na.rm = TRUE), x))\n\n\nOutlier Detection:\n\nIQR, Z-scores, clustering-based methods."
   },
   {
     "objectID": "slides/11-eda.html#where-are-we-going",
     "href": "slides/11-eda.html#where-are-we-going",
     "title": "Lecture 11/12",
     "section": "Where are we going …",
-    "text": "Where are we going …\n\nSo far you have:\n\n\nimported data\n\nmanipulated data to add, sumarize, and enhance information\n\nPerformed key data science applications/queries\n\nlearned grouping techniques to summarize data\n\nlearned to pivot data for different applications\n\nvisualized data\n\nlearned to implment a linear model\n\nlearned to nest/map/unnest data for complex operations\n\nlearned to check for normality, transform data, and perform non-parametric tests\n\n\n\n\nWith all of this:\n\n\nWe are ready to move into more intensive modeling applications\n\nWe will start with tidymodels which is a suite of packages that provide a consistent, organized approach to modeling in R.\n\nTo dip our toes into this framework we will start with data normalization, a key step in preprocessing data for machine learning."
+    "text": "Where are we going …\nSo far you have:\n\n\nimported data\n\nmanipulated data to add, sumarize, and enhance information\n\nPerformed key data science applications/queries\n\nlearned grouping techniques to summarize data\n\nlearned to pivot data for different applications\n\nvisualized data\n\nlearned to implment a linear model\n\nlearned to nest/map/unnest data for complex operations\n\nlearned to check for normality, transform data, and perform non-parametric tests\n\n\nWith all of this:\n\n\nWe are ready to move into more intensive modeling applications\n\nWe will start with tidymodels which is a suite of packages that provide a consistent, organized approach to modeling in R.\n\nTo dip our toes into this framework we will start with data normalization, a key step in preprocessing data for machine learning."
   },
   {
     "objectID": "slides/11-eda.html#assignment-exploratory-data-analysis-and-linear-regression-in-r",
