@@ -7137,7 +7137,7 @@
     "href": "slides/11-eda.html#understanding-data-normality",
     "title": "Lecture 11/12",
     "section": "Understanding Data Normality",
-    "text": "Understanding Data Normality\n\nData normality is a fundamental concept in statistics describing how data is distributed.\nMany statistical tests assume normality because the normal distribution has well-defined properties that make inference more reliable.\nThe normal distribution, also known as the Gaussian distribution, is a symmetric, bell-shaped curve defined by two parameters:\nMean: The center of the distribution\nStandard deviation: The measure of spread\n\nProperties of a normal distribution:\n\nSymmetric about the mean\nFollows the empirical rule:\n\n~68% of values fall within 1 standard deviation of the mean\n~95% within 2 standard deviations\n~99.7% within 3 standard deviations\n\n\n\n# Generate a normal distribution and visualize it\nset.seed(123)\ndata &lt;- rnorm(1000, mean = 50, sd = 10)"
+    "text": "Understanding Data Normality\n\nData normality is a fundamental concept in statistics describing how data is distributed.\nMany statistical tests assume normality because the normal distribution has well-defined properties that make inference more reliable.\nThe normal distribution, also known as the Gaussian distribution, is a symmetric, bell-shaped curve defined by two parameters:\n\nMean: The center of the distribution\nStandard deviation: The measure of spread"
   },
   {
     "objectID": "slides/11-eda.html#the-normal-distribution",
@@ -7151,7 +7151,7 @@
     "href": "slides/11-eda.html#why-normality-matters",
     "title": "Lecture 11/12",
     "section": "Why Normality Matters",
-    "text": "Why Normality Matters\n\nMany statistical techniques assume normality, including:\n\nt-tests and ANOVA\n\nt-tests compare means of two groups.\nANOVA compares means of multiple groups.\n\nLinear regression (lm)\n\nLinear regression models assume normally distributed errors.\n\nPrincipal Component Analysis (PCA)\n\nPCA assumes normally distributed data.\n\nConfidence intervals\n\nNormality ensures accurate confidence interval estimation.\n\n\nParameter estimation: Many tests rely on normality for unbiased estimates.\nHypothesis testing: t-tests and ANOVA assume normality for accurate p-values.\nConfidence intervals: Normality ensures accurate confidence interval estimation.\nRegression models: Errors should be normally distributed for valid inference.\nWhen data deviates from normality, these methods may produce inaccurate results."
+    "text": "Why Normality Matters\n\nMany statistical techniques assume normality, including:\n\nt-tests and ANOVA\n\nt-tests compare means of two groups.\nANOVA compares means of multiple groups.\n\nLinear regression (lm)\n\nLinear regression models assume normally distributed errors.\n\nPrincipal Component Analysis (PCA)\n\nPCA assumes normally distributed data.\n\nConfidence intervals\n\nNormality ensures accurate confidence interval estimation.\n\nParameter estimation: Many tests rely on normality for unbiased estimates.\nHypothesis testing: t-tests and ANOVA assume normality for accurate p-values.\nConfidence intervals: Normality ensures accurate confidence interval estimation.\nRegression models: Errors should be normally distributed for valid inference.\n\nWhen data deviates from normality, these methods may produce inaccurate results."
   },
   {
     "objectID": "slides/11-eda.html#assessing-normality",
@@ -7270,7 +7270,7 @@
     "href": "slides/11-eda.html#common-normalization-techniques",
     "title": "Lecture 11/12",
     "section": "Common Normalization Techniques",
-    "text": "Common Normalization Techniques\n1. Min-Max Scaling\n\nTransforms data into a fixed range (typically [0,1]).\nPreserves relationships but sensitive to outliers.\nFormula: \\[ x' = \\frac{x - x_{min}}{x_{max} - x_{min}} \\]\nImplemented using step_range() in recipes.\n\n2. Z-Score Standardization (Standard Scaling)\n\nCenters data to have zero mean and unit variance.\nMore robust to outliers compared to min-max scaling.\nFormula: \\[ x' = \\frac{x - \\mu}{\\sigma} \\]\nImplemented using step_normalize() in recipes.\n\n3. Robust Scaling\n\nUses median and interquartile range (IQR) for scaling.\nLess sensitive to outliers.\nFormula: \\[ x' = \\frac{x - median(x)}{IQR(x)} \\]\nImplemented using step_YeoJohnson() or step_BoxCox() in recipes.\n\n4. Log Transformation\n\nUseful for skewed distributions to reduce the impact of extreme values.\nImplemented using step_log() in recipes.\n\n5. Principal Component Analysis (PCA)\n\nProjects data into a lower-dimensional space while maintaining variance.\nUsed in high-dimensional datasets.\nImplemented using step_pca() in recipes."
+    "text": "Common Normalization Techniques\n1. Min-Max Scaling\n\nTransforms data into a fixed range (typically [0,1]).\nPreserves relationships but sensitive to outliers.\nFormula: \\[ x' = \\frac{x - x_{min}}{x_{max} - x_{min}} \\]\nImplemented using step_range() in recipes.\n\n2. Z-Score Standardization (Standard Scaling)\n\nCenters data to have zero mean and unit variance.\nMore robust to outliers compared to min-max scaling.\nFormula: \\[ x' = \\frac{x - \\mu}{\\sigma} \\]\nImplemented using step_normalize() in recipes."
   },
   {
     "objectID": "slides/11-eda.html#other-feature-engineering-tasks",
@@ -7326,7 +7326,7 @@
     "href": "slides/11-eda.html#dealing-with-non-normal-data",
     "title": "Lecture 11/12",
     "section": "Dealing with Non-Normal Data",
-    "text": "Dealing with Non-Normal Data\nIf data is not normally distributed, there are several approaches:\nOption 1: Transformation:\nApply transformations such as:\n\nLog transformation (useful for right-skewed data)\nSquare root transformation\nBox-Cox transformation\nExponential Transformation: Raising values to a power greater than 1.\nReflection and Log Transformation: If data has negative values, reflect it by subtracting from a constant before applying log transformation."
+    "text": "Dealing with Non-Normal Data\nIf data is not normally distributed, there are several approaches:"
   },
   {
     "objectID": "slides/11-eda.html#resampling-methods",
@@ -7340,7 +7340,7 @@
     "href": "slides/11-eda.html#implementing-normalization-in-tidymodels",
     "title": "Lecture 11/12",
     "section": "Implementing Normalization in Tidymodels",
-    "text": "Implementing Normalization in Tidymodels\nExample Workflow\n\nlibrary(tidymodels)\n\n(recipe_obj &lt;- recipe(flipper_length_mm ~ \n                       bill_length_mm + body_mass_g + \n                       sex + island + species, \n                      data = penguins) |&gt; \n  step_impute_mean(all_numeric_predictors()) |&gt;\n  step_dummy(all_factor_predictors()) |&gt;\n  step_normalize(all_numeric_predictors()))\n\n# Prepare and apply transformations\nprep_recipe     &lt;- prep(recipe_obj, training = penguins) \n\nnormalized_data &lt;- bake(prep_recipe, new_data = NULL) |&gt; \n  mutate(species = penguins$species) |&gt; \n  drop_na()\n\nhead(normalized_data)\n# A tibble: 6 × 9\n  bill_length_mm body_mass_g flipper_length_mm sex_male island_Dream\n           &lt;dbl&gt;       &lt;dbl&gt;             &lt;int&gt;    &lt;dbl&gt;        &lt;dbl&gt;\n1         -0.886      -0.565               181    0.990       -0.750\n2         -0.812      -0.502               186   -1.01        -0.750\n3         -0.665      -1.19                195   -1.01        -0.750\n4         -1.33       -0.940               193   -1.01        -0.750\n5         -0.849      -0.690               190    0.990       -0.750\n6         -0.923      -0.721               181   -1.01        -0.750\n# ℹ 4 more variables: island_Torgersen &lt;dbl&gt;, species_Chinstrap &lt;dbl&gt;,\n#   species_Gentoo &lt;dbl&gt;, species &lt;fct&gt;\n\nExplanation:\n\nrecipe() defines preprocessing steps for modeling.\nstep_impute_mean(all_numeric_predictors()) standardizes all numerical predictors.\nstep_dummy(all_factor_predictors()) creates dummy variables for categorical predictors.\nstep_normalize(all_numeric_predictors())) standardizes all numerical predictors.\nprep() estimates parameters for transformations.\nbake() applies the transformations to the dataset."
+    "text": "Implementing Normalization in Tidymodels"
   },
   {
     "objectID": "slides/11-eda.html#your-tool-kit",
@@ -7403,7 +7403,7 @@
     "href": "slides/11-eda.html#examples",
     "title": "Lecture 11/12",
     "section": "Examples:",
-    "text": "Examples:\n\n# Shapiro Wilks Test\nshapiro.test(data)\n\n    Shapiro-Wilk normality test\n\ndata:  data\nW = 0.99838, p-value = 0.4765\n\n\n# Kolmogorov-Smirnov Test\nks.test(data, \"pnorm\", mean = mean(data), sd = sd(data))\n\n    Asymptotic one-sample Kolmogorov-Smirnov test\n\ndata:  data\nD = 0.014963, p-value = 0.9786\nalternative hypothesis: two-sided\n\n\nlibrary(nortest)\nad.test(data)\n\n    Anderson-Darling normality test\n\ndata:  data\nA = 0.29653, p-value = 0.592\n\n\nlibrary(tseries)\njarque.bera.test(data)\n\n    Jarque Bera Test\n\ndata:  data\nX-squared = 0.94028, df = 2, p-value = 0.6249"
+    "text": "Examples:\n\n# Shapiro Wilks Test\nshapiro.test(data)\n\n    Shapiro-Wilk normality test\n\ndata:  data\nW = 0.99838, p-value = 0.4765\n\n\n\n# Kolmogorov-Smirnov Test\nks.test(data, \"pnorm\", mean = mean(data), sd = sd(data))\n\n    Asymptotic one-sample Kolmogorov-Smirnov test\n\ndata:  data\nD = 0.014963, p-value = 0.9786\nalternative hypothesis: two-sided\n\n\n\n\nlibrary(nortest)\nad.test(data)\n\n    Anderson-Darling normality test\n\ndata:  data\nA = 0.29653, p-value = 0.592\n\n\n\n\nlibrary(tseries)\njarque.bera.test(data)\n\n    Jarque Bera Test\n\ndata:  data\nX-squared = 0.94028, df = 2, p-value = 0.6249"
   },
   {
     "objectID": "slides/11-eda.html#nestmap-examples",
@@ -7494,7 +7494,7 @@
     "href": "slides/11-eda.html#where-are-we-going",
     "title": "Lecture 11/12",
     "section": "Where are we going …",
-    "text": "Where are we going …\nSo far you have:\n\n\nimported data\n\nmanipulated data to add, sumarize, and enhance information\n\nPerformed key data science applications/queries\n\nlearned grouping techniques to summarize data\n\nlearned to pivot data for different applications\n\nvisualized data\n\nlearned to implment a linear model\n\nlearned to nest/map/unnest data for complex operations\n\nlearned to check for normality, transform data, and perform non-parametric tests\n\n\nWith all of this:\n\n\nWe are ready to move into more intensive modeling applications\n\nWe will start with tidymodels which is a suite of packages that provide a consistent, organized approach to modeling in R.\n\nTo dip our toes into this framework we will start with data normalization, a key step in preprocessing data for machine learning."
+    "text": "Where are we going …\nSo far you have:\n\n\nimported data\n\nmanipulated data to add, summarize, and enhance information\n\nPerformed key data science applications/queries\n\nlearned grouping techniques to summarize data\n\nlearned to pivot data for different applications\n\nvisualized data\n\nlearned to implment a linear model\n\nlearned to nest/map/unnest data for complex operations\n\nlearned to check for normality, transform data, and perform non-parametric tests\n\n\nWith all of this:\n\n\nWe are ready to move into more intensive modeling applications\n\nWe will start with tidymodels which is a suite of packages that provide a consistent, organized approach to modeling in R.\n\nTo dip our toes into this framework we will start with data normalization, a key step in preprocessing data for machine learning."
   },
   {
     "objectID": "slides/11-eda.html#assignment-exploratory-data-analysis-and-linear-regression-in-r",
@@ -7663,5 +7663,131 @@
     "title": "Lab 4: LTER Network Data",
     "section": "Exercises: Part 2",
     "text": "Exercises: Part 2\n\nAfter completing the ANOVA test (and post-hoc Tukey’s HSD) above to test for significant differences in crab size among 3 different sites: 1) Create a boxplot showing the carapace width for each site where sites are ordered by latitude and 2) report the findings of the statistical test as you would in a scientific paper. Include both the code to create the boxplot and an image of the figure. (10 pts.)\nConduct a simple linear regression for the effect of water_temp_sd (a measure reflecting annual variation in water temperature) on carapace width. Report your findings (include code and a sentence reporting the results) AND create a plot with a line of best fit. Include both the code to create the plot and an image of the figure. (10 pts).\nConduct a multiple linear regression for the effects of latitude, air_temp_sd, and water_temp_sd on carapace width. First check for correlations among the three predictor variables (and report the correlation table) and second report your findings from the multiple linear regression (code and a sentence reporting the results). (10 pts.)"
+  },
+  {
+    "objectID": "slides/11-eda.html#what-is-the-central-limit-theorem",
+    "href": "slides/11-eda.html#what-is-the-central-limit-theorem",
+    "title": "Lecture 11/12",
+    "section": "What is the Central Limit Theorem?",
+    "text": "What is the Central Limit Theorem?\n\nThe Central Limit Theorem (CLT) states that the sampling distribution of the sample mean approaches a normal distribution as the sample size increases, regardless of the original population distribution.\nThis is fundamental in statistics as it justifies using normal-based inference even when the data itself is not normally distributed."
+  },
+  {
+    "objectID": "slides/11-eda.html#example-uniform-distribution",
+    "href": "slides/11-eda.html#example-uniform-distribution",
+    "title": "Lecture 11/12",
+    "section": "Example: Uniform Distribution",
+    "text": "Example: Uniform Distribution\nWhat is happening?\n\nA uniform distribution is being used, meaning every value in [0,1] is equally likely.\nWe take 10,000 random samples, each of size [n = 2], and compute the sample mean for each.\nThe histogram visualizes the distribution of these means.\nSince n is small, the distribution still looks somewhat uniform.\n\n\nset.seed(123)  # For reproducibility\nn &lt;- 2  # Initial small sample size\nsims &lt;- 10000  # Number of samples\n\n# This code generates a histogram of the sampling distribution of the mean\nmeans &lt;- replicate(sims, mean(runif(n)))\n\nggplot(data.frame(means), aes(x = means)) +\n  geom_histogram(binwidth = 0.05, fill = \"steelblue\", color = \"black\", alpha = 0.7) +\n  ggtitle(paste(\"Sampling Distribution of Mean (n =\", n, \")\")) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/11-eda.html#increasing-sample-size",
+    "href": "slides/11-eda.html#increasing-sample-size",
+    "title": "Lecture 11/12",
+    "section": "Increasing Sample Size",
+    "text": "Increasing Sample Size\n\nThis time, we run the same simulation for three different sample sizes: n = 2, 5, 30.\nEach subplot shows the histogram of sample means for different n values.\nThe red curve is the theoretical normal distribution (what we expect under the CLT).\nAs n increases, the sample mean distribution becomes more normal, even though the original data was uniformly distributed.\n\n\nn_values &lt;- c(2, 5, 30)\npar(mfrow = c(1, 3)) \n\nfor (n in n_values) {\n  means &lt;- replicate(sims, mean(runif(n)))\n  hist(means, breaks = 30, main = paste(\"n =\", n), col = \"lightblue\", probability = TRUE)\n  curve(dnorm(x, mean = 0.5, sd = sqrt(1/12/n)), add = TRUE, col = \"red\", lwd = 2)\n}"
+  },
+  {
+    "objectID": "slides/11-eda.html#what-is-skewness",
+    "href": "slides/11-eda.html#what-is-skewness",
+    "title": "Lecture 11/12",
+    "section": "What is Skewness?",
+    "text": "What is Skewness?\n\n\nSkewness measures the asymmetry of a data distribution.\n\nPositive Skew: Tail on the right (longer right tail)\nNegative Skew: Tail on the left (longer left tail)\nSymmetric: No skew (bell-shaped, normal distribution)"
+  },
+  {
+    "objectID": "slides/11-eda.html#why-assess-skewness",
+    "href": "slides/11-eda.html#why-assess-skewness",
+    "title": "Lecture 11/12",
+    "section": "Why Assess Skewness?",
+    "text": "Why Assess Skewness?\n\nHelps determine data transformation needs.\nImpacts statistical analysis (e.g., normality assumptions in regression, t-tests).\nInfluences interpretation of summary statistics like mean and median."
+  },
+  {
+    "objectID": "slides/11-eda.html#methods-to-assess-skewness-in-r",
+    "href": "slides/11-eda.html#methods-to-assess-skewness-in-r",
+    "title": "Lecture 11/12",
+    "section": "Methods to Assess Skewness in R",
+    "text": "Methods to Assess Skewness in R\n1. Descriptive Statistics:\n\nmoments::skewness() / moments::agostino.test()\nThe null hypothesis (H₀) states that the data is symmetrically distributed (i.e., skewness = 0).\nThe alternative hypothesis (H₁) states that the data is not symmetrically distributed (i.e., skewness ≠ 0).\nA statistical test for skewness can be performed using the D’Agostino test in R:\n\n\nmoments::agostino.test(na.omit(penguins$body_mass_g))\n\n    D'Agostino skewness test\n\ndata:  na.omit(penguins$body_mass_g)\nskew = 0.46826, z = 3.44537, p-value = 0.0005703\nalternative hypothesis: data have a skewness"
+  },
+  {
+    "objectID": "slides/11-eda.html#methods-to-assess-skewness-in-r-1",
+    "href": "slides/11-eda.html#methods-to-assess-skewness-in-r-1",
+    "title": "Lecture 11/12",
+    "section": "Methods to Assess Skewness in R",
+    "text": "Methods to Assess Skewness in R\n2. Visualizations:\n\nHistograms / Density Plots\n\nRight-skewed: Tail extends to the right.\nLeft-skewed: Tail extends to the left.\nSymmetric: Roughly bell-shaped.\n\nBoxplots\n\nRight-skewed: Longer right whisker, median closer to Q1.\nLeft-skewed: Longer left whisker, median closer to Q3.\n\nQ-Q Plots\n\nIf points deviate from the 45-degree line, the data is skewed.\n\nRight-skewed: Points curve above the line.\nLeft-skewed: Points curve below the line."
+  },
+  {
+    "objectID": "slides/11-eda.html#properties-of-a-normal-distribution",
+    "href": "slides/11-eda.html#properties-of-a-normal-distribution",
+    "title": "Lecture 11/12",
+    "section": "Properties of a normal distribution:",
+    "text": "Properties of a normal distribution:\n\n\n\nSymmetric about the mean\nFollows the empirical rule:\n\n~68% of values fall within 1 standard deviation of the mean\n~95% within 2 standard deviations\n~99.7% within 3 standard deviations\n\n\n\n# Generate a normal distribution and visualize it\nset.seed(123)\ndata &lt;- rnorm(1000, mean = 50, sd = 10)"
+  },
+  {
+    "objectID": "slides/11-eda.html#option-1-transformation",
+    "href": "slides/11-eda.html#option-1-transformation",
+    "title": "Lecture 11/12",
+    "section": "Option 1: Transformation:",
+    "text": "Option 1: Transformation:\nApply transformations such as:\n\nLog transformation (useful for right-skewed data)\nSquare root transformation\nBox-Cox transformation\nExponential Transformation: Raising values to a power greater than 1.\nReflection and Log Transformation: If data has negative values, reflect it by subtracting from a constant before applying log transformation."
+  },
+  {
+    "objectID": "slides/11-eda.html#option-2-nonparametric-methods",
+    "href": "slides/11-eda.html#option-2-nonparametric-methods",
+    "title": "Lecture 11/12",
+    "section": "Option 2: Nonparametric Methods",
+    "text": "Option 2: Nonparametric Methods\n\nNonparametric methods are useful in environmental science due to the prevalence of skewed, censored, or ordinal data.\nThey are often used in place of parametric tests when data is not normally distributed.\nSome common applications include:\n\nMann-Whitney/Wilcoxon test (instead of t-test): Compares two groups when data is not normally distributed.\n\n\n\nwilcox.test(Ozone ~ Month, data = airquality, subset = Month %in% c(5, 8))\n\n    Wilcoxon rank sum test with continuity correction\n\ndata:  Ozone by Month\nW = 127.5, p-value = 0.0001208\nalternative hypothesis: true location shift is not equal to 0\n\n\nKruskal-Wallis Test (instead of ANOVA): Compares multiple groups when data is not normally distributed.\n\n\nkruskal.test(Ozone ~ Month, data = airquality)\n\n    Kruskal-Wallis rank sum test\n\ndata:  Ozone by Month\nKruskal-Wallis chi-squared = 29.267, df = 4, p-value = 6.901e-06\n\n\nSpearman’s Rank Correlation: Measures the strength and direction of a relationship between two variables when data is not normally distributed or is measured on an ordinal scale.\n\n\ncor.test(airquality$Ozone, airquality$Temp, method = \"spearman\")\n\n    Spearman's rank correlation rho\n\ndata:  airquality$Ozone and airquality$Temp\nS = 58778, p-value &lt; 2.2e-16\nalternative hypothesis: true rho is not equal to 0\nsample estimates:\n     rho \n0.774043"
+  },
+  {
+    "objectID": "slides/11-eda.html#common-normalization-techniques-1",
+    "href": "slides/11-eda.html#common-normalization-techniques-1",
+    "title": "Lecture 11/12",
+    "section": "Common Normalization Techniques",
+    "text": "Common Normalization Techniques\n3. Robust Scaling\n\nUses median and interquartile range (IQR) for scaling.\nLess sensitive to outliers.\nFormula: \\[ x' = \\frac{x - median(x)}{IQR(x)} \\]\nImplemented using step_YeoJohnson() or step_BoxCox() in recipes.\n\n4. Log Transformation\n\nUseful for skewed distributions to reduce the impact of extreme values.\nImplemented using step_log() in recipes."
+  },
+  {
+    "objectID": "slides/11-eda.html#common-normalization-techniques-2",
+    "href": "slides/11-eda.html#common-normalization-techniques-2",
+    "title": "Lecture 11/12",
+    "section": "Common Normalization Techniques",
+    "text": "Common Normalization Techniques\n5. Principal Component Analysis (PCA)\n\nProjects data into a lower-dimensional space while maintaining variance.\nUsed in high-dimensional datasets.\nImplemented using step_pca() in recipes."
+  },
+  {
+    "objectID": "slides/11-eda.html#assignment",
+    "href": "slides/11-eda.html#assignment",
+    "title": "Lecture 11/12",
+    "section": "Assignment:",
+    "text": "Assignment:\nExploratory Data Analysis and Linear Regression in R\nIn this assignment, you will again analyze the airquality dataset using various statistical tests, data transformation techniques, and regression modeling. Follow the step-by-step guiding questions to complete the analysis in a qmd."
+  },
+  {
+    "objectID": "slides/11-eda.html#what-will-we-do",
+    "href": "slides/11-eda.html#what-will-we-do",
+    "title": "Lecture 11/12",
+    "section": "What will we do?",
+    "text": "What will we do?\n\nWe will create a recipe to normalize the numerical predictors in the penguins dataset using the recipes package.\nWe will then prepare (prep) the recipe and apply it to the dataset to obtain normalized data.\nWe will then bake the recipe to apply the transformations to the dataset.\nOnce processed, we can implement a linear regression model using the normalized data.\n\n\nExample Workflow\n\n\n\nlibrary(tidymodels)\n\n(recipe_obj &lt;- recipe(flipper_length_mm ~ \n                       bill_length_mm + body_mass_g + \n                       sex + island + species, \n                      data = penguins) |&gt; \n  step_impute_mean(all_numeric_predictors()) |&gt;\n  step_dummy(all_factor_predictors()) |&gt;\n  step_normalize(all_numeric_predictors()))\n\n# Prepare and apply transformations\nprep_recipe     &lt;- prep(recipe_obj, training = penguins) \n\nnormalized_data &lt;- bake(prep_recipe, new_data = NULL) |&gt; \n  mutate(species = penguins$species) |&gt; \n  drop_na()\n\nhead(normalized_data)\n# A tibble: 6 × 9\n  bill_length_mm body_mass_g flipper_length_mm sex_male island_Dream\n           &lt;dbl&gt;       &lt;dbl&gt;             &lt;int&gt;    &lt;dbl&gt;        &lt;dbl&gt;\n1         -0.886      -0.565               181    0.990       -0.750\n2         -0.812      -0.502               186   -1.01        -0.750\n3         -0.665      -1.19                195   -1.01        -0.750\n4         -1.33       -0.940               193   -1.01        -0.750\n5         -0.849      -0.690               190    0.990       -0.750\n6         -0.923      -0.721               181   -1.01        -0.750\n# ℹ 4 more variables: island_Torgersen &lt;dbl&gt;, species_Chinstrap &lt;dbl&gt;,\n#   species_Gentoo &lt;dbl&gt;, species &lt;fct&gt;\n\n\nExplanation:\n\nrecipe() defines preprocessing steps for modeling.\nstep_impute_mean(all_numeric_predictors()) standardizes all numerical predictors.\nstep_dummy(all_factor_predictors()) creates dummy variables for categorical predictors.\nstep_normalize(all_numeric_predictors())) standardizes all numerical predictors.\nprep() estimates parameters for transformations.\nbake() applies the transformations to the dataset."
+  },
+  {
+    "objectID": "slides/11-eda.html#build-a-model-with-normalized-data",
+    "href": "slides/11-eda.html#build-a-model-with-normalized-data",
+    "title": "Lecture 11/12",
+    "section": "Build a model with Normalized Data",
+    "text": "Build a model with Normalized Data\n\n\n\n(model = lm(flipper_length_mm ~ . , data = normalized_data) )\n\n\n\n\nCall:\nlm(formula = flipper_length_mm ~ ., data = normalized_data)\n\nCoefficients:\n      (Intercept)     bill_length_mm        body_mass_g           sex_male  \n         200.9649             2.2754             4.6414             0.7208  \n     island_Dream   island_Torgersen  species_Chinstrap     species_Gentoo  \n           0.6525             0.9800             0.5640             8.0796  \n speciesChinstrap      speciesGentoo  \n               NA                 NA"
+  },
+  {
+    "objectID": "slides/11-eda.html#build-a-model-with-normalized-data-1",
+    "href": "slides/11-eda.html#build-a-model-with-normalized-data-1",
+    "title": "Lecture 11/12",
+    "section": "Build a model with Normalized Data",
+    "text": "Build a model with Normalized Data\n\n\n\n(model = lm(flipper_length_mm ~ . , data = normalized_data) )\n\nglance(model)\n\n\n\n\nCall:\nlm(formula = flipper_length_mm ~ ., data = normalized_data)\n\nCoefficients:\n      (Intercept)     bill_length_mm        body_mass_g           sex_male  \n         200.9649             2.2754             4.6414             0.7208  \n     island_Dream   island_Torgersen  species_Chinstrap     species_Gentoo  \n           0.6525             0.9800             0.5640             8.0796  \n speciesChinstrap      speciesGentoo  \n               NA                 NA  \n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic   p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.863         0.861  5.23      294. 2.15e-136     7 -1020. 2057. 2092.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;"
+  },
+  {
+    "objectID": "slides/11-eda.html#build-a-model-with-normalized-data-2",
+    "href": "slides/11-eda.html#build-a-model-with-normalized-data-2",
+    "title": "Lecture 11/12",
+    "section": "Build a model with Normalized Data",
+    "text": "Build a model with Normalized Data\n\n\n\n(model = lm(flipper_length_mm ~ . , data = normalized_data) )\n\nglance(model)\n\n(pred &lt;- augment(model, normalized_data))\n\n\n\n\nCall:\nlm(formula = flipper_length_mm ~ ., data = normalized_data)\n\nCoefficients:\n      (Intercept)     bill_length_mm        body_mass_g           sex_male  \n         200.9649             2.2754             4.6414             0.7208  \n     island_Dream   island_Torgersen  species_Chinstrap     species_Gentoo  \n           0.6525             0.9800             0.5640             8.0796  \n speciesChinstrap      speciesGentoo  \n               NA                 NA  \n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic   p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.863         0.861  5.23      294. 2.15e-136     7 -1020. 2057. 2092.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n# A tibble: 333 × 15\n   bill_length_mm body_mass_g flipper_length_mm sex_male island_Dream\n            &lt;dbl&gt;       &lt;dbl&gt;             &lt;int&gt;    &lt;dbl&gt;        &lt;dbl&gt;\n 1         -0.886      -0.565               181    0.990       -0.750\n 2         -0.812      -0.502               186   -1.01        -0.750\n 3         -0.665      -1.19                195   -1.01        -0.750\n 4         -1.33       -0.940               193   -1.01        -0.750\n 5         -0.849      -0.690               190    0.990       -0.750\n 6         -0.923      -0.721               181   -1.01        -0.750\n 7         -0.867       0.592               195    0.990       -0.750\n 8         -0.518      -1.25                182   -1.01        -0.750\n 9         -0.978      -0.502               191    0.990       -0.750\n10         -1.71        0.248               198    0.990       -0.750\n# ℹ 323 more rows\n# ℹ 10 more variables: island_Torgersen &lt;dbl&gt;, species_Chinstrap &lt;dbl&gt;,\n#   species_Gentoo &lt;dbl&gt;, species &lt;fct&gt;, .fitted &lt;dbl&gt;, .resid &lt;dbl&gt;,\n#   .hat &lt;dbl&gt;, .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/11-eda.html#build-a-model-with-normalized-data-3",
+    "href": "slides/11-eda.html#build-a-model-with-normalized-data-3",
+    "title": "Lecture 11/12",
+    "section": "Build a model with Normalized Data",
+    "text": "Build a model with Normalized Data\n\n\n\n(model = lm(flipper_length_mm ~ . , data = normalized_data) )\n\nglance(model)\n\n(pred &lt;- augment(model, normalized_data))\n\nggscatter(pred,\n          x = 'flipper_length_mm', y = '.fitted',\n          add = \"reg.line\", conf.int = TRUE,\n          cor.coef = TRUE, cor.method = \"pearson\",\n          color = \"species\", palette = \"jco\")\n\n\n\n\nCall:\nlm(formula = flipper_length_mm ~ ., data = normalized_data)\n\nCoefficients:\n      (Intercept)     bill_length_mm        body_mass_g           sex_male  \n         200.9649             2.2754             4.6414             0.7208  \n     island_Dream   island_Torgersen  species_Chinstrap     species_Gentoo  \n           0.6525             0.9800             0.5640             8.0796  \n speciesChinstrap      speciesGentoo  \n               NA                 NA  \n# A tibble: 1 × 12\n  r.squared adj.r.squared sigma statistic   p.value    df logLik   AIC   BIC\n      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     0.863         0.861  5.23      294. 2.15e-136     7 -1020. 2057. 2092.\n# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;\n# A tibble: 333 × 15\n   bill_length_mm body_mass_g flipper_length_mm sex_male island_Dream\n            &lt;dbl&gt;       &lt;dbl&gt;             &lt;int&gt;    &lt;dbl&gt;        &lt;dbl&gt;\n 1         -0.886      -0.565               181    0.990       -0.750\n 2         -0.812      -0.502               186   -1.01        -0.750\n 3         -0.665      -1.19                195   -1.01        -0.750\n 4         -1.33       -0.940               193   -1.01        -0.750\n 5         -0.849      -0.690               190    0.990       -0.750\n 6         -0.923      -0.721               181   -1.01        -0.750\n 7         -0.867       0.592               195    0.990       -0.750\n 8         -0.518      -1.25                182   -1.01        -0.750\n 9         -0.978      -0.502               191    0.990       -0.750\n10         -1.71        0.248               198    0.990       -0.750\n# ℹ 323 more rows\n# ℹ 10 more variables: island_Torgersen &lt;dbl&gt;, species_Chinstrap &lt;dbl&gt;,\n#   species_Gentoo &lt;dbl&gt;, species &lt;fct&gt;, .fitted &lt;dbl&gt;, .resid &lt;dbl&gt;,\n#   .hat &lt;dbl&gt;, .sigma &lt;dbl&gt;, .cooksd &lt;dbl&gt;, .std.resid &lt;dbl&gt;"
   }
 ]
