@@ -102,6 +102,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<link href="../site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="../site_libs/tabwid-1.1.3/tabwid.js"></script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -361,9 +363,9 @@ $ notes       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>and_vertebrates <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Cutthroat trout"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(unittype) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>and_vertebrates <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Cutthroat trout"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(unittype) <span class="sc">|&gt;</span> </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(unittype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -382,7 +384,7 @@ $ notes       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA
 <p>This returns just about the same data frame as the first method, but now with the NA category removed because it dropped any observations that were <code>NA</code> for <code>unittype</code>.</p>
 <p>From this we also observe that the highest Cutthroat trout abundances are found in cascade (C), pool (P), and side channel (SC) habitats.</p>
 <p>Now, our question expands beyond this one categorical variable (channel type) and we want to know if abundance is affected by both channel and and forest type (<code>section</code>). Here, <em>our null hypothesis is that forest and channel type are independent</em>. To test this, we use the <code>chisq.test()</code> to carry out a chi-square test, but first we have to reformat our data into a <strong>contingency table</strong>.</p>
-<p>A contingency table is in matrix format, where each cell is the frequency (in this case seen as abundance) of Cutthroat trout in each combination of categorical variables (forest type and channel unit). We can create a contingency table with the <code>table()</code> function. For this analysis, lets also filter out just the 3 most abundant unit types for Cutthroat trout (C, P and SC).</p>
+<p>A contingency table is in matrix format, where each cell is the frequency (in this case seen as abundance) of Cutthroat trout in each combination of categorical variables (forest type and channel unit). We can create a contingency table with the <code>table()</code> function. For this analysis, lets also keep just the 3 most abundant unit types for Cutthroat trout (C, P and SC).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -412,7 +414,7 @@ data:  cont_table
 X-squared = 188.68, df = 2, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>Looking at these results, we have an extremely small p-value. This tells us there <em>is</em> a significant relationship between forest type and channel unit (i.e., we rejected our null hypothesis).</p>
+<p>Looking at these results, we see an extremely small p-valuetelling us there <em>is</em> a significant relationship between forest type and channel unit (i.e., we rejected our null hypothesis).</p>
 <p>Lets look at the abundance distribution visually:</p>
 <div class="cell">
 <details class="code-fold">
@@ -435,8 +437,8 @@ X-squared = 188.68, df = 2, p-value &lt; 2.2e-16</code></pre>
 </section>
 <section id="t-test---compare-two-means" class="level2">
 <h2 class="anchored" data-anchor-id="t-test---compare-two-means">t-test - Compare two means</h2>
-<p>Previous work has shown that forest harvesting can impact aquatic vertebrate biomass (Kaylor &amp; Warren 2017). With this <code>and_vertebrates</code> data set we can investigate this hypothesis, by comparing weight to forest type (clear cut or old growth). This therefore involves a test comparing the means (average weight) among two groups (clear cut and old growth forests), which then requires a t-test.</p>
-<p>Let’s focus on conducting this test for Cutthroat trout. We can use the same <code>trout_clean</code> data set we made earlier, and let’s also drop all NAs in <code>weight_g</code>. Then, visualize the differences in weight among forest type with a boxplot:</p>
+<p>Previous work has shown that forest harvesting practics can impact aquatic vertebrate biomass (Kaylor &amp; Warren 2017). Using the <code>and_vertebrates</code> data set we can investigate this by comparing weight to forest type (clear cut or old growth). This involves a test to compare the means (average weight) among two groups (clear cut and old growth forests) using a t-test.</p>
+<p>Let’s focus on conducting this test for Cutthroat trout. We can use the same <code>trout_clean</code> data set we made earlier so long as we drop all NAs in <code>weight_g</code>. Once this is done, we can visualize the differences in weight among forest type with a boxplot:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -456,18 +458,18 @@ X-squared = 188.68, df = 2, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-<p>We don’t see too much of a difference based on this visual, but we need to conduct the statistical test to verify if our hypothesis is supported. Before we dive into the statistical test, we should check our test assumptions.</p>
-<p><strong>Test Assumptions</strong>: A t-test assumes the <em>variance of each group is equal</em> and that the data are <em>normally distributed</em>.</p>
-<p><em>Equal Variance</em> We can test for equal variances with the function <code>var.test()</code>, where the <em>null</em> hypothesis is that the variances are equal. In this step we need two vectors of the weights in each separate forest section. You can use <code>pull()</code> to convert a single column of a data frame/tibble to a vector, and we want to do this for clear cut and old growth forests separately. We then put both of those vectors in the <code>var.test()</code> function to assess their equal variances.</p>
+<p>We don’t see too much of a difference based on this visual, but we need to conduct the statistical test to verify. Before we dive into the statistical t-test, we must check our assumptions!</p>
+<p><strong>Test Assumptions</strong>: A t-test assumes the <em>variance of each group is equal</em> and the data are <em>normally distributed</em>.</p>
+<p><em>Equal Variance</em> We can test for equal variances with the function <code>var.test()</code>, where the <em>null</em> hypothesis is that the variances are equal. In this step, we need two vectors of the weights in each separate forest section. You can use <code>pull()</code> to convert a single column of a data frame/tibble to a vector, and we want to do this for clear cut and old growth forests.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cc_weight <span class="ot">&lt;-</span> trout_clean <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(section <span class="sc">==</span> <span class="st">"CC"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cc_weight <span class="ot">&lt;-</span> trout_clean <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(section <span class="sc">==</span> <span class="st">"CC"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(weight_g)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>og_weight <span class="ot">&lt;-</span> trout_clean <span class="sc">%&gt;%</span> </span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(section <span class="sc">==</span> <span class="st">"OG"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>og_weight <span class="ot">&lt;-</span> trout_clean <span class="sc">|&gt;</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(section <span class="sc">==</span> <span class="st">"OG"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(weight_g)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(cc_weight, og_weight)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -486,14 +488,26 @@ ratio of variances
           1.288892 </code></pre>
 </div>
 </div>
-<p>The results of this test suggest that the variances are not equal. How do we know this? If you can’t remember, refresh your memory of the null hypothesis for the variance test and how to interpret the p-value.</p>
-<p>One option for data with unequal variances is to use the Welch t-test, which does not assume equal variances. We will explore this test later.</p>
-<p><em>Normal Distribution</em> Run the below code to look at the distribution of weight (our continuous variable).</p>
+<p>The results of this test suggests the variances are not equal. How do we know this? If you can’t remember, please refresh your memory of the null hypothesis for the variance test and how to interpret the p-value.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>One option for data with unequal variances is to use the non parametric Welch t-test, which does not assume equal variances. We will explore this test later.</p>
+</div>
+</div>
+<p><em>Normal Distribution</em> A t-test mandates data with a normal distribtution. Here we can use a visual method to access the normality of the data:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(<span class="fu">ggqqplot</span>(trout_clean<span class="sc">$</span>weight_g),</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>          <span class="fu">gghistogram</span>(trout_clean<span class="sc">$</span>weight_g), <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ggpubr<span class="sc">::</span><span class="fu">ggarrange</span>(ggpubr<span class="sc">::</span><span class="fu">gghistogram</span>(cc_weight, <span class="at">main =</span> <span class="st">"Clear Cut"</span>), </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                  ggpubr<span class="sc">::</span><span class="fu">gghistogram</span>(og_weight, <span class="at">main =</span> <span class="st">"Old Growth"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -503,7 +517,7 @@ ratio of variances
 </div>
 </div>
 </div>
-<p>We can see from the histogram that the data are pretty right skewed. You will learn how to statistically determine whether data are normally distributed in the next section. For now, we will log transform on the data, which works well when data are skewed. You can do this with the function <code>log</code>. Let’s check the variances like we did before using the log transformed values:</p>
+<p>We can see from the histograms that the data are very right skewed. When we see a heavy right skew, we know a log transform can help normalize the data. Let’s check the variances like we did before using the log transformed values:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -523,7 +537,7 @@ ratio of variances
           1.020787 </code></pre>
 </div>
 </div>
-<p>Now we have a high p-value, indicating support for the null that the variances of log-transformed data are equal. So we can use the default <code>t.test()</code> test which assumes equal variances, but only on a log transformed weight variable.</p>
+<p>Now we have a much higher p-value, indicating support for the null that the variances of log-transformed data are equal. So we can use the default <code>t.test()</code> test which assumes equal variances, but only on a log transformed weight variable.</p>
 <p>The <code>t.test()</code> function takes in your dependent (in our case trout weight) and independent (forest type) variables as vectors. The order of the variables in the <code>t.test()</code> function is {dependent variable} ~ {independent variable}. We use the <code>~</code> to specify a model, telling the test we want to know if weight <em>varies by</em> forest section.</p>
 <p>Remember we also want to log transform the weight values and then specify that our variances are equal since we confirmed that with <code>var.test()</code> above, so the final <code>t.test()</code> call would be this:</p>
 <div class="cell">
@@ -545,7 +559,7 @@ mean in group CC mean in group OG
         1.457042         1.386082 </code></pre>
 </div>
 </div>
-<p>The output of this test gives us the test statistics, p-value, and the means for each of our forest groups. Given the p-value of 0.0043, we conclude that we reject the null hypothesis (mean Cutthroat weight is the same in clear cut and old growth forest sections), and looking at our results - specifically the means - we can conclude that <em>Cutthroat trout weight was observed to be significantly higher in clear cut forests compared to old growth forests</em>. Remember that the mean weight values are log transformed and not the raw weight in grams. The relationship can still be interpreted the same, but you will want to report the means from the raw weight data.</p>
+<p>The output of this test gives us the test statistics, p-value, and the means for each of our forest groups. Given the p-value of 0.0043, we reject the null hypothesis (mean Cutthroat weight is the same in clear cut and old growth forest sections), and looking at our results - specifically the means - we can conclude that <em>Cutthroat trout weight was observed to be significantly higher in clear cut forests compared to old growth forests</em>. Remember that the mean weight values are log transformed and not the raw weight in grams. The relationship can still be interpreted the same, but you will want to report the means from the raw weight data.</p>
 <p>How does this relate to the original hypothesis based on the graph we made at the beginning of this section?</p>
 <p><strong>Welch Two Sample t-test</strong></p>
 <p>Alternatively, instead of transforming our variable we can change the default <code>t.test()</code> argument by specifying <code>var.equal = FALSE</code>, which will then conduct a Welch t-test, which does not assume equal variances among groups.</p>
@@ -575,14 +589,14 @@ mean in group CC mean in group OG
 </section>
 <section id="correlation---assess-relationships" class="level2">
 <h2 class="anchored" data-anchor-id="correlation---assess-relationships">Correlation - Assess relationships</h2>
-<p>To assess the relationship between two <strong>continuous variables</strong>, you use a correlation test, which is the <code>cor.test()</code> function. Correlation tests assess the presence of a significant relationship and the strength of that relationship (i.e., the correlation coefficient). There are multiple correlation methods you can use with this function. By default, it uses the Pearson correlation method which assumes that your data are normally distributed and there is a linear relationship. If these assumptions are not met, you can use a Spearman Rank correlation test, a non-parametric test that is not sensitive to the variable distribution. To use this method, specify <code>spearman</code> for <code>method</code>.</p>
+<p>To assess the relationship between two <strong>continuous variables</strong>, you use a correlation test, which is the <code>cor.test()</code> function. Correlation tests assess the presence of a significant relationship and the strength of each relationship (i.e., the correlation coefficient). There are multiple correlation methods you can use with this function but by default, it uses the Pearson correlation method which assumes your data are normally distributed and there is a linear relationship. If these assumptions are not met, you can use a Spearman Rank correlation test, a non-parametric test that is not sensitive to the variable distribution. To use this method, specify <code>spearman</code> for <code>method</code>.</p>
 <p>For our <code>and_vertebrates</code> data set, we can test the relationship of length and weight. Let’s test the hypothesis that body length is positively correlated with weight, such that longer individuals will also weigh more, specifically looking at the Coastal Giant salamander.</p>
-<p>First let’s clean our data set to just include the Coastal giant salamander and remove missing values for length and weight. Let’s focus on the variable ‘length_2_mm’ for snout to tail length.</p>
+<p>First let’s clean our data set to just include the Coastal giant salamander and remove missing values for length and weight.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sally_clean <span class="ot">&lt;-</span> and_vertebrates <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Coastal giant salamander"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sally_clean <span class="ot">&lt;-</span> and_vertebrates <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Coastal giant salamander"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(length_2_mm, weight_g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -602,7 +616,7 @@ mean in group CC mean in group OG
 </div>
 </div>
 </div>
-<p>They both look pretty skewed, therefore likely not normally distributed. We can statistically test if a variable fits a normal distribution with the <code>shapiro.test()</code> function, which is the Shapiro-Wilk normality text. However note that this function only runs for 5000 observations or less, so we will test for normally for a sample of first 5000 obs of our <code>sally_clean</code> data set (assuming they are not ordered):</p>
+<p>They both look pretty skewed, therefore likely not normally distributed. We can statistically test if a variable fits a normal distribution with the <code>shapiro.test()</code> function, which is the Shapiro-Wilk normality text. However note that this function only runs for 5,000 observations or less, so we will test for normality for a sample of our <code>sally_clean</code> data set:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -616,7 +630,7 @@ mean in group CC mean in group OG
     Shapiro-Wilk normality test
 
 data:  s$length_2_mm
-W = 0.93348, p-value &lt; 2.2e-16</code></pre>
+W = 0.93286, p-value &lt; 2.2e-16</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -627,11 +641,11 @@ W = 0.93348, p-value &lt; 2.2e-16</code></pre>
     Shapiro-Wilk normality test
 
 data:  s$weight_g
-W = 0.56586, p-value &lt; 2.2e-16</code></pre>
+W = 0.56923, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>The <em>null hypothesis of the Shapiro-Wilk normality test is that the variable is normally distributed</em>, so a significant p-value less than 0.05 (as we see for both of our variables here) tells use that our data does not fit a normal distribution.</p>
-<p>Therefore we have two options as we did with our t-test example: transform the variables or use the non-parametric test.</p>
+<p>Therefore we have two options as we did with our earlier t-test example: transform the variables <em>or</em> use the non-parametric test.</p>
 <p><strong>Variable transformation</strong></p>
 <p>Lets try the first option by log transforming our variables, first viewing the log-transformed distribution for each variable.</p>
 <div class="cell">
@@ -670,7 +684,7 @@ sample estimates:
 0.9813443 </code></pre>
 </div>
 </div>
-<p>Okay, from these results we see a very small p-value, meaning there is a significant association between the two, and a correlation coefficient of 0.98, representing a very strong, positive correlation.</p>
+<p>From these results we see a very small p-value, meaning there is a significant association between the two, and a correlation coefficient of 0.98, representing a strong, positive correlation.</p>
 <p>Let’s look at this correlation visually:</p>
 <div class="cell">
 <details class="code-fold">
@@ -679,11 +693,8 @@ sample estimates:
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_length =</span> <span class="fu">log</span>(length_2_mm), <span class="at">log_weight =</span> <span class="fu">log</span>(weight_g)) <span class="sc">|&gt;</span> </span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggscatter</span>(<span class="at">x =</span> <span class="st">'log_length'</span>, </span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="st">'log_weight'</span>, </span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">'section'</span>, </span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"#00AFBB"</span>, <span class="st">"#E7B800"</span>), </span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">35</span>,</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">ellipse =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">add =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">35</span>,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">add =</span> <span class="st">"loess"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -787,9 +798,8 @@ sample estimates:
 </section>
 <section id="anova" class="level2">
 <h2 class="anchored" data-anchor-id="anova">ANOVA</h2>
-<p>Is there a significant difference in crab size among sites? Since we have a continuous response variable (size) and a categorical predictor (site) with &gt; 2 groups (13 sites), we will use an ANOVA test.</p>
-<p>Let’s first visualize the distribution of sizes for each site using a new visualization technique with ggplot called <code>geom_jitter()</code>. This function adds a small amount of variation to each point, so that all our points for each site are not stacked on top of each other (<em>for example, try running the following code below but with <code>geom_point()</code> instead of <code>geom_jitter()</code> and notice the difference</em>).</p>
-<p>In this code we also use the <code>reorder()</code> function to order our x-axis value (site) by latitude to see any initial trends fitting Bergmann’s rule.</p>
+<p>Our first question is if there is a significant difference in crab size among the 13 sites? Since we have a continuous response variable (size) and a categorical predictor (site) with &gt; 2 groups (13 sites), we will use an ANOVA test.</p>
+<p>Let’s first visualize the distribution of sizes for each site using a new visualization technique with ggplot called <code>geom_jitter()</code>. This function adds a small amount of variation to each point, so that all our points for each site are not stacked on top of each other.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -799,47 +809,41 @@ sample estimates:
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.postition =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Looks like there are differences among sites, so lets test for statistical significance with the ANOVA test.</p>
+<p>In doing this, it ;ooks like there are differences among sites, tempting us to test for statistical significance with the ANOVA test.</p>
 </section>
 <section id="assumptions" class="level2">
 <h2 class="anchored" data-anchor-id="assumptions">Assumptions</h2>
 <p><strong><em>Normality</em></strong></p>
-<p>ANOVA assumes normal distributions within each group. We can utlize out next/map approach to assess the normality of our data. We will use the Shapiro-Wilk normality test, which is a good test for small sample sizes.</p>
+<p>ANOVA assumes normal distributions within each group. We can utlize out nest/map approach to assess the normality of our data. We will use the Shapiro-Wilk normality test, which is a good test for small sample sizes.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>norms <span class="ot">&lt;-</span> pie_crab <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span>site) <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span>site) <span class="sc">|&gt;</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Shapiro =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">shapiro.test</span>(.x<span class="sc">$</span>size)),</span>
 <span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="fu">map_dbl</span>(data, nrow),</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">glance_shapiro =</span> <span class="fu">map</span>(Shapiro, broom<span class="sc">::</span>glance)) <span class="sc">%&gt;%</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">glance_shapiro =</span> <span class="fu">map</span>(Shapiro, broom<span class="sc">::</span>glance)) <span class="sc">|&gt;</span></span>
 <span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(glance_shapiro)</span>
 <span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(<span class="fu">ggbarplot</span>(norms, <span class="at">x =</span> <span class="st">'site'</span>, <span class="at">y =</span> <span class="st">'n'</span>),</span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">ggbarplot</span>(norms, <span class="at">x =</span> <span class="st">'site'</span>, <span class="at">y =</span> <span class="st">'statistic'</span>),</span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">ggbarplot</span>(norms, <span class="at">x =</span> <span class="st">'site'</span>, <span class="at">y =</span> <span class="st">'p.value'</span>),</span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>flextable<span class="sc">::</span><span class="fu">flextable</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(norms, site, n, statistic, p.value)) <span class="sc">|&gt;</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">set_caption</span>(<span class="st">"Shapiro-Wilk normality test for size at each site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="lab4_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="576"></p>
-</figure>
+<div class="tabwid"><style>.cl-574f0aec{}.cl-574bc2ba{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-574cf068{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-574cf072{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-574cfbe4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-574cfbe5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-574cfbe6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-574cfbe7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-574cfbee{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-574cfbef{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-574f0aec"><thead><tr style="overflow-wrap:break-word;"><th class="cl-574cfbe4"><p class="cl-574cf068"><span class="cl-574bc2ba">site</span></p></th><th class="cl-574cfbe5"><p class="cl-574cf072"><span class="cl-574bc2ba">n</span></p></th><th class="cl-574cfbe5"><p class="cl-574cf072"><span class="cl-574bc2ba">statistic</span></p></th><th class="cl-574cfbe5"><p class="cl-574cf072"><span class="cl-574bc2ba">p.value</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">GTM</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">28</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9007814</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.0119337484</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">SI</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">30</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9705352</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.5539208550</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">NIB</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">30</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9728297</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.6191340731</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">ZI</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">35</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9744583</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.5765589900</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">RC</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">25</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9315062</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.0941588802</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">VCR</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">30</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9444682</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.1200262239</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">DB</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">30</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9576271</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.2690631942</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">JC</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">30</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9634754</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.3788327942</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">CT</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">33</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9277365</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.0301785639</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">NB</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">29</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9675367</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.4949587443</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">CC</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">27</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.9354659</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.0941803007</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbe6"><p class="cl-574cf068"><span class="cl-574bc2ba">BC</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">37</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.8885721</span></p></td><td class="cl-574cfbe7"><p class="cl-574cf072"><span class="cl-574bc2ba">0.0014402753</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-574cfbee"><p class="cl-574cf068"><span class="cl-574bc2ba">PIE</span></p></td><td class="cl-574cfbef"><p class="cl-574cf072"><span class="cl-574bc2ba">28</span></p></td><td class="cl-574cfbef"><p class="cl-574cf072"><span class="cl-574bc2ba">0.8489399</span></p></td><td class="cl-574cfbef"><p class="cl-574cf072"><span class="cl-574bc2ba">0.0008899392</span></p></td></tr></tbody></table></div>
 </div>
 </div>
-</div>
-<p>In all cases, p-value &gt; 0.01, so we accept the null that this data <strong>does</strong> fit the normal distribution assumption across groups.</p>
+<p>In nearly all cases, the p-value &gt; 0.01 (with the exception of BC and PIE), so we generally accept the null that this data <strong>does</strong> fit the normal distribution assumption across groups.</p>
 <div class="alert alert-info">
 <p>A residual value is computed for each observation as the difference between an individual value in a group and the mean of the group.</p>
 </div>
-<p>We can get the residuals from the ANOVA model using the <code>aov()</code> function. To carry out the ANOVA model, we specify the name of our continuous response (size) ~ (which you read as ‘by’) the name of our categorical predictor (site), and specify the data set name. <em>Note that the <code>aov()</code> function won’t work with the <code>%&gt;%</code> pipe.</em></p>
+<p>We can first compute the residuals from the ANOVA model using the <code>aov()</code> function. To carry out the ANOVA model, we specify the name of our continuous response (size) ~ (which you read as ‘by’) the name of our categorical predictor (site), and specify the data set name.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>res_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>We can then pull out the residuals of this <code>aov()</code> model the same way we index columns with the <code>$</code> operator. Let’s check the distribution visually with <code>hist()</code> and then statistically with <code>shapiro.test()</code>.</p>
+<p>We can then pull out the residuals of this <code>aov()</code> model the same way we index columns with the <code>$</code> operator. Let’s check the distribution visually and statistically.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -848,7 +852,7 @@ sample estimates:
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(res_aov<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>This returns a p-value of 0.71, so we accept confirm accepting the null hypothessis that this data fits a normal distribution assumption.</p>
+<p>This returns a p-value of 0.71, so we accept the null hypothessis that this data fits a normal distribution assumption.</p>
 <p><strong><em>Equal Variances</em></strong></p>
 <p>To test for equal variances among more than two groups, it is easiest to use a Levene’s Test. To use this test we need to install a new package called <code>car</code>, which you should have done at the beginning of this lesson.</p>
 <div class="cell">
@@ -857,21 +861,22 @@ sample estimates:
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Similar to the <code>var.test()</code> function you’ve used before, the <em>null hypothesis</em> of the Levene’s test is that the variances <em>are equal</em>. Given this small p-value (denoted the the ‘Pr(&gt;F)’ value) we see that the variances of our groups are not equal.</p>
-<p>Therefore we need to use a Welch ANOVA, which we specify by setting <code>var.equal = FALSE</code>:</p>
+<p><strong><em>ANOVA</em></strong></p>
+<p>Similar to the <code>var.test()</code> function you’ve used before, the <em>null hypothesis</em> of the Levene’s test is that the variances <em>are equal</em> across all groups. Given this small p-value (denoted the the ‘Pr(&gt;F)’ value) we confirm that the variances of our groups are <em>not</em> equal. Therefore we need to use a Welch ANOVA (<code>oneway.test</code>), which we specify by setting <code>var.equal = FALSE</code>:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#perform Welch's ANOVA</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Our results here are highly significant, meaning that at least one of our site means is significantly different from the others. However, ANOVA tests don’t tell us which sites are significantly different. To tell which sites are different, we need to use the <strong>Tukey’s HSD post-hoc test</strong> which gives us pairwise comparisons.</p>
-<p>With 13 sites, it results in a lot of pairwise comparisons. For the next example, let’s simplify by filtering our analysis to check for differences among 3 sites rather than 13, choosing sites at the two latitude extremes and one in the middle of the range. We’ll also need to rerun the ANOVA on the data subset since the Tukey’s HSD uses the ANOVA model. We know that the data meet the normality assumption, and we should recheck the equality assumption within our data subset.</p>
+<p>With 13 sites, it results in a lot of pairwise comparisons. For the next example, let’s simplify our analysis to just check for differences among 3 sites, choosing sites at the two latitude extremes and one in the middle. We’ll also need to rerun the ANOVA on the data subset since the Tukey’s HSD uses the ANOVA model. We know that the data meet the normality assumption, and we should recheck the equality assumption within our data subset.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter a subset of the sites</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>pie_sites <span class="ot">&lt;-</span> pie_crab <span class="sc">%&gt;%</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>pie_sites <span class="ot">&lt;-</span> pie_crab <span class="sc">|&gt;</span> </span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(site <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"GTM"</span>, <span class="st">"DB"</span>, <span class="st">"PIE"</span>))</span>
 <span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for equal variance</span></span>
@@ -888,7 +893,7 @@ sample estimates:
 </section>
 <section id="post-hoc-tukeys-hsd-test" class="level2">
 <h2 class="anchored" data-anchor-id="post-hoc-tukeys-hsd-test">Post-hoc Tukey’s HSD test</h2>
-<p>From the ANOVA test we find that at least one of our group means is significantly different from the others. Now we can use the <code>TukeyHSD()</code> function to test all the pairwise differences to see which groups are different from each other.</p>
+<p>From the ANOVA test, we find that at least one of our group means is significantly different from the others. Now we can use the <code>TukeyHSD()</code> function to test all the pairwise differences to see which groups are different from each other.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -899,7 +904,7 @@ sample estimates:
 </section>
 <section id="linear-regression" class="level2">
 <h2 class="anchored" data-anchor-id="linear-regression">Linear Regression</h2>
-<p>Lets more directly test Bergmann’s rule by testing for a relationship between carapace width and latitude. Since our predictor (latitude) is a continuous variable, we can conduct a simple linear regression.</p>
+<p>Let’s more directly test Bergmann’s rule by testing for a relationship between carapace width and latitude. Since our predictor (latitude) is a continuous variable, we can conduct a simple linear regression.</p>
 <p><em>A note on assumptions</em> Linear regression assumptions are normality and linearity. We tested the normality of size (the dependent variable) in the previous example, so we won’t test it again here. The linearity assumption will be tested by the linear model itself.</p>
 <p>To conduct a regression model, we use the <code>lm()</code> function.</p>
 <div class="cell">
@@ -911,13 +916,13 @@ sample estimates:
 <span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Our p-value is indicated in the ‘Pr(&gt;|t|)’ column for ‘latitude’ and at the bottom of these results, telling us that latitude does have a significant effect on crab size.</p>
+<p>Our p-value is indicated in the ‘Pr(&gt;|t|)’ column for ‘latitude’ and at the bottom of these results tells us that latitude does have a significant effect on crab size.</p>
 <p>From the results we also have an <strong>estimate</strong> for latitude (0.49), which reflects the regression coefficient or strength and direction of the effect of latitude, along with the standard error for that estimate (0.03), reflecting the variation.</p>
 <p>Let’s view this visually and fit the linear regression line of best fit.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">|&gt;</span> </span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggscatter</span>(<span class="at">x =</span> <span class="st">'latitude'</span>, <span class="at">y =</span> <span class="st">'size'</span>, </span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">35</span>, </span>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -948,17 +953,17 @@ sample estimates:
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_mlm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>These results show an overall p-value for the model, indicating a significant impact of the combination of predictor variables on crab size, and individual p-values for the effect of each individual predictor on crab size.</p>
-<p>Note however that normally with multiple regression, one of the assumptions is that there is no correlation between the predictor variables. We can test for correlations among more than two variables with the <code>cor()</code> function. Lets test for correlation between our three predictors:</p>
+<p>These results show an overall p-value for the model, indicating a significant impact of the combination of predictors on crab size, and individual p-values for the effect of each individual predictor on crab size.</p>
+<p>Note however that with multiple regression, one of the assumptions is that there is no correlation between the predictor variables. We can test for correlations among more than two variables with the <code>cor()</code> function. Lets test for correlation between our three predictors:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">|&gt;</span> </span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(latitude, air_temp, water_temp) <span class="sc">|&gt;</span> </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(latitude, air_temp, water_temp) <span class="sc">|&gt;</span> </span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>It is usually good practice to remove variables from a multiple linear regression that have a correlation coefficient greater than 0.7/-0.7. These are all highly correlated (with coefficients near 1/-1), therefore probably not the best set of predictors to use for a multiple linear regression. Highly correlated variables have nearly the same ability to predict the outcome (e.g., they do not bring additional information; they bring redundant information) and increase the complexity of the model and therefore the risk of errors.</p>
+<p>It is usually good practice to remove variables from a multiple linear regression that have a correlation coefficient greater than 0.7/-0.7. These are all highly correlated (with coefficients near 1/-1), therefore they are not the best set of predictors to use for a multiple linear regression in combination. Highly correlated variables have nearly the same ability to predict the outcome (e.g., they do not bring additional information; they bring redundant information) and increase the complexity of the model and therefore the risk of errors.</p>
 <p>In your assignment, you will perform a multiple linear regression using variables that are less correlated.</p>
 </section>
 <section id="exercises-part-2" class="level2">
