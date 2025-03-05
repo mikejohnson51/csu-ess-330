@@ -4,8 +4,6 @@ format:
    html:
     code-fold: true
     toc: true
-    include-before-body: ../slides/header.html
-    include-after-body:  ../slides/footer-annotations.html
 subtitle: 'Introduction to Statistics in R'
 ---
 
