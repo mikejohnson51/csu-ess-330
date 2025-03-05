@@ -346,7 +346,7 @@ install.packages("car")
 ??car
 ```
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 # data set
 data("pie_crab")
 ```
@@ -355,14 +355,14 @@ data("pie_crab")
 
 This data set consists of Fiddler crab body size measured in salt marshes from Florida to Massachusetts during summer 2016 at Plum Island Ecosystem LTER.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 glimpse(pie_crab)
 vis_dat(pie_crab)
 ```
 
 Learn more about each variable:
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 ?pie_crab
 ```
 
@@ -372,7 +372,7 @@ We have a continuous size variable (carapace width in mm), our dependent variabl
 
 Let's explore the sample size at each site and how many sites are in this data set
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 # sample size per site
 count(pie_crab, site)
 ```
@@ -381,7 +381,7 @@ We have 13 sites with \~30 individual male crabs measured at each site.
 
 Let's also check the range of our continuous variables:
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 summary(pie_crab)
 ```
 
@@ -390,7 +390,7 @@ Our first question is if there is a significant difference in crab size among th
 
 Let's first visualize the distribution of sizes for each site using a new visualization technique with ggplot called `geom_jitter()`. This function adds a small amount of variation to each point, so that all our points for each site are not stacked on top of each other.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 pie_crab |> 
   ggboxplot(x = 'site', y = 'size', col = 'site') +
   geom_jitter(size =.25) + 
@@ -425,13 +425,13 @@ A residual value is computed for each observation as the difference between an i
 
 We can first compute the residuals from the ANOVA model using the `aov()` function. To carry out the ANOVA model, we specify the name of our continuous response (size) \~ (which you read as 'by') the name of our categorical predictor (site), and specify the data set name.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 res_aov <- aov(size ~ site, data = pie_crab)
 ```
 
 We can then pull out the residuals of this `aov()` model the same way we index columns with the `$` operator. Let's check the distribution visually and statistically.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 gghistogram(res_aov$residuals)
 
 shapiro.test(res_aov$residuals)
@@ -443,7 +443,7 @@ This returns a p-value of 0.71, so we accept the null hypothessis that this data
 
 To test for equal variances among more than two groups, it is easiest to use a Levene's Test. To use this test we need to install a new package called `car`, which you should have done at the beginning of this lesson.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 leveneTest(size ~ site, data = pie_crab)
 ```
 
@@ -451,7 +451,7 @@ leveneTest(size ~ site, data = pie_crab)
 
 Similar to the `var.test()` function you've used before, the *null hypothesis* of the Levene's test is that the variances *are equal* across all groups. Given this small p-value (denoted the the 'Pr(\>F)' value) we confirm that the variances of our groups are _not_ equal. Therefore we need to use a Welch ANOVA (`oneway.test`), which we specify by setting `var.equal = FALSE`:
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 #perform Welch's ANOVA
 oneway.test(size ~ site, data = pie_crab, var.equal = FALSE)
 ```
@@ -460,7 +460,7 @@ Our results here are highly significant, meaning that at least one of our site m
 
 With 13 sites, it results in a lot of pairwise comparisons. For the next example, let's simplify our analysis to just check for differences among 3 sites, choosing sites at the two latitude extremes and one in the middle. We'll also need to rerun the ANOVA on the data subset since the Tukey's HSD uses the ANOVA model. We know that the data meet the normality assumption, and we should recheck the equality assumption within our data subset. 
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 # Filter a subset of the sites
 pie_sites <- pie_crab |> 
   filter(site %in% c("GTM", "DB", "PIE"))
@@ -480,7 +480,7 @@ summary(pie_anova)
 
 From the ANOVA test, we find that at least one of our group means is significantly different from the others. Now we can use the `TukeyHSD()` function to test all the pairwise differences to see which groups are different from each other.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 TukeyHSD(pie_anova)
 ```
 
@@ -495,7 +495,7 @@ Linear regression assumptions are normality and linearity. We tested the normali
 
 To conduct a regression model, we use the `lm()` function.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 pie_lm <- lm(size ~ latitude, data = pie_crab)
 
 #view the results of the linear model
@@ -508,7 +508,7 @@ From the results we also have an **estimate** for latitude (0.49), which reflect
 
 Let's view this visually and fit the linear regression line of best fit.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 pie_crab |> 
   ggscatter(x = 'latitude', y = 'size', 
             alpha = .35, 
@@ -519,7 +519,7 @@ pie_crab |>
 
 Now that we fit this model, we can use it to predict crab size at different latitudes with `predict()`. For example, let's predict carapace width at a latitudes of 32, 36, and 38 degrees. Note that we need to create these values as a new data frame with the same column name used in the data that the model was built from.
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 new_lat <- data.frame(latitude = c(32, 36, 38))
 
 broom::augment(pie_lm, newdata = new_lat)
@@ -531,7 +531,7 @@ Say we want to model the effect of more than one predictor on crab size. In the 
 
 Running a multiple linear regression is very similar to the simple linear regression, but now we specify our multiple predictor variables by adding them together with a `+` sign like this:
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 pie_mlm <- lm(size ~ latitude + air_temp + water_temp, data = pie_crab)
 
 summary(pie_mlm)
@@ -541,7 +541,7 @@ These results show an overall p-value for the model, indicating a significant im
 
 Note however that with multiple regression, one of the assumptions is that there is no correlation between the predictor variables. We can test for correlations among more than two variables with the `cor()` function. Lets test for correlation between our three predictors:
 
-```{r results = "hide", fig.keep = "none"}
+```{r}
 pie_crab |> 
   dplyr::select(latitude, air_temp, water_temp) |> 
   cor()

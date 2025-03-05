@@ -630,7 +630,7 @@ mean in group CC mean in group OG
     Shapiro-Wilk normality test
 
 data:  s$length_2_mm
-W = 0.93335, p-value &lt; 2.2e-16</code></pre>
+W = 0.93392, p-value &lt; 2.2e-16</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -641,7 +641,7 @@ W = 0.93335, p-value &lt; 2.2e-16</code></pre>
     Shapiro-Wilk normality test
 
 data:  s$weight_g
-W = 0.5624, p-value &lt; 2.2e-16</code></pre>
+W = 0.5715, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>The <em>null hypothesis of the Shapiro-Wilk normality test is that the variable is normally distributed</em>, so a significant p-value less than 0.05 (as we see for both of our variables here) tells use that our data does not fit a normal distribution.</p>
@@ -653,8 +653,7 @@ W = 0.5624, p-value &lt; 2.2e-16</code></pre>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a> <span class="fu">gghistogram</span>(<span class="fu">log</span>(sally_clean<span class="sc">$</span>length_2_mm), <span class="at">title =</span> <span class="st">"Length"</span>), </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">gghistogram</span>(<span class="fu">log</span>(sally_clean<span class="sc">$</span>weight_g), <span class="at">title =</span> <span class="st">"Weight"</span>) </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a> <span class="fu">gghistogram</span>(<span class="fu">log</span>(sally_clean<span class="sc">$</span>weight_g), <span class="at">title =</span> <span class="st">"Weight"</span>) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -766,15 +765,38 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(pie_crab)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 392
+Columns: 9
+$ date          &lt;date&gt; 2016-07-24, 2016-07-24, 2016-07-24, 2016-07-24, 2016-07…
+$ latitude      &lt;dbl&gt; 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, …
+$ site          &lt;chr&gt; "GTM", "GTM", "GTM", "GTM", "GTM", "GTM", "GTM", "GTM", …
+$ size          &lt;dbl&gt; 12.43, 14.18, 14.52, 12.94, 12.45, 12.99, 10.32, 11.19, …
+$ air_temp      &lt;dbl&gt; 21.792, 21.792, 21.792, 21.792, 21.792, 21.792, 21.792, …
+$ air_temp_sd   &lt;dbl&gt; 6.391, 6.391, 6.391, 6.391, 6.391, 6.391, 6.391, 6.391, …
+$ water_temp    &lt;dbl&gt; 24.502, 24.502, 24.502, 24.502, 24.502, 24.502, 24.502, …
+$ water_temp_sd &lt;dbl&gt; 6.121, 6.121, 6.121, 6.121, 6.121, 6.121, 6.121, 6.121, …
+$ name          &lt;chr&gt; "Guana Tolomoto Matanzas NERR", "Guana Tolomoto Matanzas…</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vis_dat</span>(pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab4_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Learn more about each variable:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>?pie_crab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>?pie_crab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>This data set provides a great opportunity to explore Bergmann’s rule: where organisms at higher latitudes are larger than those at lower latitudes. There are various hypotheses on what drives this phenomenon, which you can read more about in <a href="https://onlinelibrary.wiley.com/doi/10.1002/ece3.5883">Johnson et al.&nbsp;2019</a>.</p>
@@ -783,17 +805,58 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size per site</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(pie_crab, site)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size per site</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(pie_crab, site)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 2
+   site      n
+   &lt;chr&gt; &lt;int&gt;
+ 1 BC       37
+ 2 CC       27
+ 3 CT       33
+ 4 DB       30
+ 5 GTM      28
+ 6 JC       30
+ 7 NB       29
+ 8 NIB      30
+ 9 PIE      28
+10 RC       25
+11 SI       30
+12 VCR      30
+13 ZI       35</code></pre>
+</div>
 </div>
 <p>We have 13 sites with ~30 individual male crabs measured at each site.</p>
 <p>Let’s also check the range of our continuous variables:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>      date               latitude         site                size      
+ Min.   :2016-07-24   Min.   :30.00   Length:392         Min.   : 6.64  
+ 1st Qu.:2016-07-28   1st Qu.:34.00   Class :character   1st Qu.:12.02  
+ Median :2016-08-01   Median :39.10   Mode  :character   Median :14.44  
+ Mean   :2016-08-02   Mean   :37.69                      Mean   :14.66  
+ 3rd Qu.:2016-08-09   3rd Qu.:41.60                      3rd Qu.:17.34  
+ Max.   :2016-08-13   Max.   :42.70                      Max.   :23.43  
+    air_temp      air_temp_sd      water_temp    water_temp_sd  
+ Min.   :10.29   Min.   :6.391   Min.   :13.98   Min.   :4.838  
+ 1st Qu.:12.05   1st Qu.:8.110   1st Qu.:14.33   1st Qu.:6.567  
+ Median :13.93   Median :8.410   Median :17.50   Median :6.998  
+ Mean   :15.20   Mean   :8.654   Mean   :17.65   Mean   :7.252  
+ 3rd Qu.:18.63   3rd Qu.:9.483   3rd Qu.:20.54   3rd Qu.:7.865  
+ Max.   :21.79   Max.   :9.965   Max.   :24.50   Max.   :9.121  
+     name          
+ Length:392        
+ Class :character  
+ Mode  :character  
+                   
+                   
+                   </code></pre>
+</div>
 </div>
 </section>
 <section id="anova" class="level2">
@@ -803,11 +866,18 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">|&gt;</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggboxplot</span>(<span class="at">x =</span> <span class="st">'site'</span>, <span class="at">y =</span> <span class="st">'size'</span>, <span class="at">col =</span> <span class="st">'site'</span>) <span class="sc">+</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span>.<span class="dv">25</span>) <span class="sc">+</span> </span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.postition =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">|&gt;</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggboxplot</span>(<span class="at">x =</span> <span class="st">'site'</span>, <span class="at">y =</span> <span class="st">'size'</span>, <span class="at">col =</span> <span class="st">'site'</span>) <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">size =</span>.<span class="dv">25</span>) <span class="sc">+</span> </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.postition =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab4_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
 </div>
 <p>In doing this, it ;ooks like there are differences among sites, tempting us to test for statistical significance with the ANOVA test.</p>
 </section>
@@ -818,18 +888,18 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>norms <span class="ot">&lt;-</span> pie_crab <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span>site) <span class="sc">|&gt;</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Shapiro =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">shapiro.test</span>(.x<span class="sc">$</span>size)),</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="fu">map_dbl</span>(data, nrow),</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">glance_shapiro =</span> <span class="fu">map</span>(Shapiro, broom<span class="sc">::</span>glance)) <span class="sc">|&gt;</span></span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(glance_shapiro)</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>flextable<span class="sc">::</span><span class="fu">flextable</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(norms, site, n, statistic, p.value)) <span class="sc">|&gt;</span></span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">set_caption</span>(<span class="st">"Shapiro-Wilk normality test for size at each site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>norms <span class="ot">&lt;-</span> pie_crab <span class="sc">|&gt;</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span>site) <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Shapiro =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">shapiro.test</span>(.x<span class="sc">$</span>size)),</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">n =</span> <span class="fu">map_dbl</span>(data, nrow),</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">glance_shapiro =</span> <span class="fu">map</span>(Shapiro, broom<span class="sc">::</span>glance)) <span class="sc">|&gt;</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(glance_shapiro)</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>flextable<span class="sc">::</span><span class="fu">flextable</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(norms, site, n, statistic, p.value)) <span class="sc">|&gt;</span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">set_caption</span>(<span class="st">"Shapiro-Wilk normality test for size at each site"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div class="tabwid"><style>.cl-e122472a{}.cl-e11ed996{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-e11ff0ba{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e11ff0bb{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-e11ffbe6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e11ffbe7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e11ffbe8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e11ffbf0{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e11ffbf1{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-e11ffbf2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-e122472a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-e11ffbe6"><p class="cl-e11ff0ba"><span class="cl-e11ed996">site</span></p></th><th class="cl-e11ffbe7"><p class="cl-e11ff0bb"><span class="cl-e11ed996">n</span></p></th><th class="cl-e11ffbe7"><p class="cl-e11ff0bb"><span class="cl-e11ed996">statistic</span></p></th><th class="cl-e11ffbe7"><p class="cl-e11ff0bb"><span class="cl-e11ed996">p.value</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">GTM</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">28</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9007814</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.0119337484</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">SI</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">30</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9705352</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.5539208550</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">NIB</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">30</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9728297</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.6191340731</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">ZI</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">35</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9744583</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.5765589900</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">RC</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">25</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9315062</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.0941588802</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">VCR</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">30</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9444682</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.1200262239</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">DB</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">30</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9576271</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.2690631942</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">JC</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">30</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9634754</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.3788327942</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">CT</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">33</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9277365</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.0301785639</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">NB</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">29</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9675367</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.4949587443</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">CC</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">27</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.9354659</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.0941803007</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbe8"><p class="cl-e11ff0ba"><span class="cl-e11ed996">BC</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">37</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.8885721</span></p></td><td class="cl-e11ffbf0"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.0014402753</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-e11ffbf1"><p class="cl-e11ff0ba"><span class="cl-e11ed996">PIE</span></p></td><td class="cl-e11ffbf2"><p class="cl-e11ff0bb"><span class="cl-e11ed996">28</span></p></td><td class="cl-e11ffbf2"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.8489399</span></p></td><td class="cl-e11ffbf2"><p class="cl-e11ff0bb"><span class="cl-e11ed996">0.0008899392</span></p></td></tr></tbody></table></div>
+<div class="tabwid"><style>.cl-0e54dd1a{}.cl-0e523218{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-0e534fea{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0e534ff4{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-0e535af8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e535af9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e535afa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e535afb{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e535b02{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0e535b03{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-0e54dd1a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-0e535af8"><p class="cl-0e534fea"><span class="cl-0e523218">site</span></p></th><th class="cl-0e535af9"><p class="cl-0e534ff4"><span class="cl-0e523218">n</span></p></th><th class="cl-0e535af9"><p class="cl-0e534ff4"><span class="cl-0e523218">statistic</span></p></th><th class="cl-0e535af9"><p class="cl-0e534ff4"><span class="cl-0e523218">p.value</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">GTM</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">28</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9007814</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.0119337484</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">SI</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">30</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9705352</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.5539208550</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">NIB</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">30</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9728297</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.6191340731</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">ZI</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">35</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9744583</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.5765589900</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">RC</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">25</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9315062</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.0941588802</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">VCR</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">30</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9444682</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.1200262239</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">DB</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">30</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9576271</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.2690631942</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">JC</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">30</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9634754</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.3788327942</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">CT</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">33</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9277365</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.0301785639</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">NB</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">29</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9675367</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.4949587443</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">CC</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">27</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.9354659</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.0941803007</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535afa"><p class="cl-0e534fea"><span class="cl-0e523218">BC</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">37</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.8885721</span></p></td><td class="cl-0e535afb"><p class="cl-0e534ff4"><span class="cl-0e523218">0.0014402753</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-0e535b02"><p class="cl-0e534fea"><span class="cl-0e523218">PIE</span></p></td><td class="cl-0e535b03"><p class="cl-0e534ff4"><span class="cl-0e523218">28</span></p></td><td class="cl-0e535b03"><p class="cl-0e534ff4"><span class="cl-0e523218">0.8489399</span></p></td><td class="cl-0e535b03"><p class="cl-0e534ff4"><span class="cl-0e523218">0.0008899392</span></p></td></tr></tbody></table></div>
 </div>
 </div>
 <p>In nearly all cases, the p-value &gt; 0.01 (with the exception of BC and PIE), so we generally accept the null that this data <strong>does</strong> fit the normal distribution assumption across groups.</p>
@@ -840,17 +910,33 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>res_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>res_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>We can then pull out the residuals of this <code>aov()</code> model the same way we index columns with the <code>$</code> operator. Let’s check the distribution visually and statistically.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gghistogram</span>(res_aov<span class="sc">$</span>residuals)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(res_aov<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gghistogram</span>(res_aov<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab4_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(res_aov<span class="sc">$</span>residuals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  res_aov$residuals
+W = 0.99708, p-value = 0.7122</code></pre>
+</div>
 </div>
 <p>This returns a p-value of 0.71, so we accept the null hypothessis that this data fits a normal distribution assumption.</p>
 <p><strong><em>Equal Variances</em></strong></p>
@@ -858,37 +944,68 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+       Df F value    Pr(&gt;F)    
+group  12  9.2268 1.151e-15 ***
+      379                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
 </div>
 <p><strong><em>ANOVA</em></strong></p>
 <p>Similar to the <code>var.test()</code> function you’ve used before, the <em>null hypothesis</em> of the Levene’s test is that the variances <em>are equal</em> across all groups. Given this small p-value (denoted the the ‘Pr(&gt;F)’ value) we confirm that the variances of our groups are <em>not</em> equal. Therefore we need to use a Welch ANOVA (<code>oneway.test</code>), which we specify by setting <code>var.equal = FALSE</code>:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#perform Welch's ANOVA</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#perform Welch's ANOVA</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_crab, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means (not assuming equal variances)
+
+data:  size and site
+F = 39.108, num df = 12.00, denom df = 145.79, p-value &lt; 2.2e-16</code></pre>
+</div>
 </div>
 <p>Our results here are highly significant, meaning that at least one of our site means is significantly different from the others. However, ANOVA tests don’t tell us which sites are significantly different. To tell which sites are different, we need to use the <strong>Tukey’s HSD post-hoc test</strong> which gives us pairwise comparisons.</p>
 <p>With 13 sites, it results in a lot of pairwise comparisons. For the next example, let’s simplify our analysis to just check for differences among 3 sites, choosing sites at the two latitude extremes and one in the middle. We’ll also need to rerun the ANOVA on the data subset since the Tukey’s HSD uses the ANOVA model. We know that the data meet the normality assumption, and we should recheck the equality assumption within our data subset.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter a subset of the sites</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>pie_sites <span class="ot">&lt;-</span> pie_crab <span class="sc">|&gt;</span> </span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(site <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"GTM"</span>, <span class="st">"DB"</span>, <span class="st">"PIE"</span>))</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for equal variance</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_sites)</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the variances are equal (p = 0.5802), so we can proceed with the ANOVA</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA for the data subset</span></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>pie_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_sites)</span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="co"># View the ANOVA results </span></span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter a subset of the sites</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>pie_sites <span class="ot">&lt;-</span> pie_crab <span class="sc">|&gt;</span> </span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(site <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"GTM"</span>, <span class="st">"DB"</span>, <span class="st">"PIE"</span>))</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for equal variance</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_sites)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Levene's Test for Homogeneity of Variance (center = median)
+      Df F value Pr(&gt;F)
+group  2   0.548 0.5802
+      83               </code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the variances are equal (p = 0.5802), so we can proceed with the ANOVA</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ANOVA for the data subset</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>pie_anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(size <span class="sc">~</span> site, <span class="at">data =</span> pie_sites)</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co"># View the ANOVA results </span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)    
+site         2  521.5  260.75   60.02 &lt;2e-16 ***
+Residuals   83  360.6    4.34                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
 </div>
 </section>
 <section id="post-hoc-tukeys-hsd-test" class="level2">
@@ -897,8 +1014,20 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(pie_anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(pie_anova)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = size ~ site, data = pie_sites)
+
+$site
+             diff       lwr       upr   p adj
+GTM-DB  -3.200786 -4.507850 -1.893722 3.0e-07
+PIE-DB   2.899929  1.592865  4.206992 2.9e-06
+PIE-GTM  6.100714  4.771306  7.430123 0.0e+00</code></pre>
+</div>
 </div>
 <p>This returns each combination of site comparisons and a p-value (the ‘p adj’ variable) for each.</p>
 </section>
@@ -910,11 +1039,31 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>pie_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(size <span class="sc">~</span> latitude, <span class="at">data =</span> pie_crab)</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#view the results of the linear model</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>pie_lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(size <span class="sc">~</span> latitude, <span class="at">data =</span> pie_crab)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">#view the results of the linear model</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = size ~ latitude, data = pie_crab)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7.8376 -1.8797  0.1144  1.9484  6.9280 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -3.62442    1.27405  -2.845  0.00468 ** 
+latitude     0.48512    0.03359  14.441  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.832 on 390 degrees of freedom
+Multiple R-squared:  0.3484,    Adjusted R-squared:  0.3467 
+F-statistic: 208.5 on 1 and 390 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
 </div>
 <p>Our p-value is indicated in the ‘Pr(&gt;|t|)’ column for ‘latitude’ and at the bottom of these results tells us that latitude does have a significant effect on crab size.</p>
 <p>From the results we also have an <strong>estimate</strong> for latitude (0.49), which reflects the regression coefficient or strength and direction of the effect of latitude, along with the standard error for that estimate (0.03), reflecting the variation.</p>
@@ -922,11 +1071,18 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">|&gt;</span> </span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggscatter</span>(<span class="at">x =</span> <span class="st">'latitude'</span>, <span class="at">y =</span> <span class="st">'size'</span>, </span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">35</span>, </span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggscatter</span>(<span class="at">x =</span> <span class="st">'latitude'</span>, <span class="at">y =</span> <span class="st">'size'</span>, </span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">alpha =</span> .<span class="dv">35</span>, </span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">add =</span> <span class="st">"reg.line"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="lab4_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="predictions-using-a-regression-model" class="level2">
@@ -935,10 +1091,18 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>new_lat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">latitude =</span> <span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">36</span>, <span class="dv">38</span>))</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">augment</span>(pie_lm, <span class="at">newdata =</span> new_lat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>new_lat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">latitude =</span> <span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">36</span>, <span class="dv">38</span>))</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">augment</span>(pie_lm, <span class="at">newdata =</span> new_lat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  latitude .fitted
+     &lt;dbl&gt;   &lt;dbl&gt;
+1       32    11.9
+2       36    13.8
+3       38    14.8</code></pre>
+</div>
 </div>
 </section>
 <section id="multiple-linear-regression" class="level2">
@@ -948,20 +1112,48 @@ sample estimates:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>pie_mlm <span class="ot">&lt;-</span> <span class="fu">lm</span>(size <span class="sc">~</span> latitude <span class="sc">+</span> air_temp <span class="sc">+</span> water_temp, <span class="at">data =</span> pie_crab)</span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_mlm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>pie_mlm <span class="ot">&lt;-</span> <span class="fu">lm</span>(size <span class="sc">~</span> latitude <span class="sc">+</span> air_temp <span class="sc">+</span> water_temp, <span class="at">data =</span> pie_crab)</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pie_mlm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = size ~ latitude + air_temp + water_temp, data = pie_crab)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8.7099 -1.7195 -0.0602  1.7823  7.7271 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  77.7460    17.3477   4.482 9.76e-06 ***
+latitude     -1.0587     0.3174  -3.336 0.000933 ***
+air_temp     -2.4041     0.3844  -6.255 1.05e-09 ***
+water_temp    0.7563     0.1465   5.162 3.92e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.677 on 388 degrees of freedom
+Multiple R-squared:  0.4206,    Adjusted R-squared:  0.4161 
+F-statistic:  93.9 on 3 and 388 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
 </div>
 <p>These results show an overall p-value for the model, indicating a significant impact of the combination of predictors on crab size, and individual p-values for the effect of each individual predictor on crab size.</p>
 <p>Note however that with multiple regression, one of the assumptions is that there is no correlation between the predictor variables. We can test for correlations among more than two variables with the <code>cor()</code> function. Lets test for correlation between our three predictors:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">|&gt;</span> </span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(latitude, air_temp, water_temp) <span class="sc">|&gt;</span> </span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>pie_crab <span class="sc">|&gt;</span> </span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(latitude, air_temp, water_temp) <span class="sc">|&gt;</span> </span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>             latitude   air_temp water_temp
+latitude    1.0000000 -0.9949715 -0.9571738
+air_temp   -0.9949715  1.0000000  0.9632287
+water_temp -0.9571738  0.9632287  1.0000000</code></pre>
+</div>
 </div>
 <p>It is usually good practice to remove variables from a multiple linear regression that have a correlation coefficient greater than 0.7/-0.7. These are all highly correlated (with coefficients near 1/-1), therefore they are not the best set of predictors to use for a multiple linear regression in combination. Highly correlated variables have nearly the same ability to predict the outcome (e.g., they do not bring additional information; they bring redundant information) and increase the complexity of the model and therefore the risk of errors.</p>
 <p>In your assignment, you will perform a multiple linear regression using variables that are less correlated.</p>
