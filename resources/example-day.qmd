@@ -1,0 +1,181 @@
+```{r setup}
+library(tidyverse) # Package with dplyr, tibble, readr, and others 
+library(tidymodels) # Package with modeling tools)
+library(dataRetrieval) # Package to download data. 
+library(flextable) # Makes nice tables
+library(visdat)
+```
+
+```{r}
+sites <-  data.frame(SiteID = c('USGS-09069000','USGS-09085000','USGS-09095500',
+        'USGS-09152500','USGS-09180000','USGS-09380000'),
+        SiteName = c("Eagle", "Roaring Fork", "Colorado 3", 
+          "Gunnison", "Dolores", "Colorado 5")) 
+
+vars <- c('Magnesium', 'Calcium', 'Bicarbonate')
+```
+
+```{r site info download}
+## Access
+site.info <- whatWQPsites(siteid = sites$SiteID) 
+names(site.info)
+
+## Make a map!
+ggplot(site.info) + 
+  borders("state",fill = "gray90", colour = "white") + 
+  geom_point(aes(x = LongitudeMeasure, y = LatitudeMeasure, color = MonitoringLocationIdentifier)) +
+  theme_linedraw()
+```
+
+```{r concentration download}
+# Data Access
+## Need to rename and reduce columns
+## Undate units
+## Remove non water samples
+## Introduce the site names
+
+nwis_wqp = readWQPqw(siteNumbers = sites$SiteID, parameterCd = vars) |> 
+  select(date=ActivityStartDate,
+         parameter=CharacteristicName,
+         SiteID=MonitoringLocationIdentifier,
+         value=ResultMeasureValue,
+         units=ResultMeasure.MeasureUnitCode,
+         media=ActivityMediaName)  |> 
+  filter(media=='Water') |> 
+  left_join(sites, by = "SiteID") |> 
+  select(contains('Site'), date, units, parameter, value)
+
+names(nwis_wqp)
+## EDA!
+
+glimpse(nwis_wqp)
+skimr::skim(nwis_wqp)
+range(nwis_wqp$date)
+table(nwis_wqp$units, nwis_wqp$parameter)
+
+visdat::vis_dat(nwis_wqp)
+```
+
+
+```{r tidy}
+# Compute Annual means
+conc.annual <- nwis_wqp %>%
+  mutate(year=year(date)) %>%
+  group_by(SiteID, SiteName, year, parameter) %>%
+  summarize(annual_mean = mean(value, na.rm = TRUE)) |> 
+  ungroup() 
+
+# EDA
+vis_dat(conc.annual)
+table(conc.annual$SiteID, conc.annual$parameter)
+
+# Visualize the data
+conc.annual %>%
+  ggplot(aes(x=year,y=annual_mean,color=SiteName)) + 
+  geom_point() + 
+  geom_smooth() + 
+  facet_wrap(~parameter,scales='free_y') + 
+  theme(legend.position='bottom') +
+  theme_bw()
+
+ggpubr::ggdensity(conc.annual, 
+                    x = "annual_mean", 
+                    fill = "SiteName", 
+                    facet.by = "parameter",
+                    scales = "free")
+```
+
+```{r}
+# Long to wide, adding data
+conc.wide <- conc.annual %>%
+  pivot_wider(names_from = parameter,
+              values_from = annual_mean) %>%
+  mutate(MgCa=Magnesium+Calcium) 
+
+# Model Assumptions
+map_dbl(conc.wide[, c('Bicarbonate','Magnesium','Calcium', 'MgCa')], 
+        ~shapiro.test(.x)$p.value)
+
+visdat::vis_cor(select(conc.wide, is.numeric), cor_method = "spearman")
+
+visdat::vis_dat(conc.wide)
+
+dplyr::filter(conc.wide, is.na(Bicarbonate))
+
+conc.wide = drop_na(conc.wide)
+
+x = ggplot(conc.wide,aes(x=Bicarbonate,y=MgCa)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(~SiteName, scale = "free")
+```
+
+```{r}
+# Help
+library(tidy.outliers)
+
+#?step_outliers_maha
+
+# Feature Engineering
+r = conc.wide  |>
+  recipe()  |> 
+  step_sqrt(MgCa, Bicarbonate) |> 
+  step_filter(!SiteName %in% "Dolores") |>
+  step_outliers_maha(MgCa, Bicarbonate) |>
+  step_outliers_remove(contains(r"(.outliers)")) |> 
+  prep(conc.wide)
+
+b = bake(r, new_data = NULL)
+
+# EDA
+glimpse(b)
+glimpse(conc.wide)
+
+ggplot(b,aes(x=Bicarbonate,y=MgCa,color=SiteName)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(~SiteName, scale = "free") 
+```
+
+```{r}
+# Bicarbonate Trends over the years
+b |> 
+  nest(data = -SiteName) |> 
+  mutate(mod = map(data, ~lm(Bicarbonate ~ year, data = .x)),
+         summary = map(mod, broom::tidy)) |> 
+  select(-data, -mod) |> 
+  unnest(summary) |> 
+  flextable::flextable()
+```
+
+```{r}
+b |> 
+  nest(data = -SiteID)  %>%
+  mutate(mod = map(data, ~lm(Bicarbonate ~ MgCa, data = .x))) %>%
+  mutate(mod.glance=map(mod,glance),
+         mod.tidy=map(mod,tidy)) %>%
+  select(-data, -mod) |> 
+  unnest(mod.glance, mod.tidy) |> 
+  distinct() |> 
+  flextable::flextable()
+```
+
+```{r}
+a <- b |> 
+  nest(data = -SiteName)  %>%
+  mutate(mod = map(data, ~lm(Bicarbonate ~ MgCa, data = .x)),
+         a = map2(mod, data, ~augment(.x, .y))) |> 
+  unnest(a)
+
+ggplot(a, aes(x = .fitted, y = Bicarbonate)) + 
+  geom_point() + 
+  geom_smooth(col = "red") + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(~SiteName, scales = "free")
+
+ggpubr::gghistogram(a, x = ".resid", fill = "SiteName", facet.by = "SiteID")
+```
+
+
+
+
