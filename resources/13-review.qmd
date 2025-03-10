@@ -1,0 +1,299 @@
+---
+title: "Lecture 13"
+subtitle: 'Unit 2: Review'
+author:
+  - name: Mike Johnson
+    email: mike.johnson@colostate.edu
+date: last-modified
+format: html
+knitr:
+  opts_chunk: 
+    echo: true
+    collapse: true
+    comment: "#>"
+    fig.path: "figures/"
+---
+
+# Review Day!
+
+## **Component 2**: _Working with Data_
+Build confidence in wrangling, visualizing, and analyzing data. This section covers importing and cleaning data sets, working with joins, and creating effective visualizations. You’ll also delve into study design, hypothesis testing, and statistical analyses spanning uni-variate, bivariate, and multivariate techniques.
+
+::: {.callout-note appearance="simple"}
+
+##  **Learning Outcomes**
+
+  - Import, clean, and merge data sets from diverse sources using core `tidyverse` packages.
+  - Conduct hypothesis testing and interpret results.
+  - Create impactful visualizations to communicate findings.
+
+:::
+
+We have covered a ton of material in unit 2. 
+
+::: {#fig-elephants layout-ncol=2}
+
+![](../slides/images/data-science-eda.png){#fig-surus}
+
+![](../slides/images/tidyverse-implementation.png){#fig-hanno}
+
+Data Science: Process and Implementation
+:::
+
+# Today
+
+::: {.callout-tip}
+We will look at some public water quality data to examine the relationship between bicarbonate and magnesium/calcium along the Colorado River.
+:::
+
+## Motivation
+
+The balance between bicarbonate and Mg+Ca in water determines hardness, alkalinity, and pH stability, with direct implications for ecosystem health, water treatment, and infrastructure maintenance. The sum of magnesium and calcium concentrations is a key factor in determining water hardness which can impact aquatic ecosystems, water treatment, and infrastructure due to scaling.
+
+ - ⬆️ bicarbonate + ⬆️ Ca/Mg: Indicates water passing through carbonate-rich geology (limestone/dolomite), leading to high hardness but good buffering capacity.
+ 
+- ⬇️ bicarbonate + ⬆️ Ca/Mg: Suggests non-carbonate sources of Mg and Ca, potentially from industrial pollution or weathering of silicate rocks.
+
+- ⬆️ bicarbonate + ⬇️ Ca/Mg: Could be influenced by inputs like agricultural runoff or natural dissolution of bicarbonates from atmospheric CO₂.
+
+In this lab, we are interested in understanding the relationship between bicarbonate and magnesium/calcium in the Colorado River Basin using a set of gages that have been active over the last ~100 years
+
+Namely, we are interested in: 
+
+1. The trend of Bicarbonate over time
+2. The relationship of Bicarbonate to Magnesium + Calcium along the river
+3. The strength of a predictive model for Bicarbonate using the sum Magnesium Calcium
+
+## 1. Data Import & Setup
+
+### Sometimes you need new libraries!
+
+ - We can install from CRAN with `install.packages("package_name")`
+ - We can install from GitHub with `remotes::install_github("username/package_name")`
+ 
+```{r}
+# remotes::install_github("brunocarlin/tidy.outliers")
+```
+
+### Start with our libraries
+
+- Here we load the libraries we will use in this lab
+  - `tidyverse` for data manipulation
+  - `tidymodels` for modeling
+  - `dataRetrieval` for downloading data
+  - `flextable` for making nice tables
+  - `visdat` for EDA
+  
+```{r setup}
+library(tidyverse)    
+library(tidymodels)   
+library(dataRetrieval)
+library(flextable)    
+library(visdat)       
+```
+
+- We can predefine our sites of interest for expediency. We do this by creating a data frame with the SiteID and SiteName `atomic` vectors.
+
+- We can also predefine the variables we are interested in.
+
+```{r}
+sites <-  data.frame(SiteID = c("USGS-09069000", "USGS-09085000", "USGS-09095500",
+                                "USGS-09152500", "USGS-09180000", "USGS-09380000"),
+                     SiteName = c("Eagle", "Roaring Fork", "Colorado 3", 
+                                  "Gunnison", "Dolores", "Colorado 5")) 
+
+vars  <- c('Magnesium', 'Calcium', 'Bicarbonate')
+```
+
+### Explore the Sites
+
+```{r}
+## Access
+site.info <- whatWQPsites(siteid = sites$SiteID) 
+
+## Make a map!
+ggplot(site.info) + 
+  borders("state",fill = "gray90", colour = "white") + 
+  geom_point(aes(x = LongitudeMeasure, y = LatitudeMeasure, color = MonitoringLocationIdentifier)) +
+  theme_linedraw()
+```
+
+### Data I/O
+
+ - We can use the `dataRetrieval` package to download data from the USGS NWIS database.
+ - This provides API access to the USGS NWIS database opposed to reading from a file.
+ 
+```{r}
+# Data Access
+nwis_wqp <- readWQPqw(siteNumbers = sites$SiteID, parameterCd = vars) |> 
+   select(date = ActivityStartDate,
+          parameter = CharacteristicName,
+          SiteID = MonitoringLocationIdentifier,
+          value  = ResultMeasureValue,
+          units  = ResultMeasure.MeasureUnitCode,
+          media  = ActivityMediaName) |> 
+  filter(media=='Water') |> 
+  left_join(sites, by = "SiteID") |> 
+  select(contains('Site'), date, units, parameter, value)
+
+names(nwis_wqp)
+## EDA!
+
+glimpse(nwis_wqp)
+skimr::skim(nwis_wqp)
+range(nwis_wqp$date)
+table(nwis_wqp$units, nwis_wqp$parameter)
+
+visdat::vis_dat(nwis_wqp)
+```
+ 
+## Data Tidying & EDA
+
+```{r}
+# Compute Annual means
+conc.annual <- nwis_wqp %>%
+  mutate(year=year(date)) %>%
+  group_by(SiteID, SiteName, year, parameter) %>%
+  summarize(annual_mean = mean(value, na.rm = TRUE)) |> 
+  ungroup() 
+
+# EDA
+vis_dat(conc.annual)
+table(conc.annual$SiteID, conc.annual$parameter)
+
+# Visualize the data
+conc.annual %>%
+  ggplot(aes(x=year,y=annual_mean,color=SiteName)) + 
+  geom_point() + 
+  geom_smooth() + 
+  facet_wrap(~parameter,scales='free_y') + 
+  theme(legend.position='bottom') +
+  theme_bw()
+
+ggpubr::ggdensity(conc.annual, 
+                    x = "annual_mean", 
+                    fill = "SiteName", 
+                    facet.by = "parameter",
+                    scales = "free")
+
+```
+
+## Modeling
+
+```{r}
+# Long to wide, adding data
+conc.wide <- conc.annual %>%
+  pivot_wider(names_from = parameter,
+              values_from = annual_mean) %>%
+  mutate(MgCa=Magnesium+Calcium) 
+
+# Model Assumptions
+map_dbl(conc.wide[, c('Bicarbonate','Magnesium','Calcium', 'MgCa')], 
+        ~shapiro.test(.x)$p.value)
+
+visdat::vis_cor(select(conc.wide, is.numeric), cor_method = "spearman")
+
+vis_dat(conc.wide)
+
+filter(conc.wide, is.na(Bicarbonate))
+
+conc.wide = drop_na(conc.wide)
+
+ggplot(conc.wide,aes(x=Bicarbonate,y=MgCa)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(~SiteName, scale = "free")
+```
+
+### Feature Engineering
+
+```{r}
+# Help
+library(tidy.outliers)
+
+# Feature Engineering
+r = conc.wide  |>
+  recipe()  |> 
+  step_sqrt(MgCa, Bicarbonate) |> 
+  step_filter(!SiteName %in% "Dolores") |>
+  step_outliers_maha(MgCa, Bicarbonate) |>
+  step_outliers_remove(contains(r"(.outliers)")) |> 
+  prep(conc.wide)
+
+b = bake(r, new_data = NULL)
+
+# EDA
+glimpse(b)
+glimpse(conc.wide)
+
+ggplot(b,aes(x=Bicarbonate,y=MgCa,color=SiteName)) + 
+  geom_point() + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(~SiteName, scale = "free") 
+
+```
+
+### Modeling
+
+```{r}
+# Bicarbonate Trends over the years
+b |> 
+  nest(data = -SiteName) |> 
+  mutate(mod = map(data, ~lm(Bicarbonate ~ year, data = .x)),
+         summary = map(mod, broom::tidy)) |> 
+  select(-data, -mod) |> 
+  unnest(summary) |> 
+  flextable::flextable()
+```
+
+```{r}
+# Bicarbonate vs. Magnesium + Calcium
+b |> 
+  nest(data = -SiteID)  %>%
+  mutate(mod = map(data, ~lm(Bicarbonate ~ MgCa, data = .x))) %>%
+  mutate(mod.glance=map(mod,glance),
+         mod.tidy=map(mod,tidy)) %>%
+  select(-data, -mod) |> 
+  unnest(mod.glance, mod.tidy) |> 
+  distinct() |> 
+  flextable::flextable()
+```
+
+```{r}
+# Predictive model
+a <- b |> 
+  nest(data = -SiteName)  %>%
+  mutate(mod = map(data, ~lm(Bicarbonate ~ MgCa, data = .x)),
+         a = map2(mod, data, ~augment(.x, .y))) |> 
+  unnest(a)
+
+# Vizualize model and assumptions
+ggplot(a, aes(x = .fitted, y = Bicarbonate)) + 
+  geom_point() + 
+  geom_smooth(col = "red") + 
+  geom_smooth(method = "lm") + 
+  facet_wrap(~SiteName, scales = "free")
+
+ggpubr::gghistogram(a, x = ".resid", fill = "SiteName", facet.by = "SiteID")
+```
+
+## Summary
+
+What did we find? Did this align with our expectations?  Did the process we just go through make sense? Did any of the skills seem alien?
+
+## Assignment
+
+As we have reached the half way point of this course, take a moment to reflect on your journey so far. Please respond to each of the following prompts in a few sentences. The questions are guiding but not all need to be answered directly and deviations are welcome
+
+**1. Unit 1**: Think back to the beginning—how comfortable were you with setting up and using R, RStudio, Git, and GitHub? Do you now feel more confident in managing your computational environment and organizing your data? What aspects still feel challenging or unclear? Do you feel that the skills learned are transitioning into other areas of your "computational life"?
+
+**2. Unit 2 **: As we wrap up our primary unit on data wrangling, visualization, and analysis, how do you feel about your ability to import, clean, and work with data? Are there specific techniques (joins, visualizations, statistical methods, nests/groups) that you feel you’ve improved on? Thinking back 8 weeks, are you proud of the progress you've made or feeling lost? What areas do you want to focus on strengthening as we continue? 
+
+**3. Looking Ahead:**: Are you making the progress you hoped for? If not, what barriers are you facing, and what steps could help you overcome them? If yes, what strategies have been working for you? What are your goals for the remainder of the course and how can the teaching team best support you in reaching them? 
+
+**4. Modes of Learning**: How do you feel about the methods in which content is shared? Have lectures been useful? Labs? Office hours? Daily Exercises? What would you like to see continue, and what would you like us to consider changing to help your growth?
+
+We know the learning curve with coding is STEEP!, but if you feel you are hanging on, I promise you are doing well.
+
+Please be honest with yourself (and with us) in this reflection—there are no wrong answers! This is an opportunity to take stock of your growth and identify where you’d like to go next, and, for us to adopt to how we support you best.
+
