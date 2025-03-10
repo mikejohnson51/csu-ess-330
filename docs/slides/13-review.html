@@ -302,7 +302,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We will look at some public water quality data to examine the realtionship between bicarbonate and magnesium/calcium along the Colorado River.</p>
+<p>We will look at some public water quality data to examine the relationship between bicarbonate and magnesium/calcium along the Colorado River.</p>
 </div>
 </div>
 <section id="motivation" class="level2">
@@ -316,9 +316,9 @@ Tip
 <p>In this lab, we are interested in understanding the relationship between bicarbonate and magnesium/calcium in the Colorado River Basin using a set of gages that have been active over the last ~100 years</p>
 <p>Namely, we are interested in:</p>
 <ol type="1">
-<li>The trend of Bicarbontate over time</li>
-<li>The realtionship of Bicarbonate to Magnesium + Calcium along the river</li>
-<li>The strength of a predicitive model for Bicarbonate using the sum Magnesium Calcium</li>
+<li>The trend of Bicarbonate over time</li>
+<li>The relationship of Bicarbonate to Magnesium + Calcium along the river</li>
+<li>The strength of a predictive model for Bicarbonate using the sum Magnesium Calcium</li>
 </ol>
 </section>
 <section id="data-import-setup" class="level2">
@@ -372,7 +372,7 @@ Tip
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()      masks stats::lag()</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ yardstick::spec() masks readr::spec()</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ recipes::step()   masks stats::step()</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Dig deeper into tidy modeling with R at https://www.tmwr.org</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Learn how to get started at https://www.tidymodels.org/start/</span></span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataRetrieval)</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)    </span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
@@ -384,7 +384,7 @@ Tip
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><p>We can predefine our sites of interest for expediancy. We do this by creating a data frame with the SiteID and SiteName <code>atomic</code> vectors.</p></li>
+<li><p>We can predefine our sites of interest for expediency. We do this by creating a data frame with the SiteID and SiteName <code>atomic</code> vectors.</p></li>
 <li><p>We can also predefine the variables we are interested in.</p></li>
 </ul>
 <div class="cell">
@@ -425,10 +425,12 @@ Tip
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(sites, <span class="at">by =</span> <span class="st">"SiteID"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">'Site'</span>), date, units, parameter, value)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; GET:https://www.waterqualitydata.us/data/Result/search?siteid=USGS-09069000%3BUSGS-09085000%3BUSGS-09095500%3BUSGS-09152500%3BUSGS-09180000%3BUSGS-09380000&amp;count=no&amp;characteristicName=Magnesium%3BCalcium%3BBicarbonate&amp;mimeType=csv</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NEWS: Data does not include USGS data newer than March 11, 2024. More details:</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; https://doi-usgs.github.io/dataRetrieval/articles/Status.html</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="do">## EDA!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Waiting 2s for throttling delay ■■■■■■■■■■■■■■■</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Waiting 2s for throttling delay ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; NEWS: Data does not include USGS data newer than March 11, 2024. More details:</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; https://doi-usgs.github.io/dataRetrieval/articles/Status.html</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="do">## EDA!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -481,12 +483,13 @@ Tip
 </section>
 <section id="assignment" class="level2">
 <h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
-<p>As we have reached the half way point of this course, take a moment to reflect on your journey so far. Please respond to each of the following prompts in a few sentences:</p>
-<p><strong>1. Unit 1 Reflection</strong>: Think back to the beginning—how comfortable were you with setting up and using R, RStudio, Git, and GitHub? Do you now feel more confident in managing your computational environment and organizing your data? What aspects still feel challenging or unclear? Do you feel that the skills learned are transitioning into other areas of you “computational life”?</p>
-<p><strong>2. Unit 2 Progress</strong>: As we wrap up our primary unit on data wrangling, visualization, and analysis, how do you feel about your ability to import, clean, and work with data? Are there specific techniques (joins, visualizations, statistical methods, nests/groups) that you feel you’ve improved on? Thinking back 8 weeks, are you proud of the progress you’ve made? What areas do you want to focus on strengthening as we continue?</p>
+<p>As we have reached the half way point of this course, take a moment to reflect on your journey so far. Please respond to each of the following prompts in a few sentences. The questions are guiding but not all need to be answered directly and deviations are welcome</p>
+<p><strong>1. Unit 1</strong>: Think back to the beginning—how comfortable were you with setting up and using R, RStudio, Git, and GitHub? Do you now feel more confident in managing your computational environment and organizing your data? What aspects still feel challenging or unclear? Do you feel that the skills learned are transitioning into other areas of your “computational life”?</p>
+<p><strong>2. Unit 2 </strong>: As we wrap up our primary unit on data wrangling, visualization, and analysis, how do you feel about your ability to import, clean, and work with data? Are there specific techniques (joins, visualizations, statistical methods, nests/groups) that you feel you’ve improved on? Thinking back 8 weeks, are you proud of the progress you’ve made or feeling lost? What areas do you want to focus on strengthening as we continue?</p>
 <p><strong>3. Looking Ahead:</strong>: Are you making the progress you hoped for? If not, what barriers are you facing, and what steps could help you overcome them? If yes, what strategies have been working for you? What are your goals for the remainder of the course and how can the teaching team best support you in reaching them?</p>
 <p><strong>4. Modes of Learning</strong>: How do you feel about the methods in which content is shared? Have lectures been useful? Labs? Office hours? Daily Exercises? What would you like to see continue, and what would you like us to consider changing to help your growth?</p>
-<p>Be honest with yourself (and with us) in this reflection—there are no wrong answers! This is an opportunity to take stock of your growth and identify where you’d like to go next, and for us to adopt to how to best support you.</p>
+<p>We know the learning curve with coding is STEEP!, but if you feel you are hanging on, I promise you are doing well.</p>
+<p>Please be honest with yourself (and with us) in this reflection—there are no wrong answers! This is an opportunity to take stock of your growth and identify where you’d like to go next, and, for us to adopt to how we support you best.</p>
 
 
 </section>
