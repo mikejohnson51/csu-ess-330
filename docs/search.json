@@ -8122,36 +8122,162 @@
   {
     "objectID": "slides/14-data.html#introduction-to-google-data-commons",
     "href": "slides/14-data.html#introduction-to-google-data-commons",
-    "title": "14-data",
-    "section": "",
-    "text": "Google Data Commons is an open data platform that integrates public datasets across various domains, making them easily accessible through a structured knowledge graph. It allows users to explore, analyze, and visualize data without needing to download large datasets or manage complex data infrastructures."
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "Introduction to Google Data Commons",
+    "text": "Introduction to Google Data Commons\nGoogle Data Commons is an open data platform that integrates public datasets across various domains, making them easily accessible through a structured knowledge graph. It allows users to explore, analyze, and visualize data without needing to download large datasets or manage complex data infrastructures."
   },
   {
     "objectID": "slides/14-data.html#why-use-google-data-commons",
     "href": "slides/14-data.html#why-use-google-data-commons",
-    "title": "14-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
     "section": "Why Use Google Data Commons?",
-    "text": "Why Use Google Data Commons?\nAccess to Multiple Datasets: Google Data Commons aggregates datasets from sources like the U.S. Census Bureau, NOAA, World Bank, and NASA.\n\nSimplified Data Exploration: Users can query datasets using the online interface or the R package without prior database management experience.\nInteroperability: Combines socioeconomic, environmental, and hydrologic data for cross-domain analysis.\nVisualization Tools: Provides built-in charts, tables, and maps for data representation."
+    "text": "Why Use Google Data Commons?\n\nAccess to Multiple Datasets: Google Data Commons aggregates datasets from sources like the U.S. Census Bureau, NOAA, World Bank, and NASA.\nSimplified Data Exploration: Users can query datasets using the online interface or the R package without prior database management experience.\nInteroperability: Combines socioeconomic, environmental, and hydrologic data for cross-domain analysis.\nVisualization Tools: Provides built-in charts, tables, and maps for data representation."
   },
   {
     "objectID": "slides/14-data.html#how-google-data-commons-works",
     "href": "slides/14-data.html#how-google-data-commons-works",
-    "title": "14-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
     "section": "How Google Data Commons Works",
-    "text": "How Google Data Commons Works\n\nKnowledge Graph Structure: Data is organized as a knowledge graph, enabling relationships between datasets.\nQuerying via Online Interface: Users can explore datasets interactively through the website without needing programming knowledge.\nR Package for Data Analysis: Data can be queried using the R package for integration into research workflows.\nIntegration with Google Cloud: Allows seamless use in cloud-based analysis."
+    "text": "How Google Data Commons Works\n\nKnowledge Graph Structure: Data is organized as a knowledge graph, enabling relationships between datasets.\nQuerying via Online Interface: Users can explore datasets interactively through the website without needing programming knowledge.\nIntegration with Google Cloud: Allows seamless use in cloud-based analysis."
   },
   {
     "objectID": "slides/14-data.html#applications-in-environmental-science-water-resources",
     "href": "slides/14-data.html#applications-in-environmental-science-water-resources",
-    "title": "14-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
     "section": "Applications in Environmental Science & Water Resources",
     "text": "Applications in Environmental Science & Water Resources\n\nHydrologic & Climate Data Integration: Researchers can merge climate models, precipitation data, and river flow information.\nEcosystem Monitoring: Analyze land cover change, biodiversity metrics, and water quality.\nSocioeconomic & Environmental Interactions: Examine how human activity influences water resources and climate resilience."
   },
   {
     "objectID": "slides/14-data.html#getting-started-with-google-data-commons",
     "href": "slides/14-data.html#getting-started-with-google-data-commons",
-    "title": "14-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
     "section": "Getting Started with Google Data Commons",
-    "text": "Getting Started with Google Data Commons\nStep 1: Exploring the Website\n\nVisit Google Data Commons to browse datasets and visualizations.\n\nStep 2: Querying Data with R\n\nInstall the package: install.packages(\"datacommons\")\n\nExample query:\nlibrary(datacommons)"
+    "text": "Getting Started with Google Data Commons\nVisit Google Data Commons to browse datasets and visualizations."
+  },
+  {
+    "objectID": "slides/14-data.html#key-sources-for-ecosystem-water-climate-and-social-data",
+    "href": "slides/14-data.html#key-sources-for-ecosystem-water-climate-and-social-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "Key Sources for Ecosystem, Water, Climate, and Social Data",
+    "text": "Key Sources for Ecosystem, Water, Climate, and Social Data\nExploring public data portals and repositories"
+  },
+  {
+    "objectID": "slides/14-data.html#regrade-policy",
+    "href": "slides/14-data.html#regrade-policy",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "Regrade Policy:",
+    "text": "Regrade Policy:\n\nAll daily exercises are eligible for a regrade with credit up to 80%.\nLab 1 is eligible for a regrade for up to 50% of the lost points\nRemember, there is Extra Credit available in the form of a final in which you resubmit your Personal Website with all class labs and projects linked. (Get started now 🏎️)"
+  },
+  {
+    "objectID": "slides/14-data.html#u.s.-government-data-portals",
+    "href": "slides/14-data.html#u.s.-government-data-portals",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🏛️ U.S. Government Data Portals",
+    "text": "🏛️ U.S. Government Data Portals\n1. Data.gov\n- Central hub for open government data 📊\n- Datasets from agencies like NOAA, NASA, and USGS\n- APIs and download options\n2. USGS ScienceBase\n- Geospatial and environmental science data 🌎\n3. USGS Earth Explorer\n- Satellite imagery and aerial photos 📸\n4. National Map\n- Topographic and land cover data 🗺️"
+  },
+  {
+    "objectID": "slides/14-data.html#hydrology-and-water-resources",
+    "href": "slides/14-data.html#hydrology-and-water-resources",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🌧️ Hydrology and Water Resources 💧",
+    "text": "🌧️ Hydrology and Water Resources 💧\n1. USGS NWIS\n- Streamflow, groundwater, and water quality data 🌊\n2. NOAA National Water Model\n- Hydrologic modeling and forecasts 💦\n3. NASA Global Hydrology Resource Center\n- Satellite-based hydrology data 🌐\n4. EPA Water Data\n- Water quality and watershed datasets 🌱\n5. Internet of Water\n- Water data infrastructure tools 🌊🔧"
+  },
+  {
+    "objectID": "slides/14-data.html#climate-and-weather-data",
+    "href": "slides/14-data.html#climate-and-weather-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "☀️ Climate and Weather Data",
+    "text": "☀️ Climate and Weather Data\n1. NOAA NCEI\n- Historical weather and climate records 🌤️\n2. NASA Earthdata\n- Remote sensing data from NASA’s satellites 🚀\n3. PRISM Climate Group\n- High-resolution climate datasets 🌞\n4. GridMET\n- Gridded meteorological data 🌧️\n5. GHCN\n- Historical station-based climate observations 🧑‍🔬"
+  },
+  {
+    "objectID": "slides/14-data.html#land-cover-and-remote-sensing-data",
+    "href": "slides/14-data.html#land-cover-and-remote-sensing-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🌱 Land Cover and Remote Sensing Data",
+    "text": "🌱 Land Cover and Remote Sensing Data\n1. USGS NLCD\n- Land cover classification 🏞️\n2. NASA MODIS & Landsat\n- Satellite imagery for land cover and vegetation 🌳\n3. Copernicus Open Access Hub\n- Free access to Sentinel data 🌍\n4. Google Earth Engine\n- Cloud-based geospatial analysis 🌥️\n5. Microsoft Planetary Computer\n- Earth observation and AI-based analytics 🌐"
+  },
+  {
+    "objectID": "slides/14-data.html#github---awesome-public-datasets",
+    "href": "slides/14-data.html#github---awesome-public-datasets",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🌍 GitHub - Awesome Public Datasets 🤖",
+    "text": "🌍 GitHub - Awesome Public Datasets 🤖\nAwesome Public Datasets\n- A curated list of high-quality public datasets 🌟\n- Covers climate, geospatial, hydrology, social sciences, economics, health, and more 💡\n- Frequently updated with new sources ⏳\n- Great for machine learning, research, and open data applications 🚀"
+  },
+  {
+    "objectID": "slides/14-data.html#colorado-specific-environmental-data",
+    "href": "slides/14-data.html#colorado-specific-environmental-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🌾 Colorado-Specific Environmental Data 🏔️",
+    "text": "🌾 Colorado-Specific Environmental Data 🏔️\n1. Colorado Information Marketplace\n- Open datasets on environment, energy, and demographics 📈\n2. Colorado Division of Water Resources\n- Water rights and streamflow data 💧\n3. Colorado State Forest Service\n- Forestry and wildfire data 🌲🔥\n4. Colorado Department of Public Health & Environment\n- Air, water, and public health data 🏥"
+  },
+  {
+    "objectID": "slides/14-data.html#un-global-environmental-data",
+    "href": "slides/14-data.html#un-global-environmental-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🌐 UN & Global Environmental Data 🌏",
+    "text": "🌐 UN & Global Environmental Data 🌏\n1. UN Data Portal\n- Global statistics on environment, economics, and population 🌍\n2. FAO AQUASTAT\n- Global water resources data 🌊\n3. UN Environment Programme (UNEP) Data\n- Climate, pollution, and biodiversity 🌿\n4. World Bank Open Data\n- Economic and environmental data 💼\n5. WHO Global Health Observatory\n- Health and environmental risk factors 🏥"
+  },
+  {
+    "objectID": "slides/14-data.html#resources-for-r-packages",
+    "href": "slides/14-data.html#resources-for-r-packages",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "💻 Resources for R Packages 🧑‍💻",
+    "text": "💻 Resources for R Packages 🧑‍💻\n1. tidycensus – U.S. Census and ACS data 📊\n2. dataRetrieval – USGS & EPA hydrology data 💧\n3. climateR – Climate datasets like PRISM & GridMET 🌡️\n4. rnoaa – NOAA weather and climate data 🌦️\n5. neonUtilities – NEON ecological data 🌱\n6. mesonet – Mesonet weather station data 🌬️"
+  },
+  {
+    "objectID": "slides/14-data.html#r-packages",
+    "href": "slides/14-data.html#r-packages",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "💻 R Packages 🧑‍💻",
+    "text": "💻 R Packages 🧑‍💻\n1. tidycensus – U.S. Census and ACS data 📊\n2. dataRetrieval – USGS & EPA hydrology data (Worlds largest water API) 💧\n3. climateR – Climate datasets like PRISM & GridMET 🌡️\n3. elevatr - Access Elevation Data from Various APIs\n4. rnoaa – NOAA weather and climate data 🌦️\n5. neonUtilities – NEON ecological data 🌱\n6. riem – Allows to get weather data from Automated Surface Observing System (ASOS) stations (airports) in the whole world thanks to the Iowa Environment Mesonet websi 🌬️\n7. nasapower - API client for NASA POWER global meteorology, surface solar energy and climatology data API ☀️\n8. FedData - Automate Downloading Geospatial Data Available from Several Federated Data Sources 🌧️\n9. GHCNr - fast and friendly interface with the Global Historical Climatology Network daily (GHCNd) database, which contains daily summaries of weather station data worldwide 🌧️\n10. osmdata - Download and import of ‘OpenStreetMap’ (‘OSM’) data 🚧\n11. tidyUSDA: A Minimal Tool Set for Gathering USDA Quick Stat Data for Analysis and Visualization 🚜"
+  },
+  {
+    "objectID": "slides/14-data.html#key-academic-databases",
+    "href": "slides/14-data.html#key-academic-databases",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🌐 Key Academic Databases",
+    "text": "🌐 Key Academic Databases\nAlmost all Journals now have an open data policy. In these, data is either part of the paper, or, archived at a central database:\n1. Nature Scientific Data\n- Open access journal dedicated to data, publishing descriptions of research datasets and articles on research data sharing from all areas of natural sciences, medicine, engineering and social sciences. 📑\n2. Google Scholar\n- A free, widely used academic search engine 📚\n- Access research papers, theses, and patents 🔍\n3. PubMed\n- Biomedical literature and health-related datasets 🧬\n- Useful for health, epidemiology, and environmental data 📊\n4. IEEE Xplore\n- Engineering, computer science, and technology research 🖥️\n- Often includes datasets related to environmental modeling 🌍\n5. DataCite\n- Repository for datasets linked to scholarly articles 🗂️\n- Includes data across a variety of disciplines, including earth sciences 🌎"
+  },
+  {
+    "objectID": "slides/14-data.html#research-gateways-repositories",
+    "href": "slides/14-data.html#research-gateways-repositories",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "📑 Research Gateways & Repositories",
+    "text": "📑 Research Gateways & Repositories\n1. arXiv\n- Preprints for physics, math, computer science, and environmental sciences 🧑‍🔬\n2. Dryad\n- Open data repository with a focus on life sciences and ecology 🌱\n3. OpenICPSR\n- Social science and environmental datasets 🏙️\n4. Zenodo\n- Open-access repository with datasets and research outputs 📊\n5. HydroShare\n- Open data repository with a focus on hydrologic data resoruces 💧"
+  },
+  {
+    "objectID": "slides/14-data.html#searching-for-datasets-in-published-articles",
+    "href": "slides/14-data.html#searching-for-datasets-in-published-articles",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🌟 Searching for Datasets in Published Articles",
+    "text": "🌟 Searching for Datasets in Published Articles\n\nUse keywords such as “open data,” “environmental datasets,” “climate data,” etc. 🔑\n\nLook for datasets linked directly in the article or listed in supplemental material 📂\n\nCheck for articles published in high-impact journals like Nature, Science, and PNAS for reliable datasets 📰"
+  },
+  {
+    "objectID": "slides/14-data.html#todays-assigment",
+    "href": "slides/14-data.html#todays-assigment",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "Todays Assigment:",
+    "text": "Todays Assigment:\n\nIdentify 5 data sources that you might be interested in.\nThey can come from this list but should be specific (e.g. “Water Quality Data about Bicarbonate” not “dataRetrivial”).\nYou can use these to jump start your group discussions in lab so try to have this done prior to lab (although the due date is Friday at 5pm)\nEnjoy Spring Break 🌴 ⛰️ ☀ !"
+  },
+  {
+    "objectID": "slides/14-data.html#demographic-and-social-data",
+    "href": "slides/14-data.html#demographic-and-social-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🏙️ Demographic and Social Data",
+    "text": "🏙️ Demographic and Social Data\n🗺️ U.S. Census Bureau\n- Official demographics, housing, and income data 📊🏡\n📋 American Community Survey (ACS)\n- Annual detailed social and economic statistics for communities 📈\n⚠️ Social Vulnerability Index (SVI)\n- Measures community vulnerability to disasters 🌪️🚨\n- Amazing data, really crappy new disclosure\n🚀 Opportunity Atlas\n- Tracks economic mobility based on childhood conditions 💵📍"
+  },
+  {
+    "objectID": "slides/14-data.html#epa-environmental-and-social-data",
+    "href": "slides/14-data.html#epa-environmental-and-social-data",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "🌍 EPA Environmental and Social Data",
+    "text": "🌍 EPA Environmental and Social Data\n⚖️ EPA EJScreen\n- Environmental justice mapping for disadvantaged communities 📌\n- Currently been taken down\n🌎 EPA Envirofacts\n- Access air, water, land, and hazardous waste data 🏭💨\n🌬️ EPA National Emissions Inventory (NEI)\n- Nationwide air pollution emissions database 📊🌫️\n☣️ Toxic Release Inventory (TRI)\n- Tracks chemical emissions from industrial facilities 🏭☢️\n🌱 Environmental Resilience Tools\n- Climate adaptation and resilience datasets 🌡️🌊"
+  },
+  {
+    "objectID": "slides/14-data.html#project-introduction",
+    "href": "slides/14-data.html#project-introduction",
+    "title": "🌍 Finding Environmental Data Online 🌱",
+    "section": "Project Introduction",
+    "text": "Project Introduction\nFinal Project"
   }
 ]
