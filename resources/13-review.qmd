@@ -251,7 +251,7 @@ b |>
 b |> 
   nest(data = -SiteID)  %>%
   mutate(mod = map(data, ~lm(Bicarbonate ~ MgCa, data = .x))) %>%
-  mutate(mod.glance=map(mod,glance),
+  mutate(mod.glance=map(mod, glance),
          mod.tidy=map(mod,tidy)) %>%
   select(-data, -mod) |> 
   unnest(mod.glance, mod.tidy) |> 

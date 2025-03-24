@@ -1614,7 +1614,7 @@
     "href": "schedule.html#component-3-modeling",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 3: Modeling",
-    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 15 (w10): ML: Data Engineering\n Lecture 16 (w10): ML: Models\n Lecture 17 (w11): ML: Evaluation & Tuning\n Lecture 18 (w11): ML: Implement a Model\n Lecture 19 (w12): Timeseries Analysis\n Lecture 20 (w12): Timeseries Forecasting\n\nExercise 15:\nExercise 16:\nExercise 17:\nExercise 18:\nExercise 19:\nExercise 20:"
+    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 15 (w10): Data budgeting\n Lecture 16 (w10): Model Workflows\n Lecture 17 (w11): Model Types\n Lecture 18 (w11): Live Demo\n Lecture 19 (w12): Evaluating & Tuning a model\n Lecture 20 (w12): Live Demo\n\nExercise 15: Data Splitting\nExercise 16: Building a workflow\nExercise 17: Reading\nExercise 18: Chose your own adventure!\nExercise 19: Evaluate your model\nExercise 20: Full Process: Air Quality data"
   },
   {
     "objectID": "schedule.html#component-4-geospatial",
@@ -7851,7 +7851,7 @@
     "href": "slides/13-review.html#data-import-setup",
     "title": "Lecture 13",
     "section": "1. Data Import & Setup",
-    "text": "1. Data Import & Setup\n\nSometimes you need new libraries!\n\nWe can install from CRAN with install.packages(\"package_name\")\nWe can install from GitHub with remotes::install_github(\"username/package_name\")\n\n\n# remotes::install_github(\"brunocarlin/tidy.outliers\")\n\n\n\nStart with our libraries\n\nHere we load the libraries we will use in this lab\n\ntidyverse for data manipulation\ntidymodels for modeling\ndataRetrieval for downloading data\nflextable for making nice tables\nvisdat for EDA\n\n\n\nlibrary(tidyverse)    \n#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.5\n#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1\n#&gt; ✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n#&gt; ✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n#&gt; ✔ purrr     1.0.4     \n#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n#&gt; ✖ dplyr::filter() masks stats::filter()\n#&gt; ✖ dplyr::lag()    masks stats::lag()\n#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\nlibrary(tidymodels)   \n#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n#&gt; ✔ broom        1.0.7     ✔ rsample      1.2.1\n#&gt; ✔ dials        1.4.0     ✔ tune         1.3.0\n#&gt; ✔ infer        1.0.7     ✔ workflows    1.2.0\n#&gt; ✔ modeldata    1.4.0     ✔ workflowsets 1.1.0\n#&gt; ✔ parsnip      1.3.0     ✔ yardstick    1.3.2\n#&gt; ✔ recipes      1.1.1     \n#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n#&gt; ✖ scales::discard() masks purrr::discard()\n#&gt; ✖ dplyr::filter()   masks stats::filter()\n#&gt; ✖ recipes::fixed()  masks stringr::fixed()\n#&gt; ✖ dplyr::lag()      masks stats::lag()\n#&gt; ✖ yardstick::spec() masks readr::spec()\n#&gt; ✖ recipes::step()   masks stats::step()\n#&gt; • Use tidymodels_prefer() to resolve common conflicts.\nlibrary(dataRetrieval)\nlibrary(flextable)    \n#&gt; \n#&gt; Attaching package: 'flextable'\n#&gt; \n#&gt; The following object is masked from 'package:purrr':\n#&gt; \n#&gt;     compose\nlibrary(visdat)       \n\n\nWe can predefine our sites of interest for expediency. We do this by creating a data frame with the SiteID and SiteName atomic vectors.\nWe can also predefine the variables we are interested in.\n\n\nsites &lt;-  tibble(SiteID = c(\"USGS-09069000\", \"USGS-09085000\", \"USGS-09095500\",\n                                \"USGS-09152500\", \"USGS-09180000\", \"USGS-09380000\"),\n                     SiteName = c(\"Eagle\", \"Roaring Fork\", \"Colorado 3\", \n                                  \n                                  \"Gunnison\", \"Dolores\", \"Colorado 5\")) \n\n\nvars  &lt;- c('Magnesium', 'Calcium', 'Bicarbonate')\n\n\n\nExplore the Sites\n\n## Access\nsite.info &lt;- whatWQPsites(siteid = sites$SiteID) \n#&gt; GET:https://www.waterqualitydata.us/data/Station/search?siteid=USGS-09069000%3BUSGS-09085000%3BUSGS-09095500%3BUSGS-09152500%3BUSGS-09180000%3BUSGS-09380000&mimeType=csv&count=no\nnames(site.info)\n#&gt;  [1] \"OrganizationIdentifier\"                         \n#&gt;  [2] \"OrganizationFormalName\"                         \n#&gt;  [3] \"MonitoringLocationIdentifier\"                   \n#&gt;  [4] \"MonitoringLocationName\"                         \n#&gt;  [5] \"MonitoringLocationTypeName\"                     \n#&gt;  [6] \"MonitoringLocationDescriptionText\"              \n#&gt;  [7] \"HUCEightDigitCode\"                              \n#&gt;  [8] \"DrainageAreaMeasure.MeasureValue\"               \n#&gt;  [9] \"DrainageAreaMeasure.MeasureUnitCode\"            \n#&gt; [10] \"ContributingDrainageAreaMeasure.MeasureValue\"   \n#&gt; [11] \"ContributingDrainageAreaMeasure.MeasureUnitCode\"\n#&gt; [12] \"LatitudeMeasure\"                                \n#&gt; [13] \"LongitudeMeasure\"                               \n#&gt; [14] \"SourceMapScaleNumeric\"                          \n#&gt; [15] \"HorizontalAccuracyMeasure.MeasureValue\"         \n#&gt; [16] \"HorizontalAccuracyMeasure.MeasureUnitCode\"      \n#&gt; [17] \"HorizontalCollectionMethodName\"                 \n#&gt; [18] \"HorizontalCoordinateReferenceSystemDatumName\"   \n#&gt; [19] \"VerticalMeasure.MeasureValue\"                   \n#&gt; [20] \"VerticalMeasure.MeasureUnitCode\"                \n#&gt; [21] \"VerticalAccuracyMeasure.MeasureValue\"           \n#&gt; [22] \"VerticalAccuracyMeasure.MeasureUnitCode\"        \n#&gt; [23] \"VerticalCollectionMethodName\"                   \n#&gt; [24] \"VerticalCoordinateReferenceSystemDatumName\"     \n#&gt; [25] \"CountryCode\"                                    \n#&gt; [26] \"StateCode\"                                      \n#&gt; [27] \"CountyCode\"                                     \n#&gt; [28] \"AquiferName\"                                    \n#&gt; [29] \"LocalAqfrName\"                                  \n#&gt; [30] \"FormationTypeText\"                              \n#&gt; [31] \"AquiferTypeName\"                                \n#&gt; [32] \"ConstructionDateText\"                           \n#&gt; [33] \"WellDepthMeasure.MeasureValue\"                  \n#&gt; [34] \"WellDepthMeasure.MeasureUnitCode\"               \n#&gt; [35] \"WellHoleDepthMeasure.MeasureValue\"              \n#&gt; [36] \"WellHoleDepthMeasure.MeasureUnitCode\"           \n#&gt; [37] \"ProviderName\"\n\n## Make a map!\nggplot(site.info, aes(x = LongitudeMeasure, y = LatitudeMeasure)) + \n  borders(\"state\") +\n  geom_point() + \n  theme_linedraw()\n\n\n\n\n\n\n\n\n\n\nData I/O\n\nWe can use the dataRetrieval package to download data from the USGS NWIS database.\nThis provides API access to the USGS NWIS database opposed to reading from a file.\n\n\n# Data Access\nnwis_wqp &lt;- readWQPqw(siteNumbers = sites$SiteID, parameterCd = vars) |&gt; \n   select(date = ActivityStartDate,\n          parameter = CharacteristicName,\n          SiteID = MonitoringLocationIdentifier,\n          value  = ResultMeasureValue,\n          units  = ResultMeasure.MeasureUnitCode,\n          media  = ActivityMediaName) |&gt; \n  filter(media=='Water') |&gt; \n  left_join(sites, by = \"SiteID\") |&gt; \n  select(contains('Site'), date, units, parameter, value)\n#&gt; GET:https://www.waterqualitydata.us/data/Result/search?siteid=USGS-09069000%3BUSGS-09085000%3BUSGS-09095500%3BUSGS-09152500%3BUSGS-09180000%3BUSGS-09380000&count=no&characteristicName=Magnesium%3BCalcium%3BBicarbonate&mimeType=csv\n#&gt; Waiting 2s for throttling delay ■■■■■■■■■■■■■■■\n#&gt; Waiting 2s for throttling delay ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n#&gt; NEWS: Data does not include USGS data newer than March 11, 2024. More details:\n#&gt; https://doi-usgs.github.io/dataRetrieval/articles/Status.html\n\n## EDA!\n## \nglimpse(nwis_wqp)\n#&gt; Rows: 16,795\n#&gt; Columns: 6\n#&gt; $ SiteID    &lt;chr&gt; \"USGS-09180000\", \"USGS-09180000\", \"USGS-09180000\", \"USGS-091…\n#&gt; $ SiteName  &lt;chr&gt; \"Dolores\", \"Dolores\", \"Dolores\", \"Dolores\", \"Dolores\", \"Dolo…\n#&gt; $ date      &lt;date&gt; 1968-11-18, 1968-11-18, 1968-11-18, 1969-01-29, 1969-01-29,…\n#&gt; $ units     &lt;chr&gt; \"mg/l\", \"mg/l\", \"mg/l\", \"mg/l\", \"mg/l\", \"mg/l\", \"mg/l\", \"mg/…\n#&gt; $ parameter &lt;chr&gt; \"Bicarbonate\", \"Magnesium\", \"Calcium\", \"Calcium\", \"Magnesium…\n#&gt; $ value     &lt;dbl&gt; 148, 72, 132, 98, 55, 168, 124, 43, 10, 17, 78, 112, 76, 27,…\nvis_dat(nwis_wqp)\n\n\n\n\n\n\n\nrange(nwis_wqp$date)\n#&gt; [1] \"1926-01-11\" \"2024-02-28\""
+    "text": "1. Data Import & Setup\n\nSometimes you need new libraries!\n\nWe can install from CRAN with install.packages(\"package_name\")\nWe can install from GitHub with remotes::install_github(\"username/package_name\")\n\n\n# remotes::install_github(\"brunocarlin/tidy.outliers\")\n\n\n\nStart with our libraries\n\nHere we load the libraries we will use in this lab\n\ntidyverse for data manipulation\ntidymodels for modeling\ndataRetrieval for downloading data\nflextable for making nice tables\nvisdat for EDA\n\n\n\nlibrary(tidyverse)    \n#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.5\n#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1\n#&gt; ✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n#&gt; ✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n#&gt; ✔ purrr     1.0.4     \n#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n#&gt; ✖ dplyr::filter() masks stats::filter()\n#&gt; ✖ dplyr::lag()    masks stats::lag()\n#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\nlibrary(tidymodels)   \n#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n#&gt; ✔ broom        1.0.7     ✔ rsample      1.2.1\n#&gt; ✔ dials        1.4.0     ✔ tune         1.3.0\n#&gt; ✔ infer        1.0.7     ✔ workflows    1.2.0\n#&gt; ✔ modeldata    1.4.0     ✔ workflowsets 1.1.0\n#&gt; ✔ parsnip      1.3.0     ✔ yardstick    1.3.2\n#&gt; ✔ recipes      1.1.1     \n#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n#&gt; ✖ scales::discard() masks purrr::discard()\n#&gt; ✖ dplyr::filter()   masks stats::filter()\n#&gt; ✖ recipes::fixed()  masks stringr::fixed()\n#&gt; ✖ dplyr::lag()      masks stats::lag()\n#&gt; ✖ yardstick::spec() masks readr::spec()\n#&gt; ✖ recipes::step()   masks stats::step()\n#&gt; • Learn how to get started at https://www.tidymodels.org/start/\nlibrary(dataRetrieval)\nlibrary(flextable)    \n#&gt; \n#&gt; Attaching package: 'flextable'\n#&gt; \n#&gt; The following object is masked from 'package:purrr':\n#&gt; \n#&gt;     compose\nlibrary(visdat)       \n\n\nWe can predefine our sites of interest for expediency. We do this by creating a data frame with the SiteID and SiteName atomic vectors.\nWe can also predefine the variables we are interested in.\n\n\nsites &lt;-  tibble(SiteID = c(\"USGS-09069000\", \"USGS-09085000\", \"USGS-09095500\",\n                                \"USGS-09152500\", \"USGS-09180000\", \"USGS-09380000\"),\n                     SiteName = c(\"Eagle\", \"Roaring Fork\", \"Colorado 3\", \n                                  \n                                  \"Gunnison\", \"Dolores\", \"Colorado 5\")) \n\n\nvars  &lt;- c('Magnesium', 'Calcium', 'Bicarbonate')\n\n\n\nExplore the Sites\n\n## Access\nsite.info &lt;- whatWQPsites(siteid = sites$SiteID) \n#&gt; GET:https://www.waterqualitydata.us/data/Station/search?siteid=USGS-09069000%3BUSGS-09085000%3BUSGS-09095500%3BUSGS-09152500%3BUSGS-09180000%3BUSGS-09380000&mimeType=csv&count=no\nnames(site.info)\n#&gt;  [1] \"OrganizationIdentifier\"                         \n#&gt;  [2] \"OrganizationFormalName\"                         \n#&gt;  [3] \"MonitoringLocationIdentifier\"                   \n#&gt;  [4] \"MonitoringLocationName\"                         \n#&gt;  [5] \"MonitoringLocationTypeName\"                     \n#&gt;  [6] \"MonitoringLocationDescriptionText\"              \n#&gt;  [7] \"HUCEightDigitCode\"                              \n#&gt;  [8] \"DrainageAreaMeasure.MeasureValue\"               \n#&gt;  [9] \"DrainageAreaMeasure.MeasureUnitCode\"            \n#&gt; [10] \"ContributingDrainageAreaMeasure.MeasureValue\"   \n#&gt; [11] \"ContributingDrainageAreaMeasure.MeasureUnitCode\"\n#&gt; [12] \"LatitudeMeasure\"                                \n#&gt; [13] \"LongitudeMeasure\"                               \n#&gt; [14] \"SourceMapScaleNumeric\"                          \n#&gt; [15] \"HorizontalAccuracyMeasure.MeasureValue\"         \n#&gt; [16] \"HorizontalAccuracyMeasure.MeasureUnitCode\"      \n#&gt; [17] \"HorizontalCollectionMethodName\"                 \n#&gt; [18] \"HorizontalCoordinateReferenceSystemDatumName\"   \n#&gt; [19] \"VerticalMeasure.MeasureValue\"                   \n#&gt; [20] \"VerticalMeasure.MeasureUnitCode\"                \n#&gt; [21] \"VerticalAccuracyMeasure.MeasureValue\"           \n#&gt; [22] \"VerticalAccuracyMeasure.MeasureUnitCode\"        \n#&gt; [23] \"VerticalCollectionMethodName\"                   \n#&gt; [24] \"VerticalCoordinateReferenceSystemDatumName\"     \n#&gt; [25] \"CountryCode\"                                    \n#&gt; [26] \"StateCode\"                                      \n#&gt; [27] \"CountyCode\"                                     \n#&gt; [28] \"AquiferName\"                                    \n#&gt; [29] \"LocalAqfrName\"                                  \n#&gt; [30] \"FormationTypeText\"                              \n#&gt; [31] \"AquiferTypeName\"                                \n#&gt; [32] \"ConstructionDateText\"                           \n#&gt; [33] \"WellDepthMeasure.MeasureValue\"                  \n#&gt; [34] \"WellDepthMeasure.MeasureUnitCode\"               \n#&gt; [35] \"WellHoleDepthMeasure.MeasureValue\"              \n#&gt; [36] \"WellHoleDepthMeasure.MeasureUnitCode\"           \n#&gt; [37] \"ProviderName\"\n\n## Make a map!\nggplot(site.info, aes(x = LongitudeMeasure, y = LatitudeMeasure)) + \n  borders(\"state\") +\n  geom_point() + \n  theme_linedraw()\n\n\n\n\n\n\n\n\n\n\nData I/O\n\nWe can use the dataRetrieval package to download data from the USGS NWIS database.\nThis provides API access to the USGS NWIS database opposed to reading from a file.\n\n\n# Data Access\nnwis_wqp &lt;- readWQPqw(siteNumbers = sites$SiteID, parameterCd = vars) |&gt; \n   select(date = ActivityStartDate,\n          parameter = CharacteristicName,\n          SiteID = MonitoringLocationIdentifier,\n          value  = ResultMeasureValue,\n          units  = ResultMeasure.MeasureUnitCode,\n          media  = ActivityMediaName) |&gt; \n  filter(media=='Water') |&gt; \n  left_join(sites, by = \"SiteID\") |&gt; \n  select(contains('Site'), date, units, parameter, value)\n#&gt; GET:https://www.waterqualitydata.us/data/Result/search?siteid=USGS-09069000%3BUSGS-09085000%3BUSGS-09095500%3BUSGS-09152500%3BUSGS-09180000%3BUSGS-09380000&count=no&characteristicName=Magnesium%3BCalcium%3BBicarbonate&mimeType=csv\n#&gt; Waiting 2s for throttling delay ■■■■■■■■■■■■■■■\n#&gt; Waiting 2s for throttling delay ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n#&gt; NEWS: Data does not include USGS data newer than March 11, 2024. More details:\n#&gt; https://doi-usgs.github.io/dataRetrieval/articles/Status.html\n\n## EDA!\n## \nglimpse(nwis_wqp)\n#&gt; Rows: 16,795\n#&gt; Columns: 6\n#&gt; $ SiteID    &lt;chr&gt; \"USGS-09180000\", \"USGS-09180000\", \"USGS-09180000\", \"USGS-091…\n#&gt; $ SiteName  &lt;chr&gt; \"Dolores\", \"Dolores\", \"Dolores\", \"Dolores\", \"Dolores\", \"Dolo…\n#&gt; $ date      &lt;date&gt; 1968-11-18, 1968-11-18, 1968-11-18, 1969-01-29, 1969-01-29,…\n#&gt; $ units     &lt;chr&gt; \"mg/l\", \"mg/l\", \"mg/l\", \"mg/l\", \"mg/l\", \"mg/l\", \"mg/l\", \"mg/…\n#&gt; $ parameter &lt;chr&gt; \"Bicarbonate\", \"Magnesium\", \"Calcium\", \"Calcium\", \"Magnesium…\n#&gt; $ value     &lt;dbl&gt; 148, 72, 132, 98, 55, 168, 124, 43, 10, 17, 78, 112, 76, 27,…\nvis_dat(nwis_wqp)\n\n\n\n\n\n\n\nrange(nwis_wqp$date)\n#&gt; [1] \"1926-01-11\" \"2024-02-28\""
   },
   {
     "objectID": "slides/13-review.html#data-tidying-eda",
@@ -8172,8 +8172,8 @@
     "objectID": "slides/14-data.html#u.s.-government-data-portals",
     "href": "slides/14-data.html#u.s.-government-data-portals",
     "title": "🌍 Finding Environmental Data Online 🌱",
-    "section": "🏛️ U.S. Government Data Portals",
-    "text": "🏛️ U.S. Government Data Portals\n1. Data.gov\n- Central hub for open government data 📊\n- Datasets from agencies like NOAA, NASA, and USGS\n- APIs and download options\n2. USGS ScienceBase\n- Geospatial and environmental science data 🌎\n3. USGS Earth Explorer\n- Satellite imagery and aerial photos 📸\n4. National Map\n- Topographic and land cover data 🗺️"
+    "section": "",
+    "text": "1. Data.gov\n- Central hub for open government data 📊\n- Datasets from agencies like NOAA, NASA, and USGS\n- APIs and download options\n2. USGS ScienceBase\n- Geospatial and environmental science data 🌎\n3. USGS Earth Explorer\n- Satellite imagery and aerial photos 📸\n4. National Map\n- Topographic and land cover data 🗺️"
   },
   {
     "objectID": "slides/14-data.html#hydrology-and-water-resources",
@@ -8293,5 +8293,1174 @@
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Project Information",
     "text": "Project Information"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#what-is-machine-learning",
+    "href": "slides/15-ml-intro.html#what-is-machine-learning",
+    "title": "Lecture 15",
+    "section": "What is machine learning?",
+    "text": "What is machine learning?\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#what-is-machine-learning-1",
+    "href": "slides/15-ml-intro.html#what-is-machine-learning-1",
+    "title": "15 - Introduction to tidymodels",
+    "section": "What is machine learning?",
+    "text": "What is machine learning?\n\n\n\n\n\n\n\nNote\n\n\nIn the early 2010s, “Artificial intelligence” (AI) was largely synonymous with what we’ll refer to as “machine learning” in this workshop. In the late 2010s and early 2020s, AI usually referred to deep learning methods. Since the release of ChatGPT in late 2022, “AI” has come to also encompass large language models (LLMs) / generative models.\n\n\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#what-is-machine-learning-2025-edition",
+    "href": "slides/15-ml-intro.html#what-is-machine-learning-2025-edition",
+    "title": "Lecture 15",
+    "section": "What is machine learning? (2025 edition)",
+    "text": "What is machine learning? (2025 edition)\n\n\n\n\n\n\nNote\n\n\nIn the early 2010s, “Artificial intelligence” (AI) was largely synonymous with what we’ll refer to as “machine learning” in this workshop. In the late 2010s and early 2020s, AI usually referred to deep learning methods. Since the release of ChatGPT in late 2022, “AI” has come to also encompass large language models (LLMs) / generative models.\n\n\n\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#what-is-machine-learning-2",
+    "href": "slides/15-ml-intro.html#what-is-machine-learning-2",
+    "title": "15 - Introduction to tidymodels",
+    "section": "What is machine learning?",
+    "text": "What is machine learning?\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#what-is-tidymodels",
+    "href": "slides/15-ml-intro.html#what-is-tidymodels",
+    "title": "Lecture 15",
+    "section": "What is tidymodels? ",
+    "text": "What is tidymodels? \n\nlibrary(tidymodels)\n#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n#&gt; ✔ broom        1.0.7     ✔ recipes      1.1.1\n#&gt; ✔ dials        1.4.0     ✔ rsample      1.2.1\n#&gt; ✔ dplyr        1.1.4     ✔ tibble       3.2.1\n#&gt; ✔ ggplot2      3.5.1     ✔ tidyr        1.3.1\n#&gt; ✔ infer        1.0.7     ✔ tune         1.3.0\n#&gt; ✔ modeldata    1.4.0     ✔ workflows    1.2.0\n#&gt; ✔ parsnip      1.3.0     ✔ workflowsets 1.1.0\n#&gt; ✔ purrr        1.0.4     ✔ yardstick    1.3.2\n#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n#&gt; ✖ purrr::discard() masks scales::discard()\n#&gt; ✖ dplyr::filter()  masks stats::filter()\n#&gt; ✖ dplyr::lag()     masks stats::lag()\n#&gt; ✖ recipes::step()  masks stats::step()\n#&gt; • Dig deeper into tidy modeling with R at https://www.tmwr.org"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game",
+    "href": "slides/15-ml-intro.html#the-whole-game",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game",
+    "text": "The whole game\nWhen testing different models, and, different model set ups, it is important to"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game-1",
+    "href": "slides/15-ml-intro.html#the-whole-game-1",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game",
+    "text": "The whole game"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game-2",
+    "href": "slides/15-ml-intro.html#the-whole-game-2",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game",
+    "text": "The whole game"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game-3",
+    "href": "slides/15-ml-intro.html#the-whole-game-3",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game",
+    "text": "The whole game"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game-4",
+    "href": "slides/15-ml-intro.html#the-whole-game-4",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game",
+    "text": "The whole game"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game-5",
+    "href": "slides/15-ml-intro.html#the-whole-game-5",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game",
+    "text": "The whole game"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game-6",
+    "href": "slides/15-ml-intro.html#the-whole-game-6",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game",
+    "text": "The whole game"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game-7",
+    "href": "slides/15-ml-intro.html#the-whole-game-7",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game",
+    "text": "The whole game"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#lets-install-some-packages",
+    "href": "slides/15-ml-intro.html#lets-install-some-packages",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Let’s install some packages",
+    "text": "Let’s install some packages\n\n# Install the packages for the workshop\npkgs &lt;- \n  c(\"bonsai\", \"Cubist\", \"doParallel\", \"earth\", \"embed\", \"finetune\", \n    \"forested\", \"lightgbm\", \"lme4\", \"parallelly\", \"plumber\", \"probably\", \n    \"ranger\", \"rpart\", \"rpart.plot\", \"rules\", \"splines2\", \"stacks\", \n    \"text2vec\", \"textrecipes\", \"vetiver\")\n\ninstall.packages(pkgs)"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#data-on-forests-in-washington",
+    "href": "slides/15-ml-intro.html#data-on-forests-in-washington",
+    "title": "Lecture 15",
+    "section": "Data on forests in Washington",
+    "text": "Data on forests in Washington\n\n\n\nThe U.S. Forest Service maintains ML models to predict whether a plot of land is “forested.”\nThis classification is important for all sorts of research, legislation, and land management purposes.\nPlots are typically remeasured every 10 years and this dataset contains the most recent measurement per plot.\nType ?forested to learn more about this dataset, including references.\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/251793/forest-mountain"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#data-on-forests-in-washington-1",
+    "href": "slides/15-ml-intro.html#data-on-forests-in-washington-1",
+    "title": "Lecture 15",
+    "section": "Data on forests in Washington",
+    "text": "Data on forests in Washington\n\n\n\nlibrary(forested)\ndim(forested)\n#&gt; [1] 7107   19\n\n\nOne observation from each of 7,107 6000-acre hexagons in Washington state.\nA nominal outcome, forested, with levels \"Yes\" and \"No\", measured “on-the-ground.”\n\n\ntable(forested$forested)\n#&gt; \n#&gt;  Yes   No \n#&gt; 3894 3213\n\n\n18 remotely-sensed and easily-accessible predictors:\n\n\nnames(forested)\n#&gt;  [1] \"forested\"         \"year\"             \"elevation\"        \"eastness\"        \n#&gt;  [5] \"northness\"        \"roughness\"        \"tree_no_tree\"     \"dew_temp\"        \n#&gt;  [9] \"precip_annual\"    \"temp_annual_mean\" \"temp_annual_min\"  \"temp_annual_max\" \n#&gt; [13] \"temp_january_min\" \"vapor_min\"        \"vapor_max\"        \"canopy_cover\"    \n#&gt; [17] \"lon\"              \"lat\"              \"land_type\"\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/67614/forest"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#checklist-for-predictors",
+    "href": "slides/15-ml-intro.html#checklist-for-predictors",
+    "title": "Lecture 15",
+    "section": "Checklist for predictors",
+    "text": "Checklist for predictors\n\nIs it ethical to use this variable? (Or even legal?)\nWill this variable be available at prediction time?\nDoes this variable contribute to explainability?\n\n\n\n\n\n\n\nNote\n\n\n\nre: ethics – what issues might arise from releasing the true lat and lon? In reality, these lat and lon are slightly jittered to help ensure trust with landowners who allow surveyers to come take measurements."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#data-on-forests-in-washington-2",
+    "href": "slides/15-ml-intro.html#data-on-forests-in-washington-2",
+    "title": "Lecture 15",
+    "section": "Data on forests in Washington",
+    "text": "Data on forests in Washington\n\nlibrary(tidymodels)\nlibrary(forested)\n\nglimpse(forested)\n#&gt; Rows: 7,107\n#&gt; Columns: 19\n#&gt; $ forested         &lt;fct&gt; Yes, Yes, No, Yes, Yes, Yes, Yes, Yes, Yes, Yes, Yes,…\n#&gt; $ year             &lt;dbl&gt; 2005, 2005, 2005, 2005, 2005, 2005, 2005, 2005, 2005,…\n#&gt; $ elevation        &lt;dbl&gt; 881, 113, 164, 299, 806, 736, 636, 224, 52, 2240, 104…\n#&gt; $ eastness         &lt;dbl&gt; 90, -25, -84, 93, 47, -27, -48, -65, -62, -67, 96, -4…\n#&gt; $ northness        &lt;dbl&gt; 43, 96, 53, 34, -88, -96, 87, -75, 78, -74, -26, 86, …\n#&gt; $ roughness        &lt;dbl&gt; 63, 30, 13, 6, 35, 53, 3, 9, 42, 99, 51, 190, 95, 212…\n#&gt; $ tree_no_tree     &lt;fct&gt; Tree, Tree, Tree, No tree, Tree, Tree, No tree, Tree,…\n#&gt; $ dew_temp         &lt;dbl&gt; 0.04, 6.40, 6.06, 4.43, 1.06, 1.35, 1.42, 6.39, 6.50,…\n#&gt; $ precip_annual    &lt;dbl&gt; 466, 1710, 1297, 2545, 609, 539, 702, 1195, 1312, 103…\n#&gt; $ temp_annual_mean &lt;dbl&gt; 6.42, 10.64, 10.07, 9.86, 7.72, 7.89, 7.61, 10.45, 10…\n#&gt; $ temp_annual_min  &lt;dbl&gt; -8.32, 1.40, 0.19, -1.20, -5.98, -6.00, -5.76, 1.11, …\n#&gt; $ temp_annual_max  &lt;dbl&gt; 12.91, 15.84, 14.42, 15.78, 13.84, 14.66, 14.23, 15.3…\n#&gt; $ temp_january_min &lt;dbl&gt; -0.08, 5.44, 5.72, 3.95, 1.60, 1.12, 0.99, 5.54, 6.20…\n#&gt; $ vapor_min        &lt;dbl&gt; 78, 34, 49, 67, 114, 67, 67, 31, 60, 79, 172, 162, 70…\n#&gt; $ vapor_max        &lt;dbl&gt; 1194, 938, 754, 1164, 1254, 1331, 1275, 944, 892, 549…\n#&gt; $ canopy_cover     &lt;dbl&gt; 50, 79, 47, 42, 59, 36, 14, 27, 82, 12, 74, 66, 83, 6…\n#&gt; $ lon              &lt;dbl&gt; -118.6865, -123.0825, -122.3468, -121.9144, -117.8841…\n#&gt; $ lat              &lt;dbl&gt; 48.69537, 47.07991, 48.77132, 45.80776, 48.07396, 48.…\n#&gt; $ land_type        &lt;fct&gt; Tree, Tree, Tree, Tree, Tree, Tree, Non-tree vegetati…"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#data-splitting-and-spending",
+    "href": "slides/15-ml-intro.html#data-splitting-and-spending",
+    "title": "Lecture 15",
+    "section": "Data splitting and spending",
+    "text": "Data splitting and spending\nThe initial split \n\nset.seed(123)\nforested_split &lt;- initial_split(forested, prop = .8, strata = tree_no_tree)\nforested_split\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#data-splitting-and-spending-1",
+    "href": "slides/15-ml-intro.html#data-splitting-and-spending-1",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Data splitting and spending",
+    "text": "Data splitting and spending\n\nSpending too much data in training prevents us from computing a good assessment of predictive performance.\n\n\n\nSpending too much data in testing prevents us from computing a good estimate of model parameters."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#data-splitting-and-spending-2",
+    "href": "slides/15-ml-intro.html#data-splitting-and-spending-2",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Data splitting and spending",
+    "text": "Data splitting and spending\n\nSpending too much data in training prevents us from computing a good assessment of predictive performance.\n\n\n\nSpending too much data in testing prevents us from computing a good estimate of model parameters."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#your-turn",
+    "href": "slides/15-ml-intro.html#your-turn",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Your turn",
+    "text": "Your turn\n\nSplit your data so 20% is held out for the test set.\nTry out different values in set.seed() to see how the results change.\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-initial-split",
+    "href": "slides/15-ml-intro.html#the-initial-split",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The initial split ",
+    "text": "The initial split \n\nset.seed(123)\nforested_split &lt;- initial_split(forested)\nforested_split\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5330/1777/7107&gt;\n\n\nHow much data in training vs testing? This function uses a good default, but this depends on your specific goal/data"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#what-is-set.seed",
+    "href": "slides/15-ml-intro.html#what-is-set.seed",
+    "title": "Lecture 15",
+    "section": "What is set.seed()?",
+    "text": "What is set.seed()?\n\nTo create that split of the data, R generates “pseudo-random” numbers: while they are made to behave like random numbers, their generation is deterministic given a “seed”.\nThis allows us to reproduce results by setting that seed.\nWhich seed you pick doesn’t matter, as long as you don’t try a bunch of seeds and pick the one that gives you the best performance."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#accessing-the-data",
+    "href": "slides/15-ml-intro.html#accessing-the-data",
+    "title": "Lecture 15",
+    "section": "Accessing the data: ",
+    "text": "Accessing the data: \n\nOnce the data is split, we can access the training and testing data using the training() and testing() functions to extract the partitioned data from the full set:\n\n\npenguins_train &lt;- training(resample_split)\nglimpse(penguins_train)\n#&gt; Rows: 275\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Gentoo, Adelie, Gentoo, Chinstrap, Gentoo, Chinstrap…\n#&gt; $ island            &lt;fct&gt; Biscoe, Torgersen, Biscoe, Dream, Biscoe, Dream, Dre…\n#&gt; $ bill_length_mm    &lt;dbl&gt; 46.2, 43.1, 46.2, 45.9, 46.5, 48.1, 45.2, 55.9, 38.1…\n#&gt; $ bill_depth_mm     &lt;dbl&gt; 14.9, 19.2, 14.4, 17.1, 13.5, 16.4, 17.8, 17.0, 17.0…\n#&gt; $ flipper_length_mm &lt;int&gt; 221, 197, 214, 190, 210, 199, 198, 228, 181, 195, 20…\n#&gt; $ body_mass_g       &lt;int&gt; 5300, 3500, 4650, 3575, 4550, 3325, 3950, 5600, 3175…\n#&gt; $ sex               &lt;fct&gt; male, male, NA, female, female, female, female, male…\n\n\n\npenguins_test &lt;- testing(resample_split)\nglimpse(penguins_test)\n#&gt; Rows: 69\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Biscoe, Biscoe, Bis…\n#&gt; $ bill_length_mm    &lt;dbl&gt; NA, 39.3, 36.6, 35.9, 38.8, 37.9, 39.2, 39.6, 36.7, …\n#&gt; $ bill_depth_mm     &lt;dbl&gt; NA, 20.6, 17.8, 19.2, 17.2, 18.6, 21.1, 17.2, 18.8, …\n#&gt; $ flipper_length_mm &lt;int&gt; NA, 190, 185, 189, 180, 172, 196, 196, 187, 205, 187…\n#&gt; $ body_mass_g       &lt;int&gt; NA, 3650, 3700, 3800, 3800, 3150, 4150, 3550, 3800, …\n#&gt; $ sex               &lt;fct&gt; NA, male, female, female, male, female, male, female…"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-training-set",
+    "href": "slides/15-ml-intro.html#the-training-set",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The training set",
+    "text": "The training set\n\nforested_train\n#&gt; # A tibble: 5,330 × 19\n#&gt;    forested  year elevation eastness northness roughness tree_no_tree dew_temp\n#&gt;    &lt;fct&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;           &lt;dbl&gt;\n#&gt;  1 No        2016       464       -5       -99         7 No tree          1.71\n#&gt;  2 Yes       2016       166       92        37         7 Tree             6   \n#&gt;  3 No        2016       644      -85       -52        24 No tree          0.67\n#&gt;  4 Yes       2014      1285        4        99        79 Tree             1.91\n#&gt;  5 Yes       2013       822       87        48        68 Tree             1.95\n#&gt;  6 Yes       2017         3        6       -99         5 Tree             7.93\n#&gt;  7 Yes       2014      2041      -95        28        49 Tree            -4.22\n#&gt;  8 Yes       2015      1009       -8        99        72 Tree             1.72\n#&gt;  9 No        2017       436      -98        19        10 No tree          1.8 \n#&gt; 10 No        2018       775       63        76       103 No tree          0.62\n#&gt; # ℹ 5,320 more rows\n#&gt; # ℹ 11 more variables: precip_annual &lt;dbl&gt;, temp_annual_mean &lt;dbl&gt;,\n#&gt; #   temp_annual_min &lt;dbl&gt;, temp_annual_max &lt;dbl&gt;, temp_january_min &lt;dbl&gt;,\n#&gt; #   vapor_min &lt;dbl&gt;, vapor_max &lt;dbl&gt;, canopy_cover &lt;dbl&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;,\n#&gt; #   land_type &lt;fct&gt;"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-test-set",
+    "href": "slides/15-ml-intro.html#the-test-set",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The test set ",
+    "text": "The test set \n🙈\n\nThere are 1777 rows and 19 columns in the test set."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#your-turn-1",
+    "href": "slides/15-ml-intro.html#your-turn-1",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Your turn",
+    "text": "Your turn\n\nExplore the forested_train data on your own!\n\nWhat’s the distribution of the outcome, forested?\nWhat’s the distribution of numeric variables like precip_annual?\nHow does the distribution of forested differ across the categorical variables?\n\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#data-splitting-and-spending-3",
+    "href": "slides/15-ml-intro.html#data-splitting-and-spending-3",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Data splitting and spending ",
+    "text": "Data splitting and spending \n\nset.seed(123)\nforested_split &lt;- initial_split(forested, prop = 0.8)\nforested_train &lt;- training(forested_split)\nforested_test &lt;- testing(forested_split)\n\nnrow(forested_train)\n#&gt; [1] 5685\nnrow(forested_test)\n#&gt; [1] 1422"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#your-turn-2",
+    "href": "slides/15-ml-intro.html#your-turn-2",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Your turn",
+    "text": "Your turn\n\nExplore the forested_train data on your own!\n\nWhat’s the distribution of the outcome, forested?\nWhat’s the distribution of numeric variables like precip_annual?\nHow does the distribution of forested differ across the categorical variables?\n\n\n\n\n−+\n08:00\n\n\n\n\nMake a plot or summary and then share with neighbor"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#section-2",
+    "href": "slides/15-ml-intro.html#section-2",
+    "title": "15 - Introduction to tidymodels",
+    "section": "",
+    "text": "forested_train %&gt;% \n  ggplot(aes(x = forested, fill = tree_no_tree)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#section-3",
+    "href": "slides/15-ml-intro.html#section-3",
+    "title": "15 - Introduction to tidymodels",
+    "section": "",
+    "text": "forested_train %&gt;% \n  ggplot(aes(x = precip_annual, fill = forested, group = forested)) +\n  geom_histogram(position = \"identity\", alpha = .7)"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#section-4",
+    "href": "slides/15-ml-intro.html#section-4",
+    "title": "15 - Introduction to tidymodels",
+    "section": "",
+    "text": "forested_train %&gt;% \n  ggplot(aes(x = precip_annual, fill = forested, group = forested)) +\n  geom_histogram(position = \"fill\")"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#section-5",
+    "href": "slides/15-ml-intro.html#section-5",
+    "title": "15 - Introduction to tidymodels",
+    "section": "",
+    "text": "forested_train %&gt;% \n  ggplot(aes(x = lon, y = lat, col = forested)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#section-6",
+    "href": "slides/15-ml-intro.html#section-6",
+    "title": "15 - Introduction to tidymodels",
+    "section": "",
+    "text": "forested_train %&gt;% \n  ggplot(aes(x = lon, y = lat, col = forested)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game---status-update",
+    "href": "slides/15-ml-intro.html#the-whole-game---status-update",
+    "title": "Lecture 15",
+    "section": "The whole game - status update",
+    "text": "The whole game - status update"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#section-1",
+    "href": "slides/15-ml-intro.html#section-1",
+    "title": "Lecture 15",
+    "section": "",
+    "text": "# Dataset\n(table(penguins$species) / nrow(penguins))\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4418605 0.1976744 0.3604651\n# Training Data\n(table(penguins_train$species) / nrow(penguins_train))\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4581818 0.1818182 0.3600000\n# Testing Data\n(table(penguins_test$species) / nrow(penguins_test))\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.3768116 0.2608696 0.3623188"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#assignment",
+    "href": "slides/15-ml-intro.html#assignment",
+    "title": "Lecture 15",
+    "section": "Assignment",
+    "text": "Assignment\n\nReview these slides ~ 1 - 53 here for a brief overview of where we have been.\nExecute the following process:\n\nOpen an R script (extension .R)\nLoad the tidymodels package and the penguins dataset\nSet a seed (set.seed())\nSplit the data into training/testing sets with a proportion of 70%/30% split\nExtract the training and test tibbles into unique objects\nCreate a 10 fold cross validation dataset based on the training data\n\nSubmit your R script to Canvas, this we be built on on Wednesday."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-whole-game-data-use",
+    "href": "slides/15-ml-intro.html#the-whole-game-data-use",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The whole game: Data Use",
+    "text": "The whole game: Data Use\n\nData is limited"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#other-options",
+    "href": "slides/15-ml-intro.html#other-options",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Other Options:",
+    "text": "Other Options:"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#introduction",
+    "href": "slides/15-ml-intro.html#introduction",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Introduction",
+    "text": "Introduction\nResampling is a key step in model validation and assessment. The rsample package in the tidymodels ecosystem provides tools to create resampling strategies such as cross-validation, bootstrapping, and validation splits."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#key-resampling-methods",
+    "href": "slides/15-ml-intro.html#key-resampling-methods",
+    "title": "Lecture 15",
+    "section": "Key Resampling Methods",
+    "text": "Key Resampling Methods\n\n\n\n\n\n\nWarning\n\n\nResampling is always used with the training set.\n\n\n\nResampling is a key step in model validation and assessment. The rsample package provides tools to create resampling strategies such as cross-validation, bootstrapping, and validation splits.\n\n\nK-Fold Cross-Validation: The dataset is split into multiple “folds” (e.g., 5-fold or 10-fold), where each fold is used as a validation set while the remaining data is used for training.\n\n\n\n\nBootstrap Resampling: Samples are drawn with replacement from the training dataset to generate multiple datasets, which used to train and test the model.\n\n\n\n\nMonte Carlo Resampling (Repeated Train-Test Splits): Randomly splits data multiple times.\n\n\n\n\nValidation Split: Creates a single training and testing partition."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#example-k-fold-cross-validation-in-tidymodels",
+    "href": "slides/15-ml-intro.html#example-k-fold-cross-validation-in-tidymodels",
+    "title": "Lecture 15",
+    "section": "Example: K-Fold Cross-Validation in tidymodels",
+    "text": "Example: K-Fold Cross-Validation in tidymodels\n\n# Load the dataset\nset.seed(123)\n\n# Create a 10-fold cross-validation object\n(cv_folds &lt;- vfold_cv(forested_train, v = 10))\n#&gt; #  10-fold cross-validation \n#&gt; # A tibble: 10 × 2\n#&gt;    splits             id    \n#&gt;    &lt;list&gt;             &lt;chr&gt; \n#&gt;  1 &lt;split [5116/569]&gt; Fold01\n#&gt;  2 &lt;split [5116/569]&gt; Fold02\n#&gt;  3 &lt;split [5116/569]&gt; Fold03\n#&gt;  4 &lt;split [5116/569]&gt; Fold04\n#&gt;  5 &lt;split [5116/569]&gt; Fold05\n#&gt;  6 &lt;split [5117/568]&gt; Fold06\n#&gt;  7 &lt;split [5117/568]&gt; Fold07\n#&gt;  8 &lt;split [5117/568]&gt; Fold08\n#&gt;  9 &lt;split [5117/568]&gt; Fold09\n#&gt; 10 &lt;split [5117/568]&gt; Fold10"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#example-bootstrapping",
+    "href": "slides/15-ml-intro.html#example-bootstrapping",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Example: Bootstrapping",
+    "text": "Example: Bootstrapping\n\n# Create bootstrap resamples\nboot_resamples &lt;- bootstraps(forested, times = 1000)\n\n# Print bootstrap samples\nprint(boot_resamples)\n#&gt; # Bootstrap sampling \n#&gt; # A tibble: 1,000 × 2\n#&gt;    splits              id           \n#&gt;    &lt;list&gt;              &lt;chr&gt;        \n#&gt;  1 &lt;split [7107/2607]&gt; Bootstrap0001\n#&gt;  2 &lt;split [7107/2589]&gt; Bootstrap0002\n#&gt;  3 &lt;split [7107/2639]&gt; Bootstrap0003\n#&gt;  4 &lt;split [7107/2615]&gt; Bootstrap0004\n#&gt;  5 &lt;split [7107/2633]&gt; Bootstrap0005\n#&gt;  6 &lt;split [7107/2576]&gt; Bootstrap0006\n#&gt;  7 &lt;split [7107/2615]&gt; Bootstrap0007\n#&gt;  8 &lt;split [7107/2668]&gt; Bootstrap0008\n#&gt;  9 &lt;split [7107/2606]&gt; Bootstrap0009\n#&gt; 10 &lt;split [7107/2632]&gt; Bootstrap0010\n#&gt; # ℹ 990 more rows"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#summary",
+    "href": "slides/15-ml-intro.html#summary",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Summary",
+    "text": "Summary\nUsing rsample, we can efficiently create resampling strategies to evaluate model performance. Choosing the right resampling technique depends on the dataset size and model complexity. Cross-validation is a robust approach for model assessment, while bootstrapping provides insight into sampling variability."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-big-picture-data-use",
+    "href": "slides/15-ml-intro.html#the-big-picture-data-use",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The big picture: Data Use",
+    "text": "The big picture: Data Use\nIn predictive modeling, it’s crucial to evaluate the performance of your model using different validation techniques to ensure your model generalizes well to unseen data. But data is limited:\n\nWe take raw data and refine it (scale, remove NA, etc)\nChoosing how to then “spend” it is critical for ML modeling\nWe leave some out for overall model evaluation"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#modeling",
+    "href": "slides/15-ml-intro.html#modeling",
+    "title": "Lecture 15",
+    "section": "Modeling",
+    "text": "Modeling\n\n\n\nOnce the data is split, we can decide what type of model to invoke.\nOften, users simply pick a well known model type or class for a type of problem (Classic Conceptual Model)\nWe will learn more about model types and uses next week!\nFor now, just know that the training data is used to fit a model.\nIf we are certain about the model, we can use the test data to evaluate the model."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#modeling-1",
+    "href": "slides/15-ml-intro.html#modeling-1",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Modeling",
+    "text": "Modeling\nBut, there are many type of models, with different assumptions, behaviors, and qualities, that make some more applicable to a dataset!\nAll models have some type of parmeterization, that can often be tuned.\nTuning and traing a model also requires some combintation of training/validation splits.\nresamples is a function in the tidymodels package that helps you assess how the model performs across different resampling methods."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#resampling-with-rsample-in-tidymodels",
+    "href": "slides/15-ml-intro.html#resampling-with-rsample-in-tidymodels",
+    "title": "Lecture 15",
+    "section": "Resampling with rsample in Tidymodels",
+    "text": "Resampling with rsample in Tidymodels\nResampling is a key step in model validation and assessment. The rsample package provides tools to create resampling strategies such as cross-validation, bootstrapping, and validation splits."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#model-choice",
+    "href": "slides/15-ml-intro.html#model-choice",
+    "title": "Lecture 15",
+    "section": "Model Choice",
+    "text": "Model Choice\n\nOnce the data is split, we must decide what type of model to invoke.\n\n\n\n\n\n\n\n\n\n\n\nOften, users simply pick a well known model type or class for a type of problem (Classic Conceptual Model)\nThe training data, is then used to train that model."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#modeling-options",
+    "href": "slides/15-ml-intro.html#modeling-options",
+    "title": "Lecture 15",
+    "section": "Modeling Options",
+    "text": "Modeling Options\n\nBut, there are many types of models, with different assumptions, behaviors, and qualities, that make some more applicable to a given dataset!\nMost models have some type of parmeterization, that can often be tuned.\nTesting combinations of model and tuning parmaters also requires some combintation of training/testing splits."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#what-is-resampling",
+    "href": "slides/15-ml-intro.html#what-is-resampling",
+    "title": "Lecture 15",
+    "section": "What is Resampling?",
+    "text": "What is Resampling?\n\n\n\n\n\n\nWarning\n\n\nResampling is always used with the training set.\n\n\n\nResampling is a key step in model validation and assessment. The rsample package provides tools to create resampling strategies such as cross-validation, bootstrapping, and validation splits."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#resampling",
+    "href": "slides/15-ml-intro.html#resampling",
+    "title": "Lecture 15",
+    "section": "Resampling",
+    "text": "Resampling\n\n\n\nTesting combinations of model and tuning parmaters also requires some combintation of training/testing splits.\nResampling methods, such as cross-validation and bootstraping, are empirical simulation systems that help facilitate this.\nThey create a series of data sets similar to the initial training/testing split.\nIn the first level of the diagram to the right, we first split the original data into training/testing sets. Then, the training set is chosen for resampling."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#data-splitting",
+    "href": "slides/15-ml-intro.html#data-splitting",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Data Splitting",
+    "text": "Data Splitting"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#unit-3-modeling-machine-learning",
+    "href": "slides/15-ml-intro.html#unit-3-modeling-machine-learning",
+    "title": "Lecture 15",
+    "section": "Unit 3: Modeling (Machine Learning)",
+    "text": "Unit 3: Modeling (Machine Learning)\n\n\nhttps://xkcd.com/1838/"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#classic-conceptual-model",
+    "href": "slides/15-ml-intro.html#classic-conceptual-model",
+    "title": "Lecture 15",
+    "section": "Classic Conceptual Model",
+    "text": "Classic Conceptual Model\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-big-picture-data",
+    "href": "slides/15-ml-intro.html#the-big-picture-data",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The big picture: data",
+    "text": "The big picture: data\nIn predictive modeling, it’s crucial to evaluate the performance of a model using different validation techniques to ensure a model can generalize to unseen data. But data is limited."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#how-we-split-data",
+    "href": "slides/15-ml-intro.html#how-we-split-data",
+    "title": "Lecture 15",
+    "section": "How we split data",
+    "text": "How we split data\n\n\n\nSplitting can be handled in many of ways. Typically, we base it off of a “hold out” percentage (e.g. 20%)\nThese hold out cases are extracted randomly from the data set. (remember seeds?)\n\n\n\n\nThe training set is usually the majority of the data and provides a sandbox for testing different modeling appraoches.\n\n\n\n\nThe test set is held in reserve until one or two models are chosen.\nThe test set is then used as the final arbiter to determine the efficacy of the model."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#model-evaluation-across-samples",
+    "href": "slides/15-ml-intro.html#model-evaluation-across-samples",
+    "title": "Lecture 15",
+    "section": "Model Evaluation Across Samples",
+    "text": "Model Evaluation Across Samples\nWith a resampling method established, a variety of models and parameter sets can be tested."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#model-selection",
+    "href": "slides/15-ml-intro.html#model-selection",
+    "title": "Lecture 15",
+    "section": "Model Selection",
+    "text": "Model Selection\nOnly once a model set is established, and tunable parameters defined, can the dominant model be selected."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#model-training-fitting",
+    "href": "slides/15-ml-intro.html#model-training-fitting",
+    "title": "Lecture 15",
+    "section": "Model Training / Fitting",
+    "text": "Model Training / Fitting\nOnce a model is selected, it can then be trained to produce a final model."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#model-verification",
+    "href": "slides/15-ml-intro.html#model-verification",
+    "title": "Lecture 15",
+    "section": "Model Verification",
+    "text": "Model Verification\nThe value of a final model is in its capacity to make predictions on data that it has not “seen”. To validate a model"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#road-map",
+    "href": "slides/15-ml-intro.html#road-map",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Road map",
+    "text": "Road map\n\nToday: Sampling & Data Handling\nWednsday: Model Types\nMonday: Building a ML workflow\nWednesday: Evalating a model\nMonday: Live Demo"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#note-strata",
+    "href": "slides/15-ml-intro.html#note-strata",
+    "title": "15 - Introduction to tidymodels",
+    "section": "Note: Strata",
+    "text": "Note: Strata\n\nIn many cases, there is a structure to data that would inhibit inpartial spliiting (e.g. a class, a region, etc)\nA stratified random sample conducts a specified split within define subsets of subsets and then pool the results. In rsample, this is achieved using the strata argument\nOnly one column can be used to define a stra\n\n\nset.seed(123)\nforested_strata &lt;- initial_split(forested, strata = 'forested', prop = .8)\n\nforested_train_strata &lt;- training(forested_strata)\nforested_test_strata &lt;- testing(forested_strata)\n\n# Sanity Check\ntable(forested_train_strata$forested) / table(forested$forested)\n#&gt; \n#&gt;       Yes        No \n#&gt; 0.7999486 0.7998755\ntable(forested_test_strata$forested) / table(forested$forested)\n#&gt; \n#&gt;       Yes        No \n#&gt; 0.2000514 0.2001245"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#our-typical-process-will-like-this",
+    "href": "slides/15-ml-intro.html#our-typical-process-will-like-this",
+    "title": "Lecture 15",
+    "section": "Our typical process will like this:",
+    "text": "Our typical process will like this:\n\nRead in raw data (readr, dplyr::*_join) (single or multi table)\n\n\n\nPrepare the data (EDA/mutate/summarize/clean, etc)\n\n\nThis is “Feature Engineering”\n\n\n\n\nOnce we’ve established our features (rows), we decide how to “spend” them …\n\n\n\nFor machine learning, we typically split data into training and test sets:\n\n\n\nThe training set is used to estimate model parameters.\nSpending too much data in training prevents us from computing a good assessment of model performance.\n\n\n\n\nThe test set is used as an independent assessment of performance.\nSpending too much data in testing prevents us from computing good model parameter estimates."
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#how-do-you-fit-a-linear-model-in-r",
+    "href": "slides/16-tidymodels.html#how-do-you-fit-a-linear-model-in-r",
+    "title": "Lecture 16",
+    "section": "How do you fit a linear model in R?",
+    "text": "How do you fit a linear model in R?\n\nlm for linear model &lt;– The one we have looked at!\nglmnet for regularized regression\nkeras for regression using TensorFlow\nstan for Bayesian regression using Stan\nspark for large data sets using spark\nbrulee for regression using torch (PyTourch)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model",
+    "href": "slides/16-tidymodels.html#to-specify-a-model",
+    "title": "Lecture 16",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\n\n\n\nChoose a model\nSpecify an engine\nSet the mode"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model-1",
+    "href": "slides/16-tidymodels.html#to-specify-a-model-1",
+    "title": "Lecture 16",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\n\n\nChoose a model\nSpecify an engine\nSet the mode"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model-2",
+    "href": "slides/16-tidymodels.html#to-specify-a-model-2",
+    "title": "16 - What makes a model?",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\n\n\nChoose a model\nSpecify an engine\nSet the mode"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model-3",
+    "href": "slides/16-tidymodels.html#to-specify-a-model-3",
+    "title": "16 - What makes a model?",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\nlogistic_reg() %&gt;%\n  set_engine(\"glmnet\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glmnet"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model-4",
+    "href": "slides/16-tidymodels.html#to-specify-a-model-4",
+    "title": "16 - What makes a model?",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\nlogistic_reg() %&gt;%\n  set_engine(\"stan\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: stan"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model-5",
+    "href": "slides/16-tidymodels.html#to-specify-a-model-5",
+    "title": "16 - What makes a model?",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\n\n\nChoose a model\nSpecify an engine\nSet the mode"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model-6",
+    "href": "slides/16-tidymodels.html#to-specify-a-model-6",
+    "title": "16 - What makes a model?",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\n\n\n\n\n\n\nNote\n\n\nSome models have a default mode"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model-7",
+    "href": "slides/16-tidymodels.html#to-specify-a-model-7",
+    "title": "16 - What makes a model?",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\ndecision_tree() %&gt;% \n  set_mode(\"classification\")\n#&gt; Decision Tree Model Specification (classification)\n#&gt; \n#&gt; Computational engine: rpart\n\n\n\n\nAll available models are listed at https://www.tidymodels.org/find/parsnip/"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#to-specify-a-model-8",
+    "href": "slides/16-tidymodels.html#to-specify-a-model-8",
+    "title": "16 - What makes a model?",
+    "section": "To specify a model ",
+    "text": "To specify a model \n\n\n\nChoose a model\nSpecify an engine\nSet the mode"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#models-well-be-using-today",
+    "href": "slides/16-tidymodels.html#models-well-be-using-today",
+    "title": "Lecture 16",
+    "section": "Models we’ll be using today",
+    "text": "Models we’ll be using today\nWe will learn about a range of models next week. For now, we will explore 2 options:\n\nLogistic regression\n\n\nA logistic regression model is a statistical classification algorithm that uses the sigmoid function to map input features to probabilities, allowing it to predict binary outcomes based on a decision threshold.\n\n\nDecision trees\n\n\nA decision tree is a supervised learning algorithm that recursively splits data into branches based on feature conditions, forming a tree-like structure where each internal node represents a decision, and each leaf node represents a final prediction."
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#logistic-regression",
+    "href": "slides/16-tidymodels.html#logistic-regression",
+    "title": "Lecture 16",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\nSimulates logistic regression data.\nBins predictor𝐴 and calculates observed probabilities.\nUses binomial proportion tests to estimate probabilities and confidence intervals.\nVisualizes these estimates in a scatter plot with error bars."
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#logistic-regression-1",
+    "href": "slides/16-tidymodels.html#logistic-regression-1",
+    "title": "Lecture 16",
+    "section": "Logistic regression",
+    "text": "Logistic regression"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#logistic-regression-2",
+    "href": "slides/16-tidymodels.html#logistic-regression-2",
+    "title": "Lecture 16",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogit of outcome probability modeled as linear combination of predictors:\n\n\\(log(\\frac{p}{1 - p}) = \\beta_0 + \\beta_1\\cdot \\text{A}\\)\n\nFind a sigmoid line that separates the two classes"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#decision-trees",
+    "href": "slides/16-tidymodels.html#decision-trees",
+    "title": "Lecture 16",
+    "section": "Decision trees",
+    "text": "Decision trees"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#decision-trees-1",
+    "href": "slides/16-tidymodels.html#decision-trees-1",
+    "title": "Lecture 16",
+    "section": "Decision trees",
+    "text": "Decision trees\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeries of splits or if/then statements based on predictors\nFirst the tree grows until some condition is met (maximum depth, no more data)\nThen the tree is pruned to reduce its complexity"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#decision-trees-2",
+    "href": "slides/16-tidymodels.html#decision-trees-2",
+    "title": "Lecture 16",
+    "section": "Decision trees",
+    "text": "Decision trees"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#all-models-are-wrong-but-some-are-useful",
+    "href": "slides/16-tidymodels.html#all-models-are-wrong-but-some-are-useful",
+    "title": "Lecture 16",
+    "section": "All models are wrong, but some are useful!",
+    "text": "All models are wrong, but some are useful!\n\n\nLogistic regression\n\n\n\n\n\n\n\n\n\n\nDecision trees"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#workflows-bind-preprocessors-and-models",
+    "href": "slides/16-tidymodels.html#workflows-bind-preprocessors-and-models",
+    "title": "Lecture 16",
+    "section": "Workflows bind preprocessors and models",
+    "text": "Workflows bind preprocessors and models\n\n\n\n\n\n\n\nNote\n\n\nExplain that PCA that is a preprocessor / dimensionality reduction, used to decorrelate data"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#what-is-wrong-with-this",
+    "href": "slides/16-tidymodels.html#what-is-wrong-with-this",
+    "title": "Lecture 16",
+    "section": "What is wrong with this?",
+    "text": "What is wrong with this?"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#why-a-workflow",
+    "href": "slides/16-tidymodels.html#why-a-workflow",
+    "title": "Lecture 16",
+    "section": "Why a workflow()? ",
+    "text": "Why a workflow()? \n\n\nWorkflows handle new data better than base R tools in terms of new factor levels\n\n\n\n\nYou can use other preprocessors besides formulas (more on feature engineering in Advanced tidymodels!)\n\n\n\n\nThey can help organize your work when working with multiple models\n\n\n\n\nMost importantly, a workflow captures the entire modeling process: fit() and predict() apply to the preprocessing steps in addition to the actual model fit\n\n\n\n\n\n\n\nNote\n\n\nTwo ways workflows handle levels better than base R:\n\nEnforces that new levels are not allowed at prediction time (this is an optional check that can be turned off)\nRestores missing levels that were present at fit time, but happen to be missing at prediction time (like, if your “new” data just doesn’t have an instance of that level)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#a-model-workflow-1",
+    "href": "slides/16-tidymodels.html#a-model-workflow-1",
+    "title": "Lecture 16",
+    "section": "A model workflow  ",
+    "text": "A model workflow  \n\n(dt_wf &lt;- workflow() %&gt;%\n  add_formula(forested ~ .) %&gt;%\n  add_model(dt_model) %&gt;%\n  fit(data = forested_train) )\n#&gt; ══ Workflow [trained] ══════════════════════════════════════════════════════════\n#&gt; Preprocessor: Formula\n#&gt; Model: decision_tree()\n#&gt; \n#&gt; ── Preprocessor ────────────────────────────────────────────────────────────────\n#&gt; forested ~ .\n#&gt; \n#&gt; ── Model ───────────────────────────────────────────────────────────────────────\n#&gt; n= 5685 \n#&gt; \n#&gt; node), split, n, loss, yval, (yprob)\n#&gt;       * denotes terminal node\n#&gt; \n#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  \n#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *\n#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  \n#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  \n#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *\n#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *\n#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#a-model-workflow-2",
+    "href": "slides/16-tidymodels.html#a-model-workflow-2",
+    "title": "Lecture 16",
+    "section": "A model workflow  ",
+    "text": "A model workflow  \n\n(dt_wf &lt;- workflow() %&gt;%\n  add_formula(forested ~ .) %&gt;%\n  add_model(dt_model) %&gt;%\n  fit(data = forested_train) )\n#&gt; ══ Workflow [trained] ══════════════════════════════════════════════════════════\n#&gt; Preprocessor: Formula\n#&gt; Model: decision_tree()\n#&gt; \n#&gt; ── Preprocessor ────────────────────────────────────────────────────────────────\n#&gt; forested ~ .\n#&gt; \n#&gt; ── Model ───────────────────────────────────────────────────────────────────────\n#&gt; n= 5685 \n#&gt; \n#&gt; node), split, n, loss, yval, (yprob)\n#&gt;       * denotes terminal node\n#&gt; \n#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  \n#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *\n#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  \n#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  \n#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *\n#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *\n#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#a-model-workflow-3",
+    "href": "slides/16-tidymodels.html#a-model-workflow-3",
+    "title": "Lecture 16",
+    "section": "A model workflow  ",
+    "text": "A model workflow  \n\ntree_spec &lt;- decision_tree() %&gt;% \n  set_mode(\"classification\")\n\nworkflow(forested ~ ., tree_spec) %&gt;% \n  fit(data = forested_train) \n#&gt; ══ Workflow [trained] ════════════════════════════════════════════════\n#&gt; Preprocessor: Formula\n#&gt; Model: decision_tree()\n#&gt; \n#&gt; ── Preprocessor ──────────────────────────────────────────────────────\n#&gt; forested ~ .\n#&gt; \n#&gt; ── Model ─────────────────────────────────────────────────────────────\n#&gt; n= 5685 \n#&gt; \n#&gt; node), split, n, loss, yval, (yprob)\n#&gt;       * denotes terminal node\n#&gt; \n#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  \n#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *\n#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  \n#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  \n#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *\n#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *\n#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#predict-with-your-model",
+    "href": "slides/16-tidymodels.html#predict-with-your-model",
+    "title": "Lecture 16",
+    "section": "Predict with your model ",
+    "text": "Predict with your model \nHow do you use your new model? - augment() is a function that takes a model and a dataset and returns the dataset with predictions and residuals added.\n\ndt_preds &lt;- augment(dt_wf, new_data = forested_test)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#broomaugment",
+    "href": "slides/16-tidymodels.html#broomaugment",
+    "title": "Lecture 16",
+    "section": "broom::augment",
+    "text": "broom::augment\n\nbroom::augment() is a function that takes a model and a dataset and returns the dataset with predictions and residuals added.\n\n\naugment(dt_wf, new_data = forested_test)\n#&gt; # A tibble: 1,422 × 22\n#&gt;    .pred_class .pred_Yes .pred_No forested  year elevation eastness northness\n#&gt;    &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n#&gt;  1 Yes            0.904    0.0955 No        2005       164      -84        53\n#&gt;  2 Yes            0.904    0.0955 Yes       2005       806       47       -88\n#&gt;  3 No             0.423    0.577  Yes       2005      2240      -67       -74\n#&gt;  4 Yes            0.904    0.0955 Yes       2005       787       66       -74\n#&gt;  5 Yes            0.904    0.0955 Yes       2005      1330       99         7\n#&gt;  6 Yes            0.904    0.0955 Yes       2005      1423       46        88\n#&gt;  7 Yes            0.904    0.0955 Yes       2014       546      -92       -38\n#&gt;  8 Yes            0.904    0.0955 Yes       2014      1612       30       -95\n#&gt;  9 No             0.0788   0.921  No        2014       235        0      -100\n#&gt; 10 No             0.0788   0.921  No        2014       308      -70       -70\n#&gt; # ℹ 1,412 more rows\n#&gt; # ℹ 14 more variables: roughness &lt;dbl&gt;, tree_no_tree &lt;fct&gt;, dew_temp &lt;dbl&gt;,\n#&gt; #   precip_annual &lt;dbl&gt;, temp_annual_mean &lt;dbl&gt;, temp_annual_min &lt;dbl&gt;,\n#&gt; #   temp_annual_max &lt;dbl&gt;, temp_january_min &lt;dbl&gt;, vapor_min &lt;dbl&gt;,\n#&gt; #   vapor_max &lt;dbl&gt;, canopy_cover &lt;dbl&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;, land_type &lt;fct&gt;"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#understand-your-model",
+    "href": "slides/16-tidymodels.html#understand-your-model",
+    "title": "Lecture 16",
+    "section": "Understand your model  ",
+    "text": "Understand your model  \nHow do you understand your new tree_fit model?"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#understand-your-model-1",
+    "href": "slides/16-tidymodels.html#understand-your-model-1",
+    "title": "Lecture 16",
+    "section": "Understand your model  ",
+    "text": "Understand your model  \nHow do you understand your new tree_fit model?\n\nlibrary(rpart.plot)\ntree_fit %&gt;%\n  extract_fit_engine() %&gt;%\n  rpart.plot(roundint = FALSE)\n\nYou can extract_*() several components of your fitted workflow.\n\n⚠️ Never predict() with any extracted components!\n\n\n\n\n\n\nNote\n\n\nroundint = FALSE is only to quiet a warning"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#understand-your-model-2",
+    "href": "slides/16-tidymodels.html#understand-your-model-2",
+    "title": "Lecture 16",
+    "section": "Understand your model  ",
+    "text": "Understand your model  \nHow do you understand your new tree_fit model?\n\nYou can use your fitted workflow for model and/or prediction explanations:\n\n\n\noverall variable importance, such as with the vip package\n\n\nvip(dt_wf_rs)\n\n\n\n\nflexible model explainers, such as with the DALEXtra package\n\n\n\nLearn more at https://www.tmwr.org/explain.html"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#section-1",
+    "href": "slides/16-tidymodels.html#section-1",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "(log_wf_rs &lt;- workflow() %&gt;%\n  add_formula(forested ~ .) %&gt;%\n  add_model(log_mod) %&gt;%\n  fit_resamples(resamples = forested_folds,\n                control = control_resamples(save_pred = TRUE)))\n#&gt; # Resampling results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 5\n#&gt;    splits             id     .metrics         .notes           .predictions\n#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      \n#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;\n\ncollect_metrics(log_wf_rs)\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.906     10 0.00318 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0712    10 0.00228 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.961     10 0.00186 Preprocessor1_Model1\ncollect_metrics(dt_wf_rs)\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.897     10 0.00337 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0889    10 0.00286 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.909     10 0.00406 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#the-whole-game---status-update",
+    "href": "slides/16-tidymodels.html#the-whole-game---status-update",
+    "title": "Lecture 16",
+    "section": "The whole game - status update",
+    "text": "The whole game - status update"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#specify-a-model-type",
+    "href": "slides/16-tidymodels.html#specify-a-model-type",
+    "title": "Lecture 16",
+    "section": "Specify a model: Type ",
+    "text": "Specify a model: Type \nNext week we will discuss model types more througlty. For now, we will focus on two types:\n\nLogistic Regression\n\n\nlogistic_reg()\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glm\n\n\nDecision Trees\n\n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\nWe chose these two because they are robust, simple model that fit our goal of predicting a binary condition/class (forested/not forested)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#specify-a-model-engine",
+    "href": "slides/16-tidymodels.html#specify-a-model-engine",
+    "title": "Lecture 16",
+    "section": "Specify a model: engine ",
+    "text": "Specify a model: engine \n\n\n\nChoose a model\nSpecify an engine\nSet the mode\n\n\n\n?logistic_reg()"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#specify-a-model",
+    "href": "slides/16-tidymodels.html#specify-a-model",
+    "title": "Lecture 16",
+    "section": "Specify a model ",
+    "text": "Specify a model \n\nlogistic_reg() %&gt;%\n  set_engine(\"glmnet\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glmnet\n\n\n\n\nlogistic_reg() %&gt;%\n  set_engine(\"stan\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: stan"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#specify-a-model-mode",
+    "href": "slides/16-tidymodels.html#specify-a-model-mode",
+    "title": "Lecture 16",
+    "section": "Specify a model: mode ",
+    "text": "Specify a model: mode \n\n\n\nChoose a model\nSpecify an engine\nSet the mode\n\n\n\n?logistic_reg()"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#specify-a-model-type-1",
+    "href": "slides/16-tidymodels.html#specify-a-model-type-1",
+    "title": "Lecture 16",
+    "section": "Specify a model: Type ",
+    "text": "Specify a model: Type \n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#specify-a-model-mode-1",
+    "href": "slides/16-tidymodels.html#specify-a-model-mode-1",
+    "title": "Lecture 16",
+    "section": "Specify a model: mode ",
+    "text": "Specify a model: mode \nSome models have limit classes:\n\nlogistic_reg() \n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glm\n\nOthers requires specification:\n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\ndecision_tree() %&gt;% \n  set_mode(\"classification\")\n#&gt; Decision Tree Model Specification (classification)\n#&gt; \n#&gt; Computational engine: rpart\n\n\nAll available models are listed at https://www.tidymodels.org/find/parsnip/"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#data-setup",
+    "href": "slides/16-tidymodels.html#data-setup",
+    "title": "Lecture 16",
+    "section": "Data setup ",
+    "text": "Data setup \n\nlibrary(tidymodels)\nlibrary(forested)\n\nset.seed(123)\n\nforested_split &lt;- initial_split(forested, prop = 0.8)\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)"
+  },
+  {
+    "objectID": "labs/lab6.html",
+    "href": "labs/lab6.html",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "",
+    "text": "In this lab, we will explore predictive modeling in hydrology using the tidymodels framework and the CAMELS (Catchment Attributes and Meteorology for Large-sample Studies) dataset.\n\n\n\n\n\n\n\n\n\n\n\ntidymodels is an R framework designed for machine learning and statistical modeling. Built on the principles of the tidyverse, tidymodels provides a consistent and modular approach to tasks like data preprocessing, model training, evaluation, and validation. By leveraging the strengths of packages such as recipes, parsnip, and yardstick, tidymodels streamlines the modeling workflow, making it easier to experiment with different models while maintaining reproducibility and interpretability.\n\n\n\nThe CAMELS dataset is a widely used resource in hydrology and environmental science. It provides data on over 600 river basins across the United States, including meteorological forcings, streamflow observations, and catchment attributes such as land cover, topography, and soil properties. This dataset is particularly useful for large-sample hydrologic studies, enabling researchers to develop and test models that generalize across diverse climatic and physiographic conditions.\n\n\n\nIn this lab, you will:\n\nLearn how to programatically download and access data.\nPractice using tidymodels for predictive modeling.\nTrain and evaluate models to predict mean streamflow across the country.\nInterpret and compare model performance using tidy workflows.\n\nBy the end of this 2 week lab, you will have hands-on experience applying machine learning techniques to real-world data, helping to bridge the gap between statistical modeling and environmental science."
+  },
+  {
+    "objectID": "labs/lab6.html#introduction",
+    "href": "labs/lab6.html#introduction",
+    "title": "lab6",
+    "section": "",
+    "text": "In this lab, we will explore predictive modeling in hydrology using the tidymodels framework and the CAMELS (Catchment Attributes and Meteorology for Large-sample Studies) dataset."
+  },
+  {
+    "objectID": "labs/lab6.html#what-is-tidymodels",
+    "href": "labs/lab6.html#what-is-tidymodels",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "",
+    "text": "tidymodels is an R framework designed for machine learning and statistical modeling. Built on the principles of the tidyverse, tidymodels provides a consistent and modular approach to tasks like data preprocessing, model training, evaluation, and validation. By leveraging the strengths of packages such as recipes, parsnip, and yardstick, tidymodels streamlines the modeling workflow, making it easier to experiment with different models while maintaining reproducibility and interpretability."
+  },
+  {
+    "objectID": "labs/lab6.html#what-is-the-camels-dataset",
+    "href": "labs/lab6.html#what-is-the-camels-dataset",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "",
+    "text": "The CAMELS dataset is a widely used resource in hydrology and environmental science. It provides data on over 600 river basins across the United States, including meteorological forcings, streamflow observations, and catchment attributes such as land cover, topography, and soil properties. This dataset is particularly useful for large-sample hydrologic studies, enabling researchers to develop and test models that generalize across diverse climatic and physiographic conditions."
+  },
+  {
+    "objectID": "labs/lab6.html#lab-goals",
+    "href": "labs/lab6.html#lab-goals",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "",
+    "text": "In this lab, you will:\n\nLearn how to programatically download and access data.\nPractice using tidymodels for predictive modeling.\nTrain and evaluate models to predict mean streamflow across the country.\nInterpret and compare model performance using tidy workflows.\n\nBy the end of this 2 week lab, you will have hands-on experience applying machine learning techniques to real-world data, helping to bridge the gap between statistical modeling and environmental science."
+  },
+  {
+    "objectID": "labs/lab6.html#lab-set-up",
+    "href": "labs/lab6.html#lab-set-up",
+    "title": "lab6",
+    "section": "Lab Set Up",
+    "text": "Lab Set Up\n\nMake a new R project where you want this work to take place.\nCreate a Quarto document called lab6.qmd in the project folder.\nCreate a data directory in your project folder.\nInstantiate a git archive with usethis::use_git()\nConnect it to a Github repository with usethis::use_github()\n\nLet’s start by loading the necessary libraries for this lab (you may need to install some!):\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.1\n✔ purrr     1.0.4     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n✔ broom        1.0.7     ✔ rsample      1.2.1\n✔ dials        1.4.0     ✔ tune         1.3.0\n✔ infer        1.0.7     ✔ workflows    1.2.0\n✔ modeldata    1.4.0     ✔ workflowsets 1.1.0\n✔ parsnip      1.3.0     ✔ yardstick    1.3.2\n✔ recipes      1.1.1     \n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ scales::discard() masks purrr::discard()\n✖ dplyr::filter()   masks stats::filter()\n✖ recipes::fixed()  masks stringr::fixed()\n✖ dplyr::lag()      masks stats::lag()\n✖ yardstick::spec() masks readr::spec()\n✖ recipes::step()   masks stats::step()\n• Use suppressPackageStartupMessages() to eliminate package startup messages\n\nlibrary(powerjoin)\nlibrary(glue)\nlibrary(vip)\n\n\nAttaching package: 'vip'\n\nThe following object is masked from 'package:utils':\n\n    vi"
+  },
+  {
+    "objectID": "labs/lab6.html#data-download",
+    "href": "labs/lab6.html#data-download",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Data Download",
+    "text": "Data Download\nThe root URL for all data seen on the “Individual Files” page is:\n\nroot  &lt;- 'https://gdex.ucar.edu/dataset/camels/file'\n\nNear the bottom, there are many .txt files that contain the data we want. Some hold climate data for each basin, some hold geology data, some hold soil data, etc. Lets create a vector storing these data types:\n\ntypes &lt;- c(\"clim\", \"geol\", \"soil\", \"topo\", \"vege\", \"hydro\")\n\n\n\n\n\n\n\nglue\n\n\n\n\n\nThe glue package provides an efficient way to interpolate and manipulate strings. It is particularly useful for dynamically constructing text, formatting outputs, and embedding R expressions within strings.\n\nKey Features of glue:\n\nString Interpolation: Embed R expressions inside strings using {}.\nImproved Readability: Eliminates the need for cumbersome paste() and sprintf().\nMulti-line Strings: Easily handle multi-line text formatting.\nSafe and Efficient: Optimized for performance and readability.\n\n\n\nBasic Usage\n\nTo use glue, you need to load the package and then call the glue() function with the desired string template. You can embed R expressions within curly braces {} to interpolate values into the string.\n\n\nclass &lt;- \"ESS 330\"\nyear  &lt;- 2024\n\nglue(\"We are taking {class} together in {year}\")\n\nWe are taking ESS 330 together in 2024\n\n\n\n\nMultiples\n\nYou can also use glue to interpolate multiple values at once\n\n\nclasses &lt;- c(\"ESS 330\", \"ESS 523c\")\n\nglue(\"We are taking {classes} together in {year}\")\n\nWe are taking ESS 330 together in 2024\nWe are taking ESS 523c together in 2024\n\n\n\n\n\n\n\nUsing glue, we can construct the needed URLs and file names for the data we want to download:\n\n\nremote_files  &lt;- glue('{root}/camels_{types}.txt')\n# Dowload the data to the data directory\nlocal_files   &lt;- glue('data/camels_{types}.txt')\n\n\nNow we can download the data:\n\n\nwalk2 comes from the purrr package and is used to apply a function to multiple arguments in parallel (much like map2 works over paired lists).\n\nHere, we are asking walk2 to pass the first element of remote_files and the first element of local_files to the download.file function to download the data, and setting quiet = TRUE to suppress output. The process is then iterated for the second element of each vector, and so on.\n\nwalk2(remote_files, local_files, download.file, quiet = TRUE)\n\nOnce downloaded, the data can be read it into R using readr::read_delim().\n\n# Read and merge data\ncamels &lt;- map(local_files, read_delim, show_col_types = FALSE) \n\nWe will use the powerjoin package to merge the data into a single data frame. powerjoin is a flexible package for joining lists of data.frames. It provides a wide range of join types, including inner, left, right, full, semi, anti, and cross joins. powerjoin also supports multiple join conditions, non-equi joins, and fuzzy joins, making it a versatile tool for data manipulation and analysis.\nIn this case, we are join to merge every data.frame in the list (n = 6) by the shared gauge_id column.\n\ncamels &lt;- power_full_join(camels ,by = 'gauge_id')\n\n\n\n\n\n\n\nNote\n\n\n\nAlternativly, we could have read straight form the urls. Strongly consider the implications of this approach as the longevity and persistence of the data is not guaranteed.\n\n# Read and merge data\ncamels &lt;- map(remote_files, read_delim, show_col_types = FALSE) |&gt; \n  power_full_join(by = 'gauge_id')"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html",
+    "href": "slides/16-tidymodels.html",
+    "title": "16 - What makes a model?",
+    "section": "",
+    "text": "lm for linear model\nglmnet for regularized regression\nkeras for regression using TensorFlow\nstan for Bayesian regression\nspark for large data sets\nbrulee for regression using torch\n\n\n?linear_reg"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#data-prep",
+    "href": "slides/16-tidymodels.html#data-prep",
+    "title": "Lecture 16",
+    "section": "Data Prep",
+    "text": "Data Prep\n\nWe skip EDA as we had done this prior\nWe split the data into training and testing sets\nWe use a Month based strata to ensure that each month is equally represented in testing and training\n\n\nairquality_split &lt;- airquality |&gt; \n  drop_na(Ozone) |&gt; \n  initial_split(strata = Month, prop = 0.8)\n\ntraining_data &lt;- training(airquality_split)\ntesting_data  &lt;- testing(airquality_split)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#recipe",
+    "href": "slides/16-tidymodels.html#recipe",
+    "title": "Lecture 16",
+    "section": "Recipe",
+    "text": "Recipe\n\nWe impute missing values with the mean\nWe scale and center the predictors\n\n\nrecipe &lt;- recipe(Ozone ~ Solar.R + Wind + Temp, data = training_data) %&gt;%\n  step_impute_mean(all_predictors()) %&gt;%\n  step_scale(all_predictors()) %&gt;%\n  step_center(all_predictors())"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#models",
+    "href": "slides/16-tidymodels.html#models",
+    "title": "Lecture 16",
+    "section": "Models",
+    "text": "Models\n\nWe fit a linear model using a workflow\nWe fit a random forest using a workflow\nWe fit a gradient boosting model using a workflow\n\n\nlm_data &lt;-  workflow(recipe) |&gt; \n  add_model(linear_reg(engine = \"lm\")) |&gt; \n  fit(data = training_data) |&gt; \n  augment(new_data = testing_data)\n\nrf_data &lt;-  workflow(recipe) |&gt; \n  add_model(rand_forest(mode = \"regression\"))  |&gt; \n  fit(data = training_data) |&gt; \n  augment(new_data = testing_data)\n\nxgb_data &lt;- workflow(recipe) |&gt; \n  add_model(boost_tree(mode = \"regression\"))  |&gt; \n  fit(data = training_data) |&gt; \n  augment(new_data = testing_data)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#model-performance",
+    "href": "slides/16-tidymodels.html#model-performance",
+    "title": "Lecture 16",
+    "section": "Model Performance",
+    "text": "Model Performance\n\nWe plot the predicted vs truth values\nWe plot the default model metrics\n\nRMSE: Root Mean Squared Error\n\nRMSE is ideally small, and in the units of the response variable\n\nRsquared: Coefficient of determination\n\nRsquared is ideally close to 1\n\nMAE: Mean Absolute Error\n\nMAE is ideally small, and in the units of the response variable\n\n\n\n\np1 &lt;- ggplot() +\n  geom_point(data = lm_data,  aes(x = .pred, y = Ozone), col = hue_pal()(3)[1]) +\n  geom_point(data = rf_data,  aes(x = .pred, y = Ozone), col = hue_pal()(3)[2]) +\n  geom_point(data = xgb_data, aes(x = .pred, y = Ozone), col = hue_pal()(3)[3]) +\n  geom_abline(linetype = \"dashed\") +\n  labs(title = \"Model Performance\", x = \"Predicted\", y = \"Truth\") +\n  theme_minimal() \n\np2 &lt;- bind_rows(\n  mutate(metrics(lm_data, truth = Ozone,  estimate = .pred), model = \"lm\"),\n  mutate(metrics(rf_data, truth = Ozone,  estimate = .pred), model = \"rf\"),\n  mutate(metrics(xgb_data, truth = Ozone, estimate = .pred), model = \"xgb\")) |&gt; \n  ggplot(aes(model, .estimate, fill = model)) +\n  geom_col() +\n  facet_wrap(~.metric, scales = \"free\") +\n  theme_minimal() + \n  theme(legend.position = \"none\") +\n  labs(title = \"Model Metrics\", x = \"Model\", y = \"Value\")\n\nggpubr::ggarrange(p1, p2, ncol = 1)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#what-model-would-you-choose",
+    "href": "slides/16-tidymodels.html#what-model-would-you-choose",
+    "title": "Lecture 16",
+    "section": "What model would you choose?",
+    "text": "What model would you choose?"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html",
+    "href": "slides/15-ml-intro.html",
+    "title": "15 - Introduction to tidymodels",
+    "section": "",
+    "text": "https://xkcd.com/1838/"
+  },
+  {
+    "objectID": "labs/lab6.html#camels-dataset",
+    "href": "labs/lab6.html#camels-dataset",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "CAMELS Dataset",
+    "text": "CAMELS Dataset\nThe CAMELS dataset contains a wealth of information on hydrologic variables, meteorological forcings, and catchment attributes for over 500 self drainging river basins in the United States. In this lab, we will focus on predicting the mean streamflow for these basins using the basin characteristcs associated with each. CAMELS hydrology data has been widely used to calibrate, train, and analyze models in hydrology and machine learning:\n⚙️ Calibrating Hydrologic Models – Used for parameter tuning in models like SAC-SMA, VIC, and HBV, improving regional and large-sample hydrology studies.\n🤖 Training Machine Learning Models – Enables deep learning (e.g., LSTMs) and regression models for streamflow prediction, often outperforming traditional methods.\n🔍 Understanding Model Behavior – Helps assess model generalization across catchments, uncertainty analysis, and the role of catchment attributes.\n📊 Benchmarking & Regionalization – Supports large-scale model comparison and parameter transfer to ungauged basins.\n🔄 Hybrid Modeling – Used in ML-enhanced physics-based models for bias correction and improved hydrologic simulations.\nNotable studies include Kratzert et al. (2019), demonstrating LSTMs outperforming conceptual models in streamflow prediction. The data is hosted by NCAR here. Navigating down to the “Individual Files” section will take to to a list of data avialbe for download. As part of this lab, we are going to explore how to programatically download and load the data into R."
+  },
+  {
+    "objectID": "labs/lab6.html#getting-the-documentation-pdf",
+    "href": "labs/lab6.html#getting-the-documentation-pdf",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Getting the documentation PDF",
+    "text": "Getting the documentation PDF\nLastly, we can download the documentation PDF which provides a descriptions for the various columns as many are not self-explanatory. Here, because there is a single file, we can use download.file directly.\n\ndownload.file(glue('{root}/camels_attributes_v2.0.pdf'), 'data/camels_attributes_v2.0.pdf')\n\nGo to your data directory and open the PDF to see the attributes of the data. It will be very helpful through the remainder of this lab!"
+  },
+  {
+    "objectID": "labs/lab6.html#whats-in-the-data",
+    "href": "labs/lab6.html#whats-in-the-data",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "What’s in the data?",
+    "text": "What’s in the data?\nEach record in the CAMELS dataset represents a unique river basin, identified by a USGS NWIS gauge_id. The dataset contains a mix of continuous and categorical variables, including meteorological forcings, catchment attributes, and streamflow observations. The data we are looking at are basin level summaries for the contribuitng drainage area of each gauge. For example, if we looked at row 1 of the data (gage: rcamels$gauge_id[1]) all of the values are the areal average for the drainage basin seen below, while the flow metrics are assoicate with the outlet gage (in red):\n\nbasin &lt;- dataRetrieval::findNLDI(nwis = camels$gauge_id[1], \n                                 nav = \"UT\", \n                                 find = c(\"basin\", \"flowlines\"))\n\nggplot() + \n  geom_sf(data = basin$basin, fill = \"lightblue\") + \n  geom_sf(data = basin$UT_flowlines, color = \"blue\") + \n  geom_sf(data = basin$origin, color = \"red\") + \n  theme_minimal()"
+  },
+  {
+    "objectID": "labs/lab6.html#lets-start-by-splitting-the-data",
+    "href": "labs/lab6.html#lets-start-by-splitting-the-data",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Lets start by splitting the data",
+    "text": "Lets start by splitting the data\nFirst, we set a seed for reproducabilty, then transform the q_mean column to a log scale.\nwe split the data into a training and testing set. We are going to use 80% of the data for training and 20% for testing.\n\n#\nset.seed(123)\n\n# Bad form to perform simple transformations on the outcome variable within a \n# recipe. So, we'll do it here.\ncamels &lt;- camels |&gt; \n  mutate(logQmean = log(q_mean))\n\n# Generate the split\ncamels_split &lt;- initial_split(camels, prop = 0.8)\ncamels_train &lt;- training(camels_split)\ncamels_test  &lt;- testing(camels_split)"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-big-picture-modeling",
+    "href": "slides/15-ml-intro.html#the-big-picture-modeling",
+    "title": "15 - Introduction to tidymodels",
+    "section": "The big picture: Modeling",
+    "text": "The big picture: Modeling\n\nknitr::include_graphics(\"images/whole-game-final-performance.jpg\")"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#today-data",
+    "href": "slides/15-ml-intro.html#today-data",
+    "title": "Lecture 15",
+    "section": "Today: data",
+    "text": "Today: data\n\nIn any modeling effort, it’s crucial to evaluate the performance of a model using different validation techniques to ensure a model can generalize to unseen data.\nBut data is limited even in the age of “big data”."
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#startification",
+    "href": "slides/15-ml-intro.html#startification",
+    "title": "Lecture 15",
+    "section": "Startification",
+    "text": "Startification\n\nIn many cases, there is a structure to the data that would inhibit inpartial spliiting (e.g. a class, a region, a species, a sex, etc)\nImagine you have a jar of M&Ms in different colors — red, blue, and green. You want to take some candies out to taste, but you want to make sure you get a fair mix of each color, not just grabbing a bunch of red ones by accident.\nStratified resampling is like making sure that if your jar is 50% red, 30% blue, and 20% green, then the handful of candies you take keeps the same balance.\nIn data science, we do the same thing when we pick samples from a dataset: we make sure that different groups (like categories of people, animals, or weather types) are still fairly represented!"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#initial-splits",
+    "href": "slides/15-ml-intro.html#initial-splits",
+    "title": "Lecture 15",
+    "section": "Initial splits ",
+    "text": "Initial splits \n\nIn tidymodels, the rsample package provides functions for creating initial splits of data.\nThe initial_split() function is used to create a single split of the data.\nThe prop argument defines the proportion of the data to be used for training.\nThe default is 0.75, which means 75% of the data will be used for training and 25% for testing.\n\n\nset.seed(101991)\n(resample_split &lt;- initial_split(penguins, prop = 0.8))\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;275/69/344&gt;\n\n#Sanity check\n69/344\n#&gt; [1] 0.2005814"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#startification-example",
+    "href": "slides/15-ml-intro.html#startification-example",
+    "title": "Lecture 15",
+    "section": "Startification Example",
+    "text": "Startification Example\n\nIn the case of the penguins data, we can stratify by species (think back to our nested/linear model appraoch)\nThis ensures that the training and testing sets have the same proportion of each species as the original data.\n\n\nset.seed(123)\n\npenguins &lt;- drop_na(penguins)\npenguins_strata &lt;- initial_split(penguins, strata = species, prop = .8)\n\ntrain_strata &lt;- training(penguins_strata)\ntest_strata &lt;- testing(penguins_strata)\n\ntable(train_strata$species) / nrow(train_strata)\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4377358 0.2037736 0.3584906\ntable(test_strata$species) / nrow(test_strata)\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4411765 0.2058824 0.3529412"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#accessing-the-data-1",
+    "href": "slides/15-ml-intro.html#accessing-the-data-1",
+    "title": "Lecture 15",
+    "section": "Accessing the data ",
+    "text": "Accessing the data \n\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\n\nnrow(forested_train)\n#&gt; [1] 5685\nnrow(forested_test)\n#&gt; [1] 1422"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#strata",
+    "href": "slides/15-ml-intro.html#strata",
+    "title": "Lecture 15",
+    "section": "Strata",
+    "text": "Strata\n\nset.seed(123)\nforested_strata &lt;- initial_split(forested, strata = 'forested', prop = .8)\n\nforested_train_strata &lt;- training(forested_strata)\nforested_test_strata &lt;- testing(forested_strata)\n\n# Sanity Check\ntable(forested_train_strata$forested) / table(forested$forested)\n#&gt; \n#&gt;       Yes        No \n#&gt; 0.7999486 0.7998755\ntable(forested_test_strata$forested) / table(forested$forested)\n#&gt; \n#&gt;       Yes        No \n#&gt; 0.2000514 0.2001245"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#the-big-picture-road-map",
+    "href": "slides/15-ml-intro.html#the-big-picture-road-map",
+    "title": "Lecture 15",
+    "section": "The big picture: Road map",
+    "text": "The big picture: Road map\n\n\nWeek 1: - – Today: Sampling & Data Handling - – 03/26: Model Workflows Week 2: - – 03/31: Types of Models - – 04/02: Model Evaluation Week 3: - – 04/07: Full Process - – 04/09: Live Demo"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#stratification-example",
+    "href": "slides/15-ml-intro.html#stratification-example",
+    "title": "Lecture 15",
+    "section": "Stratification Example",
+    "text": "Stratification Example\n\nA stratified random sample conducts a specified split within defined subsets of subsets, and then pools the results.\nOnly one column can be used to define a strata but grouping/mutate opperations can be used to create a new column that can be used as a strata (e.g. species/island)\nIn the case of the penguins data, we can stratify by species (think back to our nested/linear model appraoch)\nThis ensures that the training and testing sets have the same proportion of each species as the original data.\n\n\n# Set the seed\nset.seed(123)\n\n# Drop missing values and split the data\npenguins &lt;- drop_na(penguins)\npenguins_strata &lt;- initial_split(penguins, strata = species, prop = .8)\n\n# Extract the training and testing sets\n\ntrain_strata &lt;- training(penguins_strata)\ntest_strata  &lt;- testing(penguins_strata)"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#proportional-gaps",
+    "href": "slides/15-ml-intro.html#proportional-gaps",
+    "title": "Lecture 15",
+    "section": "Proportional Gaps",
+    "text": "Proportional Gaps\n\n# Dataset\n(table(penguins$species) / nrow(penguins))\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4418605 0.1976744 0.3604651\n# Training Data\n(table(penguins_train$species) / nrow(penguins_train))\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4581818 0.1818182 0.3600000\n# Testing Data\n(table(penguins_test$species) / nrow(penguins_test))\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.3768116 0.2608696 0.3623188"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#proportional-alignment",
+    "href": "slides/15-ml-intro.html#proportional-alignment",
+    "title": "Lecture 15",
+    "section": "Proportional Alignment",
+    "text": "Proportional Alignment\n\n# Check the proportions\n# Dataset\ntable(penguins$species) / nrow(penguins)\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4384384 0.2042042 0.3573574\n# Training Data\ntable(train_strata$species) / nrow(train_strata)\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4377358 0.2037736 0.3584906\n# Testing Data\ntable(test_strata$species) / nrow(test_strata)\n#&gt; \n#&gt;    Adelie Chinstrap    Gentoo \n#&gt; 0.4411765 0.2058824 0.3529412"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#how-can-we-use-the-training-data-to-compare-and-evaluate-different-models",
+    "href": "slides/15-ml-intro.html#how-can-we-use-the-training-data-to-compare-and-evaluate-different-models",
+    "title": "Lecture 15",
+    "section": "How can we use the training data to compare and evaluate different models? 🤔",
+    "text": "How can we use the training data to compare and evaluate different models? 🤔"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#cross-validation",
+    "href": "slides/15-ml-intro.html#cross-validation",
+    "title": "Lecture 15",
+    "section": "Cross-validation",
+    "text": "Cross-validation"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#cross-validation-1",
+    "href": "slides/15-ml-intro.html#cross-validation-1",
+    "title": "Lecture 15",
+    "section": "Cross-validation",
+    "text": "Cross-validation"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#cross-validation-2",
+    "href": "slides/15-ml-intro.html#cross-validation-2",
+    "title": "Lecture 15",
+    "section": "Cross-validation ",
+    "text": "Cross-validation \n\n\n\npenguins_train |&gt; glimpse() \n#&gt; Rows: 275\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Gentoo, Adelie, Gentoo, Chinstrap, Gentoo, Chinstrap…\n#&gt; $ island            &lt;fct&gt; Biscoe, Torgersen, Biscoe, Dream, Biscoe, Dream, Dre…\n#&gt; $ bill_length_mm    &lt;dbl&gt; 46.2, 43.1, 46.2, 45.9, 46.5, 48.1, 45.2, 55.9, 38.1…\n#&gt; $ bill_depth_mm     &lt;dbl&gt; 14.9, 19.2, 14.4, 17.1, 13.5, 16.4, 17.8, 17.0, 17.0…\n#&gt; $ flipper_length_mm &lt;int&gt; 221, 197, 214, 190, 210, 199, 198, 228, 181, 195, 20…\n#&gt; $ body_mass_g       &lt;int&gt; 5300, 3500, 4650, 3575, 4550, 3325, 3950, 5600, 3175…\n#&gt; $ sex               &lt;fct&gt; male, male, NA, female, female, female, female, male…\n\n\n\nnrow(penguins_train) * 1/10\n#&gt; [1] 27.5\n\nvfold_cv(penguins_train, v = 10) # v = 10 is default\n#&gt; #  10-fold cross-validation \n#&gt; # A tibble: 10 × 2\n#&gt;    splits           id    \n#&gt;    &lt;list&gt;           &lt;chr&gt; \n#&gt;  1 &lt;split [247/28]&gt; Fold01\n#&gt;  2 &lt;split [247/28]&gt; Fold02\n#&gt;  3 &lt;split [247/28]&gt; Fold03\n#&gt;  4 &lt;split [247/28]&gt; Fold04\n#&gt;  5 &lt;split [247/28]&gt; Fold05\n#&gt;  6 &lt;split [248/27]&gt; Fold06\n#&gt;  7 &lt;split [248/27]&gt; Fold07\n#&gt;  8 &lt;split [248/27]&gt; Fold08\n#&gt;  9 &lt;split [248/27]&gt; Fold09\n#&gt; 10 &lt;split [248/27]&gt; Fold10"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#cross-validation-3",
+    "href": "slides/15-ml-intro.html#cross-validation-3",
+    "title": "Lecture 15",
+    "section": "Cross-validation ",
+    "text": "Cross-validation \nWhat is in this?\n\npenguins_folds &lt;- vfold_cv(penguins_train)\npenguins_folds$splits[1:3]\n#&gt; [[1]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[2]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[3]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n\n\n\n\n\n\n\nNote\n\n\nHere is another example of a list column enabling the storage of non-atomic types in tibble\n\n\n\n\n\n\n\n\n\nImportant\n\n\nSet the seed when creating resamples"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#cross-validation-4",
+    "href": "slides/15-ml-intro.html#cross-validation-4",
+    "title": "Lecture 15",
+    "section": "Cross-validation ",
+    "text": "Cross-validation \nWe’ll use this setup:\n\nset.seed(123)\npenguins_folds &lt;- vfold_cv(penguins_train, v = 10)\npenguins_train\n#&gt; # A tibble: 275 × 7\n#&gt;    species   island   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n#&gt;    &lt;fct&gt;     &lt;fct&gt;             &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n#&gt;  1 Gentoo    Biscoe             46.2          14.9               221        5300\n#&gt;  2 Adelie    Torgers…           43.1          19.2               197        3500\n#&gt;  3 Gentoo    Biscoe             46.2          14.4               214        4650\n#&gt;  4 Chinstrap Dream              45.9          17.1               190        3575\n#&gt;  5 Gentoo    Biscoe             46.5          13.5               210        4550\n#&gt;  6 Chinstrap Dream              48.1          16.4               199        3325\n#&gt;  7 Chinstrap Dream              45.2          17.8               198        3950\n#&gt;  8 Gentoo    Biscoe             55.9          17                 228        5600\n#&gt;  9 Adelie    Biscoe             38.1          17                 181        3175\n#&gt; 10 Adelie    Biscoe             35.5          16.2               195        3350\n#&gt; # ℹ 265 more rows\n#&gt; # ℹ 1 more variable: sex &lt;fct&gt;\n\n\nSet the seed when creating resamples"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#bootstrapping",
+    "href": "slides/15-ml-intro.html#bootstrapping",
+    "title": "Lecture 15",
+    "section": "Bootstrapping",
+    "text": "Bootstrapping"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#bootstrapping-1",
+    "href": "slides/15-ml-intro.html#bootstrapping-1",
+    "title": "Lecture 15",
+    "section": "Bootstrapping ",
+    "text": "Bootstrapping \n\nset.seed(3214)\nbootstraps(penguins_train)\n#&gt; # Bootstrap sampling \n#&gt; # A tibble: 25 × 2\n#&gt;    splits            id         \n#&gt;    &lt;list&gt;            &lt;chr&gt;      \n#&gt;  1 &lt;split [275/96]&gt;  Bootstrap01\n#&gt;  2 &lt;split [275/105]&gt; Bootstrap02\n#&gt;  3 &lt;split [275/108]&gt; Bootstrap03\n#&gt;  4 &lt;split [275/111]&gt; Bootstrap04\n#&gt;  5 &lt;split [275/102]&gt; Bootstrap05\n#&gt;  6 &lt;split [275/98]&gt;  Bootstrap06\n#&gt;  7 &lt;split [275/92]&gt;  Bootstrap07\n#&gt;  8 &lt;split [275/97]&gt;  Bootstrap08\n#&gt;  9 &lt;split [275/100]&gt; Bootstrap09\n#&gt; 10 &lt;split [275/99]&gt;  Bootstrap10\n#&gt; # ℹ 15 more rows"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#monte-carlo-cross-validation",
+    "href": "slides/15-ml-intro.html#monte-carlo-cross-validation",
+    "title": "Lecture 15",
+    "section": "Monte Carlo Cross-Validation ",
+    "text": "Monte Carlo Cross-Validation \n\nset.seed(322)\nmc_cv(penguins_train, times = 10)\n#&gt; # Monte Carlo cross-validation (0.75/0.25) with 10 resamples  \n#&gt; # A tibble: 10 × 2\n#&gt;    splits           id        \n#&gt;    &lt;list&gt;           &lt;chr&gt;     \n#&gt;  1 &lt;split [206/69]&gt; Resample01\n#&gt;  2 &lt;split [206/69]&gt; Resample02\n#&gt;  3 &lt;split [206/69]&gt; Resample03\n#&gt;  4 &lt;split [206/69]&gt; Resample04\n#&gt;  5 &lt;split [206/69]&gt; Resample05\n#&gt;  6 &lt;split [206/69]&gt; Resample06\n#&gt;  7 &lt;split [206/69]&gt; Resample07\n#&gt;  8 &lt;split [206/69]&gt; Resample08\n#&gt;  9 &lt;split [206/69]&gt; Resample09\n#&gt; 10 &lt;split [206/69]&gt; Resample10"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#validation-set",
+    "href": "slides/15-ml-intro.html#validation-set",
+    "title": "Lecture 15",
+    "section": "Validation set ",
+    "text": "Validation set \n\nset.seed(853)\npenguins_val_split &lt;- initial_validation_split(penguins)\npenguins_val_split\n#&gt; &lt;Training/Validation/Testing/Total&gt;\n#&gt; &lt;199/67/67/333&gt;\nvalidation_set(penguins_val_split)\n#&gt; # A tibble: 1 × 2\n#&gt;   splits           id        \n#&gt;   &lt;list&gt;           &lt;chr&gt;     \n#&gt; 1 &lt;split [199/67]&gt; validation\n\n\nA validation set is just another type of resample"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#modeling-options-1",
+    "href": "slides/15-ml-intro.html#modeling-options-1",
+    "title": "Lecture 15",
+    "section": "Modeling Options",
+    "text": "Modeling Options\nWhat if we want to compare more models?\n\nAnd/or more model configurations?\n\n\nAnd we want to understand if these are important differences?\n\n\nHow can we use the training data to compare and evaluate different models? 🤔"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#k-fold-cross-validation",
+    "href": "slides/15-ml-intro.html#k-fold-cross-validation",
+    "title": "Lecture 15",
+    "section": "K-Fold Cross-Validation ",
+    "text": "K-Fold Cross-Validation \n\n# Load the dataset\nset.seed(123)\n\n# Create a 10-fold cross-validation object\n(cv_folds &lt;- vfold_cv(forested_train, v = 10))\n#&gt; #  10-fold cross-validation \n#&gt; # A tibble: 10 × 2\n#&gt;    splits             id    \n#&gt;    &lt;list&gt;             &lt;chr&gt; \n#&gt;  1 &lt;split [5116/569]&gt; Fold01\n#&gt;  2 &lt;split [5116/569]&gt; Fold02\n#&gt;  3 &lt;split [5116/569]&gt; Fold03\n#&gt;  4 &lt;split [5116/569]&gt; Fold04\n#&gt;  5 &lt;split [5116/569]&gt; Fold05\n#&gt;  6 &lt;split [5117/568]&gt; Fold06\n#&gt;  7 &lt;split [5117/568]&gt; Fold07\n#&gt;  8 &lt;split [5117/568]&gt; Fold08\n#&gt;  9 &lt;split [5117/568]&gt; Fold09\n#&gt; 10 &lt;split [5117/568]&gt; Fold10"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#challenge",
+    "href": "slides/16-tidymodels.html#challenge",
+    "title": "Lecture 16",
+    "section": "Challenge",
+    "text": "Challenge\n\nAll of these models have different syntax and functions\nHow do you keep track of all of them?\nHow do you know which one to use?\nHow would you compare them?\n\nComparing 3-5 of these models is a lot of work using functions for diverse packages."
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#the-tidymodels-advantage",
+    "href": "slides/16-tidymodels.html#the-tidymodels-advantage",
+    "title": "Lecture 16",
+    "section": "The tidymodels advantage",
+    "text": "The tidymodels advantage\n\n\n\nIn the tidymodels framework, all models are created using the same syntax:\n\nThis makes it easy to compare models\nThis makes it easy to switch between models\nThis makes it easy to use the same model with different engines (packages)\n\nThe parsnip package provides a consistent interface to many models\nFor example, to fit a linear model you would be able to access the linear_reg() function\n\n\n\n?linear_reg"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#the-tidymodels-framework",
+    "href": "slides/16-tidymodels.html#the-tidymodels-framework",
+    "title": "Lecture 16",
+    "section": "The tidymodels framework",
+    "text": "The tidymodels framework\n\nThe parsnip package provides a consistent interface to many models\nFor example, to fit a linear model you would be able to access the linear_reg() function\n\n\n?linear_reg"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#yesterday-data-setup",
+    "href": "slides/16-tidymodels.html#yesterday-data-setup",
+    "title": "Lecture 16",
+    "section": "Yesterday: Data setup ",
+    "text": "Yesterday: Data setup \n\nlibrary(tidymodels)\nlibrary(forested)\n\nset.seed(123)\n\n(forested_split &lt;- initial_split(forested, prop = 0.8, strata = tree_no_tree))\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;\n\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\nforested_folds &lt;- vfold_cv(forested_train, v = 10)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#specify-a-model-engine-1",
+    "href": "slides/16-tidymodels.html#specify-a-model-engine-1",
+    "title": "Lecture 16",
+    "section": "Specify a model: engine ",
+    "text": "Specify a model: engine \n\nlogistic_reg() %&gt;%\n  set_engine(\"glmnet\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glmnet\n\n\n\n\nlogistic_reg() %&gt;%\n  set_engine(\"stan\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: stan"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#predict-with-your-model-1",
+    "href": "slides/16-tidymodels.html#predict-with-your-model-1",
+    "title": "Lecture 16",
+    "section": "Predict with your model ",
+    "text": "Predict with your model \nHow do you evaluate the skill of your models? - metrics() is a function that takes a data frame of predictions and returns a tibble of performance metrics. - We will learn more about model evaluation and tuning latter in this unit, but for now we can use the metrics() function and the default settings to get a sense of how well our model is doing.\n\nmetrics(dt_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.885\n#&gt; 2 kap      binary         0.768"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#model-bake-off",
+    "href": "slides/16-tidymodels.html#model-bake-off",
+    "title": "Lecture 16",
+    "section": "Model bake off?",
+    "text": "Model bake off?\nSo who wins?\n\nmetrics(dt_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.885\n#&gt; 2 kap      binary         0.768\nmetrics(log_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.890\n#&gt; 2 kap      binary         0.777"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#dont-get-to-confident",
+    "href": "slides/16-tidymodels.html#dont-get-to-confident",
+    "title": "Lecture 16",
+    "section": "Don’t get to confident!",
+    "text": "Don’t get to confident!\n\nWe have evaluated the model on the same data we trained it on\nThis is not a good practice and can give us a false sense of confidence\nInstead, we can use our resamples to better understand the skill of a model based on the iteritive leave out policy:\n\n\n(dt_wf_rs &lt;- workflow() %&gt;%\n  add_formula(forested ~ .) %&gt;%\n  add_model(dt_model) %&gt;%\n  fit_resamples(resamples = forested_folds, \n                control = control_resamples(save_pred = TRUE)))\n#&gt; # Resampling results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 5\n#&gt;    splits             id     .metrics         .notes           .predictions\n#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      \n#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#the-real-magic",
+    "href": "slides/16-tidymodels.html#the-real-magic",
+    "title": "Lecture 16",
+    "section": "The real magic!",
+    "text": "The real magic!\nworkflowsets builds off of purrr and allows you to iterate over multiple models and/or multiple resamples\nRemember how map, map_*, map2, and walk2 function allow lists to map to lists or vectors? workflow_set maps a preporcesser (formula or recipe) to a set of models.\n\n(wf_obj &lt;- workflow_set(list(forested ~.), list(log_mod, dt_model)))\n#&gt; # A workflow set/tibble: 2 × 4\n#&gt;   wflow_id              info             option    result    \n#&gt;   &lt;chr&gt;                 &lt;list&gt;           &lt;list&gt;    &lt;list&gt;    \n#&gt; 1 formula_logistic_reg  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;\n#&gt; 2 formula_decision_tree &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#fitting-you-model",
+    "href": "slides/16-tidymodels.html#fitting-you-model",
+    "title": "Lecture 16",
+    "section": "Fitting you model:",
+    "text": "Fitting you model:\n\nOk! So you have split data\nYou have specified a model with a mode and engine\nNow you need to fit the model!\nThis is done using the fit() function\n\n\ndt_model &lt;- decision_tree() %&gt;% \n  set_engine('rpart') %&gt;%\n  set_mode(\"classification\")\n\n# Model, formula, data inputs\n(output &lt;- fit(dt_model, forested ~ ., data = forested_train) )\n#&gt; parsnip model object\n#&gt; \n#&gt; n= 5685 \n#&gt; \n#&gt; node), split, n, loss, yval, (yprob)\n#&gt;       * denotes terminal node\n#&gt; \n#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  \n#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *\n#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  \n#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  \n#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *\n#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *\n#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#component-extracts",
+    "href": "slides/16-tidymodels.html#component-extracts",
+    "title": "Lecture 16",
+    "section": "Component extracts:",
+    "text": "Component extracts:\n\n{\nplot(extract_fit_engine(output))\ntext(extract_fit_engine(output), cex = 0.8, use.n = TRUE, xpd = TRUE)\n}"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#what-are-workflows",
+    "href": "slides/16-tidymodels.html#what-are-workflows",
+    "title": "Lecture 16",
+    "section": "What are Workflows?",
+    "text": "What are Workflows?\nThe workflows package in tidymodels helps:\n\nManage preprocessing and modeling in a structured pipeline\nAvoid repetitive code\nReduce errors when integrating steps\n\nThink of it as a container for:\n\nPreprocessing steps (e.g., feature engineering, transformations)\nModel specification\nFormula or recipe-based approach"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#why-use-workflows",
+    "href": "slides/16-tidymodels.html#why-use-workflows",
+    "title": "Lecture 16",
+    "section": "Why Use Workflows?",
+    "text": "Why Use Workflows?\n✅ Keeps preprocessing and modeling together  ✅ Ensures consistency in data handling   ✅ Reduces the risk of data leakage  ✅ Makes code easier to read and maintain"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#basic-workflow-structure",
+    "href": "slides/16-tidymodels.html#basic-workflow-structure",
+    "title": "Lecture 16",
+    "section": "Basic Workflow Structure:",
+    "text": "Basic Workflow Structure:\n\nCreate a workflow object (simular to how ggplot() instatiates a canvas)\nAdd a formula or recipe\nSpecify the model\nFit the workflow\n\nr Copy Edit library(tidymodels)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#iteritive-extecution",
+    "href": "slides/16-tidymodels.html#iteritive-extecution",
+    "title": "Lecture 16",
+    "section": "Iteritive extecution",
+    "text": "Iteritive extecution\nOnce the workflow_set object is created, we can use the workflow_map function to fit the models to a dataset.\nHere we are mapping the fit_resamples function across the preproceeer formula/model combinations using the resamples argument to specify the resamples we want to use (forested_folds).\n\nwf_obj &lt;- \n  workflow_set(list(forested ~.), list(log_mod, dt_model)) %&gt;%\n  workflow_map(\"fit_resamples\", resamples = forested_folds)"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#dont-get-to-confident-1",
+    "href": "slides/16-tidymodels.html#dont-get-to-confident-1",
+    "title": "Lecture 16",
+    "section": "Don’t get to confident!",
+    "text": "Don’t get to confident!\n\nWe can execute the same workflow for the logistic regression model, this time evaluating the resamples instead of the test data.\n\n\n(log_wf_rs &lt;- workflow() %&gt;%\n  add_formula(forested ~ .) %&gt;%\n  add_model(log_mod) %&gt;%\n  fit_resamples(resamples = forested_folds,\n                control = control_resamples(save_pred = TRUE)))\n#&gt; # Resampling results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 5\n#&gt;    splits             id     .metrics         .notes           .predictions\n#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      \n#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#dont-get-to-confident-2",
+    "href": "slides/16-tidymodels.html#dont-get-to-confident-2",
+    "title": "Lecture 16",
+    "section": "Don’t get to confident!",
+    "text": "Don’t get to confident!\n\ncollect_metrics(log_wf_rs)\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.906     10 0.00318 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0712    10 0.00228 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.961     10 0.00186 Preprocessor1_Model1\ncollect_metrics(dt_wf_rs)\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.897     10 0.00337 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0889    10 0.00286 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.909     10 0.00406 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#further-simplification-workflowsets",
+    "href": "slides/16-tidymodels.html#further-simplification-workflowsets",
+    "title": "Lecture 16",
+    "section": "Further simplification: workflowsets",
+    "text": "Further simplification: workflowsets\nOk, so we have streamlined a lot of things with tidymodels: - We have a specifed preprocesser (e.g. formula or recipe) - We have defined models - We have implemented workflows pairing each model with the preprocesser to either fit the model to the resamples, or, the training data.\nWhile a significant improvement, we can do better! The idea of implemnting a process over an element should ring a bell!"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#further-simplification-workflowsets-1",
+    "href": "slides/16-tidymodels.html#further-simplification-workflowsets-1",
+    "title": "Lecture 16",
+    "section": "Further simplification: workflowsets",
+    "text": "Further simplification: workflowsets\n\nworkflowsets builds off of purrr and allows you to iterate over multiple models and/or multiple resamples\nRemember how map, map_*, map2, and walk2 function allow lists to map to lists or vectors? workflow_set maps a preporcesser (formula or recipe) to a set of models.\nTo start, we will create a workflow_set object (instead of a workflow object). The first argument is a list of preprocessor objects (formulas or recipes) and the second argument is a list of model objects.\nBoth must be lists, by nature of the underlying purrr code.\n\n\n(wf_obj &lt;- workflow_set(list(forested ~.), list(log_mod, dt_model)))\n#&gt; # A workflow set/tibble: 2 × 4\n#&gt;   wflow_id              info             option    result    \n#&gt;   &lt;chr&gt;                 &lt;list&gt;           &lt;list&gt;    &lt;list&gt;    \n#&gt; 1 formula_logistic_reg  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;\n#&gt; 2 formula_decision_tree &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#rapid-comparision",
+    "href": "slides/16-tidymodels.html#rapid-comparision",
+    "title": "Lecture 16",
+    "section": "Rapid comparision",
+    "text": "Rapid comparision\nWith that, all models have been fit to the resamples and we can quickly compare the results both graphically and statistically:\n\n# Quick plot function\nautoplot(wf_obj)\n\n\n# Long list of results, ranked by accuracy\n(rank_results(wf_obj, rank_metric = \"accuracy\", select_best = TRUE))\n#&gt; # A tibble: 6 × 9\n#&gt;   wflow_id         .config .metric   mean std_err     n preprocessor model  rank\n#&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;\n#&gt; 1 formula_logisti… Prepro… accura… 0.906  0.00318    10 formula      logi…     1\n#&gt; 2 formula_logisti… Prepro… brier_… 0.0712 0.00228    10 formula      logi…     1\n#&gt; 3 formula_logisti… Prepro… roc_auc 0.961  0.00186    10 formula      logi…     1\n#&gt; 4 formula_decisio… Prepro… accura… 0.897  0.00337    10 formula      deci…     2\n#&gt; 5 formula_decisio… Prepro… brier_… 0.0889 0.00286    10 formula      deci…     2\n#&gt; 6 formula_decisio… Prepro… roc_auc 0.909  0.00406    10 formula      deci…     2\n\nOverall, the logistic regression model appears to the best model for this data set of those compared!"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#key-take-aways",
+    "href": "slides/15-ml-intro.html#key-take-aways",
+    "title": "Lecture 15",
+    "section": "Key Take Aways:",
+    "text": "Key Take Aways:\nAs of 11PM last night 36/86 students have completed the feedback survey.\n\nMost peole are feeling very confident with Unit 1, but not with Unit 2…\n\n(Please remeber the general feelings after unit 1)"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#grades-pre-regrades",
+    "href": "slides/15-ml-intro.html#grades-pre-regrades",
+    "title": "Lecture 15",
+    "section": "Grades: Pre-regrades",
+    "text": "Grades: Pre-regrades\n\n\n\n\n\n\n\n\nLetter\nCurren ESS 330 distribution\nPast distribution for simular classes\n\n\n\n\nA\n43%\n50%\n\n\nB\n15%\n20%\n\n\nC\n15%\n5%\n\n\nD\n1%\n0%\n\n\nF\n26%\n25%\n\n\n\nOf those current with F’s: The average points obtained are 79/389.\n\nLab Attendence: 74%\nLab scores: 32%\nDaily Exercises: 28%\nEC Attendence day: 9 were attending, 12 were not.\n\nWe will work with you but time is running out"
+  },
+  {
+    "objectID": "slides/15-ml-intro.html#grades-pre-regrades-36-of-the-class-asked-for-at-least-one-regrade",
+    "href": "slides/15-ml-intro.html#grades-pre-regrades-36-of-the-class-asked-for-at-least-one-regrade",
+    "title": "Lecture 15",
+    "section": "Grades: Pre-regrades (36% of the class asked for at least one regrade)",
+    "text": "Grades: Pre-regrades (36% of the class asked for at least one regrade)\n\n\n\n\n\n\n\n\nLetter\nCurrent ESS 330 distribution\nPast distribution for simular classes\n\n\n\n\nA\n41%\n50%\n\n\nB\n19%\n20%\n\n\nC\n14%\n5%\n\n\nD\n1%\n0%\n\n\nF\n25%\n25%\n\n\n\nOf those current with F’s: The average points obtained are 79/389 = 20%.\n\nLab Attendence: 74%\nLab scores: 32%\nDaily Exercises: 28%\nEC Attendence day: 9 were attending, 12 were not.\n\nOn average 66 students are submitting work each week meaning 22% of students are not submitting work.\nIf you are not happy where you stand, will work with you but time is running out!!"
   }
 ]

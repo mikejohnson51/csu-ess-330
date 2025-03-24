@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mike Johnson">
-<meta name="dcterms.date" content="2025-03-11">
+<meta name="dcterms.date" content="2025-03-19">
 
 <title>Lecture 13 – ESS 330</title>
 <style>
@@ -218,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 11, 2025</p>
+      <p class="date">March 19, 2025</p>
     </div>
   </div>
   
@@ -253,29 +253,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We have covered a ton of material in unit 2.</p>
-<div id="fig-elephants" class="quarto-layout-panel">
+<div id="fig-workflows" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-elephants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-workflows-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-elephants" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-surus" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-workflows" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-general" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-surus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/data-science-eda.png" id="fig-surus" class="img-fluid figure-img" data-ref-parent="fig-elephants">
+<div aria-describedby="fig-general-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/data-science-eda.png" id="fig-general" class="img-fluid figure-img" data-ref-parent="fig-workflows">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-surus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-general-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a)
 </figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-elephants" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-hanno" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-workflows" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-tidyverse" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-hanno-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/tidyverse-implementation.png" id="fig-hanno" class="img-fluid figure-img" data-ref-parent="fig-elephants">
+<div aria-describedby="fig-tidyverse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/tidyverse-implementation.png" id="fig-tidyverse" class="img-fluid figure-img" data-ref-parent="fig-workflows">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-hanno-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tidyverse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b)
 </figcaption>
 </figure>
@@ -283,7 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-elephants-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-workflows-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Data Science: Process and Implementation
 </figcaption>
 </figure>
@@ -372,7 +372,7 @@ Tip
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ dplyr::lag()      masks stats::lag()</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ yardstick::spec() masks readr::spec()</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✖ recipes::step()   masks stats::step()</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Use tidymodels_prefer() to resolve common conflicts.</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; • Learn how to get started at https://www.tidymodels.org/start/</span></span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataRetrieval)</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)    </span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
