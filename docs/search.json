@@ -1712,14 +1712,14 @@
     "href": "labs.html",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\n Personal Portfolio\nIntroductions\nFriday Week 4 @ 5:00pm\n\n\n3\n Personal Portfolio\nIntro to Quarto\nFriday Week 4 @ 5:00pm\n\n\n4\n Minnesota tree growth\nData Transform\nFriday Week 5 @ 5:00pm\n\n\n5\n COVID Wrangling\nflextable\nFriday Week 7 @ 5:00pm\n\n\n6\n COVID Wrangling\n–\nFriday Week 7 @ 5:00pm\n\n\n7\n Statistcs In R\nggpubr\nFriday Week 8 @ 5:00pm\n\n\n8\n Project Proposals\nQuarto Manuscripts\nWednesday Week 10 @ 5:00pm\n\n\n9\nSpring Break\n—\n—\n\n\n10\n\n\n\n\n\n11\n\n\n\n\n\n12\n\n\n\n\n\n13\n\n\n\n\n\n14\n\n\n\n\n\n15\n\n\n\n\n\n16"
+    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\n Personal Portfolio\nIntroductions\nFriday Week 4 @ 5:00pm\n\n\n3\n Personal Portfolio\nIntro to Quarto\nFriday Week 4 @ 5:00pm\n\n\n4\n Minnesota tree growth\nData Transform\nFriday Week 5 @ 5:00pm\n\n\n5\n COVID Wrangling\nflextable\nFriday Week 7 @ 5:00pm\n\n\n6\n COVID Wrangling\n–\nFriday Week 7 @ 5:00pm\n\n\n7\n Statistcs In R\nggpubr\nFriday Week 8 @ 5:00pm\n\n\n8\n Project Proposals\nQuarto Manuscripts\nWednesday Week 10 @ 5:00pm\n\n\n9\n—\nSpring Break\n—\n\n\n10\n ML Workflows\nProposal Reviews w/ TA\nFriday Week 11 @ 5:00pm\n\n\n11\n Intro/Methods Draft\n—\nBefore Lab Week 12\n\n\n12\n ML Tuning\nIntro/Methods Review w/ TA\nFriday Week 13 @ 5:00pm\n\n\n13\n Results/Discussion Draft\n—\nBefore Lab Week 14\n\n\n14\n Vector Data\nResults/Discussion Review w/ TA\nFriday Week 15 @ 5:00pm\n\n\n15\n Raster Data\nSlide Prep w/ TA\nFriday Week 16 @ 5:00pm\n\n\n16\n—\n Lightning Talks! \n—"
   },
   {
     "objectID": "labs.html#labs",
     "href": "labs.html#labs",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "",
-    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\n Personal Portfolio\nIntroductions\nFriday Week 4 @ 5:00pm\n\n\n3\n Personal Portfolio\nIntro to Quarto\nFriday Week 4 @ 5:00pm\n\n\n4\n Minnesota tree growth\nData Transform\nFriday Week 5 @ 5:00pm\n\n\n5\n COVID Wrangling\nflextable\nFriday Week 7 @ 5:00pm\n\n\n6\n COVID Wrangling\n–\nFriday Week 7 @ 5:00pm\n\n\n7\n Statistcs In R\nggpubr\nFriday Week 8 @ 5:00pm\n\n\n8\n Project Proposals\nQuarto Manuscripts\nWednesday Week 10 @ 5:00pm\n\n\n9\nSpring Break\n—\n—\n\n\n10\n\n\n\n\n\n11\n\n\n\n\n\n12\n\n\n\n\n\n13\n\n\n\n\n\n14\n\n\n\n\n\n15\n\n\n\n\n\n16"
+    "text": "Week\nLab\nLab Activity\nDue Date\n\n\n\n\n1\nNo Lab Meetings\n—\n—\n\n\n2\n Personal Portfolio\nIntroductions\nFriday Week 4 @ 5:00pm\n\n\n3\n Personal Portfolio\nIntro to Quarto\nFriday Week 4 @ 5:00pm\n\n\n4\n Minnesota tree growth\nData Transform\nFriday Week 5 @ 5:00pm\n\n\n5\n COVID Wrangling\nflextable\nFriday Week 7 @ 5:00pm\n\n\n6\n COVID Wrangling\n–\nFriday Week 7 @ 5:00pm\n\n\n7\n Statistcs In R\nggpubr\nFriday Week 8 @ 5:00pm\n\n\n8\n Project Proposals\nQuarto Manuscripts\nWednesday Week 10 @ 5:00pm\n\n\n9\n—\nSpring Break\n—\n\n\n10\n ML Workflows\nProposal Reviews w/ TA\nFriday Week 11 @ 5:00pm\n\n\n11\n Intro/Methods Draft\n—\nBefore Lab Week 12\n\n\n12\n ML Tuning\nIntro/Methods Review w/ TA\nFriday Week 13 @ 5:00pm\n\n\n13\n Results/Discussion Draft\n—\nBefore Lab Week 14\n\n\n14\n Vector Data\nResults/Discussion Review w/ TA\nFriday Week 15 @ 5:00pm\n\n\n15\n Raster Data\nSlide Prep w/ TA\nFriday Week 16 @ 5:00pm\n\n\n16\n—\n Lightning Talks! \n—"
   },
   {
     "objectID": "exercises/3-first-project.html",
@@ -8313,7 +8313,7 @@
     "href": "slides/15-ml-intro.html#what-is-machine-learning-2025-edition",
     "title": "Lecture 15",
     "section": "What is machine learning? (2025 edition)",
-    "text": "What is machine learning? (2025 edition)\n\n\n\n\n\n\nNote\n\n\nIn the early 2010s, “Artificial intelligence” (AI) was largely synonymous with what we’ll refer to as “machine learning” in this workshop. In the late 2010s and early 2020s, AI usually referred to deep learning methods. Since the release of ChatGPT in late 2022, “AI” has come to also encompass large language models (LLMs) / generative models.\n\n\n\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+    "text": "What is machine learning? (2025 edition)\n\n\n\n\n\n\nNote\n\n\n\nIn the early 2010s, “Artificial intelligence” (AI) was largely synonymous with what we’ll refer to as “machine learning” in this workshop. In the late 2010s and early 2020s, AI usually referred to deep learning methods. Since the release of ChatGPT in late 2022, “AI” has come to also encompass large language models (LLMs) / generative models.\n\n\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
   },
   {
     "objectID": "slides/15-ml-intro.html#what-is-machine-learning-2",
@@ -8327,7 +8327,7 @@
     "href": "slides/15-ml-intro.html#what-is-tidymodels",
     "title": "Lecture 15",
     "section": "What is tidymodels? ",
-    "text": "What is tidymodels? \n\nlibrary(tidymodels)\n#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n#&gt; ✔ broom        1.0.7     ✔ recipes      1.1.1\n#&gt; ✔ dials        1.4.0     ✔ rsample      1.2.1\n#&gt; ✔ dplyr        1.1.4     ✔ tibble       3.2.1\n#&gt; ✔ ggplot2      3.5.1     ✔ tidyr        1.3.1\n#&gt; ✔ infer        1.0.7     ✔ tune         1.3.0\n#&gt; ✔ modeldata    1.4.0     ✔ workflows    1.2.0\n#&gt; ✔ parsnip      1.3.0     ✔ workflowsets 1.1.0\n#&gt; ✔ purrr        1.0.4     ✔ yardstick    1.3.2\n#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n#&gt; ✖ purrr::discard() masks scales::discard()\n#&gt; ✖ dplyr::filter()  masks stats::filter()\n#&gt; ✖ dplyr::lag()     masks stats::lag()\n#&gt; ✖ recipes::step()  masks stats::step()\n#&gt; • Use tidymodels_prefer() to resolve common conflicts."
+    "text": "What is tidymodels? \n\nlibrary(tidymodels)\n#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n#&gt; ✔ broom        1.0.7     ✔ recipes      1.1.1\n#&gt; ✔ dials        1.4.0     ✔ rsample      1.2.1\n#&gt; ✔ dplyr        1.1.4     ✔ tibble       3.2.1\n#&gt; ✔ ggplot2      3.5.1     ✔ tidyr        1.3.1\n#&gt; ✔ infer        1.0.7     ✔ tune         1.3.0\n#&gt; ✔ modeldata    1.4.0     ✔ workflows    1.2.0\n#&gt; ✔ parsnip      1.3.0     ✔ workflowsets 1.1.0\n#&gt; ✔ purrr        1.0.4     ✔ yardstick    1.3.2\n#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n#&gt; ✖ purrr::discard() masks scales::discard()\n#&gt; ✖ dplyr::filter()  masks stats::filter()\n#&gt; ✖ dplyr::lag()     masks stats::lag()\n#&gt; ✖ recipes::step()  masks stats::step()\n#&gt; • Dig deeper into tidy modeling with R at https://www.tmwr.org"
   },
   {
     "objectID": "slides/15-ml-intro.html#the-whole-game",
@@ -8397,14 +8397,14 @@
     "href": "slides/15-ml-intro.html#data-on-forests-in-washington",
     "title": "Lecture 15",
     "section": "Data on forests in Washington",
-    "text": "Data on forests in Washington\n\n\n\nThe U.S. Forest Service maintains ML models to predict whether a plot of land is “forested.”\nThis classification is important for all sorts of research, legislation, and land management purposes.\nPlots are typically remeasured every 10 years and this dataset contains the most recent measurement per plot.\nType ?forested to learn more about this dataset, including references.\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/251793/forest-mountain"
+    "text": "Data on forests in Washington\n\n\n\nThe U.S. Forest Service maintains ML models to predict whether a plot of land is “forested.”\nThis classification is important for all sorts of research, legislation, and land management purposes.\nPlots are typically remeasured every 10 years and this dataset contains the most recent measurement per plot.\nType ?forested to learn more about this dataset, including references.\n\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/251793/forest-mountain"
   },
   {
     "objectID": "slides/15-ml-intro.html#data-on-forests-in-washington-1",
     "href": "slides/15-ml-intro.html#data-on-forests-in-washington-1",
     "title": "Lecture 15",
     "section": "Data on forests in Washington",
-    "text": "Data on forests in Washington\n\n\n\nlibrary(forested)\ndim(forested)\n#&gt; [1] 7107   19\n\n\nOne observation from each of 7,107 6000-acre hexagons in Washington state.\nA nominal outcome, forested, with levels \"Yes\" and \"No\", measured “on-the-ground.”\n\n\ntable(forested$forested)\n#&gt; \n#&gt;  Yes   No \n#&gt; 3894 3213\n\n\n18 remotely-sensed and easily-accessible predictors:\n\n\nnames(forested)\n#&gt;  [1] \"forested\"         \"year\"             \"elevation\"        \"eastness\"        \n#&gt;  [5] \"northness\"        \"roughness\"        \"tree_no_tree\"     \"dew_temp\"        \n#&gt;  [9] \"precip_annual\"    \"temp_annual_mean\" \"temp_annual_min\"  \"temp_annual_max\" \n#&gt; [13] \"temp_january_min\" \"vapor_min\"        \"vapor_max\"        \"canopy_cover\"    \n#&gt; [17] \"lon\"              \"lat\"              \"land_type\"\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/67614/forest"
+    "text": "Data on forests in Washington\n\n\n\nlibrary(forested)\ndim(forested)\n#&gt; [1] 7107   19\n\n\nOne observation from each of 7,107 6000-acre hexagons in Washington state.\nA nominal outcome, forested, with levels \"Yes\" and \"No\", measured “on-the-ground.”\n\n\ntable(forested$forested)\n#&gt; \n#&gt;  Yes   No \n#&gt; 3894 3213\n\n\n18 remotely-sensed and easily-accessible predictors:\n\n\nnames(forested)\n#&gt;  [1] \"forested\"         \"year\"             \"elevation\"        \"eastness\"        \n#&gt;  [5] \"northness\"        \"roughness\"        \"tree_no_tree\"     \"dew_temp\"        \n#&gt;  [9] \"precip_annual\"    \"temp_annual_mean\" \"temp_annual_min\"  \"temp_annual_max\" \n#&gt; [13] \"temp_january_min\" \"vapor_min\"        \"vapor_max\"        \"canopy_cover\"    \n#&gt; [17] \"lon\"              \"lat\"              \"land_type\"\n\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/67614/forest"
   },
   {
     "objectID": "slides/15-ml-intro.html#checklist-for-predictors",
@@ -8425,7 +8425,7 @@
     "href": "slides/15-ml-intro.html#data-splitting-and-spending",
     "title": "Lecture 15",
     "section": "Data splitting and spending",
-    "text": "Data splitting and spending\nThe initial split \n\nset.seed(123)\nforested_split &lt;- initial_split(forested, prop = .8, strata = tree_no_tree)\nforested_split\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;"
+    "text": "Data splitting and spending\n\nThe initial split \n\nset.seed(123)\nforested_split &lt;- initial_split(forested, prop = .8, strata = tree_no_tree)\nforested_split\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;"
   },
   {
     "objectID": "slides/15-ml-intro.html#data-splitting-and-spending-1",
@@ -8467,7 +8467,7 @@
     "href": "slides/15-ml-intro.html#accessing-the-data",
     "title": "Lecture 15",
     "section": "Accessing the data: ",
-    "text": "Accessing the data: \n\nOnce the data is split, we can access the training and testing data using the training() and testing() functions to extract the partitioned data from the full set:\n\n\npenguins_train &lt;- training(resample_split)\nglimpse(penguins_train)\n#&gt; Rows: 275\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Gentoo, Adelie, Gentoo, Chinstrap, Gentoo, Chinstrap…\n#&gt; $ island            &lt;fct&gt; Biscoe, Torgersen, Biscoe, Dream, Biscoe, Dream, Dre…\n#&gt; $ bill_length_mm    &lt;dbl&gt; 46.2, 43.1, 46.2, 45.9, 46.5, 48.1, 45.2, 55.9, 38.1…\n#&gt; $ bill_depth_mm     &lt;dbl&gt; 14.9, 19.2, 14.4, 17.1, 13.5, 16.4, 17.8, 17.0, 17.0…\n#&gt; $ flipper_length_mm &lt;int&gt; 221, 197, 214, 190, 210, 199, 198, 228, 181, 195, 20…\n#&gt; $ body_mass_g       &lt;int&gt; 5300, 3500, 4650, 3575, 4550, 3325, 3950, 5600, 3175…\n#&gt; $ sex               &lt;fct&gt; male, male, NA, female, female, female, female, male…\n\n\n\npenguins_test &lt;- testing(resample_split)\nglimpse(penguins_test)\n#&gt; Rows: 69\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Biscoe, Biscoe, Bis…\n#&gt; $ bill_length_mm    &lt;dbl&gt; NA, 39.3, 36.6, 35.9, 38.8, 37.9, 39.2, 39.6, 36.7, …\n#&gt; $ bill_depth_mm     &lt;dbl&gt; NA, 20.6, 17.8, 19.2, 17.2, 18.6, 21.1, 17.2, 18.8, …\n#&gt; $ flipper_length_mm &lt;int&gt; NA, 190, 185, 189, 180, 172, 196, 196, 187, 205, 187…\n#&gt; $ body_mass_g       &lt;int&gt; NA, 3650, 3700, 3800, 3800, 3150, 4150, 3550, 3800, …\n#&gt; $ sex               &lt;fct&gt; NA, male, female, female, male, female, male, female…"
+    "text": "Accessing the data: \n\nOnce the data is split, we can access the training and testing data using the training() and testing() functions to extract the partitioned data from the full set:\n\n\npenguins_train &lt;- training(resample_split)\nglimpse(penguins_train)\n#&gt; Rows: 275\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Gentoo, Adelie, Gentoo, Chinstrap, Gentoo, Chinstrap…\n#&gt; $ island            &lt;fct&gt; Biscoe, Torgersen, Biscoe, Dream, Biscoe, Dream, Dre…\n#&gt; $ bill_length_mm    &lt;dbl&gt; 46.2, 43.1, 46.2, 45.9, 46.5, 48.1, 45.2, 55.9, 38.1…\n#&gt; $ bill_depth_mm     &lt;dbl&gt; 14.9, 19.2, 14.4, 17.1, 13.5, 16.4, 17.8, 17.0, 17.0…\n#&gt; $ flipper_length_mm &lt;int&gt; 221, 197, 214, 190, 210, 199, 198, 228, 181, 195, 20…\n#&gt; $ body_mass_g       &lt;int&gt; 5300, 3500, 4650, 3575, 4550, 3325, 3950, 5600, 3175…\n#&gt; $ sex               &lt;fct&gt; male, male, NA, female, female, female, female, male…\n\n. . .\n\npenguins_test &lt;- testing(resample_split)\nglimpse(penguins_test)\n#&gt; Rows: 69\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Biscoe, Biscoe, Bis…\n#&gt; $ bill_length_mm    &lt;dbl&gt; NA, 39.3, 36.6, 35.9, 38.8, 37.9, 39.2, 39.6, 36.7, …\n#&gt; $ bill_depth_mm     &lt;dbl&gt; NA, 20.6, 17.8, 19.2, 17.2, 18.6, 21.1, 17.2, 18.8, …\n#&gt; $ flipper_length_mm &lt;int&gt; NA, 190, 185, 189, 180, 172, 196, 196, 187, 205, 187…\n#&gt; $ body_mass_g       &lt;int&gt; NA, 3650, 3700, 3800, 3800, 3150, 4150, 3550, 3800, …\n#&gt; $ sex               &lt;fct&gt; NA, male, female, female, male, female, male, female…"
   },
   {
     "objectID": "slides/15-ml-intro.html#the-training-set",
@@ -8586,7 +8586,7 @@
     "href": "slides/15-ml-intro.html#key-resampling-methods",
     "title": "Lecture 15",
     "section": "Key Resampling Methods",
-    "text": "Key Resampling Methods\n\n\n\n\n\n\nWarning\n\n\nResampling is always used with the training set.\n\n\n\nResampling is a key step in model validation and assessment. The rsample package provides tools to create resampling strategies such as cross-validation, bootstrapping, and validation splits.\n\n\nK-Fold Cross-Validation: The dataset is split into multiple “folds” (e.g., 5-fold or 10-fold), where each fold is used as a validation set while the remaining data is used for training.\n\n\n\n\nBootstrap Resampling: Samples are drawn with replacement from the training dataset to generate multiple datasets, which used to train and test the model.\n\n\n\n\nMonte Carlo Resampling (Repeated Train-Test Splits): Randomly splits data multiple times.\n\n\n\n\nValidation Split: Creates a single training and testing partition."
+    "text": "Key Resampling Methods\n\n\n\n\n\n\nWarning\n\n\n\nResampling is always used with the training set.\n\n\nResampling is a key step in model validation and assessment. The rsample package provides tools to create resampling strategies such as cross-validation, bootstrapping, and validation splits.\n. . .\n\nK-Fold Cross-Validation: The dataset is split into multiple “folds” (e.g., 5-fold or 10-fold), where each fold is used as a validation set while the remaining data is used for training.\n\n. . .\n\nBootstrap Resampling: Samples are drawn with replacement from the training dataset to generate multiple datasets, which used to train and test the model.\n\n. . .\n\nMonte Carlo Resampling (Repeated Train-Test Splits): Randomly splits data multiple times.\n\n. . .\n\nValidation Split: Creates a single training and testing partition."
   },
   {
     "objectID": "slides/15-ml-intro.html#example-k-fold-cross-validation-in-tidymodels",
@@ -8677,14 +8677,14 @@
     "href": "slides/15-ml-intro.html#unit-3-modeling-machine-learning",
     "title": "Lecture 15",
     "section": "Unit 3: Modeling (Machine Learning)",
-    "text": "Unit 3: Modeling (Machine Learning)\n\n\nhttps://xkcd.com/1838/"
+    "text": "Unit 3: Modeling (Machine Learning)\n\n\n\n\n\n\nhttps://xkcd.com/1838/"
   },
   {
     "objectID": "slides/15-ml-intro.html#classic-conceptual-model",
     "href": "slides/15-ml-intro.html#classic-conceptual-model",
     "title": "Lecture 15",
     "section": "Classic Conceptual Model",
-    "text": "Classic Conceptual Model\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+    "text": "Classic Conceptual Model\n\n\n\n\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
   },
   {
     "objectID": "slides/15-ml-intro.html#the-big-picture-data",
@@ -8698,7 +8698,7 @@
     "href": "slides/15-ml-intro.html#how-we-split-data",
     "title": "Lecture 15",
     "section": "How we split data",
-    "text": "How we split data\n\n\n\nSplitting can be handled in many of ways. Typically, we base it off of a “hold out” percentage (e.g. 20%)\nThese hold out cases are extracted randomly from the data set. (remember seeds?)\n\n\n\n\nThe training set is usually the majority of the data and provides a sandbox for testing different modeling appraoches.\n\n\n\n\nThe test set is held in reserve until one or two models are chosen.\nThe test set is then used as the final arbiter to determine the efficacy of the model."
+    "text": "How we split data\n\n\n\n\n\n\n\n\n\n. . .\n\nSplitting can be handled in many of ways. Typically, we base it off of a “hold out” percentage (e.g. 20%)\nThese hold out cases are extracted randomly from the data set. (remember seeds?)\n\n. . .\n\nThe training set is usually the majority of the data and provides a sandbox for testing different modeling appraoches.\n\n. . .\n\nThe test set is held in reserve until one or two models are chosen.\nThe test set is then used as the final arbiter to determine the efficacy of the model."
   },
   {
     "objectID": "slides/15-ml-intro.html#model-evaluation-across-samples",
@@ -8747,7 +8747,7 @@
     "href": "slides/15-ml-intro.html#our-typical-process-will-like-this",
     "title": "Lecture 15",
     "section": "Our typical process will like this:",
-    "text": "Our typical process will like this:\n\nRead in raw data (readr, dplyr::*_join) (single or multi table)\n\n\n\nPrepare the data (EDA/mutate/summarize/clean, etc)\n\n\nThis is “Feature Engineering”\n\n\n\n\nOnce we’ve established our features (rows), we decide how to “spend” them …\n\n\n\nFor machine learning, we typically split data into training and test sets:\n\n\n\nThe training set is used to estimate model parameters.\nSpending too much data in training prevents us from computing a good assessment of model performance.\n\n\n\n\nThe test set is used as an independent assessment of performance.\nSpending too much data in testing prevents us from computing good model parameter estimates."
+    "text": "Our typical process will like this:\n\nRead in raw data (readr, dplyr::*_join) (single or multi table)\n\n. . .\n\nPrepare the data (EDA/mutate/summarize/clean, etc)\n\n\nThis is “Feature Engineering”\n\n. . .\n\nOnce we’ve established our features (rows), we decide how to “spend” them …\n\n. . .\nFor machine learning, we typically split data into training and test sets:\n. . .\n\nThe training set is used to estimate model parameters.\nSpending too much data in training prevents us from computing a good assessment of model performance.\n\n. . .\n\nThe test set is used as an independent assessment of performance.\nSpending too much data in testing prevents us from computing good model parameter estimates."
   },
   {
     "objectID": "slides/16-tidymodels.html#how-do-you-fit-a-linear-model-in-r",
@@ -9020,7 +9020,7 @@
     "href": "labs/lab6.html",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "",
-    "text": "In this lab, we will explore predictive modeling in hydrology using the tidymodels framework and the CAMELS (Catchment Attributes and Meteorology for Large-sample Studies) dataset.\n\n\n\n\n\n\n\n\n\n\n\ntidymodels is an R framework designed for machine learning and statistical modeling. Built on the principles of the tidyverse, tidymodels provides a consistent and modular approach to tasks like data preprocessing, model training, evaluation, and validation. By leveraging the strengths of packages such as recipes, parsnip, and yardstick, tidymodels streamlines the modeling workflow, making it easier to experiment with different models while maintaining reproducibility and interpretability.\n\n\n\nThe CAMELS dataset is a widely used resource in hydrology and environmental science. It provides data on over 600 river basins across the United States, including meteorological forcings, streamflow observations, and catchment attributes such as land cover, topography, and soil properties. This dataset is particularly useful for large-sample hydrologic studies, enabling researchers to develop and test models that generalize across diverse climatic and physiographic conditions.\n\n\n\nIn this lab, you will:\n\nLearn how to programatically download and access data.\nPractice using tidymodels for predictive modeling.\nTrain and evaluate models to predict mean streamflow across the country.\nInterpret and compare model performance using tidy workflows.\n\nBy the end of this 2 week lab, you will have hands-on experience applying machine learning techniques to real-world data, helping to bridge the gap between statistical modeling and environmental science."
+    "text": "In this lab, we will explore predictive modeling in hydrology using the tidymodels framework and the CAMELS (Catchment Attributes and Meteorology for Large-sample Studies) dataset.\n\n\n\n\n\n\n\n\n\n\n\ntidymodels is an R framework designed for machine learning and statistical modeling. Built on the principles of the tidyverse, tidymodels provides a consistent and modular approach to tasks like data preprocessing, model training, evaluation, and validation. By leveraging the strengths of packages such as recipes, parsnip, and yardstick, tidymodels streamlines the modeling workflow, making it easier to experiment with different models while maintaining reproducibility and interpretability.\n\n\n\nThe CAMELS dataset is a widely used resource in hydrology and environmental science, providing data on over 500 self-draining river basins across the United States. It includes meteorological forcings, streamflow observations, and catchment attributes such as land cover, topography, and soil properties. This dataset is particularly valuable for large-sample hydrology studies, enabling researchers to develop and test models across diverse climatic and physiographic conditions.\nIn this lab, we will focus on predicting mean streamflow for these basins using their associated characteristics. CAMELS has been instrumental in various hydrologic and machine learning applications, including:\n\nCalibrating Hydrologic Models – Used for parameter tuning in models like SAC-SMA, VIC, and HBV, improving regional and large-sample studies.\nTraining Machine Learning Models – Supports deep learning (e.g., LSTMs) and regression-based streamflow predictions, often outperforming traditional methods.\nUnderstanding Model Behavior – Assists in assessing model generalization, uncertainty analysis, and the role of catchment attributes.\nBenchmarking & Regionalization – Facilitates large-scale model comparisons and parameter transfer to ungauged basins.\nHybrid Modeling – Enhances physics-based models with machine learning for bias correction and improved hydrologic simulations.\n\nA notable study by Kratzert et al. (2019) demonstrated that LSTMs can outperform conceptual models in streamflow prediction. As part of this lab, we will explore how to programmatically download and load the data into R."
   },
   {
     "objectID": "labs/lab6.html#introduction",
@@ -9041,14 +9041,14 @@
     "href": "labs/lab6.html#what-is-the-camels-dataset",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "",
-    "text": "The CAMELS dataset is a widely used resource in hydrology and environmental science. It provides data on over 600 river basins across the United States, including meteorological forcings, streamflow observations, and catchment attributes such as land cover, topography, and soil properties. This dataset is particularly useful for large-sample hydrologic studies, enabling researchers to develop and test models that generalize across diverse climatic and physiographic conditions."
+    "text": "The CAMELS dataset is a widely used resource in hydrology and environmental science, providing data on over 500 self-draining river basins across the United States. It includes meteorological forcings, streamflow observations, and catchment attributes such as land cover, topography, and soil properties. This dataset is particularly valuable for large-sample hydrology studies, enabling researchers to develop and test models across diverse climatic and physiographic conditions.\nIn this lab, we will focus on predicting mean streamflow for these basins using their associated characteristics. CAMELS has been instrumental in various hydrologic and machine learning applications, including:\n\nCalibrating Hydrologic Models – Used for parameter tuning in models like SAC-SMA, VIC, and HBV, improving regional and large-sample studies.\nTraining Machine Learning Models – Supports deep learning (e.g., LSTMs) and regression-based streamflow predictions, often outperforming traditional methods.\nUnderstanding Model Behavior – Assists in assessing model generalization, uncertainty analysis, and the role of catchment attributes.\nBenchmarking & Regionalization – Facilitates large-scale model comparisons and parameter transfer to ungauged basins.\nHybrid Modeling – Enhances physics-based models with machine learning for bias correction and improved hydrologic simulations.\n\nA notable study by Kratzert et al. (2019) demonstrated that LSTMs can outperform conceptual models in streamflow prediction. As part of this lab, we will explore how to programmatically download and load the data into R."
   },
   {
     "objectID": "labs/lab6.html#lab-goals",
     "href": "labs/lab6.html#lab-goals",
     "title": "Lab 6: Machine Learning in Hydrology",
-    "section": "",
-    "text": "In this lab, you will:\n\nLearn how to programatically download and access data.\nPractice using tidymodels for predictive modeling.\nTrain and evaluate models to predict mean streamflow across the country.\nInterpret and compare model performance using tidy workflows.\n\nBy the end of this 2 week lab, you will have hands-on experience applying machine learning techniques to real-world data, helping to bridge the gap between statistical modeling and environmental science."
+    "section": "Lab Goals",
+    "text": "Lab Goals\nIn this lab, you will:\n\nLearn how to programatically download and access data.\nPractice using tidymodels for predictive modeling.\nTrain and evaluate models to predict mean streamflow across the country.\nInterpret and compare model performance using workflows.\n\nBy the end of this lab, you will have hands-on experience applying machine learning techniques to real-world data, helping to bridge the gap between statistical modeling and environmental science."
   },
   {
     "objectID": "labs/lab6.html#lab-set-up",
@@ -9062,14 +9062,14 @@
     "href": "labs/lab6.html#data-download",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Data Download",
-    "text": "Data Download\nThe root URL for all data seen on the “Individual Files” page is:\n\nroot  &lt;- 'https://gdex.ucar.edu/dataset/camels/file'\n\nNear the bottom, there are many .txt files that contain the data we want. Some hold climate data for each basin, some hold geology data, some hold soil data, etc. Lets create a vector storing these data types:\n\ntypes &lt;- c(\"clim\", \"geol\", \"soil\", \"topo\", \"vege\", \"hydro\")\n\n\n\n\n\n\n\nglue\n\n\n\n\n\nThe glue package provides an efficient way to interpolate and manipulate strings. It is particularly useful for dynamically constructing text, formatting outputs, and embedding R expressions within strings.\n\nKey Features of glue:\n\nString Interpolation: Embed R expressions inside strings using {}.\nImproved Readability: Eliminates the need for cumbersome paste() and sprintf().\nMulti-line Strings: Easily handle multi-line text formatting.\nSafe and Efficient: Optimized for performance and readability.\n\n\n\nBasic Usage\n\nTo use glue, you need to load the package and then call the glue() function with the desired string template. You can embed R expressions within curly braces {} to interpolate values into the string.\n\n\nclass &lt;- \"ESS 330\"\nyear  &lt;- 2024\n\nglue(\"We are taking {class} together in {year}\")\n\nWe are taking ESS 330 together in 2024\n\n\n\n\nMultiples\n\nYou can also use glue to interpolate multiple values at once\n\n\nclasses &lt;- c(\"ESS 330\", \"ESS 523c\")\n\nglue(\"We are taking {classes} together in {year}\")\n\nWe are taking ESS 330 together in 2024\nWe are taking ESS 523c together in 2024\n\n\n\n\n\n\n\nUsing glue, we can construct the needed URLs and file names for the data we want to download:\n\n\nremote_files  &lt;- glue('{root}/camels_{types}.txt')\n# Dowload the data to the data directory\nlocal_files   &lt;- glue('data/camels_{types}.txt')\n\n\nNow we can download the data:\n\n\nwalk2 comes from the purrr package and is used to apply a function to multiple arguments in parallel (much like map2 works over paired lists).\n\nHere, we are asking walk2 to pass the first element of remote_files and the first element of local_files to the download.file function to download the data, and setting quiet = TRUE to suppress output. The process is then iterated for the second element of each vector, and so on.\n\nwalk2(remote_files, local_files, download.file, quiet = TRUE)\n\nOnce downloaded, the data can be read it into R using readr::read_delim().\n\n# Read and merge data\ncamels &lt;- map(local_files, read_delim, show_col_types = FALSE) \n\nWe will use the powerjoin package to merge the data into a single data frame. powerjoin is a flexible package for joining lists of data.frames. It provides a wide range of join types, including inner, left, right, full, semi, anti, and cross joins. powerjoin also supports multiple join conditions, non-equi joins, and fuzzy joins, making it a versatile tool for data manipulation and analysis.\nIn this case, we are join to merge every data.frame in the list (n = 6) by the shared gauge_id column.\n\ncamels &lt;- power_full_join(camels ,by = 'gauge_id')\n\n\n\n\n\n\n\nNote\n\n\n\nAlternativly, we could have read straight form the urls. Strongly consider the implications of this approach as the longevity and persistence of the data is not guaranteed.\n\n# Read and merge data\ncamels &lt;- map(remote_files, read_delim, show_col_types = FALSE) |&gt; \n  power_full_join(by = 'gauge_id')"
+    "text": "Data Download\nThe CAMELS dataset is hosted by NCAR and can be accessed here under the “Individual Files” section. The root URL for all data seen on the “Individual Files” page is:\n\nroot  &lt;- 'https://gdex.ucar.edu/dataset/camels/file'\n\nNear the bottom of that page, there are many .txt files that contain the data we want. Some hold climate data for each basin, some hold geology data, some hold soil data, etc. There is also a PDF with descriptions of the columns in each file. We are going to download all of the .txt files and the PDF."
   },
   {
     "objectID": "slides/16-tidymodels.html",
     "href": "slides/16-tidymodels.html",
-    "title": "16 - What makes a model?",
+    "title": "Lecture 16",
     "section": "",
-    "text": "lm for linear model\nglmnet for regularized regression\nkeras for regression using TensorFlow\nstan for Bayesian regression\nspark for large data sets\nbrulee for regression using torch\n\n\n?linear_reg"
+    "text": "Can we predict if a plot of land is forested? - Interested in classification models - We have a dataset of 7,107 6000-acre hexagons in Washington state. - Each hexagon has a nominal outcome, forested, with levels \"Yes\" and \"No\".\n\n\n\n\n\nThe U.S. Forest Service maintains ML models to predict whether a plot of land is “forested.”\nThis classification is important for all sorts of research, legislation, and land management purposes.\nPlots are typically remeasured every 10 years and this dataset contains the most recent measurement per plot.\nType ?forested to learn more about this dataset, including references.\n\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/251793/forest-mountain\n\n\n\n\n\n\n\nlibrary(tidymodels)\nlibrary(forested)\ndim(forested)\n#&gt; [1] 7107   19\n\n\nOne observation from each of 7,107 6000-acre hexagons in Washington state.\nA nominal outcome, forested, with levels \"Yes\" and \"No\", measured “on-the-ground.”\n\n\ntable(forested$forested)\n#&gt; \n#&gt;  Yes   No \n#&gt; 3894 3213\n\n\n18 remotely-sensed and easily-accessible predictors:\n\n\nnames(forested)\n#&gt;  [1] \"forested\"         \"year\"             \"elevation\"        \"eastness\"        \n#&gt;  [5] \"northness\"        \"roughness\"        \"tree_no_tree\"     \"dew_temp\"        \n#&gt;  [9] \"precip_annual\"    \"temp_annual_mean\" \"temp_annual_min\"  \"temp_annual_max\" \n#&gt; [13] \"temp_january_min\" \"vapor_min\"        \"vapor_max\"        \"canopy_cover\"    \n#&gt; [17] \"lon\"              \"lat\"              \"land_type\"\n\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/67614/forest\n\n\n\n\n\n\n\nset.seed(123)\nforested_split &lt;- initial_split(forested, prop = .8, strata = tree_no_tree)\nforested_split\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;\n\n\n\n\n\n\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\n\nnrow(forested_train)\n#&gt; [1] 5685\nnrow(forested_test)\n#&gt; [1] 1422\n\n\n\n\n\n# Load the dataset\nset.seed(123)\n\n# Create a 10-fold cross-validation object\n(cv_folds &lt;- vfold_cv(forested_train, v = 10))\n#&gt; #  10-fold cross-validation \n#&gt; # A tibble: 10 × 2\n#&gt;    splits             id    \n#&gt;    &lt;list&gt;             &lt;chr&gt; \n#&gt;  1 &lt;split [5116/569]&gt; Fold01\n#&gt;  2 &lt;split [5116/569]&gt; Fold02\n#&gt;  3 &lt;split [5116/569]&gt; Fold03\n#&gt;  4 &lt;split [5116/569]&gt; Fold04\n#&gt;  5 &lt;split [5116/569]&gt; Fold05\n#&gt;  6 &lt;split [5117/568]&gt; Fold06\n#&gt;  7 &lt;split [5117/568]&gt; Fold07\n#&gt;  8 &lt;split [5117/568]&gt; Fold08\n#&gt;  9 &lt;split [5117/568]&gt; Fold09\n#&gt; 10 &lt;split [5117/568]&gt; Fold10\n\n\n\n\n\nlm for linear model &lt;– The one we have looked at!\nglmnet for regularized regression\nkeras for regression using TensorFlow\nstan for Bayesian regression using Stan\nspark for large data sets using spark\nbrulee for regression using torch (PyTourch)\n\n\n\n\n\nAll of these models have different syntax and functions\nHow do you keep track of all of them?\nHow do you know which one to use?\nHow would you compare them?\n\nComparing 3-5 of these models is a lot of work using functions for diverse packages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn the tidymodels framework, all models are created using the same syntax:\n\nThis makes it easy to compare models\nThis makes it easy to switch between models\nThis makes it easy to use the same model with different engines (packages)\n\nThe parsnip package provides a consistent interface to many models\nFor example, to fit a linear model you would be able to access the linear_reg() function\n\n\n\n?linear_reg"
   },
   {
     "objectID": "slides/16-tidymodels.html#data-prep",
@@ -9109,23 +9109,23 @@
   {
     "objectID": "slides/15-ml-intro.html",
     "href": "slides/15-ml-intro.html",
-    "title": "15 - Introduction to tidymodels",
+    "title": "Lecture 15",
     "section": "",
-    "text": "https://xkcd.com/1838/"
+    "text": "As of 11PM last night 36/86 students have completed the feedback survey.\n\nMost peole are feeling very confident with Unit 1, but not with Unit 2…\n\n(Please remeber the general feelings after unit 1)\n\n\n\n\n\n\n\n\n\n\n\nThere is a general feeling of wanting to memorize the functions, and it being limited by the speed of the course.\n\n\nTo be a great scientist, coding isn’t about memorizing functions — it’s about understanding concepts, problem-solving, and knowing how to find and apply the right tools. Developers frequently reference documentation, libraries, and online resources to write efficient code. The key skills are logical thinking, debugging, and structuring solutions. From the feedback, this is something that students are proud of improving.\n\n\nThere is a beleif that this is an intro class, however it is a 300 level course. While we are introducing R as a tool, our goal is to help you think about data in a simular way as your computer, and plan for ways to answers questions whether with a model, statistical test, visualization, or report.\n\n\nOur goal as the teaching team to is expose you to the foundational concepts so that you are more ready to think in this way (quantitiative reasoning aspect of the course). The generous grading policy is to help you learn and grow in this way.\n\n\n\nThere is a general feeling of not making as fast of progress as hoped, but feeling really proad of the progress made.\n\n\nI am not kidding when I say it took me 5+ years to get comfortable with R and to feel I could write a significant amount of code without the help docs, or stackoverflow (pre-chatGPT days). That said I still spend a significant amount of time on them. That part will never go away.\n\n\n\nThere is a hope for different office hours…\n\n\nHow would 230-330pm on Mondays/Wednesdays work for everyone?\n\n\nAlmost everyone mentioned feeling proud of the progress they have made.\n\n\nThat makes us so happy and we hope to be able supporting that. I can promise you, that already you are more equipt then most undergrads I interview coming out of environmental science programs.\n\nI will report back with more if more submit."
   },
   {
     "objectID": "labs/lab6.html#camels-dataset",
     "href": "labs/lab6.html#camels-dataset",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "CAMELS Dataset",
-    "text": "CAMELS Dataset\nThe CAMELS dataset contains a wealth of information on hydrologic variables, meteorological forcings, and catchment attributes for over 500 self drainging river basins in the United States. In this lab, we will focus on predicting the mean streamflow for these basins using the basin characteristcs associated with each. CAMELS hydrology data has been widely used to calibrate, train, and analyze models in hydrology and machine learning:\n⚙️ Calibrating Hydrologic Models – Used for parameter tuning in models like SAC-SMA, VIC, and HBV, improving regional and large-sample hydrology studies.\n🤖 Training Machine Learning Models – Enables deep learning (e.g., LSTMs) and regression models for streamflow prediction, often outperforming traditional methods.\n🔍 Understanding Model Behavior – Helps assess model generalization across catchments, uncertainty analysis, and the role of catchment attributes.\n📊 Benchmarking & Regionalization – Supports large-scale model comparison and parameter transfer to ungauged basins.\n🔄 Hybrid Modeling – Used in ML-enhanced physics-based models for bias correction and improved hydrologic simulations.\nNotable studies include Kratzert et al. (2019), demonstrating LSTMs outperforming conceptual models in streamflow prediction. The data is hosted by NCAR here. Navigating down to the “Individual Files” section will take to to a list of data avialbe for download. As part of this lab, we are going to explore how to programatically download and load the data into R."
+    "text": "CAMELS Dataset\nThe CAMELS dataset contains a wealth of information on hydrologic variables, meteorological forcings, and catchment attributes for over 500 self draining river basins in the United States. In this lab, we will focus on predicting the mean streamflow for these basins using the basin characteristics associated with each. CAMELS hydrology data has been widely used to calibrate, train, and analyze models in hydrology and machine learning:\n⚙️ Calibrating Hydrologic Models – Used for parameter tuning in models like SAC-SMA, VIC, and HBV, improving regional and large-sample hydrology studies.\n🤖 Training Machine Learning Models – Enables deep learning (e.g., LSTMs) and regression models for streamflow prediction, often outperforming traditional methods.\n🔍 Understanding Model Behavior – Helps assess model generalization across catchments, uncertainty analysis, and the role of catchment attributes.\n📊 Benchmarking & Regionalization – Supports large-scale model comparison and parameter transfer to ungauged basins.\n🔄 Hybrid Modeling – Used in ML-enhanced physics-based models for bias correction and improved hydrologic simulations.\nNotable studies include Kratzert et al. (2019), demonstrating LSTMs outperforming conceptual models in streamflow prediction. The data is hosted by NCAR here. Navigating down to the “Individual Files” section will take to to a list of data availiable for download. As part of this lab, we are going to explore how to programatically download and load the data into R."
   },
   {
     "objectID": "labs/lab6.html#getting-the-documentation-pdf",
     "href": "labs/lab6.html#getting-the-documentation-pdf",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Getting the documentation PDF",
-    "text": "Getting the documentation PDF\nLastly, we can download the documentation PDF which provides a descriptions for the various columns as many are not self-explanatory. Here, because there is a single file, we can use download.file directly.\n\ndownload.file(glue('{root}/camels_attributes_v2.0.pdf'), 'data/camels_attributes_v2.0.pdf')\n\nGo to your data directory and open the PDF to see the attributes of the data. It will be very helpful through the remainder of this lab!"
+    "text": "Getting the documentation PDF\nWe can download the documentation PDF which provides a descriptions for the various columns as many are not self-explanatory. Here we can use download.file to download the PDF to our data directory.\n\ndownload.file('https://gdex.ucar.edu/dataset/camels/file/camels_attributes_v2.0.pdf', \n              'data/camels_attributes_v2.0.pdf')"
   },
   {
     "objectID": "labs/lab6.html#whats-in-the-data",
@@ -9139,7 +9139,7 @@
     "href": "labs/lab6.html#lets-start-by-splitting-the-data",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Lets start by splitting the data",
-    "text": "Lets start by splitting the data\nFirst, we set a seed for reproducabilty, then transform the q_mean column to a log scale.\nwe split the data into a training and testing set. We are going to use 80% of the data for training and 20% for testing.\n\n#\nset.seed(123)\n\n# Bad form to perform simple transformations on the outcome variable within a \n# recipe. So, we'll do it here.\ncamels &lt;- camels |&gt; \n  mutate(logQmean = log(q_mean))\n\n# Generate the split\ncamels_split &lt;- initial_split(camels, prop = 0.8)\ncamels_train &lt;- training(camels_split)\ncamels_test  &lt;- testing(camels_split)"
+    "text": "Lets start by splitting the data\nFirst, we set a seed for reproducabilty, then transform the q_mean column to a log scale. Remember it is error prone to apply transformations to the outcome variable within a recipe. So, we’ll do it a prioi.\nOnce set, we can split the data into a training and testing set. We are going to use 80% of the data for training and 20% for testing with no startification.\nAdditionally, we are going to create a 10-fold cross validation dataset to help us evaluate multi-model setups.\n\nset.seed(123)\n# Bad form to perform simple transformations on the outcome variable within a \n# recipe. So, we'll do it here.\ncamels &lt;- camels |&gt; \n  mutate(logQmean = log(q_mean))\n\n# Generate the split\ncamels_split &lt;- initial_split(camels, prop = 0.8)\ncamels_train &lt;- training(camels_split)\ncamels_test  &lt;- testing(camels_split)\n\ncamels_cv &lt;- vfold_cv(camels_train, v = 10)"
   },
   {
     "objectID": "slides/15-ml-intro.html#the-big-picture-modeling",
@@ -9251,7 +9251,7 @@
     "href": "slides/15-ml-intro.html#cross-validation-3",
     "title": "Lecture 15",
     "section": "Cross-validation ",
-    "text": "Cross-validation \nWhat is in this?\n\npenguins_folds &lt;- vfold_cv(penguins_train)\npenguins_folds$splits[1:3]\n#&gt; [[1]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[2]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[3]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n\n\n\n\n\n\n\nNote\n\n\nHere is another example of a list column enabling the storage of non-atomic types in tibble\n\n\n\n\n\n\n\n\n\nImportant\n\n\nSet the seed when creating resamples"
+    "text": "Cross-validation \nWhat is in this?\n\npenguins_folds &lt;- vfold_cv(penguins_train)\npenguins_folds$splits[1:3]\n#&gt; [[1]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[2]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[3]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n\n\n\n\n\n\n\nNote\n\n\n\nHere is another example of a list column enabling the storage of non-atomic types in tibble\n\n\n\n\n\n\n\n\nImportant\n\n\n\nSet the seed when creating resamples"
   },
   {
     "objectID": "slides/15-ml-intro.html#cross-validation-4",
@@ -9286,14 +9286,14 @@
     "href": "slides/15-ml-intro.html#validation-set",
     "title": "Lecture 15",
     "section": "Validation set ",
-    "text": "Validation set \n\nset.seed(853)\npenguins_val_split &lt;- initial_validation_split(penguins)\npenguins_val_split\n#&gt; &lt;Training/Validation/Testing/Total&gt;\n#&gt; &lt;199/67/67/333&gt;\nvalidation_set(penguins_val_split)\n#&gt; # A tibble: 1 × 2\n#&gt;   splits           id        \n#&gt;   &lt;list&gt;           &lt;chr&gt;     \n#&gt; 1 &lt;split [199/67]&gt; validation\n\n\nA validation set is just another type of resample"
+    "text": "Validation set \n\nset.seed(853)\npenguins_val_split &lt;- initial_validation_split(penguins)\npenguins_val_split\n#&gt; &lt;Training/Validation/Testing/Total&gt;\n#&gt; &lt;199/67/67/333&gt;\nvalidation_set(penguins_val_split)\n#&gt; # A tibble: 1 × 2\n#&gt;   splits           id        \n#&gt;   &lt;list&gt;           &lt;chr&gt;     \n#&gt; 1 &lt;split [199/67]&gt; validation\n\n. . .\nA validation set is just another type of resample"
   },
   {
     "objectID": "slides/15-ml-intro.html#modeling-options-1",
     "href": "slides/15-ml-intro.html#modeling-options-1",
     "title": "Lecture 15",
     "section": "Modeling Options",
-    "text": "Modeling Options\nWhat if we want to compare more models?\n\nAnd/or more model configurations?\n\n\nAnd we want to understand if these are important differences?\n\n\nHow can we use the training data to compare and evaluate different models? 🤔"
+    "text": "Modeling Options\nWhat if we want to compare more models?\n. . .\nAnd/or more model configurations?\n. . .\nAnd we want to understand if these are important differences?\n. . .\nHow can we use the training data to compare and evaluate different models? 🤔\n. . ."
   },
   {
     "objectID": "slides/15-ml-intro.html#k-fold-cross-validation",
@@ -9446,8 +9446,8 @@
     "objectID": "slides/15-ml-intro.html#key-take-aways",
     "href": "slides/15-ml-intro.html#key-take-aways",
     "title": "Lecture 15",
-    "section": "Key Take Aways:",
-    "text": "Key Take Aways:\nAs of 11PM last night 36/86 students have completed the feedback survey.\n\nMost peole are feeling very confident with Unit 1, but not with Unit 2…\n\n(Please remeber the general feelings after unit 1)"
+    "section": "",
+    "text": "As of 11PM last night 36/86 students have completed the feedback survey.\n\nMost peole are feeling very confident with Unit 1, but not with Unit 2…\n\n(Please remeber the general feelings after unit 1)\n\n\n\n\n\n\n\n\n\n\n\nThere is a general feeling of wanting to memorize the functions, and it being limited by the speed of the course.\n\n\nTo be a great scientist, coding isn’t about memorizing functions — it’s about understanding concepts, problem-solving, and knowing how to find and apply the right tools. Developers frequently reference documentation, libraries, and online resources to write efficient code. The key skills are logical thinking, debugging, and structuring solutions. From the feedback, this is something that students are proud of improving.\n\n\nThere is a beleif that this is an intro class, however it is a 300 level course. While we are introducing R as a tool, our goal is to help you think about data in a simular way as your computer, and plan for ways to answers questions whether with a model, statistical test, visualization, or report.\n\n\nOur goal as the teaching team to is expose you to the foundational concepts so that you are more ready to think in this way (quantitiative reasoning aspect of the course). The generous grading policy is to help you learn and grow in this way.\n\n\n\nThere is a general feeling of not making as fast of progress as hoped, but feeling really proad of the progress made.\n\n\nI am not kidding when I say it took me 5+ years to get comfortable with R and to feel I could write a significant amount of code without the help docs, or stackoverflow (pre-chatGPT days). That said I still spend a significant amount of time on them. That part will never go away.\n\n\n\nThere is a hope for different office hours…\n\n\nHow would 230-330pm on Mondays/Wednesdays work for everyone?\n\n\nAlmost everyone mentioned feeling proud of the progress they have made.\n\n\nThat makes us so happy and we hope to be able supporting that. I can promise you, that already you are more equipt then most undergrads I interview coming out of environmental science programs.\n\nI will report back with more if more submit."
   },
   {
     "objectID": "slides/15-ml-intro.html#grades-pre-regrades",
@@ -9475,6 +9475,216 @@
     "href": "slides/15-ml-intro.html#one-last-chance",
     "title": "Lecture 15",
     "section": "One last chance …",
-    "text": "One last chance …\n\nWe will allow regrade sumbissions until midnight tonight. There will be no other regrades after this point.\nOn lab 3, and lab 4: If you had a 0 due to the wrong type of submission, you can resubmit for full credit.\nYour TA has commented if this is the case.\n\n\n\nIf you see this…\n\n\n\n\n\n\n\n\n\n\n… be sure to set this!"
+    "text": "One last chance …\n\nWe will allow regrade sumbissions until midnight tonight. There will be no other regrades after this point.\nOn lab 3, and lab 4: If you had a 0 due to the wrong type of submission, you can resubmit for full credit.\nYour TA has commented if this is the case.\n\n\n\n\nIf you see this…\n\n\n\n\n\n\n\n\n\n\n\n\n… be sure to set this!"
+  },
+  {
+    "objectID": "labs/lab6.html#recipe",
+    "href": "labs/lab6.html#recipe",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Recipe",
+    "text": "Recipe\nWe learned quite a lot about the data in the EDA. We know that the q_mean, aridity and p_mean columns are right skewed and can be helped by log transformations. We also know that the relationship between aridity and p_mean is non-linear and can be helped by adding an interaction term to the model. To implement these, lets build a recipe!\n\nrec &lt;-  recipe(logQmean ~ aridity + p_mean, data = camels_train) %&gt;%\n  step_log(all_predictors()) %&gt;%\n  step_interact(terms = ~ aridity:p_mean) |&gt; \n  step_naomit(all_predictors()) %&gt;%\n  step_naomit(all_outcomes())"
+  },
+  {
+    "objectID": "labs/lab6.html#naive-base-lm-approach",
+    "href": "labs/lab6.html#naive-base-lm-approach",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Naive base lm approach:",
+    "text": "Naive base lm approach:\nOk, to start, lets do what we are comfortable with … fitting a linear model to the data. First, we use prep and bake on the training data to apply the recipe. Then, we fit a linear model to the data.\n\n# Prepare the data\nbaked_data &lt;- prep(rec, camels_train) |&gt; \n  bake(new_data = NULL)\n\n# Interaction with lm\n#  Base lm sets interaction terms with the * symbol\nlm_base &lt;- lm(logQmean ~ aridity * p_mean, data = baked_data)\nsummary(lm_base)\n\n\nCall:\nlm(formula = logQmean ~ aridity * p_mean, data = baked_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.91162 -0.21601 -0.00716  0.21230  2.85706 \n\nCoefficients:\n               Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    -1.77586    0.16365 -10.852  &lt; 2e-16 ***\naridity        -0.88397    0.16145  -5.475 6.75e-08 ***\np_mean          1.48438    0.15511   9.570  &lt; 2e-16 ***\naridity:p_mean  0.10484    0.07198   1.457    0.146    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.5696 on 531 degrees of freedom\nMultiple R-squared:  0.7697,    Adjusted R-squared:  0.7684 \nF-statistic: 591.6 on 3 and 531 DF,  p-value: &lt; 2.2e-16\n\n# Sanity Interaction term from recipe ... these should be equal!!\nsummary(lm(logQmean ~ aridity + p_mean + aridity_x_p_mean, data = baked_data))\n\n\nCall:\nlm(formula = logQmean ~ aridity + p_mean + aridity_x_p_mean, \n    data = baked_data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.91162 -0.21601 -0.00716  0.21230  2.85706 \n\nCoefficients:\n                 Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)      -1.77586    0.16365 -10.852  &lt; 2e-16 ***\naridity          -0.88397    0.16145  -5.475 6.75e-08 ***\np_mean            1.48438    0.15511   9.570  &lt; 2e-16 ***\naridity_x_p_mean  0.10484    0.07198   1.457    0.146    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.5696 on 531 degrees of freedom\nMultiple R-squared:  0.7697,    Adjusted R-squared:  0.7684 \nF-statistic: 591.6 on 3 and 531 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "labs/lab6.html#using-a-workflow-instead",
+    "href": "labs/lab6.html#using-a-workflow-instead",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Using a workflow instead",
+    "text": "Using a workflow instead\ntidymodels provides a framework for building and evaluating models using a consistent and modular workflow. The workflows package allows you to define a series of modeling steps, including data preprocessing, model fitting, and model fitting, in a single object. This makes it easier to experiment with different models, compare performance, and ensure reproducibility.\nworkflows are built from a model, a preprocessor, and a execution. Here, we are going to use the linear_reg function to define a linear regression model, set the engine to lm, and the mode to regression. We then add our recipe to the workflow, fit the model to the training data, and extract the model coefficients.\n\n# Define model\nlm_model &lt;- linear_reg() %&gt;%\n  # define the engine\n  set_engine(\"lm\") %&gt;%\n  # define the mode\n  set_mode(\"regression\")\n\n# Instatiate a workflow ...\nlm_wf &lt;- workflow() %&gt;%\n  # Add the recipe\n  add_recipe(rec) %&gt;%\n  # Add the model\n  add_model(lm_model) %&gt;%\n  # Fit the model to the training data\n  fit(data = camels_train) \n\n# Extract the model coefficients from the workflow\nsummary(extract_fit_engine(lm_wf))$coefficients\n\n                   Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)      -1.7758557 0.16364755 -10.851710 6.463654e-25\naridity          -0.8839738 0.16144589  -5.475357 6.745512e-08\np_mean            1.4843771 0.15511117   9.569762 4.022500e-20\naridity_x_p_mean  0.1048449 0.07198145   1.456555 1.458304e-01\n\n# From the base implementaion\nsummary(lm_base)$coefficients\n\n                 Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)    -1.7758557 0.16364755 -10.851710 6.463654e-25\naridity        -0.8839738 0.16144589  -5.475357 6.745512e-08\np_mean          1.4843771 0.15511117   9.569762 4.022500e-20\naridity:p_mean  0.1048449 0.07198145   1.456555 1.458304e-01"
+  },
+  {
+    "objectID": "labs/lab6.html#switch-it-up",
+    "href": "labs/lab6.html#switch-it-up",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Switch it up!",
+    "text": "Switch it up!\nThe real power of this approach is that we can easily switch out the models/recipes and see how it performs. Here, we are going to instead use a random forest model to predict mean streamflow. We define a random forest model using the rand_forest function, set the engine to ranger, and the mode to regression. We then add the recipe, fit the model, and evaluate the skill.\n\nlibrary(baguette)\nrf_model &lt;- rand_forest() %&gt;%\n  set_engine(\"ranger\", importance = \"impurity\") %&gt;%\n  set_mode(\"regression\")\n\nrf_wf &lt;- workflow() %&gt;%\n  # Add the recipe\n  add_recipe(rec) %&gt;%\n  # Add the model\n  add_model(rf_model) %&gt;%\n  # Fit the model\n  fit(data = camels_train)"
+  },
+  {
+    "objectID": "labs/lab6.html#a-workflowset-approach",
+    "href": "labs/lab6.html#a-workflowset-approach",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "A workflowset approach",
+    "text": "A workflowset approach\nworkflow_set is a powerful tool for comparing multiple models on the same data. It allows you to define a set of workflows, fit them to the same data, and evaluate their performance using a common metric. Here, we are going to create a workflow_set object with the linear regression and random forest models, fit them to the training data, and compare their performance using the autoplot and rank_results functions.\n\nwf &lt;- workflow_set(list(rec), list(lm_model, rf_model)) %&gt;%\n  workflow_map('fit_resamples', resamples = camels_cv) \n\nautoplot(wf)\n\n\n\n\n\n\n\nrank_results(wf, rank_metric = \"rsq\", select_best = TRUE)\n\n# A tibble: 4 × 9\n  wflow_id          .config .metric  mean std_err     n preprocessor model  rank\n  &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;\n1 recipe_rand_fore… Prepro… rmse    0.563  0.0247    10 recipe       rand…     1\n2 recipe_rand_fore… Prepro… rsq     0.771  0.0259    10 recipe       rand…     1\n3 recipe_linear_reg Prepro… rmse    0.569  0.0260    10 recipe       line…     2\n4 recipe_linear_reg Prepro… rsq     0.770  0.0223    10 recipe       line…     2\n\n\nOverall it seems the random forest model is outperforming the linear model. This is not surprising given the non-linear relationship between the predictors and the outcome :)"
+  },
+  {
+    "objectID": "labs/lab6.html#neural-network-15-points",
+    "href": "labs/lab6.html#neural-network-15-points",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Neural Network (15 points)",
+    "text": "Neural Network (15 points)\nNow that we have built a linear model and a random forest model, let’s try building a neural network model using the nnet engine from the baguette package. The baguette package provides a variety of machine learning models, including neural networks, support vector machines, and gradient boosting machines, all integrated with the tidymodels framework.\nYour task is to build a neural network model (bag_mlp) to predict mean streamflow using the workflow derived above"
+  },
+  {
+    "objectID": "labs/lab6.html#data-spliting-15",
+    "href": "labs/lab6.html#data-spliting-15",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Data Spliting (15)",
+    "text": "Data Spliting (15)\n\nSet a seed for reproducabilty\nCreate an intial split with 75% used for training and 25% for testing\nExtact your training and testing sets\nBuild a 10-fold CV dataset as well"
+  },
+  {
+    "objectID": "labs/lab6.html#recipe-15",
+    "href": "labs/lab6.html#recipe-15",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Recipe (15)",
+    "text": "Recipe (15)\n\nDefine a formula you want to use to predict logQmean\nDescribe in words why you are chosing the formula you are. Consult the downloaded PDF for the data to help you make this decision.\nBuild a recipe that you feel handles the predictors chosen well"
+  },
+  {
+    "objectID": "labs/lab6.html#define-2-models-25",
+    "href": "labs/lab6.html#define-2-models-25",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Define 2 models (25)",
+    "text": "Define 2 models (25)\n\nDefine a random forest model using the rand_forest function\nSet the engine to ranger and the mode to regression\nDefine a second model of your choice"
+  },
+  {
+    "objectID": "labs/lab6.html#workflow-pairs-or-workflow-set",
+    "href": "labs/lab6.html#workflow-pairs-or-workflow-set",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Workflow pairs or workflow set ()",
+    "text": "Workflow pairs or workflow set ()\nHere you have the option to build a workflow set or a pair of workflows.\n\nCreate a workflow object\nAdd the recipe\nAdd the model(s)\nFit the model to the resamples"
+  },
+  {
+    "objectID": "labs/lab6.html#evaluation",
+    "href": "labs/lab6.html#evaluation",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Evaluation",
+    "text": "Evaluation\n\nUse autoplot and rank_results to compare the models.\nDescribe what model you think is best and why!"
+  },
+  {
+    "objectID": "labs/lab6.html#vip",
+    "href": "labs/lab6.html#vip",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "VIP",
+    "text": "VIP\n\nUse the vip function to see the most important predictors in your model\nDecribe in text what you see and why the relationship you found makes sense\nDocument any changes you make (reduction or additon to parameters)"
+  },
+  {
+    "objectID": "labs/lab6.html#extact-and-evaluate",
+    "href": "labs/lab6.html#extact-and-evaluate",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Extact and Evaluate",
+    "text": "Extact and Evaluate\nNow that you found your favorite model, lets see how it does on the test data!\n\nBuild a workflow (not workflow set) with your favorite model, recipe, and training data\nUse fit to fit all training data to the model\nUse augment to make predictions on the test data\nCreate a plot of the observed vs predicted values with clear title, axis labels, and a compelling color scale\nDescribe what you think of the results!"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#data-on-forests-in-washington",
+    "href": "slides/16-tidymodels.html#data-on-forests-in-washington",
+    "title": "Lecture 16",
+    "section": "Data on forests in Washington",
+    "text": "Data on forests in Washington\n\n\n\nThe U.S. Forest Service maintains ML models to predict whether a plot of land is “forested.”\nThis classification is important for all sorts of research, legislation, and land management purposes.\nPlots are typically remeasured every 10 years and this dataset contains the most recent measurement per plot.\nType ?forested to learn more about this dataset, including references.\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/251793/forest-mountain"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#data-on-forests-in-washington-1",
+    "href": "slides/16-tidymodels.html#data-on-forests-in-washington-1",
+    "title": "Lecture 16",
+    "section": "Data on forests in Washington",
+    "text": "Data on forests in Washington\n\n\n\nlibrary(tidymodels)\nlibrary(forested)\ndim(forested)\n#&gt; [1] 7107   19\n\n\nOne observation from each of 7,107 6000-acre hexagons in Washington state.\nA nominal outcome, forested, with levels \"Yes\" and \"No\", measured “on-the-ground.”\n\n\ntable(forested$forested)\n#&gt; \n#&gt;  Yes   No \n#&gt; 3894 3213\n\n\n18 remotely-sensed and easily-accessible predictors:\n\n\nnames(forested)\n#&gt;  [1] \"forested\"         \"year\"             \"elevation\"        \"eastness\"        \n#&gt;  [5] \"northness\"        \"roughness\"        \"tree_no_tree\"     \"dew_temp\"        \n#&gt;  [9] \"precip_annual\"    \"temp_annual_mean\" \"temp_annual_min\"  \"temp_annual_max\" \n#&gt; [13] \"temp_january_min\" \"vapor_min\"        \"vapor_max\"        \"canopy_cover\"    \n#&gt; [17] \"lon\"              \"lat\"              \"land_type\"\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/67614/forest"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#data-splitting-and-spending",
+    "href": "slides/16-tidymodels.html#data-splitting-and-spending",
+    "title": "Lecture 16",
+    "section": "Data splitting and spending",
+    "text": "Data splitting and spending\nThe initial split \n\nset.seed(123)\nforested_split &lt;- initial_split(forested, prop = .8, strata = tree_no_tree)\nforested_split\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#accessing-the-data",
+    "href": "slides/16-tidymodels.html#accessing-the-data",
+    "title": "Lecture 16",
+    "section": "Accessing the data ",
+    "text": "Accessing the data \n\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\n\nnrow(forested_train)\n#&gt; [1] 5685\nnrow(forested_test)\n#&gt; [1] 1422"
+  },
+  {
+    "objectID": "slides/16-tidymodels.html#k-fold-cross-validation",
+    "href": "slides/16-tidymodels.html#k-fold-cross-validation",
+    "title": "Lecture 16",
+    "section": "K-Fold Cross-Validation ",
+    "text": "K-Fold Cross-Validation \n\n# Load the dataset\nset.seed(123)\n\n# Create a 10-fold cross-validation object\n(cv_folds &lt;- vfold_cv(forested_train, v = 10))\n#&gt; #  10-fold cross-validation \n#&gt; # A tibble: 10 × 2\n#&gt;    splits             id    \n#&gt;    &lt;list&gt;             &lt;chr&gt; \n#&gt;  1 &lt;split [5116/569]&gt; Fold01\n#&gt;  2 &lt;split [5116/569]&gt; Fold02\n#&gt;  3 &lt;split [5116/569]&gt; Fold03\n#&gt;  4 &lt;split [5116/569]&gt; Fold04\n#&gt;  5 &lt;split [5116/569]&gt; Fold05\n#&gt;  6 &lt;split [5117/568]&gt; Fold06\n#&gt;  7 &lt;split [5117/568]&gt; Fold07\n#&gt;  8 &lt;split [5117/568]&gt; Fold08\n#&gt;  9 &lt;split [5117/568]&gt; Fold09\n#&gt; 10 &lt;split [5117/568]&gt; Fold10"
+  },
+  {
+    "objectID": "labs/lab6.html#getting-basin-characteristics",
+    "href": "labs/lab6.html#getting-basin-characteristics",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Getting Basin characteristics",
+    "text": "Getting Basin characteristics\nNow we want to download the .txt files that store the actual data documented in the PDF. Doing this file by file (like we did with the PDF) is possible, but lets look at a better/easier way…\n\nLets create a vector storing the data types/file names we want to download:\n\n\ntypes &lt;- c(\"clim\", \"geol\", \"soil\", \"topo\", \"vege\", \"hydro\")\n\n\n\n\n\n\n\nglue\n\n\n\n\n\nThe glue package provides an efficient way to interpolate and manipulate strings. It is particularly useful for dynamically constructing text, formatting outputs, and embedding R expressions within strings.\n\nKey Features of glue:\n\nString Interpolation: Embed R expressions inside strings using {}.\nImproved Readability: Eliminates the need for cumbersome paste(), paste0() and sprintf() commands.\nMulti-line Strings: Easily handle multi-line text formatting.\nSafe and Efficient: Optimized for performance and readability.\n\n\n\nBasic Usage\n\nTo use glue, you need to load the package and then call the glue() function with the desired string template. You can embed R expressions within curly braces {} to interpolate values into the string.\n\n\nclass &lt;- \"ESS 330\"\nyear  &lt;- 2024\n\nglue(\"We are taking {class} together in {year}\")\n\nWe are taking ESS 330 together in 2024\n\n\n\n\nMultiples\n\nYou can also use glue to interpolate multiple values at once\n\n\nclasses &lt;- c(\"ESS 330\", \"ESS 523c\")\n\nglue(\"We are taking {classes} together in {year}\")\n\nWe are taking ESS 330 together in 2024\nWe are taking ESS 523c together in 2024\n\n\n\n\n\n\n\nUsing glue, we can construct the needed URLs and file names for the data we want to download:\n\n\n# Where the files live online ...\nremote_files  &lt;- glue('{root}/camels_{types}.txt')\n# where we want to download the data ...\nlocal_files   &lt;- glue('data/camels_{types}.txt')\n\n\nNow we can download the data: walk2 comes from the purrr package and is used to apply a function to multiple arguments in parallel (much like map2 works over paired lists). Here, we are asking walk2 to pass the first element of remote_files and the first element of local_files to the download.file function to download the data, and setting quiet = TRUE to suppress output. The process is then iterated for the second element of each vector, and so on.\n\n\nwalk2(remote_files, local_files, download.file, quiet = TRUE)\n\n\nOnce downloaded, the data can be read it into R using readr::read_delim(), again instead of applying this to each file individually, we can use map to apply the function to each element of the local_files list.\n\n\n# Read and merge data\ncamels &lt;- map(local_files, read_delim, show_col_types = FALSE) \n\n\nThis gives us a list of data.frames, one for each file that we want to merge into a single table. So far in class we have focused on *_join functions to merge data based on a primary and foreign key relationship.\n\nIn this current list, we have &gt;2 tables, but, have a shared column called gauge_id that we can use to merge the data. However, since we have more then a left and right hand table, we need a more robust tool. We will use the powerjoin package to merge the data into a single data frame. powerjoin is a flexible package for joining lists of data.frames. It provides a wide range of join types, including inner, left, right, full, semi, anti, and cross joins making it a versatile tool for data manipulation and analysis, and one that should feel familiar to users of dplyr.\nIn this case, we are join to merge every data.frame in the list (n = 6) by the shared gauge_id column. Since we want to keep all data, we want a full join.\n\ncamels &lt;- power_full_join(camels ,by = 'gauge_id')\n\n\n\n\n\n\n\nNote\n\n\n\nAlternatively, we could have read straight form the urls. Strongly consider the implications of this approach as the longevity and persistence of the data is not guaranteed.\n\n# Read and merge data\ncamels &lt;- map(remote_files, read_delim, show_col_types = FALSE) |&gt; \n  power_full_join(by = 'gauge_id')"
+  },
+  {
+    "objectID": "labs/lab6.html#exploratory-data-analysis",
+    "href": "labs/lab6.html#exploratory-data-analysis",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Exploratory Data Analysis",
+    "text": "Exploratory Data Analysis\nFirst, lets make a map of the sites. Use the borders() ggplot function to add state boundaries to the map and initially color the points by the mean flow (q_mean) at each site.\n\nggplot(data = camels, aes(x = gauge_lon, y = gauge_lat)) +\n  borders(\"state\", colour = \"gray50\") +\n  geom_point(aes(color = q_mean)) +\n  scale_color_gradient(low = \"pink\", high = \"dodgerblue\") +\n  ggthemes::theme_map()\n\n\n\n\n\n\n\n\nWe can take a moment here to are learn a few new things about ggplot2!\n\n\n\n\n\n\nColor scales\n\n\n\nIn ggplot, sometimes you want different things (like bars, dots, or lines) to have different colors. But how does R know which colors to use? That’s where color scales come in!\nscales can be used to map data values to colors (scale_color_*) or fill aesthetics (scale_fill_*). There are two main types of color scales:\n\nDiscrete color scales – for things that are categories, like “apples,” “bananas,” and “cherries.” Each gets its own separate color.\n\n\nscale_color_manual(values = c(\"red\", \"yellow\", \"pink\")) #lets you pick your own colors.\n\nOr\n\nscale_color_brewer(palette = \"Set1\") #uses a built-in color set.\n\n\nContinuous color scales – for numbers, like temperature (cold to hot) or height (short to tall). The color changes smoothly.\n\n\nscale_color_gradient(low = \"blue\", high = \"red\") #makes small numbers blue and big numbers red."
+  },
+  {
+    "objectID": "labs/lab6.html#visual-eda",
+    "href": "labs/lab6.html#visual-eda",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Visual EDA",
+    "text": "Visual EDA\n\nLets start by looking that the 3 dimensions (variables) of this data. We’ll start with a XY plot of aridity and rainfall. We are going to use the scale_color_viridis_c() function to color the points by the q_mean column. This scale functions maps the color of the points to the values in the q_mean column along the viridis continuous (c) palette. Because a scale_color_* function is applied, it maps to the known color aesthetic in the plot.\n\n\n# Create a scatter plot of aridity vs rainfall\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  # Add points colored by mean flow\n  geom_point(aes(color = q_mean)) +\n  # Add a linear regression line\n  geom_smooth(method = \"lm\", color = \"red\", linetype = 2) +\n  # Apply the viridis color scale\n  scale_color_viridis_c() +\n  # Add a title, axis labels, and theme (w/ legend on the bottom)\n  theme_linedraw() + \n  theme(legend.position = \"bottom\") + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nOk! so it looks like there is a relationship between rainfall, aridity, and rainfall but it looks like an exponential decay function and is certainly not linear.\nTo test a transformation, we can log transform the x and y axes using the scale_x_log10() and scale_y_log10() functions:\n\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  geom_point(aes(color = q_mean)) +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_c() +\n  # Apply log transformations to the x and y axes\n  scale_x_log10() + \n  scale_y_log10() +\n  theme_linedraw() +\n  theme(legend.position = \"bottom\") + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nGreat! We can see a log-log relationship between aridity and rainfall provides a more linear relationship. This is a common relationship in hydrology and is often used to estimate rainfall in ungauged basins. However, once the data is transformed, the lack of spread in the streamflow data is quite evident with high mean flow values being compressed to the low end of aridty/high end of rainfall.\nTo address this, we can visualize how a log transform may benift the q_mean data as well. Since the data is represented by color, rather then an axis, we can use the trans (transform) argument in the scale_color_viridis_c() function to log transform the color scale.\n\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  geom_point(aes(color = q_mean)) +\n  geom_smooth(method = \"lm\") +\n  # Apply a log transformation to the color scale\n  scale_color_viridis_c(trans = \"log\") +\n  scale_x_log10() + \n  scale_y_log10() +\n  theme_linedraw() +\n  theme(legend.position = \"bottom\",\n        # Expand the legend width ...\n        legend.key.width = unit(2.5, \"cm\"),\n        legend.key.height = unit(.5, \"cm\")) + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\") \n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nExcellent! Treating these three right skewed variables as log transformed, we can see a more evenly spread relationship between aridity, rainfall, and mean flow. This is a good sign for building a model to predict mean flow using aridity and rainfall."
+  },
+  {
+    "objectID": "labs/lab6.html#preprocessor-recipe",
+    "href": "labs/lab6.html#preprocessor-recipe",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Preprocessor: recipe`",
+    "text": "Preprocessor: recipe`\nIn lecture, we have focused on using formulas as a workflow preprocessor. Separatly we have used the recipe function to define a series of data preprocessing steps. Here, we are going to use the recipe function to define a series of data preprocessing steps.\nWe learned quite a lot about the data in the visual EDA. We know that the q_mean, aridity and p_mean columns are right skewed and can be helped by log transformations. We also know that the relationship between aridity and p_mean is non-linear and can be helped by adding an interaction term to the model. To implement these, lets build a recipe!\n\n# Create a recipe to preprocess the data\nrec &lt;-  recipe(logQmean ~ aridity + p_mean, data = camels_train) %&gt;%\n  # Log transform the predictor variables (aridity and p_mean)\n  step_log(all_predictors()) %&gt;%\n  # Add an interaction term between aridity and p_mean\n  step_interact(terms = ~ aridity:p_mean) |&gt; \n  # Drop any rows with missing values in the pred\n  step_naomit(all_predictors(), all_outcomes())"
+  },
+  {
+    "objectID": "labs/lab6.html#where-things-get-a-little-messy",
+    "href": "labs/lab6.html#where-things-get-a-little-messy",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Where things get a little messy…",
+    "text": "Where things get a little messy…\nOk so now we have our trained model lm_base and want to validate it on the test data.\n\nRemember a models ability to predict on new data is the most important part of the modeling process. It really doesnt matter how well it does on data it has already seen!\n\nWe have to be carful about how we do this with the base R approach:\n\nWrong version 1: augment\n\nnrow(camels_test)\n\n[1] 135\n\na &lt;- broom::augment(lm_base, new_data = camels_test)\nnrow(a) # Thats the full dataset! Remeber baked_data is embedded in the model\n\n[1] 535\n\n\n\n\nWrong version 2: predict\n\np = predict(lm_base, newdata = camels_test)\nplot(p, camels_test$logQmean) ## Scales way off!\n\n\n\n\n\n\n\n\n\n\nCorrect version: prep -&gt; bake -&gt; predict\n\ntest_data &lt;-  bake(prep(rec), new_data = camels_test)\ntest_data$lm_pred = predict(lm_base, newdata = test_data)"
+  },
+  {
+    "objectID": "labs/lab6.html#model-evaluation-statistical-and-visual",
+    "href": "labs/lab6.html#model-evaluation-statistical-and-visual",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Model Evaluation: statistical and visual",
+    "text": "Model Evaluation: statistical and visual\n\nmetrics(test_data, truth = logQmean, estimate = lm_pred)\n\n# A tibble: 3 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.583\n2 rsq     standard       0.742\n3 mae     standard       0.390\n\nggplot(test_data, aes(x = logQmean, y = lm_pred, colour = aridity)) +\n  # Apply a gradient color scale\n  scale_color_gradient2(low = \"brown\", mid = \"orange\", high = \"darkgreen\") +\n  geom_point() +\n  geom_abline(linetype = 2) +\n  theme_linedraw() + \n  labs(title = \"Linear Model: Observed vs Predicted\",\n       x = \"Observed Log Mean Flow\",\n       y = \"Predicted Log Mean Flow\",\n       color = \"Aridity\")\n\n\n\n\n\n\n\n\nOk so that was a bit burdensome, is really error prone (fragile), and is worthless if we wanted to test a different algorithm… lets look at a better approach!"
+  },
+  {
+    "objectID": "labs/lab6.html#making-predictions",
+    "href": "labs/lab6.html#making-predictions",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Making Predictions",
+    "text": "Making Predictions\nNow that lm_wf is a workflow, data is not embedded in the model, we can use augment with the new_data argument to make predictions on the test data.\n\n#\nlm_data &lt;- augment(lm_wf, new_data = camels_test)\ndim(lm_data)\n\n[1] 135  61"
+  },
+  {
+    "objectID": "labs/lab6.html#model-evaluation-statistical-and-visual-1",
+    "href": "labs/lab6.html#model-evaluation-statistical-and-visual-1",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Model Evaluation: statistical and visual",
+    "text": "Model Evaluation: statistical and visual\nAs with EDA, applying for graphical and statistical evaluation of the model is a key Here, we use the metrics function to extract the default metrics (rmse, rsq, mae) between the observed and predicted mean streamflow values.\nWe then create a scatter plot of the observed vs predicted values, colored by aridity, to visualize the model performance.\n\nmetrics(lm_data, truth = logQmean, estimate = .pred)\n\n# A tibble: 3 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.583\n2 rsq     standard       0.742\n3 mae     standard       0.390\n\nggplot(lm_data, aes(x = logQmean, y = .pred, colour = aridity)) +\n  scale_color_viridis_c() +\n  geom_point() +\n  geom_abline() +\n  theme_linedraw()"
+  },
+  {
+    "objectID": "labs/lab6.html#predictions",
+    "href": "labs/lab6.html#predictions",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Predictions",
+    "text": "Predictions\n\nMake predictions on the test data using the augment function and the new_data argument.\n\n\nrf_data &lt;- augment(rf_wf, new_data = camels_test)\ndim(rf_data)\n\n[1] 135  60"
+  },
+  {
+    "objectID": "labs/lab6.html#model-evaluation-statistical-and-visual-2",
+    "href": "labs/lab6.html#model-evaluation-statistical-and-visual-2",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Model Evaluation: statistical and visual",
+    "text": "Model Evaluation: statistical and visual\nEvaluate the model using the metrics function and create a scatter plot of the observed vs predicted values, colored by aridity.\n\nmetrics(rf_data, truth = logQmean, estimate = .pred)\n\n# A tibble: 3 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.587\n2 rsq     standard       0.741\n3 mae     standard       0.363\n\nggplot(rf_data, aes(x = logQmean, y = .pred, colour = aridity)) +\n  scale_color_viridis_c() +\n  geom_point() +\n  geom_abline() +\n  theme_linedraw()\n\n\n\n\n\n\n\n\nAwesome! We just set up a completly new model and were able to utilize all of the things we had done for the linear model. This is the power of the tidymodels framework!\nThat said, we still can reduce some to the repition. Further, we are not really able to compare these models to one another as they"
+  },
+  {
+    "objectID": "labs/lab6.html#define-3-models-25",
+    "href": "labs/lab6.html#define-3-models-25",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "Define 3 models (25)",
+    "text": "Define 3 models (25)\n\nDefine a random forest model using the rand_forest function\nSet the engine to ranger and the mode to regression\nDefine two other models of your choice"
+  },
+  {
+    "objectID": "labs/lab6.html#workflow-set",
+    "href": "labs/lab6.html#workflow-set",
+    "title": "Lab 6: Machine Learning in Hydrology",
+    "section": "workflow set ()",
+    "text": "workflow set ()\nWith your preprocessing steps and models defined, you can now build a workflow_set object to fit and evaluate your models. This will allow you to compare the performance of different models on the same data.\n\nCreate a workflow object\nAdd the recipe\nAdd the model(s)\nFit the model to the resamples"
   }
 ]
