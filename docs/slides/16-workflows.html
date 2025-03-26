@@ -541,14 +541,9 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li><p>Simulates logistic regression data.</p></li>
-<li><p>Bins predictor𝐴 and calculates observed probabilities.</p></li>
-<li><p>Uses binomial proportion tests to estimate probabilities and confidence intervals.</p></li>
-<li><p>Visualizes these estimates in a scatter plot with error bars.</p></li>
 <li><p>Logistic regression predicts probability—instead of a straight line, it gives an S-shaped curve that estimates how likely an outcome (e.g., is forested) is based on a predictor (e.g., rainfall and temperature).</p></li>
 <li><p>The dots in the plot show the actual proportion of “successes” (e.g., is forested) within different bins of the predictor variable(s) (A).</p></li>
 <li><p>The vertical error bars represent uncertainty—showing a range where the true probability might fall.</p></li>
-<li><p>As A increases, the probability of success increases—but not in a straight line; it follows an S-curve, meaning small changes in A have different impacts at different levels.</p></li>
 <li><p>Logistic regression helps answer “how likely” questions—e.g., “How likely is someone to pass based on their study hours?” rather than just predicting a yes/no outcome.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -905,21 +900,10 @@
 </div>
 <p><br></p>
 <div class="cell">
-<pre><code>#&gt; # Resampling results
-#&gt; # 10-fold cross-validation 
-#&gt; # A tibble: 10 × 5
-#&gt;    splits             id     .metrics         .notes           .predictions
-#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      
-#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
-#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;</code></pre>
+<pre><code>#&gt; # A tibble: 1 × 5
+#&gt;   splits             id     .metrics         .notes           .predictions      
+#&gt;   &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;            
+#&gt; 1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [569 × 6]&gt;</code></pre>
 </div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
