@@ -9139,7 +9139,7 @@
     "href": "labs/lab6.html#lets-start-by-splitting-the-data",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Lets start by splitting the data",
-    "text": "Lets start by splitting the data\nFirst, we set a seed for reproducabilty, then transform the q_mean column to a log scale. Remember it is error prone to apply transformations to the outcome variable within a recipe. So, we’ll do it a prioi.\nOnce set, we can split the data into a training and testing set. We are going to use 80% of the data for training and 20% for testing with no startification.\nAdditionally, we are going to create a 10-fold cross validation dataset to help us evaluate multi-model setups.\n\nset.seed(123)\n# Bad form to perform simple transformations on the outcome variable within a \n# recipe. So, we'll do it here.\ncamels &lt;- camels |&gt; \n  mutate(logQmean = log(q_mean))\n\n# Generate the split\ncamels_split &lt;- initial_split(camels, prop = 0.8)\ncamels_train &lt;- training(camels_split)\ncamels_test  &lt;- testing(camels_split)\n\ncamels_cv &lt;- vfold_cv(camels_train, v = 10)"
+    "text": "Lets start by splitting the data\nFirst, we set a seed for reproducabilty, then transform the q_mean column to a log scale. Remember it is error prone to apply transformations to the outcome variable within a recipe. So, we’ll do it a prioi.\nOnce set, we can split the data into a training and testing set. We are going to use 80% of the data for training and 20% for testing with no stratification.\nAdditionally, we are going to create a 10-fold cross validation dataset to help us evaluate multi-model setups.\n\nset.seed(123)\n# Bad form to perform simple transformations on the outcome variable within a \n# recipe. So, we'll do it here.\ncamels &lt;- camels |&gt; \n  mutate(logQmean = log(q_mean))\n\n# Generate the split\ncamels_split &lt;- initial_split(camels, prop = 0.8)\ncamels_train &lt;- training(camels_split)\ncamels_test  &lt;- testing(camels_split)\n\ncamels_cv &lt;- vfold_cv(camels_train, v = 10)"
   },
   {
     "objectID": "slides/15-ml-intro.html#the-big-picture-modeling",
@@ -9496,7 +9496,7 @@
     "href": "labs/lab6.html#using-a-workflow-instead",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Using a workflow instead",
-    "text": "Using a workflow instead\ntidymodels provides a framework for building and evaluating models using a consistent and modular workflow. The workflows package allows you to define a series of modeling steps, including data preprocessing, model fitting, and model fitting, in a single object. This makes it easier to experiment with different models, compare performance, and ensure reproducibility.\nworkflows are built from a model, a preprocessor, and a execution. Here, we are going to use the linear_reg function to define a linear regression model, set the engine to lm, and the mode to regression. We then add our recipe to the workflow, fit the model to the training data, and extract the model coefficients.\n\n# Define model\nlm_model &lt;- linear_reg() %&gt;%\n  # define the engine\n  set_engine(\"lm\") %&gt;%\n  # define the mode\n  set_mode(\"regression\")\n\n# Instatiate a workflow ...\nlm_wf &lt;- workflow() %&gt;%\n  # Add the recipe\n  add_recipe(rec) %&gt;%\n  # Add the model\n  add_model(lm_model) %&gt;%\n  # Fit the model to the training data\n  fit(data = camels_train) \n\n# Extract the model coefficients from the workflow\nsummary(extract_fit_engine(lm_wf))$coefficients\n\n                   Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)      -1.7758557 0.16364755 -10.851710 6.463654e-25\naridity          -0.8839738 0.16144589  -5.475357 6.745512e-08\np_mean            1.4843771 0.15511117   9.569762 4.022500e-20\naridity_x_p_mean  0.1048449 0.07198145   1.456555 1.458304e-01\n\n# From the base implementaion\nsummary(lm_base)$coefficients\n\n                 Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)    -1.7758557 0.16364755 -10.851710 6.463654e-25\naridity        -0.8839738 0.16144589  -5.475357 6.745512e-08\np_mean          1.4843771 0.15511117   9.569762 4.022500e-20\naridity:p_mean  0.1048449 0.07198145   1.456555 1.458304e-01"
+    "text": "Using a workflow instead\ntidymodels provides a framework for building and evaluating models using a consistent and modular workflow. The workflows package allows you to define a series of modeling steps, including data preprocessing, model fitting, and model fitting, in a single object. This makes it easier to experiment with different models, compare performance, and ensure reproducibility.\nworkflows are built from a model, a preprocessor, and a execution. Here, we are going to use the linear_reg function to define a linear regression model, set the engine to lm, and the mode to regression. We then add our recipe to the workflow, fit the model to the training data, and extract the model coefficients.\n\n# Define model\nlm_model &lt;- linear_reg() %&gt;%\n  # define the engine\n  set_engine(\"lm\") %&gt;%\n  # define the mode\n  set_mode(\"regression\")\n\n# Instantiate a workflow ...\nlm_wf &lt;- workflow() %&gt;%\n  # Add the recipe\n  add_recipe(rec) %&gt;%\n  # Add the model\n  add_model(lm_model) %&gt;%\n  # Fit the model to the training data\n  fit(data = camels_train) \n\n# Extract the model coefficients from the workflow\nsummary(extract_fit_engine(lm_wf))$coefficients\n\n                   Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)      -1.7758557 0.16364755 -10.851710 6.463654e-25\naridity          -0.8839738 0.16144589  -5.475357 6.745512e-08\np_mean            1.4843771 0.15511117   9.569762 4.022500e-20\naridity_x_p_mean  0.1048449 0.07198145   1.456555 1.458304e-01\n\n\nLets ensure we replicated the results from the lm_base model. How do they look to you?\n\n# From the base implementation\nsummary(lm_base)$coefficients\n\n                 Estimate Std. Error    t value     Pr(&gt;|t|)\n(Intercept)    -1.7758557 0.16364755 -10.851710 6.463654e-25\naridity        -0.8839738 0.16144589  -5.475357 6.745512e-08\np_mean          1.4843771 0.15511117   9.569762 4.022500e-20\naridity:p_mean  0.1048449 0.07198145   1.456555 1.458304e-01"
   },
   {
     "objectID": "labs/lab6.html#switch-it-up",
@@ -9524,14 +9524,14 @@
     "href": "labs/lab6.html#data-spliting-15",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Data Spliting (15)",
-    "text": "Data Spliting (15)\n\nSet a seed for reproducabilty\nCreate an intial split with 75% used for training and 25% for testing\nExtact your training and testing sets\nBuild a 10-fold CV dataset as well"
+    "text": "Data Spliting (15)\n\nSet a seed for reproducible\nCreate an initial split with 75% used for training and 25% for testing\nExtract your training and testing sets\nBuild a 10-fold CV dataset as well"
   },
   {
     "objectID": "labs/lab6.html#recipe-15",
     "href": "labs/lab6.html#recipe-15",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Recipe (15)",
-    "text": "Recipe (15)\n\nDefine a formula you want to use to predict logQmean\nDescribe in words why you are chosing the formula you are. Consult the downloaded PDF for the data to help you make this decision.\nBuild a recipe that you feel handles the predictors chosen well"
+    "text": "Recipe (15)\n\nDefine a formula you want to use to predict logQmean\nDescribe in words why you are choosing the formula you are. Consult the downloaded PDF for the data to help you make this decision.\nBuild a recipe that you feel handles the predictors chosen well"
   },
   {
     "objectID": "labs/lab6.html#define-2-models-25",
@@ -9622,35 +9622,35 @@
     "href": "labs/lab6.html#visual-eda",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Visual EDA",
-    "text": "Visual EDA\n\nLets start by looking that the 3 dimensions (variables) of this data. We’ll start with a XY plot of aridity and rainfall. We are going to use the scale_color_viridis_c() function to color the points by the q_mean column. This scale functions maps the color of the points to the values in the q_mean column along the viridis continuous (c) palette. Because a scale_color_* function is applied, it maps to the known color aesthetic in the plot.\n\n\n# Create a scatter plot of aridity vs rainfall\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  # Add points colored by mean flow\n  geom_point(aes(color = q_mean)) +\n  # Add a linear regression line\n  geom_smooth(method = \"lm\", color = \"red\", linetype = 2) +\n  # Apply the viridis color scale\n  scale_color_viridis_c() +\n  # Add a title, axis labels, and theme (w/ legend on the bottom)\n  theme_linedraw() + \n  theme(legend.position = \"bottom\") + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nOk! so it looks like there is a relationship between rainfall, aridity, and rainfall but it looks like an exponential decay function and is certainly not linear.\nTo test a transformation, we can log transform the x and y axes using the scale_x_log10() and scale_y_log10() functions:\n\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  geom_point(aes(color = q_mean)) +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_c() +\n  # Apply log transformations to the x and y axes\n  scale_x_log10() + \n  scale_y_log10() +\n  theme_linedraw() +\n  theme(legend.position = \"bottom\") + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nGreat! We can see a log-log relationship between aridity and rainfall provides a more linear relationship. This is a common relationship in hydrology and is often used to estimate rainfall in ungauged basins. However, once the data is transformed, the lack of spread in the streamflow data is quite evident with high mean flow values being compressed to the low end of aridty/high end of rainfall.\nTo address this, we can visualize how a log transform may benift the q_mean data as well. Since the data is represented by color, rather then an axis, we can use the trans (transform) argument in the scale_color_viridis_c() function to log transform the color scale.\n\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  geom_point(aes(color = q_mean)) +\n  geom_smooth(method = \"lm\") +\n  # Apply a log transformation to the color scale\n  scale_color_viridis_c(trans = \"log\") +\n  scale_x_log10() + \n  scale_y_log10() +\n  theme_linedraw() +\n  theme(legend.position = \"bottom\",\n        # Expand the legend width ...\n        legend.key.width = unit(2.5, \"cm\"),\n        legend.key.height = unit(.5, \"cm\")) + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\") \n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nExcellent! Treating these three right skewed variables as log transformed, we can see a more evenly spread relationship between aridity, rainfall, and mean flow. This is a good sign for building a model to predict mean flow using aridity and rainfall."
+    "text": "Visual EDA\n\nLets start by looking that the 3 dimensions (variables) of this data. We’ll start with a XY plot of aridity and rainfall. We are going to use the scale_color_viridis_c() function to color the points by the q_mean column. This scale functions maps the color of the points to the values in the q_mean column along the viridis continuous (c) palette. Because a scale_color_* function is applied, it maps to the known color aesthetic in the plot.\n\n\n# Create a scatter plot of aridity vs rainfall\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  # Add points colored by mean flow\n  geom_point(aes(color = q_mean)) +\n  # Add a linear regression line\n  geom_smooth(method = \"lm\", color = \"red\", linetype = 2) +\n  # Apply the viridis color scale\n  scale_color_viridis_c() +\n  # Add a title, axis labels, and theme (w/ legend on the bottom)\n  theme_linedraw() + \n  theme(legend.position = \"bottom\") + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nOk! so it looks like there is a relationship between rainfall, aridity, and rainfall but it looks like an exponential decay function and is certainly not linear.\nTo test a transformation, we can log transform the x and y axes using the scale_x_log10() and scale_y_log10() functions:\n\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  geom_point(aes(color = q_mean)) +\n  geom_smooth(method = \"lm\") +\n  scale_color_viridis_c() +\n  # Apply log transformations to the x and y axes\n  scale_x_log10() + \n  scale_y_log10() +\n  theme_linedraw() +\n  theme(legend.position = \"bottom\") + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nGreat! We can see a log-log relationship between aridity and rainfall provides a more linear relationship. This is a common relationship in hydrology and is often used to estimate rainfall in ungauged basins. However, once the data is transformed, the lack of spread in the streamflow data is quite evident with high mean flow values being compressed to the low end of aridity/high end of rainfall.\nTo address this, we can visualize how a log transform may benifit the q_mean data as well. Since the data is represented by color, rather then an axis, we can use the trans (transform) argument in the scale_color_viridis_c() function to log transform the color scale.\n\nggplot(camels, aes(x = aridity, y = p_mean)) +\n  geom_point(aes(color = q_mean)) +\n  geom_smooth(method = \"lm\") +\n  # Apply a log transformation to the color scale\n  scale_color_viridis_c(trans = \"log\") +\n  scale_x_log10() + \n  scale_y_log10() +\n  theme_linedraw() +\n  theme(legend.position = \"bottom\",\n        # Expand the legend width ...\n        legend.key.width = unit(2.5, \"cm\"),\n        legend.key.height = unit(.5, \"cm\")) + \n  labs(title = \"Aridity vs Rainfall vs Runnoff\", \n       x = \"Aridity\", \n       y = \"Rainfall\",\n       color = \"Mean Flow\") \n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nExcellent! Treating these three right skewed variables as log transformed, we can see a more evenly spread relationship between aridity, rainfall, and mean flow. This is a good sign for building a model to predict mean flow using aridity and rainfall."
   },
   {
     "objectID": "labs/lab6.html#preprocessor-recipe",
     "href": "labs/lab6.html#preprocessor-recipe",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Preprocessor: recipe`",
-    "text": "Preprocessor: recipe`\nIn lecture, we have focused on using formulas as a workflow preprocessor. Separatly we have used the recipe function to define a series of data preprocessing steps. Here, we are going to use the recipe function to define a series of data preprocessing steps.\nWe learned quite a lot about the data in the visual EDA. We know that the q_mean, aridity and p_mean columns are right skewed and can be helped by log transformations. We also know that the relationship between aridity and p_mean is non-linear and can be helped by adding an interaction term to the model. To implement these, lets build a recipe!\n\n# Create a recipe to preprocess the data\nrec &lt;-  recipe(logQmean ~ aridity + p_mean, data = camels_train) %&gt;%\n  # Log transform the predictor variables (aridity and p_mean)\n  step_log(all_predictors()) %&gt;%\n  # Add an interaction term between aridity and p_mean\n  step_interact(terms = ~ aridity:p_mean) |&gt; \n  # Drop any rows with missing values in the pred\n  step_naomit(all_predictors(), all_outcomes())"
+    "text": "Preprocessor: recipe`\nIn lecture, we have focused on using formulas as a workflow preprocessor. Separately we have used the recipe function to define a series of data preprocessing steps. Here, we are going to use the recipe function to define a series of data preprocessing steps.\nWe learned quite a lot about the data in the visual EDA. We know that the q_mean, aridity and p_mean columns are right skewed and can be helped by log transformations. We also know that the relationship between aridity and p_mean is non-linear and can be helped by adding an interaction term to the model. To implement these, lets build a recipe!\n\n# Create a recipe to preprocess the data\nrec &lt;-  recipe(logQmean ~ aridity + p_mean, data = camels_train) %&gt;%\n  # Log transform the predictor variables (aridity and p_mean)\n  step_log(all_predictors()) %&gt;%\n  # Add an interaction term between aridity and p_mean\n  step_interact(terms = ~ aridity:p_mean) |&gt; \n  # Drop any rows with missing values in the pred\n  step_naomit(all_predictors(), all_outcomes())"
   },
   {
     "objectID": "labs/lab6.html#where-things-get-a-little-messy",
     "href": "labs/lab6.html#where-things-get-a-little-messy",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Where things get a little messy…",
-    "text": "Where things get a little messy…\nOk so now we have our trained model lm_base and want to validate it on the test data.\n\nRemember a models ability to predict on new data is the most important part of the modeling process. It really doesnt matter how well it does on data it has already seen!\n\nWe have to be carful about how we do this with the base R approach:\n\nWrong version 1: augment\n\nnrow(camels_test)\n\n[1] 135\n\na &lt;- broom::augment(lm_base, new_data = camels_test)\nnrow(a) # Thats the full dataset! Remeber baked_data is embedded in the model\n\n[1] 535\n\n\n\n\nWrong version 2: predict\n\np = predict(lm_base, newdata = camels_test)\nplot(p, camels_test$logQmean) ## Scales way off!\n\n\n\n\n\n\n\n\n\n\nCorrect version: prep -&gt; bake -&gt; predict\n\ntest_data &lt;-  bake(prep(rec), new_data = camels_test)\ntest_data$lm_pred = predict(lm_base, newdata = test_data)"
+    "text": "Where things get a little messy…\nOk so now we have our trained model lm_base and want to validate it on the test data.\n\nRemember a models ability to predict on new data is the most important part of the modeling process. It really doesnt matter how well it does on data it has already seen!\n\nWe have to be careful about how we do this with the base R approach:\n\nWrong version 1: augment\nThe broom package provides a convenient way to extract model predictions and residuals. We can use the augment function to add predicted values to the test data. However, if we use augment directly on the test data, we will get incorrect results because the preprocessing steps defined in the recipe object have not been applied to the test data.\n\nnrow(camels_test)\n\n[1] 135\n\nnrow(camels_train)\n\n[1] 536\n\nbroom::augment(lm_base, data = camels_test)\n\nError in `$&lt;-`:\n! Assigned data `predict(x, na.action = na.pass, ...) %&gt;% unname()` must\n  be compatible with existing data.\n✖ Existing data has 135 rows.\n✖ Assigned data has 535 rows.\nℹ Only vectors of size 1 are recycled.\nCaused by error in `vectbl_recycle_rhs_rows()`:\n! Can't recycle input of size 535 to size 135.\n\n\n\n\nWrong version 2: predict\nThe predict function can be used to make predictions on new data. However, if we use predict directly on the test data, we will get incorrect results because the preprocessing steps defined in the recipe object have not been applied to the test data.\n\ncamels_test$p2 = predict(lm_base, newdata = camels_test)\n\n## Scales way off!\nggplot(camels_test, aes(x = p2, y = logQmean)) + \n  geom_point() + \n  # Linear fit line\n  geom_smooth(method = \"lm\", se = FALSE, size =1) +\n  # 1:1 line\n  geom_abline(color = \"red\", size = 1) + \n  labs(title = \"Linear Model Using `predict()`\",\n       x = \"Predicted Log Mean Flow\",\n       y = \"Observed Log Mean Flow\") + \n  theme_linedraw()\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n\n\nCorrect version: prep -&gt; bake -&gt; predict\nTo correctly evaluate the model on the test data, we need to apply the same preprocessing steps to the test data that we applied to the training data. We can do this using the prep and bake functions with the recipe object. This ensures the test data is transformed in the same way as the training data before making predictions.\n\ntest_data &lt;-  bake(prep(rec), new_data = camels_test)\ntest_data$lm_pred &lt;- predict(lm_base, newdata = test_data)"
   },
   {
     "objectID": "labs/lab6.html#model-evaluation-statistical-and-visual",
     "href": "labs/lab6.html#model-evaluation-statistical-and-visual",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Model Evaluation: statistical and visual",
-    "text": "Model Evaluation: statistical and visual\n\nmetrics(test_data, truth = logQmean, estimate = lm_pred)\n\n# A tibble: 3 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.583\n2 rsq     standard       0.742\n3 mae     standard       0.390\n\nggplot(test_data, aes(x = logQmean, y = lm_pred, colour = aridity)) +\n  # Apply a gradient color scale\n  scale_color_gradient2(low = \"brown\", mid = \"orange\", high = \"darkgreen\") +\n  geom_point() +\n  geom_abline(linetype = 2) +\n  theme_linedraw() + \n  labs(title = \"Linear Model: Observed vs Predicted\",\n       x = \"Observed Log Mean Flow\",\n       y = \"Predicted Log Mean Flow\",\n       color = \"Aridity\")\n\n\n\n\n\n\n\n\nOk so that was a bit burdensome, is really error prone (fragile), and is worthless if we wanted to test a different algorithm… lets look at a better approach!"
+    "text": "Model Evaluation: statistical and visual\nNow that we have the predicted values, we can evaluate the model using the metrics function from the yardstick package. This function calculates common regression metrics such as RMSE, R-squared, and MAE between the observed and predicted values.\n\nmetrics(test_data, truth = logQmean, estimate = lm_pred)\n\n# A tibble: 3 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.583\n2 rsq     standard       0.742\n3 mae     standard       0.390\n\nggplot(test_data, aes(x = logQmean, y = lm_pred, colour = aridity)) +\n  # Apply a gradient color scale\n  scale_color_gradient2(low = \"brown\", mid = \"orange\", high = \"darkgreen\") +\n  geom_point() +\n  geom_abline(linetype = 2) +\n  theme_linedraw() + \n  labs(title = \"Linear Model: Observed vs Predicted\",\n       x = \"Observed Log Mean Flow\",\n       y = \"Predicted Log Mean Flow\",\n       color = \"Aridity\")\n\n\n\n\n\n\n\n\nOk so that was a bit burdensome, is really error prone (fragile), and is worthless if we wanted to test a different algorithm… lets look at a better approach!"
   },
   {
     "objectID": "labs/lab6.html#making-predictions",
     "href": "labs/lab6.html#making-predictions",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Making Predictions",
-    "text": "Making Predictions\nNow that lm_wf is a workflow, data is not embedded in the model, we can use augment with the new_data argument to make predictions on the test data.\n\n#\nlm_data &lt;- augment(lm_wf, new_data = camels_test)\ndim(lm_data)\n\n[1] 135  61"
+    "text": "Making Predictions\nNow that lm_wf is a workflow, data is not embedded in the model, we can use augment with the new_data argument to make predictions on the test data.\n\n#\nlm_data &lt;- augment(lm_wf, new_data = camels_test)\ndim(lm_data)\n\n[1] 135  62"
   },
   {
     "objectID": "labs/lab6.html#model-evaluation-statistical-and-visual-1",
@@ -9664,14 +9664,14 @@
     "href": "labs/lab6.html#predictions",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Predictions",
-    "text": "Predictions\n\nMake predictions on the test data using the augment function and the new_data argument.\n\n\nrf_data &lt;- augment(rf_wf, new_data = camels_test)\ndim(rf_data)\n\n[1] 135  60"
+    "text": "Predictions\n\nMake predictions on the test data using the augment function and the new_data argument.\n\n\nrf_data &lt;- augment(rf_wf, new_data = camels_test)\ndim(rf_data)\n\n[1] 135  61"
   },
   {
     "objectID": "labs/lab6.html#model-evaluation-statistical-and-visual-2",
     "href": "labs/lab6.html#model-evaluation-statistical-and-visual-2",
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "Model Evaluation: statistical and visual",
-    "text": "Model Evaluation: statistical and visual\nEvaluate the model using the metrics function and create a scatter plot of the observed vs predicted values, colored by aridity.\n\nmetrics(rf_data, truth = logQmean, estimate = .pred)\n\n# A tibble: 3 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.587\n2 rsq     standard       0.741\n3 mae     standard       0.363\n\nggplot(rf_data, aes(x = logQmean, y = .pred, colour = aridity)) +\n  scale_color_viridis_c() +\n  geom_point() +\n  geom_abline() +\n  theme_linedraw()\n\n\n\n\n\n\n\n\nAwesome! We just set up a completly new model and were able to utilize all of the things we had done for the linear model. This is the power of the tidymodels framework!\nThat said, we still can reduce some to the repition. Further, we are not really able to compare these models to one another as they"
+    "text": "Model Evaluation: statistical and visual\nEvaluate the model using the metrics function and create a scatter plot of the observed vs predicted values, colored by aridity.\n\nmetrics(rf_data, truth = logQmean, estimate = .pred)\n\n# A tibble: 3 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 rmse    standard       0.587\n2 rsq     standard       0.741\n3 mae     standard       0.363\n\nggplot(rf_data, aes(x = logQmean, y = .pred, colour = aridity)) +\n  scale_color_viridis_c() +\n  geom_point() +\n  geom_abline() +\n  theme_linedraw()\n\n\n\n\n\n\n\n\nAwesome! We just set up a completely new model and were able to utilize all of the things we had done for the linear model. This is the power of the tidymodels framework!\nThat said, we still can reduce some to the repetition. Further, we are not really able to compare these models to one another as they"
   },
   {
     "objectID": "labs/lab6.html#define-3-models-25",
@@ -9686,5 +9686,348 @@
     "title": "Lab 6: Machine Learning in Hydrology",
     "section": "workflow set ()",
     "text": "workflow set ()\nWith your preprocessing steps and models defined, you can now build a workflow_set object to fit and evaluate your models. This will allow you to compare the performance of different models on the same data.\n\nCreate a workflow object\nAdd the recipe\nAdd the model(s)\nFit the model to the resamples"
+  },
+  {
+    "objectID": "slides/16-workflows.html#data-on-forests-in-washington",
+    "href": "slides/16-workflows.html#data-on-forests-in-washington",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "The U.S. Forest Service maintains ML models to predict whether a plot of land is “forested.”\nThis classification is important for all sorts of research, legislation, and land management purposes.\nPlots are typically remeasured every 10 years and this dataset contains the most recent measurement per plot.\nType ?forested to learn more about this dataset, including references.\n\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/251793/forest-mountain"
+  },
+  {
+    "objectID": "slides/16-workflows.html#data-on-forests-in-washington-1",
+    "href": "slides/16-workflows.html#data-on-forests-in-washington-1",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "library(tidymodels)\nlibrary(forested)\ndim(forested)\n#&gt; [1] 7107   19\n\n\nOne observation from each of 7,107 6000-acre hexagons in Washington state.\nA nominal outcome, forested, with levels \"Yes\" and \"No\", measured “on-the-ground.”\n\n\ntable(forested$forested)\n#&gt; \n#&gt;  Yes   No \n#&gt; 3894 3213\n\n\n18 remotely-sensed and easily-accessible predictors:\n\n\nnames(forested)\n#&gt;  [1] \"forested\"         \"year\"             \"elevation\"        \"eastness\"        \n#&gt;  [5] \"northness\"        \"roughness\"        \"tree_no_tree\"     \"dew_temp\"        \n#&gt;  [9] \"precip_annual\"    \"temp_annual_mean\" \"temp_annual_min\"  \"temp_annual_max\" \n#&gt; [13] \"temp_january_min\" \"vapor_min\"        \"vapor_max\"        \"canopy_cover\"    \n#&gt; [17] \"lon\"              \"lat\"              \"land_type\"\n\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/67614/forest"
+  },
+  {
+    "objectID": "slides/16-workflows.html#data-splitting-and-spending",
+    "href": "slides/16-workflows.html#data-splitting-and-spending",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "set.seed(123)\nforested_split &lt;- initial_split(forested, prop = .8, strata = tree_no_tree)\nforested_split\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;"
+  },
+  {
+    "objectID": "slides/16-workflows.html#accessing-the-data",
+    "href": "slides/16-workflows.html#accessing-the-data",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "forested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\n\nnrow(forested_train)\n#&gt; [1] 5685\nnrow(forested_test)\n#&gt; [1] 1422"
+  },
+  {
+    "objectID": "slides/16-workflows.html#k-fold-cross-validation",
+    "href": "slides/16-workflows.html#k-fold-cross-validation",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "# Load the dataset\nset.seed(123)\n\n# Create a 10-fold cross-validation object\n(forested_folds &lt;- vfold_cv(forested_train, v = 10))\n#&gt; #  10-fold cross-validation \n#&gt; # A tibble: 10 × 2\n#&gt;    splits             id    \n#&gt;    &lt;list&gt;             &lt;chr&gt; \n#&gt;  1 &lt;split [5116/569]&gt; Fold01\n#&gt;  2 &lt;split [5116/569]&gt; Fold02\n#&gt;  3 &lt;split [5116/569]&gt; Fold03\n#&gt;  4 &lt;split [5116/569]&gt; Fold04\n#&gt;  5 &lt;split [5116/569]&gt; Fold05\n#&gt;  6 &lt;split [5117/568]&gt; Fold06\n#&gt;  7 &lt;split [5117/568]&gt; Fold07\n#&gt;  8 &lt;split [5117/568]&gt; Fold08\n#&gt;  9 &lt;split [5117/568]&gt; Fold09\n#&gt; 10 &lt;split [5117/568]&gt; Fold10"
+  },
+  {
+    "objectID": "slides/16-workflows.html#how-do-you-fit-a-linear-model-in-r",
+    "href": "slides/16-workflows.html#how-do-you-fit-a-linear-model-in-r",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "lm for linear model &lt;– The one we have looked at!\nglmnet for regularized regression\nkeras for regression using TensorFlow\nstan for Bayesian regression using Stan\nspark for large data sets using spark\nbrulee for regression using torch (PyTourch)"
+  },
+  {
+    "objectID": "slides/16-workflows.html#challenge",
+    "href": "slides/16-workflows.html#challenge",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "All of these models have different syntax and functions\nHow do you keep track of all of them?\nHow do you know which one to use?\nHow would you compare them?\n\nComparing 3-5 of these models is a lot of work using functions for diverse packages."
+  },
+  {
+    "objectID": "slides/16-workflows.html#the-tidymodels-advantage",
+    "href": "slides/16-workflows.html#the-tidymodels-advantage",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "In the tidymodels framework, all models are created using the same syntax:\n\nThis makes it easy to compare models\nThis makes it easy to switch between models\nThis makes it easy to use the same model with different engines (packages)\n\nThe parsnip package provides a consistent interface to many models\nFor example, to fit a linear model you would be able to access the linear_reg() function\n\n\n\n?linear_reg"
+  },
+  {
+    "objectID": "slides/16-workflows.html#yesterday-data-setup",
+    "href": "slides/16-workflows.html#yesterday-data-setup",
+    "title": "Lecture 16",
+    "section": "Yesterday: Data setup ",
+    "text": "Yesterday: Data setup \n\nlibrary(tidymodels)\nlibrary(forested)\n\nset.seed(123)\n\n(forested_split &lt;- initial_split(forested, prop = 0.8, strata = tree_no_tree))\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;\n\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\nforested_folds &lt;- vfold_cv(forested_train, v = 10)"
+  },
+  {
+    "objectID": "slides/16-workflows.html#to-specify-a-model",
+    "href": "slides/16-workflows.html#to-specify-a-model",
+    "title": "Lecture 16",
+    "section": "",
+    "text": ". . .\n\n\n\nChoose a model\nSpecify an engine\nSet the mode"
+  },
+  {
+    "objectID": "slides/16-workflows.html#specify-a-model-type",
+    "href": "slides/16-workflows.html#specify-a-model-type",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "Next week we will discuss model types more thoroughly. For now, we will focus on two types:\n\nLogistic Regression\n\n\nlogistic_reg()\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glm\n\n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\nWe chose these two because they are robust, simple model that fit our goal of predicting a binary condition/class (forested/not forested)"
+  },
+  {
+    "objectID": "slides/16-workflows.html#specify-a-model-engine",
+    "href": "slides/16-workflows.html#specify-a-model-engine",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "Choose a model\nSpecify an engine\nSet the mode\n\n\n\n?logistic_reg()"
+  },
+  {
+    "objectID": "slides/16-workflows.html#specify-a-model-engine-1",
+    "href": "slides/16-workflows.html#specify-a-model-engine-1",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "logistic_reg() %&gt;%\n  set_engine(\"glmnet\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glmnet\n\n. . .\n\n\nlogistic_reg() %&gt;%\n  set_engine(\"stan\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: stan"
+  },
+  {
+    "objectID": "slides/16-workflows.html#specify-a-model-mode",
+    "href": "slides/16-workflows.html#specify-a-model-mode",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "Choose a model\nSpecify an engine\nSet the mode\n\n\n\n?logistic_reg()"
+  },
+  {
+    "objectID": "slides/16-workflows.html#specify-a-model-mode-1",
+    "href": "slides/16-workflows.html#specify-a-model-mode-1",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "logistic_reg() \n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glm\n\n. . .\n\n\n\n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\ndecision_tree() %&gt;% \n  set_mode(\"classification\")\n#&gt; Decision Tree Model Specification (classification)\n#&gt; \n#&gt; Computational engine: rpart\n\n\nAll available models are listed at https://www.tidymodels.org/find/parsnip/"
+  },
+  {
+    "objectID": "slides/16-workflows.html#to-specify-a-model-1",
+    "href": "slides/16-workflows.html#to-specify-a-model-1",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "Choose a model\nSpecify an engine\nSet the mode"
+  },
+  {
+    "objectID": "slides/16-workflows.html#logistic-regression",
+    "href": "slides/16-workflows.html#logistic-regression",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "Simulates logistic regression data.\nBins predictor𝐴 and calculates observed probabilities.\nUses binomial proportion tests to estimate probabilities and confidence intervals.\nVisualizes these estimates in a scatter plot with error bars.\nLogistic regression predicts probability—instead of a straight line, it gives an S-shaped curve that estimates how likely an outcome (e.g., is forested) is based on a predictor (e.g., rainfall and temperature).\nThe dots in the plot show the actual proportion of “successes” (e.g., is forested) within different bins of the predictor variable(s) (A).\nThe vertical error bars represent uncertainty—showing a range where the true probability might fall.\nAs A increases, the probability of success increases—but not in a straight line; it follows an S-curve, meaning small changes in A have different impacts at different levels.\nLogistic regression helps answer “how likely” questions—e.g., “How likely is someone to pass based on their study hours?” rather than just predicting a yes/no outcome."
+  },
+  {
+    "objectID": "slides/16-workflows.html#logistic-regression-1",
+    "href": "slides/16-workflows.html#logistic-regression-1",
+    "title": "Lecture 16",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\n\n\nLogit of outcome probability modeled as linear combination of predictors:\n\n\\(log(\\frac{p}{1 - p}) = \\beta_0 + \\beta_1\\cdot \\text{A}\\)\n\nFind a sigmoid line that separates the two classes"
+  },
+  {
+    "objectID": "slides/16-workflows.html#logistic-regression-2",
+    "href": "slides/16-workflows.html#logistic-regression-2",
+    "title": "Lecture 16",
+    "section": "Logistic regression",
+    "text": "Logistic regression\n\n\n\n\n\n\n\n\n\n\n\n\n\nLogit of outcome probability modeled as linear combination of predictors:\n\n\\(log(\\frac{p}{1 - p}) = \\beta_0 + \\beta_1\\cdot \\text{A}\\)\n\nFind a sigmoid line that separates the two classes"
+  },
+  {
+    "objectID": "slides/16-workflows.html#decision-trees",
+    "href": "slides/16-workflows.html#decision-trees",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "#&gt; Loading required package: rpart\n#&gt; \n#&gt; Attaching package: 'rpart'\n#&gt; The following object is masked from 'package:dials':\n#&gt; \n#&gt;     prune"
+  },
+  {
+    "objectID": "slides/16-workflows.html#decision-trees-1",
+    "href": "slides/16-workflows.html#decision-trees-1",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "Series of splits or if/then statements based on predictors\nFirst the tree grows until some condition is met (maximum depth, no more data)\nThen the tree is pruned to reduce its complexity"
+  },
+  {
+    "objectID": "slides/16-workflows.html#decision-trees-2",
+    "href": "slides/16-workflows.html#decision-trees-2",
+    "title": "Lecture 16",
+    "section": "Decision trees",
+    "text": "Decision trees"
+  },
+  {
+    "objectID": "slides/16-workflows.html#all-models-are-wrong-but-some-are-useful",
+    "href": "slides/16-workflows.html#all-models-are-wrong-but-some-are-useful",
+    "title": "Lecture 16",
+    "section": "All models are wrong, but some are useful!",
+    "text": "All models are wrong, but some are useful!\n\n\nLogistic regression\n\n\n\n\n\n\n\n\n\n\nDecision trees"
+  },
+  {
+    "objectID": "slides/16-workflows.html#fitting-you-model",
+    "href": "slides/16-workflows.html#fitting-you-model",
+    "title": "Lecture 16",
+    "section": "Fitting you model:",
+    "text": "Fitting you model:\n\nOk! So you have split data\nYou have specified a model with a mode and engine\nNow you need to fit the model!\nThis is done using the fit() function\n\n\ndt_model &lt;- decision_tree() %&gt;% \n  set_engine('rpart') %&gt;%\n  set_mode(\"classification\")\n\n# Model, formula, data inputs\n(output &lt;- fit(dt_model, forested ~ ., data = forested_train) )\n#&gt; parsnip model object\n#&gt; \n#&gt; n= 5685 \n#&gt; \n#&gt; node), split, n, loss, yval, (yprob)\n#&gt;       * denotes terminal node\n#&gt; \n#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  \n#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *\n#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  \n#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  \n#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *\n#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *\n#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *"
+  },
+  {
+    "objectID": "slides/16-workflows.html#component-extracts",
+    "href": "slides/16-workflows.html#component-extracts",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "While tidymodels provides a standard interface to all models all base models have specific methods (remember summary.lm? )\nTo use these, you must extract a the underlying object.\nextract_fit_engine() extracts the underlying model object\nextract_fit_parsnip() extracts the parsnip object\nextract_recipe() extracts the recipe object\nextract_preprocessor() extracts the preprocessor object\n… many more\n\n\n\nex &lt;- extract_fit_engine(output)\nclass(ex) # the class of the engine used!\n#&gt; [1] \"rpart\"\n\n# Use rpart plot and text methods ...\nplot(ex)\ntext(ex, cex = 0.9, use.n = TRUE, xpd = TRUE,)"
+  },
+  {
+    "objectID": "slides/16-workflows.html#what-are-workflows",
+    "href": "slides/16-workflows.html#what-are-workflows",
+    "title": "Lecture 16",
+    "section": "What are Workflows? ",
+    "text": "What are Workflows? \nThe workflows package in tidymodels helps:\n\nManage preprocessing and modeling in a structured pipeline\nAvoid repetitive code\nReduce errors when integrating steps\n\nThink of them as containers for:\n\nPreprocessing steps (e.g., feature engineering, transformations)\nModel specification\nFormula or recipe-based approach"
+  },
+  {
+    "objectID": "slides/16-workflows.html#why-use-workflows",
+    "href": "slides/16-workflows.html#why-use-workflows",
+    "title": "Lecture 16",
+    "section": "Why Use Workflows? ",
+    "text": "Why Use Workflows? \n✅ Keeps preprocessing and modeling together\n\n✅ Ensures consistency in data handling  \n✅ Reduces the risk of data leakage \n✅ Makes code easier to read and maintain"
+  },
+  {
+    "objectID": "slides/16-workflows.html#basic-workflow-structure",
+    "href": "slides/16-workflows.html#basic-workflow-structure",
+    "title": "Lecture 16",
+    "section": "Basic Workflow Structure: ",
+    "text": "Basic Workflow Structure: \n\nCreate a workflow object (similar to how ggplot() instantiates a canvas)\nAdd a formula or recipe (preprocessor)\nAdd the model\nFit the workflow"
+  },
+  {
+    "objectID": "slides/16-workflows.html#a-model-workflow-1",
+    "href": "slides/16-workflows.html#a-model-workflow-1",
+    "title": "Lecture 16",
+    "section": "A model workflow  ",
+    "text": "A model workflow  \n\ndt_wf &lt;- workflow() %&gt;%\n  add_formula(forested ~ .) %&gt;%\n  add_model(dt_model) %&gt;%\n  fit(data = forested_train)\n\n\n\n#&gt; ══ Workflow [trained] ══════════════════════════════════════════════════════════\n#&gt; Preprocessor: Formula\n#&gt; Model: decision_tree()\n#&gt; \n#&gt; ── Preprocessor ────────────────────────────────────────────────────────────────\n#&gt; forested ~ .\n#&gt; \n#&gt; ── Model ───────────────────────────────────────────────────────────────────────\n#&gt; n= 5685 \n#&gt; \n#&gt; node), split, n, loss, yval, (yprob)\n#&gt;       * denotes terminal node\n#&gt; \n#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  \n#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *\n#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  \n#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  \n#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *\n#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *\n#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *"
+  },
+  {
+    "objectID": "slides/16-workflows.html#predict-with-your-model",
+    "href": "slides/16-workflows.html#predict-with-your-model",
+    "title": "Lecture 16",
+    "section": "Predict with your model ",
+    "text": "Predict with your model \nHow do you use your new model?\n\naugment() will return the dataset with predictions and residuals added.\n\n\ndt_preds &lt;- augment(dt_wf, new_data = forested_test)\n\n\n\n#&gt; # A tibble: 1,422 × 22\n#&gt;    .pred_class .pred_Yes .pred_No forested  year elevation eastness northness\n#&gt;    &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n#&gt;  1 Yes            0.904    0.0955 No        2005       164      -84        53\n#&gt;  2 Yes            0.904    0.0955 Yes       2005       806       47       -88\n#&gt;  3 No             0.423    0.577  Yes       2005      2240      -67       -74\n#&gt;  4 Yes            0.904    0.0955 Yes       2005       787       66       -74\n#&gt;  5 Yes            0.904    0.0955 Yes       2005      1330       99         7\n#&gt;  6 Yes            0.904    0.0955 Yes       2005      1423       46        88\n#&gt;  7 Yes            0.904    0.0955 Yes       2014       546      -92       -38\n#&gt;  8 Yes            0.904    0.0955 Yes       2014      1612       30       -95\n#&gt;  9 No             0.0788   0.921  No        2014       235        0      -100\n#&gt; 10 No             0.0788   0.921  No        2014       308      -70       -70\n#&gt; # ℹ 1,412 more rows\n#&gt; # ℹ 14 more variables: roughness &lt;dbl&gt;, tree_no_tree &lt;fct&gt;, dew_temp &lt;dbl&gt;,\n#&gt; #   precip_annual &lt;dbl&gt;, temp_annual_mean &lt;dbl&gt;, temp_annual_min &lt;dbl&gt;,\n#&gt; #   temp_annual_max &lt;dbl&gt;, temp_january_min &lt;dbl&gt;, vapor_min &lt;dbl&gt;,\n#&gt; #   vapor_max &lt;dbl&gt;, canopy_cover &lt;dbl&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;, land_type &lt;fct&gt;"
+  },
+  {
+    "objectID": "slides/16-workflows.html#predict-with-your-model-1",
+    "href": "slides/16-workflows.html#predict-with-your-model-1",
+    "title": "Lecture 16",
+    "section": "Predict with your model ",
+    "text": "Predict with your model \nHow do you evaluate the skill of your models? - metrics() is a function that takes a data frame of predictions and returns a tibble of performance metrics. - We will learn more about model evaluation and tuning latter in this unit, but for now we can use the metrics() function and the default settings to get a sense of how well our model is doing.\n\nmetrics(dt_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.885\n#&gt; 2 kap      binary         0.768"
+  },
+  {
+    "objectID": "slides/16-workflows.html#model-bake-off",
+    "href": "slides/16-workflows.html#model-bake-off",
+    "title": "Lecture 16",
+    "section": "Model bake off!",
+    "text": "Model bake off!\nSo who wins?\n\nmetrics(dt_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.885\n#&gt; 2 kap      binary         0.768\nmetrics(log_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.890\n#&gt; 2 kap      binary         0.777"
+  },
+  {
+    "objectID": "slides/16-workflows.html#dont-get-to-confident",
+    "href": "slides/16-workflows.html#dont-get-to-confident",
+    "title": "Lecture 16",
+    "section": "Don’t get to confident!",
+    "text": "Don’t get to confident!\n\nWe have evaluated the model on the same data we trained it on\nThis is not a good practice and can give us a false sense of confidence\nInstead, we can use our resamples to better understand the skill of a model based on the iterative leave out policy:\n\n\ndt_wf_rs &lt;- workflow() %&gt;%\n  add_formula(forested ~ .) %&gt;%\n  add_model(dt_model) %&gt;%\n  fit_resamples(resamples = forested_folds, \n                # Here we just ask tidymodels to save all predictions...\n                control   = control_resamples(save_pred = TRUE))\n\n\n\n#&gt; # Resampling results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 5\n#&gt;    splits             id     .metrics         .notes           .predictions\n#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      \n#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;\n\n\n\n\n\n\n\nNote\n\n\n\ntidyr::unnest could be used to expand any of those list columns!"
+  },
+  {
+    "objectID": "slides/16-workflows.html#dont-get-to-confident-1",
+    "href": "slides/16-workflows.html#dont-get-to-confident-1",
+    "title": "Lecture 16",
+    "section": "Don’t get to confident!",
+    "text": "Don’t get to confident!\n\nWe can execute the same workflow for the logistic regression model, this time evaluating the resamples instead of the test data.\n\n\nlog_wf_rs &lt;- workflow() %&gt;%\n  add_formula(forested ~ .) %&gt;%\n  add_model(log_mod) %&gt;%\n  fit_resamples(resamples = forested_folds,\n                control = control_resamples(save_pred = TRUE))\n\n\n\n#&gt; # Resampling results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 5\n#&gt;    splits             id     .metrics         .notes           .predictions\n#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      \n#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;"
+  },
+  {
+    "objectID": "slides/16-workflows.html#dont-get-to-confident-2",
+    "href": "slides/16-workflows.html#dont-get-to-confident-2",
+    "title": "Lecture 16",
+    "section": "Don’t get to confident!",
+    "text": "Don’t get to confident!\n\nSince we now have an “ensemble” of models (across the folds), we can collect a summary of the metrics across them.\nThe default metrics for classification ensembles are:\n\naccuracy: accuracy is the proportion of correct predictions\nbrier_class: the Brier score for classification is the mean squared difference between the predicted probability and the actual outcome\nroc_auc: the area under the ROC (Receiver Operating Characteristic) curve\n\n\n\n\ncollect_metrics(log_wf_rs)\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.906     10 0.00360 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0714    10 0.00191 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.961     10 0.00164 Preprocessor1_Model1\ncollect_metrics(dt_wf_rs)\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.896     10 0.00385 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0889    10 0.00224 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.909     10 0.00267 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/16-workflows.html#further-simplification-workflowsets",
+    "href": "slides/16-workflows.html#further-simplification-workflowsets",
+    "title": "Lecture 16",
+    "section": "Further simplification: workflowsets",
+    "text": "Further simplification: workflowsets\nOK, so we have streamlined a lot of things with tidymodels:\n\nWe have a specified preprocesser (e.g. formula or recipe)\nWe have defined a model (complete with engine and mode)\nWe have implemented workflows pairing each model with the preprocesser to either fit the model to the resamples, or, the training data.\n\nWhile a significant improvement, we can do better!\n\nDoes the idea of implementing a process over an list of elements ring a bell?"
+  },
+  {
+    "objectID": "slides/16-workflows.html#further-simplification-workflowsets-1",
+    "href": "slides/16-workflows.html#further-simplification-workflowsets-1",
+    "title": "Lecture 16",
+    "section": "Further simplification: workflowsets",
+    "text": "Further simplification: workflowsets\n\nworkflowsets builds off of purrr and allows you to iterate over multiple models and/or multiple resamples\nRemember how map, map_*, map2, and walk2 function allow lists to map to lists or vectors? workflow_set maps a preporcesser (formula or recipe) to a set of models.\nTo start, we will create a workflow_set object (instead of a workflow object). The first argument is a list of preprocessor objects (formulas or recipes) and the second argument is a list of model objects.\nBoth must be lists, by nature of the underlying purrr code.\n\n\n(wf_obj &lt;- workflow_set(list(forested ~.), list(log_mod, dt_model)))\n#&gt; # A workflow set/tibble: 2 × 4\n#&gt;   wflow_id              info             option    result    \n#&gt;   &lt;chr&gt;                 &lt;list&gt;           &lt;list&gt;    &lt;list&gt;    \n#&gt; 1 formula_logistic_reg  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;\n#&gt; 2 formula_decision_tree &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;"
+  },
+  {
+    "objectID": "slides/16-workflows.html#iteritive-extecution",
+    "href": "slides/16-workflows.html#iteritive-extecution",
+    "title": "Lecture 16",
+    "section": "Iteritive extecution",
+    "text": "Iteritive extecution\n\nOnce the workflow_set object is created, the workflow_map function can be used to map a function across the preprocessor/model combinations.\nHere we are mapping the fit_resamples function across the workflow_set combinations using the resamples argument to specify the resamples we want to use (forested_folds).\n\n\nwf_obj &lt;- \n  workflow_set(list(forested ~.), list(log_mod, dt_model)) %&gt;%\n  workflow_map(\"fit_resamples\", resamples = forested_folds) \n\n\n\n#&gt; # A workflow set/tibble: 2 × 4\n#&gt;   wflow_id              info             option    result   \n#&gt;   &lt;chr&gt;                 &lt;list&gt;           &lt;list&gt;    &lt;list&gt;   \n#&gt; 1 formula_logistic_reg  &lt;tibble [1 × 4]&gt; &lt;opts[1]&gt; &lt;rsmp[+]&gt;\n#&gt; 2 formula_decision_tree &lt;tibble [1 × 4]&gt; &lt;opts[1]&gt; &lt;rsmp[+]&gt;"
+  },
+  {
+    "objectID": "slides/16-workflows.html#rapid-comparision",
+    "href": "slides/16-workflows.html#rapid-comparision",
+    "title": "Lecture 16",
+    "section": "Rapid comparision",
+    "text": "Rapid comparision\nWith that single function, all models have been fit to the resamples and we can quickly compare the results both graphically and statistically:\n\n\n\n# Quick plot function\nautoplot(wf_obj) + \n  theme_linedraw()\n\n\n\n\n\n\n\n\n\n\n# Long list of results, ranked by accuracy\nrank_results(wf_obj, \n            rank_metric = \"accuracy\", \n            select_best = TRUE)\n#&gt; # A tibble: 6 × 9\n#&gt;   wflow_id         .config .metric   mean std_err     n preprocessor model  rank\n#&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;\n#&gt; 1 formula_logisti… Prepro… accura… 0.906  0.00360    10 formula      logi…     1\n#&gt; 2 formula_logisti… Prepro… brier_… 0.0714 0.00191    10 formula      logi…     1\n#&gt; 3 formula_logisti… Prepro… roc_auc 0.961  0.00164    10 formula      logi…     1\n#&gt; 4 formula_decisio… Prepro… accura… 0.896  0.00385    10 formula      deci…     2\n#&gt; 5 formula_decisio… Prepro… brier_… 0.0889 0.00224    10 formula      deci…     2\n#&gt; 6 formula_decisio… Prepro… roc_auc 0.909  0.00267    10 formula      deci…     2\n\n\n\n. . .\nOverall, the logistic regression model appears to the best model for this data set!"
+  },
+  {
+    "objectID": "slides/16-workflows.html#the-whole-game---status-update",
+    "href": "slides/16-workflows.html#the-whole-game---status-update",
+    "title": "Lecture 16",
+    "section": "The whole game - status update",
+    "text": "The whole game - status update\n\n\n\n\n\n\n\n\n\n\nNext Monday, we’ll talk more about models we can chose from.\nNext Wednesday, we’ll have an in-class demo of this whole process."
+  },
+  {
+    "objectID": "slides/16-workflows.html#a-tidymodels-prediction-will",
+    "href": "slides/16-workflows.html#a-tidymodels-prediction-will",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "always be inside a tibble\nhave column names and types are unsurprising and predictable\nensure the number of rows in new_data and the output are the same"
+  },
+  {
+    "objectID": "slides/16-workflows.html#what-algorithm-is-best-for-forests",
+    "href": "slides/16-workflows.html#what-algorithm-is-best-for-forests",
+    "title": "Lecture 16",
+    "section": "What algorithm is best for forests?",
+    "text": "What algorithm is best for forests?\nWe can only really know by testing them …\n\n\nLogistic regression\n\n\n\n\n\n\n\n\n\n\nDecision trees"
+  },
+  {
+    "objectID": "slides/16-workflows.html#fitting-your-model",
+    "href": "slides/16-workflows.html#fitting-your-model",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "OK! So you have split data, you have a model, and you have an engine and mode\nNow you need to fit the model!\nThis is done using the fit() function\n\n\ndt_model &lt;- decision_tree() %&gt;% \n  set_engine('rpart') %&gt;%\n  set_mode(\"classification\")\n\n# Model, formula, data inputs\n(output &lt;- fit(dt_model, forested ~ ., data = forested_train) )\n#&gt; parsnip model object\n#&gt; \n#&gt; n= 5685 \n#&gt; \n#&gt; node), split, n, loss, yval, (yprob)\n#&gt;       * denotes terminal node\n#&gt; \n#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  \n#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *\n#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  \n#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  \n#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *\n#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *\n#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *"
+  },
+  {
+    "objectID": "slides/16-workflows.html#evaluate-your-model",
+    "href": "slides/16-workflows.html#evaluate-your-model",
+    "title": "Lecture 16",
+    "section": "Evaluate your model ",
+    "text": "Evaluate your model \nHow do you evaluate the skill of your models?\nWe will learn more about model evaluation and tuning latter in this unit, but for now we can blindly use the metrics() function defaults to get a sense of how our model is doing.\n\nThe default metrics for classification models are accuracy and kap (Cohen’s Kappa)\nThe default metric for regression models are RMSE, R^2, and MAE\n\n\n# We have a classification model\nmetrics(dt_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.885\n#&gt; 2 kap      binary         0.768"
+  },
+  {
+    "objectID": "slides/16-workflows.html#what-algorithm-is-best-for-estimate-forested-plots",
+    "href": "slides/16-workflows.html#what-algorithm-is-best-for-estimate-forested-plots",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "We can only really know by testing them …"
+  },
+  {
+    "objectID": "slides/16-workflows.html#workflows",
+    "href": "slides/16-workflows.html#workflows",
+    "title": "Lecture 16",
+    "section": "Workflows? ",
+    "text": "Workflows? \nThe workflows package in tidymodels helps:\n\nManage preprocessing and modeling in a structured pipeline\nAvoid repetitive code\nReduce errors when integrating steps\n\n. . .\nThink of them as containers for:\n\nPreprocessing steps (e.g., feature engineering, transformations)\nModel specification\nFitting approaches\n\n. . .\nWhy Use Workflows?\n✅ Keeps preprocessing and modeling together\n\n✅ Ensures consistency in data handling  \n✅ Makes code easier to read and maintain"
+  },
+  {
+    "objectID": "slides/16-workflows.html",
+    "href": "slides/16-workflows.html",
+    "title": "Lecture 16",
+    "section": "",
+    "text": "Can we predict if a plot of land is forested? - Interested in classification models - We have a dataset of 7,107 6000-acre hexagons in Washington state. - Each hexagon has a nominal outcome, forested, with levels \"Yes\" and \"No\".\n\n\n\n\n\nThe U.S. Forest Service maintains ML models to predict whether a plot of land is “forested.”\nThis classification is important for all sorts of research, legislation, and land management purposes.\nPlots are typically remeasured every 10 years and this dataset contains the most recent measurement per plot.\nType ?forested to learn more about this dataset, including references.\n\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/251793/forest-mountain\n\n\n\n\n\n\n\nlibrary(tidymodels)\nlibrary(forested)\ndim(forested)\n#&gt; [1] 7107   19\n\n\nOne observation from each of 7,107 6000-acre hexagons in Washington state.\nA nominal outcome, forested, with levels \"Yes\" and \"No\", measured “on-the-ground.”\n\n\ntable(forested$forested)\n#&gt; \n#&gt;  Yes   No \n#&gt; 3894 3213\n\n\n18 remotely-sensed and easily-accessible predictors:\n\n\nnames(forested)\n#&gt;  [1] \"forested\"         \"year\"             \"elevation\"        \"eastness\"        \n#&gt;  [5] \"northness\"        \"roughness\"        \"tree_no_tree\"     \"dew_temp\"        \n#&gt;  [9] \"precip_annual\"    \"temp_annual_mean\" \"temp_annual_min\"  \"temp_annual_max\" \n#&gt; [13] \"temp_january_min\" \"vapor_min\"        \"vapor_max\"        \"canopy_cover\"    \n#&gt; [17] \"lon\"              \"lat\"              \"land_type\"\n\n\n\n\n\n\nCredit: https://www.svgrepo.com/svg/67614/forest\n\n\n\n\n\n\n\nset.seed(123)\nforested_split &lt;- initial_split(forested, prop = .8, strata = tree_no_tree)\nforested_split\n#&gt; &lt;Training/Testing/Total&gt;\n#&gt; &lt;5685/1422/7107&gt;\n\n\n\n\n\n\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\n\nnrow(forested_train)\n#&gt; [1] 5685\nnrow(forested_test)\n#&gt; [1] 1422\n\n\n\n\n\n# Load the dataset\nset.seed(123)\n\n# Create a 10-fold cross-validation object\n(forested_folds &lt;- vfold_cv(forested_train, v = 10))\n#&gt; #  10-fold cross-validation \n#&gt; # A tibble: 10 × 2\n#&gt;    splits             id    \n#&gt;    &lt;list&gt;             &lt;chr&gt; \n#&gt;  1 &lt;split [5116/569]&gt; Fold01\n#&gt;  2 &lt;split [5116/569]&gt; Fold02\n#&gt;  3 &lt;split [5116/569]&gt; Fold03\n#&gt;  4 &lt;split [5116/569]&gt; Fold04\n#&gt;  5 &lt;split [5116/569]&gt; Fold05\n#&gt;  6 &lt;split [5117/568]&gt; Fold06\n#&gt;  7 &lt;split [5117/568]&gt; Fold07\n#&gt;  8 &lt;split [5117/568]&gt; Fold08\n#&gt;  9 &lt;split [5117/568]&gt; Fold09\n#&gt; 10 &lt;split [5117/568]&gt; Fold10\n\n\n\n\n\nlm for linear model &lt;– The one we have looked at!\nglmnet for regularized regression\nkeras for regression using TensorFlow\nstan for Bayesian regression using Stan\nspark for large data sets using spark\nbrulee for regression using torch (PyTourch)\n\n\n\n\n\nAll of these models have different syntax and functions\nHow do you keep track of all of them?\nHow do you know which one to use?\nHow would you compare them?\n\nComparing 3-5 of these models is a lot of work using functions for diverse packages.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn the tidymodels framework, all models are created using the same syntax:\n\nThis makes it easy to compare models\nThis makes it easy to switch between models\nThis makes it easy to use the same model with different engines (packages)\n\nThe parsnip package provides a consistent interface to many models\nFor example, to fit a linear model you would be able to access the linear_reg() function\n\n\n\n?linear_reg\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nalways be inside a tibble\nhave column names and types are unsurprising and predictable\nensure the number of rows in new_data and the output are the same\n\n\n\n\n. . .\n\n\n\nChoose a model\nSpecify an engine\nSet the mode\n\n\n \n\n\n\n\n\nNext week we will discuss model types more thoroughly. For now, we will focus on two types:\n\nLogistic Regression\n\n\nlogistic_reg()\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glm\n\n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\nWe chose these two because they are robust, simple model that fit our goal of predicting a binary condition/class (forested/not forested)\n\n\n\n\n\n\nChoose a model\nSpecify an engine\nSet the mode\n\n\n\n?logistic_reg()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlogistic_reg() %&gt;%\n  set_engine(\"glmnet\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glmnet\n\n. . .\n\n\nlogistic_reg() %&gt;%\n  set_engine(\"stan\")\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: stan\n\n\n\n\n\n\n\nChoose a model\nSpecify an engine\nSet the mode\n\n\n\n?logistic_reg()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlogistic_reg() \n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glm\n\n. . .\n\n\n\n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\ndecision_tree() %&gt;% \n  set_mode(\"classification\")\n#&gt; Decision Tree Model Specification (classification)\n#&gt; \n#&gt; Computational engine: rpart\n\n\nAll available models are listed at https://www.tidymodels.org/find/parsnip/\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChoose a model\nSpecify an engine\nSet the mode\n\n\n \n\n\n\n\n\n\n\n\nSimulates logistic regression data.\nBins predictor𝐴 and calculates observed probabilities.\nUses binomial proportion tests to estimate probabilities and confidence intervals.\nVisualizes these estimates in a scatter plot with error bars.\nLogistic regression predicts probability—instead of a straight line, it gives an S-shaped curve that estimates how likely an outcome (e.g., is forested) is based on a predictor (e.g., rainfall and temperature).\nThe dots in the plot show the actual proportion of “successes” (e.g., is forested) within different bins of the predictor variable(s) (A).\nThe vertical error bars represent uncertainty—showing a range where the true probability might fall.\nAs A increases, the probability of success increases—but not in a straight line; it follows an S-curve, meaning small changes in A have different impacts at different levels.\nLogistic regression helps answer “how likely” questions—e.g., “How likely is someone to pass based on their study hours?” rather than just predicting a yes/no outcome.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n#&gt; Loading required package: rpart\n#&gt; \n#&gt; Attaching package: 'rpart'\n#&gt; The following object is masked from 'package:dials':\n#&gt; \n#&gt;     prune\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeries of splits or if/then statements based on predictors\nFirst the tree grows until some condition is met (maximum depth, no more data)\nThen the tree is pruned to reduce its complexity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can only really know by testing them …\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOK! So you have split data, you have a model, and you have an engine and mode\nNow you need to fit the model!\nThis is done using the fit() function\n\n\ndt_model &lt;- decision_tree() %&gt;% \n  set_engine('rpart') %&gt;%\n  set_mode(\"classification\")\n\n# Model, formula, data inputs\n(output &lt;- fit(dt_model, forested ~ ., data = forested_train) )\n#&gt; parsnip model object\n#&gt; \n#&gt; n= 5685 \n#&gt; \n#&gt; node), split, n, loss, yval, (yprob)\n#&gt;       * denotes terminal node\n#&gt; \n#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  \n#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *\n#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  \n#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  \n#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *\n#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *\n#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *\n\n\n\n\n\n\n\nWhile tidymodels provides a standard interface to all models all base models have specific methods (remember summary.lm? )\nTo use these, you must extract a the underlying object.\nextract_fit_engine() extracts the underlying model object\nextract_fit_parsnip() extracts the parsnip object\nextract_recipe() extracts the recipe object\nextract_preprocessor() extracts the preprocessor object\n… many more\n\n\n\nex &lt;- extract_fit_engine(output)\nclass(ex) # the class of the engine used!\n#&gt; [1] \"rpart\"\n\n# Use rpart plot and text methods ...\nplot(ex)\ntext(ex, cex = 0.9, use.n = TRUE, xpd = TRUE,)"
+  },
+  {
+    "objectID": "slides/16-workflows.html#so-who-wins",
+    "href": "slides/16-workflows.html#so-who-wins",
+    "title": "Lecture 16",
+    "section": "So who wins?",
+    "text": "So who wins?\n\nmetrics(dt_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.885\n#&gt; 2 kap      binary         0.768\nmetrics(log_preds, truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.890\n#&gt; 2 kap      binary         0.777\n\nRight out of the gate, there doesn’t seem to be much difference, but …"
+  },
+  {
+    "objectID": "slides/16-workflows.html#model-mappings",
+    "href": "slides/16-workflows.html#model-mappings",
+    "title": "Lecture 16",
+    "section": "Model mappings: ",
+    "text": "Model mappings: \n\nworkflowsets is a package that builds off of purrr and allows you to iterate over multiple models and/or multiple resamples\nRemember how map, map_*, map2, and walk2 functions allow lists to map to lists or vectors? workflow_set maps a preprocessor (formula or recipe) to a set of models - each provided as a list object.\nTo start, we will create a workflow_set object (instead of a workflow). The first argument is a list of preprocessor objects (formulas or recipes) and the second argument is a list of model objects.\nBoth must be lists, by nature of the underlying purrr code.\n\n\n(wf_obj &lt;- workflow_set(list(forested ~.), list(log_mod, dt_model)))\n#&gt; # A workflow set/tibble: 2 × 4\n#&gt;   wflow_id              info             option    result    \n#&gt;   &lt;chr&gt;                 &lt;list&gt;           &lt;list&gt;    &lt;list&gt;    \n#&gt; 1 formula_logistic_reg  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;\n#&gt; 2 formula_decision_tree &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;"
   }
 ]

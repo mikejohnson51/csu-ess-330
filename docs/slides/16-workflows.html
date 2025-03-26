@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lecture 16 – ESS 330</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5b6eb65566b1f8a996f1287d789c0740.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c63d9198b28a859559c0f0cce9729cfa.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../csu-rams-logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ESS 330</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../labs.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mikejohnson51/csu-ess-330/"> <i class="bi bi-github" role="img" aria-label="ESS 330">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#unit-example" id="toc-unit-example" class="nav-link active" data-scroll-target="#unit-example">Unit Example</a>
+  <ul class="collapse">
+  <li><a href="#data-on-forests-in-washington" id="toc-data-on-forests-in-washington" class="nav-link" data-scroll-target="#data-on-forests-in-washington">Data on forests in Washington</a></li>
+  <li><a href="#data-on-forests-in-washington-1" id="toc-data-on-forests-in-washington-1" class="nav-link" data-scroll-target="#data-on-forests-in-washington-1">Data on forests in Washington</a></li>
+  <li><a href="#data-splitting-and-spending" id="toc-data-splitting-and-spending" class="nav-link" data-scroll-target="#data-splitting-and-spending">Data splitting and spending</a>
+  <ul class="collapse">
+  <li><a href="#the-initial-split" id="toc-the-initial-split" class="nav-link" data-scroll-target="#the-initial-split">The initial split <img src="hexes/rsample.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  </ul></li>
+  <li><a href="#accessing-the-data" id="toc-accessing-the-data" class="nav-link" data-scroll-target="#accessing-the-data">Accessing the data <img src="hexes/rsample.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#k-fold-cross-validation" id="toc-k-fold-cross-validation" class="nav-link" data-scroll-target="#k-fold-cross-validation">K-Fold Cross-Validation <img src="hexes/rsample.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#how-do-you-fit-a-linear-model-in-r" id="toc-how-do-you-fit-a-linear-model-in-r" class="nav-link" data-scroll-target="#how-do-you-fit-a-linear-model-in-r">How do you fit a linear model in R?</a></li>
+  <li><a href="#challenge" id="toc-challenge" class="nav-link" data-scroll-target="#challenge">Challenge</a></li>
+  <li><a href="#the-tidymodels-advantage" id="toc-the-tidymodels-advantage" class="nav-link" data-scroll-target="#the-tidymodels-advantage">The tidymodels advantage</a></li>
+  <li><a href="#a-tidymodels-prediction-will" id="toc-a-tidymodels-prediction-will" class="nav-link" data-scroll-target="#a-tidymodels-prediction-will">A tidymodels prediction will … <img src="hexes/tidymodels.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#to-specify-a-model" id="toc-to-specify-a-model" class="nav-link" data-scroll-target="#to-specify-a-model">To specify a model <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#specify-a-model-type" id="toc-specify-a-model-type" class="nav-link" data-scroll-target="#specify-a-model-type">Specify a model: Type <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#specify-a-model-engine" id="toc-specify-a-model-engine" class="nav-link" data-scroll-target="#specify-a-model-engine">Specify a model: engine <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#specify-a-model-engine-1" id="toc-specify-a-model-engine-1" class="nav-link" data-scroll-target="#specify-a-model-engine-1">Specify a model: engine <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#specify-a-model-mode" id="toc-specify-a-model-mode" class="nav-link" data-scroll-target="#specify-a-model-mode">Specify a model: mode <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#specify-a-model-mode-1" id="toc-specify-a-model-mode-1" class="nav-link" data-scroll-target="#specify-a-model-mode-1">Specify a model: mode <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#to-specify-a-model-1" id="toc-to-specify-a-model-1" class="nav-link" data-scroll-target="#to-specify-a-model-1">To specify a model <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression">Logistic regression</a></li>
+  <li><a href="#decision-trees" id="toc-decision-trees" class="nav-link" data-scroll-target="#decision-trees">Decision trees</a></li>
+  <li><a href="#decision-trees-1" id="toc-decision-trees-1" class="nav-link" data-scroll-target="#decision-trees-1">Decision trees</a></li>
+  <li><a href="#decision-trees-2" id="toc-decision-trees-2" class="nav-link" data-scroll-target="#decision-trees-2">Decision trees</a></li>
+  <li><a href="#what-algorithm-is-best-for-estimate-forested-plots" id="toc-what-algorithm-is-best-for-estimate-forested-plots" class="nav-link" data-scroll-target="#what-algorithm-is-best-for-estimate-forested-plots">What algorithm is best for estimate forested plots?</a></li>
+  <li><a href="#fitting-your-model" id="toc-fitting-your-model" class="nav-link" data-scroll-target="#fitting-your-model">Fitting your model:</a></li>
+  <li><a href="#component-extracts" id="toc-component-extracts" class="nav-link" data-scroll-target="#component-extracts">Component extracts:</a></li>
+  </ul></li>
+  <li><a href="#a-model-workflow" id="toc-a-model-workflow" class="nav-link" data-scroll-target="#a-model-workflow">A model workflow</a>
+  <ul class="collapse">
+  <li><a href="#workflows" id="toc-workflows" class="nav-link" data-scroll-target="#workflows">Workflows? <img src="hexes/workflows.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#basic-workflow-structure" id="toc-basic-workflow-structure" class="nav-link" data-scroll-target="#basic-workflow-structure">Basic Workflow Structure: <img src="hexes/workflows.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#a-model-workflow-1" id="toc-a-model-workflow-1" class="nav-link" data-scroll-target="#a-model-workflow-1">A model workflow <img src="hexes/workflows.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"> <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="64" width="64" height="74"></a></li>
+  <li><a href="#predict-with-your-model" id="toc-predict-with-your-model" class="nav-link" data-scroll-target="#predict-with-your-model">Predict with your model <img src="hexes/broom.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#evaluate-your-model" id="toc-evaluate-your-model" class="nav-link" data-scroll-target="#evaluate-your-model">Evaluate your model <img src="hexes/yardstick.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  </ul></li>
+  <li><a href="#tidymodels-advantage" id="toc-tidymodels-advantage" class="nav-link" data-scroll-target="#tidymodels-advantage"><code>tidymodels</code> advantage! <img src="hexes/tidymodels.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a>
+  <ul class="collapse">
+  <li><a href="#so-who-wins" id="toc-so-who-wins" class="nav-link" data-scroll-target="#so-who-wins">So who wins?</a></li>
+  <li><a href="#dont-get-to-confident" id="toc-dont-get-to-confident" class="nav-link" data-scroll-target="#dont-get-to-confident">Don’t get to confident!</a></li>
+  <li><a href="#dont-get-to-confident-1" id="toc-dont-get-to-confident-1" class="nav-link" data-scroll-target="#dont-get-to-confident-1">Don’t get to confident!</a></li>
+  <li><a href="#dont-get-to-confident-2" id="toc-dont-get-to-confident-2" class="nav-link" data-scroll-target="#dont-get-to-confident-2">Don’t get to confident!</a></li>
+  <li><a href="#further-simplification-workflowsets" id="toc-further-simplification-workflowsets" class="nav-link" data-scroll-target="#further-simplification-workflowsets">Further simplification: <code>workflowsets</code></a></li>
+  <li><a href="#model-mappings" id="toc-model-mappings" class="nav-link" data-scroll-target="#model-mappings">Model mappings: <img src="hexes/workflowsets.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></a></li>
+  <li><a href="#iteritive-extecution" id="toc-iteritive-extecution" class="nav-link" data-scroll-target="#iteritive-extecution">Iteritive extecution</a></li>
+  <li><a href="#rapid-comparision" id="toc-rapid-comparision" class="nav-link" data-scroll-target="#rapid-comparision">Rapid comparision</a></li>
+  <li><a href="#the-whole-game---status-update" id="toc-the-whole-game---status-update" class="nav-link" data-scroll-target="#the-whole-game---status-update">The whole game - status update</a></li>
+  </ul></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="16-workflows.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lecture 16</h1>
+<p class="subtitle lead">Model Implementation &amp; Workflow</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="unit-example" class="level1" data-background-image="images/oregon-forest.png" data-background-opacity=".5">
+<h1 data-background-image="images/oregon-forest.png" data-background-opacity=".5">Unit Example</h1>
+<p>Can we predict if a plot of land is forested? - Interested in classification models - We have a dataset of 7,107 6000-acre hexagons in Washington state. - Each hexagon has a nominal outcome, <code>forested</code>, with levels <code>"Yes"</code> and <code>"No"</code>.</p>
+<section id="data-on-forests-in-washington" class="level2">
+<h2 class="anchored" data-anchor-id="data-on-forests-in-washington">Data on forests in Washington</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>The U.S. Forest Service maintains ML models to predict whether a plot of land is “forested.”</li>
+<li>This classification is important for all sorts of research, legislation, and land management purposes.</li>
+<li>Plots are typically remeasured every 10 years and this dataset contains the most recent measurement per plot.</li>
+<li>Type <code>?forested</code> to learn more about this dataset, including references.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img src="images/forest_mountain.svg" class="img-fluid"></p>
+</div>
+</div>
+<div class="footer">
+<p>Credit: <a href="https://www.svgrepo.com/svg/251793/forest-mountain" class="uri">https://www.svgrepo.com/svg/251793/forest-mountain</a></p>
+</div>
+</section>
+<section id="data-on-forests-in-washington-1" class="level2">
+<h2 class="anchored" data-anchor-id="data-on-forests-in-washington-1">Data on forests in Washington</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forested)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(forested)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 7107   19</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>One observation from each of 7,107 6000-acre hexagons in Washington state.</p></li>
+<li><p>A nominal outcome, <code>forested</code>, with levels <code>"Yes"</code> and <code>"No"</code>, measured “on-the-ground.”</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(forested<span class="sc">$</span>forested)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Yes   No </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3894 3213</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>18 remotely-sensed and easily-accessible predictors:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(forested)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [1] "forested"         "year"             "elevation"        "eastness"        </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [5] "northness"        "roughness"        "tree_no_tree"     "dew_temp"        </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  [9] "precip_annual"    "temp_annual_mean" "temp_annual_min"  "temp_annual_max" </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [13] "temp_january_min" "vapor_min"        "vapor_max"        "canopy_cover"    </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [17] "lon"              "lat"              "land_type"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:30%;">
+<p><img src="images/forest.svg" class="center img-fluid"></p>
+</div>
+</div>
+<div class="footer">
+<p>Credit: <a href="https://www.svgrepo.com/svg/67614/forest" class="uri">https://www.svgrepo.com/svg/67614/forest</a></p>
+</div>
+</section>
+<section id="data-splitting-and-spending" class="level2">
+<h2 class="anchored" data-anchor-id="data-splitting-and-spending">Data splitting and spending</h2>
+<section id="the-initial-split" class="level3">
+<h3 class="anchored" data-anchor-id="the-initial-split">The initial split <img src="hexes/rsample.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>forested_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(forested, <span class="at">prop =</span> .<span class="dv">8</span>, <span class="at">strata =</span> tree_no_tree)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>forested_split</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;Training/Testing/Total&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; &lt;5685/1422/7107&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="accessing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-the-data">Accessing the data <img src="hexes/rsample.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>forested_train <span class="ot">&lt;-</span> <span class="fu">training</span>(forested_split)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>forested_test  <span class="ot">&lt;-</span> <span class="fu">testing</span>(forested_split)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(forested_train)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 5685</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(forested_test)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1422</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="k-fold-cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="k-fold-cross-validation">K-Fold Cross-Validation <img src="hexes/rsample.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dataset</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 10-fold cross-validation object</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>(forested_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(forested_train, <span class="at">v =</span> <span class="dv">10</span>))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; #  10-fold cross-validation </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 10 × 2</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    splits             id    </span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;list&gt;             &lt;chr&gt; </span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 &lt;split [5116/569]&gt; Fold01</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 &lt;split [5116/569]&gt; Fold02</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 &lt;split [5116/569]&gt; Fold03</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 &lt;split [5116/569]&gt; Fold04</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 &lt;split [5116/569]&gt; Fold05</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 &lt;split [5117/568]&gt; Fold06</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 &lt;split [5117/568]&gt; Fold07</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 &lt;split [5117/568]&gt; Fold08</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 &lt;split [5117/568]&gt; Fold09</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 &lt;split [5117/568]&gt; Fold10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="how-do-you-fit-a-linear-model-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="how-do-you-fit-a-linear-model-in-r">How do you fit a linear model in R?</h2>
+<ul>
+<li><p><code>lm</code> for linear model &lt;– The one we have looked at!</p></li>
+<li><p><code>glmnet</code> for regularized regression</p></li>
+<li><p><code>keras</code> for regression using TensorFlow</p></li>
+<li><p><code>stan</code> for Bayesian regression using Stan</p></li>
+<li><p><code>spark</code> for large data sets using spark</p></li>
+<li><p><code>brulee</code> for regression using torch (PyTourch)</p></li>
+</ul>
+</section>
+<section id="challenge" class="level2">
+<h2 class="anchored" data-anchor-id="challenge">Challenge</h2>
+<ul>
+<li>All of these models have different syntax and functions</li>
+<li>How do you keep track of all of them?</li>
+<li>How do you know which one to use?</li>
+<li>How would you compare them?</li>
+</ul>
+<p>Comparing 3-5 of these models is a lot of work using functions for diverse packages.</p>
+<div class="{columns}">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/lm-help.png" class="img-fluid figure-img" width="669"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/glm-help.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-tidymodels-advantage" class="level2">
+<h2 class="anchored" data-anchor-id="the-tidymodels-advantage">The tidymodels advantage</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>In the <code>tidymodels</code> framework, all models are created using the same syntax:
+<ul>
+<li>This makes it easy to compare models</li>
+<li>This makes it easy to switch between models</li>
+<li>This makes it easy to use the same model with different engines (packages)</li>
+</ul></li>
+<li>The <code>parsnip</code> package provides a consistent interface to many models</li>
+<li>For example, to fit a linear model you would be able to access the <code>linear_reg(</code>) function</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>?linear_reg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/lm_engines.png" class="img-fluid figure-img" width="646"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-tidymodels-prediction-will" class="level2">
+<h2 class="anchored" data-anchor-id="a-tidymodels-prediction-will">A tidymodels prediction will … <img src="hexes/tidymodels.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<ul>
+<li>always be inside a <strong>tibble</strong></li>
+<li>have column names and types are <strong>unsurprising</strong> and <strong>predictable</strong></li>
+<li>ensure the number of rows in <code>new_data</code> and the output <strong>are the same</strong></li>
+</ul>
+</section>
+<section id="to-specify-a-model" class="level2">
+<h2 class="anchored" data-anchor-id="to-specify-a-model">To specify a model <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<p>. . .</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Choose a <u>model</u></li>
+<li>Specify an engine</li>
+<li>Set the mode</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><br><br><br> <img src="images/forest_mountain.svg" class="absolute" height="300"></p>
+</div>
+</div>
+</section>
+<section id="specify-a-model-type" class="level2">
+<h2 class="anchored" data-anchor-id="specify-a-model-type">Specify a model: Type <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<p>Next week we will discuss model types more thoroughly. For now, we will focus on two types:</p>
+<ol type="1">
+<li>Logistic Regression</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logistic_reg</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Logistic Regression Model Specification (classification)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Computational engine: glm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decision_tree</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Decision Tree Model Specification (unknown mode)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Computational engine: rpart</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We chose these two because they are robust, simple model that fit our goal of predicting a binary condition/class (forested/not forested)</p>
+</section>
+<section id="specify-a-model-engine" class="level2">
+<h2 class="anchored" data-anchor-id="specify-a-model-engine">Specify a model: engine <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Choose a model</li>
+<li>Specify an <u>engine</u></li>
+<li>Set the mode</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>?<span class="fu">logistic_reg</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/log_reg_help_engine.png" class="img-fluid figure-img" width="481"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="specify-a-model-engine-1" class="level2">
+<h2 class="anchored" data-anchor-id="specify-a-model-engine-1">Specify a model: engine <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glmnet"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Logistic Regression Model Specification (classification)</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Computational engine: glmnet</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"stan"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Logistic Regression Model Specification (classification)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Computational engine: stan</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="specify-a-model-mode" class="level2">
+<h2 class="anchored" data-anchor-id="specify-a-model-mode">Specify a model: mode <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Choose a model</li>
+<li>Specify an engine</li>
+<li>Set the <u>mode</u></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>?<span class="fu">logistic_reg</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/log_reg_help_class.png" class="img-fluid figure-img" width="481"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="specify-a-model-mode-1" class="level2">
+<h2 class="anchored" data-anchor-id="specify-a-model-mode-1">Specify a model: mode <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<section id="some-models-have-limit-classes" class="level4">
+<h4 class="anchored" data-anchor-id="some-models-have-limit-classes">Some models have limit classes …</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">logistic_reg</span>() </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Logistic Regression Model Specification (classification)</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Computational engine: glm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+</section>
+<section id="others-requires-specification" class="level4">
+<h4 class="anchored" data-anchor-id="others-requires-specification">Others requires specification …</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decision_tree</span>()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Decision Tree Model Specification (unknown mode)</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Computational engine: rpart</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">decision_tree</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Decision Tree Model Specification (classification)</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Computational engine: rpart</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="r-fit-text">
+<p>All available models are listed at <a href="https://www.tidymodels.org/find/parsnip/" class="uri">https://www.tidymodels.org/find/parsnip/</a></p>
+</div>
+</section>
+</section>
+<section id="section" class="level2" data-background-iframe="https://www.tidymodels.org/find/parsnip/">
+<h2 data-background-iframe="https://www.tidymodels.org/find/parsnip/" class="anchored" data-anchor-id="section"></h2>
+<div class="footer">
+
+</div>
+</section>
+<section id="to-specify-a-model-1" class="level2">
+<h2 class="anchored" data-anchor-id="to-specify-a-model-1">To specify a model <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Choose a <u>model</u></li>
+<li>Specify an <u>engine</u></li>
+<li>Set the <u>mode</u></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><br><br><br> <img src="images/forest_mountain.svg" class="absolute" height="300"></p>
+</div>
+</div>
+</section>
+<section id="logistic-regression" class="level2">
+<h2 class="anchored" data-anchor-id="logistic-regression">Logistic regression</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Simulates logistic regression data.</p></li>
+<li><p>Bins predictor𝐴 and calculates observed probabilities.</p></li>
+<li><p>Uses binomial proportion tests to estimate probabilities and confidence intervals.</p></li>
+<li><p>Visualizes these estimates in a scatter plot with error bars.</p></li>
+<li><p>Logistic regression predicts probability—instead of a straight line, it gives an S-shaped curve that estimates how likely an outcome (e.g., is forested) is based on a predictor (e.g., rainfall and temperature).</p></li>
+<li><p>The dots in the plot show the actual proportion of “successes” (e.g., is forested) within different bins of the predictor variable(s) (A).</p></li>
+<li><p>The vertical error bars represent uncertainty—showing a range where the true probability might fall.</p></li>
+<li><p>As A increases, the probability of success increases—but not in a straight line; it follows an S-curve, meaning small changes in A have different impacts at different levels.</p></li>
+<li><p>Logistic regression helps answer “how likely” questions—e.g., “How likely is someone to pass based on their study hours?” rather than just predicting a yes/no outcome.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/plot-logistic-reg-2-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="decision-trees" class="level2">
+<h2 class="anchored" data-anchor-id="decision-trees">Decision trees</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<pre><code>#&gt; Loading required package: rpart
+#&gt; 
+#&gt; Attaching package: 'rpart'
+#&gt; The following object is masked from 'package:dials':
+#&gt; 
+#&gt;     prune</code></pre>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/plot-tree-fit-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</section>
+<section id="decision-trees-1" class="level2">
+<h2 class="anchored" data-anchor-id="decision-trees-1">Decision trees</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/plot-tree-fit-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>Series of splits or if/then statements based on predictors</p></li>
+<li><p>First the tree <em>grows</em> until some condition is met (maximum depth, no more data)</p></li>
+<li><p>Then the tree is <em>pruned</em> to reduce its complexity</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="decision-trees-2" class="level2">
+<h2 class="anchored" data-anchor-id="decision-trees-2">Decision trees</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/plot-tree-fit-3-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/plot-tree-preds-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="what-algorithm-is-best-for-estimate-forested-plots" class="level2">
+<h2 class="anchored" data-anchor-id="what-algorithm-is-best-for-estimate-forested-plots">What algorithm is best for estimate forested plots?</h2>
+<p>We can only really know by testing them …</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="logistic-regression-1" class="level4">
+<h4 class="anchored" data-anchor-id="logistic-regression-1">Logistic regression</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/plot-logistic-reg-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div><div class="column" style="width:50%;">
+<section id="decision-trees-3" class="level4">
+<h4 class="anchored" data-anchor-id="decision-trees-3">Decision trees</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/plot-tree-preds-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</section>
+<section id="fitting-your-model" class="level2">
+<h2 class="anchored" data-anchor-id="fitting-your-model">Fitting your model:</h2>
+<ul>
+<li>OK! So you have split data, you have a model, and you have an engine and mode</li>
+<li>Now you need to fit the model!</li>
+<li>This is done using the <code>fit()</code> function</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dt_model <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">'rpart'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Model, formula, data inputs</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>(output <span class="ot">&lt;-</span> <span class="fu">fit</span>(dt_model, forested <span class="sc">~</span> ., <span class="at">data =</span> forested_train) )</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; parsnip model object</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; n= 5685 </span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; node), split, n, loss, yval, (yprob)</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       * denotes terminal node</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  </span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  </span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  </span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="component-extracts" class="level2">
+<h2 class="anchored" data-anchor-id="component-extracts">Component extracts:</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>While <code>tidymodels</code> provides a standard interface to all models all base models have specific methods (remember <code>summary.lm</code>? )</p></li>
+<li><p>To use these, you must extract a the underlying object.</p></li>
+<li><p><code>extract_fit_engine()</code> extracts the underlying model object</p></li>
+<li><p><code>extract_fit_parsnip()</code> extracts the parsnip object</p></li>
+<li><p><code>extract_recipe()</code> extracts the recipe object</p></li>
+<li><p><code>extract_preprocessor()</code> extracts the preprocessor object</p></li>
+<li><p>… many more</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ex <span class="ot">&lt;-</span> <span class="fu">extract_fit_engine</span>(output)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ex) <span class="co"># the class of the engine used!</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] "rpart"</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Use rpart plot and text methods ...</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ex)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(ex, <span class="at">cex =</span> <span class="fl">0.9</span>, <span class="at">use.n =</span> <span class="cn">TRUE</span>, <span class="at">xpd =</span> <span class="cn">TRUE</span>,)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="a-model-workflow" class="level1">
+<h1>A model workflow</h1>
+<section id="workflows" class="level2">
+<h2 class="anchored" data-anchor-id="workflows">Workflows? <img src="hexes/workflows.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<p>The <code>workflows</code> package in <code>tidymodels</code> helps:</p>
+<ul>
+<li><p>Manage preprocessing and modeling in a structured pipeline</p></li>
+<li><p>Avoid repetitive code</p></li>
+<li><p>Reduce errors when integrating steps</p></li>
+</ul>
+<p>. . .</p>
+<p>Think of them as containers for:</p>
+<ul>
+<li><p>Preprocessing steps (e.g., feature engineering, transformations)</p></li>
+<li><p>Model specification</p></li>
+<li><p>Fitting approaches</p></li>
+</ul>
+<p>. . .</p>
+<p>Why Use Workflows?</p>
+<p>✅ Keeps preprocessing and modeling together<br>
+</p>
+<p>✅ Ensures consistency in data handling &nbsp;</p>
+<p>✅ Makes code easier to read and maintain&nbsp;</p>
+</section>
+<section id="basic-workflow-structure" class="level2">
+<h2 class="anchored" data-anchor-id="basic-workflow-structure">Basic Workflow Structure: <img src="hexes/workflows.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<ol type="1">
+<li><p>Create a workflow object (similar to how <code>ggplot()</code> instantiates a canvas)</p></li>
+<li><p>Add a formula or recipe (preprocessor)</p></li>
+<li><p>Add the model</p></li>
+<li><p>Fit the workflow</p></li>
+</ol>
+</section>
+<section id="a-model-workflow-1" class="level2">
+<h2 class="anchored" data-anchor-id="a-model-workflow-1">A model workflow <img src="hexes/workflows.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"> <img src="hexes/parsnip.png" class="absolute" data-top="-20" data-right="64" width="64" height="74"></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dt_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(forested <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(dt_model) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> forested_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<pre><code>#&gt; ══ Workflow [trained] ══════════════════════════════════════════════════════════
+#&gt; Preprocessor: Formula
+#&gt; Model: decision_tree()
+#&gt; 
+#&gt; ── Preprocessor ────────────────────────────────────────────────────────────────
+#&gt; forested ~ .
+#&gt; 
+#&gt; ── Model ───────────────────────────────────────────────────────────────────────
+#&gt; n= 5685 
+#&gt; 
+#&gt; node), split, n, loss, yval, (yprob)
+#&gt;       * denotes terminal node
+#&gt; 
+#&gt;  1) root 5685 2571 Yes (0.54775726 0.45224274)  
+#&gt;    2) land_type=Tree 3025  289 Yes (0.90446281 0.09553719) *
+#&gt;    3) land_type=Barren,Non-tree vegetation 2660  378 No (0.14210526 0.85789474)  
+#&gt;      6) temp_annual_max&lt; 13.395 351  155 Yes (0.55840456 0.44159544)  
+#&gt;       12) tree_no_tree=Tree 91    5 Yes (0.94505495 0.05494505) *
+#&gt;       13) tree_no_tree=No tree 260  110 No (0.42307692 0.57692308) *
+#&gt;      7) temp_annual_max&gt;=13.395 2309  182 No (0.07882200 0.92117800) *</code></pre>
+</div>
+</section>
+<section id="predict-with-your-model" class="level2">
+<h2 class="anchored" data-anchor-id="predict-with-your-model">Predict with your model <img src="hexes/broom.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<p><em>How do you use your new model?</em></p>
+<ul>
+<li><code>augment()</code> will return the dataset with predictions and residuals added.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dt_preds <span class="ot">&lt;-</span> <span class="fu">augment</span>(dt_wf, <span class="at">new_data =</span> forested_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<pre><code>#&gt; # A tibble: 1,422 × 22
+#&gt;    .pred_class .pred_Yes .pred_No forested  year elevation eastness northness
+#&gt;    &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+#&gt;  1 Yes            0.904    0.0955 No        2005       164      -84        53
+#&gt;  2 Yes            0.904    0.0955 Yes       2005       806       47       -88
+#&gt;  3 No             0.423    0.577  Yes       2005      2240      -67       -74
+#&gt;  4 Yes            0.904    0.0955 Yes       2005       787       66       -74
+#&gt;  5 Yes            0.904    0.0955 Yes       2005      1330       99         7
+#&gt;  6 Yes            0.904    0.0955 Yes       2005      1423       46        88
+#&gt;  7 Yes            0.904    0.0955 Yes       2014       546      -92       -38
+#&gt;  8 Yes            0.904    0.0955 Yes       2014      1612       30       -95
+#&gt;  9 No             0.0788   0.921  No        2014       235        0      -100
+#&gt; 10 No             0.0788   0.921  No        2014       308      -70       -70
+#&gt; # ℹ 1,412 more rows
+#&gt; # ℹ 14 more variables: roughness &lt;dbl&gt;, tree_no_tree &lt;fct&gt;, dew_temp &lt;dbl&gt;,
+#&gt; #   precip_annual &lt;dbl&gt;, temp_annual_mean &lt;dbl&gt;, temp_annual_min &lt;dbl&gt;,
+#&gt; #   temp_annual_max &lt;dbl&gt;, temp_january_min &lt;dbl&gt;, vapor_min &lt;dbl&gt;,
+#&gt; #   vapor_max &lt;dbl&gt;, canopy_cover &lt;dbl&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;, land_type &lt;fct&gt;</code></pre>
+</div>
+</section>
+<section id="evaluate-your-model" class="level2">
+<h2 class="anchored" data-anchor-id="evaluate-your-model">Evaluate your model <img src="hexes/yardstick.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<p><em>How do you evaluate the skill of your models?</em></p>
+<p>We will learn more about model evaluation and tuning latter in this unit, but for now we can blindly use the <code>metrics()</code> function defaults to get a sense of how our model is doing.</p>
+<ul>
+<li><p>The default metrics for <em>classification</em> models are <strong>accuracy</strong> and <strong>kap</strong> (Cohen’s Kappa)</p></li>
+<li><p>The default metric for <em>regression</em> models are <strong>RMSE</strong>, <strong>R^2</strong>, and <strong>MAE</strong></p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We have a classification model</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(dt_preds, <span class="at">truth =</span> forested, <span class="at">estimate =</span> .pred_class)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .metric  .estimator .estimate</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 accuracy binary         0.885</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 kap      binary         0.768</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="tidymodels-advantage" class="level1">
+<h1><code>tidymodels</code> advantage! <img src="hexes/tidymodels.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h1>
+<ul>
+<li>OK! while that was not too much work, it certainly wasn’t minimal.</li>
+</ul>
+<p>. . .</p>
+<ul>
+<li><p>Now lets say you want to check if the logistic regression model performs better than the decision tree</p></li>
+<li><p>That sounds like a lot to repeat.</p></li>
+<li><p>Fortunately, the <code>tidymodels</code> framework makes this a straight forward swap!</p></li>
+</ul>
+<p>. . .</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>log_mod <span class="ot">=</span> <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>log_wf <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(forested <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(log_mod) <span class="sc">%&gt;%</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(<span class="at">data =</span> forested_train)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>log_preds <span class="ot">&lt;-</span> <span class="fu">augment</span>(log_wf, <span class="at">new_data =</span> forested_test)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(log_preds, <span class="at">truth =</span> forested, <span class="at">estimate =</span> .pred_class)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .metric  .estimator .estimate</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 accuracy binary         0.890</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 kap      binary         0.777</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="so-who-wins" class="level2">
+<h2 class="anchored" data-anchor-id="so-who-wins">So who wins?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(dt_preds, <span class="at">truth =</span> forested, <span class="at">estimate =</span> .pred_class)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .metric  .estimator .estimate</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 accuracy binary         0.885</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 kap      binary         0.768</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">metrics</span>(log_preds, <span class="at">truth =</span> forested, <span class="at">estimate =</span> .pred_class)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 × 3</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .metric  .estimator .estimate</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 accuracy binary         0.890</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 kap      binary         0.777</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Right out of the gate, there doesn’t seem to be much difference, but …</p>
+</section>
+<section id="dont-get-to-confident" class="level2">
+<h2 class="anchored" data-anchor-id="dont-get-to-confident">Don’t get to confident!</h2>
+<ul>
+<li>We have evaluated the model on the same data we trained it on</li>
+<li>This is not a good practice and can give us a false sense of confidence</li>
+<li>Instead, we can use our <code>resamples</code> to better understand the skill of a model based on the iterative leave out policy:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>dt_wf_rs <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(forested <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(dt_model) <span class="sc">%&gt;%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> forested_folds, </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Here we just ask tidymodels to save all predictions...</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">control   =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<pre><code>#&gt; # Resampling results
+#&gt; # 10-fold cross-validation 
+#&gt; # A tibble: 10 × 5
+#&gt;    splits             id     .metrics         .notes           .predictions
+#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      
+#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;</code></pre>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>tidyr::unnest</code> could be used to expand any of those list columns!</p>
+</div>
+</div>
+</section>
+<section id="dont-get-to-confident-1" class="level2">
+<h2 class="anchored" data-anchor-id="dont-get-to-confident-1">Don’t get to confident!</h2>
+<ul>
+<li>We can execute the same workflow for the logistic regression model, this time evaluating the resamples instead of the test data.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>log_wf_rs <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_formula</span>(forested <span class="sc">~</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(log_mod) <span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit_resamples</span>(<span class="at">resamples =</span> forested_folds,</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<pre><code>#&gt; # Resampling results
+#&gt; # 10-fold cross-validation 
+#&gt; # A tibble: 10 × 5
+#&gt;    splits             id     .metrics         .notes           .predictions
+#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      
+#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;</code></pre>
+</div>
+</section>
+<section id="dont-get-to-confident-2" class="level2">
+<h2 class="anchored" data-anchor-id="dont-get-to-confident-2">Don’t get to confident!</h2>
+<ul>
+<li><p>Since we now have an “ensemble” of models (across the folds), we can collect a summary of the metrics across them.</p></li>
+<li><p>The default metrics for classification ensembles are:</p>
+<ul>
+<li><strong>accuracy</strong>: accuracy is the proportion of correct predictions</li>
+<li><strong>brier_class</strong>: the Brier score for classification is the mean squared difference between the predicted probability and the actual outcome</li>
+<li><strong>roc_auc</strong>: the area under the ROC (Receiver Operating Characteristic) curve</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(log_wf_rs)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 6</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .metric     .estimator   mean     n std_err .config             </span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               </span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 accuracy    binary     0.906     10 0.00360 Preprocessor1_Model1</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 brier_class binary     0.0714    10 0.00191 Preprocessor1_Model1</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 roc_auc     binary     0.961     10 0.00164 Preprocessor1_Model1</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="fu">collect_metrics</span>(dt_wf_rs)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3 × 6</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   .metric     .estimator   mean     n std_err .config             </span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               </span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 accuracy    binary     0.896     10 0.00385 Preprocessor1_Model1</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 brier_class binary     0.0889    10 0.00224 Preprocessor1_Model1</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 roc_auc     binary     0.909     10 0.00267 Preprocessor1_Model1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="further-simplification-workflowsets" class="level2">
+<h2 class="anchored" data-anchor-id="further-simplification-workflowsets">Further simplification: <code>workflowsets</code></h2>
+<p>OK, so we have streamlined a lot of things with <code>tidymodels</code>:</p>
+<ul>
+<li><p>We have a specified preprocesser (e.g.&nbsp;formula or recipe)</p></li>
+<li><p>We have defined a model (complete with engine and mode)</p></li>
+<li><p>We have implemented workflows pairing each model with the preprocesser to either fit the model to the resamples, or, the training data.</p></li>
+</ul>
+<p>While a significant improvement, we can do better!</p>
+<div class="{callout-note}">
+<p>Does the idea of implementing a process over an list of elements ring a bell?</p>
+</div>
+</section>
+<section id="model-mappings" class="level2">
+<h2 class="anchored" data-anchor-id="model-mappings">Model mappings: <img src="hexes/workflowsets.png" class="absolute" data-top="-20" data-right="0" width="64" height="74"></h2>
+<ul>
+<li><p><code>workflowsets</code> is a package that builds off of <code>purrr</code> and allows you to iterate over multiple models and/or multiple resamples</p></li>
+<li><p>Remember how <code>map</code>, <code>map_*</code>, <code>map2</code>, and <code>walk2</code> functions allow lists to map to lists or vectors? <code>workflow_set</code> maps a preprocessor (formula or recipe) to a set of models - each provided as a <code>list</code> object.</p></li>
+<li><p>To start, we will create a <code>workflow_set</code> object (instead of a <code>workflow</code>). The first argument is a list of preprocessor objects (formulas or recipes) and the second argument is a list of model objects.</p></li>
+<li><p>Both must be lists, by nature of the underlying <code>purrr</code> code.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>(wf_obj <span class="ot">&lt;-</span> <span class="fu">workflow_set</span>(<span class="fu">list</span>(forested <span class="sc">~</span>.), <span class="fu">list</span>(log_mod, dt_model)))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A workflow set/tibble: 2 × 4</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   wflow_id              info             option    result    </span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;                 &lt;list&gt;           &lt;list&gt;    &lt;list&gt;    </span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 formula_logistic_reg  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 formula_decision_tree &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="iteritive-extecution" class="level2">
+<h2 class="anchored" data-anchor-id="iteritive-extecution">Iteritive extecution</h2>
+<ul>
+<li><p>Once the <code>workflow_set</code> object is created, the <code>workflow_map</code> function can be used to map a function across the preprocessor/model combinations.</p></li>
+<li><p>Here we are mapping the <code>fit_resamples</code> function across the <code>workflow_set</code> combinations using the <code>resamples</code> argument to specify the resamples we want to use (<code>forested_folds</code>).</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>wf_obj <span class="ot">&lt;-</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow_set</span>(<span class="fu">list</span>(forested <span class="sc">~</span>.), <span class="fu">list</span>(log_mod, dt_model)) <span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">workflow_map</span>(<span class="st">"fit_resamples"</span>, <span class="at">resamples =</span> forested_folds) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="cell">
+<pre><code>#&gt; # A workflow set/tibble: 2 × 4
+#&gt;   wflow_id              info             option    result   
+#&gt;   &lt;chr&gt;                 &lt;list&gt;           &lt;list&gt;    &lt;list&gt;   
+#&gt; 1 formula_logistic_reg  &lt;tibble [1 × 4]&gt; &lt;opts[1]&gt; &lt;rsmp[+]&gt;
+#&gt; 2 formula_decision_tree &lt;tibble [1 × 4]&gt; &lt;opts[1]&gt; &lt;rsmp[+]&gt;</code></pre>
+</div>
+</section>
+<section id="rapid-comparision" class="level2">
+<h2 class="anchored" data-anchor-id="rapid-comparision">Rapid comparision</h2>
+<p>With that single function, all models have been fit to the resamples and we can quickly compare the results both graphically and statistically:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick plot function</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(wf_obj) <span class="sc">+</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-workflows_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Long list of results, ranked by accuracy</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rank_results</span>(wf_obj, </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">rank_metric =</span> <span class="st">"accuracy"</span>, </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">select_best =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 9</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   wflow_id         .config .metric   mean std_err     n preprocessor model  rank</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt; &lt;chr&gt;        &lt;chr&gt; &lt;int&gt;</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 formula_logisti… Prepro… accura… 0.906  0.00360    10 formula      logi…     1</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 formula_logisti… Prepro… brier_… 0.0714 0.00191    10 formula      logi…     1</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 formula_logisti… Prepro… roc_auc 0.961  0.00164    10 formula      logi…     1</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 formula_decisio… Prepro… accura… 0.896  0.00385    10 formula      deci…     2</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 formula_decisio… Prepro… brier_… 0.0889 0.00224    10 formula      deci…     2</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 formula_decisio… Prepro… roc_auc 0.909  0.00267    10 formula      deci…     2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<p>Overall, the logistic regression model appears to the best model for this data set!</p>
+</section>
+<section id="the-whole-game---status-update" class="level2">
+<h2 class="anchored" data-anchor-id="the-whole-game---status-update">The whole game - status update</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/whole-game-transparent-select.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1772"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Next Monday, we’ll talk more about models we can chose from.</p></li>
+<li><p>Next Wednesday, we’ll have an in-class demo of this whole process.</p></li>
+</ul>
+</section>
+</section>
+<section id="assignment" class="level1">
+<h1>Assignment</h1>
+<ol type="1">
+<li>Open your R script from the last daily assignment</li>
+<li>Add a new section for the model fitting and workflow</li>
+<li>Define a logistic regression model and a <code>rand_forest</code> model</li>
+</ol>
+<ul>
+<li><code>rand_forest</code> is new, so, think about the engine (use the default) and mode needed for our problem</li>
+</ul>
+<ol start="4" type="1">
+<li>Set up a <code>workflow_set()</code> to compare the logistic regression model (the winner of lecture here) to the <code>rand_forest</code> model you create. Use <code>accuracy</code> as you primary metric to rank the models.</li>
+<li>As a comment, write a sentence about what model you think is best!</li>
+<li>Submit your R script to Canvas</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
