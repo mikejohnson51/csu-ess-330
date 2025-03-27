@@ -777,7 +777,7 @@ Caused by error in `vectbl_recycle_rhs_rows()`:
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Scales way off!</span></span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(camels_test, <span class="fu">aes</span>(<span class="at">x =</span> p2, <span class="at">y =</span> logQmean)) <span class="sc">+</span> </span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Linear fit line</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Linear fit line, no error bands</span></span>
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">size =</span><span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1:1 line</span></span>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
@@ -1089,7 +1089,7 @@ aridity:p_mean  0.1048449 0.07198145   1.456555 1.458304e-01</code></pre>
 <li><label><input type="checkbox"><strong>Q1</strong>: Download data (10 pts)</label></li>
 <li><label><input type="checkbox"><strong>Q2</strong>: Make 2 maps (10 pts)</label></li>
 <li><label><input type="checkbox"><strong>Q3</strong>: Build a xgboost and neural network model (20 pts)</label></li>
-<li><label><input type="checkbox"><strong>Q4a</strong>: Data Splitting (15)</label></li>
+<li><label><input type="checkbox"><strong>Q4a</strong>: Data Prep / Data Splitting (15)</label></li>
 <li><label><input type="checkbox"><strong>Q4b</strong>: Recipe (15)</label></li>
 <li><label><input type="checkbox"><strong>Q4c</strong>: Define 3 models (25)</label></li>
 <li><label><input type="checkbox"><strong>Q4d</strong>: workflow set (15)</label></li>
