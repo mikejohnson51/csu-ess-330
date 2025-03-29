@@ -1614,7 +1614,7 @@
     "href": "schedule.html#component-3-modeling",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 3: Modeling",
-    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 15 (w10): Data budgeting\n Lecture 16 (w10): Model Workflows\n Lecture 17 (w11): [Model Specifications]\n Lecture 18 (w11): Live Demo\n Lecture 19 (w12): Evaluating & Tuning a model\n Lecture 20 (w12): Live Demo\n\nExercise 15: Data Splitting\nExercise 16: Building a workflow\nExercise 17: Reading\nExercise 18: Chose your own adventure!\nExercise 19: Evaluate your model\nExercise 20: Full Process: Air Quality data"
+    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 15 (w10): Data budgeting\n Lecture 16 (w10): Model Workflows\n Lecture 17 (w11): Model Specifications\n Lecture 18 (w11): Live Demo\n Lecture 19 (w12): Evaluating & Tuning a model\n Lecture 20 (w12): Live Demo\n\nExercise 15: Data Splitting\nExercise 16: Building a workflow\nExercise 17: Reading\nExercise 18: Chose your own adventure!\nExercise 19: Evaluate your model\nExercise 20: Full Process: Air Quality data"
   },
   {
     "objectID": "schedule.html#component-4-geospatial",
@@ -8313,7 +8313,7 @@
     "href": "slides/15-ml-intro.html#what-is-machine-learning-2025-edition",
     "title": "Lecture 15",
     "section": "What is machine learning? (2025 edition)",
-    "text": "What is machine learning? (2025 edition)\n\n\n\n\n\n\nNote\n\n\n\nIn the early 2010s, “Artificial intelligence” (AI) was largely synonymous with what we’ll refer to as “machine learning” in this workshop. In the late 2010s and early 2020s, AI usually referred to deep learning methods. Since the release of ChatGPT in late 2022, “AI” has come to also encompass large language models (LLMs) / generative models.\n\n\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+    "text": "What is machine learning? (2025 edition)\n\n\n\n\n\n\nNote\n\n\nIn the early 2010s, “Artificial intelligence” (AI) was largely synonymous with what we’ll refer to as “machine learning” in this workshop. In the late 2010s and early 2020s, AI usually referred to deep learning methods. Since the release of ChatGPT in late 2022, “AI” has come to also encompass large language models (LLMs) / generative models.\n\n\n\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
   },
   {
     "objectID": "slides/15-ml-intro.html#what-is-machine-learning-2",
@@ -8327,7 +8327,7 @@
     "href": "slides/15-ml-intro.html#what-is-tidymodels",
     "title": "Lecture 15",
     "section": "What is tidymodels? ",
-    "text": "What is tidymodels? \n\nlibrary(tidymodels)\n#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n#&gt; ✔ broom        1.0.7     ✔ recipes      1.1.1\n#&gt; ✔ dials        1.4.0     ✔ rsample      1.2.1\n#&gt; ✔ dplyr        1.1.4     ✔ tibble       3.2.1\n#&gt; ✔ ggplot2      3.5.1     ✔ tidyr        1.3.1\n#&gt; ✔ infer        1.0.7     ✔ tune         1.3.0\n#&gt; ✔ modeldata    1.4.0     ✔ workflows    1.2.0\n#&gt; ✔ parsnip      1.3.0     ✔ workflowsets 1.1.0\n#&gt; ✔ purrr        1.0.4     ✔ yardstick    1.3.2\n#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n#&gt; ✖ purrr::discard() masks scales::discard()\n#&gt; ✖ dplyr::filter()  masks stats::filter()\n#&gt; ✖ dplyr::lag()     masks stats::lag()\n#&gt; ✖ recipes::step()  masks stats::step()\n#&gt; • Dig deeper into tidy modeling with R at https://www.tmwr.org"
+    "text": "What is tidymodels? \n\nlibrary(tidymodels)\n#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.2.0 ──\n#&gt; ✔ broom        1.0.7     ✔ recipes      1.1.1\n#&gt; ✔ dials        1.4.0     ✔ rsample      1.2.1\n#&gt; ✔ dplyr        1.1.4     ✔ tibble       3.2.1\n#&gt; ✔ ggplot2      3.5.1     ✔ tidyr        1.3.1\n#&gt; ✔ infer        1.0.7     ✔ tune         1.3.0\n#&gt; ✔ modeldata    1.4.0     ✔ workflows    1.2.0\n#&gt; ✔ parsnip      1.3.0     ✔ workflowsets 1.1.0\n#&gt; ✔ purrr        1.0.4     ✔ yardstick    1.3.2\n#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n#&gt; ✖ purrr::discard() masks scales::discard()\n#&gt; ✖ dplyr::filter()  masks stats::filter()\n#&gt; ✖ dplyr::lag()     masks stats::lag()\n#&gt; ✖ recipes::step()  masks stats::step()\n#&gt; • Search for functions across packages at https://www.tidymodels.org/find/"
   },
   {
     "objectID": "slides/15-ml-intro.html#the-whole-game",
@@ -8467,7 +8467,7 @@
     "href": "slides/15-ml-intro.html#accessing-the-data",
     "title": "Lecture 15",
     "section": "Accessing the data: ",
-    "text": "Accessing the data: \n\nOnce the data is split, we can access the training and testing data using the training() and testing() functions to extract the partitioned data from the full set:\n\n\npenguins_train &lt;- training(resample_split)\nglimpse(penguins_train)\n#&gt; Rows: 275\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Gentoo, Adelie, Gentoo, Chinstrap, Gentoo, Chinstrap…\n#&gt; $ island            &lt;fct&gt; Biscoe, Torgersen, Biscoe, Dream, Biscoe, Dream, Dre…\n#&gt; $ bill_length_mm    &lt;dbl&gt; 46.2, 43.1, 46.2, 45.9, 46.5, 48.1, 45.2, 55.9, 38.1…\n#&gt; $ bill_depth_mm     &lt;dbl&gt; 14.9, 19.2, 14.4, 17.1, 13.5, 16.4, 17.8, 17.0, 17.0…\n#&gt; $ flipper_length_mm &lt;int&gt; 221, 197, 214, 190, 210, 199, 198, 228, 181, 195, 20…\n#&gt; $ body_mass_g       &lt;int&gt; 5300, 3500, 4650, 3575, 4550, 3325, 3950, 5600, 3175…\n#&gt; $ sex               &lt;fct&gt; male, male, NA, female, female, female, female, male…\n\n. . .\n\npenguins_test &lt;- testing(resample_split)\nglimpse(penguins_test)\n#&gt; Rows: 69\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Biscoe, Biscoe, Bis…\n#&gt; $ bill_length_mm    &lt;dbl&gt; NA, 39.3, 36.6, 35.9, 38.8, 37.9, 39.2, 39.6, 36.7, …\n#&gt; $ bill_depth_mm     &lt;dbl&gt; NA, 20.6, 17.8, 19.2, 17.2, 18.6, 21.1, 17.2, 18.8, …\n#&gt; $ flipper_length_mm &lt;int&gt; NA, 190, 185, 189, 180, 172, 196, 196, 187, 205, 187…\n#&gt; $ body_mass_g       &lt;int&gt; NA, 3650, 3700, 3800, 3800, 3150, 4150, 3550, 3800, …\n#&gt; $ sex               &lt;fct&gt; NA, male, female, female, male, female, male, female…"
+    "text": "Accessing the data: \n\nOnce the data is split, we can access the training and testing data using the training() and testing() functions to extract the partitioned data from the full set:\n\n\npenguins_train &lt;- training(resample_split)\nglimpse(penguins_train)\n#&gt; Rows: 275\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Gentoo, Adelie, Gentoo, Chinstrap, Gentoo, Chinstrap…\n#&gt; $ island            &lt;fct&gt; Biscoe, Torgersen, Biscoe, Dream, Biscoe, Dream, Dre…\n#&gt; $ bill_length_mm    &lt;dbl&gt; 46.2, 43.1, 46.2, 45.9, 46.5, 48.1, 45.2, 55.9, 38.1…\n#&gt; $ bill_depth_mm     &lt;dbl&gt; 14.9, 19.2, 14.4, 17.1, 13.5, 16.4, 17.8, 17.0, 17.0…\n#&gt; $ flipper_length_mm &lt;int&gt; 221, 197, 214, 190, 210, 199, 198, 228, 181, 195, 20…\n#&gt; $ body_mass_g       &lt;int&gt; 5300, 3500, 4650, 3575, 4550, 3325, 3950, 5600, 3175…\n#&gt; $ sex               &lt;fct&gt; male, male, NA, female, female, female, female, male…\n\n\n\npenguins_test &lt;- testing(resample_split)\nglimpse(penguins_test)\n#&gt; Rows: 69\n#&gt; Columns: 7\n#&gt; $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n#&gt; $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Biscoe, Biscoe, Bis…\n#&gt; $ bill_length_mm    &lt;dbl&gt; NA, 39.3, 36.6, 35.9, 38.8, 37.9, 39.2, 39.6, 36.7, …\n#&gt; $ bill_depth_mm     &lt;dbl&gt; NA, 20.6, 17.8, 19.2, 17.2, 18.6, 21.1, 17.2, 18.8, …\n#&gt; $ flipper_length_mm &lt;int&gt; NA, 190, 185, 189, 180, 172, 196, 196, 187, 205, 187…\n#&gt; $ body_mass_g       &lt;int&gt; NA, 3650, 3700, 3800, 3800, 3150, 4150, 3550, 3800, …\n#&gt; $ sex               &lt;fct&gt; NA, male, female, female, male, female, male, female…"
   },
   {
     "objectID": "slides/15-ml-intro.html#the-training-set",
@@ -8586,7 +8586,7 @@
     "href": "slides/15-ml-intro.html#key-resampling-methods",
     "title": "Lecture 15",
     "section": "Key Resampling Methods",
-    "text": "Key Resampling Methods\n\n\n\n\n\n\nWarning\n\n\n\nResampling is always used with the training set.\n\n\nResampling is a key step in model validation and assessment. The rsample package provides tools to create resampling strategies such as cross-validation, bootstrapping, and validation splits.\n. . .\n\nK-Fold Cross-Validation: The dataset is split into multiple “folds” (e.g., 5-fold or 10-fold), where each fold is used as a validation set while the remaining data is used for training.\n\n. . .\n\nBootstrap Resampling: Samples are drawn with replacement from the training dataset to generate multiple datasets, which used to train and test the model.\n\n. . .\n\nMonte Carlo Resampling (Repeated Train-Test Splits): Randomly splits data multiple times.\n\n. . .\n\nValidation Split: Creates a single training and testing partition."
+    "text": "Key Resampling Methods\n\n\n\n\n\n\nWarning\n\n\nResampling is always used with the training set.\n\n\n\nResampling is a key step in model validation and assessment. The rsample package provides tools to create resampling strategies such as cross-validation, bootstrapping, and validation splits.\n\n\nK-Fold Cross-Validation: The dataset is split into multiple “folds” (e.g., 5-fold or 10-fold), where each fold is used as a validation set while the remaining data is used for training.\n\n\n\n\nBootstrap Resampling: Samples are drawn with replacement from the training dataset to generate multiple datasets, which used to train and test the model.\n\n\n\n\nMonte Carlo Resampling (Repeated Train-Test Splits): Randomly splits data multiple times.\n\n\n\n\nValidation Split: Creates a single training and testing partition."
   },
   {
     "objectID": "slides/15-ml-intro.html#example-k-fold-cross-validation-in-tidymodels",
@@ -8677,14 +8677,14 @@
     "href": "slides/15-ml-intro.html#unit-3-modeling-machine-learning",
     "title": "Lecture 15",
     "section": "Unit 3: Modeling (Machine Learning)",
-    "text": "Unit 3: Modeling (Machine Learning)\n\n\n\n\n\n\nhttps://xkcd.com/1838/"
+    "text": "Unit 3: Modeling (Machine Learning)\n\n\nhttps://xkcd.com/1838/"
   },
   {
     "objectID": "slides/15-ml-intro.html#classic-conceptual-model",
     "href": "slides/15-ml-intro.html#classic-conceptual-model",
     "title": "Lecture 15",
     "section": "Classic Conceptual Model",
-    "text": "Classic Conceptual Model\n\n\n\n\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
+    "text": "Classic Conceptual Model\n\n\nIllustration credit: https://vas3k.com/blog/machine_learning/"
   },
   {
     "objectID": "slides/15-ml-intro.html#the-big-picture-data",
@@ -8698,7 +8698,7 @@
     "href": "slides/15-ml-intro.html#how-we-split-data",
     "title": "Lecture 15",
     "section": "How we split data",
-    "text": "How we split data\n\n\n\n\n\n\n\n\n\n. . .\n\nSplitting can be handled in many of ways. Typically, we base it off of a “hold out” percentage (e.g. 20%)\nThese hold out cases are extracted randomly from the data set. (remember seeds?)\n\n. . .\n\nThe training set is usually the majority of the data and provides a sandbox for testing different modeling appraoches.\n\n. . .\n\nThe test set is held in reserve until one or two models are chosen.\nThe test set is then used as the final arbiter to determine the efficacy of the model."
+    "text": "How we split data\n\n\n\nSplitting can be handled in many of ways. Typically, we base it off of a “hold out” percentage (e.g. 20%)\nThese hold out cases are extracted randomly from the data set. (remember seeds?)\n\n\n\n\nThe training set is usually the majority of the data and provides a sandbox for testing different modeling appraoches.\n\n\n\n\nThe test set is held in reserve until one or two models are chosen.\nThe test set is then used as the final arbiter to determine the efficacy of the model."
   },
   {
     "objectID": "slides/15-ml-intro.html#model-evaluation-across-samples",
@@ -8747,7 +8747,7 @@
     "href": "slides/15-ml-intro.html#our-typical-process-will-like-this",
     "title": "Lecture 15",
     "section": "Our typical process will like this:",
-    "text": "Our typical process will like this:\n\nRead in raw data (readr, dplyr::*_join) (single or multi table)\n\n. . .\n\nPrepare the data (EDA/mutate/summarize/clean, etc)\n\n\nThis is “Feature Engineering”\n\n. . .\n\nOnce we’ve established our features (rows), we decide how to “spend” them …\n\n. . .\nFor machine learning, we typically split data into training and test sets:\n. . .\n\nThe training set is used to estimate model parameters.\nSpending too much data in training prevents us from computing a good assessment of model performance.\n\n. . .\n\nThe test set is used as an independent assessment of performance.\nSpending too much data in testing prevents us from computing good model parameter estimates."
+    "text": "Our typical process will like this:\n\nRead in raw data (readr, dplyr::*_join) (single or multi table)\n\n\n\nPrepare the data (EDA/mutate/summarize/clean, etc)\n\n\nThis is “Feature Engineering”\n\n\n\n\nOnce we’ve established our features (rows), we decide how to “spend” them …\n\n\n\nFor machine learning, we typically split data into training and test sets:\n\n\n\nThe training set is used to estimate model parameters.\nSpending too much data in training prevents us from computing a good assessment of model performance.\n\n\n\n\nThe test set is used as an independent assessment of performance.\nSpending too much data in testing prevents us from computing good model parameter estimates."
   },
   {
     "objectID": "slides/16-tidymodels.html#how-do-you-fit-a-linear-model-in-r",
@@ -9251,7 +9251,7 @@
     "href": "slides/15-ml-intro.html#cross-validation-3",
     "title": "Lecture 15",
     "section": "Cross-validation ",
-    "text": "Cross-validation \nWhat is in this?\n\npenguins_folds &lt;- vfold_cv(penguins_train)\npenguins_folds$splits[1:3]\n#&gt; [[1]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[2]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[3]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n\n\n\n\n\n\n\nNote\n\n\n\nHere is another example of a list column enabling the storage of non-atomic types in tibble\n\n\n\n\n\n\n\n\nImportant\n\n\n\nSet the seed when creating resamples"
+    "text": "Cross-validation \nWhat is in this?\n\npenguins_folds &lt;- vfold_cv(penguins_train)\npenguins_folds$splits[1:3]\n#&gt; [[1]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[2]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n#&gt; \n#&gt; [[3]]\n#&gt; &lt;Analysis/Assess/Total&gt;\n#&gt; &lt;247/28/275&gt;\n\n\n\n\n\n\n\nNote\n\n\nHere is another example of a list column enabling the storage of non-atomic types in tibble\n\n\n\n\n\n\n\n\n\nImportant\n\n\nSet the seed when creating resamples"
   },
   {
     "objectID": "slides/15-ml-intro.html#cross-validation-4",
@@ -9286,14 +9286,14 @@
     "href": "slides/15-ml-intro.html#validation-set",
     "title": "Lecture 15",
     "section": "Validation set ",
-    "text": "Validation set \n\nset.seed(853)\npenguins_val_split &lt;- initial_validation_split(penguins)\npenguins_val_split\n#&gt; &lt;Training/Validation/Testing/Total&gt;\n#&gt; &lt;199/67/67/333&gt;\nvalidation_set(penguins_val_split)\n#&gt; # A tibble: 1 × 2\n#&gt;   splits           id        \n#&gt;   &lt;list&gt;           &lt;chr&gt;     \n#&gt; 1 &lt;split [199/67]&gt; validation\n\n. . .\nA validation set is just another type of resample"
+    "text": "Validation set \n\nset.seed(853)\npenguins_val_split &lt;- initial_validation_split(penguins)\npenguins_val_split\n#&gt; &lt;Training/Validation/Testing/Total&gt;\n#&gt; &lt;199/67/67/333&gt;\nvalidation_set(penguins_val_split)\n#&gt; # A tibble: 1 × 2\n#&gt;   splits           id        \n#&gt;   &lt;list&gt;           &lt;chr&gt;     \n#&gt; 1 &lt;split [199/67]&gt; validation\n\n\nA validation set is just another type of resample"
   },
   {
     "objectID": "slides/15-ml-intro.html#modeling-options-1",
     "href": "slides/15-ml-intro.html#modeling-options-1",
     "title": "Lecture 15",
     "section": "Modeling Options",
-    "text": "Modeling Options\nWhat if we want to compare more models?\n. . .\nAnd/or more model configurations?\n. . .\nAnd we want to understand if these are important differences?\n. . .\nHow can we use the training data to compare and evaluate different models? 🤔\n. . ."
+    "text": "Modeling Options\nWhat if we want to compare more models?\n\nAnd/or more model configurations?\n\n\nAnd we want to understand if these are important differences?\n\n\nHow can we use the training data to compare and evaluate different models? 🤔"
   },
   {
     "objectID": "slides/15-ml-intro.html#k-fold-cross-validation",
@@ -9446,8 +9446,8 @@
     "objectID": "slides/15-ml-intro.html#key-take-aways",
     "href": "slides/15-ml-intro.html#key-take-aways",
     "title": "Lecture 15",
-    "section": "",
-    "text": "As of 11PM last night 36/86 students have completed the feedback survey.\n\nMost peole are feeling very confident with Unit 1, but not with Unit 2…\n\n(Please remeber the general feelings after unit 1)\n\n\n\n\n\n\n\n\n\n\n\nThere is a general feeling of wanting to memorize the functions, and it being limited by the speed of the course.\n\n\nTo be a great scientist, coding isn’t about memorizing functions — it’s about understanding concepts, problem-solving, and knowing how to find and apply the right tools. Developers frequently reference documentation, libraries, and online resources to write efficient code. The key skills are logical thinking, debugging, and structuring solutions. From the feedback, this is something that students are proud of improving.\n\n\nThere is a beleif that this is an intro class, however it is a 300 level course. While we are introducing R as a tool, our goal is to help you think about data in a simular way as your computer, and plan for ways to answers questions whether with a model, statistical test, visualization, or report.\n\n\nOur goal as the teaching team to is expose you to the foundational concepts so that you are more ready to think in this way (quantitiative reasoning aspect of the course). The generous grading policy is to help you learn and grow in this way.\n\n\n\nThere is a general feeling of not making as fast of progress as hoped, but feeling really proad of the progress made.\n\n\nI am not kidding when I say it took me 5+ years to get comfortable with R and to feel I could write a significant amount of code without the help docs, or stackoverflow (pre-chatGPT days). That said I still spend a significant amount of time on them. That part will never go away.\n\n\n\nThere is a hope for different office hours…\n\n\nHow would 230-330pm on Mondays/Wednesdays work for everyone?\n\n\nAlmost everyone mentioned feeling proud of the progress they have made.\n\n\nThat makes us so happy and we hope to be able supporting that. I can promise you, that already you are more equipt then most undergrads I interview coming out of environmental science programs.\n\nI will report back with more if more submit."
+    "section": "Key Take Aways:",
+    "text": "Key Take Aways:\nAs of 11PM last night 36/86 students have completed the feedback survey.\n\nMost peole are feeling very confident with Unit 1, but not with Unit 2…\n\n(Please remeber the general feelings after unit 1)"
   },
   {
     "objectID": "slides/15-ml-intro.html#grades-pre-regrades",
@@ -9475,7 +9475,7 @@
     "href": "slides/15-ml-intro.html#one-last-chance",
     "title": "Lecture 15",
     "section": "One last chance …",
-    "text": "One last chance …\n\nWe will allow regrade sumbissions until midnight tonight. There will be no other regrades after this point.\nOn lab 3, and lab 4: If you had a 0 due to the wrong type of submission, you can resubmit for full credit.\nYour TA has commented if this is the case.\n\n\n\n\nIf you see this…\n\n\n\n\n\n\n\n\n\n\n\n\n… be sure to set this!"
+    "text": "One last chance …\n\nWe will allow regrade sumbissions until midnight tonight. There will be no other regrades after this point.\nOn lab 3, and lab 4: If you had a 0 due to the wrong type of submission, you can resubmit for full credit.\nYour TA has commented if this is the case.\n\n\n\nIf you see this…\n\n\n\n\n\n\n\n\n\n\n… be sure to set this!"
   },
   {
     "objectID": "labs/lab6.html#recipe",
@@ -10029,5 +10029,635 @@
     "title": "Lecture 16",
     "section": "Model mappings: ",
     "text": "Model mappings: \n\nworkflowsets is a package that builds off of purrr and allows you to iterate over multiple models and/or multiple resamples\nRemember how map, map_*, map2, and walk2 functions allow lists to map to lists or vectors? workflow_set maps a preprocessor (formula or recipe) to a set of models - each provided as a list object.\nTo start, we will create a workflow_set object (instead of a workflow). The first argument is a list of preprocessor objects (formulas or recipes) and the second argument is a list of model objects.\nBoth must be lists, by nature of the underlying purrr code.\n\n\n(wf_obj &lt;- workflow_set(list(forested ~.), list(log_mod, dt_model)))\n#&gt; # A workflow set/tibble: 2 × 4\n#&gt;   wflow_id              info             option    result    \n#&gt;   &lt;chr&gt;                 &lt;list&gt;           &lt;list&gt;    &lt;list&gt;    \n#&gt; 1 formula_logistic_reg  &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;\n#&gt; 2 formula_decision_tree &lt;tibble [1 × 4]&gt; &lt;opts[0]&gt; &lt;list [0]&gt;"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#introduction",
+    "href": "slides/17-ml_ex.html#introduction",
+    "title": "Machine Learning Specifications in R",
+    "section": "Introduction ",
+    "text": "Introduction \nMachine learning (ML) is widely used in environmental science for tasks such as land cover classification, climate modeling, and forested distribution prediction. This lecture explores five common ML model specifications the tidymodels framework in R, applied to the forested dataset.\n\nLinear Regression\n\nLogistic Regression\n\nTrees\n\n\nDecision Tree\n\nRandom Forest\n\nBoost\n\n\nSupport Vector Machines\n\nNeural Nets"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#classification-vs.-prediction-in-environmental-data-science",
+    "href": "slides/17-ml_ex.html#classification-vs.-prediction-in-environmental-data-science",
+    "title": "17 - Machine Learning Models",
+    "section": "Classification vs. Prediction in Environmental Data Science",
+    "text": "Classification vs. Prediction in Environmental Data Science\nMost machine learning applications in environmental science serve different purposes (modes):\nClassification Models → Categorize features into predefined classes. Prediction Models → Forecast numerical environmental variables based on past trends."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#classification-models-in-environmental-science",
+    "href": "slides/17-ml_ex.html#classification-models-in-environmental-science",
+    "title": "Machine Learning Specifications in R",
+    "section": "Classification Models in Environmental Science",
+    "text": "Classification Models in Environmental Science\n\n\n\n\n\n\nGoal: Categorize phenomena into discrete classes.\n\n\n\nExamples:\n✅ Land Cover Classification (Forest, Urban, Water, Agriculture)\n✅ Flood Risk Assessment (High, Medium, Low)\n✅ Drought Severity Levels (No Drought, Moderate, Severe)\n✅ Wildfire Prediction (Fire vs. No Fire)\n✅ forested Identification (Bird forested, Plant Types)\nCommon Algorithms:\n\nDecision Trees\n\nRandom Forest\n\nSupport Vector Machines (SVM) \nNeural Networks (for remote sensing & image analysis)\n\nK-Nearest Neighbors (KNN)"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#prediction-models-in-environmental-science",
+    "href": "slides/17-ml_ex.html#prediction-models-in-environmental-science",
+    "title": "Machine Learning Specifications in R",
+    "section": "Prediction Models in Environmental Science",
+    "text": "Prediction Models in Environmental Science\n\n\n\n\n\n\nGoal: Estimate continuous environmental variables.\n\n\n\nExamples:\n📈 Streamflow Forecasting (Predict river discharge over time)\n🌡️ Temperature Projections (Future temperature changes under climate scenarios)\n☔ Precipitation Forecasting (Rainfall estimates for flood preparedness)\n📊 Air Quality Index Prediction (Forecast pollution levels)\n\nCommon Algorithms:\n\nLinear & Multiple Regression\n\nRandom Forest Regression\n\nLong Short-Term Memory (LSTM) Neural Networks (for time series forecasting)"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#choosing-the-right-model",
+    "href": "slides/17-ml_ex.html#choosing-the-right-model",
+    "title": "Machine Learning Specifications in R",
+    "section": "Choosing the Right Model",
+    "text": "Choosing the Right Model\n\nUse classification if: You need to categorize environmental states (e.g., classifying land use changes).\nUse prediction if: You need to forecast environmental conditions (e.g., predicting flood levels)\nUse hybrid approaches if: You need to classify and predict (e.g., classifying drought severity and then predicting future water availability)."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#model-selection-considerations",
+    "href": "slides/17-ml_ex.html#model-selection-considerations",
+    "title": "Machine Learning Specifications in R",
+    "section": "Model Selection Considerations",
+    "text": "Model Selection Considerations\nChoosing an ML algorithm (model) depends on:\n\nDataset Size: e.g. Large datasets benefit from ensemble methods like Random Forest and XGBoost.\nFeature Complexity: e.g. SVM works well for high-dimensional data.\nInterpretability Needs: e.g. Decision trees and LASSO regression provide intuitive insights.\nComputation Constraints: e.g. GLM and Decision Trees are efficient compared to XGBoost.\nData: Variance, linearity, diminsionality"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#load-required-libraries",
+    "href": "slides/17-ml_ex.html#load-required-libraries",
+    "title": "Machine Learning Specifications in R",
+    "section": "Load Required Libraries   ",
+    "text": "Load Required Libraries   \n\nlibrary(tidyverse)\nlibrary(tidymodels)\nlibrary(forested)\nlibrary(flextable)"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#data-preparation",
+    "href": "slides/17-ml_ex.html#data-preparation",
+    "title": "Machine Learning Specifications in R",
+    "section": "Data Preparation  ",
+    "text": "Data Preparation  \nWe will use the forested dataset for classification tasks. The dataset contains information about penguin forested, body measurements, and other environmental factors.\n\nset.seed(123)\nforested_split &lt;- initial_split(forested, strata = tree_no_tree)\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\nforested_folds &lt;- vfold_cv(forested_train, v = 10)\n\n# Feature Engineering: Classification\nforested_recipe &lt;- recipe(forested ~ ., data = forested_train)  |&gt; \n  step_dummy(all_nominal_predictors())  |&gt; \n  step_normalize(all_numeric_predictors()) |&gt; \n  step_impute_mean(all_numeric_predictors())"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#parsnip-a-unified-interface-for-ml-models",
+    "href": "slides/17-ml_ex.html#parsnip-a-unified-interface-for-ml-models",
+    "title": "Machine Learning Specifications in R",
+    "section": "parsnip: A Unified Interface for ML Models ",
+    "text": "parsnip: A Unified Interface for ML Models \n\nThe parsnip package is a part of the tidymodels framework\nIt provides a consistent interface for specifying models through specifications\nThe combination of a specification, mode, and engine is called a model\nLets look at the parsnip documentation!"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#example-in-base-r",
+    "href": "slides/17-ml_ex.html#example-in-base-r",
+    "title": "17 - Machine Learning Models",
+    "section": "Example in base R",
+    "text": "Example in base R\n\n# Fit linear model\nmodel &lt;- lm(formula, data = penguins)\nbroom::tidy(model)\n#&gt; # A tibble: 9 × 5\n#&gt;   term                estimate std.error statistic p.value\n#&gt;   &lt;chr&gt;                  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;\n#&gt; 1 (Intercept)       163.              NA        NA      NA\n#&gt; 2 islandDream        -0.0238          NA        NA      NA\n#&gt; 3 islandTorgersen    -0.185           NA        NA      NA\n#&gt; 4 bill_length_mm      0.0659          NA        NA      NA\n#&gt; 5 bill_depth_mm      -0.161           NA        NA      NA\n#&gt; 6 flipper_length_mm   0.0194          NA        NA      NA\n#&gt; 7 body_mass_g         0.000117        NA        NA      NA\n#&gt; 8 sexmale            -0.213           NA        NA      NA\n#&gt; 9 year               -0.0825          NA        NA      NA"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#parsnip-implementation",
+    "href": "slides/17-ml_ex.html#parsnip-implementation",
+    "title": "17 - Machine Learning Models",
+    "section": "Parsnip Implementation",
+    "text": "Parsnip Implementation\nSpecification\n\nlinear_reg()\n#&gt; Linear Regression Model Specification (regression)\n#&gt; \n#&gt; Computational engine: lm\n\nEngines\n\nparsnip::show_engines(\"linear_reg\")\n#&gt; # A tibble: 8 × 2\n#&gt;   engine   mode               \n#&gt;   &lt;chr&gt;    &lt;chr&gt;              \n#&gt; 1 lm       regression         \n#&gt; 2 glm      regression         \n#&gt; 3 glmnet   regression         \n#&gt; 4 stan     regression         \n#&gt; 5 spark    regression         \n#&gt; 6 keras    regression         \n#&gt; 7 brulee   regression         \n#&gt; 8 quantreg quantile regression\n\nApplication\n\nlm_data &lt;- workflow() |&gt; \n  add_formula(body_mass_g ~ .) |&gt; \n  add_model(linear_reg(mode = \"regression\", engine = \"lm\")) |&gt; \n  fit(data = penguins_train) |&gt; \n  augment(new_data = penguins_test)\n\nggplot(lm_data, aes(x = body_mass_g, y = .pred)) +\n  geom_point() +\n  geom_abline(color = \"red\") +\n  theme_linedraw() +\n  labs(title = \"Linear Regression Model\", x = \"Actual Body Mass (g)\", y = \"Predicted Body Mass (g)\")"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#what-is-logistic-regression",
+    "href": "slides/17-ml_ex.html#what-is-logistic-regression",
+    "title": "17 - Machine Learning Models",
+    "section": "What is Logistic Regression?",
+    "text": "What is Logistic Regression?\nLogistic Regression is a statistical method used for binary classification tasks. It models the probability that an instance belongs to a particular category using the logistic (sigmoid) function. Unlike linear regression, which predicts continuous values, logistic regression predicts probabilities and applies a decision threshold to classify outcomes."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#why-use-logistic-regression",
+    "href": "slides/17-ml_ex.html#why-use-logistic-regression",
+    "title": "Machine Learning Specifications in R",
+    "section": "Why Use Logistic Regression?",
+    "text": "Why Use Logistic Regression?\nLogistic Regression is widely used in machine learning due to its:\n\nSimplicity: Easy to implement and interpret.\nEfficiency: Computationally inexpensive, even on large datasets.\nProbabilistic Predictions: Outputs probabilities instead of hard classifications.\nRegularization Support: Extensions like L1 (Lasso) and L2 (Ridge) help prevent overfitting."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#components-of-logistic-regression",
+    "href": "slides/17-ml_ex.html#components-of-logistic-regression",
+    "title": "Machine Learning Specifications in R",
+    "section": "Components of Logistic Regression",
+    "text": "Components of Logistic Regression\n\n\n\nSigmoid Function: Converts linear outputs into probabilities between 0 and 1.\nDecision Boundary: A threshold (often 0.5) determines classification.\nLog-Loss (Binary Cross-Entropy): Measures the error between predicted probabilities and actual labels.\nRegularization (L1 and L2): Helps in feature selection and prevents overfitting."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#building-a-logistic-regression-model",
+    "href": "slides/17-ml_ex.html#building-a-logistic-regression-model",
+    "title": "Machine Learning Specifications in R",
+    "section": "Building a Logistic Regression Model",
+    "text": "Building a Logistic Regression Model\nConstructing a Logistic Regression Model involves:\n\nDefining feature (X) and target variable (y).\nApplying the sigmoid function to map predictions to probabilities.\nUsing a loss function (log-loss) to optimize model weights.\nUpdating weights iteratively via gradient descent.\n\nHyperparameters in Logistic Regression\n\npenalty: Type of regularization (L1, L2, or none).\nmixture: A number between zero and one giving the proportion of L1 regularization (i.e. lasso) in the model"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#logistic-regression-in-tidymodels",
+    "href": "slides/17-ml_ex.html#logistic-regression-in-tidymodels",
+    "title": "Machine Learning Specifications in R",
+    "section": "Logistic Regression in tidymodels",
+    "text": "Logistic Regression in tidymodels\nSpecification\n\nlogistic_reg()\n#&gt; Logistic Regression Model Specification (classification)\n#&gt; \n#&gt; Computational engine: glm\n\nengines & modes \n\nshow_engines('logistic_reg') |&gt; \n  mutate(specification = \"logistic_reg\") |&gt; \n  flextable()\n\nenginemodespecificationglmclassificationlogistic_regglmnetclassificationlogistic_regLiblineaRclassificationlogistic_regsparkclassificationlogistic_regkerasclassificationlogistic_regstanclassificationlogistic_regbruleeclassificationlogistic_reg"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#example",
+    "href": "slides/17-ml_ex.html#example",
+    "title": "Machine Learning Specifications in R",
+    "section": "Example   ",
+    "text": "Example   \n\nlm_mod &lt;- linear_reg(mode = \"regression\", engine = \"lm\")\n  \nworkflow() |&gt; \n  add_formula(elevation ~ .) |&gt; \n  add_model(lm_mod) |&gt; \n  fit_resamples(resample = forested_folds) |&gt; \n  collect_metrics()\n#&gt; # A tibble: 2 × 6\n#&gt;   .metric .estimator   mean     n  std_err .config             \n#&gt;   &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 rmse    standard   82.6      10 1.23     Preprocessor1_Model1\n#&gt; 2 rsq     standard    0.971    10 0.000733 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#conclusion",
+    "href": "slides/17-ml_ex.html#conclusion",
+    "title": "Machine Learning Specifications in R",
+    "section": "Conclusion",
+    "text": "Conclusion\nLogistic Regression is a fundamental classification algorithm known for its simplicity and efficiency. It serves as a strong baseline model and is widely applied in domains like medical diagnosis, credit scoring, and fraud detection. With proper tuning and regularization, it remains a powerful tool in predictive modeling."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#why-use-decision-trees",
+    "href": "slides/17-ml_ex.html#why-use-decision-trees",
+    "title": "Machine Learning Specifications in R",
+    "section": "Why Use Decision Trees?",
+    "text": "Why Use Decision Trees?\nDecision Trees are popular due to their: - Simplicity and Interpretability: Easy to understand and visualize. - Non-Linearity Handling: Can capture complex relationships in data. - Feature Importance: Helps in identifying the most influential features. - Minimal Data Preprocessing: Requires little to no feature scaling."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#components-of-a-decision-tree",
+    "href": "slides/17-ml_ex.html#components-of-a-decision-tree",
+    "title": "Machine Learning Specifications in R",
+    "section": "Components of a Decision Tree",
+    "text": "Components of a Decision Tree\n\n\n\nRoot Node: The starting point representing the entire dataset.\nDecision Nodes: Intermediate nodes where a dataset is split based on a feature.\nSplitting: The process of dividing a node into sub-nodes based on a feature value.\nPruning: The process of removing unnecessary branches to avoid overfitting.\nLeaf Nodes: The terminal nodes that provide the final output (class label or numerical prediction)."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#building-a-decision-tree",
+    "href": "slides/17-ml_ex.html#building-a-decision-tree",
+    "title": "Machine Learning Specifications in R",
+    "section": "Building a Decision Tree",
+    "text": "Building a Decision Tree\nConstructing a Decision Tree involves:\n\nSelecting the best feature(s) to split the data.\nSplitting the data into subsets.\nRepeating this process recursively until stopping criteria (e.g., depth, minimum samples per leaf) are met.\nPruning the tree if necessary to reduce overfitting.\n\nSplitting Criteria\nSeveral criteria can be used to determine the best split:\n- Gini Impurity: Measures the impurity of a node, used in Classification and Regression Trees (CART).\n- Entropy (Information Gain): Measures the randomness in a dataset.\n- Mean Squared Error (MSE): Used for regression trees to minimize variance within nodes.\n\nHyperparameters in Decision Trees\nKey hyperparameters include:\n- cost_complexity: complexity parameter for pruning\n- tree_depth: maximum depth of the tree\n- min_n: minimum number of observations in a node"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#advantages-and-disadvantages-1",
+    "href": "slides/17-ml_ex.html#advantages-and-disadvantages-1",
+    "title": "Machine Learning Specifications in R",
+    "section": "Advantages and Disadvantages",
+    "text": "Advantages and Disadvantages\nAdvantages:\n\nEasy to interpret and explain.\nCan handle both numerical and categorical data.\nRequires minimal data preparation.\nWorks well with missing values.\n\nDisadvantages:\n\nProne to overfitting, especially on small datasets.\nCan be unstable; small changes in data can lead to drastically different splits.\nBiased towards features with more levels."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#decision-tree-implementation-using-tidymodels",
+    "href": "slides/17-ml_ex.html#decision-tree-implementation-using-tidymodels",
+    "title": "17 - Machine Learning Models",
+    "section": "Decision Tree Implementation using tidymodels",
+    "text": "Decision Tree Implementation using tidymodels\nSpecification\n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\nEngines & Modes\n\nshow_engines('decision_tree') |&gt; \n  mutate(specification = \"decision_tree\") |&gt; \n  flextable::flextable()\n\nenginemodespecificationrpartclassificationdecision_treerpartregressiondecision_treeC5.0classificationdecision_treesparkclassificationdecision_treesparkregressiondecision_tree"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#example-1",
+    "href": "slides/17-ml_ex.html#example-1",
+    "title": "Machine Learning Specifications in R",
+    "section": "Example   ",
+    "text": "Example   \n\nlog_model &lt;- logistic_reg(penalty = .01) |&gt; \n  set_engine(\"glmnet\") |&gt; \n  set_mode('classification')\n\nworkflow() |&gt;\n  add_recipe(forested_recipe) |&gt;\n  add_model(log_model) |&gt; \n  fit_resamples(resample = forested_folds) |&gt; \n  collect_metrics()\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.893     10 0.00429 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0786    10 0.00330 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.958     10 0.00304 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#conclusion-1",
+    "href": "slides/17-ml_ex.html#conclusion-1",
+    "title": "Machine Learning Specifications in R",
+    "section": "Conclusion",
+    "text": "Conclusion\nDecision Trees are a powerful and interpretable tool for both classification and regression problems. While they have limitations, techniques like pruning and ensemble methods (e.g., Random Forests) can help mitigate their weaknesses. Understanding Decision Trees within the tidymodels framework makes them accessible for practical applications in environmental science."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#what-is-a-random-forest",
+    "href": "slides/17-ml_ex.html#what-is-a-random-forest",
+    "title": "17 - Machine Learning Models",
+    "section": "What is a Random Forest?",
+    "text": "What is a Random Forest?\nRandom Forests provide an ensemble learning method that constructs multiple decision trees and aggregates their predictions to improve accuracy and reduce overfitting. It is used for both classification and regression tasks."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#why-use-random-forest",
+    "href": "slides/17-ml_ex.html#why-use-random-forest",
+    "title": "Machine Learning Specifications in R",
+    "section": "Why Use Random Forest?",
+    "text": "Why Use Random Forest?\nRandom Forest offers several advantages: - Higher Accuracy: By combining multiple decision trees, it reduces variance and improves predictive performance. - Robustness to Overfitting: By averaging multiple trees, it mitigates the risk of overfitting. - Feature Importance Analysis: Helps identify the most influential features. - Handles Missing Data: Can work well with incomplete datasets."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#components-of-a-random-forest",
+    "href": "slides/17-ml_ex.html#components-of-a-random-forest",
+    "title": "Machine Learning Specifications in R",
+    "section": "Components of a Random Forest",
+    "text": "Components of a Random Forest\n\nMultiple Decision Trees: The fundamental building blocks.\nBootstrap Sampling: Randomly selects subsets of data to train each tree.\nFeature Subsetting: Uses a random subset of features at each split to improve diversity among trees.\nAggregation (Bagging): Combines the outputs of individual trees through voting (classification) or averaging (regression)."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#building-a-random-forest",
+    "href": "slides/17-ml_ex.html#building-a-random-forest",
+    "title": "Machine Learning Specifications in R",
+    "section": "Building a Random Forest",
+    "text": "Building a Random Forest\nConstructing a Random Forest involves:\n\nCreating multiple bootstrap samples from the dataset.\nTraining a decision tree on each bootstrap sample using a random subset of features.\nAggregating predictions from all trees to produce the final output.\n\nHyperparameters in Random Forest\n\nNumber of Trees (ntree): Determines how many trees are included in the forest.\nMaximum Depth (max_depth): Limits the depth of individual trees to prevent overfitting.\nMinimum Samples per Leaf (min_n): Specifies the minimum number of observations required in a leaf node.\nNumber of Features (mtry): Controls how many features are randomly selected at each split."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#advantages-and-disadvantages-2",
+    "href": "slides/17-ml_ex.html#advantages-and-disadvantages-2",
+    "title": "Machine Learning Specifications in R",
+    "section": "Advantages and Disadvantages",
+    "text": "Advantages and Disadvantages\nAdvantages:\n\nHandles large datasets with high-dimensional feature spaces.\nReduces overfitting by averaging multiple decision trees.\nWorks well with both categorical and numerical data.\nProvides built-in feature selection.\n\nDisadvantages:\n\nRequires more computational resources than a single decision tree.\nLess interpretable than a single decision tree.\nCan be slower to make predictions due to ensemble averaging."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#random-forest-implementation-using-tidymodels",
+    "href": "slides/17-ml_ex.html#random-forest-implementation-using-tidymodels",
+    "title": "Machine Learning Specifications in R",
+    "section": "Random Forest Implementation using Tidymodels",
+    "text": "Random Forest Implementation using Tidymodels\nSpecification\n\nrand_forest()\n#&gt; Random Forest Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: ranger\n\nengines & modes \n\nshow_engines('rand_forest') |&gt; \n  mutate(specification = \"rand_forest\") |&gt; \n  flextable()\n\nenginemodespecificationrangerclassificationrand_forestrangerregressionrand_forestrandomForestclassificationrand_forestrandomForestregressionrand_forestsparkclassificationrand_forestsparkregressionrand_forest"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#example-2",
+    "href": "slides/17-ml_ex.html#example-2",
+    "title": "Machine Learning Specifications in R",
+    "section": "Example   ",
+    "text": "Example   \n\ndt_model &lt;- decision_tree(tree_depth = 10, min_n = 3) |&gt; \n  set_engine(\"rpart\") |&gt; \n  set_mode('classification')\n\nworkflow() |&gt;\n  add_recipe(forested_recipe) |&gt;\n  add_model(dt_model) |&gt; \n  fit_resamples(resample = forested_folds) |&gt; \n  collect_metrics()\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.891     10 0.00361 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0911    10 0.00329 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.911     10 0.00526 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#conclusion-2",
+    "href": "slides/17-ml_ex.html#conclusion-2",
+    "title": "Machine Learning Specifications in R",
+    "section": "Conclusion",
+    "text": "Conclusion\nRandom Forest is a powerful ensemble learning method that improves upon decision trees by reducing overfitting and increasing accuracy. By leveraging the tidymodels framework in R, it can be effectively applied to various environmental science problems."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#what-is-boosting",
+    "href": "slides/17-ml_ex.html#what-is-boosting",
+    "title": "17 - Machine Learning Models",
+    "section": "What is Boosting?",
+    "text": "What is Boosting?\nBoosting is an ensemble learning technique that builds multiple weak models (usually decision trees) sequentially, with each model correcting the errors of its predecessor. This iterative process improves predictive accuracy and reduces bias, making boosting one of the most powerful machine learning methods. Popular implementations include Gradient Boosting Machines (GBM), XGBoost (Extreme Gradient Boosting), LightGBM, and CatBoost."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#why-use-boosting-machines",
+    "href": "slides/17-ml_ex.html#why-use-boosting-machines",
+    "title": "Machine Learning Specifications in R",
+    "section": "Why Use Boosting Machines?",
+    "text": "Why Use Boosting Machines?\nXGBoost is widely used in machine learning due to its: - High Accuracy: Often outperforms other algorithms in predictive tasks. - Efficiency: Optimized for speed and parallel processing. - Feature Importance: Provides insights into which features influence predictions. - Robustness to Overfitting: Uses regularization techniques to enhance generalization."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#components-of-gradient-boosting",
+    "href": "slides/17-ml_ex.html#components-of-gradient-boosting",
+    "title": "Machine Learning Specifications in R",
+    "section": "Components of Gradient Boosting",
+    "text": "Components of Gradient Boosting\n\nWeak Learners: Typically small decision trees (stumps).\nGradient Descent Optimization: Each tree corrects the residual errors of the previous trees.\nLearning Rate (eta): Controls the contribution of each tree to the final prediction.\nRegularization (lambda and alpha): Penalizes complex trees to prevent overfitting."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#popular-boosting-algorithms",
+    "href": "slides/17-ml_ex.html#popular-boosting-algorithms",
+    "title": "Machine Learning Specifications in R",
+    "section": "Popular Boosting Algorithms",
+    "text": "Popular Boosting Algorithms\n\nGradient Boosting Machines (GBM): A general boosting method that minimizes loss using gradient descent.\nXGBoost (Extreme Gradient Boosting): An optimized version of GBM that is computationally efficient and includes regularization.\nLightGBM: Designed for efficiency on large datasets by using histogram-based learning and reducing memory usage.\nCatBoost: Specialized for categorical data, using ordered boosting and permutation techniques to reduce bias."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#building-an-xgboost-model",
+    "href": "slides/17-ml_ex.html#building-an-xgboost-model",
+    "title": "Machine Learning Specifications in R",
+    "section": "Building an XGBoost Model",
+    "text": "Building an XGBoost Model\nThe process involves:\n\nInitializing predictions with a simple model (e.g., the mean for regression).\nComputing the residual errors.\nTraining a new tree to predict these residuals.\nUpdating the predictions by adding a fraction of the new tree’s output.\nRepeating until a stopping criterion is met (e.g., a maximum number of trees or performance threshold).\n\nHyperparameters in XGBoost\n\nnrounds (Number of Trees): The number of boosting iterations.\nmax_depth: The maximum depth of trees.\neta (Learning Rate): Controls how much each tree contributes to the model.\ngamma: Minimum loss reduction required to split a node.\ncolsample_bytree: Fraction of features to consider for each tree."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#hyperparameters-in-xgboost",
+    "href": "slides/17-ml_ex.html#hyperparameters-in-xgboost",
+    "title": "17 - Machine Learning Models",
+    "section": "5. Hyperparameters in XGBoost",
+    "text": "5. Hyperparameters in XGBoost\nKey hyperparameters include: - nrounds (Number of Trees): The number of boosting iterations. - max_depth: The maximum depth of trees. - eta (Learning Rate): Controls how much each tree contributes to the model. - gamma: Minimum loss reduction required to split a node. - colsample_bytree: Fraction of features to consider for each tree."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#advantages-and-disadvantages-3",
+    "href": "slides/17-ml_ex.html#advantages-and-disadvantages-3",
+    "title": "Machine Learning Specifications in R",
+    "section": "Advantages and Disadvantages",
+    "text": "Advantages and Disadvantages\nAdvantages:\n\nHandles large datasets efficiently.\nReduces bias and variance compared to single decision trees.\nProvides feature importance analysis.\nCan be used for both classification and regression.\n\nDisadvantages:\n\nMore complex and harder to interpret than a single decision tree.\nRequires tuning of hyperparameters for optimal performance.\nCan overfit if not properly regularized."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#xgboost-implementation-using-tidymodels",
+    "href": "slides/17-ml_ex.html#xgboost-implementation-using-tidymodels",
+    "title": "17 - Machine Learning Models",
+    "section": "7. XGBoost Implementation using Tidymodels",
+    "text": "7. XGBoost Implementation using Tidymodels\n\n# Define an XGBoost model\nxgb_model &lt;- boost_tree() %&gt;%\n  set_engine(\"xgboost\") %&gt;%\n  set_mode(\"classification\")\n\nxgb_workflow &lt;- workflow() %&gt;%\n  add_recipe(penguins_recipe) %&gt;%\n  add_model(xgb_model)\n\nxgb_fit &lt;- fit(xgb_workflow, data = penguins_train)\n\ny_pred &lt;- predict(xgb_fit, new_data = penguins_test)\n\n# Evaluate performance\npenguins_test %&gt;%\n  bind_cols(y_pred) %&gt;%\n  metrics(truth = species, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy multiclass         1\n#&gt; 2 kap      multiclass         1"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#tuning-and-optimization",
+    "href": "slides/17-ml_ex.html#tuning-and-optimization",
+    "title": "17 - Machine Learning Models",
+    "section": "8. Tuning and Optimization",
+    "text": "8. Tuning and Optimization\nTo improve model performance: - Cross-validation: Evaluates performance across multiple training/testing splits. - Grid Search and Bayesian Optimization: Helps in selecting optimal hyperparameters. - Feature Engineering: Identifying and creating new informative features."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#conclusion-3",
+    "href": "slides/17-ml_ex.html#conclusion-3",
+    "title": "Machine Learning Specifications in R",
+    "section": "Conclusion",
+    "text": "Conclusion\nXGBoost is a powerful ensemble learning method that significantly improves predictive accuracy while mitigating overfitting. By leveraging tidymodels in R, environmental scientists can apply XGBoost to various challenges such as climate modeling, pollution forecasting, and disaster risk assessment."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#what-is-support-vector-machines",
+    "href": "slides/17-ml_ex.html#what-is-support-vector-machines",
+    "title": "17 - Machine Learning Models",
+    "section": "1. What is Support Vector Machines?",
+    "text": "1. What is Support Vector Machines?\nSupport Vector Machines (SVM) is a supervised learning algorithm used for classification and regression tasks. It works by finding the optimal hyperplane that best separates data points into different classes."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#why-use-svm",
+    "href": "slides/17-ml_ex.html#why-use-svm",
+    "title": "Machine Learning Specifications in R",
+    "section": "2. Why Use SVM?",
+    "text": "2. Why Use SVM?\nSVM is widely used in machine learning due to its: - Effective for High-Dimensional Data: Works well with datasets with many features. - Robustness to Overfitting: Uses regularization techniques to prevent overfitting. - Versatility: Can be applied to linear and non-linear classification tasks using different kernel functions. - Support for Small Datasets: Works well when the number of samples is limited."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#components-of-svm",
+    "href": "slides/17-ml_ex.html#components-of-svm",
+    "title": "Machine Learning Specifications in R",
+    "section": "3. Components of SVM",
+    "text": "3. Components of SVM\n\nSupport Vectors: Data points that define the hyperplane.\nMargin: The distance between the hyperplane and the nearest support vectors.\nKernel Functions: Transform data to a higher dimension to make it separable."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#building-an-svm-model",
+    "href": "slides/17-ml_ex.html#building-an-svm-model",
+    "title": "Machine Learning Specifications in R",
+    "section": "Building an SVM Model",
+    "text": "Building an SVM Model\nThe process involves:\n\nSelecting an appropriate kernel function (linear, polynomial, radial basis function, etc.).\nFinding the hyperplane that best separates the data.\nMaximizing the margin between the hyperplane and the closest points.\nUsing a regularization parameter (C) to control trade-offs between a wider margin and misclassifications.\n\nHyperparameters in SVM\nKey hyperparameters include: - C (Regularization Parameter): Controls the trade-off between maximizing margin and minimizing classification error. - kernel: Determines the transformation of input space (e.g., linear, radial basis function (RBF), polynomial). - gamma: Controls the influence of individual training Example   s in RBF and polynomial kernels."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#hyperparameters-in-svm",
+    "href": "slides/17-ml_ex.html#hyperparameters-in-svm",
+    "title": "17 - Machine Learning Models",
+    "section": "5. Hyperparameters in SVM",
+    "text": "5. Hyperparameters in SVM\nKey hyperparameters include: - C (Regularization Parameter): Controls the trade-off between maximizing margin and minimizing classification error. - kernel: Determines the transformation of input space (e.g., linear, radial basis function (RBF), polynomial). - gamma: Controls the influence of individual training examples in RBF and polynomial kernels."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#advantages-and-disadvantages-4",
+    "href": "slides/17-ml_ex.html#advantages-and-disadvantages-4",
+    "title": "Machine Learning Specifications in R",
+    "section": "Advantages and Disadvantages",
+    "text": "Advantages and Disadvantages\nAdvantages:\n\nWorks well with small to medium-sized datasets.\nEffective for both linear and non-linear classification.\nHandles high-dimensional spaces well.\n\nDisadvantages:\n\nComputationally expensive for large datasets.\nRequires careful tuning of hyperparameters.\nNot as interpretable as decision trees."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#svm-implementation-using-tidymodels",
+    "href": "slides/17-ml_ex.html#svm-implementation-using-tidymodels",
+    "title": "Machine Learning Specifications in R",
+    "section": "SVM Implementation using Tidymodels",
+    "text": "SVM Implementation using Tidymodels\n\n# Define an SVM model\nsvm_model &lt;- svm_poly() |&gt;\n  set_engine(\"kernlab\") |&gt;\n  set_mode(\"classification\")\n\nworkflow() |&gt;\n  add_recipe(forested_recipe) |&gt;\n  add_model(svm_model) |&gt; \n  fit_resamples(resample = forested_folds) |&gt; \n  collect_metrics()\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.905     10 0.00421 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0744    10 0.00320 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.956     10 0.00293 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#tuning-and-optimization-1",
+    "href": "slides/17-ml_ex.html#tuning-and-optimization-1",
+    "title": "17 - Machine Learning Models",
+    "section": "8. Tuning and Optimization",
+    "text": "8. Tuning and Optimization\nTo improve model performance: - Cross-validation: Evaluates performance across multiple training/testing splits. - Grid Search and Bayesian Optimization: Helps in selecting optimal hyperparameters. - Feature Scaling: Standardizing input features for better SVM performance."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#conclusion-4",
+    "href": "slides/17-ml_ex.html#conclusion-4",
+    "title": "Machine Learning Specifications in R",
+    "section": "Conclusion",
+    "text": "Conclusion\nSupport Vector Machines (SVM) is a powerful algorithm for classification and regression tasks, especially when working with high-dimensional datasets. By leveraging tidymodels in R, environmental scientists can apply SVM to various challenges such as land cover classification, pollution prediction, and climate modeling."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#what-is-a-neural-network",
+    "href": "slides/17-ml_ex.html#what-is-a-neural-network",
+    "title": "17 - Machine Learning Models",
+    "section": "1. What is a Neural Network?",
+    "text": "1. What is a Neural Network?\nA Neural Network is a computational model inspired by the structure of the human brain. It consists of layers of interconnected neurons that transform input data to learn patterns and make predictions. Neural Networks are widely used for tasks such as image recognition, natural language processing, and time series forecasting."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#why-use-neural-networks",
+    "href": "slides/17-ml_ex.html#why-use-neural-networks",
+    "title": "Machine Learning Specifications in R",
+    "section": "Why Use Neural Networks?",
+    "text": "Why Use Neural Networks?\nNeural Networks are popular due to their:\n- Ability to Model Complex Patterns: Can capture intricate relationships in data.\n- Scalability: Performs well with large datasets.\n- Feature Learning: Automatically extracts relevant features from raw data.\n- Generalization: Can adapt to different types of data with proper training."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#what-is-glm-with-lasso",
+    "href": "slides/17-ml_ex.html#what-is-glm-with-lasso",
+    "title": "17 - Machine Learning Models",
+    "section": "1. What is GLM with LASSO?",
+    "text": "1. What is GLM with LASSO?\nGeneralized Linear Models (GLMs) are an extension of linear regression that allow for response variables with different distributions (e.g., Gaussian, Poisson, Binomial). The Least Absolute Shrinkage and Selection Operator (LASSO) is a regularization technique that applies L1 penalty to shrink coefficients and perform feature selection."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#why-use-glm-with-lasso",
+    "href": "slides/17-ml_ex.html#why-use-glm-with-lasso",
+    "title": "17 - Machine Learning Models",
+    "section": "2. Why Use GLM with LASSO?",
+    "text": "2. Why Use GLM with LASSO?\nGLM with LASSO is widely used in machine learning due to its: - Feature Selection: Automatically eliminates irrelevant predictors by shrinking coefficients to zero. - Improved Model Generalization: Reduces overfitting by penalizing large coefficients. - Versatility: Can be applied to various types of response variables (e.g., binary, count data). - Better Interpretability: Reduces complexity while retaining important predictors."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#components-of-glm-with-lasso",
+    "href": "slides/17-ml_ex.html#components-of-glm-with-lasso",
+    "title": "17 - Machine Learning Models",
+    "section": "3. Components of GLM with LASSO",
+    "text": "3. Components of GLM with LASSO\n\nL1 Regularization: Adds a penalty proportional to the absolute value of the coefficients, encouraging sparsity.\nLambda (λ): The tuning parameter that controls the strength of the regularization.\nFamily Specification: Determines the type of distribution (e.g., Gaussian for continuous, Binomial for classification)."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#building-a-glm-with-lasso-model",
+    "href": "slides/17-ml_ex.html#building-a-glm-with-lasso-model",
+    "title": "17 - Machine Learning Models",
+    "section": "4. Building a GLM with LASSO Model",
+    "text": "4. Building a GLM with LASSO Model\nThe process involves: 1. Defining the response variable and predictors. 2. Applying LASSO regularization using cross-validation to select an optimal λ. 3. Fitting the model to the training data. 4. Evaluating performance on test data."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#hyperparameters-in-glm-with-lasso",
+    "href": "slides/17-ml_ex.html#hyperparameters-in-glm-with-lasso",
+    "title": "17 - Machine Learning Models",
+    "section": "5. Hyperparameters in GLM with LASSO",
+    "text": "5. Hyperparameters in GLM with LASSO\nKey hyperparameters include: - λ (Regularization Parameter): Determines the strength of shrinkage applied to coefficients. - family: Specifies the distribution of the response variable (e.g., binomial, poisson)."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#advantages-and-disadvantages-5",
+    "href": "slides/17-ml_ex.html#advantages-and-disadvantages-5",
+    "title": "Machine Learning Specifications in R",
+    "section": "Advantages and Disadvantages",
+    "text": "Advantages and Disadvantages\nAdvantages:\n\nCan model complex, non-linear relationships.\nWorks well with high-dimensional data.\nAutomatically extracts features from data.\n\nDisadvantages:\n\nRequires large datasets for effective training.\nComputationally expensive.\nDifficult to interpret compared to simpler models like Decision Trees."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#glm-with-lasso-implementation-using-tidymodels",
+    "href": "slides/17-ml_ex.html#glm-with-lasso-implementation-using-tidymodels",
+    "title": "17 - Machine Learning Models",
+    "section": "7. GLM with LASSO Implementation using Tidymodels",
+    "text": "7. GLM with LASSO Implementation using Tidymodels\n\n# Define a GLM with LASSO model\nglm_model &lt;- multinom_reg(penalty = 0.01, mixture = 1) %&gt;%\n  set_engine(\"glmnet\") %&gt;%\n  set_mode(\"classification\")\n\nglm_workflow &lt;- workflow() %&gt;%\n  add_recipe(penguins_recipe) %&gt;%\n  add_model(glm_model)\n\nglm_fit &lt;- fit(glm_workflow, data = penguins_train)\n\ny_pred &lt;- predict(glm_fit, new_data = penguins_test)\n\n# Evaluate performance\npenguins_test %&gt;%\n  bind_cols(y_pred) %&gt;%\n  metrics(truth = species, estimate = .pred_class)\n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy multiclass     0.988\n#&gt; 2 kap      multiclass     0.981"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#tuning-and-optimization-2",
+    "href": "slides/17-ml_ex.html#tuning-and-optimization-2",
+    "title": "17 - Machine Learning Models",
+    "section": "8. Tuning and Optimization",
+    "text": "8. Tuning and Optimization\nTo improve model performance: - Cross-validation: Evaluates model performance across multiple training/testing splits. - Regularization Path Visualization: Helps interpret how predictors are selected at different λ values. - Grid Search and Bayesian Optimization: Used to fine-tune λ."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#conclusion-5",
+    "href": "slides/17-ml_ex.html#conclusion-5",
+    "title": "Machine Learning Specifications in R",
+    "section": "Conclusion",
+    "text": "Conclusion\nNeural Networks are a powerful tool for solving complex problems in various domains. While they require significant computational resources, proper training and regularization techniques can make them highly effective for predictive modeling. Understanding Neural Networks within the torch framework allows for practical applications in data science and environmental modeling."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#classification-vs.-prediction",
+    "href": "slides/17-ml_ex.html#classification-vs.-prediction",
+    "title": "Machine Learning Specifications in R",
+    "section": "Classification vs. Prediction",
+    "text": "Classification vs. Prediction\nMost machine learning applications in environmental science serve different purposes (modes):\nClassification Models → Categorize features into predefined classes.\nPrediction Models → Forecast numerical environmental variables based on past trends."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#what-is-linear-regression",
+    "href": "slides/17-ml_ex.html#what-is-linear-regression",
+    "title": "17 - Machine Learning Models",
+    "section": "What is Linear Regression?",
+    "text": "What is Linear Regression?\nConcept\n\nModels relationship between independent and dependent variables\nAssumes linearity: ( Y = _0 + _1 X + )\nregression only\nStrengths: Easy to interpret, computationally efficient\nWeaknesses: Assumes linearity, sensitive to outliers"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#concept",
+    "href": "slides/17-ml_ex.html#concept",
+    "title": "17 - Machine Learning Models",
+    "section": "Concept",
+    "text": "Concept\n\nModels relationship between independent and dependent variables\nAssumes linearity: ( Y = _0 + _1 X + )\nregression only\nStrengths: Easy to interpret, computationally efficient\nWeaknesses: Assumes linearity, sensitive to outliers"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#implementation",
+    "href": "slides/17-ml_ex.html#implementation",
+    "title": "17 - Machine Learning Models",
+    "section": "Implementation",
+    "text": "Implementation\nSpecification\n\nlinear_reg()\n#&gt; Linear Regression Model Specification (regression)\n#&gt; \n#&gt; Computational engine: lm\n\nEngines\n\nparsnip::show_engines(\"linear_reg\") |&gt; \n  mutate(specification = \"linear_reg\") |&gt; \n  flextable::flextable()\n\nenginemodespecificationlmregressionlinear_regglmregressionlinear_regglmnetregressionlinear_regstanregressionlinear_regsparkregressionlinear_regkerasregressionlinear_regbruleeregressionlinear_regquantregquantile regressionlinear_reg\n\n\nApplication\n\nlm_data &lt;- workflow() |&gt; \n  add_formula(body_mass_g ~ .) |&gt; \n  add_model(linear_reg(mode = \"regression\", engine = \"lm\")) |&gt; \n  fit(data = penguins_train) \n\naugment(lm_data, new_data = penguins_test) |&gt; \n  metrics(truth = body_mass_g, estimate = .pred)\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric .estimator .estimate\n#&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 rmse    standard     259.   \n#&gt; 2 rsq     standard       0.890\n#&gt; 3 mae     standard     211."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#variants-of-logistic-regression",
+    "href": "slides/17-ml_ex.html#variants-of-logistic-regression",
+    "title": "Machine Learning Specifications in R",
+    "section": "Variants of Logistic Regression",
+    "text": "Variants of Logistic Regression\n\nBinary Logistic Regression: Used when the target variable has two classes (e.g., forested vs. not).\nMultinomial Logistic Regression: Extends logistic regression to multiple classes without assuming ordering.\nOrdinal Logistic Regression: Handles multi-class classification where order matters (e.g., rating scales)."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#advantages-and-disadvantages",
+    "href": "slides/17-ml_ex.html#advantages-and-disadvantages",
+    "title": "Machine Learning Specifications in R",
+    "section": "Advantages and Disadvantages",
+    "text": "Advantages and Disadvantages\nAdvantages:\n\nSimple and interpretable.\nEfficient on large datasets.\nOutputs probabilities for uncertainty estimation.\nWorks well when data is linearly separable.\n\nDisadvantages:\n\nAssumes a linear decision boundary.\nSensitive to outliers.\nCan underperform on complex, non-linear data."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#components-of-linear-regression",
+    "href": "slides/17-ml_ex.html#components-of-linear-regression",
+    "title": "Machine Learning Specifications in R",
+    "section": "Components of Linear Regression",
+    "text": "Components of Linear Regression\n\nDependent Variable (Y): The variable to be predicted.\nIndependent Variables (X): Features that influence the dependent variable.\nRegression Line: Represents the relationship between X and Y.\nResiduals: Differences between predicted and actual values."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#linear-regression-in-tidymodels",
+    "href": "slides/17-ml_ex.html#linear-regression-in-tidymodels",
+    "title": "Machine Learning Specifications in R",
+    "section": "Linear Regression in tidymodels",
+    "text": "Linear Regression in tidymodels\nSpecification\n\nlinear_reg()\n#&gt; Linear Regression Model Specification (regression)\n#&gt; \n#&gt; Computational engine: lm\n\nengines & modes \n\nshow_engines(\"linear_reg\") |&gt; \n  mutate(specification = \"linear_reg\") |&gt; \n  flextable()\n\nenginemodespecificationlmregressionlinear_regglmregressionlinear_regglmnetregressionlinear_regstanregressionlinear_regsparkregressionlinear_regkerasregressionlinear_regbruleeregressionlinear_regquantregquantile regressionlinear_reg"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#decision-tree-using-tidymodels",
+    "href": "slides/17-ml_ex.html#decision-tree-using-tidymodels",
+    "title": "Machine Learning Specifications in R",
+    "section": "Decision Tree using tidymodels",
+    "text": "Decision Tree using tidymodels\nSpecification\n\ndecision_tree()\n#&gt; Decision Tree Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: rpart\n\nengines & modes \n\nshow_engines('decision_tree') |&gt; \n  mutate(specification = \"decision_tree\") |&gt; \n  flextable()\n\nenginemodespecificationrpartclassificationdecision_treerpartregressiondecision_treeC5.0classificationdecision_treesparkclassificationdecision_treesparkregressiondecision_tree"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#example-3",
+    "href": "slides/17-ml_ex.html#example-3",
+    "title": "Machine Learning Specifications in R",
+    "section": "Example   ",
+    "text": "Example   \n\n# Define a Random Forest model\nrf_model &lt;- rand_forest(trees = 10) |&gt;\n  set_engine(\"ranger\", importance = \"impurity\") |&gt;\n  set_mode(\"classification\")\n\nworkflow() |&gt;\n  add_recipe(forested_recipe) |&gt;\n  add_model(rf_model) |&gt; \n  fit_resamples(resample = forested_folds) |&gt; \n  collect_metrics()\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.909     10 0.00386 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0677    10 0.00232 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.964     10 0.00213 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#what-are-hyperparameters",
+    "href": "slides/17-ml_ex.html#what-are-hyperparameters",
+    "title": "Machine Learning Specifications in R",
+    "section": "What are hyperparameters?",
+    "text": "What are hyperparameters?\n\nHyperparameters are settings that control the learning process of a model.\nThey are set before training and affect the model’s performance.\nHyperparameters can be tuned to optimize the model’s predictive power.\nMore on model tuning next week!"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#boost-implementation-using-tidymodels",
+    "href": "slides/17-ml_ex.html#boost-implementation-using-tidymodels",
+    "title": "Machine Learning Specifications in R",
+    "section": "Boost Implementation using Tidymodels",
+    "text": "Boost Implementation using Tidymodels\n\n# Define an XGBoost model\nb_model &lt;- boost_tree() |&gt;\n  set_engine(\"xgboost\") |&gt;\n  set_mode(\"classification\")\n\nworkflow() |&gt;\n  add_recipe(forested_recipe) |&gt;\n  add_model(b_model) |&gt; \n  fit_resamples(resample = forested_folds) |&gt; \n  collect_metrics()\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.909     10 0.00461 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0657    10 0.00259 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.969     10 0.00197 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#training-a-neural-network",
+    "href": "slides/17-ml_ex.html#training-a-neural-network",
+    "title": "Machine Learning Specifications in R",
+    "section": "Training a Neural Network",
+    "text": "Training a Neural Network\nThe training process involves:\n\nForward Propagation: Inputs pass through the network, producing an output.\nLoss Calculation: The difference between predicted and actual values is measured.\nBackpropagation: Errors are propagated backward to update weights.\nOptimization: Gradient descent (or its variants) adjusts weights to minimize loss.\nIteration: The process repeats over multiple epochs until convergence.\n\nHyperparameters in Neural Networks\n\nhidden_units: Number of neurons in hidden layers.\npenalty: Regularization term to prevent overfitting.\ndropout: Fraction of neurons randomly dropped during training.\nepochs: Number of training iterations.\nactivation: Activation function for neurons (e.g., ReLU, Sigmoid).\nlearn_rate: Step size for weight updates."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#varients-of-neural-networks",
+    "href": "slides/17-ml_ex.html#varients-of-neural-networks",
+    "title": "Machine Learning Specifications in R",
+    "section": "Varients of Neural Networks",
+    "text": "Varients of Neural Networks\nmlp() → Generic MLP model (uses “nnet”, “keras”, or “brulee” as an engine).\nbag_mlp() → Bagged MLP model using “nnet” (reduces variance).\nbrulee::mlp() → MLP model using torch via brulee (more scalable and flexible).\n\n\n\n\n\n\nWhich one you choose depends on your dataset size, computational resources, and need for ensembling. If you need better scalability, brulee::mlp() is likely a better choice. If you want a quick MLP with some regularization, mlp() with “nnet” or “keras” works. If variance reduction is a concern, bag_mlp() is a solid option."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#neural-network-implementation",
+    "href": "slides/17-ml_ex.html#neural-network-implementation",
+    "title": "Machine Learning Specifications in R",
+    "section": "Neural Network Implementation",
+    "text": "Neural Network Implementation\nmlp() defines a multilayer perceptron model (a.k.a. a single layer, feed-forward neural network). This function can fit classification and regression models.\nSpecification\n\nmlp()\n#&gt; Single Layer Neural Network Model Specification (unknown mode)\n#&gt; \n#&gt; Computational engine: nnet\n\nengines & modes \n\nshow_engines(\"mlp\") |&gt; \n  mutate(specification = \"mlp\") |&gt; \n  flextable()\n\nenginemodespecificationkerasclassificationmlpkerasregressionmlpnnetclassificationmlpnnetregressionmlpbruleeclassificationmlpbruleeregressionmlpbrulee_two_layerclassificationmlpbrulee_two_layerregressionmlp"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#example-4",
+    "href": "slides/17-ml_ex.html#example-4",
+    "title": "Machine Learning Specifications in R",
+    "section": "Example   ",
+    "text": "Example   \n\nnn_model &lt;- mlp(hidden_units = 5, penalty = 0.01) |&gt; \n  set_engine(\"nnet\") |&gt; \n  set_mode(\"classification\")\n\nworkflow() |&gt;\n  add_recipe(forested_recipe) |&gt;\n  add_model(nn_model) |&gt; \n  fit_resamples(resample = forested_folds) |&gt; \n  collect_metrics()\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator  mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.908    10 0.00462 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.118    10 0.00139 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.965    10 0.00211 Preprocessor1_Model1"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#assignment",
+    "href": "slides/17-ml_ex.html#assignment",
+    "title": "Machine Learning Specifications in R",
+    "section": "Assignment",
+    "text": "Assignment\n\nRead the following article on machine learning model selection\nReview the tidymodels documentation and explore the different models available in the parsnip package.\nIn a few sentences (submit to Canvas) describe why you thin the XGboost model worked best for our problem"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#wrap-up",
+    "href": "slides/17-ml_ex.html#wrap-up",
+    "title": "Machine Learning Specifications in R",
+    "section": "Wrap up   ",
+    "text": "Wrap up   \nLets combine all the models and evaluate their performance using cross-validation.\n\nWe learned about cross-validation last Monday and its importance in evaluating model performance.\nWe will use a workflow set (seen last Wednesday) to fit multiple models at once and compare their performance.\nRemember, we have not implmented any hyperparameter tuning yet, so these are just base models.\n\n\nforested_folds &lt;-  vfold_cv(forested_train, v = 10)\n\nwf &lt;-  workflow_set(list(forested_recipe), \n                  list(log_model, \n                       dt_model, \n                       rf_model, \n                       b_model, \n                       svm_model, \n                       nn_model)) |&gt; \n workflow_map('fit_resamples', resamples = forested_folds)"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#section",
+    "href": "slides/17-ml_ex.html#section",
+    "title": "Machine Learning Specifications in R",
+    "section": "",
+    "text": "autoplot(wf) +\n  theme_linedraw(18) + \n  theme(legend.position = 'bottom')"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#model-performance",
+    "href": "slides/17-ml_ex.html#model-performance",
+    "title": "Machine Learning Specifications in R",
+    "section": "Model Performance",
+    "text": "Model Performance\n\nautoplot(wf) +\n  theme_linedraw(18) + \n  theme(legend.position = 'bottom')"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#classification-models",
+    "href": "slides/17-ml_ex.html#classification-models",
+    "title": "Machine Learning Specifications in R",
+    "section": "Classification Models",
+    "text": "Classification Models\n\n\n\n\n\n\nGoal: Categorize phenomena into discrete classes.\n\n\n\nExamples:\n✅ Land Cover Classification (Forest, Urban, Water, Agriculture)\n✅ Flood Risk Assessment (High, Medium, Low)\n✅ Drought Severity Levels (No Drought, Moderate, Severe)\n✅ Wildfire Prediction (Fire vs. No Fire)\n✅ forested Identification (Bird forested, Plant Types)\nCommon Algorithms:\n\nDecision Trees\n\nRandom Forest\n\nSupport Vector Machines (SVM) \nNeural Networks (for remote sensing & image analysis)\n\nK-Nearest Neighbors (KNN)"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#prediction-models",
+    "href": "slides/17-ml_ex.html#prediction-models",
+    "title": "Machine Learning Specifications in R",
+    "section": "Prediction Models",
+    "text": "Prediction Models\n\n\n\n\n\n\nGoal: Estimate continuous environmental variables.\n\n\n\nExamples:\n📈 Streamflow Forecasting (Predict river discharge over time)\n🌡️ Temperature Projections (Future temperature changes under climate scenarios)\n☔ Precipitation Forecasting (Rainfall estimates for flood preparedness)\n📊 Air Quality Index Prediction (Forecast pollution levels)\n\nCommon Algorithms:\n\nLinear & Multiple Regression\n\nRandom Forest Regression\n\nLong Short-Term Memory (LSTM) Neural Networks (for time series forecasting)"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#model-performance-comparision",
+    "href": "slides/17-ml_ex.html#model-performance-comparision",
+    "title": "Machine Learning Specifications in R",
+    "section": "Model Performance Comparision ",
+    "text": "Model Performance Comparision \n\nautoplot(wf) +\n  theme_linedraw(18) + \n  theme(legend.position = 'bottom')"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#unified-interface-for-ml-models",
+    "href": "slides/17-ml_ex.html#unified-interface-for-ml-models",
+    "title": "Machine Learning Specifications in R",
+    "section": "Unified Interface for ML Models ",
+    "text": "Unified Interface for ML Models \n\nThe parsnip package is a part of the tidymodels framework\nIt provides a consistent interface for specifying models through specifications\nThe combination of a specification, mode, and engine is called a model\nLets look at the parsnip documentation!"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#model-evaluation",
+    "href": "slides/17-ml_ex.html#model-evaluation",
+    "title": "Machine Learning Specifications in R",
+    "section": "Model Evaluation ",
+    "text": "Model Evaluation \nUnderstanding the boost model provided the best performance out of the box we can (1) select that model (2)\n\nfinal_fit &lt;- workflow() |&gt;\n  add_recipe(forested_recipe) |&gt;\n  # Selected Model\n  add_model(b_model) |&gt;\n  # Trained with full training dataset\n  fit(data = forested_train) |&gt; \n  # Validated against hold out data\n  augment(new_data = forested_test)\n\n# Final Results!\nmetrics(final_fit, truth = forested,  estimate = .pred_class) \n#&gt; # A tibble: 2 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.917\n#&gt; 2 kap      binary         0.833\nconf_mat(final_fit, truth = forested, estimate = .pred_class)\n#&gt;           Truth\n#&gt; Prediction Yes  No\n#&gt;        Yes 910  86\n#&gt;        No   61 720"
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#components-of-a-neural-network",
+    "href": "slides/17-ml_ex.html#components-of-a-neural-network",
+    "title": "Machine Learning Specifications in R",
+    "section": "Components of a Neural Network",
+    "text": "Components of a Neural Network\n\n\n\nNeurons: The fundamental units that receive, process, and transmit information.\nInput Layer: The initial layer that receives raw data.\nHidden Layers: Intermediate layers where computations occur to learn features.\nOutput Layer: Produces the final prediction or classification.\nWeights & Biases: Parameters that are optimized during training.\nActivation Functions: Functions like ReLU, Sigmoid, and Softmax that introduce non-linearity."
+  },
+  {
+    "objectID": "slides/17-ml_ex.html#the-whole-game---status-update",
+    "href": "slides/17-ml_ex.html#the-whole-game---status-update",
+    "title": "Machine Learning Specifications in R",
+    "section": "The whole game - status update",
+    "text": "The whole game - status update"
   }
 ]
