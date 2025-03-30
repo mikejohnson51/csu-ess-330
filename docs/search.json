@@ -10343,21 +10343,21 @@
     "href": "slides/17-ml_ex.html#why-use-svm",
     "title": "Machine Learning Specifications in R",
     "section": "2. Why Use SVM?",
-    "text": "2. Why Use SVM?\nSVM is widely used in machine learning due to its: - Effective for High-Dimensional Data: Works well with datasets with many features. - Robustness to Overfitting: Uses regularization techniques to prevent overfitting. - Versatility: Can be applied to linear and non-linear classification tasks using different kernel functions. - Support for Small Datasets: Works well when the number of samples is limited."
+    "text": "2. Why Use SVM?\nSVM is widely used in machine learning due to its:\n- Effective for High-Dimensional Data: Works well with datasets with many features.\n- Robustness to Overfitting: Uses regularization techniques to prevent overfitting.\n- Versatility: Can be applied to linear and non-linear classification tasks using different kernel functions.\n- Support for Small Datasets: Works well when the number of samples is limited."
   },
   {
     "objectID": "slides/17-ml_ex.html#components-of-svm",
     "href": "slides/17-ml_ex.html#components-of-svm",
     "title": "Machine Learning Specifications in R",
     "section": "3. Components of SVM",
-    "text": "3. Components of SVM\n\nSupport Vectors: Data points that define the hyperplane.\nMargin: The distance between the hyperplane and the nearest support vectors.\nKernel Functions: Transform data to a higher dimension to make it separable."
+    "text": "3. Components of SVM\n\nSupport Vectors: Data points that define the hyperplane.\n\nMargin: The distance between the hyperplane and the nearest support vectors.\n\nKernel Functions: Transform data to a higher dimension to make it separable."
   },
   {
     "objectID": "slides/17-ml_ex.html#building-an-svm-model",
     "href": "slides/17-ml_ex.html#building-an-svm-model",
     "title": "Machine Learning Specifications in R",
     "section": "Building an SVM Model",
-    "text": "Building an SVM Model\nThe process involves:\n\nSelecting an appropriate kernel function (linear, polynomial, radial basis function, etc.).\nFinding the hyperplane that best separates the data.\nMaximizing the margin between the hyperplane and the closest points.\nUsing a regularization parameter (C) to control trade-offs between a wider margin and misclassifications.\n\nHyperparameters in SVM\nKey hyperparameters include: - C (Regularization Parameter): Controls the trade-off between maximizing margin and minimizing classification error. - kernel: Determines the transformation of input space (e.g., linear, radial basis function (RBF), polynomial). - gamma: Controls the influence of individual training Example   s in RBF and polynomial kernels."
+    "text": "Building an SVM Model\nThe process involves:\n\nSelecting an appropriate kernel function (linear, polynomial, radial basis function, etc.).\n\nFinding the hyperplane that best separates the data.\n\nMaximizing the margin between the hyperplane and the closest points.\n\nUsing a regularization parameter (C) to control trade-offs between a wider margin and misclassifications.\n\n\nHyperparameters in SVM\nKey hyperparameters include:\n- C (Regularization Parameter): Controls the trade-off between maximizing margin and minimizing classification error.\n- kernel: Determines the transformation of input space (e.g., linear, radial basis function (RBF), polynomial).\n- gamma: Controls the influence of individual training"
   },
   {
     "objectID": "slides/17-ml_ex.html#hyperparameters-in-svm",
