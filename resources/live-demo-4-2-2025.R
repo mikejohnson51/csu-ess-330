@@ -1,60 +1,69 @@
 library(tidyverse)
 library(tidymodels)
 
-# Ingest
+# Ingest Data
+# URLs for COVID-19 case data and census population data
 covid_url <-  'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'
 pop_url   <- 'https://www2.census.gov/programs-surveys/popest/datasets/2020-2023/counties/totals/co-est2023-alldata.csv'
 
+# Read COVID-19 case data
 data = readr::read_csv(covid_url)
 
+# Read census population data
 census = readr::read_csv(pop_url) 
 
-# Clean
-census = census|>
-  filter(COUNTY == "000") |> 
-  mutate(fips = STATE) |>
-  select(fips, contains("2021"))
+# Clean Census Data
+census = census |> 
+  filter(COUNTY == "000") |>  # Filter for state-level data only
+  mutate(fips = STATE) |>      # Create a new FIPS column for merging
+  select(fips, contains("2021"))  # Select relevant columns for 2021 data
 
+# Process COVID-19 Data
 state_data <-  data |> 
-  group_by(fips) |>
-  mutate(new_cases  = pmax(0, cases - lag(cases)),
-         new_deaths = pmax(0,deaths - lag(deaths))) |>
-  ungroup() |>
-  left_join(census, by = "fips") |>
-  mutate(m = month(date), y = year(date),
-         season = case_when(
-           m %in% 3:5 ~ "Spring",
-           m %in% 6:8 ~ "Summer",
-           m %in% 9:11 ~ "Fall",
-           m %in% c(12, 1, 2) ~ "Winter"
-         )) |> 
-  group_by(state, y, season) |>
-  mutate(season_cases  = sum(new_cases, na.rm = TRUE), 
-         season_deaths = sum(new_deaths, na.rm = TRUE))  |> 
-  distinct(state, y, season, .keep_all = TRUE) |> 
+  group_by(fips) |> 
+  mutate(
+    new_cases  = pmax(0, cases - lag(cases)),   # Compute new cases, ensuring no negative values
+    new_deaths = pmax(0, deaths - lag(deaths))  # Compute new deaths, ensuring no negative values
+  ) |> 
   ungroup() |> 
-  select(state, contains('season'), y, POPESTIMATE2021, BIRTHS2021, DEATHS2021) |> 
-  drop_na() |> 
-  mutate(logC = log(season_cases +1))
+  left_join(census, by = "fips") |>  # Merge with census data
+  mutate(
+    m = month(date), y = year(date),
+    season = case_when(   # Define seasons based on month
+      m %in% 3:5 ~ "Spring",
+      m %in% 6:8 ~ "Summer",
+      m %in% 9:11 ~ "Fall",
+      m %in% c(12, 1, 2) ~ "Winter"
+    )
+  ) |> 
+  group_by(state, y, season) |> 
+  mutate(
+    season_cases  = sum(new_cases, na.rm = TRUE),  # Aggregate seasonal cases
+    season_deaths = sum(new_deaths, na.rm = TRUE)  # Aggregate seasonal deaths
+  )  |> 
+  distinct(state, y, season, .keep_all = TRUE) |>  # Keep only distinct rows by state, year, season
+  ungroup() |> 
+  select(state, contains('season'), y, POPESTIMATE2021, BIRTHS2021, DEATHS2021) |>  # Select relevant columns
+  drop_na() |>  # Remove rows with missing values
+  mutate(logC = log(season_cases +1))  # Log-transform case numbers for modeling
 
-## Use this to add pmax!
-skimr::skim(state_data)
+# Inspect Data Summary
+skimr::skim(state_data)  # Summarize dataset
 
-# Resample
-split <- initial_split(state_data, prop = 0.8, strata = season)
-train <- training(split)
-test <- testing(split)
-folds <- vfold_cv(train, v = 10)
+# Data Splitting for Modeling
+split <- initial_split(state_data, prop = 0.8, strata = season)  # 80/20 train-test split
+train <- training(split)  # Training set
+test <- testing(split)  # Test set
+folds <- vfold_cv(train, v = 10)  # 10-fold cross-validation
 
-# Engineer 
+# Feature Engineering
 rec = recipe(logC ~ . , data = train) |> 
-  step_rm(state, season_cases) |> 
-  step_dummy(all_nominal()) |>
-  step_scale(all_numeric_predictors()) |> 
-  step_center(all_numeric_predictors())
+  step_rm(state, season_cases) |>  # Remove non-predictive columns
+  step_dummy(all_nominal()) |>  # Convert categorical variables to dummy variables
+  step_scale(all_numeric_predictors()) |>  # Scale numeric predictors
+  step_center(all_numeric_predictors())  # Center numeric predictors
 
-
-# Models specifications for Regression!
+# Define Regression Models
 lm_mod <- linear_reg() |> 
   set_engine("lm") |> 
   set_mode("regression")
@@ -75,39 +84,40 @@ nn_mod <- mlp(hidden_units = 10) |>
   set_engine("nnet") |> 
   set_mode("regression")
 
-
-# Workflow
+# Create Workflow Set
 wf = workflow_set(list(rec), list(lm_mod, 
                                   rf_model, 
                                   rf_model2,
                                   b_mod, 
                                   nn_mod
-                                )) |> 
-  workflow_map(resamples = folds) 
+)) |> 
+  workflow_map(resamples = folds)  # Apply workflows across resamples
 
-# Select
+# Visualize Model Performance
 autoplot(wf)
 
-# Fit
+# Fit Selected Model (Neural Network)
 fit <- workflow() |> 
   add_recipe(rec) |> 
   add_model(nn_mod) |> 
   fit(data = train)
 
+# Feature Importance
 vip::vip(fit)
 
-# Evaluate
-a <- augment(fit, new_data = test) |> 
-  mutate(diff = abs(logC - .pred))
+# Model Evaluation
+predictions <- augment(fit, new_data = test) |> 
+  mutate(diff = abs(logC - .pred))  # Compute absolute differences
 
-metrics(a, truth = logC, estimate = .pred)
+metrics(predictions, truth = logC, estimate = .pred)  # Compute regression metrics
 
-ggplot(a, aes(x = 10^logC, y = 10^.pred)) + 
+# Visualization of Predictions vs. Actual Values
+ggplot(predictions, aes(x = logC, y = .pred)) + 
   geom_point() + 
   geom_abline() +
-  geom_label(aes(label = paste(state, season), nudge_x = 0.1, nudge_y = 0.1)) +
-  labs(title = "Boosted Tree Model", 
-       x = "Actual", 
-       y = "Predicted") + 
+  #geom_label(aes(label = paste(state, season), nudge_x = 0.1, nudge_y = 0.1)) +
+  labs(title = "Neural Net Model", 
+       x = "Actual (Log10)", 
+       y = "Predicted (Log10)") + 
   theme_minimal()
 
