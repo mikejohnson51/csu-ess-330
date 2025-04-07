@@ -1614,14 +1614,14 @@
     "href": "schedule.html#component-3-modeling",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 3: Modeling",
-    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 15 (w10): Data budgeting\n Lecture 16 (w10): Model Workflows\n Lecture 17 (w11): Model Specifications\n Lecture 18 (w11): Live Demo\n Lecture 19 (w12): Evaluating & Tuning a model\n Lecture 20 (w12): Live Demo\n\nExercise 15: Data Splitting\nExercise 16: Building a workflow\nExercise 17: Reading\nExercise 18: Chose your own adventure!\nExercise 19: Evaluate your model\nExercise 20: Full Process: Air Quality data"
+    "text": "Component 3: Modeling\nGain hands-on experience in regression and machine learning. From foundational techniques in base R to more advanced workflows using the tidymodels framework, this module walks you through feature engineering, model setup, and model evaluation. You’ll also explore time series analysis, preparing you to tackle dynamic ecosystem data challenges where time is a consideration.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nApply regression techniques to ecological data.\nBuild and evaluate machine learning models using tidymodels\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 15 (w10): Data budgeting\n Lecture 16 (w10): Model Workflows\n Lecture 17 (w11): Model Specifications\n Lecture 18 (w11): Live Demo\n Lecture 19 (w12): Evaluating & Tuning a model\n Lecture 20 (w12): Review Demo\n\nExercise 15: Data Splitting\nExercise 16: Building a workflow\nExercise 17: Reading\nExercise 18: Demo summary\nExercise 19: Whole Process Narative\nExercise 20: Tune a model"
   },
   {
     "objectID": "schedule.html#component-4-geospatial",
     "href": "schedule.html#component-4-geospatial",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 4: Geospatial",
-    "text": "Component 4: Geospatial\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\n\n\n\n\n\n Lecture 21 (w13): Feature Geometries (CRS)\n Lecture 22 (w13): Projections\n Lecture 23 (w14): Predicates\n Lecture 24 (w14): Mapping (Live Demo)\n Lecture 25 (w15): Raster Data\n Lecture 26 (w15: Raster Data Manipulation\n Lecture 27 (w16): Categorization\n Lecture 28 (w16): Terrain, Wrap up\n\nExercise 21:\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
+    "text": "Component 4: Geospatial\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\n\n\n\n\n\n Lecture 21 (w13): Feature Geometries (CRS)\n Lecture 22 (w13): Projections\n Lecture 23 (w14): Predicates,\n Lecture 24 (w14): Tesselations and simplification\n Lecture 25 (w15): Raster Data Introduction\n Lecture 26 (w15: Raster Data Manipulation\n Lecture 27 (w16): Categorization\n Lecture 28 (w16): Wrap up\n\nExercise 21:\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
   },
   {
     "objectID": "labs/lab2.html#key-features-of-dplyr",
@@ -10686,105 +10686,105 @@
     "href": "slides/19-evaluation.html#looking-at-predictions",
     "title": "Lecture 19",
     "section": "Looking at predictions",
-    "text": "Looking at predictions\n\naugment(forested_fit, new_data = forested_train)\n#&gt; # A tibble: 5,685 × 22\n#&gt;    .pred_class .pred_Yes .pred_No forested  year elevation eastness northness\n#&gt;    &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n#&gt;  1 No             0.0114   0.989  No        2016       464       -5       -99\n#&gt;  2 Yes            0.636    0.364  Yes       2016       166       92        37\n#&gt;  3 No             0.0114   0.989  No        2016       644      -85       -52\n#&gt;  4 Yes            0.977    0.0226 Yes       2014      1285        4        99\n#&gt;  5 Yes            0.977    0.0226 Yes       2013       822       87        48\n#&gt;  6 Yes            0.808    0.192  Yes       2017         3        6       -99\n#&gt;  7 Yes            0.977    0.0226 Yes       2014      2041      -95        28\n#&gt;  8 Yes            0.977    0.0226 Yes       2015      1009       -8        99\n#&gt;  9 No             0.0114   0.989  No        2017       436      -98        19\n#&gt; 10 No             0.0114   0.989  No        2018       775       63        76\n#&gt; # ℹ 5,675 more rows\n#&gt; # ℹ 14 more variables: roughness &lt;dbl&gt;, tree_no_tree &lt;fct&gt;, dew_temp &lt;dbl&gt;,\n#&gt; #   precip_annual &lt;dbl&gt;, temp_annual_mean &lt;dbl&gt;, temp_annual_min &lt;dbl&gt;,\n#&gt; #   temp_annual_max &lt;dbl&gt;, temp_january_min &lt;dbl&gt;, vapor_min &lt;dbl&gt;,\n#&gt; #   vapor_max &lt;dbl&gt;, canopy_cover &lt;dbl&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;, land_type &lt;fct&gt;"
+    "text": "Looking at predictions\n\nlibrary(tidymodels)\nlibrary(forested)\n\nset.seed(123)\nforested_split &lt;- initial_split(forested, prop = 0.8)\nforested_train &lt;- training(forested_split)\nforested_test &lt;- testing(forested_split)\nforested_folds &lt;- vfold_cv(forested_train, v = 10)\n\ndt_mod         &lt;- decision_tree(cost_complexity = 0.0001, mode = \"classification\")\nforested_wflow &lt;- workflow(forested ~ ., dt_mod)\nforested_fit   &lt;- fit(forested_wflow, forested_train)\n\n\naugment(forested_fit, new_data = forested_train)\n#&gt; # A tibble: 5,685 × 22\n#&gt;    .pred_class .pred_Yes .pred_No forested  year elevation eastness northness\n#&gt;    &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n#&gt;  1 No             0.0114   0.989  No        2016       464       -5       -99\n#&gt;  2 Yes            0.636    0.364  Yes       2016       166       92        37\n#&gt;  3 No             0.0114   0.989  No        2016       644      -85       -52\n#&gt;  4 Yes            0.977    0.0226 Yes       2014      1285        4        99\n#&gt;  5 Yes            0.977    0.0226 Yes       2013       822       87        48\n#&gt;  6 Yes            0.808    0.192  Yes       2017         3        6       -99\n#&gt;  7 Yes            0.977    0.0226 Yes       2014      2041      -95        28\n#&gt;  8 Yes            0.977    0.0226 Yes       2015      1009       -8        99\n#&gt;  9 No             0.0114   0.989  No        2017       436      -98        19\n#&gt; 10 No             0.0114   0.989  No        2018       775       63        76\n#&gt; # ℹ 5,675 more rows\n#&gt; # ℹ 14 more variables: roughness &lt;dbl&gt;, tree_no_tree &lt;fct&gt;, dew_temp &lt;dbl&gt;,\n#&gt; #   precip_annual &lt;dbl&gt;, temp_annual_mean &lt;dbl&gt;, temp_annual_min &lt;dbl&gt;,\n#&gt; #   temp_annual_max &lt;dbl&gt;, temp_january_min &lt;dbl&gt;, vapor_min &lt;dbl&gt;,\n#&gt; #   vapor_max &lt;dbl&gt;, canopy_cover &lt;dbl&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;, land_type &lt;fct&gt;"
   },
   {
     "objectID": "slides/19-evaluation.html#confusion-matrix",
     "href": "slides/19-evaluation.html#confusion-matrix",
     "title": "Lecture 19",
     "section": "Confusion matrix ",
-    "text": "Confusion matrix"
+    "text": "Confusion matrix \n\nA confusion matrix is a table that describes the performance of a classification model on a set of data for which the true values are known.\nIt counts the number of accurate and false predictions, separated by the truth state\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  conf_mat(truth = forested, estimate = .pred_class)\n#&gt;           Truth\n#&gt; Prediction  Yes   No\n#&gt;        Yes 2991  176\n#&gt;        No   144 2374"
   },
   {
     "objectID": "slides/19-evaluation.html#confusion-matrix-1",
     "href": "slides/19-evaluation.html#confusion-matrix-1",
     "title": "Lecture 19",
     "section": "Confusion matrix ",
-    "text": "Confusion matrix \n\naugment(forested_fit, new_data = forested_train) %&gt;%\n  conf_mat(truth = forested, estimate = .pred_class)\n#&gt;           Truth\n#&gt; Prediction  Yes   No\n#&gt;        Yes 2991  176\n#&gt;        No   144 2374"
+    "text": "Confusion matrix \n\nA confusion matrix is a table that describes the performance of a classification model on a set of data for which the true values are known.\nIt counts the number of accuracte and false predictions, seperated by the truth state\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  conf_mat(truth = forested, estimate = .pred_class)\n#&gt;           Truth\n#&gt; Prediction  Yes   No\n#&gt;        Yes 2991  176\n#&gt;        No   144 2374"
   },
   {
     "objectID": "slides/19-evaluation.html#confusion-matrix-2",
     "href": "slides/19-evaluation.html#confusion-matrix-2",
     "title": "Lecture 19",
     "section": "Confusion matrix ",
-    "text": "Confusion matrix \n\naugment(forested_fit, new_data = forested_train) %&gt;%\n  conf_mat(truth = forested, estimate = .pred_class) %&gt;%\n  autoplot(type = \"heatmap\")"
+    "text": "Confusion matrix \n\naugment(forested_fit, new_data = forested_train) |&gt;\n  conf_mat(truth = forested, estimate = .pred_class) |&gt;\n  autoplot(type = \"heatmap\")"
   },
   {
     "objectID": "slides/19-evaluation.html#metrics-for-model-performance",
     "href": "slides/19-evaluation.html#metrics-for-model-performance",
     "title": "Lecture 19",
     "section": "Metrics for model performance ",
-    "text": "Metrics for model performance \n\n\n\naugment(forested_fit, new_data = forested_train) %&gt;%\n  accuracy(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.944"
+    "text": "Metrics for model performance \nWe can use metric_set() to combine multiple calculations into one\n\nforested_metrics &lt;- metric_set(accuracy, specificity, sensitivity)\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  forested_metrics(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.944\n#&gt; 2 specificity binary         0.931\n#&gt; 3 sensitivity binary         0.954\n\n\nMetrics and metric sets work with grouped data frames!\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  group_by(tree_no_tree) |&gt;\n  accuracy(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 4\n#&gt;   tree_no_tree .metric  .estimator .estimate\n#&gt;   &lt;fct&gt;        &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 Tree         accuracy binary         0.946\n#&gt; 2 No tree      accuracy binary         0.941\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  group_by(tree_no_tree) |&gt;\n  specificity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 4\n#&gt;   tree_no_tree .metric     .estimator .estimate\n#&gt;   &lt;fct&gt;        &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 Tree         specificity binary         0.582\n#&gt; 2 No tree      specificity binary         0.974\n\n\n\n\n\n\n\nNote\n\n\nThe specificity for \"Tree\" is a good bit lower than it is for \"No tree\".\nSo, when this index classifies the plot as having a tree, the model does not do well at correctly identifying the plot as non-forested when it is indeed non-forested."
   },
   {
     "objectID": "slides/19-evaluation.html#metrics-for-model-performance-1",
     "href": "slides/19-evaluation.html#metrics-for-model-performance-1",
     "title": "Lecture 19",
     "section": "Metrics for model performance ",
-    "text": "Metrics for model performance \n\n\n\naugment(forested_fit, new_data = forested_train) %&gt;%\n  sensitivity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 sensitivity binary         0.954"
+    "text": "Metrics for model performance \n\nSensitivity is the proportion of actual positives that are correctly identified as such (true positive rate).\nIt is useful for identifying the presence of a condition.\nIt is also known as the true positive rate, recall, or probability of detection.\nIt is the ratio of true positives to the sum of true positives and false negatives.\n\n\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  sensitivity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 sensitivity binary         0.954"
   },
   {
     "objectID": "slides/19-evaluation.html#metrics-for-model-performance-2",
     "href": "slides/19-evaluation.html#metrics-for-model-performance-2",
     "title": "Lecture 19",
     "section": "Metrics for model performance ",
-    "text": "Metrics for model performance \n\n\n\naugment(forested_fit, new_data = forested_train) %&gt;%\n  sensitivity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 sensitivity binary         0.954\n\n\n\naugment(forested_fit, new_data = forested_train) %&gt;%\n  specificity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 specificity binary         0.931"
+    "text": "Metrics for model performance \n\nSpecificity is the proportion of actual negatives that are correctly identified as such (true negative rate).\nIt is useful for identifying the absence of a condition.\nIt is also known as the true negative rate, and it is the ratio of true negatives to the sum of true negatives and false positives.\nIt is the complement of sensitivity.\n\n\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  sensitivity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 sensitivity binary         0.954\n\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  specificity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 specificity binary         0.931"
   },
   {
     "objectID": "slides/19-evaluation.html#metrics-for-model-performance-3",
     "href": "slides/19-evaluation.html#metrics-for-model-performance-3",
     "title": "Lecture 19",
     "section": "Metrics for model performance ",
-    "text": "Metrics for model performance \nWe can use metric_set() to combine multiple calculations into one\n\nforested_metrics &lt;- metric_set(accuracy, specificity, sensitivity)\n\naugment(forested_fit, new_data = forested_train) %&gt;%\n  forested_metrics(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.944\n#&gt; 2 specificity binary         0.931\n#&gt; 3 sensitivity binary         0.954"
+    "text": "Metrics for model performance \nWe can use metric_set() to combine multiple calculations into one\n\nforested_metrics &lt;- metric_set(accuracy, specificity, sensitivity)\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  forested_metrics(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.944\n#&gt; 2 specificity binary         0.931\n#&gt; 3 sensitivity binary         0.954"
   },
   {
     "objectID": "slides/19-evaluation.html#metrics-for-model-performance-4",
     "href": "slides/19-evaluation.html#metrics-for-model-performance-4",
     "title": "Lecture 19",
     "section": "Metrics for model performance ",
-    "text": "Metrics for model performance \nMetrics and metric sets work with grouped data frames!\n\naugment(forested_fit, new_data = forested_train) %&gt;%\n  group_by(tree_no_tree) %&gt;%\n  accuracy(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 4\n#&gt;   tree_no_tree .metric  .estimator .estimate\n#&gt;   &lt;fct&gt;        &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 Tree         accuracy binary         0.946\n#&gt; 2 No tree      accuracy binary         0.941\n\n\nThe specificity for \"Tree\" is a good bit lower than it is for \"No tree\".\nSpecificity is the proportion of negatives that are correctly identified as negatives. “Negative” is the non-event level of the outcome, i.e. “non-forested.” So, when this index classifies the plot as having a tree, the model does not do well at correctly identifying the plot as non-forested when it is indeed non-forested."
+    "text": "Metrics for model performance \nMetrics and metric sets work with grouped data frames!\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  group_by(tree_no_tree) |&gt;\n  accuracy(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 4\n#&gt;   tree_no_tree .metric  .estimator .estimate\n#&gt;   &lt;fct&gt;        &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 Tree         accuracy binary         0.946\n#&gt; 2 No tree      accuracy binary         0.941\n\n\n\n\n\n\n\nNote\n\n\nThe specificity for \"Tree\" is a good bit lower than it is for \"No tree\".\nSpecificity is the proportion of negatives that are correctly identified as negatives. “Negative” is the non-event level of the outcome, i.e. “non-forested.” So, when this index classifies the plot as having a tree, the model does not do well at correctly identifying the plot as non-forested when it is indeed non-forested."
   },
   {
     "objectID": "slides/19-evaluation.html#two-class-data",
     "href": "slides/19-evaluation.html#two-class-data",
     "title": "Lecture 19",
     "section": "Two class data",
-    "text": "Two class data\nThese metrics assume that we know the threshold for converting “soft” probability predictions into “hard” class predictions.\n\nIs a 50% threshold good?\nWhat happens if we say that we need to be 80% sure to declare an event?\n\nsensitivity ⬇️, specificity ⬆️\n\n\n\nWhat happens for a 20% threshold?\n\nsensitivity ⬆️, specificity ⬇️"
+    "text": "Two class data\nThese metrics assume that we know the threshold for converting “soft” probability predictions into “hard” class predictions.\n\nFor example, if the predicted probability of a tree is 0.7, we might say that the model predicts “Tree” for that observation.\n\nIf the predicted probability of a tree is 0.4, we might say that the model predicts “No tree” for that observation.\n\nThe threshold is the value that separates the two classes.\n\nThe default threshold is 0.5, but this can be changed.\n\n\n\nIs a 50% threshold good?\n\n\nWhat happens if we say that we need to be 80% sure to declare an event?\n\nsensitivity ⬇️, specificity ⬆️\n\n\n\nWhat happens for a 20% threshold?\n\nsensitivity ⬆️, specificity ⬇️"
   },
   {
     "objectID": "slides/19-evaluation.html#varying-the-threshold",
     "href": "slides/19-evaluation.html#varying-the-threshold",
     "title": "Lecture 19",
     "section": "Varying the threshold",
-    "text": "Varying the threshold"
+    "text": "Varying the threshold\n\n\n\nThe threshold can be varied to see how it affects the sensitivity and specificity of the model.\nThis is done by plotting the sensitivity and specificity against the threshold.\nThe threshold is varied from 0 to 1, and the sensitivity and specificity are calculated at each threshold.\nThe plot shows the trade-off between sensitivity and specificity at different thresholds.\nThe threshold can be chosen based on the desired balance between sensitivity and specificity."
   },
   {
     "objectID": "slides/19-evaluation.html#roc-curves",
     "href": "slides/19-evaluation.html#roc-curves",
     "title": "Lecture 19",
     "section": "ROC curves",
-    "text": "ROC curves\n\n\nFor an ROC (receiver operator characteristic) curve, we plot\n\nthe false positive rate (1 - specificity) on the x-axis\nthe true positive rate (sensitivity) on the y-axis\n\nwith sensitivity and specificity calculated at all possible thresholds.\n\n\n\n\n\n\n\n\n\n\n\n\nROC curves are insensitive to class imbalance."
+    "text": "ROC curves\n\n\nFor an ROC (receiver operator characteristic) curve, we plot\n\nthe false positive rate (1 - specificity) on the x-axis\nthe true positive rate (sensitivity) on the y-axis\n\nwith sensitivity and specificity calculated at all possible thresholds."
   },
   {
     "objectID": "slides/19-evaluation.html#roc-curves-1",
     "href": "slides/19-evaluation.html#roc-curves-1",
     "title": "Lecture 19",
     "section": "ROC curves",
-    "text": "ROC curves\n\n\nWe can use the area under the ROC curve as a classification metric:\n\nROC AUC = 1 💯\nROC AUC = 1/2 😢"
+    "text": "ROC curves\n\n\nThe ROC AUC is the probability that a randomly chosen positive instance is ranked higher than a randomly chosen negative instance.\n\nThe ROC AUC is a measure of how well the model separates the two classes.\nThe ROC AUC is a number between 0 and 1.\nROC AUC = 1 💯\n\nperfect classification\n\nROC AUC = 0.5 😐\n\nrandom guessing\n\nROC AUC &lt; 0.5 😱\n\nworse than random guessing"
   },
   {
     "objectID": "slides/19-evaluation.html#roc-curves-2",
     "href": "slides/19-evaluation.html#roc-curves-2",
     "title": "Lecture 19",
     "section": "ROC curves ",
-    "text": "ROC curves \n\n# Assumes _first_ factor level is event; there are options to change that\naugment(forested_fit, new_data = forested_train) %&gt;% \n  roc_curve(truth = forested, .pred_Yes) %&gt;%\n  slice(1, 20, 50)\n#&gt; # A tibble: 3 × 3\n#&gt;   .threshold specificity sensitivity\n#&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n#&gt; 1   -Inf           0           1    \n#&gt; 2      0.235       0.885       0.972\n#&gt; 3      0.909       0.969       0.826\n\naugment(forested_fit, new_data = forested_train) %&gt;% \n  roc_auc(truth = forested, .pred_Yes)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric .estimator .estimate\n#&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 roc_auc binary         0.975"
+    "text": "ROC curves \n(A ROC AUC of 0.7-0.8 is considered acceptable, 0.8-0.9 is good, and &gt;0.9 is excellent.)\n\n# Assumes _first_ factor level is event; there are options to change that\naugment(forested_fit, new_data = forested_train) |&gt;  \n  roc_curve(truth = forested, .pred_Yes)  |&gt; \n  dplyr::slice(1, 20, 50)\n#&gt; # A tibble: 3 × 3\n#&gt;   .threshold specificity sensitivity\n#&gt;        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n#&gt; 1   -Inf           0           1    \n#&gt; 2      0.235       0.885       0.972\n#&gt; 3      0.909       0.969       0.826\n\naugment(forested_fit, new_data = forested_train) |&gt;  \n  roc_auc(truth = forested, .pred_Yes)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric .estimator .estimate\n#&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 roc_auc binary         0.975"
   },
   {
     "objectID": "slides/19-evaluation.html#roc-curve-plot",
     "href": "slides/19-evaluation.html#roc-curve-plot",
     "title": "Lecture 19",
     "section": "ROC curve plot ",
-    "text": "ROC curve plot \n\n\naugment(forested_fit, \n        new_data = forested_train) %&gt;% \n  roc_curve(truth = forested, \n            .pred_Yes) %&gt;%\n  autoplot()"
+    "text": "ROC curve plot \n\n\naugment(forested_fit, new_data = forested_train) |&gt;  \n  roc_curve(truth = forested, .pred_Yes) |&gt; \n  autoplot()"
   },
   {
     "objectID": "slides/19-evaluation.html#your-turn",
@@ -10798,21 +10798,21 @@
     "href": "slides/19-evaluation.html#brier-score",
     "title": "Lecture 19",
     "section": "Brier score",
-    "text": "Brier score\nWhat if we don’t turn predicted probabilities into class predictions?\n\nThe Brier score is analogous to the mean squared error in regression models:\n\\[\nBrier_{class} = \\frac{1}{N}\\sum_{i=1}^N\\sum_{k=1}^C (y_{ik} - \\hat{p}_{ik})^2\n\\]"
+    "text": "Brier score\n\nThe Brier score is a measure of how well the predicted probabilities of an event match the actual outcomes.\nIt is the mean squared difference between predicted probabilities and actual outcomes.\nThe Brier score is a number between 0 and 1.\nThe Brier score is analogous to the mean squared error in regression models:\nBrier = 1 😱\n\npredicted probabilities are completely wrong\n\nBrier = 0.5 😐\n\nbad\n\nBrier &lt; 0.25\n\nacceptable\n\nBrier = 0 💯\n\npredicted probabilities are perfect\n\n\n\\[\nBrier_{class} = \\frac{1}{N}\\sum_{i=1}^N\\sum_{k=1}^C (y_{ik} - \\hat{p}_{ik})^2\n\\]"
   },
   {
     "objectID": "slides/19-evaluation.html#brier-score-1",
     "href": "slides/19-evaluation.html#brier-score-1",
     "title": "Lecture 19",
     "section": "Brier score",
-    "text": "Brier score\n\naugment(forested_fit, new_data = forested_train) %&gt;% \n  brier_class(truth = forested, .pred_Yes) \n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 brier_class binary        0.0469\n\n\nSmaller values are better, for binary classification the “bad model threshold” is about 0.25."
+    "text": "Brier score\n\naugment(forested_fit, new_data = forested_train) |&gt;  \n  brier_class(truth = forested, .pred_Yes) \n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 brier_class binary        0.0469"
   },
   {
     "objectID": "slides/19-evaluation.html#separation-vs-calibration",
     "href": "slides/19-evaluation.html#separation-vs-calibration",
     "title": "Lecture 19",
     "section": "Separation vs calibration",
-    "text": "Separation vs calibration\n\n\nThe ROC captures separation.\n\n\n\n\n\n\n\n\n\n\nThe Brier score captures calibration.\n\n\n\n\n\n\n\n\n\n\n\n\nGood separation: the densities don’t overlap.\nGood calibration: the calibration line follows the diagonal.\n\nCalibration plot: We bin observations according to predicted probability. In the bin for 20%-30% predicted prob, we should see an event rate of ~25% if the model is well-calibrated."
+    "text": "Separation vs calibration\n\n\nThe ROC captures separation. - The ROC curve shows the trade-off between sensitivity and specificity at different thresholds.\n\n\n\n\n\n\n\n\n\n\nThe Brier score captures calibration. - The Brier score is a measure of how well the predicted probabilities of an event match the actual outcomes.\n\n\n\n\n\n\n\n\n\n\n\nGood separation: the densities don’t overlap.\nGood calibration: the calibration line follows the diagonal.\n\nCalibration plot: We bin observations according to predicted probability. In the bin for 20%-30% predicted prob, we should see an event rate of ~25% if the model is well-calibrated."
   },
   {
     "objectID": "slides/19-evaluation.html#dangers-of-overfitting-1",
@@ -10931,35 +10931,35 @@
     "href": "slides/19-evaluation.html#evaluating-model-performance",
     "title": "Lecture 19",
     "section": "Evaluating model performance ",
-    "text": "Evaluating model performance \n\nforested_res %&gt;%\n  collect_metrics()\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.894     10 0.00562 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0817    10 0.00434 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.951     10 0.00378 Preprocessor1_Model1\n\n\ncollect_metrics() is one of a suite of collect_*() functions that can be used to work with columns of tuning results. Most columns in a tuning result prefixed with . have a corresponding collect_*() function with options for common summaries.\n\n\nWe can reliably measure performance using only the training data 🎉"
+    "text": "Evaluating model performance \n\nctrl_forested &lt;- control_resamples(save_pred = TRUE)\n\n# Random forest uses random numbers so set the seed first\n\nset.seed(2)\nrf_res &lt;- fit_resamples(rf_wflow, forested_folds, control = ctrl_forested)\ncollect_metrics(rf_res)\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.918     10 0.00329 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0619    10 0.00196 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.971     10 0.00192 Preprocessor1_Model1"
   },
   {
     "objectID": "slides/19-evaluation.html#comparing-metrics",
     "href": "slides/19-evaluation.html#comparing-metrics",
     "title": "Lecture 19",
-    "section": "Comparing metrics ",
-    "text": "Comparing metrics \nHow do the metrics from resampling compare to the metrics from training and testing?\n\n\n\nforested_res %&gt;%\n  collect_metrics() %&gt;% \n  select(.metric, mean, n)\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric       mean     n\n#&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;\n#&gt; 1 accuracy    0.894     10\n#&gt; 2 brier_class 0.0817    10\n#&gt; 3 roc_auc     0.951     10\n\n\nThe ROC AUC previously was\n\n0.97 for the training set\n0.95 for test set\n\n\n\nRemember that:\n⚠️ the training set gives you overly optimistic metrics\n⚠️ the test set is precious"
+    "section": "Comparing Metrics",
+    "text": "Comparing Metrics\n\n\n\nMetric\nInterpretation\nSensitivity to Outliers\n\n\n\n\n\\(R^2\\)\nVariance explained\nModerate\n\n\nRMSE\nPenalizes large errors more\nHigh\n\n\nMAE\nAverage error size\nLow\n\n\n\n\nChoosing the Right Metric\n\nUse \\(R^2\\) to assess model fit and explainability.\nUse RMSE if large errors are especially undesirable.\nUse MAE for a more interpretable, robust metric."
   },
   {
     "objectID": "slides/19-evaluation.html#evaluating-model-performance-1",
     "href": "slides/19-evaluation.html#evaluating-model-performance-1",
     "title": "Lecture 19",
     "section": "Evaluating model performance ",
-    "text": "Evaluating model performance \n\n# Save the assessment set results\nctrl_forested &lt;- control_resamples(save_pred = TRUE)\nforested_res &lt;- fit_resamples(forested_wflow, forested_folds, control = ctrl_forested)\n\nforested_res\n#&gt; # Resampling results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 5\n#&gt;    splits             id     .metrics         .notes           .predictions\n#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      \n#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [3 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;"
+    "text": "Evaluating model performance \n\n# Save the assessment set results\nforested_preds &lt;- collect_predictions(forested_res)\nforested_preds\n#&gt; # A tibble: 5,685 × 7\n#&gt;    .pred_class .pred_Yes .pred_No id      .row forested .config             \n#&gt;    &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt; &lt;fct&gt;    &lt;chr&gt;               \n#&gt;  1 No            0.00940   0.991  Fold01     1 No       Preprocessor1_Model1\n#&gt;  2 No            0.128     0.872  Fold01    10 No       Preprocessor1_Model1\n#&gt;  3 No            0.00940   0.991  Fold01    24 No       Preprocessor1_Model1\n#&gt;  4 No            0.00940   0.991  Fold01    36 No       Preprocessor1_Model1\n#&gt;  5 Yes           0.984     0.0158 Fold01    50 Yes      Preprocessor1_Model1\n#&gt;  6 No            0.00940   0.991  Fold01    61 No       Preprocessor1_Model1\n#&gt;  7 No            0.196     0.804  Fold01    65 No       Preprocessor1_Model1\n#&gt;  8 Yes           0.706     0.294  Fold01    78 No       Preprocessor1_Model1\n#&gt;  9 Yes           0.984     0.0158 Fold01    84 Yes      Preprocessor1_Model1\n#&gt; 10 No            0.00940   0.991  Fold01    91 No       Preprocessor1_Model1\n#&gt; # ℹ 5,675 more rows"
   },
   {
     "objectID": "slides/19-evaluation.html#evaluating-model-performance-2",
     "href": "slides/19-evaluation.html#evaluating-model-performance-2",
     "title": "Lecture 19",
     "section": "Evaluating model performance ",
-    "text": "Evaluating model performance \n\n# Save the assessment set results\nforested_preds &lt;- collect_predictions(forested_res)\nforested_preds\n#&gt; # A tibble: 5,685 × 7\n#&gt;    .pred_class .pred_Yes .pred_No id      .row forested .config             \n#&gt;    &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt; &lt;fct&gt;    &lt;chr&gt;               \n#&gt;  1 Yes           0.5       0.5    Fold01     2 Yes      Preprocessor1_Model1\n#&gt;  2 Yes           0.982     0.0178 Fold01     5 Yes      Preprocessor1_Model1\n#&gt;  3 No            0.00790   0.992  Fold01     9 No       Preprocessor1_Model1\n#&gt;  4 No            0.4       0.6    Fold01    14 No       Preprocessor1_Model1\n#&gt;  5 Yes           0.870     0.130  Fold01    18 Yes      Preprocessor1_Model1\n#&gt;  6 Yes           0.982     0.0178 Fold01    59 Yes      Preprocessor1_Model1\n#&gt;  7 No            0.00790   0.992  Fold01    67 No       Preprocessor1_Model1\n#&gt;  8 Yes           0.982     0.0178 Fold01    89 Yes      Preprocessor1_Model1\n#&gt;  9 No            0.00790   0.992  Fold01    94 No       Preprocessor1_Model1\n#&gt; 10 Yes           0.982     0.0178 Fold01   111 Yes      Preprocessor1_Model1\n#&gt; # ℹ 5,675 more rows"
+    "text": "Evaluating model performance \n\nforested_preds |&gt; \n  group_by(id) |&gt;\n  forested_metrics(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 30 × 4\n#&gt;    id     .metric  .estimator .estimate\n#&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt;  1 Fold01 accuracy binary         0.902\n#&gt;  2 Fold02 accuracy binary         0.882\n#&gt;  3 Fold03 accuracy binary         0.907\n#&gt;  4 Fold04 accuracy binary         0.895\n#&gt;  5 Fold05 accuracy binary         0.898\n#&gt;  6 Fold06 accuracy binary         0.907\n#&gt;  7 Fold07 accuracy binary         0.887\n#&gt;  8 Fold08 accuracy binary         0.880\n#&gt;  9 Fold09 accuracy binary         0.882\n#&gt; 10 Fold10 accuracy binary         0.905\n#&gt; # ℹ 20 more rows"
   },
   {
     "objectID": "slides/19-evaluation.html#evaluating-model-performance-3",
     "href": "slides/19-evaluation.html#evaluating-model-performance-3",
     "title": "Lecture 19",
     "section": "Evaluating model performance ",
-    "text": "Evaluating model performance \n\nforested_preds %&gt;% \n  group_by(id) %&gt;%\n  forested_metrics(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 30 × 4\n#&gt;    id     .metric  .estimator .estimate\n#&gt;    &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt;  1 Fold01 accuracy binary         0.896\n#&gt;  2 Fold02 accuracy binary         0.859\n#&gt;  3 Fold03 accuracy binary         0.868\n#&gt;  4 Fold04 accuracy binary         0.921\n#&gt;  5 Fold05 accuracy binary         0.900\n#&gt;  6 Fold06 accuracy binary         0.891\n#&gt;  7 Fold07 accuracy binary         0.896\n#&gt;  8 Fold08 accuracy binary         0.903\n#&gt;  9 Fold09 accuracy binary         0.896\n#&gt; 10 Fold10 accuracy binary         0.905\n#&gt; # ℹ 20 more rows"
+    "text": "Evaluating model performance \n\nctrl_forested &lt;- control_resamples(save_pred = TRUE)\n\n# Random forest uses random numbers so set the seed first\n\nset.seed(2)\nrf_res &lt;- fit_resamples(rf_wflow, forested_folds, control = ctrl_forested)\ncollect_metrics(rf_res)\n#&gt; # A tibble: 3 × 6\n#&gt;   .metric     .estimator   mean     n std_err .config             \n#&gt;   &lt;chr&gt;       &lt;chr&gt;       &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 accuracy    binary     0.918     10 0.00329 Preprocessor1_Model1\n#&gt; 2 brier_class binary     0.0619    10 0.00196 Preprocessor1_Model1\n#&gt; 3 roc_auc     binary     0.971     10 0.00192 Preprocessor1_Model1"
   },
   {
     "objectID": "slides/19-evaluation.html#where-are-the-fitted-models",
@@ -11049,8 +11049,8 @@
     "objectID": "slides/19-evaluation.html#the-final-fit",
     "href": "slides/19-evaluation.html#the-final-fit",
     "title": "Lecture 19",
-    "section": "The final fit ",
-    "text": "The final fit \nSuppose that we are happy with our random forest model.\nLet’s fit the model on the training set and verify our performance using the test set.\n\nWe’ve shown you fit() and predict() (+ augment()) but there is a shortcut:\n\n# forested_split has train + test info\nfinal_fit &lt;- last_fit(rf_wflow, forested_split) \n\nfinal_fit\n#&gt; # Resampling results\n#&gt; # Manual resampling \n#&gt; # A tibble: 1 × 6\n#&gt;   splits              id               .metrics .notes   .predictions .workflow \n#&gt;   &lt;list&gt;              &lt;chr&gt;            &lt;list&gt;   &lt;list&gt;   &lt;list&gt;       &lt;list&gt;    \n#&gt; 1 &lt;split [5685/1422]&gt; train/test split &lt;tibble&gt; &lt;tibble&gt; &lt;tibble&gt;     &lt;workflow&gt;"
+    "section": "The final fit!",
+    "text": "The final fit!\nSuppose that we are happy with our model.\nLet’s fit the model on the training set and verify our performance using the test set.\n\nWe’ve seen fit() and predict() (+ augment()) but there is a shortcut:\n\n\n\n# the boosted tree workflow can be `finalized` with the best parameters\nworkflow &lt;- finalize_workflow(b_wflow, b_best)\n\n# forested_split has train + test info\n(final_fit &lt;- last_fit(workflow, split))\n#&gt; # Resampling results\n#&gt; # Manual resampling \n#&gt; # A tibble: 1 × 6\n#&gt;   splits            id               .metrics         .notes           .predictions       .workflow \n#&gt;   &lt;list&gt;            &lt;chr&gt;            &lt;list&gt;           &lt;list&gt;           &lt;list&gt;             &lt;list&gt;    \n#&gt; 1 &lt;split [570/144]&gt; train/test split &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [144 × 4]&gt; &lt;workflow&gt;"
   },
   {
     "objectID": "slides/19-evaluation.html#what-is-in-final_fit",
@@ -11079,5 +11079,369 @@
     "title": "Lecture 19",
     "section": "The whole game",
     "text": "The whole game"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#r-squared-r2",
+    "href": "slides/19-evaluation.html#r-squared-r2",
+    "title": "Lecture 19",
+    "section": "R-squared (\\(R^2\\))",
+    "text": "R-squared (\\(R^2\\))\n\nMeasures how well the model explains the variance in the data.\nFormula:\n\n\\[\nR^2 = 1 - \\frac{SS_{res}}{SS_{tot}}\n\\] where:\n- \\(SS_{res}\\) is the sum of squared residuals.\n\n\n\\(SS_{tot}\\) is the total sum of squares.\n\nValues range from \\(-\\infty\\) to 1.\n\n\n1: Perfect fit\n\n0: No improvement over mean prediction\n\nNegative: Worse than just using the mean"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#root-mean-squared-error-rmse",
+    "href": "slides/19-evaluation.html#root-mean-squared-error-rmse",
+    "title": "Lecture 19",
+    "section": "Root Mean Squared Error (RMSE)",
+    "text": "Root Mean Squared Error (RMSE)\n\nMeasures the model’s prediction error in the same unit as the dependent variable.\nFormula:\n\n\\[\nRMSE = \\sqrt{\\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\hat{y}_i)^2}\n\\]\nwhere: - \\(y_i\\) is the actual value. - \\(\\hat{y}_i\\) is the predicted value.\n\nPenalizes large errors more than MAE.\nLower RMSE indicates better model performance."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#mean-absolute-error-mae",
+    "href": "slides/19-evaluation.html#mean-absolute-error-mae",
+    "title": "Lecture 19",
+    "section": "Mean Absolute Error (MAE)",
+    "text": "Mean Absolute Error (MAE)\n\nMeasures average absolute errors between predictions and actual values.\nFormula:\n\n\\[\nMAE = \\frac{1}{n} \\sum_{i=1}^{n} |y_i - \\hat{y}_i|\n\\]\n\nLess sensitive to outliers than RMSE.\nLower MAE indicates better model performance."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#choosing-the-right-metric",
+    "href": "slides/19-evaluation.html#choosing-the-right-metric",
+    "title": "Lecture 19",
+    "section": "Choosing the Right Metric",
+    "text": "Choosing the Right Metric\n\nUse (R^2) to assess model fit and explainability.\nUse RMSE if large errors are especially undesirable.\nUse MAE for a more interpretable, robust metric."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#comparing-metrics-1",
+    "href": "slides/19-evaluation.html#comparing-metrics-1",
+    "title": "Lecture 19",
+    "section": "Comparing metrics ",
+    "text": "Comparing metrics \nHow do the metrics from resampling compare to the metrics from training and testing?\n\n\n\nforested_res &lt;- fit_resamples(forested_wflow, forested_folds)\n\nforested_res |&gt;\n  collect_metrics() |&gt; \n  select(.metric, mean, n)\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric       mean     n\n#&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;\n#&gt; 1 accuracy    0.894     10\n#&gt; 2 brier_class 0.0797    10\n#&gt; 3 roc_auc     0.955     10\n\n\nThe ROC AUC previously was\n\n0.97 for the training set\n0.95 for test set\n\n\n\nRemember that:\n⚠️ the training set gives you overly optimistic metrics\n⚠️ the test set is precious"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#tuning-parameters",
+    "href": "slides/19-evaluation.html#tuning-parameters",
+    "title": "Lecture 19",
+    "section": "Tuning parameters",
+    "text": "Tuning parameters\n\nSome model or preprocessing parameters cannot be estimated directly from the data.\nTry different values and measure their performance.\n\n\n\nFind good values for these parameters.\n\n\n\n\nOnce the value(s) of the parameter(s) are determined, a model can be finalized by fitting the model to the entire training set."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#optimize-tuning-parameters",
+    "href": "slides/19-evaluation.html#optimize-tuning-parameters",
+    "title": "Lecture 19",
+    "section": "Optimize tuning parameters",
+    "text": "Optimize tuning parameters\nThe main two strategies for optimization are:\n\n\nGrid search 💠 which tests a pre-defined set of candidate values\nIterative search 🌀 which suggests/estimates new values of candidate parameters to evaluate"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#optimize-tuning-parameters-1",
+    "href": "slides/19-evaluation.html#optimize-tuning-parameters-1",
+    "title": "Lecture 19",
+    "section": "Optimize tuning parameters",
+    "text": "Optimize tuning parameters\nThe main two strategies for optimization are:\n\n\nGrid search 💠 which tests a pre-defined set of candidate values\nIterative search 🌀 which suggests/estimates new values of candidate parameters to evaluate"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#specifying-tuning-parameters",
+    "href": "slides/19-evaluation.html#specifying-tuning-parameters",
+    "title": "Lecture 19",
+    "section": "Specifying tuning parameters",
+    "text": "Specifying tuning parameters\nLet’s take our previous random forest workflow and tag for tuning the minimum number of data points in each node:\n\nrf_spec &lt;- rand_forest(min_n = tune()) |&gt; \n  set_mode(\"classification\")\n\nrf_wflow &lt;- workflow(forested ~ ., rf_spec)\nrf_wflow\n#&gt; ══ Workflow ════════════════════════════════════════════════════════════════════\n#&gt; Preprocessor: Formula\n#&gt; Model: rand_forest()\n#&gt; \n#&gt; ── Preprocessor ────────────────────────────────────────────────────────────────\n#&gt; forested ~ .\n#&gt; \n#&gt; ── Model ───────────────────────────────────────────────────────────────────────\n#&gt; Random Forest Model Specification (classification)\n#&gt; \n#&gt; Main Arguments:\n#&gt;   min_n = tune()\n#&gt; \n#&gt; Computational engine: ranger"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#try-out-multiple-values",
+    "href": "slides/19-evaluation.html#try-out-multiple-values",
+    "title": "Lecture 19",
+    "section": "Try out multiple values",
+    "text": "Try out multiple values\ntune_grid() works similar to fit_resamples() but covers multiple parameter values:\n\nset.seed(22)\n(rf_res &lt;- tune_grid(\n  rf_wflow,\n  forested_folds,\n  grid = 5\n))\n#&gt; # Tuning results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 4\n#&gt;    splits             id     .metrics          .notes          \n#&gt;    &lt;list&gt;             &lt;chr&gt;  &lt;list&gt;            &lt;list&gt;          \n#&gt;  1 &lt;split [5116/569]&gt; Fold01 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt;  2 &lt;split [5116/569]&gt; Fold02 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt;  3 &lt;split [5116/569]&gt; Fold03 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt;  4 &lt;split [5116/569]&gt; Fold04 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt;  5 &lt;split [5116/569]&gt; Fold05 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt;  6 &lt;split [5117/568]&gt; Fold06 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt;  7 &lt;split [5117/568]&gt; Fold07 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt;  8 &lt;split [5117/568]&gt; Fold08 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt;  9 &lt;split [5117/568]&gt; Fold09 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;\n#&gt; 10 &lt;split [5117/568]&gt; Fold10 &lt;tibble [15 × 5]&gt; &lt;tibble [0 × 3]&gt;"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#compare-results",
+    "href": "slides/19-evaluation.html#compare-results",
+    "title": "Lecture 19",
+    "section": "Compare results",
+    "text": "Compare results\nInspecting results and selecting the best-performing hyperparameter(s):\n\nshow_best(rf_res)\n#&gt; # A tibble: 5 × 7\n#&gt;   min_n .metric .estimator  mean     n std_err .config             \n#&gt;   &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1    22 roc_auc binary     0.971    10 0.00199 Preprocessor1_Model5\n#&gt; 2    31 roc_auc binary     0.971    10 0.00204 Preprocessor1_Model2\n#&gt; 3    40 roc_auc binary     0.971    10 0.00197 Preprocessor1_Model1\n#&gt; 4     3 roc_auc binary     0.971    10 0.00193 Preprocessor1_Model3\n#&gt; 5    12 roc_auc binary     0.971    10 0.00205 Preprocessor1_Model4\n\nbest_parameter &lt;- select_best(rf_res)\nbest_parameter\n#&gt; # A tibble: 1 × 2\n#&gt;   min_n .config             \n#&gt;   &lt;int&gt; &lt;chr&gt;               \n#&gt; 1    22 Preprocessor1_Model5\n\ncollect_metrics() and autoplot() are also available."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#the-final-fit-1",
+    "href": "slides/19-evaluation.html#the-final-fit-1",
+    "title": "Lecture 19",
+    "section": "The final fit!",
+    "text": "The final fit!\n\ncollect_metrics(final_fit)\n#&gt; # A tibble: 2 × 4\n#&gt;   .metric .estimator .estimate .config             \n#&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               \n#&gt; 1 rmse    standard       0.391 Preprocessor1_Model1\n#&gt; 2 rsq     standard       0.918 Preprocessor1_Model1\n\ncollect_predictions(final_fit) |&gt; \n  ggplot(aes(.pred, logC)) +\n  geom_point() + \n  geom_abline() + \n  geom_smooth(method = \"lm\", se = FALSE)"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#previously---setup",
+    "href": "slides/19-evaluation.html#previously---setup",
+    "title": "Lecture 19",
+    "section": "Previously - Setup ",
+    "text": "Previously - Setup \n\nlibrary(tidyverse)\n# Ingest Data\n# URLs for COVID-19 case data and census population data\ncovid_url &lt;- 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv'\npop_url &lt;-  '/Users/mikejohnson/Downloads/co-est2023-alldata.csv'\n#pop_url   &lt;- 'https://www2.census.gov/programs-surveys/popest/datasets/2020-2023/counties/totals/co-est2023-alldata.csv'\n\n# Clean Census Data\ncensus = readr::read_csv(pop_url)  |&gt; \n  filter(COUNTY == \"000\") |&gt;  # Filter for state-level data only\n  mutate(fips = STATE) |&gt;      # Create a new FIPS column for merging\n  select(fips, contains(\"2021\"))  # Select relevant columns for 2021 data\n\n# Process COVID-19 Data\nstate_data &lt;-  readr::read_csv(covid_url) |&gt; \n  group_by(fips) |&gt; \n  mutate(\n    new_cases  = pmax(0, cases  - dplyr::lag(cases)),   # Compute new cases, ensuring no negative values\n    new_deaths = pmax(0, deaths - dplyr::lag(deaths))  # Compute new deaths, ensuring no negative values\n  ) |&gt; \n  ungroup() |&gt; \n  left_join(census, by = \"fips\") |&gt;  # Merge with census data\n  mutate(\n    m = month(date), y = year(date),\n    season = case_when(   # Define seasons based on month\n      m %in% 3:5 ~ \"Spring\",\n      m %in% 6:8 ~ \"Summer\",\n      m %in% 9:11 ~ \"Fall\",\n      m %in% c(12, 1, 2) ~ \"Winter\"\n    )\n  ) |&gt; \n  group_by(state, y, season) |&gt; \n  mutate(\n    season_cases  = sum(new_cases, na.rm = TRUE),  # Aggregate seasonal cases\n    season_deaths = sum(new_deaths, na.rm = TRUE)  # Aggregate seasonal deaths\n  )  |&gt; \n  distinct(state, y, season, .keep_all = TRUE) |&gt;  # Keep only distinct rows by state, year, season\n  ungroup() |&gt; \n  select(state, contains('season'), y, POPESTIMATE2021, BIRTHS2021, DEATHS2021) |&gt;  # Select relevant columns\n  drop_na() |&gt;  # Remove rows with missing values\n  mutate(logC = log(season_cases +1))  # Log-transform case numbers for modeling"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#previously---data-usage",
+    "href": "slides/19-evaluation.html#previously---data-usage",
+    "title": "Lecture 19",
+    "section": "Previously - Data Usage ",
+    "text": "Previously - Data Usage \n\nset.seed(4028)\nsplit &lt;- initial_split(state_data, prop = 0.8, strata = season)  # 80/20 train-test split\ntrain &lt;- training(split)  # Training set\ntest &lt;- testing(split)  # Test set\n\nset.seed(3045)\nfolds &lt;- vfold_cv(train, v = 10)  # 10-fold cross-validation"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#previously---feature-engineering",
+    "href": "slides/19-evaluation.html#previously---feature-engineering",
+    "title": "Lecture 19",
+    "section": "Previously - Feature engineering ",
+    "text": "Previously - Feature engineering \n\nrec = recipe(logC ~ . , data = train) |&gt; \n  step_rm(state, season_cases) |&gt;  # Remove non-predictive columns\n  step_dummy(all_nominal()) |&gt;  # Convert categorical variables to dummy variables\n  step_scale(all_numeric_predictors()) |&gt;  # Scale numeric predictors\n  step_center(all_numeric_predictors())"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#tuning-parameters-1",
+    "href": "slides/19-evaluation.html#tuning-parameters-1",
+    "title": "Lecture 19",
+    "section": "Tuning parameters",
+    "text": "Tuning parameters\nSome model or preprocessing parameters cannot be estimated directly from the data.\n\nSome examples:\n\nTree depth in decision trees\nNumber of neighbors in a K-nearest neighbor model"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#optimize-tuning-parameters-2",
+    "href": "slides/19-evaluation.html#optimize-tuning-parameters-2",
+    "title": "Lecture 19",
+    "section": "Optimize tuning parameters",
+    "text": "Optimize tuning parameters\n\nTry different values and measure their performance.\n\n\n\nFind good values for these parameters.\n\n\n\n\nOnce the value(s) of the parameter(s) are determined, a model can be finalized by fitting the model to the entire training set."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#tagging-parameters-for-tuning",
+    "href": "slides/19-evaluation.html#tagging-parameters-for-tuning",
+    "title": "Lecture 19",
+    "section": "Tagging parameters for tuning ",
+    "text": "Tagging parameters for tuning \nWith tidymodels, you can mark the parameters that you want to optimize with a value of tune().\n\nThe function itself just returns… itself:\n\ntune()\n#&gt; tune()\n\nstr(tune())\n#&gt;  language tune()\n\n# optionally add a label\ntune(\"Marker\")\n#&gt; tune(\"Marker\")"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#optimizing-the-hash-features",
+    "href": "slides/19-evaluation.html#optimizing-the-hash-features",
+    "title": "Lecture 19",
+    "section": "Optimizing the hash features   ",
+    "text": "Optimizing the hash features   \nOur new recipe is:\n\nhash_rec &lt;-\n  recipe(avg_price_per_room ~ ., data = hotel_train) |&gt;\n  step_YeoJohnson(lead_time) |&gt;\n  step_dummy_hash(agent,   num_terms = tune(\"agent hash\")) |&gt;\n  step_dummy_hash(company, num_terms = tune(\"company hash\")) |&gt;\n  step_zv(all_predictors())\n\n\nWe will be using a tree-based model in a minute.\n\nThe other categorical predictors are left as-is.\nThat’s why there is no step_dummy()."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#boosted-trees",
+    "href": "slides/19-evaluation.html#boosted-trees",
+    "title": "Lecture 19",
+    "section": "Boosted Trees",
+    "text": "Boosted Trees\nIn last weeks live demo, a boosted tree proved most effective.\nBoosted Trees are popular ensemble methods that build a sequence of tree models.\nEach tree uses the results of the previous tree to better predict samples, especially those that have been poorly predicted.\nEach tree in the ensemble is saved and new samples are predicted using a weighted average of the votes of each tree in the ensemble."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#boosted-tree-tuning-parameters",
+    "href": "slides/19-evaluation.html#boosted-tree-tuning-parameters",
+    "title": "Lecture 19",
+    "section": "Boosted Tree Tuning Parameters",
+    "text": "Boosted Tree Tuning Parameters\nSome possible parameters:\n\nmtry: The number of predictors randomly sampled at each split (in \\([1, ncol(x)]\\) or \\((0, 1]\\)).\ntrees: The number of trees (\\([1, \\infty]\\), but usually up to thousands)\nmin_n: The number of samples needed to further split (\\([1, n]\\)).\nlearn_rate: The rate that each tree adapts from previous iterations (\\((0, \\infty]\\), usual maximum is 0.1).\nstop_iter: The number of iterations of boosting where no improvement was shown before stopping (\\([1, trees]\\))"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#boosted-tree-tuning-parameters-1",
+    "href": "slides/19-evaluation.html#boosted-tree-tuning-parameters-1",
+    "title": "Lecture 19",
+    "section": "Boosted Tree Tuning Parameters  ",
+    "text": "Boosted Tree Tuning Parameters  \n\nb_mod &lt;- \n  boost_tree(trees = tune(), learn_rate = tune()) |&gt; \n  set_mode(\"regression\") |&gt; \n  set_engine(\"xgboost\")\n\n(b_wflow &lt;- workflow(rec, b_mod))\n#&gt; ══ Workflow ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n#&gt; Preprocessor: Recipe\n#&gt; Model: boost_tree()\n#&gt; \n#&gt; ── Preprocessor ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n#&gt; 4 Recipe Steps\n#&gt; \n#&gt; • step_rm()\n#&gt; • step_dummy()\n#&gt; • step_scale()\n#&gt; • step_center()\n#&gt; \n#&gt; ── Model ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n#&gt; Boosted Tree Model Specification (regression)\n#&gt; \n#&gt; Main Arguments:\n#&gt;   trees = tune()\n#&gt;   learn_rate = tune()\n#&gt; \n#&gt; Computational engine: xgboost"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#boosted-tree-tuning-parameters-2",
+    "href": "slides/19-evaluation.html#boosted-tree-tuning-parameters-2",
+    "title": "Lecture 19",
+    "section": "Boosted Tree Tuning Parameters   ",
+    "text": "Boosted Tree Tuning Parameters   \nWe’ll need to load the bonsai package. This has the information needed to use lightgbm\n\nb_mod &lt;- \n  boost_tree(trees = tune(), learn_rate = tune()) |&gt; \n  set_mode(\"regression\") |&gt; \n  set_engine(\"xgboost\")\n\n(b_wflow &lt;- workflow(rec, b_mod))\n#&gt; ══ Workflow ════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════\n#&gt; Preprocessor: Recipe\n#&gt; Model: boost_tree()\n#&gt; \n#&gt; ── Preprocessor ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n#&gt; 4 Recipe Steps\n#&gt; \n#&gt; • step_rm()\n#&gt; • step_dummy()\n#&gt; • step_scale()\n#&gt; • step_center()\n#&gt; \n#&gt; ── Model ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\n#&gt; Boosted Tree Model Specification (regression)\n#&gt; \n#&gt; Main Arguments:\n#&gt;   trees = tune()\n#&gt;   learn_rate = tune()\n#&gt; \n#&gt; Computational engine: xgboost"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#optimize-tuning-parameters-3",
+    "href": "slides/19-evaluation.html#optimize-tuning-parameters-3",
+    "title": "Lecture 19",
+    "section": "Optimize tuning parameters",
+    "text": "Optimize tuning parameters\nThe main two strategies for optimization are:\n\n\nGrid search 💠 which tests a pre-defined set of candidate values\nIterative search 🌀 which suggests/estimates new values of candidate parameters to evaluate"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#grid-search",
+    "href": "slides/19-evaluation.html#grid-search",
+    "title": "Lecture 19",
+    "section": "1. Grid search",
+    "text": "1. Grid search\n\nMost basic (but very effective) way to tune models\nA small grid of points trying to minimize the error via learning rate:"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#grid-search-1",
+    "href": "slides/19-evaluation.html#grid-search-1",
+    "title": "Lecture 19",
+    "section": "1. Grid search",
+    "text": "1. Grid search\nIn reality we would probably sample the space more densely:"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#iterative-search",
+    "href": "slides/19-evaluation.html#iterative-search",
+    "title": "Lecture 19",
+    "section": "2. Iterative Search",
+    "text": "2. Iterative Search\nWe could start with a few points and search the space:"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#parameters",
+    "href": "slides/19-evaluation.html#parameters",
+    "title": "Lecture 19",
+    "section": "Parameters",
+    "text": "Parameters\n\nThe tidymodels framework provides pre-defined information on tuning parameters (such as their type, range, transformations, etc).\nThe extract_parameter_set_dials() function extracts these tuning parameters and the info.\n\nGrids\n\nCreate your grid manually or automatically.\nThe grid_*() functions can make a grid."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#different-types-of-grids",
+    "href": "slides/19-evaluation.html#different-types-of-grids",
+    "title": "Lecture 19",
+    "section": "Different types of grids ",
+    "text": "Different types of grids \n\n\n\n\n\n\n\n\n\nSpace-filling designs (SFD) attempt to cover the parameter space without redundant candidates. We recommend these the most."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#create-a-grid",
+    "href": "slides/19-evaluation.html#create-a-grid",
+    "title": "Lecture 19",
+    "section": "Create a grid  ",
+    "text": "Create a grid  \n\n# Extac\n(b_wflow |&gt; \n  extract_parameter_set_dials())\n\n# Individual functions: \n(trees())\n(learn_rate())\n\n\nA parameter set can be updated (e.g. to change the ranges)."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#create-a-grid-1",
+    "href": "slides/19-evaluation.html#create-a-grid-1",
+    "title": "Lecture 19",
+    "section": "Create a grid  ",
+    "text": "Create a grid  \n\nThe grid_*() functions create a grid of parameter values to evaluate.\nThe grid_space_filling() function creates a space-filling design (SFD) of parameter values to evaluate.\nThe grid_regular() function creates a regular grid of parameter values to evaluate.\nThe grid_random() function creates a random grid of parameter values to evaluate.\nThe grid_latin_hypercube() function creates a Latin hypercube design of parameter values to evaluate.\nThe grid_max_entropy() function creates a maximum entropy design of parameter values to evaluate."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#create-a-regular-grid",
+    "href": "slides/19-evaluation.html#create-a-regular-grid",
+    "title": "Lecture 19",
+    "section": "Create a regular grid  ",
+    "text": "Create a regular grid  \n\nset.seed(12)\n\n(grid &lt;- \n  b_wflow |&gt; \n  extract_parameter_set_dials() |&gt; \n  grid_regular(levels = 4))\n#&gt; # A tibble: 16 × 2\n#&gt;    trees learn_rate\n#&gt;    &lt;int&gt;      &lt;dbl&gt;\n#&gt;  1     1    0.001  \n#&gt;  2   667    0.001  \n#&gt;  3  1333    0.001  \n#&gt;  4  2000    0.001  \n#&gt;  5     1    0.00681\n#&gt;  6   667    0.00681\n#&gt;  7  1333    0.00681\n#&gt;  8  2000    0.00681\n#&gt;  9     1    0.0464 \n#&gt; 10   667    0.0464 \n#&gt; 11  1333    0.0464 \n#&gt; 12  2000    0.0464 \n#&gt; 13     1    0.316  \n#&gt; 14   667    0.316  \n#&gt; 15  1333    0.316  \n#&gt; 16  2000    0.316"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#update-parameter-ranges",
+    "href": "slides/19-evaluation.html#update-parameter-ranges",
+    "title": "Lecture 19",
+    "section": "Update parameter ranges  ",
+    "text": "Update parameter ranges  \n\nb_param &lt;- \n  b_wflow |&gt; \n  extract_parameter_set_dials() |&gt; \n  update(trees = trees(c(1L, 100L)),\n         learn_rate = learn_rate(c(-5, -1)))\n\nset.seed(712)\n(grid &lt;- \n  b_param |&gt; \n  grid_space_filling(size = 25))\n#&gt; # A tibble: 25 × 2\n#&gt;    trees learn_rate\n#&gt;    &lt;int&gt;      &lt;dbl&gt;\n#&gt;  1     1  0.00215  \n#&gt;  2     5  0.000147 \n#&gt;  3     9  0.0215   \n#&gt;  4    13  0.0000215\n#&gt;  5    17  0.000681 \n#&gt;  6    21  0.00464  \n#&gt;  7    25  0.0464   \n#&gt;  8    29  0.0001   \n#&gt;  9    34  0.0000147\n#&gt; 10    38  0.001    \n#&gt; # ℹ 15 more rows"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#the-results",
+    "href": "slides/19-evaluation.html#the-results",
+    "title": "Lecture 19",
+    "section": "The results  ",
+    "text": "The results  \n\n\ngrid |&gt; \n  ggplot(aes(trees, learn_rate)) +\n  geom_point(size = 4) +\n  scale_y_log10()\n\n\n\n\n\n\n\n\n\nNote that the learning rates are uniform on the log-10 scale and this shows 2 of 4 dimensions."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#choosing-tuning-parameters",
+    "href": "slides/19-evaluation.html#choosing-tuning-parameters",
+    "title": "Lecture 19",
+    "section": "Choosing tuning parameters    ",
+    "text": "Choosing tuning parameters    \nLet’s take our previous model and tune more parameters:\n\nb_mod &lt;- \n  boost_tree(trees = tune(), learn_rate = tune(),  min_n = tune()) |&gt; \n  set_mode(\"regression\") |&gt; \n  set_engine(\"xgboost\")\n\nb_wflow &lt;- workflow(rec, b_mod)\n\n# Update the feature hash ranges (log-2 units)\nb_param &lt;-\n  b_wflow |&gt;\n  extract_parameter_set_dials() |&gt;\n  update(trees = trees(c(1L, 1000L)))"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#grid-search-3",
+    "href": "slides/19-evaluation.html#grid-search-3",
+    "title": "Lecture 19",
+    "section": "Grid Search   ",
+    "text": "Grid Search   \n\nb_res \n#&gt; # Tuning results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 5\n#&gt;    splits           id     .metrics          .notes           .predictions        \n#&gt;    &lt;list&gt;           &lt;chr&gt;  &lt;list&gt;            &lt;list&gt;           &lt;list&gt;              \n#&gt;  1 &lt;split [513/57]&gt; Fold01 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  2 &lt;split [513/57]&gt; Fold02 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  3 &lt;split [513/57]&gt; Fold03 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  4 &lt;split [513/57]&gt; Fold04 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  5 &lt;split [513/57]&gt; Fold05 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  6 &lt;split [513/57]&gt; Fold06 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  7 &lt;split [513/57]&gt; Fold07 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  8 &lt;split [513/57]&gt; Fold08 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  9 &lt;split [513/57]&gt; Fold09 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt; 10 &lt;split [513/57]&gt; Fold10 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#grid-search-4",
+    "href": "slides/19-evaluation.html#grid-search-4",
+    "title": "Lecture 19",
+    "section": "Grid Search   ",
+    "text": "Grid Search   \n\nb_res \n#&gt; # Tuning results\n#&gt; # 10-fold cross-validation \n#&gt; # A tibble: 10 × 5\n#&gt;    splits           id     .metrics          .notes           .predictions        \n#&gt;    &lt;list&gt;           &lt;chr&gt;  &lt;list&gt;            &lt;list&gt;           &lt;list&gt;              \n#&gt;  1 &lt;split [513/57]&gt; Fold01 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  2 &lt;split [513/57]&gt; Fold02 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  3 &lt;split [513/57]&gt; Fold03 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  4 &lt;split [513/57]&gt; Fold04 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  5 &lt;split [513/57]&gt; Fold05 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  6 &lt;split [513/57]&gt; Fold06 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  7 &lt;split [513/57]&gt; Fold07 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  8 &lt;split [513/57]&gt; Fold08 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt;  9 &lt;split [513/57]&gt; Fold09 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;\n#&gt; 10 &lt;split [513/57]&gt; Fold10 &lt;tibble [25 × 7]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble [1,425 × 7]&gt;"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#grid-results",
+    "href": "slides/19-evaluation.html#grid-results",
+    "title": "Lecture 19",
+    "section": "Grid results ",
+    "text": "Grid results \n\nautoplot(b_res)"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#tuning-results",
+    "href": "slides/19-evaluation.html#tuning-results",
+    "title": "Lecture 19",
+    "section": "Tuning results ",
+    "text": "Tuning results \n\ncollect_metrics(b_res)\n#&gt; # A tibble: 25 × 9\n#&gt;    trees min_n learn_rate .metric .estimator  mean     n std_err .config              \n#&gt;    &lt;int&gt; &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                \n#&gt;  1   458     2    0.00422 mae     standard   1.54     10  0.0259 Preprocessor1_Model01\n#&gt;  2   417     3    0.0590  mae     standard   0.347    10  0.0143 Preprocessor1_Model02\n#&gt;  3   833     5    0.0226  mae     standard   0.333    10  0.0133 Preprocessor1_Model03\n#&gt;  4   125     6    0.00536 mae     standard   5.34     10  0.0476 Preprocessor1_Model04\n#&gt;  5   708     8    0.196   mae     standard   0.359    10  0.0120 Preprocessor1_Model05\n#&gt;  6   791     9    0.00205 mae     standard   2.08     10  0.0300 Preprocessor1_Model06\n#&gt;  7    84    11    0.0464  mae     standard   0.405    10  0.0186 Preprocessor1_Model07\n#&gt;  8   250    13    0.316   mae     standard   0.356    10  0.0133 Preprocessor1_Model08\n#&gt;  9   292    14    0.00127 mae     standard   7.20     10  0.0562 Preprocessor1_Model09\n#&gt; 10   583    16    0.0110  mae     standard   0.353    10  0.0153 Preprocessor1_Model10\n#&gt; # ℹ 15 more rows"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#tuning-results-1",
+    "href": "slides/19-evaluation.html#tuning-results-1",
+    "title": "Lecture 19",
+    "section": "Tuning results ",
+    "text": "Tuning results \n\ncollect_metrics(lgbm_res, summarize = FALSE)\n#&gt; # A tibble: 500 × 10\n#&gt;    id     trees min_n    learn_rate `agent hash` `company hash` .metric .estimator .estimate .config              \n#&gt;    &lt;chr&gt;  &lt;int&gt; &lt;int&gt;         &lt;dbl&gt;        &lt;int&gt;          &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;                \n#&gt;  1 Fold01     1    17 0.00000000133           93             25 mae     standard      51.8   Preprocessor01_Model1\n#&gt;  2 Fold01     1    17 0.00000000133           93             25 rsq     standard       0.821 Preprocessor01_Model1\n#&gt;  3 Fold02     1    17 0.00000000133           93             25 mae     standard      52.1   Preprocessor01_Model1\n#&gt;  4 Fold02     1    17 0.00000000133           93             25 rsq     standard       0.810 Preprocessor01_Model1\n#&gt;  5 Fold03     1    17 0.00000000133           93             25 mae     standard      52.2   Preprocessor01_Model1\n#&gt;  6 Fold03     1    17 0.00000000133           93             25 rsq     standard       0.783 Preprocessor01_Model1\n#&gt;  7 Fold04     1    17 0.00000000133           93             25 mae     standard      51.7   Preprocessor01_Model1\n#&gt;  8 Fold04     1    17 0.00000000133           93             25 rsq     standard       0.815 Preprocessor01_Model1\n#&gt;  9 Fold05     1    17 0.00000000133           93             25 mae     standard      55.2   Preprocessor01_Model1\n#&gt; 10 Fold05     1    17 0.00000000133           93             25 rsq     standard       0.847 Preprocessor01_Model1\n#&gt; # ℹ 490 more rows"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#choose-a-parameter-combination",
+    "href": "slides/19-evaluation.html#choose-a-parameter-combination",
+    "title": "Lecture 19",
+    "section": "Choose a parameter combination ",
+    "text": "Choose a parameter combination \n\nshow_best(b_res, metric = \"mae\")\n#&gt; # A tibble: 5 × 9\n#&gt;   trees min_n learn_rate .metric .estimator  mean     n std_err .config              \n#&gt;   &lt;int&gt; &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                \n#&gt; 1   833     5     0.0226 mae     standard   0.333    10  0.0133 Preprocessor1_Model03\n#&gt; 2   542    21     0.121  mae     standard   0.342    10  0.0146 Preprocessor1_Model13\n#&gt; 3   958    17     0.0750 mae     standard   0.344    10  0.0130 Preprocessor1_Model11\n#&gt; 4   750    30     0.249  mae     standard   0.346    10  0.0123 Preprocessor1_Model19\n#&gt; 5   417     3     0.0590 mae     standard   0.347    10  0.0143 Preprocessor1_Model02"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#choose-a-parameter-combination-1",
+    "href": "slides/19-evaluation.html#choose-a-parameter-combination-1",
+    "title": "Lecture 19",
+    "section": "Choose a parameter combination ",
+    "text": "Choose a parameter combination \nCreate your own tibble for final parameters or use one of the tune::select_*() functions:\n\n(b_best &lt;- select_best(b_res, metric = \"mae\"))\n#&gt; # A tibble: 1 × 4\n#&gt;   trees min_n learn_rate .config              \n#&gt;   &lt;int&gt; &lt;int&gt;      &lt;dbl&gt; &lt;chr&gt;                \n#&gt; 1   833     5     0.0226 Preprocessor1_Model03"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#checking-calibration",
+    "href": "slides/19-evaluation.html#checking-calibration",
+    "title": "Lecture 19",
+    "section": "Checking Calibration  ",
+    "text": "Checking Calibration  \n\n\nlibrary(probably)\n\nb_res |&gt;\n  collect_predictions(\n    parameters = b_best\n  ) |&gt;\n  cal_plot_regression(\n    truth = logC,\n    estimate = .pred\n  )"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#recaping-day-1---4",
+    "href": "slides/19-evaluation.html#recaping-day-1---4",
+    "title": "Lecture 19",
+    "section": "Recaping Day 1 - 4",
+    "text": "Recaping Day 1 - 4\n\nlibrary(tidymodels)\nlibrary(forested)\n\n# Set a seed\nset.seed(123)\n\n# IntitalizeInitialize Split\nforested_split &lt;- initial_split(forested, prop = 0.8)\nforested_train &lt;- training(forested_split)\nforested_test  &lt;- testing(forested_split)\n\n# Build Resamples\nforested_folds &lt;- vfold_cv(forested_train, v = 10)\n\n# Set a model specification with mode (default engine)\ndt_mod         &lt;- decision_tree(cost_complexity = 0.0001, mode = \"classification\")\n\n# Bare bones workflow & fit\nforested_wflow &lt;- workflow(forested ~ ., dt_mod)\nforested_fit   &lt;- fit(forested_wflow, forested_train)\n\n# Extracting Predictions:\naugment(forested_fit, new_data = forested_train)\n#&gt; # A tibble: 5,685 × 22\n#&gt;    .pred_class .pred_Yes .pred_No forested  year elevation eastness northness\n#&gt;    &lt;fct&gt;           &lt;dbl&gt;    &lt;dbl&gt; &lt;fct&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n#&gt;  1 No             0.0114   0.989  No        2016       464       -5       -99\n#&gt;  2 Yes            0.636    0.364  Yes       2016       166       92        37\n#&gt;  3 No             0.0114   0.989  No        2016       644      -85       -52\n#&gt;  4 Yes            0.977    0.0226 Yes       2014      1285        4        99\n#&gt;  5 Yes            0.977    0.0226 Yes       2013       822       87        48\n#&gt;  6 Yes            0.808    0.192  Yes       2017         3        6       -99\n#&gt;  7 Yes            0.977    0.0226 Yes       2014      2041      -95        28\n#&gt;  8 Yes            0.977    0.0226 Yes       2015      1009       -8        99\n#&gt;  9 No             0.0114   0.989  No        2017       436      -98        19\n#&gt; 10 No             0.0114   0.989  No        2018       775       63        76\n#&gt; # ℹ 5,675 more rows\n#&gt; # ℹ 14 more variables: roughness &lt;dbl&gt;, tree_no_tree &lt;fct&gt;, dew_temp &lt;dbl&gt;,\n#&gt; #   precip_annual &lt;dbl&gt;, temp_annual_mean &lt;dbl&gt;, temp_annual_min &lt;dbl&gt;,\n#&gt; #   temp_annual_max &lt;dbl&gt;, temp_january_min &lt;dbl&gt;, vapor_min &lt;dbl&gt;,\n#&gt; #   vapor_max &lt;dbl&gt;, canopy_cover &lt;dbl&gt;, lon &lt;dbl&gt;, lat &lt;dbl&gt;, land_type &lt;fct&gt;"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#evaluation",
+    "href": "slides/19-evaluation.html#evaluation",
+    "title": "Lecture 19",
+    "section": "Evaluation",
+    "text": "Evaluation\n\nSo far we have used metrics and collect_metrics to evaluate and compare models\nThe default metrics for classification problems are: accuracy, brier_score, roc_auc\n\nAll classification metrics stem from the classic confusion matrix\n\n\n\n\nThe default metrics for regression problems are: rsq, rmse, mae\n\nThe majority of these are measures of correlation and residual error"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#accuracy",
+    "href": "slides/19-evaluation.html#accuracy",
+    "title": "Lecture 19",
+    "section": "1. Accuracy ",
+    "text": "1. Accuracy \n\nAccuracy is the proportion of true results (both true positives and true negatives) among the total number of cases examined.\nIt is a measure of the correctness of the model’s predictions.\nIt is the most common metric used to evaluate classification models.\n\n\n\n\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  accuracy(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric  .estimator .estimate\n#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy binary         0.944"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#sensitivity",
+    "href": "slides/19-evaluation.html#sensitivity",
+    "title": "Lecture 19",
+    "section": "2. Sensitivity ",
+    "text": "2. Sensitivity \n\nSensitivity is the proportion of true positives to the sum of true positives and false negatives.\nIt is useful for identifying the presence of a condition.\nIt is also known as the true positive rate, recall, or probability of detection.\n\n\n\n\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  sensitivity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 sensitivity binary         0.954"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#specificity",
+    "href": "slides/19-evaluation.html#specificity",
+    "title": "Lecture 19",
+    "section": "3. Specificity ",
+    "text": "3. Specificity \n\nSpecificity is the proportion of true negatives to the sum of true negatives and false positives.\nIt is useful for identifying the absence of a condition.\nIt is also known as the true negative rate, and is the complement of sensitivity.\n\n\n\n\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  sensitivity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 sensitivity binary         0.954\n\n\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  specificity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 1 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 specificity binary         0.931"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#metrics-selection-model-performance",
+    "href": "slides/19-evaluation.html#metrics-selection-model-performance",
+    "title": "Lecture 19",
+    "section": "Metrics Selection model performance ",
+    "text": "Metrics Selection model performance \nWe can use metric_set() to combine multiple calculations into one\n\nforested_metrics &lt;- metric_set(accuracy, specificity, sensitivity)\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  forested_metrics(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 3 × 3\n#&gt;   .metric     .estimator .estimate\n#&gt;   &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 accuracy    binary         0.944\n#&gt; 2 specificity binary         0.931\n#&gt; 3 sensitivity binary         0.954\n\n\nMetrics and metric sets work with grouped data frames!\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  group_by(tree_no_tree) |&gt;\n  accuracy(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 4\n#&gt;   tree_no_tree .metric  .estimator .estimate\n#&gt;   &lt;fct&gt;        &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 Tree         accuracy binary         0.946\n#&gt; 2 No tree      accuracy binary         0.941\n\naugment(forested_fit, new_data = forested_train) |&gt;\n  group_by(tree_no_tree) |&gt;\n  specificity(truth = forested, estimate = .pred_class)\n#&gt; # A tibble: 2 × 4\n#&gt;   tree_no_tree .metric     .estimator .estimate\n#&gt;   &lt;fct&gt;        &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n#&gt; 1 Tree         specificity binary         0.582\n#&gt; 2 No tree      specificity binary         0.974\n\n\n\n\n\n\n\nNote\n\n\nThe specificity for \"Tree\" is a good bit lower than it is for \"No tree\".\nSo, when this index classifies the plot as having a tree, the model does not do well at correctly identifying the plot as non-forested when it is indeed non-forested."
+  },
+  {
+    "objectID": "slides/19-evaluation.html#create-a-sfd-curve",
+    "href": "slides/19-evaluation.html#create-a-sfd-curve",
+    "title": "Lecture 19",
+    "section": "Create a SFD curve  ",
+    "text": "Create a SFD curve  \n\nset.seed(12)\n\n(grid &lt;- \n  b_wflow |&gt; \n  extract_parameter_set_dials() |&gt; \n  grid_space_filling(size = 25))\n#&gt; # A tibble: 25 × 2\n#&gt;    trees learn_rate\n#&gt;    &lt;int&gt;      &lt;dbl&gt;\n#&gt;  1     1    0.0287 \n#&gt;  2    84    0.00536\n#&gt;  3   167    0.121  \n#&gt;  4   250    0.00162\n#&gt;  5   334    0.0140 \n#&gt;  6   417    0.0464 \n#&gt;  7   500    0.196  \n#&gt;  8   584    0.00422\n#&gt;  9   667    0.00127\n#&gt; 10   750    0.0178 \n#&gt; # ℹ 15 more rows"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#grid-search-2",
+    "href": "slides/19-evaluation.html#grid-search-2",
+    "title": "Lecture 19",
+    "section": "Grid Search   ",
+    "text": "Grid Search   \n\nset.seed(9)\nctrl &lt;- control_grid(save_pred = TRUE)\n\nb_res &lt;-\n  b_wflow |&gt;\n  tune_grid(\n    resamples = folds,\n    grid = 25,\n    # The options below are not required by default\n    param_info = b_param, \n    control = ctrl,\n    metrics = metric_set(mae)\n  )\n\n\n\ntune_grid() is representative of tuning function syntax\nsimilar to fit_resamples()"
+  },
+  {
+    "objectID": "slides/19-evaluation.html#assignment",
+    "href": "slides/19-evaluation.html#assignment",
+    "title": "Lecture 19",
+    "section": "Assignment",
+    "text": "Assignment\nStarting with the “Whole Game Image” on the last slide, in plain language, write a sentence or 2 about each step and item, its importance, and note key things to be careful of. The full submission should be a 2-3 paragraph narative of the entire process, including the final model fit and performance."
   }
 ]
