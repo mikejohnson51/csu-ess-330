@@ -206,6 +206,7 @@ ggplot(full_pred, aes(x = .pred, y = logC, color = as.factor(y))) +
        y = "Actual (Log10)")
 
 ### ---- Streamlined Version ---- ####
+
 wf_tune <- workflow(rec, 
                     boost_tree(mode       = "regression", 
                                engine     = "lightgbm", 
