@@ -1621,7 +1621,7 @@
     "href": "schedule.html#component-4-geospatial",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 4: Geospatial",
-    "text": "Component 4: Geospatial\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\n\n\n\n\n\n Lecture 21 (w13): Timeseries\n Lecture 22 (w13): Feature Geometries\n Lecture 23 (w14): Raster Data Introduction\n Lecture 24 (w14): Projections\n Lecture 25 (w15): Measures & Predicates\n Lecture 26 (w15): Raster Data Manipulation\n Lecture 27 (w16): Categorization\n Lecture 28 (w16): Wrap up\n\nExercise 21:\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
+    "text": "Component 4: Geospatial\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries & CRS\n Lecture 24 (w14): Raster Data Introduction\n Lecture 25 (w15): Measures & Predicates\n Lecture 26 (w15): Raster Data Manipulation\n Lecture 27 (w16): ggplot deep dive\n Lecture 28 (w16): Wrap up\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
   },
   {
     "objectID": "labs/lab2.html#key-features-of-dplyr",
@@ -11554,28 +11554,28 @@
     "href": "slides/21-timeseries.html#what-is-time-series-data",
     "title": "Lecture 21",
     "section": "What is Time Series Data?",
-    "text": "What is Time Series Data?\nTime series data is a collection of observations recorded sequentially over time. Unlike other data types, time series data is ordered, and that order carries critical information.\nExamples:\n\nStreamflow measurements (e.g., daily CFS at a USGS gage)\nAtmospheric CO₂ levels (e.g., Mauna Loa Observatory)\nSnowpack depth over time\nSatellite-derived NDVI (vegetation greenness)\nUrban water consumption by month\n\nWhy Time Series Matter\nTime series analysis helps us:\n\nUnderstand trends and patterns\nDetect anomalies (e.g., droughts, sensor failures)\nForecast future values (e.g., streamflow, temperature)\nInform decision-making (e.g., water release schedules, drought planning)"
+    "text": "What is Time Series Data?\nTime series data is a collection of observations recorded sequentially over time. Unlike other data types, time series data is ordered, and that order carries critical information.\nExamples:\n\nStreamflow measurements (e.g., daily CFS at a USGS gage)\nAtmospheric CO₂ levels (e.g., Mauna Loa Observatory)\nSnowpack depth over time\nUrban water consumption by month\n\nWhy Time Series Matter\nTime series analysis helps us:\n\nUnderstand trends and patterns\nDetect anomalies (e.g., droughts, sensor failures)\nForecast future values (e.g., streamflow, temperature)"
   },
   {
     "objectID": "slides/21-timeseries.html#working-with-date-objects-in-r",
     "href": "slides/21-timeseries.html#working-with-date-objects-in-r",
     "title": "Lecture 21",
     "section": "Working with Date Objects in R",
-    "text": "Working with Date Objects in R\n\nTime series analysis depends on accurate and well-formatted date/time information.\nBefore we can analyis time series data, we need to understand how R handles dates and times. R has built-in classes for date and time objects, which are essential for time series analysis."
+    "text": "Working with Date Objects in R\n\nTime series analysis depends on accurate and well-formatted date/time information.\nBefore we can analyis time series data, we need to understand how R handles dates and times.\nR has built-in classes for date and time objects, which are essential for time series analysis."
   },
   {
     "objectID": "slides/21-timeseries.html#key-concepts-in-time-series",
     "href": "slides/21-timeseries.html#key-concepts-in-time-series",
     "title": "Lecture 21",
     "section": "Key Concepts in Time Series",
-    "text": "Key Concepts in Time Series\n\nTrend: Long-term increase or decrease in the data\nSeasonality: Repeating short-term cycle (e.g., annual snowmelt)\nNoise: Random variation\nStationarity: Statistical properties (mean, variance) don’t change over time"
+    "text": "Key Concepts in Time Series\n\n1. Trend: Long-term increase or decrease in the data\n2. Seasonality: Repeating short-term cycle (e.g., annual snowmelt)\n3. Noise: Random variation\n4. Stationarity: Statistical properties (mean, variance) don’t change over time\n5. Autocorrelation: Correlation of a time series with its own past values"
   },
   {
     "objectID": "slides/21-timeseries.html#r-packages-for-time-series",
     "href": "slides/21-timeseries.html#r-packages-for-time-series",
     "title": "Lecture 21",
     "section": "R Packages for Time Series",
-    "text": "R Packages for Time Series\nR has several packages/systme for time series analysis, including: - ts: Base R time series class - lubridate: Simplifies date-time manipulation - zoo: Provides a flexible class for ordered observations - xts: Extensible time series class for irregularly spaced data - forecast: Functions for forecasting time series data - tsibble: Tidy time series data frames - feasts: Functions for time series analysis and visualization - modeltime: Time series modeling with tidymodels - lubridate: Simplifies date-time manipulation\n\nlibrary(tidyverse)\nlibrary(zoo)\nlibrary(xts)\nlibrary(forecast)\nlibrary(tsibble)\nlibrary(feasts)"
+    "text": "R Packages for Time Series\nR has several packages/systme for time series analysis, including:\n\nts: Base R time series class\nzoo: Provides a flexible class for ordered observations\nxts: Extensible time series class for irregularly spaced data\nforecast: Functions for forecasting time series data\ntsibble: Tidy time series data frames\nfeasts: Functions for time series analysis and visualization\nmodeltime: Time series modeling with tidymodels\n\n\nlibrary(tidyverse)\nlibrary(zoo)\nlibrary(tsibble)\nlibrary(feasts)"
   },
   {
     "objectID": "slides/21-timeseries.html#introducing-the-mauna-loa-co₂-dataset",
@@ -11589,14 +11589,14 @@
     "href": "slides/21-timeseries.html#understanding-ts-objects",
     "title": "Lecture 21",
     "section": "Understanding ts Objects",
-    "text": "Understanding ts Objects\nYou can think of ts objects as numeric vectors with time attributes. - ts objects are created using the ts() function. - They have attributes like start, end, and frequency that define the time index. - start and end define the time range of the data. - frequency defines the number of observations per unit of time (e.g., 12 for monthly data).\n\nclass(co2)        # \"ts\"\n#&gt; [1] \"ts\"\nstart(co2)        # 1959 1\n#&gt; [1] 1959    1\nend(co2)          # 1997 12\n#&gt; [1] 1997   12\nfrequency(co2)    # 12 (monthly)\n#&gt; [1] 12\n\nSubsetting and Plotting\nLike vectors, you can subset ts objects using indexing. For example, to extract the first year of data:\n\nco2[1:12]  # First year\n#&gt;  [1] 315.42 316.31 316.50 317.56 318.13 318.00 316.39 314.65 313.68 313.18\n#&gt; [11] 314.66 315.43\n\nOr, a specific range of years:\n\nwindow(co2, start = c(1990, 1), end = c(1995, 12))\n#&gt;         Jan    Feb    Mar    Apr    May    Jun    Jul    Aug    Sep    Oct\n#&gt; 1990 353.50 354.55 355.23 356.04 357.00 356.07 354.67 352.76 350.82 351.04\n#&gt; 1991 354.59 355.63 357.03 358.48 359.22 358.12 356.06 353.92 352.05 352.11\n#&gt; 1992 355.88 356.63 357.72 359.07 359.58 359.17 356.94 354.92 352.94 353.23\n#&gt; 1993 356.63 357.10 358.32 359.41 360.23 359.55 357.53 355.48 353.67 353.95\n#&gt; 1994 358.34 358.89 359.95 361.25 361.67 360.94 359.55 357.49 355.84 356.00\n#&gt; 1995 359.98 361.03 361.66 363.48 363.82 363.30 361.94 359.50 358.11 357.80\n#&gt;         Nov    Dec\n#&gt; 1990 352.69 354.07\n#&gt; 1991 353.64 354.89\n#&gt; 1992 354.09 355.33\n#&gt; 1993 355.30 356.78\n#&gt; 1994 357.59 359.05\n#&gt; 1995 359.61 360.74"
+    "text": "Understanding ts Objects\nYou can think of ts objects as numeric vectors with time attributes.\n\nts objects are used to represent time series data and are created using the ts() function.\nThey have attributes like start, end, and frequency that define the time index.\nstart and end define the time range of the data.\nfrequency defines the number of observations per unit of time (e.g., 12 for monthly data).\n\n\nclass(co2)    \n#&gt; [1] \"ts\"\nstart(co2)    \n#&gt; [1] 1959    1\nend(co2)      \n#&gt; [1] 1997   12\nfrequency(co2)\n#&gt; [1] 12"
   },
   {
     "objectID": "slides/21-timeseries.html#decomposing-a-time-series",
     "href": "slides/21-timeseries.html#decomposing-a-time-series",
     "title": "Lecture 21",
     "section": "Decomposing a Time Series",
-    "text": "Decomposing a Time Series\n\nDecomposition is a technique to separate a time series into its components: trend, seasonality, and residuals.\n\nThis helps separate structure from noise. In environmental science, this is useful for:\n\nRemoving seasonality to study droughts\nAnalyzing long-term trends\nUnderstanding seasonal patterns in streamflow\nIdentifying anomalies in water quality data\nDetecting changes in vegetation phenology\nMonitoring seasonal patterns in temperature\nAnalyzing seasonal patterns in water demand\n…"
+    "text": "Decomposing a Time Series\n\nDecomposition is a technique to separate a time series into its components: trend, seasonality, and residuals.\nThis helps separate structure from noise.\nIn environmental science, this is useful for:\nRemoving seasonality to study droughts\nAnalyzing long-term trends\nUnderstanding seasonal patterns in streamflow\nIdentifying anomalies in water quality data\nDetecting changes in vegetation phenology\nMonitoring seasonal patterns in temperature\nAnalyzing seasonal patterns in water demand\n…"
   },
   {
     "objectID": "slides/21-timeseries.html#moving-average-smoothing",
@@ -11624,7 +11624,7 @@
     "href": "slides/21-timeseries.html#forecasting-with-arima",
     "title": "Lecture 21",
     "section": "Forecasting with ARIMA",
-    "text": "Forecasting with ARIMA\n\nco2_arima &lt;- auto.arima(co2)\nsummary(co2_arima)\n#&gt; Series: co2 \n#&gt; ARIMA(1,1,1)(1,1,2)[12] \n#&gt; \n#&gt; Coefficients:\n#&gt;          ar1      ma1     sar1     sma1     sma2\n#&gt;       0.2569  -0.5847  -0.5489  -0.2620  -0.5123\n#&gt; s.e.  0.1406   0.1204   0.5880   0.5701   0.4819\n#&gt; \n#&gt; sigma^2 = 0.08576:  log likelihood = -84.39\n#&gt; AIC=180.78   AICc=180.97   BIC=205.5\n#&gt; \n#&gt; Training set error measures:\n#&gt;                      ME     RMSE       MAE         MPE       MAPE      MASE\n#&gt; Training set 0.01742092 0.287159 0.2303994 0.005073769 0.06845665 0.1819636\n#&gt;                      ACF1\n#&gt; Training set -0.002858162\nco2_forecast &lt;- forecast(co2_arima, h = 60)\nplot(co2_forecast)\n\n\nARIMA modeling works well when data is stationary. The auto.arima function selects the best parameters (p,d,q).\nUse case in water science:\n\nForecasting reservoir inflow volumes\nEstimating snowmelt runoff"
+    "text": "Forecasting with ARIMA\n\nco2_arima &lt;- auto.arima(co2)\n\nsummary(co2_arima)\n#&gt; Series: co2 \n#&gt; ARIMA(1,1,1)(1,1,2)[12] \n#&gt; \n#&gt; Coefficients:\n#&gt;          ar1      ma1     sar1     sma1     sma2\n#&gt;       0.2569  -0.5847  -0.5489  -0.2620  -0.5123\n#&gt; s.e.  0.1406   0.1204   0.5880   0.5701   0.4819\n#&gt; \n#&gt; sigma^2 = 0.08576:  log likelihood = -84.39\n#&gt; AIC=180.78   AICc=180.97   BIC=205.5\n#&gt; \n#&gt; Training set error measures:\n#&gt;                      ME     RMSE       MAE         MPE       MAPE      MASE\n#&gt; Training set 0.01742092 0.287159 0.2303994 0.005073769 0.06845665 0.1819636\n#&gt;                      ACF1\n#&gt; Training set -0.002858162"
   },
   {
     "objectID": "slides/21-timeseries.html#xts-and-zoo-flexible-time-indexing",
@@ -11645,14 +11645,14 @@
     "href": "slides/21-timeseries.html#advanced-visualization-with-feasts",
     "title": "Lecture 21",
     "section": "Advanced Visualization with feasts",
-    "text": "Advanced Visualization with feasts\n\nfeasts provides tools for time series analysis\ncomponents(), gg_season(), gg_subseries()\ngg_lag(), gg_tsresiduals()\n\n\nco2_tbl %&gt;% \n  mutate(date = yearmonth(date)) %&gt;%\n  model(STL(value ~ season(window = 12))) %&gt;% \n  components() %&gt;% \n  autoplot()\n\n\nThe STL() method is powerful for seasonal decomposition and works with irregular time steps."
+    "text": "Advanced Visualization with feasts\n\nfeasts provides tools for time series analysis\ncomponents(), gg_season(), gg_subseries()\ngg_lag(), gg_tsresiduals()\n\n\nco2_tbl |&gt; \n  mutate(date = yearmonth(date)) |&gt;\n  model(STL(value ~ season(window = 12))) |&gt; \n  components() |&gt; \n  autoplot()\n\n\nThe STL() method is powerful for seasonal decomposition and works with irregular time steps."
   },
   {
     "objectID": "slides/21-timeseries.html#modeltime-and-tidymodels-integration",
     "href": "slides/21-timeseries.html#modeltime-and-tidymodels-integration",
     "title": "Lecture 21",
-    "section": "Modeltime and Tidymodels Integration",
-    "text": "Modeltime and Tidymodels Integration\nmodeltime brings tidy workflows to time series forecasting using the parsnip and workflows frameworks from tidymodels.\n\nlibrary(modeltime)\nlibrary(tidymodels)\nlibrary(timetk)\nlibrary(lubridate)"
+    "section": "Modeltime and Tidymodels Integration ",
+    "text": "Modeltime and Tidymodels Integration \nmodeltime brings tidy workflows to time series forecasting using the parsnip and workflows frameworks from tidymodels.\n\nlibrary(modeltime)\nlibrary(tidymodels)\nlibrary(timetk)"
   },
   {
     "objectID": "slides/21-timeseries.html#applications-in-environmental-data-science",
@@ -11666,63 +11666,63 @@
     "href": "slides/21-timeseries.html#summary-and-takeaways",
     "title": "Lecture 21",
     "section": "Summary and Takeaways",
-    "text": "Summary and Takeaways\n\nTime series data is sequential and ordered — time is essential\nUse ts, zoo, xts for classic or irregular data\nUse tsibble, feasts, and fable for tidy workflows\nLearn to decompose, smooth, and forecast\nEnvironmental science is rich with time series applications\nlubridate simplifies handling and extracting date-time features"
+    "text": "Summary and Takeaways\n\nEnvironmental science is rich with time series applications\nTime series data is sequential and ordered\nlubridate simplifies handling and extracting date-time features\nUse ts, zoo, xts for classic or irregular data\nUse tsibble, feasts, and fable for tidy workflows\nLearn to decompose, smooth, and forecast\nUse modeltime for advanced modeling and forecasting"
   },
   {
     "objectID": "slides/21-timeseries.html#bonus-interactive-plotting",
     "href": "slides/21-timeseries.html#bonus-interactive-plotting",
     "title": "Lecture 21",
     "section": "Bonus: Interactive Plotting",
-    "text": "Bonus: Interactive Plotting\nYou can use the plotly package to add interactivity to your time series plots:\n\nlibrary(plotly)\n\nco2_plot &lt;- co2_tbl %&gt;%\n  ggplot(aes(x = date, y = value)) +\n  geom_line(color = \"steelblue\") +\n  labs(title = \"Interactive CO₂ Time Series\", x = \"Date\", y = \"ppm\")\n\nggplotly(co2_plot)"
+    "text": "Bonus: Interactive Plotting\n\nIn last weeks demo, we used plotly to generate an interactive plot of the hyperparameter tuning process.\nYou can use the plotly package to add interactivity to your ggplots directly with ggplotly()!\n\n\nlibrary(plotly)\n\nco2_plot &lt;- co2_tbl |&gt;\n  autoplot() +\n  geom_line(color = \"steelblue\") +\n  labs(title = \"Interactive CO₂ Time Series\", x = \"Date\", y = \"ppm\")\n\nggplotly(co2_plot)"
   },
   {
     "objectID": "slides/21-timeseries.html#base-r-date-functions",
     "href": "slides/21-timeseries.html#base-r-date-functions",
     "title": "Lecture 21",
     "section": "Base R Date Functions",
-    "text": "Base R Date Functions\nR has several native classes for handling dates and times:\n\nDate: Date object\nPOSIXct: Date and time\nPOSIXlt: List of date and time components\n\n\nas.Date(\"2024-04-08\")\n#&gt; [1] \"2024-04-08\"\nas.POSIXct(\"2024-04-08 14:30:00\")\n#&gt; [1] \"2024-04-08 14:30:00 MDT\"\nas.POSIXlt(\"2024-04-08 14:30:00\") \n#&gt; [1] \"2024-04-08 14:30:00 MDT\"\nSys.Date()\n#&gt; [1] \"2025-04-08\"\nSys.time()\n#&gt; [1] \"2025-04-08 17:06:24 MDT\""
+    "text": "Base R Date Functions\nR has several native classes for handling dates and times:\n\nDate: Date object\n\n\nas.Date(\"2024-04-08\")\n#&gt; [1] \"2024-04-08\"\n\n\nPOSIXct: Date and time\n\n\nas.POSIXct(\"2024-04-08 14:30:00\")\n#&gt; [1] \"2024-04-08 14:30:00 MDT\"\n\n\nPOSIXlt: List of date and time components\n\n\n(lt &lt;- as.POSIXlt(\"2024-04-08 14:30:00\"))\n#&gt; [1] \"2024-04-08 14:30:00 MDT\"\n\nlt$hour\n#&gt; [1] 14"
   },
   {
     "objectID": "slides/21-timeseries.html#date-sequences",
     "href": "slides/21-timeseries.html#date-sequences",
     "title": "Lecture 21",
     "section": "Date Sequences",
-    "text": "Date Sequences\nYou can create sequences of dates using the seq.Date() function:\n\nseq.Date(from = as.Date(\"2024-01-01\"), by = \"month\", length.out = 12)\n#&gt;  [1] \"2024-01-01\" \"2024-02-01\" \"2024-03-01\" \"2024-04-01\" \"2024-05-01\"\n#&gt;  [6] \"2024-06-01\" \"2024-07-01\" \"2024-08-01\" \"2024-09-01\" \"2024-10-01\"\n#&gt; [11] \"2024-11-01\" \"2024-12-01\"\n\nYou can also use seq() to create sequences of POSIXct objects:\n\nseq(from = as.POSIXct(\"2024-01-01 00:00\"), \n     to = as.POSIXct(\"2024-01-02 00:00\"), \n     by = \"hour\")\n#&gt;  [1] \"2024-01-01 00:00:00 MST\" \"2024-01-01 01:00:00 MST\"\n#&gt;  [3] \"2024-01-01 02:00:00 MST\" \"2024-01-01 03:00:00 MST\"\n#&gt;  [5] \"2024-01-01 04:00:00 MST\" \"2024-01-01 05:00:00 MST\"\n#&gt;  [7] \"2024-01-01 06:00:00 MST\" \"2024-01-01 07:00:00 MST\"\n#&gt;  [9] \"2024-01-01 08:00:00 MST\" \"2024-01-01 09:00:00 MST\"\n#&gt; [11] \"2024-01-01 10:00:00 MST\" \"2024-01-01 11:00:00 MST\"\n#&gt; [13] \"2024-01-01 12:00:00 MST\" \"2024-01-01 13:00:00 MST\"\n#&gt; [15] \"2024-01-01 14:00:00 MST\" \"2024-01-01 15:00:00 MST\"\n#&gt; [17] \"2024-01-01 16:00:00 MST\" \"2024-01-01 17:00:00 MST\"\n#&gt; [19] \"2024-01-01 18:00:00 MST\" \"2024-01-01 19:00:00 MST\"\n#&gt; [21] \"2024-01-01 20:00:00 MST\" \"2024-01-01 21:00:00 MST\"\n#&gt; [23] \"2024-01-01 22:00:00 MST\" \"2024-01-01 23:00:00 MST\"\n#&gt; [25] \"2024-01-02 00:00:00 MST\"\n\nTimezones\nBy default, R uses the system’s timezone. If you want to use anthor timezone, say GMT/UTC, you can change it:\n\nas.POSIXct(\"2024-04-08 14:30:00\", tz = \"GMT\")\n#&gt; [1] \"2024-04-08 14:30:00 GMT\"\n(obj = as.POSIXct(\"2024-04-08 14:30:00\"))\n#&gt; [1] \"2024-04-08 14:30:00 MDT\"\nformat(obj, tz = \"EST\")\n#&gt; [1] \"2024-04-08 15:30:00\""
+    "text": "Date Sequences\nYou can create sequences of dates using the seq.Date() function:\n\nfrom: Start date\nto: End date (optional)\nby: Interval (e.g., “day”, “month”, “year”)\nlength.out: Number of dates to generate\n\n\nseq.Date(from = as.Date(\"2024-01-01\"), by = \"month\", length.out = 12)\n#&gt;  [1] \"2024-01-01\" \"2024-02-01\" \"2024-03-01\" \"2024-04-01\" \"2024-05-01\"\n#&gt;  [6] \"2024-06-01\" \"2024-07-01\" \"2024-08-01\" \"2024-09-01\" \"2024-10-01\"\n#&gt; [11] \"2024-11-01\" \"2024-12-01\""
   },
   {
     "objectID": "slides/21-timeseries.html#lubridate-package",
     "href": "slides/21-timeseries.html#lubridate-package",
     "title": "Lecture 21",
-    "section": "lubridate Package",
-    "text": "lubridate Package\nThe lubridate package comes with the tidyverse and is designed to make working with dates and times easier. It provides a consistent set of functions for parsing, manipulating, and formatting date-time objects.\n\nlibrary(lubridate)\nymd(\"20240408\")        # Parse date\n#&gt; [1] \"2024-04-08\"\nymd_hms(\"20240408 123000\")\n#&gt; [1] \"2024-04-08 12:30:00 UTC\"\n\nnow()                  # Current date and time\n#&gt; [1] \"2025-04-08 17:06:24 MDT\"\ndate &lt;- ymd(\"2023-12-01\")\nmonth(date)           # Extract month\n#&gt; [1] 12\nday(date)\n#&gt; [1] 1\nweek(date)\n#&gt; [1] 48\n\nUse lubridate to handle inconsistent formats and to align data with time zones, daylight savings, etc."
+    "section": "lubridate Package ",
+    "text": "lubridate Package \n\nThe lubridate package comes with the tidyverse and is designed to make working with dates and times easier.\nIt provides a consistent set of functions for parsing, manipulating, and formatting date-time objects.\n\n\nlibrary(lubridate)\nymd(\"20240408\")        # Parse date\n#&gt; [1] \"2024-04-08\"\nymd_hms(\"20240408 123000\")\n#&gt; [1] \"2024-04-08 12:30:00 UTC\"\n\nnow()                  # Current date and time\n#&gt; [1] \"2025-04-13 20:30:55 MDT\"\ndate &lt;- ymd(\"2023-12-01\")\nmonth(date)           # Extract month\n#&gt; [1] 12\nday(date)\n#&gt; [1] 1\nweek(date)\n#&gt; [1] 48\n\nUse lubridate to handle inconsistent formats and to align data with time zones, daylight savings, etc."
   },
   {
     "objectID": "slides/21-timeseries.html#section",
     "href": "slides/21-timeseries.html#section",
     "title": "Lecture 21",
     "section": "",
-    "text": "The co2 dataset is a classic example of time series data. It contains monthly atmospheric CO₂ concentrations measured at the Mauna Loa Observatory in Hawaii.\nco2 is a built-in dataset representing monthly CO₂ concentrations from 1959 onward.\n\n\nclass(co2)\n#&gt; [1] \"ts\"\nco2\n#&gt;         Jan    Feb    Mar    Apr    May    Jun    Jul    Aug    Sep    Oct\n#&gt; 1959 315.42 316.31 316.50 317.56 318.13 318.00 316.39 314.65 313.68 313.18\n#&gt; 1960 316.27 316.81 317.42 318.87 319.87 319.43 318.01 315.74 314.00 313.68\n#&gt; 1961 316.73 317.54 318.38 319.31 320.42 319.61 318.42 316.63 314.83 315.16\n#&gt; 1962 317.78 318.40 319.53 320.42 320.85 320.45 319.45 317.25 316.11 315.27\n#&gt; 1963 318.58 318.92 319.70 321.22 322.08 321.31 319.58 317.61 316.05 315.83\n#&gt; 1964 319.41 320.07 320.74 321.40 322.06 321.73 320.27 318.54 316.54 316.71\n#&gt; 1965 319.27 320.28 320.73 321.97 322.00 321.71 321.05 318.71 317.66 317.14\n#&gt; 1966 320.46 321.43 322.23 323.54 323.91 323.59 322.24 320.20 318.48 317.94\n#&gt; 1967 322.17 322.34 322.88 324.25 324.83 323.93 322.38 320.76 319.10 319.24\n#&gt; 1968 322.40 322.99 323.73 324.86 325.40 325.20 323.98 321.95 320.18 320.09\n#&gt; 1969 323.83 324.26 325.47 326.50 327.21 326.54 325.72 323.50 322.22 321.62\n#&gt; 1970 324.89 325.82 326.77 327.97 327.91 327.50 326.18 324.53 322.93 322.90\n#&gt; 1971 326.01 326.51 327.01 327.62 328.76 328.40 327.20 325.27 323.20 323.40\n#&gt; 1972 326.60 327.47 327.58 329.56 329.90 328.92 327.88 326.16 324.68 325.04\n#&gt; 1973 328.37 329.40 330.14 331.33 332.31 331.90 330.70 329.15 327.35 327.02\n#&gt; 1974 329.18 330.55 331.32 332.48 332.92 332.08 331.01 329.23 327.27 327.21\n#&gt; 1975 330.23 331.25 331.87 333.14 333.80 333.43 331.73 329.90 328.40 328.17\n#&gt; 1976 331.58 332.39 333.33 334.41 334.71 334.17 332.89 330.77 329.14 328.78\n#&gt; 1977 332.75 333.24 334.53 335.90 336.57 336.10 334.76 332.59 331.42 330.98\n#&gt; 1978 334.80 335.22 336.47 337.59 337.84 337.72 336.37 334.51 332.60 332.38\n#&gt; 1979 336.05 336.59 337.79 338.71 339.30 339.12 337.56 335.92 333.75 333.70\n#&gt; 1980 337.84 338.19 339.91 340.60 341.29 341.00 339.39 337.43 335.72 335.84\n#&gt; 1981 339.06 340.30 341.21 342.33 342.74 342.08 340.32 338.26 336.52 336.68\n#&gt; 1982 340.57 341.44 342.53 343.39 343.96 343.18 341.88 339.65 337.81 337.69\n#&gt; 1983 341.20 342.35 342.93 344.77 345.58 345.14 343.81 342.21 339.69 339.82\n#&gt; 1984 343.52 344.33 345.11 346.88 347.25 346.62 345.22 343.11 340.90 341.18\n#&gt; 1985 344.79 345.82 347.25 348.17 348.74 348.07 346.38 344.51 342.92 342.62\n#&gt; 1986 346.11 346.78 347.68 349.37 350.03 349.37 347.76 345.73 344.68 343.99\n#&gt; 1987 347.84 348.29 349.23 350.80 351.66 351.07 349.33 347.92 346.27 346.18\n#&gt; 1988 350.25 351.54 352.05 353.41 354.04 353.62 352.22 350.27 348.55 348.72\n#&gt; 1989 352.60 352.92 353.53 355.26 355.52 354.97 353.75 351.52 349.64 349.83\n#&gt; 1990 353.50 354.55 355.23 356.04 357.00 356.07 354.67 352.76 350.82 351.04\n#&gt; 1991 354.59 355.63 357.03 358.48 359.22 358.12 356.06 353.92 352.05 352.11\n#&gt; 1992 355.88 356.63 357.72 359.07 359.58 359.17 356.94 354.92 352.94 353.23\n#&gt; 1993 356.63 357.10 358.32 359.41 360.23 359.55 357.53 355.48 353.67 353.95\n#&gt; 1994 358.34 358.89 359.95 361.25 361.67 360.94 359.55 357.49 355.84 356.00\n#&gt; 1995 359.98 361.03 361.66 363.48 363.82 363.30 361.94 359.50 358.11 357.80\n#&gt; 1996 362.09 363.29 364.06 364.76 365.45 365.01 363.70 361.54 359.51 359.65\n#&gt; 1997 363.23 364.06 364.61 366.40 366.84 365.68 364.52 362.57 360.24 360.83\n#&gt;         Nov    Dec\n#&gt; 1959 314.66 315.43\n#&gt; 1960 314.84 316.03\n#&gt; 1961 315.94 316.85\n#&gt; 1962 316.53 317.53\n#&gt; 1963 316.91 318.20\n#&gt; 1964 317.53 318.55\n#&gt; 1965 318.70 319.25\n#&gt; 1966 319.63 320.87\n#&gt; 1967 320.56 321.80\n#&gt; 1968 321.16 322.74\n#&gt; 1969 322.69 323.95\n#&gt; 1970 323.85 324.96\n#&gt; 1971 324.63 325.85\n#&gt; 1972 326.34 327.39\n#&gt; 1973 327.99 328.48\n#&gt; 1974 328.29 329.41\n#&gt; 1975 329.32 330.59\n#&gt; 1976 330.14 331.52\n#&gt; 1977 332.24 333.68\n#&gt; 1978 333.75 334.78\n#&gt; 1979 335.12 336.56\n#&gt; 1980 336.93 338.04\n#&gt; 1981 338.19 339.44\n#&gt; 1982 339.09 340.32\n#&gt; 1983 340.98 342.82\n#&gt; 1984 342.80 344.04\n#&gt; 1985 344.06 345.38\n#&gt; 1986 345.48 346.72\n#&gt; 1987 347.64 348.78\n#&gt; 1988 349.91 351.18\n#&gt; 1989 351.14 352.37\n#&gt; 1990 352.69 354.07\n#&gt; 1991 353.64 354.89\n#&gt; 1992 354.09 355.33\n#&gt; 1993 355.30 356.78\n#&gt; 1994 357.59 359.05\n#&gt; 1995 359.61 360.74\n#&gt; 1996 360.80 362.38\n#&gt; 1997 362.49 364.34\n\nInitial Plot\nSince, the co2 dataset is a time series object (ts) with 12 observations per year, starting from January 1959.\nThere is a default plot method for ts objects that we can take advantage of:\n\nplot(co2, main = \"Atmospheric CO2 at Mauna Loa\", ylab = \"ppm\")\n\n\nWe see:\n\nAn upward trend\nRegular seasonal oscillations (higher in winter, lower in summer)"
+    "text": "You can also use seq() to create sequences of POSIXct/lt objects:\n\nfrom: Start date/time\nto: End date/time (optional)\nby: Interval (e.g., “hour”, “minute”, “second”)\nlength.out: Number of dates to generate\n\n\nseq(from = as.POSIXct(\"2024-01-01 00:00\"), \n    to = as.POSIXct(\"2024-01-02 00:00\"), \n    by = \"hour\")\n#&gt;  [1] \"2024-01-01 00:00:00 MST\" \"2024-01-01 01:00:00 MST\"\n#&gt;  [3] \"2024-01-01 02:00:00 MST\" \"2024-01-01 03:00:00 MST\"\n#&gt;  [5] \"2024-01-01 04:00:00 MST\" \"2024-01-01 05:00:00 MST\"\n#&gt;  [7] \"2024-01-01 06:00:00 MST\" \"2024-01-01 07:00:00 MST\"\n#&gt;  [9] \"2024-01-01 08:00:00 MST\" \"2024-01-01 09:00:00 MST\"\n#&gt; [11] \"2024-01-01 10:00:00 MST\" \"2024-01-01 11:00:00 MST\"\n#&gt; [13] \"2024-01-01 12:00:00 MST\" \"2024-01-01 13:00:00 MST\"\n#&gt; [15] \"2024-01-01 14:00:00 MST\" \"2024-01-01 15:00:00 MST\"\n#&gt; [17] \"2024-01-01 16:00:00 MST\" \"2024-01-01 17:00:00 MST\"\n#&gt; [19] \"2024-01-01 18:00:00 MST\" \"2024-01-01 19:00:00 MST\"\n#&gt; [21] \"2024-01-01 20:00:00 MST\" \"2024-01-01 21:00:00 MST\"\n#&gt; [23] \"2024-01-01 22:00:00 MST\" \"2024-01-01 23:00:00 MST\"\n#&gt; [25] \"2024-01-02 00:00:00 MST\""
   },
   {
     "objectID": "slides/21-timeseries.html#lubridate-timezones",
     "href": "slides/21-timeseries.html#lubridate-timezones",
     "title": "Lecture 21",
-    "section": "lubridate timezones",
-    "text": "lubridate timezones\n\nlibrary(lubridate)\ndate &lt;- ymd_hms(\"2024-04-08 14:30:00\", tz = \"America/New_York\")\nwith_tz(date, \"America/Los_Angeles\")  # Convert to another timezone\n#&gt; [1] \"2024-04-08 11:30:00 PDT\""
+    "section": "lubridate timezones ",
+    "text": "lubridate timezones \nlubridate also provides functions for working with time zones. You can convert between time zones using with_tz() and force_tz().\n\n(date &lt;- ymd_hms(\"2024-04-08 14:30:00\", tz = \"America/New_York\"))\n#&gt; [1] \"2024-04-08 14:30:00 EDT\"\n\n# Change time zone without changing time\nforce_tz(date, \"America/Los_Angeles\")  \n#&gt; [1] \"2024-04-08 14:30:00 PDT\"\n\n# Convert to another timezone\nwith_tz(date, \"America/Los_Angeles\")  \n#&gt; [1] \"2024-04-08 11:30:00 PDT\""
   },
   {
     "objectID": "slides/21-timeseries.html#decompostion-in-r",
     "href": "slides/21-timeseries.html#decompostion-in-r",
     "title": "Lecture 21",
     "section": "Decompostion in R",
-    "text": "Decompostion in R\n\nThe decompose() function in R can be used to perform this operation.\nThe decompose() function assumes that the time series is additive, meaning that the components can be added together to reconstruct the original series.\nThe stl() function can be used for seasonal decomposition of time series data. It is more flexible and can handle both additive and multiplicative decompositions.\n\n\\[ decompose = trend + seasonality + residual \\]\n\nco2_decomp &lt;- decompose(co2)\nplot(co2_decomp)"
+    "text": "Decompostion in R\n\nThe decompose() function in R can be used to perform this operation.\nThe decompose() function by default assumes that the time series is additive\n\n\ndecomp = decompose(co2, type = \"additive\")\nplot(decomp)"
   },
   {
     "objectID": "slides/21-timeseries.html#section-1",
     "href": "slides/21-timeseries.html#section-1",
     "title": "Lecture 21",
     "section": "",
-    "text": "stl(co2, s.window = \"periodic\") %&gt;% \n  plot()"
+    "text": "decomp$trend |&gt; \n  plot()"
   },
   {
     "objectID": "slides/21-timeseries.html#forecasting-with-ts-data",
@@ -11730,5 +11730,425 @@
     "title": "Lecture 21",
     "section": "Forecasting with TS data",
     "text": "Forecasting with TS data\n\nAside for decomposing and smoothing, time series data is often used for forecasting.\nForecasting is predicting future values based on past observations."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#timezones",
+    "href": "slides/21-timeseries.html#timezones",
+    "title": "Lecture 21",
+    "section": "Timezones",
+    "text": "Timezones\n\nBy default, R uses the system’s timezone.\nThe Sys.timezone() function returns the current timezone.\nIf you want to use anthor timezone, say GMT/UTC, you can change it:\n\n\nSys.timezone()\n#&gt; [1] \"America/Denver\"\n\nas.POSIXct(\"2024-04-08 14:30:00\", tz = \"GMT\")\n#&gt; [1] \"2024-04-08 14:30:00 GMT\"\n\n(obj = as.POSIXct(\"2024-04-08 14:30:00\"))\n#&gt; [1] \"2024-04-08 14:30:00 MDT\"\n\nformat(obj, tz = \"EST\")\n#&gt; [1] \"2024-04-08 15:30:00\""
+  },
+  {
+    "objectID": "slides/21-timeseries.html#mauna-loa-co₂-dataset",
+    "href": "slides/21-timeseries.html#mauna-loa-co₂-dataset",
+    "title": "Lecture 21",
+    "section": "Mauna Loa CO₂ Dataset",
+    "text": "Mauna Loa CO₂ Dataset\n\nThe co2 dataset is a classic example of time series data. It contains monthly atmospheric CO₂ concentrations measured at the Mauna Loa Observatory in Hawaii.\nco2 is a built-in dataset representing monthly CO₂ concentrations from 1959 onward.\n\n\nclass(co2)\n#&gt; [1] \"ts\"\nco2\n#&gt;         Jan    Feb    Mar    Apr    May    Jun    Jul    Aug    Sep    Oct\n#&gt; 1959 315.42 316.31 316.50 317.56 318.13 318.00 316.39 314.65 313.68 313.18\n#&gt; 1960 316.27 316.81 317.42 318.87 319.87 319.43 318.01 315.74 314.00 313.68\n#&gt; 1961 316.73 317.54 318.38 319.31 320.42 319.61 318.42 316.63 314.83 315.16\n#&gt; 1962 317.78 318.40 319.53 320.42 320.85 320.45 319.45 317.25 316.11 315.27\n#&gt; 1963 318.58 318.92 319.70 321.22 322.08 321.31 319.58 317.61 316.05 315.83\n#&gt; 1964 319.41 320.07 320.74 321.40 322.06 321.73 320.27 318.54 316.54 316.71\n#&gt; 1965 319.27 320.28 320.73 321.97 322.00 321.71 321.05 318.71 317.66 317.14\n#&gt; 1966 320.46 321.43 322.23 323.54 323.91 323.59 322.24 320.20 318.48 317.94\n#&gt; 1967 322.17 322.34 322.88 324.25 324.83 323.93 322.38 320.76 319.10 319.24\n#&gt; 1968 322.40 322.99 323.73 324.86 325.40 325.20 323.98 321.95 320.18 320.09\n#&gt; 1969 323.83 324.26 325.47 326.50 327.21 326.54 325.72 323.50 322.22 321.62\n#&gt; 1970 324.89 325.82 326.77 327.97 327.91 327.50 326.18 324.53 322.93 322.90\n#&gt; 1971 326.01 326.51 327.01 327.62 328.76 328.40 327.20 325.27 323.20 323.40\n#&gt; 1972 326.60 327.47 327.58 329.56 329.90 328.92 327.88 326.16 324.68 325.04\n#&gt; 1973 328.37 329.40 330.14 331.33 332.31 331.90 330.70 329.15 327.35 327.02\n#&gt; 1974 329.18 330.55 331.32 332.48 332.92 332.08 331.01 329.23 327.27 327.21\n#&gt; 1975 330.23 331.25 331.87 333.14 333.80 333.43 331.73 329.90 328.40 328.17\n#&gt; 1976 331.58 332.39 333.33 334.41 334.71 334.17 332.89 330.77 329.14 328.78\n#&gt; 1977 332.75 333.24 334.53 335.90 336.57 336.10 334.76 332.59 331.42 330.98\n#&gt; 1978 334.80 335.22 336.47 337.59 337.84 337.72 336.37 334.51 332.60 332.38\n#&gt; 1979 336.05 336.59 337.79 338.71 339.30 339.12 337.56 335.92 333.75 333.70\n#&gt; 1980 337.84 338.19 339.91 340.60 341.29 341.00 339.39 337.43 335.72 335.84\n#&gt; 1981 339.06 340.30 341.21 342.33 342.74 342.08 340.32 338.26 336.52 336.68\n#&gt; 1982 340.57 341.44 342.53 343.39 343.96 343.18 341.88 339.65 337.81 337.69\n#&gt; 1983 341.20 342.35 342.93 344.77 345.58 345.14 343.81 342.21 339.69 339.82\n#&gt; 1984 343.52 344.33 345.11 346.88 347.25 346.62 345.22 343.11 340.90 341.18\n#&gt; 1985 344.79 345.82 347.25 348.17 348.74 348.07 346.38 344.51 342.92 342.62\n#&gt; 1986 346.11 346.78 347.68 349.37 350.03 349.37 347.76 345.73 344.68 343.99\n#&gt; 1987 347.84 348.29 349.23 350.80 351.66 351.07 349.33 347.92 346.27 346.18\n#&gt; 1988 350.25 351.54 352.05 353.41 354.04 353.62 352.22 350.27 348.55 348.72\n#&gt; 1989 352.60 352.92 353.53 355.26 355.52 354.97 353.75 351.52 349.64 349.83\n#&gt; 1990 353.50 354.55 355.23 356.04 357.00 356.07 354.67 352.76 350.82 351.04\n#&gt; 1991 354.59 355.63 357.03 358.48 359.22 358.12 356.06 353.92 352.05 352.11\n#&gt; 1992 355.88 356.63 357.72 359.07 359.58 359.17 356.94 354.92 352.94 353.23\n#&gt; 1993 356.63 357.10 358.32 359.41 360.23 359.55 357.53 355.48 353.67 353.95\n#&gt; 1994 358.34 358.89 359.95 361.25 361.67 360.94 359.55 357.49 355.84 356.00\n#&gt; 1995 359.98 361.03 361.66 363.48 363.82 363.30 361.94 359.50 358.11 357.80\n#&gt; 1996 362.09 363.29 364.06 364.76 365.45 365.01 363.70 361.54 359.51 359.65\n#&gt; 1997 363.23 364.06 364.61 366.40 366.84 365.68 364.52 362.57 360.24 360.83\n#&gt;         Nov    Dec\n#&gt; 1959 314.66 315.43\n#&gt; 1960 314.84 316.03\n#&gt; 1961 315.94 316.85\n#&gt; 1962 316.53 317.53\n#&gt; 1963 316.91 318.20\n#&gt; 1964 317.53 318.55\n#&gt; 1965 318.70 319.25\n#&gt; 1966 319.63 320.87\n#&gt; 1967 320.56 321.80\n#&gt; 1968 321.16 322.74\n#&gt; 1969 322.69 323.95\n#&gt; 1970 323.85 324.96\n#&gt; 1971 324.63 325.85\n#&gt; 1972 326.34 327.39\n#&gt; 1973 327.99 328.48\n#&gt; 1974 328.29 329.41\n#&gt; 1975 329.32 330.59\n#&gt; 1976 330.14 331.52\n#&gt; 1977 332.24 333.68\n#&gt; 1978 333.75 334.78\n#&gt; 1979 335.12 336.56\n#&gt; 1980 336.93 338.04\n#&gt; 1981 338.19 339.44\n#&gt; 1982 339.09 340.32\n#&gt; 1983 340.98 342.82\n#&gt; 1984 342.80 344.04\n#&gt; 1985 344.06 345.38\n#&gt; 1986 345.48 346.72\n#&gt; 1987 347.64 348.78\n#&gt; 1988 349.91 351.18\n#&gt; 1989 351.14 352.37\n#&gt; 1990 352.69 354.07\n#&gt; 1991 353.64 354.89\n#&gt; 1992 354.09 355.33\n#&gt; 1993 355.30 356.78\n#&gt; 1994 357.59 359.05\n#&gt; 1995 359.61 360.74\n#&gt; 1996 360.80 362.38\n#&gt; 1997 362.49 364.34"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#initial-plot",
+    "href": "slides/21-timeseries.html#initial-plot",
+    "title": "Lecture 21",
+    "section": "Initial Plot",
+    "text": "Initial Plot\n\nThe co2 dataset is a time series object (ts) with 12 observations per year, starting from January 1959.\nThere is a default plot method for ts objects that we can take advantage of:\n\n\nplot(co2, main = \"Atmospheric CO2 at Mauna Loa\", ylab = \"ppm\")\n\n\nWe see:\n\nAn upward trend\nRegular seasonal oscillations (higher in winter, lower in summer)"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#subsetting-and-plotting",
+    "href": "slides/21-timeseries.html#subsetting-and-plotting",
+    "title": "Lecture 21",
+    "section": "Subsetting and Plotting",
+    "text": "Subsetting and Plotting\n\nLike vectors, you can subset ts objects using indexing.\nFor example, to extract the first year of data:\n\n\nco2[1:12]  # First year\n#&gt;  [1] 315.42 316.31 316.50 317.56 318.13 318.00 316.39 314.65 313.68 313.18\n#&gt; [11] 314.66 315.43\n\n\n\nOr, a specific range of years:\n\n\nwindow(co2, start = c(1990, 1), end = c(1995, 12))\n#&gt;         Jan    Feb    Mar    Apr    May    Jun    Jul    Aug    Sep    Oct\n#&gt; 1990 353.50 354.55 355.23 356.04 357.00 356.07 354.67 352.76 350.82 351.04\n#&gt; 1991 354.59 355.63 357.03 358.48 359.22 358.12 356.06 353.92 352.05 352.11\n#&gt; 1992 355.88 356.63 357.72 359.07 359.58 359.17 356.94 354.92 352.94 353.23\n#&gt; 1993 356.63 357.10 358.32 359.41 360.23 359.55 357.53 355.48 353.67 353.95\n#&gt; 1994 358.34 358.89 359.95 361.25 361.67 360.94 359.55 357.49 355.84 356.00\n#&gt; 1995 359.98 361.03 361.66 363.48 363.82 363.30 361.94 359.50 358.11 357.80\n#&gt;         Nov    Dec\n#&gt; 1990 352.69 354.07\n#&gt; 1991 353.64 354.89\n#&gt; 1992 354.09 355.33\n#&gt; 1993 355.30 356.78\n#&gt; 1994 357.59 359.05\n#&gt; 1995 359.61 360.74"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#section-2",
+    "href": "slides/21-timeseries.html#section-2",
+    "title": "Lecture 21",
+    "section": "",
+    "text": "co2_forecast &lt;- forecast(co2_arima, h = 60)\n\nplot(co2_forecast)\n\n\nARIMA modeling works well when data is stationary. The auto.arima function selects the best parameters (p,d,q).\nUse case in water science:\n\nForecasting reservoir inflow volumes\nEstimating snowmelt runoff"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#time-series-in-the-tidyverse-tsibble-feasts-fable",
+    "href": "slides/21-timeseries.html#time-series-in-the-tidyverse-tsibble-feasts-fable",
+    "title": "Lecture 21",
+    "section": "Time Series in the Tidyverse: tsibble, feasts, fable",
+    "text": "Time Series in the Tidyverse: tsibble, feasts, fable\n\ntsibble is a tidy data frame for time series data. It extends the tibble class to include time series attributes.\nCompatible with dplyr, ggplot2\nfeasts provides functions for time series analysis and visualization.\n\n\nco2_tbl &lt;- as_tsibble(co2)\nhead(co2_tbl)\n#&gt; # A tsibble: 6 x 2 [1M]\n#&gt;      index value\n#&gt;      &lt;mth&gt; &lt;dbl&gt;\n#&gt; 1 1959 Jan  315.\n#&gt; 2 1959 Feb  316.\n#&gt; 3 1959 Mar  316.\n#&gt; 4 1959 Apr  318.\n#&gt; 5 1959 May  318.\n#&gt; 6 1959 Jun  318"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#section-3",
+    "href": "slides/21-timeseries.html#section-3",
+    "title": "Lecture 21",
+    "section": "",
+    "text": "gg_lag is useful for visualizing autocorrelation and lagged relationships in time series data.\n\nco2_tbl |&gt; \n  mutate(date = yearmonth(date)) |&gt;\n  gg_lag()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#section-4",
+    "href": "slides/21-timeseries.html#section-4",
+    "title": "Lecture 21",
+    "section": "",
+    "text": "gg_subseries is useful for visualizing seasonal patterns in time series data.\n\nco2_tbl |&gt; \n  mutate(date = yearmonth(date)) |&gt;\n  gg_subseries()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#section-5",
+    "href": "slides/21-timeseries.html#section-5",
+    "title": "Lecture 21",
+    "section": "",
+    "text": "gg_season facets the time series by each season in the seasonal period. These facets form smaller time series plots consisting of data only from that season.\n\nThe seasonal period dispalyed by default is the largest frequency in the data. E.G. - If you had several years of monthly data, the resulting plot would show a separate time series plot for each month.\n\n\nco2_tbl |&gt; \n  mutate(date = yearmonth(date)) |&gt;\n  gg_season()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#section-6",
+    "href": "slides/21-timeseries.html#section-6",
+    "title": "Lecture 21",
+    "section": "",
+    "text": "gg_season facets the time series by each season in the seasonal period. These facets form smaller time series plots consisting of data only from that season.\n\nThe seasonal period dispalyed by default is the largest frequency in the data. E.G. - If you had several years of monthly data, the resulting plot would show a separate time series plot for each month.\n\n\nco2_tbl |&gt; \n  mutate(date = yearmonth(date)) |&gt;\n  gg_season()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#section-7",
+    "href": "slides/21-timeseries.html#section-7",
+    "title": "Lecture 21",
+    "section": "",
+    "text": "Use modeltime_forecast() to generate forecasts for the next 120 months (10 years).\n\n\n# ---- FORECAST ----\n(forecast &lt;- calibration_table  |&gt; \n  modeltime_forecast(h = \"120 months\", actual_data = co2_tbl) )\n#&gt; # Forecast Results\n#&gt; \n#&gt; # A tibble: 240 × 7\n#&gt;    .model_id .model_desc .key       .index     .value .conf_lo .conf_hi\n#&gt;        &lt;int&gt; &lt;chr&gt;       &lt;fct&gt;      &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n#&gt;  1         2 PROPHET     prediction 1998-01-01   366.     363.     368.\n#&gt;  2         2 PROPHET     prediction 1998-02-01   366.     364.     369.\n#&gt;  3         2 PROPHET     prediction 1998-03-01   367.     365.     370.\n#&gt;  4         2 PROPHET     prediction 1998-04-01   369.     366.     371.\n#&gt;  5         2 PROPHET     prediction 1998-05-01   369.     367.     372.\n#&gt;  6         2 PROPHET     prediction 1998-06-01   369.     366.     371.\n#&gt;  7         2 PROPHET     prediction 1998-07-01   367.     365.     370.\n#&gt;  8         2 PROPHET     prediction 1998-08-01   365.     363.     368.\n#&gt;  9         2 PROPHET     prediction 1998-09-01   364.     362.     366.\n#&gt; 10         2 PROPHET     prediction 1998-10-01   364.     361.     366.\n#&gt; # ℹ 230 more rows"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#section-8",
+    "href": "slides/21-timeseries.html#section-8",
+    "title": "Lecture 21",
+    "section": "",
+    "text": "Use plot_modeltime_forecast() to visualize the forecasts.\n\n\n# ---- Plot ----\nplot_modeltime_forecast(forecast)"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#benefits",
+    "href": "slides/21-timeseries.html#benefits",
+    "title": "Lecture 21",
+    "section": "Benefits:",
+    "text": "Benefits:\nCombine multiple models (ARIMA, Prophet, XGBoost) in one framework\nEvaluate performance across models\nRefit to full dataset for production\nThis is ideal for students familiar with tidymodels who want to extend their forecasting skills."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#modeltime-workflow",
+    "href": "slides/21-timeseries.html#modeltime-workflow",
+    "title": "Lecture 21",
+    "section": "Modeltime Workflow",
+    "text": "Modeltime Workflow\nModel Spec: arima_reg()/prophet_reg()/prophet_boost() &lt;– This sets up your general model algorithm and key parameters - arima_reg() is for ARIMA models - prophet_reg() is for Prophet models - prophet_boost() is for XGBoost models\nSet Engine: set_engine(\"auto_arima\")/set_engine(\"prophet\") / &lt;– This selects the specific package-function to use and you can add any function-level arguments here.\nFit Model: fit(value ~ date, training) &lt;– All modeltime models require a date column to be a regressor.\n\nmods &lt;- list(\n  arima_reg() |&gt;  set_engine(\"auto_arima\"),\n  prophet_reg() |&gt; set_engine(\"prophet\", seasonality_yearly = TRUE),\n  prophet_boost() |&gt; set_engine(\"prophet_xgboost\", seasonality_yearly = TRUE))\n\nmodels &lt;- map(mods, ~ fit(.x, value ~ date, data = training))"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#when-to-use-which-time-series-format",
+    "href": "slides/21-timeseries.html#when-to-use-which-time-series-format",
+    "title": "Lecture 21",
+    "section": "When to Use Which Time Series Format?",
+    "text": "When to Use Which Time Series Format?\n\n\n\n\n\n\n\n\n\nFormat\nBest For\nAdvantages\nLimitations\n\n\n\n\nts\nRegular, simple time series\nBuilt into base R, supported by forecast\nRigid time format, inflexible for joins\n\n\nzoo\nIrregular time steps\nArbitrary index, supports irregular data\nMore complex syntax\n\n\nxts\nFinancial-style or irregular data\nGood for date-time indexing and joins\nMore complex to visualize\n\n\ntsibble\nTidyverse workflows\nPipes with dplyr, ggplot2, forecasting with fable\nRequires tsibble structure\n\n\ntibble + Date\nGeneral purpose\nFlexible, tidy\nNeeds conversion for time series modeling"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#assignment",
+    "href": "slides/21-timeseries.html#assignment",
+    "title": "Lecture 21",
+    "section": "Assignment",
+    "text": "Assignment\nIn this activity, you will download streamflow data from the Cache la Poudre River (USGS site 06752260) and analyze it using a few time series methods.\nFirst, use this code to download the data from the USGS site.\n\nlibrary(dataRetrieval)\n\n# Example: Cache la Poudre River at Mouth (USGS site 06752260)\npoudre_flow &lt;- readNWISdv(siteNumber = \"06752260\",    # Download data from USGS for site 06752260\n                          parameterCd = \"00060\",      # Parameter code 00060 = discharge in cfs)\n                          startDate = \"2013-01-01\",   # Set the start date\n                          endDate = \"2023-12-31\") |&gt;  # Set the end date\n  renameNWISColumns() |&gt;                              # Rename columns to standard names (e.g., \"Flow\", \"Date\")\n  mutate(Date = yearmonth(Date)) |&gt;                   # Convert daily Date values into a year-month format (e.g., \"2023 Jan\")\n  group_by(Date) |&gt;                                   # Group the data by the new monthly Date\n  summarise(Flow = mean(Flow))                       # Calculate the average daily flow for each month"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#convert-to-tsibble",
+    "href": "slides/21-timeseries.html#convert-to-tsibble",
+    "title": "Lecture 21",
+    "section": "Convert to tsibble",
+    "text": "Convert to tsibble\nUse as_tsibble() to convert the data into a tsibble object. This will allow you to use the tidyverse and tsibble functions for time series analysis.\n\np = as_tsibble(poudre_flow)"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#build-modeltime-table",
+    "href": "slides/21-timeseries.html#build-modeltime-table",
+    "title": "Lecture 21",
+    "section": "Build modeltime table",
+    "text": "Build modeltime table\n\nUse modeltime_table() to combine multiple models into a single table.\n\nmodeltime_table():\n\nCreates a table of models\nValidates that all objects are models (parsnip or workflows objects) and all models have been fitted (trained)\nProvides an ID and Description of the models\n\nas_modeltime_table():\n\nConverts a list of models to a modeltime table. Useful if programatically creating Modeltime Tables from models stored in a list.\n\n\n(models_tbl &lt;- as_modeltime_table(models))\n#&gt; # Modeltime Table\n#&gt; # A tibble: 3 × 3\n#&gt;   .model_id .model   .model_desc            \n#&gt;       &lt;int&gt; &lt;list&gt;   &lt;chr&gt;                  \n#&gt; 1         1 &lt;fit[+]&gt; ARIMA(1,1,1)(2,1,2)[12]\n#&gt; 2         2 &lt;fit[+]&gt; PROPHET                \n#&gt; 3         3 &lt;fit[+]&gt; PROPHET"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#calibrate-and-evaluate-models",
+    "href": "slides/21-timeseries.html#calibrate-and-evaluate-models",
+    "title": "Lecture 21",
+    "section": "Calibrate and Evaluate Models",
+    "text": "Calibrate and Evaluate Models\n\nUse modeltime_calibrate() to evaluate the models on the test set.\nUse modeltime_accuracy() to get accuracy metrics for the models.\n\n\n# ---- CALIBRATE ----\n(calibration_table &lt;- modeltime_calibrate(models_tbl, testing))\n#&gt; # Modeltime Table\n#&gt; # A tibble: 3 × 5\n#&gt;   .model_id .model   .model_desc             .type .calibration_data\n#&gt;       &lt;int&gt; &lt;list&gt;   &lt;chr&gt;                   &lt;chr&gt; &lt;list&gt;           \n#&gt; 1         1 &lt;fit[+]&gt; ARIMA(1,1,1)(2,1,2)[12] Test  &lt;tibble [60 × 4]&gt;\n#&gt; 2         2 &lt;fit[+]&gt; PROPHET                 Test  &lt;tibble [60 × 4]&gt;\n#&gt; 3         3 &lt;fit[+]&gt; PROPHET                 Test  &lt;tibble [60 × 4]&gt;\n\n# ---- ACCURACY ----\nmodeltime_accuracy(calibration_table)\n#&gt; # A tibble: 3 × 9\n#&gt;   .model_id .model_desc             .type   mae  mape  mase smape  rmse   rsq\n#&gt;       &lt;int&gt; &lt;chr&gt;                   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n#&gt; 1         1 ARIMA(1,1,1)(2,1,2)[12] Test  0.810 0.224 0.687 0.224 0.967 0.973\n#&gt; 2         2 PROPHET                 Test  1.06  0.295 0.899 0.294 1.16  0.986\n#&gt; 3         3 PROPHET                 Test  1.06  0.295 0.899 0.294 1.16  0.986"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#forecast",
+    "href": "slides/21-timeseries.html#forecast",
+    "title": "Lecture 21",
+    "section": "Forecast",
+    "text": "Forecast\n\nUse modeltime_forecast() to generate forecasts for the next 120 months (10 years).\n\n\n# ---- FORECAST ----\n(forecast &lt;- calibration_table  |&gt; \n  modeltime_forecast(h = \"120 months\", actual_data = co2_tbl) )\n#&gt; # Forecast Results\n#&gt; \n#&gt; # A tibble: 240 × 7\n#&gt;    .model_id .model_desc .key       .index     .value .conf_lo .conf_hi\n#&gt;        &lt;int&gt; &lt;chr&gt;       &lt;fct&gt;      &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n#&gt;  1         2 PROPHET     prediction 1998-01-01   366.     363.     368.\n#&gt;  2         2 PROPHET     prediction 1998-02-01   366.     364.     369.\n#&gt;  3         2 PROPHET     prediction 1998-03-01   367.     365.     370.\n#&gt;  4         2 PROPHET     prediction 1998-04-01   369.     366.     371.\n#&gt;  5         2 PROPHET     prediction 1998-05-01   369.     367.     372.\n#&gt;  6         2 PROPHET     prediction 1998-06-01   369.     366.     371.\n#&gt;  7         2 PROPHET     prediction 1998-07-01   367.     365.     370.\n#&gt;  8         2 PROPHET     prediction 1998-08-01   365.     363.     368.\n#&gt;  9         2 PROPHET     prediction 1998-09-01   364.     362.     366.\n#&gt; 10         2 PROPHET     prediction 1998-10-01   364.     361.     366.\n#&gt; # ℹ 230 more rows"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#visualize-forecasts",
+    "href": "slides/21-timeseries.html#visualize-forecasts",
+    "title": "Lecture 21",
+    "section": "Visualize Forecasts",
+    "text": "Visualize Forecasts\n\nUse plot_modeltime_forecast() to visualize the forecasts.\n\n\n# ---- Plot ----\nplot_modeltime_forecast(forecast)"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#plotting-the-time-series",
+    "href": "slides/21-timeseries.html#plotting-the-time-series",
+    "title": "Lecture 21",
+    "section": "Plotting the time series",
+    "text": "Plotting the time series\nUse ggplot to plot the time series data. You can use the geom_line() function to create a line plot of the monthly streamflow data.\n\n# Plotting the time series\nggplot(p, aes(x = Date, y = Flow)) +\n  geom_line(color = \"dodgerblue\") +\n  labs(title = \"Cache la Poudre River Monthly Streamflow\",\n       x = \"Date\", y = \"Discharge (cfs)\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#subseries",
+    "href": "slides/21-timeseries.html#subseries",
+    "title": "Lecture 21",
+    "section": "Subseries",
+    "text": "Subseries\nUse gg_subseries to visualize the seasonal patterns in the data. This will help you identify any trends or seasonal cycles in the streamflow data.\nDescribe what you see in the plot. How are “seasons” defined in this plot? What do you think the “subseries” represent?\n\ngg_subseries(p)"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#decompose",
+    "href": "slides/21-timeseries.html#decompose",
+    "title": "Lecture 21",
+    "section": "Decompose",
+    "text": "Decompose\nUse the stl function to decompose the time series data into its components: trend, seasonality, and residuals. This will help you understand the underlying patterns in the data.\nDescribe what you see in the plot. How do the components change over time? What do you think the trend and seasonal components represent?\n\nstl(p, s.window = \"periodic\") |&gt; \n  plot()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#extra-credit",
+    "href": "slides/21-timeseries.html#extra-credit",
+    "title": "Lecture 21",
+    "section": "Extra Credit",
+    "text": "Extra Credit\n\nUse modeltime to forecast the next 12 months of streamflow data."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#assignment-20-pts",
+    "href": "slides/21-timeseries.html#assignment-20-pts",
+    "title": "Lecture 21",
+    "section": "Assignment (20 pts)",
+    "text": "Assignment (20 pts)\nDue Monday April, 21st.\nIn this activity, you will download streamflow data from the Cache la Poudre River at the mouth (USGS site 06752260) and analyze it using a few time series methods. There is additional extra credit avialable for this assignment.\nFirst, use this code to download the data from the USGS site.\n\nlibrary(dataRetrieval)\n\n# Example: Cache la Poudre River at Mouth (USGS site 06752260)\npoudre_flow &lt;- readNWISdv(siteNumber = \"06752260\",    # Download data from USGS for site 06752260\n                          parameterCd = \"00060\",      # Parameter code 00060 = discharge in cfs)\n                          startDate = \"2013-01-01\",   # Set the start date\n                          endDate = \"2023-12-31\") |&gt;  # Set the end date\n  renameNWISColumns() |&gt;                              # Rename columns to standard names (e.g., \"Flow\", \"Date\")\n  mutate(Date = yearmonth(Date)) |&gt;                   # Convert daily Date values into a year-month format (e.g., \"2023 Jan\")\n  group_by(Date) |&gt;                                   # Group the data by the new monthly Date\n  summarise(Flow = mean(Flow))                       # Calculate the average daily flow for each month"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#extra-credit-10pts",
+    "href": "slides/21-timeseries.html#extra-credit-10pts",
+    "title": "Lecture 21",
+    "section": "Extra Credit (10pts)",
+    "text": "Extra Credit (10pts)\n\nUse modeltime to forecast the next 12 months of streamflow data.\nUse the prophet_reg(), and arima_reg() function to create a Prophet model for forecasting."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#extra-extra-credit-10-pts",
+    "href": "slides/21-timeseries.html#extra-extra-credit-10-pts",
+    "title": "Lecture 21",
+    "section": "Extra, Extra Credit (10 pts)",
+    "text": "Extra, Extra Credit (10 pts)\nUse dataRetrieval to download daily streamflow for the next 12 months. Aggregate this data to monthly averages and compare it to the predictions made by your modeltime model.\nCompute the R2 value between the model predictions and the observed data using a linear model and report the meaning.\nLast, generate a plot of the Predicted vs Observed values and include a 1:1 line, and a linear model line. `"
+  },
+  {
+    "objectID": "slides/21-timeseries.html",
+    "href": "slides/21-timeseries.html",
+    "title": "Create a time series split",
+    "section": "",
+    "text": "`— title: “Lecture 21” subtitle: “Introduction to Time Series Data in R” format: revealjs: smaller: true logo: ../csu-rams-logo.png slide-number: c/t footer: “ESS 330: Quantitative Reasoning for Ecosystem Science” include-before-body: header.html include-after-body: footer-annotations.html theme: [default, csu-css.scss] highlightStyle: github highlightLines: true width: 1280 height: 720 countIncrementalSlides: false incremental: false title-slide-attributes: data-background-color: “#1E4D2B” knitr: opts_chunk: message: false out.width: “100%” echo: true collapse: true comment: “#&gt;”"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#when-to-use-which-time-series-format-1",
+    "href": "slides/21-timeseries.html#when-to-use-which-time-series-format-1",
+    "title": "Lecture 21",
+    "section": "When to Use Which Time Series Format?",
+    "text": "When to Use Which Time Series Format?\n\n\n\n\n\n\n\n\n\nFormat\nBest For\nAdvantages\nLimitations\n\n\n\n\nts\nRegular, simple time series\nBuilt into base R, supported by forecast\nRigid time format, inflexible for joins\n\n\nzoo\nIrregular time steps\nArbitrary index, supports irregular data\nMore complex syntax\n\n\nxts\nFinancial-style or irregular data\nGood for date-time indexing and joins\nMore complex to visualize\n\n\ntsibble\nTidyverse workflows\nPipes with dplyr, ggplot2, forecasting with fable\nRequires tsibble structure\n\n\ntibble + Date\nGeneral purpose\nFlexible, tidy\nNeeds conversion for time series modeling"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#stl",
+    "href": "slides/21-timeseries.html#stl",
+    "title": "Lecture 21",
+    "section": "stl",
+    "text": "stl\n\nThe stl() function (Seasonal-Trend decomposition using Loess) is more flexible and can handle both additive and multiplicative decompositions.\nstl() uses local regression (loess) to estimate the trend and seasonal components.\ns.window = \"periodic\" specifies that the seasonal component is periodic.\nOther options include “none” (no seasonal component) or a numeric value for the seasonal window size.\n\n\n\n\nplot(decomp)\n\n\n\n\n\n\n\n\n\n\nstl(co2, s.window = \"periodic\") |&gt;  \n  plot()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#what-is-decomposition",
+    "href": "slides/21-timeseries.html#what-is-decomposition",
+    "title": "Lecture 21",
+    "section": "What is Decomposition?",
+    "text": "What is Decomposition?\n\nDecomposition separates a time series into interpretable components:\n\n\nTrend: Long-term movement\nSeasonality: Regular, periodic fluctuations\nResidual/Irregular: Random noise or anomalies"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#additive-vs-multiplicative",
+    "href": "slides/21-timeseries.html#additive-vs-multiplicative",
+    "title": "Lecture 21",
+    "section": "Additive vs Multiplicative",
+    "text": "Additive vs Multiplicative\n\nAdditive model:\n\\[ Y_t = T_t + S_t + R_t \\]\nMultiplicative model:\n\\[ Y_t = T_t \\times S_t \\times R_t \\]\n\n\nUse additive if seasonal variation is roughly constant.\nUse multiplicative if it grows/shrinks with the trend."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#why-decompose",
+    "href": "slides/21-timeseries.html#why-decompose",
+    "title": "Lecture 21",
+    "section": "Why Decompose?",
+    "text": "Why Decompose?\n\nTrend: Are CO₂ levels increasing?\nSeasonality: Are there predictable cycles each year?\nRemainder: What’s left after we remove trend and season? (what is the randomness?)"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#deep-dive-trend-component",
+    "href": "slides/21-timeseries.html#deep-dive-trend-component",
+    "title": "Lecture 21",
+    "section": "Deep Dive: Trend Component",
+    "text": "Deep Dive: Trend Component\n\n\n\nplot(decomp$trend, main = \"Trend Component of CO₂\", ylab = \"ppm\", col = \"darkred\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\nSteady upward slope from ~316 ppm in 1959 to ~365 ppm in the late 1990s\nCaptures the long-term forcing from human activity:\n\nFossil fuel combustion\nDeforestation\n\nThis trend underpins climate change science — known as the Keeling Curve\nNotice how the trend smooths short-term fluctuations"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#interpreting-the-trend",
+    "href": "slides/21-timeseries.html#interpreting-the-trend",
+    "title": "Lecture 21",
+    "section": "Interpreting the Trend",
+    "text": "Interpreting the Trend\n\nA linear model or loess smoother can also help quantify the trend:\n\n\n\n\nco2_df &lt;- data.frame(time = time(co2), co2 = as.numeric(co2))\n\nlm(as.numeric(co2) ~ time(co2)) |&gt; \n  summary()\n#&gt; \n#&gt; Call:\n#&gt; lm(formula = as.numeric(co2) ~ time(co2))\n#&gt; \n#&gt; Residuals:\n#&gt;     Min      1Q  Median      3Q     Max \n#&gt; -6.0399 -1.9476 -0.0017  1.9113  6.5149 \n#&gt; \n#&gt; Coefficients:\n#&gt;               Estimate Std. Error t value Pr(&gt;|t|)    \n#&gt; (Intercept) -2.250e+03  2.127e+01  -105.8   &lt;2e-16 ***\n#&gt; time(co2)    1.308e+00  1.075e-02   121.6   &lt;2e-16 ***\n#&gt; ---\n#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n#&gt; \n#&gt; Residual standard error: 2.618 on 466 degrees of freedom\n#&gt; Multiple R-squared:  0.9695, Adjusted R-squared:  0.9694 \n#&gt; F-statistic: 1.479e+04 on 1 and 466 DF,  p-value: &lt; 2.2e-16\n\n\n\nco2_df %&gt;%\n  ggplot(aes(x = time, y = co2)) +\n  geom_line(alpha = 0.5) +\n  geom_smooth(method = \"loess\", span = 0.2, color = \"red\", se = FALSE) +\n  labs(title = \"CO₂ Trend with Loess Smoothing\", y = \"ppm\")\n\n\n\n\n\n\n\n\n\nDo you see acceleration in the rise over time?"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#de-trending",
+    "href": "slides/21-timeseries.html#de-trending",
+    "title": "Lecture 21",
+    "section": "De-Trending",
+    "text": "De-Trending\n\nDetrending is the process of removing the trend component from a time series.\nThis can help for modeling the trend + residual only:\n\n\ndeseasonalized &lt;- co2 - decomp$trend\nplot(deseasonalized, main = \"De-trended Series\")"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#deep-dive-seasonal-component",
+    "href": "slides/21-timeseries.html#deep-dive-seasonal-component",
+    "title": "Lecture 21",
+    "section": "Deep Dive: Seasonal Component",
+    "text": "Deep Dive: Seasonal Component\n\n\n\nplot(decomp$seasonal, main = \"Seasonal Component of CO₂\", \n     ylab = \"ppm\", col = \"darkgreen\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\nRepeats every 12 months\nPeaks around May, drops in September–October\nDriven by biospheric fluxes:\n\nPhotosynthesis during spring/summer → CO₂ drawdown\nDecomposition and respiration in winter → CO₂ release\n\nSeasonal Cycle is Northern Hemisphere-Dominated (Mauna Loa is in the Northern Hemisphere)\nNorthern Hemisphere contains more landmass and vegetation\nSo its biosphere exerts a stronger influence on global CO₂ than the Southern Hemisphere\nThis explains the pronounced seasonal cycle in the signal"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#de-seasonalizing",
+    "href": "slides/21-timeseries.html#de-seasonalizing",
+    "title": "Lecture 21",
+    "section": "De-seasonalizing",
+    "text": "De-seasonalizing\nThis can help for modeling the seasonal + residual only:\n\ndeseasonalized &lt;- co2 - decomp$seasonal\nplot(deseasonalized, main = \"De-seasonalized Series\")"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#deep-dive-remainder-component",
+    "href": "slides/21-timeseries.html#deep-dive-remainder-component",
+    "title": "Lecture 21",
+    "section": "Deep Dive: Remainder Component",
+    "text": "Deep Dive: Remainder Component\n\n\n\nplot(decomp$random, main = \"Remainder Component (Residuals)\", \n     ylab = \"ppm\", col = \"gray40\", lwd = 1)\n\n\n\n\n\n\n\n\n\n\nResiduals are the “leftover” part of the time series after removing trend and seasonality\nContains irregular, short-term fluctuations\nCan be used to identify anomalies or outliers\nImportant for understanding noise in the data\nPossible sources:\n\nVolcanic activity (e.g. El Chichón, Mt. Pinatubo)\nMeasurement error\nEl Niño/La Niña events (which affect carbon flux)\n\nTypically small amplitude: ±0.2 ppm"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#asssessing-patterns-in-error",
+    "href": "slides/21-timeseries.html#asssessing-patterns-in-error",
+    "title": "Lecture 21",
+    "section": "Asssessing Patterns in Error?",
+    "text": "Asssessing Patterns in Error?\nYou might compute the standard deviation of the residuals to assess noise:\n\nsd(na.omit(decomp$random))\n#&gt; [1] 0.2651064\n\n\nOr evaluate the residules like we did for Linear Modeling!\n\nggpubr::ggdensity(decomp$random, main = \"Residuals Histogram\", xlab = \"Residuals\")"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#smoothing-to-remove-noise",
+    "href": "slides/21-timeseries.html#smoothing-to-remove-noise",
+    "title": "Lecture 21",
+    "section": "Smoothing to Remove Noise",
+    "text": "Smoothing to Remove Noise\nIf your data is noisy - and without usefull pattern - you can use a moving average to smooth it out.\n\n\n\n\nThe zoo package provides a convenient function for this that we have already seen in the COVID lab.\nThe rollmean() function from the zoo package is useful for this.\nThe k parameter specifies the window size for the moving average.\nThe align parameter specifies how to align the moving average with the original data (e.g., “center”, “left”, “right”).\nThe na.pad parameter specifies whether to pad the result with NA values.\n\n\n\nco2_smooth &lt;- zoo::rollmean(co2, k = 12, align = \"center\", na.pad = TRUE)\n\nplot(co2, col = \"grey\", main = \"12-Month Moving Average\")\nlines(co2_smooth, col = \"blue\", lwd = 2)"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#stl-decomposition-loess-based",
+    "href": "slides/21-timeseries.html#stl-decomposition-loess-based",
+    "title": "Lecture 21",
+    "section": "STL Decomposition (Loess-based)",
+    "text": "STL Decomposition (Loess-based)\n\nSTL (Seasonal-Trend decomposition using Loess) adapts to changing trend or seasonality over time\nDoesn’t assume constant seasonal effect like decompose() does\nParticularly valuable when working with:\n\nLong datasets\nEnvironmental time series affected by nonlinear changes"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#stl-decomposition-loess-based-1",
+    "href": "slides/21-timeseries.html#stl-decomposition-loess-based-1",
+    "title": "Lecture 21",
+    "section": "STL Decomposition (Loess-based)",
+    "text": "STL Decomposition (Loess-based)\n\nstl() uses local regression (loess) to estimate the trend and seasonal components.\ns.window = \"periodic\" specifies that the seasonal component is periodic.\nOther options include\n\n“none” (no seasonal component)\nor a numeric value for the seasonal window size.\n\n\n\n\n\nplot(decomp)\n\n\n\n\n\n\n\n\n\n\n?stl(co2, s.window = \"periodic\") |&gt;  \n  plot()\n#&gt; Help on topic 'plot' was found in the following packages:\n#&gt; \n#&gt;   Package               Library\n#&gt;   graphics              /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library\n#&gt;   base                  /Library/Frameworks/R.framework/Resources/library\n#&gt; \n#&gt; \n#&gt; Using the first match ..."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#summary",
+    "href": "slides/21-timeseries.html#summary",
+    "title": "Lecture 21",
+    "section": "Summary",
+    "text": "Summary\n\nDecomposition helps us understand and communicate time series structure\nCO^2 is a textbook case of trend + seasonality\nUse STL when:\nSeasonality changes over time\nYou want flexible, robust fits"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#decomposing-with-feasts",
+    "href": "slides/21-timeseries.html#decomposing-with-feasts",
+    "title": "Lecture 21",
+    "section": "Decomposing with feasts",
+    "text": "Decomposing with feasts\nfeasts provides:\n\na STL() function for seasonal decomposition.\ncomponents() extracts the components of the decomposition.\ngg_season() and gg_subseries() visualize seasonal patterns.\ngg_lag() visualizes autocorrelation and lagged relationships.\n\n\nco2_decomp &lt;- co2_tbl %&gt;%\n  model(STL(value ~ season(window = \"periodic\"))) %&gt;%\n  components()\n\nglimpse(co2_decomp)\n#&gt; Rows: 468\n#&gt; Columns: 7\n#&gt; Key: .model [1]\n#&gt; : value = trend + season_year + remainder\n#&gt; $ .model        &lt;chr&gt; \"STL(value ~ season(window = \\\"periodic\\\"))\", \"STL(value…\n#&gt; $ index         &lt;mth&gt; 1959 Jan, 1959 Feb, 1959 Mar, 1959 Apr, 1959 May, 1959 J…\n#&gt; $ value         &lt;dbl&gt; 315.42, 316.31, 316.50, 317.56, 318.13, 318.00, 316.39, …\n#&gt; $ trend         &lt;dbl&gt; 315.1954, 315.3023, 315.4093, 315.5147, 315.6201, 315.71…\n#&gt; $ season_year   &lt;dbl&gt; -0.06100103, 0.59463870, 1.32899651, 2.46904706, 2.95704…\n#&gt; $ remainder     &lt;dbl&gt; 0.28564410, 0.41305456, -0.23825306, -0.42371128, -0.447…\n#&gt; $ season_adjust &lt;dbl&gt; 315.4810, 315.7154, 315.1710, 315.0910, 315.1730, 315.68…"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#component-access",
+    "href": "slides/21-timeseries.html#component-access",
+    "title": "Lecture 21",
+    "section": "Component Access",
+    "text": "Component Access\n\n\nAutoplot\n\nautoplot(co2_decomp) +\n  labs(title = \"STL Decomposition of CO₂\", y = \"ppm\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nComponent Access\n\nggpubr::ggdensity(co2_decomp$remainder, main = \"Residual Component\")\n\n\n\n\n\n\n\nshapiro.test(co2_decomp$remainder)\n#&gt; \n#&gt;  Shapiro-Wilk normality test\n#&gt; \n#&gt; data:  co2_decomp$remainder\n#&gt; W = 0.99485, p-value = 0.1202"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#advanced-visualizationmodeling-with-feasts",
+    "href": "slides/21-timeseries.html#advanced-visualizationmodeling-with-feasts",
+    "title": "Lecture 21",
+    "section": "Advanced Visualization/Modeling with feasts",
+    "text": "Advanced Visualization/Modeling with feasts"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#gg_lag",
+    "href": "slides/21-timeseries.html#gg_lag",
+    "title": "Lecture 21",
+    "section": "gg_lag()",
+    "text": "gg_lag()\n\nA lag plot is a scatterplot of a time series against itself, but with a time shift (or “lag”) applied to one of the series.\nIt helps us visualize the relationship between current and past values of a time series.\n\n📦 Here’s the simple idea:\n\n\nYou take your CO₂ measurements over time.\n\nThen you make a graph where you plot today’s CO₂ (on the Y-axis)…\n\n…against CO₂ from a few months ago (on the X-axis).\n\nThis shows you if the past helps predict the present!\n\n\n📊 If it makes a curvy shape or a line…\n\n\n…that means there’s a pattern! Your data remembers what happened before — like a smart friend who learns from their past.\n\nBut if the dots look like a big messy spaghetti mess that means the data is random, with no memory of what happened before."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#gg_lag-1",
+    "href": "slides/21-timeseries.html#gg_lag-1",
+    "title": "Lecture 21",
+    "section": "gg_lag()",
+    "text": "gg_lag()\n🧠 Why this is useful:\n\n\nIt helps us see if there are patterns in the data.\n\nIt helps us understand how past values affect current values.\n\nIt helps us decide if we can use this data to make predictions in the future.\n\n\n\nco2_tbl |&gt; \n  gg_lag() +\n  labs(title = \"Lag Plot of CO₂\", x = \"Lagged CO₂\", y = \"Current CO₂\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#gg_subseries",
+    "href": "slides/21-timeseries.html#gg_subseries",
+    "title": "Lecture 21",
+    "section": "gg_subseries",
+    "text": "gg_subseries\n\nImagine the co2 dataset as a big collection of monthly CO₂ data from Mauna Loa. Each month is a group, and each year is a new object\nNow, we want to see how each month behaves across the years, so we can spot if January always has higher or lower CO₂ levels, for example.\n\n📊 What this does:\n\nEach month: A different color shows up for each month (like January in blue, February in red, etc.)\nLines: You see the CO₂ values for each month over different years. For example, you might notice that CO₂ levels tend to be higher in the spring and lower in the fall.\n\n🧠 Why this is useful:\n\nWe can spot seasonal trends: Does CO₂ rise in the winter? Or fall in the summer?\nWe can also compare months across the years: Is January more or less CO₂-heavy compared to other months?"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#gg_subseries-1",
+    "href": "slides/21-timeseries.html#gg_subseries-1",
+    "title": "Lecture 21",
+    "section": "gg_subseries()",
+    "text": "gg_subseries()\n\ngg_subseries(co2_tbl) +\n  labs(title = \"Monthly CO₂ Patterns\", y = \"CO₂ (ppm)\", x = \"Year\") + \n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#gg_season",
+    "href": "slides/21-timeseries.html#gg_season",
+    "title": "Lecture 21",
+    "section": "gg_season",
+    "text": "gg_season\n\nThink of gg_season() like a way to look at a yearly picture of CO₂ and see if the Earth follows a seasonal rhythm.\nIt makes the changes in CO₂ easy to spot when you look at months side-by-side.\n\n📊 What this does:\n\nIt shows you how CO₂ changes during each month of the year, but it puts all the years together, so you can see if the same thing happens every year in January, February, and so on.\n\n🧠 Why this is useful:\n\nYou’ll see a smooth curve for each month. Each curve shows how CO₂ goes up and down each year in the same pattern."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#example",
+    "href": "slides/21-timeseries.html#example",
+    "title": "Lecture 21",
+    "section": "Example",
+    "text": "Example"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#comparing-classical-vs-stl",
+    "href": "slides/21-timeseries.html#comparing-classical-vs-stl",
+    "title": "Lecture 21",
+    "section": "Comparing Classical vs STL",
+    "text": "Comparing Classical vs STL\n\n\n\n\n\n\n\n\n\nMethod\nAssumes Constant Season?\nRobust to Outliers?\nAdaptive Smoothing?\n\n\n\n\ndecompose\n✅ Yes\n❌ No\n❌ No\n\n\nstl\n✅ or 🔄 (customizable)\n✅ Yes\n✅ Yes\n\n\n\n\nRecommendation: Use stl() for most real-world environmental time series."
+  },
+  {
+    "objectID": "slides/21-timeseries.html#bringing-it-all-together",
+    "href": "slides/21-timeseries.html#bringing-it-all-together",
+    "title": "Lecture 21",
+    "section": "Bringing It All Together",
+    "text": "Bringing It All Together\nFor the CO2 dataset, we can summarize the components of the time series:\n\nTrend: A human fingerprint — atmospheric CO₂ continues to rise year over year\nSeasonality: Driven by biospheric rhythms with not multiplicative gains\nRemainder: Small, but potentially rich with short-term signals\n\nUnderstanding these components lets us:\n\n✅ Track long-term progress\n\n✅ Forecast future CO₂\n\n✅ Communicate patterns clearly to policymakers"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#time-series-in-the-tidyverse-tsibble-feasts",
+    "href": "slides/21-timeseries.html#time-series-in-the-tidyverse-tsibble-feasts",
+    "title": "Lecture 21",
+    "section": "Time Series in the Tidyverse: tsibble / feasts",
+    "text": "Time Series in the Tidyverse: tsibble / feasts\n\ntsibble is a tidy data frame for time series data. It extends the tibble class to include time series attributes.\nCompatible with dplyr, ggplot2\nfeasts provides functions for time series analysis and visualization.\n\n\nco2_tbl &lt;- as_tsibble(co2)\nhead(co2_tbl)\n#&gt; # A tsibble: 6 x 2 [1M]\n#&gt;      index value\n#&gt;      &lt;mth&gt; &lt;dbl&gt;\n#&gt; 1 1959 Jan  315.\n#&gt; 2 1959 Feb  316.\n#&gt; 3 1959 Mar  316.\n#&gt; 4 1959 Apr  318.\n#&gt; 5 1959 May  318.\n#&gt; 6 1959 Jun  318"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#gg_season-1",
+    "href": "slides/21-timeseries.html#gg_season-1",
+    "title": "Lecture 21",
+    "section": "gg_season",
+    "text": "gg_season\n\ngg_season(co2_tbl) +\n  labs(title = \"Seasonal Patterns of CO₂\", y = \"CO₂ (ppm)\", x = \"Month\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#steps",
+    "href": "slides/21-timeseries.html#steps",
+    "title": "Lecture 21",
+    "section": "Steps",
+    "text": "Steps\nConvert to tsibble\n\nUse as_tsibble() to convert the data.frame into a tsibble object. This will allow you to use the feast functions for time series analysis.\n\nPlotting the time series\n\nUse ggplot to plot the time series data. You can use the geom_line() function to create a line plot of the monthly streamflow data.\nanimate this plot with plotly\n\nSubseries\n\nUse gg_subseries to visualize the seasonal patterns in the data. This will help you identify any trends or seasonal cycles in the streamflow data.\nDescribe what you see in the plot. How are “seasons” defined in this plot? What do you think the “subseries” represent?\n\nDecompose\n\nUse the stl function to decompose the time series data into its components: trend, seasonality, and residuals. This will help you understand the underlying patterns in the data.\nDescribe what you see in the plot. How do the components change over time? What do you think the trend and seasonal components represent?"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#submission",
+    "href": "slides/21-timeseries.html#submission",
+    "title": "Lecture 21",
+    "section": "Submission",
+    "text": "Submission\n\nUpload a rendered qmd file to the course website. Make sure to include your code and any plots you created.\nThis should be an HTML file with self-contained: true.\nIt should not point to a local host, and must be the physical file.\nMake sure to include your code and any plots you created and that the outputs render as you expect."
   }
 ]
