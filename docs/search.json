@@ -12150,5 +12150,12 @@
     "title": "Lecture 21",
     "section": "Submission",
     "text": "Submission\n\nUpload a rendered qmd file to the course website. Make sure to include your code and any plots you created.\nThis should be an HTML file with self-contained: true.\nIt should not point to a local host, and must be the physical file.\nMake sure to include your code and any plots you created and that the outputs render as you expect."
+  },
+  {
+    "objectID": "schedule.html#component-4-spatial-and-temporal-data",
+    "href": "schedule.html#component-4-spatial-and-temporal-data",
+    "title": "Ecosystem Science and Sustainability 330",
+    "section": "Component 4: Spatial and Temporal Data",
+    "text": "Component 4: Spatial and Temporal Data\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established. Further we will explore applications in timseries analysis, including forecasting and anomaly detection.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries & CRS\n Lecture 24 (w14): Raster Data Introduction\n Lecture 25 (w15): Measures & Predicates\n Lecture 26 (w15): Raster Data Manipulation\n Lecture 27 (w16): ggplot deep dive\n Lecture 28 (w16): Wrap up\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
   }
 ]
