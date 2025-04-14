@@ -11673,7 +11673,7 @@
     "href": "slides/21-timeseries.html#bonus-interactive-plotting",
     "title": "Lecture 21",
     "section": "Bonus: Interactive Plotting",
-    "text": "Bonus: Interactive Plotting\n\nIn last weeks demo, we used plotly to generate an interactive plot of the hyperparameter tuning process.\nYou can use the plotly package to add interactivity to your ggplots directly with ggplotly()!\n\n\nlibrary(plotly)\n\nco2_plot &lt;- co2_tbl |&gt;\n  autoplot() +\n  geom_line(color = \"steelblue\") +\n  labs(title = \"Interactive CO₂ Time Series\", x = \"Date\", y = \"ppm\")\n\nggplotly(co2_plot)"
+    "text": "Bonus: Interactive Plotting\n\nIn last weeks demo, we used plotly to generate an interactive plot of the hyperparameter tuning process.\nYou can use the plotly package to add interactivity to your ggplots directly with ggplotly()!\n\n\nlibrary(plotly)\n\nco2_plot &lt;- co2_tbl |&gt;\n  autoplot() +\n  geom_line(color = \"steelblue\") +\n  labs(title = \"Interactive CO₂ Time Series\", x = \"Date\", y = \"ppm\")"
   },
   {
     "objectID": "slides/21-timeseries.html#base-r-date-functions",
@@ -11694,7 +11694,7 @@
     "href": "slides/21-timeseries.html#lubridate-package",
     "title": "Lecture 21",
     "section": "lubridate Package ",
-    "text": "lubridate Package \n\nThe lubridate package comes with the tidyverse and is designed to make working with dates and times easier.\nIt provides a consistent set of functions for parsing, manipulating, and formatting date-time objects.\n\n\nlibrary(lubridate)\nymd(\"20240408\")        # Parse date\n#&gt; [1] \"2024-04-08\"\nymd_hms(\"20240408 123000\")\n#&gt; [1] \"2024-04-08 12:30:00 UTC\"\n\nnow()                  # Current date and time\n#&gt; [1] \"2025-04-13 20:38:09 MDT\"\ndate &lt;- ymd(\"2023-12-01\")\nmonth(date)           # Extract month\n#&gt; [1] 12\nday(date)\n#&gt; [1] 1\nweek(date)\n#&gt; [1] 48\n\nUse lubridate to handle inconsistent formats and to align data with time zones, daylight savings, etc."
+    "text": "lubridate Package \n\nThe lubridate package comes with the tidyverse and is designed to make working with dates and times easier.\nIt provides a consistent set of functions for parsing, manipulating, and formatting date-time objects.\n\n\nlibrary(lubridate)\nymd(\"20240408\")        # Parse date\n#&gt; [1] \"2024-04-08\"\nymd_hms(\"20240408 123000\")\n#&gt; [1] \"2024-04-08 12:30:00 UTC\"\n\nnow()                  # Current date and time\n#&gt; [1] \"2025-04-14 09:27:31 MDT\"\ndate &lt;- ymd(\"2023-12-01\")\nmonth(date)           # Extract month\n#&gt; [1] 12\nday(date)\n#&gt; [1] 1\nweek(date)\n#&gt; [1] 48\n\nUse lubridate to handle inconsistent formats and to align data with time zones, daylight savings, etc."
   },
   {
     "objectID": "slides/21-timeseries.html#section",
@@ -11722,7 +11722,7 @@
     "href": "slides/21-timeseries.html#section-1",
     "title": "Lecture 21",
     "section": "",
-    "text": "decomp$trend |&gt; \n  plot()"
+    "text": "4. Decompose\n\nUse the model(STL(...)) pattern to decompose the time series data into its components: trend, seasonality, and residuals. Chose a window that you feel is most appropriate to this data…\nDescribe what you see in the plot. How do the components change over time? What do you think the trend and seasonal components represent?\n\nSubmission\n\nUpload a rendered qmd file to the course website. Make sure to include your code and any plots you created.\nThis should be an HTML file with self-contained: true.\nIt should not point to a local host, and must be the physical file.\nMake sure to include your code and any plots you created and that the outputs render as you expect."
   },
   {
     "objectID": "slides/21-timeseries.html#forecasting-with-ts-data",
@@ -11981,7 +11981,7 @@
     "href": "slides/21-timeseries.html#interpreting-the-trend",
     "title": "Lecture 21",
     "section": "Interpreting the Trend",
-    "text": "Interpreting the Trend\n\nA linear model or loess smoother can also help quantify the trend:\n\n\n\n\nco2_df &lt;- data.frame(time = time(co2), co2 = as.numeric(co2))\n\nlm(as.numeric(co2) ~ time(co2)) |&gt; \n  summary()\n#&gt; \n#&gt; Call:\n#&gt; lm(formula = as.numeric(co2) ~ time(co2))\n#&gt; \n#&gt; Residuals:\n#&gt;     Min      1Q  Median      3Q     Max \n#&gt; -6.0399 -1.9476 -0.0017  1.9113  6.5149 \n#&gt; \n#&gt; Coefficients:\n#&gt;               Estimate Std. Error t value Pr(&gt;|t|)    \n#&gt; (Intercept) -2.250e+03  2.127e+01  -105.8   &lt;2e-16 ***\n#&gt; time(co2)    1.308e+00  1.075e-02   121.6   &lt;2e-16 ***\n#&gt; ---\n#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n#&gt; \n#&gt; Residual standard error: 2.618 on 466 degrees of freedom\n#&gt; Multiple R-squared:  0.9695, Adjusted R-squared:  0.9694 \n#&gt; F-statistic: 1.479e+04 on 1 and 466 DF,  p-value: &lt; 2.2e-16\n\n\n\nco2_df %&gt;%\n  ggplot(aes(x = time, y = co2)) +\n  geom_line(alpha = 0.5) +\n  geom_smooth(method = \"loess\", span = 0.2, color = \"red\", se = FALSE) +\n  labs(title = \"CO₂ Trend with Loess Smoothing\", y = \"ppm\")\n\n\n\n\n\n\n\n\n\nDo you see acceleration in the rise over time?"
+    "text": "Interpreting the Trend\n\nA linear model or loess smoother can also help quantify the trend:\n\n\n\n\nco2_df &lt;- data.frame(time = time(co2), co2 = as.numeric(co2))\n\nlm(as.numeric(co2) ~ time(co2)) |&gt; \n  summary()\n#&gt; \n#&gt; Call:\n#&gt; lm(formula = as.numeric(co2) ~ time(co2))\n#&gt; \n#&gt; Residuals:\n#&gt;     Min      1Q  Median      3Q     Max \n#&gt; -6.0399 -1.9476 -0.0017  1.9113  6.5149 \n#&gt; \n#&gt; Coefficients:\n#&gt;               Estimate Std. Error t value Pr(&gt;|t|)    \n#&gt; (Intercept) -2.250e+03  2.127e+01  -105.8   &lt;2e-16 ***\n#&gt; time(co2)    1.308e+00  1.075e-02   121.6   &lt;2e-16 ***\n#&gt; ---\n#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n#&gt; \n#&gt; Residual standard error: 2.618 on 466 degrees of freedom\n#&gt; Multiple R-squared:  0.9695, Adjusted R-squared:  0.9694 \n#&gt; F-statistic: 1.479e+04 on 1 and 466 DF,  p-value: &lt; 2.2e-16\n\n\n\nco2_df |&gt;\n  ggplot(aes(x = time, y = co2)) +\n  geom_line(alpha = 0.5) +\n  geom_smooth(method = \"loess\", span = 0.2, color = \"red\", se = FALSE) +\n  labs(title = \"CO₂ Trend with Loess Smoothing\", y = \"ppm\")\n\n\n\n\n\n\n\n\n\nDo you see acceleration in the rise over time?"
   },
   {
     "objectID": "slides/21-timeseries.html#de-trending",
@@ -12051,7 +12051,7 @@
     "href": "slides/21-timeseries.html#decomposing-with-feasts",
     "title": "Lecture 21",
     "section": "Decomposing with feasts",
-    "text": "Decomposing with feasts\nfeasts provides:\n\na STL() function for seasonal decomposition.\ncomponents() extracts the components of the decomposition.\ngg_season() and gg_subseries() visualize seasonal patterns.\ngg_lag() visualizes autocorrelation and lagged relationships.\n\n\nco2_decomp &lt;- co2_tbl %&gt;%\n  model(STL(value ~ season(window = \"periodic\"))) %&gt;%\n  components()\n\nglimpse(co2_decomp)\n#&gt; Rows: 468\n#&gt; Columns: 7\n#&gt; Key: .model [1]\n#&gt; : value = trend + season_year + remainder\n#&gt; $ .model        &lt;chr&gt; \"STL(value ~ season(window = \\\"periodic\\\"))\", \"STL(value…\n#&gt; $ index         &lt;mth&gt; 1959 Jan, 1959 Feb, 1959 Mar, 1959 Apr, 1959 May, 1959 J…\n#&gt; $ value         &lt;dbl&gt; 315.42, 316.31, 316.50, 317.56, 318.13, 318.00, 316.39, …\n#&gt; $ trend         &lt;dbl&gt; 315.1954, 315.3023, 315.4093, 315.5147, 315.6201, 315.71…\n#&gt; $ season_year   &lt;dbl&gt; -0.06100103, 0.59463870, 1.32899651, 2.46904706, 2.95704…\n#&gt; $ remainder     &lt;dbl&gt; 0.28564410, 0.41305456, -0.23825306, -0.42371128, -0.447…\n#&gt; $ season_adjust &lt;dbl&gt; 315.4810, 315.7154, 315.1710, 315.0910, 315.1730, 315.68…"
+    "text": "Decomposing with feasts\nfeasts provides:\n\na STL() function for seasonal decomposition.\ncomponents() extracts the components of the decomposition.\ngg_season() and gg_subseries() visualize seasonal patterns.\ngg_lag() visualizes autocorrelation and lagged relationships.\n\n\nco2_decomp &lt;- co2_tbl |&gt;\n  model(STL(value ~ season(window = \"periodic\"))) |&gt;\n  components()\n\nglimpse(co2_decomp)\n#&gt; Rows: 468\n#&gt; Columns: 7\n#&gt; Key: .model [1]\n#&gt; : value = trend + season_year + remainder\n#&gt; $ .model        &lt;chr&gt; \"STL(value ~ season(window = \\\"periodic\\\"))\", \"STL(value…\n#&gt; $ index         &lt;mth&gt; 1959 Jan, 1959 Feb, 1959 Mar, 1959 Apr, 1959 May, 1959 J…\n#&gt; $ value         &lt;dbl&gt; 315.42, 316.31, 316.50, 317.56, 318.13, 318.00, 316.39, …\n#&gt; $ trend         &lt;dbl&gt; 315.1954, 315.3023, 315.4093, 315.5147, 315.6201, 315.71…\n#&gt; $ season_year   &lt;dbl&gt; -0.06100103, 0.59463870, 1.32899651, 2.46904706, 2.95704…\n#&gt; $ remainder     &lt;dbl&gt; 0.28564410, 0.41305456, -0.23825306, -0.42371128, -0.447…\n#&gt; $ season_adjust &lt;dbl&gt; 315.4810, 315.7154, 315.1710, 315.0910, 315.1730, 315.68…"
   },
   {
     "objectID": "slides/21-timeseries.html#component-access",
@@ -12142,7 +12142,7 @@
     "href": "slides/21-timeseries.html#steps",
     "title": "Lecture 21",
     "section": "Steps",
-    "text": "Steps\nConvert to tsibble\n\nUse as_tsibble() to convert the data.frame into a tsibble object. This will allow you to use the feast functions for time series analysis.\n\nPlotting the time series\n\nUse ggplot to plot the time series data. Animate this plot with plotly\n\nSubseries\n\nUse gg_subseries to visualize the seasonal patterns in the data. This will help you identify any trends or seasonal cycles in the streamflow data.\nDescribe what you see in the plot. How are “seasons” defined in this plot? What do you think the “subseries” represent?\n\nDecompose\n\nUse the stl function to decompose the time series data into its components: trend, seasonality, and residuals. This will help you understand the underlying patterns in the data.\nDescribe what you see in the plot. How do the components change over time? What do you think the trend and seasonal components represent?"
+    "text": "Steps\nConvert to tsibble\n\nUse as_tsibble() to convert the data.frame into a tsibble object. This will allow you to use the feast functions for time series analysis.\n\nPlotting the time series\n\nUse ggplot to plot the time series data. Animate this plot with plotly\n\nSubseries\n\nUse gg_subseries to visualize the seasonal patterns in the data. This will help you identify any trends or seasonal cycles in the streamflow data.\nDescribe what you see in the plot. How are “seasons” defined in this plot? What do you think the “subseries” represent?"
   },
   {
     "objectID": "slides/21-timeseries.html#submission",
@@ -12157,5 +12157,19 @@
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 4: Spatial and Temporal Data",
     "text": "Component 4: Spatial and Temporal Data\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established. Further we will explore applications in timseries analysis, including forecasting and anomaly detection.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries & CRS\n Lecture 24 (w14): Raster Data Introduction\n Lecture 25 (w15): Measures & Predicates\n Lecture 26 (w15): Raster Data Manipulation\n Lecture 27 (w16): ggplot deep dive\n Lecture 28 (w16): Wrap up\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#bonus-interactive-plotting-1",
+    "href": "slides/21-timeseries.html#bonus-interactive-plotting-1",
+    "title": "Lecture 21",
+    "section": "Bonus: Interactive Plotting",
+    "text": "Bonus: Interactive Plotting\n\nggplotly(co2_plot)"
+  },
+  {
+    "objectID": "slides/21-timeseries.html#assignment-1",
+    "href": "slides/21-timeseries.html#assignment-1",
+    "title": "Lecture 21",
+    "section": "Assignment",
+    "text": "Assignment\n1. Convert to tsibble\n\nUse as_tsibble() to convert the data.frame into a tsibble object. This will allow you to use the feast functions for time series analysis.\n\n2. Plotting the time series\n\nUse ggplot to plot the time series data. Animate this plot with plotly\n\n3. Subseries\n\nUse gg_subseries to visualize the seasonal patterns in the data. This will help you identify any trends or seasonal cycles in the streamflow data.\nDescribe what you see in the plot. How are “seasons” defined in this plot? What do you think the “subseries” represent?"
   }
 ]
