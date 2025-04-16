@@ -12156,7 +12156,7 @@
     "href": "schedule.html#component-4-spatial-and-temporal-data",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 4: Spatial and Temporal Data",
-    "text": "Component 4: Spatial and Temporal Data\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established. Further we will explore applications in timseries analysis, including forecasting and anomaly detection.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries & CRS\n Lecture 24 (w14): Raster Data Introduction\n Lecture 25 (w15): Measures & Predicates\n Lecture 26 (w15): Raster Data Manipulation\n Lecture 27 (w16): ggplot deep dive\n Lecture 28 (w16): Wrap up\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22:\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
+    "text": "Component 4: Spatial and Temporal Data\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established. Further we will explore applications in timseries analysis, including forecasting and anomaly detection.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries & CRS\n Lecture 24 (w14): Measures & Predicates\n Lecture 25 (w15): Raster Data Introduction\n Lecture 26 (w15): Raster Data Manipulation\n Lecture 27 (w16): ggplot deep dive\n Lecture 28 (w16): Wrap up\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22: Predicting the Poudre\nExercise 23:\nExercise 24:\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
   },
   {
     "objectID": "slides/21-timeseries.html#bonus-interactive-plotting-1",
@@ -12171,5 +12171,327 @@
     "title": "Lecture 21",
     "section": "Assignment",
     "text": "Assignment\n1. Convert to tsibble\n\nUse as_tsibble() to convert the data.frame into a tsibble object. This will allow you to use the feast functions for time series analysis.\n\n2. Plotting the time series\n\nUse ggplot to plot the time series data. Animate this plot with plotly\n\n3. Subseries\n\nUse gg_subseries to visualize the seasonal patterns in the data. This will help you identify any trends or seasonal cycles in the streamflow data.\nDescribe what you see in the plot. How are “seasons” defined in this plot? What do you think the “subseries” represent?"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#monday",
+    "href": "slides/22-forecasting.html#monday",
+    "title": "Lecture 22",
+    "section": "Monday",
+    "text": "Monday\n\nWe covered the following topics:\n\nsate-time data in R (date, POSIXct, POSIXlt)\nTime series data/structure (ts, tsibble, tibble + Date column)\nTime series decomposition\n\nTrend, seasonality, and residuals\n\nSmoothing time series data\n\nSmoothing with moving averages"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#today",
+    "href": "slides/22-forecasting.html#today",
+    "title": "Lecture 22",
+    "section": "Today",
+    "text": "Today\n\nForecasting with two distinct models (1) ARIMA (2) Prophet\nUnderstanding modeltime + tidymodels integration\nForecasting Process for time series"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#arima",
+    "href": "slides/22-forecasting.html#arima",
+    "title": "Lecture 22",
+    "section": "ARIMA",
+    "text": "ARIMA\nThe basics of a ARIMA (AutoRegressive Integrated Moving Average) Model include:\n\n\nAR: AutoRegressive part (past values):\n\n\nAR(1) = current value depends on the previous value\n\nAR(2) = current value depends on the previous two values\n\n\nI: Integrated part (differencing to make data stationary)\n\n\nDifferencing removes trends and seasonality\n\ne.g., diff(co2, lag = 12) removes annual seasonality\n\n\nMA: Moving Average part (past errors)\n\n\nMA(1) = current value depends on the previous error\n\nMA(2) = current value depends on the previous two errors\n\n\np, d, q: Parameters for AR, I, and MA\n\n\np = number of lagged values (AR)\n\nd = number of differences (I)\n\nq = number of lagged errors (MA)"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#river-time-series",
+    "href": "slides/22-forecasting.html#river-time-series",
+    "title": "Lecture 21",
+    "section": "🌊 River Time Series",
+    "text": "🌊 River Time Series\nLet’s say we’re watching how much water flows in a river every day:\n\nMonday: 50 cfs\n\nTuesday: 60 cfs\n\nWednesday: 70 cfs\n\nWe want to guess tomorrow’s flow."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#autoregressive-ar",
+    "href": "slides/22-forecasting.html#autoregressive-ar",
+    "title": "Lecture 22",
+    "section": "1. AutoRegressive (AR)",
+    "text": "1. AutoRegressive (AR)\n\nThis means: “Look at yesterday and the day before!”\nIf flow has been going up each day, AR says: ** “Tomorrow might go up again …” **\nIt’s like the river has a pattern."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#integrated-i",
+    "href": "slides/22-forecasting.html#integrated-i",
+    "title": "Lecture 22",
+    "section": "2. Integrated (I)",
+    "text": "2. Integrated (I)\n\nSometimes the flow just keeps climbing — like during a spring snowmelt!\nTo help ARIMA think better, we subtract yesterday’s number from today’s.\nThis makes the numbers more steady so ARIMA can do its magic."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#moving-average-ma",
+    "href": "slides/22-forecasting.html#moving-average-ma",
+    "title": "Lecture 22",
+    "section": "3. Moving Average (MA)",
+    "text": "3. Moving Average (MA)\n\nThe river sometimes gets a surprise flux (like a big rainstorm 🌧️).\nMA looks at those surprises and helps smooth them out.\nSo if it rained two days ago, MA might say: “Don’t expect another surprise tomorrow.”"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#put-it-all-together-ar-i-ma-arima",
+    "href": "slides/22-forecasting.html#put-it-all-together-ar-i-ma-arima",
+    "title": "Lecture 22",
+    "section": "Put It All Together: AR + I + MA = ARIMA",
+    "text": "Put It All Together: AR + I + MA = ARIMA\n\nAR: Uses the river’s memory (trend)\nI: Calms the sturcutral components (season)\nMA: Handles noisy surprises (noise)\n\nNow we can forecast tomorrow’s flow!"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#arima-1",
+    "href": "slides/22-forecasting.html#arima-1",
+    "title": "Lecture 21",
+    "section": "ARIMA",
+    "text": "ARIMA\nThe basics of ARIMA include:\n\n\nAR: AutoRegressive part (past values):\n\n\nAR(1) = current value depends on the previous value\n\nAR(2) = current value depends on the previous two values\n\n\nI: Integrated part (differencing to make data stationary)\n\n\nDifferencing removes trends and seasonality\n\ne.g., diff(co2, lag = 12) removes annual seasonality\n\n\nMA: Moving Average part (past errors)\n\n\nMA(1) = current value depends on the previous error\n\nMA(2) = current value depends on the previous two errors\n\n\np, d, q: Parameters for AR, I, and MA"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#a-simple-forecasting-example",
+    "href": "slides/22-forecasting.html#a-simple-forecasting-example",
+    "title": "Lecture 22",
+    "section": "A Simple Forecasting Example",
+    "text": "A Simple Forecasting Example\n\nauto.arima() is a function from the forecast package that automatically selects the best ARIMA model for your data accoridning toe to the AICc criterion.\nThe AICc (Akaike Information Criterion corrected) is a measure of the relative quality of statistical models for a given dataset.\nIt is used to compare different models and select the one that best fits the data while penalizing for complexity.\nThe auto.arima() function will automatically select the best parameters (p,d,q) based on the AICc criterion."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#forecasting-with-arima",
+    "href": "slides/22-forecasting.html#forecasting-with-arima",
+    "title": "Lecture 22",
+    "section": "Forecasting with ARIMA",
+    "text": "Forecasting with ARIMA\n\nThe forecast() function is used to generate forecasts from the fitted ARIMA model.\nThe h argument specifies the number of periods to forecast into the future.\n\n\nco2_forecast &lt;- forecast(co2_arima, h = 60)\n\nplot(co2_forecast)"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#note",
+    "href": "slides/22-forecasting.html#note",
+    "title": "Lecture 22",
+    "section": "Note",
+    "text": "Note\nARIMA modeling works well when data is stationary. - Stationarity means the statistical properties of the series (mean, variance) do not change over time. - Non-stationary data can lead to unreliable forecasts and misleading results."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#prophet",
+    "href": "slides/22-forecasting.html#prophet",
+    "title": "Lecture 22",
+    "section": "Prophet",
+    "text": "Prophet\n\nProphet is an open-source tool for forecasting time series data.\nDeveloped by Facebook (Meta)\nDesigned for analysts and data scientists\nHandles missing data, outliers, and seasonality"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#key-features-of-prophet",
+    "href": "slides/22-forecasting.html#key-features-of-prophet",
+    "title": "Lecture 22",
+    "section": "Key Features of Prophet",
+    "text": "Key Features of Prophet\n✅ Additive Model: Trend + Seasonality + Holidays + Noise\n✅ Automatic Changepoint Detection\n✅ Support for Custom Holidays & Events\n✅ Flexible Seasonality (daily/weekly/yearly)\n✅ Easy-to-use API in R and Python"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#prophets-model-structure",
+    "href": "slides/22-forecasting.html#prophets-model-structure",
+    "title": "Lecture 22",
+    "section": "Prophet’s Model Structure",
+    "text": "Prophet’s Model Structure\nProphet decomposes time series into components:\n\\[ y(t) = g(t) + s(t) + h(t) + ε(t) \\]\n\ng(t): Trend (linear or logistic growth)\ns(t): Seasonality (Fourier series)\nh(t): Holiday effects\nε(t): Error term (noise)\n\n📌 Assumes additive components by default; multiplicative also possible"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#a-simple-forecasting-example-1",
+    "href": "slides/22-forecasting.html#a-simple-forecasting-example-1",
+    "title": "Lecture 22",
+    "section": "A Simple Forecasting Example",
+    "text": "A Simple Forecasting Example\nYour time series must have: (1) ds column (date/timestamp) (2) y column (value to forecast)\n\nlibrary(prophet)\nprophet_mod &lt;- tsibble::as_tsibble(co2) |&gt; \n  # prophet requires ds and y columns\n  dplyr::rename(ds = index, y = value) |&gt; \n  prophet()\n\n\n# Make future dataframe and predict\nfuture   &lt;- make_future_dataframe(prophet_mod, periods = 1000)\n\nforecast &lt;- predict(prophet_mod, future)\n\n# Plot the forecast\nplot(prophet_mod, forecast) + \n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#pros-cons",
+    "href": "slides/22-forecasting.html#pros-cons",
+    "title": "Lecture 22",
+    "section": "Pros / Cons",
+    "text": "Pros / Cons\n\n\n\n\n\n\n\n\nFeature\nARIMA\nProphet\n\n\n\n\nStatistical rigor\nBased on strong statistical theory; well-studied\nIntuitive, decomposable model (trend + seasonality + events)\n\n\nInterpretability\nClear interpretation of AR, MA, differencing terms\nPlots components like trend/seasonality directly\n\n\nFlexibility (SARIMA)\nSeasonal ARIMA can handle seasonal structure\nHandles multiple seasonalities natively (yearly, weekly, daily)\n\n\nControl over params\nFine-tuned control over differencing, lags, and model order\nEasy to specify changepoints, seasonality, and custom events\n\n\nStatistical testing\nIncludes AIC/BIC for model selection\nCross-validation support; uncertainty intervals included\n\n\nRequires stationarity\nTime series must be stationary or made so (differencing)\nHandles non-stationary data out of the box\n\n\nModel complexity\nNeeds careful tuning (p,d,q) and domain expertise\nDefaults work well; limited tuning needed\n\n\nHoliday effects\nMust be encoded manually\nEasy to include holidays/events\n\n\nMultivariate support\nBasic ARIMA doesn’t support exogenous variables easily (need ARIMAX)\nSupports external regressors with add_regressor()\n\n\nNon-linear trends\nPoor performance with structural breaks or non-linear growth\nHandles changepoints and logistic growth models well\n\n\nSeasonality limits\nSARIMA handles only one seasonal period well\nBuilt-in multiple seasonal components (e.g., daily, weekly, yearly)\n\n\n\nTL;DR\n\nUse ARIMA if you want a classic, statistical model with deep customization and you’re comfortable making your data stationary.\nUse Prophet if you want a fast, robust, and intuitive model for business or environmental data with strong seasonal effects and irregular events."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#complexity",
+    "href": "slides/22-forecasting.html#complexity",
+    "title": "Lecture 22",
+    "section": "Complexity",
+    "text": "Complexity\n\nEach model has it own requirements, arguments, and tuning parameters.\nSimular to our ML models, this introduces a large time sink, opportunity ofr error, and complexity.\nmodeltime brings tidy workflows to time series forecasting using the parsnip and workflows frameworks from tidymodels.\nCombine multiple models (ARIMA, Prophet, XGBoost) in one framework\nEvaluate performance across models\nRefit to full dataset for production\nThis is ideal for students familiar with tidymodels who want to extend their forecasting skills."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#modeltime-and-tidymodels-integration",
+    "href": "slides/22-forecasting.html#modeltime-and-tidymodels-integration",
+    "title": "Lecture 22",
+    "section": "Modeltime and Tidymodels Integration  ",
+    "text": "Modeltime and Tidymodels Integration  \n\nlibrary(modeltime)\nlibrary(tidymodels)\nlibrary(timetk)"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#create-a-time-series-split",
+    "href": "slides/22-forecasting.html#create-a-time-series-split",
+    "title": "Lecture 22",
+    "section": "1. Create a time series split …",
+    "text": "1. Create a time series split …\n\nUse time_series_split() to make a train/test set.\nSetting assess = “…” tells the function to use the last … of data as the testing set.\nSetting cumulative = TRUE tells the sampling to use all of the prior data as the training set.\n\n\nco2_tbl &lt;-  tsibble::as_tsibble(co2) |&gt; \n  as_tibble() |&gt;\n  mutate(date = as.Date(index), index = NULL) \n\nsplits &lt;- time_series_split(co2_tbl, assess = \"60 months\", cumulative = TRUE)\n\ntraining &lt;-  training(splits)\ntesting  &lt;-  testing(splits)"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#specify-models",
+    "href": "slides/22-forecasting.html#specify-models",
+    "title": "Lecture 22",
+    "section": "2. Specify Models …",
+    "text": "2. Specify Models …\nJust like tidymodels …\n\nModel Spec: arima_reg()/prophet_reg()/prophet_boost() &lt;– This sets up your general model algorithm and key parameters\nModel Mode: mode = \"regression\"/mode = \"classification\" &lt;– This sets the model mode to regression or classification (timeseries is always regression!)\nSet Engine: set_engine(\"auto_arima\")/set_engine(\"prophet\") / &lt;– This selects the specific package-function to use, you can add any function-level arguments here.\n\n\nmods &lt;- list(\n  arima_reg() |&gt;  set_engine(\"auto_arima\"),\n  \n  arima_boost(min_n = 2, learn_rate = 0.015) |&gt; set_engine(engine = \"auto_arima_xgboost\"),\n  \n  prophet_reg() |&gt; set_engine(\"prophet\"),\n  \n  prophet_boost() |&gt; set_engine(\"prophet_xgboost\"),\n  \n  # Exponential Smoothing State Space model\n  exp_smoothing() |&gt; set_engine(engine = \"ets\"),\n  \n  # Multivariate Adaptive Regression Spline model\n  mars(mode = \"regression\") |&gt; set_engine(\"earth\") \n)"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#fit-models",
+    "href": "slides/22-forecasting.html#fit-models",
+    "title": "Lecture 22",
+    "section": "3. Fit Models …",
+    "text": "3. Fit Models …\n\nUse purrr::map() to fit the models to the training data.\nFit Model: fit(value ~ date, training) &lt;– All modeltime models require a date column to be a regressor.\n\n\nmodels &lt;- map(mods, ~ fit(.x, value ~ date, data = training))"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#build-modeltime-table",
+    "href": "slides/22-forecasting.html#build-modeltime-table",
+    "title": "Lecture 22",
+    "section": "4. Build modeltime table …",
+    "text": "4. Build modeltime table …\n\nUse modeltime_table() to combine multiple models into a single table that can be used for calibration, accuracy, and forecasting.\n\nmodeltime_table():\n\nCreates a table of models\nValidates that all objects are models (parsnip or workflows objects) and all models have been fitted\nProvides an ID and Description of the models\n\nas_modeltime_table():\n\nConverts a list of models to a modeltime table. Useful if programatically creating Modeltime Tables from models stored in a list (e.g. from map).\n\n\n(models_tbl &lt;- as_modeltime_table(models))\n#&gt; # Modeltime Table\n#&gt; # A tibble: 6 × 3\n#&gt;   .model_id .model   .model_desc            \n#&gt;       &lt;int&gt; &lt;list&gt;   &lt;chr&gt;                  \n#&gt; 1         1 &lt;fit[+]&gt; ARIMA(1,1,1)(2,1,2)[12]\n#&gt; 2         2 &lt;fit[+]&gt; ARIMA(1,1,1)(0,1,1)[12]\n#&gt; 3         3 &lt;fit[+]&gt; PROPHET                \n#&gt; 4         4 &lt;fit[+]&gt; PROPHET                \n#&gt; 5         5 &lt;fit[+]&gt; ETS(M,A,A)             \n#&gt; 6         6 &lt;fit[+]&gt; EARTH"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#notes",
+    "href": "slides/22-forecasting.html#notes",
+    "title": "Lecture 22",
+    "section": "Notes:",
+    "text": "Notes:\nmodeltime_table() does some basic checking to ensure all models are fit and organized into a scalable structure called a “Modeltime Table” that is used as part of our forecasting workflow.\n\nIt’s expected that tuning and parameter selection is performed prior to incorporating into a Modeltime Table.\nIf you try to add an unfitted model, the modeltime_table() will complain (throw an informative error) saying you need to fit() the model."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#calibrate-and-evaluate-models",
+    "href": "slides/22-forecasting.html#calibrate-and-evaluate-models",
+    "title": "Lecture 21",
+    "section": "5. Calibrate and Evaluate Models",
+    "text": "5. Calibrate and Evaluate Models\n\nUse modeltime_calibrate() to evaluate the models on the test set.\nCalibrating adds a new column, .calibration_data, with the test predictions and residuals inside.\n\nA few notes on Calibration:\n\nCalibration builds confidence intervals and accuracy metrics\nCalibration Data is the predictions and residuals that are calculated from out-of-sample data.\nAfter calibrating, the calibration data follows the data through the forecasting workflow.\n\n\n(calibration_table &lt;- modeltime_calibrate(models_tbl, testing, quiet = FALSE))\n#&gt; # Modeltime Table\n#&gt; # A tibble: 6 × 5\n#&gt;   .model_id .model   .model_desc             .type .calibration_data\n#&gt;       &lt;int&gt; &lt;list&gt;   &lt;chr&gt;                   &lt;chr&gt; &lt;list&gt;           \n#&gt; 1         1 &lt;fit[+]&gt; ARIMA(1,1,1)(2,1,2)[12] Test  &lt;tibble [60 × 4]&gt;\n#&gt; 2         2 &lt;fit[+]&gt; ARIMA(1,1,1)(0,1,1)[12] Test  &lt;tibble [60 × 4]&gt;\n#&gt; 3         3 &lt;fit[+]&gt; PROPHET                 Test  &lt;tibble [60 × 4]&gt;\n#&gt; 4         4 &lt;fit[+]&gt; PROPHET                 Test  &lt;tibble [60 × 4]&gt;\n#&gt; 5         5 &lt;fit[+]&gt; ETS(M,A,A)              Test  &lt;tibble [60 × 4]&gt;\n#&gt; 6         6 &lt;fit[+]&gt; EARTH                   Test  &lt;tibble [60 × 4]&gt;"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#accuracy",
+    "href": "slides/22-forecasting.html#accuracy",
+    "title": "Lecture 22",
+    "section": "Accuracy",
+    "text": "Accuracy\nmodeltime_accuracy() collects common accuracy metrics using yardstick functions:\n\nMAE - Mean absolute error, mae()\nMAPE - Mean absolute percentage error, mape()\nMASE - Mean absolute scaled error, mase()\nSMAPE - Symmetric mean absolute percentage error, smape()\nRMSE - Root mean squared error, rmse()\nRSQ - R-squared, rsq()\n\n\nmodeltime_accuracy(calibration_table) |&gt; \n  arrange(mae)\n#&gt; # A tibble: 6 × 9\n#&gt;   .model_id .model_desc             .type   mae  mape  mase smape  rmse   rsq\n#&gt;       &lt;int&gt; &lt;chr&gt;                   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n#&gt; 1         1 ARIMA(1,1,1)(2,1,2)[12] Test  0.810 0.224 0.687 0.224 0.967 0.973\n#&gt; 2         2 ARIMA(1,1,1)(0,1,1)[12] Test  0.885 0.244 0.750 0.245 1.05  0.969\n#&gt; 3         3 PROPHET                 Test  1.06  0.295 0.899 0.294 1.16  0.986\n#&gt; 4         4 PROPHET                 Test  1.06  0.295 0.899 0.294 1.16  0.986\n#&gt; 5         5 ETS(M,A,A)              Test  1.48  0.409 1.25  0.410 1.71  0.958\n#&gt; 6         6 EARTH                   Test  1.89  0.526 1.61  0.526 2.25  0.499"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#forecast",
+    "href": "slides/22-forecasting.html#forecast",
+    "title": "Lecture 22",
+    "section": "Forecast",
+    "text": "Forecast\n\nUse modeltime_forecast() to generate forecasts for the next 120 months (10 years).\nUse plot_modeltime_forecast() to visualize the forecasts.\n\n\n(forecast &lt;- calibration_table  |&gt; \n  modeltime_forecast(h = \"60 months\", \n                     new_data = testing,\n                     actual_data = co2_tbl) )\n#&gt; # Forecast Results\n#&gt; \n#&gt; # A tibble: 828 × 7\n#&gt;    .model_id .model_desc .key   .index     .value .conf_lo .conf_hi\n#&gt;        &lt;int&gt; &lt;chr&gt;       &lt;fct&gt;  &lt;date&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n#&gt;  1        NA ACTUAL      actual 1959-01-01   315.       NA       NA\n#&gt;  2        NA ACTUAL      actual 1959-02-01   316.       NA       NA\n#&gt;  3        NA ACTUAL      actual 1959-03-01   316.       NA       NA\n#&gt;  4        NA ACTUAL      actual 1959-04-01   318.       NA       NA\n#&gt;  5        NA ACTUAL      actual 1959-05-01   318.       NA       NA\n#&gt;  6        NA ACTUAL      actual 1959-06-01   318        NA       NA\n#&gt;  7        NA ACTUAL      actual 1959-07-01   316.       NA       NA\n#&gt;  8        NA ACTUAL      actual 1959-08-01   315.       NA       NA\n#&gt;  9        NA ACTUAL      actual 1959-09-01   314.       NA       NA\n#&gt; 10        NA ACTUAL      actual 1959-10-01   313.       NA       NA\n#&gt; # ℹ 818 more rows"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#visualize-forecasts",
+    "href": "slides/22-forecasting.html#visualize-forecasts",
+    "title": "Lecture 21",
+    "section": "Visualize Forecasts",
+    "text": "Visualize Forecasts\n\nUse plot_modeltime_forecast() to visualize the forecasts.\n\n\n# ---- Plot ----\nplot_modeltime_forecast(forecast, .interactive = FALSE) +\n  labs(title = \"Forecasting CO2 Levels with Modeltime\",\n       subtitle = \"Using ARIMA, Prophet, and XGBoost Models\",\n       x = \"Date\", y = \"CO2 Levels (ppm)\") +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#refit-to-full-dataset-forecast-forward",
+    "href": "slides/22-forecasting.html#refit-to-full-dataset-forecast-forward",
+    "title": "Lecture 22",
+    "section": "Refit to Full Dataset & Forecast Forward",
+    "text": "Refit to Full Dataset & Forecast Forward\nThe final step is to refit the models to the full dataset using modeltime_refit() and forecast them forward.\n\nrefit_tbl &lt;- calibration_table |&gt;\n    modeltime_refit(data = co2_tbl)\n\nrefit_tbl |&gt;\n    modeltime_forecast(h = \"3 years\", actual_data = co2_tbl) |&gt;\n    plot_modeltime_forecast()"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#summary-and-takeaways",
+    "href": "slides/22-forecasting.html#summary-and-takeaways",
+    "title": "Lecture 21",
+    "section": "Summary and Takeaways",
+    "text": "Summary and Takeaways\n\nEnvironmental science is rich with time series applications\nTime series data is sequential and ordered\nlubridate simplifies handling and extracting date-time features\nUse ts, zoo, xts for classic or irregular data\nUse tsibble, feasts, and fable for tidy workflows\nLearn to decompose, smooth, and forecast\nUse modeltime for advanced modeling and forecasting"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#assignment",
+    "href": "slides/22-forecasting.html#assignment",
+    "title": "Lecture 22",
+    "section": "Assignment",
+    "text": "Assignment\n\nUse modeltime to forecast the next 12 months of streamflow data in the Poudre River based on last time assignment.\nUse the prophet_reg(), and arima_reg() function to create a Prophet model for forecasting.\nUse dataRetrieval to download daily streamflow for the next 12 months. Aggregate this data to monthly averages and compare it to the predictions made by your modeltime model.\nCompute the R2 value between the model predictions and the observed data using a linear model and report the meaning.\nLast, generate a plot of the Predicted vs Observed values and include a 1:1 line, and a linear model line."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#summary-takeaways",
+    "href": "slides/22-forecasting.html#summary-takeaways",
+    "title": "Lecture 22",
+    "section": "Summary & Takeaways",
+    "text": "Summary & Takeaways\n\nEnvironmental science is rich with time series applications\nTime series data is sequential and ordered\nlubridate simplifies handling and extracting date-time features\nUse ts, zoo, xts for classic or irregular data\nUse tsibble, feasts, and fable for tidy workflows\nLearn to decompose, smooth, and forecast\nUse modeltime for advanced modeling and forecasting"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#toy-example-river-time-series-arima",
+    "href": "slides/22-forecasting.html#toy-example-river-time-series-arima",
+    "title": "Lecture 22",
+    "section": "Toy Example: River Time Series & ARIMA",
+    "text": "Toy Example: River Time Series & ARIMA\nLet’s say we’re watching how much water flows in a river every day:\n\nMonday: 50 cfs\n\nTuesday: 60 cfs\n\nWednesday: 70 cfs\n\nWe want to guess tomorrow’s flow."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#section",
+    "href": "slides/22-forecasting.html#section",
+    "title": "Lecture 22",
+    "section": "",
+    "text": "library(forecast)\n\nco2_arima &lt;- auto.arima(co2)\n\nsummary(co2_arima)\n#&gt; Series: co2 \n#&gt; ARIMA(1,1,1)(1,1,2)[12] \n#&gt; \n#&gt; Coefficients:\n#&gt;          ar1      ma1     sar1     sma1     sma2\n#&gt;       0.2569  -0.5847  -0.5489  -0.2620  -0.5123\n#&gt; s.e.  0.1406   0.1204   0.5880   0.5701   0.4819\n#&gt; \n#&gt; sigma^2 = 0.08576:  log likelihood = -84.39\n#&gt; AIC=180.78   AICc=180.97   BIC=205.5\n#&gt; \n#&gt; Training set error measures:\n#&gt;                      ME     RMSE       MAE         MPE       MAPE      MASE\n#&gt; Training set 0.01742092 0.287159 0.2303994 0.005073769 0.06845665 0.1819636\n#&gt;                      ACF1\n#&gt; Training set -0.002858162"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#calibrate-the-models",
+    "href": "slides/22-forecasting.html#calibrate-the-models",
+    "title": "Lecture 22",
+    "section": "5. Calibrate the Models …",
+    "text": "5. Calibrate the Models …\n\nUse modeltime_calibrate() to evaluate the models on the test set.\nCalibrating adds a new column, .calibration_data, with the test predictions and residuals inside.\n\n\n(calibration_table &lt;- modeltime_calibrate(models_tbl, testing, quiet = FALSE))\n#&gt; # Modeltime Table\n#&gt; # A tibble: 6 × 5\n#&gt;   .model_id .model   .model_desc             .type .calibration_data\n#&gt;       &lt;int&gt; &lt;list&gt;   &lt;chr&gt;                   &lt;chr&gt; &lt;list&gt;           \n#&gt; 1         1 &lt;fit[+]&gt; ARIMA(1,1,1)(2,1,2)[12] Test  &lt;tibble [60 × 4]&gt;\n#&gt; 2         2 &lt;fit[+]&gt; ARIMA(1,1,1)(0,1,1)[12] Test  &lt;tibble [60 × 4]&gt;\n#&gt; 3         3 &lt;fit[+]&gt; PROPHET                 Test  &lt;tibble [60 × 4]&gt;\n#&gt; 4         4 &lt;fit[+]&gt; PROPHET                 Test  &lt;tibble [60 × 4]&gt;\n#&gt; 5         5 &lt;fit[+]&gt; ETS(M,A,A)              Test  &lt;tibble [60 × 4]&gt;\n#&gt; 6         6 &lt;fit[+]&gt; EARTH                   Test  &lt;tibble [60 × 4]&gt;\n\nA few notes on Calibration:\n\nCalibration builds confidence intervals and accuracy metrics\nCalibration Data is the predictions and residuals that are calculated from out-of-sample data.\nAfter calibrating, the calibration data follows the data through the forecasting workflow."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#testing-forecast-accuracy-evaluation",
+    "href": "slides/22-forecasting.html#testing-forecast-accuracy-evaluation",
+    "title": "Lecture 22",
+    "section": "Testing Forecast & Accuracy Evaluation",
+    "text": "Testing Forecast & Accuracy Evaluation\nThere are 2 critical parts to an evaluation.\n\nEvaluating the Test (Out of Sample) Accuracy\nVisualizing the Forecast vs Test Data Set"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#aic",
+    "href": "slides/22-forecasting.html#aic",
+    "title": "Lecture 22",
+    "section": "AIC",
+    "text": "AIC\nThe AIC metric helps choose between models/parameters:\n\nIt rewards:\n\nGood predictions\nSimplicity\n\nIt punishes:\n\nComplexity (too many parameters)\nOverfitting (fitting noise instead of the trend)\n\nLower AIC = better model"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#arima11111212",
+    "href": "slides/22-forecasting.html#arima11111212",
+    "title": "Lecture 22",
+    "section": "🔢 ARIMA(1,1,1)(1,1,2)[12]",
+    "text": "🔢 ARIMA(1,1,1)(1,1,2)[12]\nARIMA Notation can be broken into two parts:\n1. Non-seasonal part: ARIMA(1, 1, 1)\nThis is the “regular” ARIMA: - AR(1): One autoregressive term — the model looks at one lag of the time series.\n\nI(1): One differencing — the model uses the change in values instead of raw values to make the series more stationary.\nMA(1): One moving average term — the model corrects using one lag of the error term.\n\n2. Seasonal part: (1, 1, 2)[12]\nThis is the seasonal pattern — repeated every 12 time units (like months in a year):\n\nSAR(1): One seasonal autoregressive term — it uses the value from 12 time steps ago.\nSI(1): One seasonal difference — subtracts the value from 12 steps ago to remove seasonal patterns.\nSMA(2): Two seasonal moving average terms — uses errors from 12 and 24 time steps ago.\n[12]: This is the seasonal period, i.e., it’s a yearly pattern with monthly data."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#pros-cons-1",
+    "href": "slides/22-forecasting.html#pros-cons-1",
+    "title": "Lecture 22",
+    "section": "Pros / Cons",
+    "text": "Pros / Cons\n\n\n\n\n\n\n\n\n⚠️ Cons\nARIMA\nProphet\n\n\n\n\nRequires stationarity\nTime series must be stationary or made so (differencing)\nHandles non-stationary data out of the box\n\n\nModel complexity\nNeeds careful tuning (p,d,q) and domain expertise\nDefaults work well; limited tuning needed\n\n\nHoliday effects\nMust be encoded manually\nEasy to include holidays/events\n\n\nMultivariate support\nBasic ARIMA doesn’t support exogenous variables easily (need ARIMAX)\nSupports external regressors with add_regressor()\n\n\nNon-linear trends\nPoor performance with structural breaks or non-linear growth\nHandles changepoints and logistic growth models well\n\n\nSeasonality limits\nSARIMA handles only one seasonal period well\nBuilt-in multiple seasonal components (e.g., daily, weekly, yearly)\n\n\n\nTL;DR\n\nUse ARIMA if you want a classic, statistical model with deep customization and you’re comfortable making your data stationary.\nUse Prophet if you want a fast, robust, and intuitive model for business or environmental data with strong seasonal effects and irregular events."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#to-much-complexity",
+    "href": "slides/22-forecasting.html#to-much-complexity",
+    "title": "Lecture 22",
+    "section": "To much complexity!!",
+    "text": "To much complexity!!\n\nEach model has it own requirements, arguments, and tuning parameters.\nSimular to our ML models, this introduces a large time sink, opportunity for error, and complexity.\n\n\n\nmodeltime brings tidy workflows to time series forecasting using the parsnip and workflows frameworks from tidymodels.\nCombine multiple models (ARIMA, Prophet, XGBoost) in one framework to"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#modeltime-integration",
+    "href": "slides/22-forecasting.html#modeltime-integration",
+    "title": "Lecture 22",
+    "section": "Modeltime Integration  ",
+    "text": "Modeltime Integration  \n\nlibrary(modeltime)\nlibrary(tidymodels)\nlibrary(timetk)"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#section-1",
+    "href": "slides/22-forecasting.html#section-1",
+    "title": "Lecture 22",
+    "section": "",
+    "text": "The models have all changed! This is the (potential) benefit of refitting.\nMore often than not refitting is a good idea. Refitting:\n\nRetrieves your model and preprocessing steps\nRefits the model to the new data\nRecalculates any automations. This includes:\n\nRecalculating the changepoints for the Earth Model\nRecalculating the ARIMA and ETS parameters\n\nPreserves any parameter selections. This includes:\nAny other defaults that are not automatic calculations are used."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#why-refit",
+    "href": "slides/22-forecasting.html#why-refit",
+    "title": "Lecture 22",
+    "section": "Why refit?",
+    "text": "Why refit?\nThe models have all changed! This is the (potential) benefit of refitting.\nMore often than not refitting is a good idea. Refitting:\n\nRetrieves your model and preprocessing steps\nRefits the model to the new data\nRecalculates any automations. This includes:\n\nRecalculating the changepoints for the Earth Model\nRecalculating the ARIMA and ETS parameters\n\nPreserves any parameter selections. This includes:\nAny other defaults that are not automatic calculations are used."
+  },
+  {
+    "objectID": "slides/22-forecasting.html#vizualize",
+    "href": "slides/22-forecasting.html#vizualize",
+    "title": "Lecture 22",
+    "section": "Vizualize",
+    "text": "Vizualize\n\nplot_modeltime_forecast(forecast)"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#arima11111212-1",
+    "href": "slides/22-forecasting.html#arima11111212-1",
+    "title": "Lecture 22",
+    "section": "🔢 ARIMA(1,1,1)(1,1,2)[12]",
+    "text": "🔢 ARIMA(1,1,1)(1,1,2)[12]\nHey, ARIMA please…\n\n“Model the data using a mix of its last value, the last error, and their seasonal versions from 12 months ago — but first difference it once to remove trend and once seasonally to remove yearly patterns.”"
+  },
+  {
+    "objectID": "slides/22-forecasting.html#growing-ecosystem",
+    "href": "slides/22-forecasting.html#growing-ecosystem",
+    "title": "Lecture 22",
+    "section": "Growing Ecosystem",
+    "text": "Growing Ecosystem"
   }
 ]
