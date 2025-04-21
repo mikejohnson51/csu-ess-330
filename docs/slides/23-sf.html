@@ -257,10 +257,10 @@
 <img data-src="23-sf_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
 
 <section>
-<section id="polyline" class="title-slide slide level1 center">
-<h1>Polyline</h1>
+<section id="linestring" class="title-slide slide level1 center">
+<h1>LINESTRING</h1>
 <ul>
-<li><p>A polyline is composed of a <strong>ordered</strong> sequence of two or more coordinate points</p></li>
+<li><p>A linestring is composed of a <strong>ordered</strong> sequence of two or more coordinate points</p></li>
 <li><p>Points in a line are called vertices and explicitly define the connection between two points.</p></li>
 <li><p>A line has length, but no area</p></li>
 </ul>
@@ -273,7 +273,7 @@
 </div>
 <img data-src="23-sf_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
 <section id="polygon" class="slide level2">
-<h2>Polygon</h2>
+<h2>POLYGON</h2>
 <ul>
 <li><p>A polygon is composed of 4 or more points whose starting and ending point are the same.</p></li>
 <li><p>Polygons have both length and area.</p></li>
@@ -281,9 +281,8 @@
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
 <span id="cb3-2"><a></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)), <span class="at">fill =</span> <span class="st">"green"</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span> </span>
-<span id="cb3-3"><a></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>))) <span class="sc">+</span> </span>
-<span id="cb3-4"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>)), <span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb3-5"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"X"</span>, <span class="at">y =</span> <span class="st">"Y"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>)), <span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb3-4"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"X"</span>, <span class="at">y =</span> <span class="st">"Y"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="23-sf_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
@@ -865,43 +864,71 @@
 <span id="cb21-13"><a></a><span class="co">#&gt; MULTIPOLYGON (((5.5 0, 7 0, 7 -0.5, 6 -0.5, 5.5...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="sf-simple-feature-object" class="slide level2">
+<h2><code>sf</code>: simple feature object</h2>
+<ul>
+<li>The <code>sf</code> object is a <code>data.frame</code> with a geometry list-column</li>
+<li>The geometry list-column is of class <code>sfc</code></li>
+<li>The geometry list-column is the only column that can be of class <code>sfc</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>co</span>
+<span id="cb22-2"><a></a><span class="co">#&gt; Simple feature collection with 64 features and 4 fields</span></span>
+<span id="cb22-3"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span id="cb22-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb22-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
+<span id="cb22-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb22-7"><a></a><span class="co">#&gt; First 10 features:</span></span>
+<span id="cb22-8"><a></a><span class="co">#&gt;    geoid       name      aland state_nm                       geometry</span></span>
+<span id="cb22-9"><a></a><span class="co">#&gt; 1  08001      Adams 3021840487 Colorado MULTIPOLYGON (((-105.0532 3...</span></span>
+<span id="cb22-10"><a></a><span class="co">#&gt; 2  08003    Alamosa 1871643028 Colorado MULTIPOLYGON (((-105.4855 3...</span></span>
+<span id="cb22-11"><a></a><span class="co">#&gt; 3  08005   Arapahoe 2066438714 Colorado MULTIPOLYGON (((-103.7065 3...</span></span>
+<span id="cb22-12"><a></a><span class="co">#&gt; 4  08007  Archuleta 3496712164 Colorado MULTIPOLYGON (((-107.1287 3...</span></span>
+<span id="cb22-13"><a></a><span class="co">#&gt; 5  08009       Baca 6617400567 Colorado MULTIPOLYGON (((-102.0416 3...</span></span>
+<span id="cb22-14"><a></a><span class="co">#&gt; 6  08011       Bent 3918255148 Colorado MULTIPOLYGON (((-102.7476 3...</span></span>
+<span id="cb22-15"><a></a><span class="co">#&gt; 7  08013    Boulder 1881325109 Colorado MULTIPOLYGON (((-105.3978 3...</span></span>
+<span id="cb22-16"><a></a><span class="co">#&gt; 8  08014 Broomfield   85386685 Colorado MULTIPOLYGON (((-105.1092 3...</span></span>
+<span id="cb22-17"><a></a><span class="co">#&gt; 9  08015    Chaffee 2624715692 Colorado MULTIPOLYGON (((-105.9698 3...</span></span>
+<span id="cb22-18"><a></a><span class="co">#&gt; 10 08017   Cheyenne 4605713960 Colorado MULTIPOLYGON (((-103.1729 3...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="conversion-between-types" class="slide level2">
 <h2>Conversion between types</h2>
 <p>We can convert simple feature geometries using the <code>st_cast</code> generic (up to the extent that a conversion is feasible):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">methods</span>(st_cast)</span>
-<span id="cb22-2"><a></a><span class="co">#&gt;  [1] st_cast.CIRCULARSTRING*     st_cast.COMPOUNDCURVE*     </span></span>
-<span id="cb22-3"><a></a><span class="co">#&gt;  [3] st_cast.CURVE*              st_cast.GEOMETRYCOLLECTION*</span></span>
-<span id="cb22-4"><a></a><span class="co">#&gt;  [5] st_cast.LINESTRING*         st_cast.MULTICURVE*        </span></span>
-<span id="cb22-5"><a></a><span class="co">#&gt;  [7] st_cast.MULTILINESTRING*    st_cast.MULTIPOINT*        </span></span>
-<span id="cb22-6"><a></a><span class="co">#&gt;  [9] st_cast.MULTIPOLYGON*       st_cast.MULTISURFACE*      </span></span>
-<span id="cb22-7"><a></a><span class="co">#&gt; [11] st_cast.POINT*              st_cast.POLYGON*           </span></span>
-<span id="cb22-8"><a></a><span class="co">#&gt; [13] st_cast.sf*                 st_cast.sfc*               </span></span>
-<span id="cb22-9"><a></a><span class="co">#&gt; [15] st_cast.sfc_CIRCULARSTRING*</span></span>
-<span id="cb22-10"><a></a><span class="co">#&gt; see '?methods' for accessing help and source code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">methods</span>(st_cast)</span>
+<span id="cb23-2"><a></a><span class="co">#&gt;  [1] st_cast.CIRCULARSTRING*     st_cast.COMPOUNDCURVE*     </span></span>
+<span id="cb23-3"><a></a><span class="co">#&gt;  [3] st_cast.CURVE*              st_cast.GEOMETRYCOLLECTION*</span></span>
+<span id="cb23-4"><a></a><span class="co">#&gt;  [5] st_cast.LINESTRING*         st_cast.MULTICURVE*        </span></span>
+<span id="cb23-5"><a></a><span class="co">#&gt;  [7] st_cast.MULTILINESTRING*    st_cast.MULTIPOINT*        </span></span>
+<span id="cb23-6"><a></a><span class="co">#&gt;  [9] st_cast.MULTIPOLYGON*       st_cast.MULTISURFACE*      </span></span>
+<span id="cb23-7"><a></a><span class="co">#&gt; [11] st_cast.POINT*              st_cast.POLYGON*           </span></span>
+<span id="cb23-8"><a></a><span class="co">#&gt; [13] st_cast.sf*                 st_cast.sfc*               </span></span>
+<span id="cb23-9"><a></a><span class="co">#&gt; [15] st_cast.sfc_CIRCULARSTRING*</span></span>
+<span id="cb23-10"><a></a><span class="co">#&gt; see '?methods' for accessing help and source code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="conversion-between-types-1" class="slide level2 smaller">
 <h2>Conversion between types</h2>
 <p>Lets take the Larimer County in our Colorado sf object:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>(<span class="at">co1 =</span> AOI<span class="sc">::</span><span class="fu">aoi_get</span>(<span class="at">state =</span> <span class="st">"CO"</span>, <span class="at">county =</span> <span class="st">"Larimer"</span>)<span class="sc">$</span>geometry)</span>
-<span id="cb23-2"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
-<span id="cb23-3"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
-<span id="cb23-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb23-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844</span></span>
-<span id="cb23-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb23-7"><a></a><span class="co">#&gt; MULTIPOLYGON (((-105.6533 40.26046, -105.6094 4...</span></span>
-<span id="cb23-8"><a></a>(<span class="at">co_ls =</span> <span class="fu">st_cast</span>(co1, <span class="st">"MULTILINESTRING"</span>))</span>
-<span id="cb23-9"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
-<span id="cb23-10"><a></a><span class="co">#&gt; Geometry type: MULTILINESTRING</span></span>
-<span id="cb23-11"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb23-12"><a></a><span class="co">#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844</span></span>
-<span id="cb23-13"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb23-14"><a></a><span class="co">#&gt; MULTILINESTRING ((-105.6533 40.26046, -105.6094...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>(<span class="at">co1 =</span> AOI<span class="sc">::</span><span class="fu">aoi_get</span>(<span class="at">state =</span> <span class="st">"CO"</span>, <span class="at">county =</span> <span class="st">"Larimer"</span>)<span class="sc">$</span>geometry)</span>
+<span id="cb24-2"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
+<span id="cb24-3"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span id="cb24-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb24-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844</span></span>
+<span id="cb24-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb24-7"><a></a><span class="co">#&gt; MULTIPOLYGON (((-105.6533 40.26046, -105.6094 4...</span></span>
+<span id="cb24-8"><a></a>(<span class="at">co_ls =</span> <span class="fu">st_cast</span>(co1, <span class="st">"MULTILINESTRING"</span>))</span>
+<span id="cb24-9"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
+<span id="cb24-10"><a></a><span class="co">#&gt; Geometry type: MULTILINESTRING</span></span>
+<span id="cb24-11"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb24-12"><a></a><span class="co">#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844</span></span>
+<span id="cb24-13"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb24-14"><a></a><span class="co">#&gt; MULTILINESTRING ((-105.6533 40.26046, -105.6094...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
-<img data-src="23-sf_files/figure-revealjs/unnamed-chunk-31-1.png" style="width:100.0%" class="r-stretch"></section>
+<img data-src="23-sf_files/figure-revealjs/unnamed-chunk-32-1.png" style="width:100.0%" class="r-stretch"></section>
 <section id="level-of-feature" class="slide level2">
 <h2>Level of Feature</h2>
 <ul>
@@ -909,27 +936,27 @@
 </ul>
 <h4 id="linestring-sfg-to-1-point-sfg">1 LINESTRING (sfg) to 1 POINT (sfg)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb24-2"><a></a>   <span class="fu">st_linestring</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb24-3"><a></a>   <span class="fu">st_cast</span>(<span class="st">"POINT"</span>)</span>
-<span id="cb24-4"><a></a><span class="co">#&gt; POINT (0 0)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a></a>   <span class="fu">st_linestring</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb25-3"><a></a>   <span class="fu">st_cast</span>(<span class="st">"POINT"</span>)</span>
+<span id="cb25-4"><a></a><span class="co">#&gt; POINT (0 0)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>. . .</p>
 <h4 id="linestring-sfc-to-point-set-sfc">1 LINESTRING (sfc) to POINT set (sfc)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a></a>   <span class="fu">st_linestring</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb25-3"><a></a>   <span class="fu">st_sfc</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb25-4"><a></a>   <span class="fu">st_cast</span>(<span class="st">"POINT"</span>)</span>
-<span id="cb25-5"><a></a><span class="co">#&gt; Geometry set for 4 features </span></span>
-<span id="cb25-6"><a></a><span class="co">#&gt; Geometry type: POINT</span></span>
-<span id="cb25-7"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb25-8"><a></a><span class="co">#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1</span></span>
-<span id="cb25-9"><a></a><span class="co">#&gt; CRS:           NA</span></span>
-<span id="cb25-10"><a></a><span class="co">#&gt; POINT (0 0)</span></span>
-<span id="cb25-11"><a></a><span class="co">#&gt; POINT (1 1)</span></span>
-<span id="cb25-12"><a></a><span class="co">#&gt; POINT (1 0)</span></span>
-<span id="cb25-13"><a></a><span class="co">#&gt; POINT (0 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a></a>   <span class="fu">st_linestring</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a></a>   <span class="fu">st_sfc</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a></a>   <span class="fu">st_cast</span>(<span class="st">"POINT"</span>)</span>
+<span id="cb26-5"><a></a><span class="co">#&gt; Geometry set for 4 features </span></span>
+<span id="cb26-6"><a></a><span class="co">#&gt; Geometry type: POINT</span></span>
+<span id="cb26-7"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb26-8"><a></a><span class="co">#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1</span></span>
+<span id="cb26-9"><a></a><span class="co">#&gt; CRS:           NA</span></span>
+<span id="cb26-10"><a></a><span class="co">#&gt; POINT (0 0)</span></span>
+<span id="cb26-11"><a></a><span class="co">#&gt; POINT (1 1)</span></span>
+<span id="cb26-12"><a></a><span class="co">#&gt; POINT (1 0)</span></span>
+<span id="cb26-13"><a></a><span class="co">#&gt; POINT (0 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="in-reverse" class="slide level2">
@@ -937,27 +964,27 @@
 <div class="fragment">
 <h4 id="points-sfc-to-4-linestring-sfc">4 POINTs (sfc) to 4 LINESTRING (sfc)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">st_cast</span>(p, <span class="st">"LINESTRING"</span>)</span>
-<span id="cb26-2"><a></a><span class="co">#&gt; Geometry set for 4 features </span></span>
-<span id="cb26-3"><a></a><span class="co">#&gt; Geometry type: LINESTRING</span></span>
-<span id="cb26-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb26-5"><a></a><span class="co">#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1</span></span>
-<span id="cb26-6"><a></a><span class="co">#&gt; CRS:           NA</span></span>
-<span id="cb26-7"><a></a><span class="co">#&gt; LINESTRING (0 0)</span></span>
-<span id="cb26-8"><a></a><span class="co">#&gt; LINESTRING (1 1)</span></span>
-<span id="cb26-9"><a></a><span class="co">#&gt; LINESTRING (1 0)</span></span>
-<span id="cb26-10"><a></a><span class="co">#&gt; LINESTRING (0 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">st_cast</span>(p, <span class="st">"LINESTRING"</span>)</span>
+<span id="cb27-2"><a></a><span class="co">#&gt; Geometry set for 4 features </span></span>
+<span id="cb27-3"><a></a><span class="co">#&gt; Geometry type: LINESTRING</span></span>
+<span id="cb27-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb27-5"><a></a><span class="co">#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1</span></span>
+<span id="cb27-6"><a></a><span class="co">#&gt; CRS:           NA</span></span>
+<span id="cb27-7"><a></a><span class="co">#&gt; LINESTRING (0 0)</span></span>
+<span id="cb27-8"><a></a><span class="co">#&gt; LINESTRING (1 1)</span></span>
+<span id="cb27-9"><a></a><span class="co">#&gt; LINESTRING (1 0)</span></span>
+<span id="cb27-10"><a></a><span class="co">#&gt; LINESTRING (0 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h4 id="multipoint-point-sfc-to-1-linestring-sfc">1 MULTIPOINT POINT (sfc) to 1 LINESTRING (sfc)</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">st_combine</span>(p) <span class="sc">|&gt;</span> </span>
-<span id="cb27-2"><a></a>  <span class="fu">st_cast</span>(<span class="st">"LINESTRING"</span>)</span>
-<span id="cb27-3"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
-<span id="cb27-4"><a></a><span class="co">#&gt; Geometry type: LINESTRING</span></span>
-<span id="cb27-5"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb27-6"><a></a><span class="co">#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1</span></span>
-<span id="cb27-7"><a></a><span class="co">#&gt; CRS:           NA</span></span>
-<span id="cb27-8"><a></a><span class="co">#&gt; LINESTRING (0 0, 1 1, 1 0, 0 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">st_combine</span>(p) <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a></a>  <span class="fu">st_cast</span>(<span class="st">"LINESTRING"</span>)</span>
+<span id="cb28-3"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
+<span id="cb28-4"><a></a><span class="co">#&gt; Geometry type: LINESTRING</span></span>
+<span id="cb28-5"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb28-6"><a></a><span class="co">#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1</span></span>
+<span id="cb28-7"><a></a><span class="co">#&gt; CRS:           NA</span></span>
+<span id="cb28-8"><a></a><span class="co">#&gt; LINESTRING (0 0, 1 1, 1 0, 0 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -967,26 +994,26 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>(<span class="at">co_geom =</span> co<span class="sc">$</span>geometry)</span>
-<span id="cb28-2"><a></a><span class="co">#&gt; Geometry set for 64 features </span></span>
-<span id="cb28-3"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
-<span id="cb28-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb28-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
-<span id="cb28-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb28-7"><a></a><span class="co">#&gt; First 5 geometries:</span></span>
-<span id="cb28-8"><a></a><span class="co">#&gt; MULTIPOLYGON (((-105.0532 39.79106, -104.976 39...</span></span>
-<span id="cb28-9"><a></a><span class="co">#&gt; MULTIPOLYGON (((-105.4855 37.5779, -105.4859 37...</span></span>
-<span id="cb28-10"><a></a><span class="co">#&gt; MULTIPOLYGON (((-103.7065 39.73989, -103.7239 3...</span></span>
-<span id="cb28-11"><a></a><span class="co">#&gt; MULTIPOLYGON (((-107.1287 37.42294, -107.2803 3...</span></span>
-<span id="cb28-12"><a></a><span class="co">#&gt; MULTIPOLYGON (((-102.0416 37.64428, -102.0558 3...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>(<span class="at">co_geom =</span> co<span class="sc">$</span>geometry)</span>
+<span id="cb29-2"><a></a><span class="co">#&gt; Geometry set for 64 features </span></span>
+<span id="cb29-3"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span id="cb29-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb29-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
+<span id="cb29-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb29-7"><a></a><span class="co">#&gt; First 5 geometries:</span></span>
+<span id="cb29-8"><a></a><span class="co">#&gt; MULTIPOLYGON (((-105.0532 39.79106, -104.976 39...</span></span>
+<span id="cb29-9"><a></a><span class="co">#&gt; MULTIPOLYGON (((-105.4855 37.5779, -105.4859 37...</span></span>
+<span id="cb29-10"><a></a><span class="co">#&gt; MULTIPOLYGON (((-103.7065 39.73989, -103.7239 3...</span></span>
+<span id="cb29-11"><a></a><span class="co">#&gt; MULTIPOLYGON (((-107.1287 37.42294, -107.2803 3...</span></span>
+<span id="cb29-12"><a></a><span class="co">#&gt; MULTIPOLYGON (((-102.0416 37.64428, -102.0558 3...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">plot</span>(co_geom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">plot</span>(co_geom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-38-1.png" style="width:100.0%"></p>
+<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-39-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -998,76 +1025,74 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>(<span class="at">co_c =</span> <span class="fu">st_combine</span>(co_geom))</span>
-<span id="cb30-2"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
-<span id="cb30-3"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
-<span id="cb30-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb30-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
-<span id="cb30-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb30-7"><a></a><span class="co">#&gt; MULTIPOLYGON (((-105.0532 39.79106, -104.976 39...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>(<span class="at">co_c =</span> <span class="fu">st_combine</span>(co_geom))</span>
+<span id="cb31-2"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
+<span id="cb31-3"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span id="cb31-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb31-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
+<span id="cb31-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb31-7"><a></a><span class="co">#&gt; MULTIPOLYGON (((-105.0532 39.79106, -104.976 39...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-40-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-41-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>(<span class="at">co_u =</span> <span class="fu">st_union</span>(co_geom))</span>
-<span id="cb31-2"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
-<span id="cb31-3"><a></a><span class="co">#&gt; Geometry type: POLYGON</span></span>
-<span id="cb31-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb31-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
-<span id="cb31-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb31-7"><a></a><span class="co">#&gt; POLYGON ((-105.155 36.99526, -105.1208 36.99543...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>(<span class="at">co_u =</span> <span class="fu">st_union</span>(co_geom))</span>
+<span id="cb32-2"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
+<span id="cb32-3"><a></a><span class="co">#&gt; Geometry type: POLYGON</span></span>
+<span id="cb32-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb32-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
+<span id="cb32-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb32-7"><a></a><span class="co">#&gt; POLYGON ((-105.155 36.99526, -105.1208 36.99543...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-42-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-43-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>(<span class="at">co_c_ml =</span> <span class="fu">st_combine</span>(co_geom) <span class="sc">|&gt;</span> </span>
-<span id="cb32-2"><a></a>   <span class="fu">st_cast</span>(<span class="st">"MULTILINESTRING"</span>))</span>
-<span id="cb32-3"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
-<span id="cb32-4"><a></a><span class="co">#&gt; Geometry type: MULTILINESTRING</span></span>
-<span id="cb32-5"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb32-6"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
-<span id="cb32-7"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb32-8"><a></a><span class="co">#&gt; MULTILINESTRING ((-105.0532 39.79106, -104.976 ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>(<span class="at">co_c_ml =</span> <span class="fu">st_cast</span>(co_c, <span class="st">"MULTILINESTRING"</span>))</span>
+<span id="cb33-2"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
+<span id="cb33-3"><a></a><span class="co">#&gt; Geometry type: MULTILINESTRING</span></span>
+<span id="cb33-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb33-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
+<span id="cb33-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb33-7"><a></a><span class="co">#&gt; MULTILINESTRING ((-105.0532 39.79106, -104.976 ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-44-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-45-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>(<span class="at">co_u_ml =</span> <span class="fu">st_union</span>(co_geom)  <span class="sc">|&gt;</span> </span>
-<span id="cb33-2"><a></a>    <span class="fu">st_cast</span>(<span class="st">"MULTILINESTRING"</span>))</span>
-<span id="cb33-3"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
-<span id="cb33-4"><a></a><span class="co">#&gt; Geometry type: MULTILINESTRING</span></span>
-<span id="cb33-5"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb33-6"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
-<span id="cb33-7"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb33-8"><a></a><span class="co">#&gt; MULTILINESTRING ((-105.155 36.99526, -105.1208 ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>(<span class="at">co_u_ml =</span> <span class="fu">st_cast</span>(co_u, <span class="st">"MULTILINESTRING"</span>))</span>
+<span id="cb34-2"><a></a><span class="co">#&gt; Geometry set for 1 feature </span></span>
+<span id="cb34-3"><a></a><span class="co">#&gt; Geometry type: MULTILINESTRING</span></span>
+<span id="cb34-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb34-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342</span></span>
+<span id="cb34-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb34-7"><a></a><span class="co">#&gt; MULTILINESTRING ((-105.155 36.99526, -105.1208 ...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-46-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-47-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1081,17 +1106,17 @@
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>co <span class="sc">|&gt;</span> </span>
-<span id="cb34-2"><a></a>  <span class="fu">select</span>(name) <span class="sc">|&gt;</span> </span>
-<span id="cb34-3"><a></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb34-4"><a></a><span class="co">#&gt; Simple feature collection with 2 features and 1 field</span></span>
-<span id="cb34-5"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
-<span id="cb34-6"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb34-7"><a></a><span class="co">#&gt; Bounding box:  xmin: -106.0393 ymin: 37.3562 xmax: -103.7057 ymax: 40.00137</span></span>
-<span id="cb34-8"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb34-9"><a></a><span class="co">#&gt;      name                       geometry</span></span>
-<span id="cb34-10"><a></a><span class="co">#&gt; 1   Adams MULTIPOLYGON (((-105.0532 3...</span></span>
-<span id="cb34-11"><a></a><span class="co">#&gt; 2 Alamosa MULTIPOLYGON (((-105.4855 3...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>co <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a></a>  <span class="fu">select</span>(name) <span class="sc">|&gt;</span> </span>
+<span id="cb35-3"><a></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb35-4"><a></a><span class="co">#&gt; Simple feature collection with 2 features and 1 field</span></span>
+<span id="cb35-5"><a></a><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
+<span id="cb35-6"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb35-7"><a></a><span class="co">#&gt; Bounding box:  xmin: -106.0393 ymin: 37.3562 xmax: -103.7057 ymax: 40.00137</span></span>
+<span id="cb35-8"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb35-9"><a></a><span class="co">#&gt;      name                       geometry</span></span>
+<span id="cb35-10"><a></a><span class="co">#&gt; 1   Adams MULTIPOLYGON (((-105.0532 3...</span></span>
+<span id="cb35-11"><a></a><span class="co">#&gt; 2 Alamosa MULTIPOLYGON (((-105.4855 3...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Dropping the geometry column requires dropping the geometry via <code>sf</code>:</li>
@@ -1099,13 +1124,13 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>co <span class="sc">|&gt;</span> </span>
-<span id="cb35-2"><a></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span> <span class="co">#&lt;&lt;</span></span>
-<span id="cb35-3"><a></a>  <span class="fu">select</span>(name) <span class="sc">|&gt;</span> </span>
-<span id="cb35-4"><a></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb35-5"><a></a><span class="co">#&gt;      name</span></span>
-<span id="cb35-6"><a></a><span class="co">#&gt; 1   Adams</span></span>
-<span id="cb35-7"><a></a><span class="co">#&gt; 2 Alamosa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>co <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb36-3"><a></a>  <span class="fu">select</span>(name) <span class="sc">|&gt;</span> </span>
+<span id="cb36-4"><a></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb36-5"><a></a><span class="co">#&gt;      name</span></span>
+<span id="cb36-6"><a></a><span class="co">#&gt; 1   Adams</span></span>
+<span id="cb36-7"><a></a><span class="co">#&gt; 2 Alamosa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Or cohersing the <code>sf</code> object to a <code>data.frame</code>:</li>
@@ -1113,13 +1138,13 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>co <span class="sc">|&gt;</span> </span>
-<span id="cb36-2"><a></a>  <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span> <span class="co">#&lt;&lt;</span></span>
-<span id="cb36-3"><a></a>  <span class="fu">select</span>(name) <span class="sc">|&gt;</span> </span>
-<span id="cb36-4"><a></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb36-5"><a></a><span class="co">#&gt;      name</span></span>
-<span id="cb36-6"><a></a><span class="co">#&gt; 1   Adams</span></span>
-<span id="cb36-7"><a></a><span class="co">#&gt; 2 Alamosa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>co <span class="sc">|&gt;</span> </span>
+<span id="cb37-2"><a></a>  <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb37-3"><a></a>  <span class="fu">select</span>(name) <span class="sc">|&gt;</span> </span>
+<span id="cb37-4"><a></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb37-5"><a></a><span class="co">#&gt;      name</span></span>
+<span id="cb37-6"><a></a><span class="co">#&gt; 1   Adams</span></span>
+<span id="cb37-7"><a></a><span class="co">#&gt; 2 Alamosa</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section></section>
@@ -1132,33 +1157,33 @@
 <h2>Reading and writing (I/O)</h2>
 <p>As we’ve seen above, reading spatial data from an external file can be done via <code>sf</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>co <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/co.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>co <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"data/co.shp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Writing takes place in the same fashion, using <code>write_sf</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">write_sf</span>(co, <span class="st">"co.shp"</span>) <span class="co"># silently overwrites</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">write_sf</span>(co, <span class="st">"co.shp"</span>) <span class="co"># silently overwrites</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="from-tables-e.g.-csv" class="slide level2">
 <h2>From Tables (e.g.&nbsp;CSV)</h2>
 <p>Spatial data can also be created from CSV and other flat files once it is in R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>(<span class="at">cities =</span> <span class="fu">read_csv</span>(<span class="st">"../labs/data/uscities.csv"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb39-2"><a></a>  <span class="fu">select</span>(city, state_name, county_name, population, lat, lng) )</span>
-<span id="cb39-3"><a></a><span class="co">#&gt; # A tibble: 31,254 × 6</span></span>
-<span id="cb39-4"><a></a><span class="co">#&gt;    city         state_name           county_name         population   lat    lng</span></span>
-<span id="cb39-5"><a></a><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb39-6"><a></a><span class="co">#&gt;  1 New York     New York             Queens                18832416  40.7  -73.9</span></span>
-<span id="cb39-7"><a></a><span class="co">#&gt;  2 Los Angeles  California           Los Angeles           11885717  34.1 -118. </span></span>
-<span id="cb39-8"><a></a><span class="co">#&gt;  3 Chicago      Illinois             Cook                   8489066  41.8  -87.7</span></span>
-<span id="cb39-9"><a></a><span class="co">#&gt;  4 Miami        Florida              Miami-Dade             6113982  25.8  -80.2</span></span>
-<span id="cb39-10"><a></a><span class="co">#&gt;  5 Houston      Texas                Harris                 6046392  29.8  -95.4</span></span>
-<span id="cb39-11"><a></a><span class="co">#&gt;  6 Dallas       Texas                Dallas                 5843632  32.8  -96.8</span></span>
-<span id="cb39-12"><a></a><span class="co">#&gt;  7 Philadelphia Pennsylvania         Philadelphia           5696588  40.0  -75.1</span></span>
-<span id="cb39-13"><a></a><span class="co">#&gt;  8 Atlanta      Georgia              Fulton                 5211164  33.8  -84.4</span></span>
-<span id="cb39-14"><a></a><span class="co">#&gt;  9 Washington   District of Columbia District of Columb…    5146120  38.9  -77.0</span></span>
-<span id="cb39-15"><a></a><span class="co">#&gt; 10 Boston       Massachusetts        Suffolk                4355184  42.3  -71.1</span></span>
-<span id="cb39-16"><a></a><span class="co">#&gt; # ℹ 31,244 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>(<span class="at">cities =</span> <span class="fu">read_csv</span>(<span class="st">"../labs/data/uscities.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a></a>  <span class="fu">select</span>(city, state_name, county_name, population, lat, lng) )</span>
+<span id="cb40-3"><a></a><span class="co">#&gt; # A tibble: 31,254 × 6</span></span>
+<span id="cb40-4"><a></a><span class="co">#&gt;    city         state_name           county_name         population   lat    lng</span></span>
+<span id="cb40-5"><a></a><span class="co">#&gt;    &lt;chr&gt;        &lt;chr&gt;                &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb40-6"><a></a><span class="co">#&gt;  1 New York     New York             Queens                18832416  40.7  -73.9</span></span>
+<span id="cb40-7"><a></a><span class="co">#&gt;  2 Los Angeles  California           Los Angeles           11885717  34.1 -118. </span></span>
+<span id="cb40-8"><a></a><span class="co">#&gt;  3 Chicago      Illinois             Cook                   8489066  41.8  -87.7</span></span>
+<span id="cb40-9"><a></a><span class="co">#&gt;  4 Miami        Florida              Miami-Dade             6113982  25.8  -80.2</span></span>
+<span id="cb40-10"><a></a><span class="co">#&gt;  5 Houston      Texas                Harris                 6046392  29.8  -95.4</span></span>
+<span id="cb40-11"><a></a><span class="co">#&gt;  6 Dallas       Texas                Dallas                 5843632  32.8  -96.8</span></span>
+<span id="cb40-12"><a></a><span class="co">#&gt;  7 Philadelphia Pennsylvania         Philadelphia           5696588  40.0  -75.1</span></span>
+<span id="cb40-13"><a></a><span class="co">#&gt;  8 Atlanta      Georgia              Fulton                 5211164  33.8  -84.4</span></span>
+<span id="cb40-14"><a></a><span class="co">#&gt;  9 Washington   District of Columbia District of Columb…    5146120  38.9  -77.0</span></span>
+<span id="cb40-15"><a></a><span class="co">#&gt; 10 Boston       Massachusetts        Suffolk                4355184  42.3  -71.1</span></span>
+<span id="cb40-16"><a></a><span class="co">#&gt; # ℹ 31,244 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -1168,26 +1193,26 @@
 <li>A typical lat/long CRS is EPSG:4326</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>(cities_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(cities, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lng"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>))</span>
-<span id="cb40-2"><a></a><span class="co">#&gt; Simple feature collection with 31254 features and 4 fields</span></span>
-<span id="cb40-3"><a></a><span class="co">#&gt; Geometry type: POINT</span></span>
-<span id="cb40-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
-<span id="cb40-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -176.6295 ymin: 17.9559 xmax: 174.111 ymax: 71.2727</span></span>
-<span id="cb40-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
-<span id="cb40-7"><a></a><span class="co">#&gt; # A tibble: 31,254 × 5</span></span>
-<span id="cb40-8"><a></a><span class="co">#&gt;    city         state_name      county_name population            geometry</span></span>
-<span id="cb40-9"><a></a><span class="co">#&gt;  * &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;</span></span>
-<span id="cb40-10"><a></a><span class="co">#&gt;  1 New York     New York        Queens        18832416  (-73.9249 40.6943)</span></span>
-<span id="cb40-11"><a></a><span class="co">#&gt;  2 Los Angeles  California      Los Angeles   11885717 (-118.4068 34.1141)</span></span>
-<span id="cb40-12"><a></a><span class="co">#&gt;  3 Chicago      Illinois        Cook           8489066  (-87.6866 41.8375)</span></span>
-<span id="cb40-13"><a></a><span class="co">#&gt;  4 Miami        Florida         Miami-Dade     6113982   (-80.2101 25.784)</span></span>
-<span id="cb40-14"><a></a><span class="co">#&gt;  5 Houston      Texas           Harris         6046392   (-95.3885 29.786)</span></span>
-<span id="cb40-15"><a></a><span class="co">#&gt;  6 Dallas       Texas           Dallas         5843632  (-96.7667 32.7935)</span></span>
-<span id="cb40-16"><a></a><span class="co">#&gt;  7 Philadelphia Pennsylvania    Philadelph…    5696588  (-75.1339 40.0077)</span></span>
-<span id="cb40-17"><a></a><span class="co">#&gt;  8 Atlanta      Georgia         Fulton         5211164   (-84.422 33.7628)</span></span>
-<span id="cb40-18"><a></a><span class="co">#&gt;  9 Washington   District of Co… District o…    5146120  (-77.0163 38.9047)</span></span>
-<span id="cb40-19"><a></a><span class="co">#&gt; 10 Boston       Massachusetts   Suffolk        4355184  (-71.0852 42.3188)</span></span>
-<span id="cb40-20"><a></a><span class="co">#&gt; # ℹ 31,244 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>(cities_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(cities, <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"lng"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>))</span>
+<span id="cb41-2"><a></a><span class="co">#&gt; Simple feature collection with 31254 features and 4 fields</span></span>
+<span id="cb41-3"><a></a><span class="co">#&gt; Geometry type: POINT</span></span>
+<span id="cb41-4"><a></a><span class="co">#&gt; Dimension:     XY</span></span>
+<span id="cb41-5"><a></a><span class="co">#&gt; Bounding box:  xmin: -176.6295 ymin: 17.9559 xmax: 174.111 ymax: 71.2727</span></span>
+<span id="cb41-6"><a></a><span class="co">#&gt; Geodetic CRS:  WGS 84</span></span>
+<span id="cb41-7"><a></a><span class="co">#&gt; # A tibble: 31,254 × 5</span></span>
+<span id="cb41-8"><a></a><span class="co">#&gt;    city         state_name      county_name population            geometry</span></span>
+<span id="cb41-9"><a></a><span class="co">#&gt;  * &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;</span></span>
+<span id="cb41-10"><a></a><span class="co">#&gt;  1 New York     New York        Queens        18832416  (-73.9249 40.6943)</span></span>
+<span id="cb41-11"><a></a><span class="co">#&gt;  2 Los Angeles  California      Los Angeles   11885717 (-118.4068 34.1141)</span></span>
+<span id="cb41-12"><a></a><span class="co">#&gt;  3 Chicago      Illinois        Cook           8489066  (-87.6866 41.8375)</span></span>
+<span id="cb41-13"><a></a><span class="co">#&gt;  4 Miami        Florida         Miami-Dade     6113982   (-80.2101 25.784)</span></span>
+<span id="cb41-14"><a></a><span class="co">#&gt;  5 Houston      Texas           Harris         6046392   (-95.3885 29.786)</span></span>
+<span id="cb41-15"><a></a><span class="co">#&gt;  6 Dallas       Texas           Dallas         5843632  (-96.7667 32.7935)</span></span>
+<span id="cb41-16"><a></a><span class="co">#&gt;  7 Philadelphia Pennsylvania    Philadelph…    5696588  (-75.1339 40.0077)</span></span>
+<span id="cb41-17"><a></a><span class="co">#&gt;  8 Atlanta      Georgia         Fulton         5211164   (-84.422 33.7628)</span></span>
+<span id="cb41-18"><a></a><span class="co">#&gt;  9 Washington   District of Co… District o…    5146120  (-77.0163 38.9047)</span></span>
+<span id="cb41-19"><a></a><span class="co">#&gt; 10 Boston       Massachusetts   Suffolk        4355184  (-71.0852 42.3188)</span></span>
+<span id="cb41-20"><a></a><span class="co">#&gt; # ℹ 31,244 more rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-manipulation" class="slide level2">
@@ -1202,7 +1227,7 @@
 <div class="columns smallcode">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>cities_sf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>cities_sf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1233,8 +1258,8 @@
 <div class="columns smallcode">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>cities_sf <span class="sc">|&gt;</span></span>
-<span id="cb43-2"><a></a>  <span class="fu">filter</span>(state_name <span class="sc">==</span> <span class="st">"Colorado"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>cities_sf <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a></a>  <span class="fu">filter</span>(state_name <span class="sc">==</span> <span class="st">"Colorado"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1265,9 +1290,9 @@
 <div class="columns smallcode">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>cities_sf <span class="sc">|&gt;</span></span>
-<span id="cb45-2"><a></a>  <span class="fu">filter</span>(state_name <span class="sc">==</span> <span class="st">"Colorado"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb45-3"><a></a>  <span class="fu">group_by</span>(county_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>cities_sf <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a></a>  <span class="fu">filter</span>(state_name <span class="sc">==</span> <span class="st">"Colorado"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb46-3"><a></a>  <span class="fu">group_by</span>(county_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1299,10 +1324,10 @@
 <div class="columns smallcode">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>cities_sf <span class="sc">|&gt;</span></span>
-<span id="cb47-2"><a></a>  <span class="fu">filter</span>(state_name <span class="sc">==</span> <span class="st">"Colorado"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb47-3"><a></a>  <span class="fu">group_by</span>(county_name) <span class="sc">|&gt;</span></span>
-<span id="cb47-4"><a></a>  <span class="fu">slice_max</span>(population, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>cities_sf <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a></a>  <span class="fu">filter</span>(state_name <span class="sc">==</span> <span class="st">"Colorado"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb48-3"><a></a>  <span class="fu">group_by</span>(county_name) <span class="sc">|&gt;</span></span>
+<span id="cb48-4"><a></a>  <span class="fu">slice_max</span>(population, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1334,11 +1359,11 @@
 <div class="columns smallcode">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>cities_sf <span class="sc">|&gt;</span></span>
-<span id="cb49-2"><a></a>  <span class="fu">filter</span>(state_name <span class="sc">==</span> <span class="st">"Colorado"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb49-3"><a></a>  <span class="fu">group_by</span>(county_name) <span class="sc">|&gt;</span></span>
-<span id="cb49-4"><a></a>  <span class="fu">slice_max</span>(population, <span class="at">n =</span> <span class="dv">1</span>) <span class="ot">-&gt;</span></span>
-<span id="cb49-5"><a></a>  co_cities</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>cities_sf <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a></a>  <span class="fu">filter</span>(state_name <span class="sc">==</span> <span class="st">"Colorado"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb50-3"><a></a>  <span class="fu">group_by</span>(county_name) <span class="sc">|&gt;</span></span>
+<span id="cb50-4"><a></a>  <span class="fu">slice_max</span>(population, <span class="at">n =</span> <span class="dv">1</span>) <span class="ot">-&gt;</span></span>
+<span id="cb50-5"><a></a>  co_cities</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 
@@ -1363,7 +1388,7 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a><span class="fu">ggplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">ggplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1382,8 +1407,8 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb51-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co, <span class="fu">aes</span>(<span class="at">fill =</span> aland<span class="sc">/</span><span class="fl">1e10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb52-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co, <span class="fu">aes</span>(<span class="at">fill =</span> aland<span class="sc">/</span><span class="fl">1e10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1402,9 +1427,9 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb52-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co, <span class="fu">aes</span>(<span class="at">fill =</span> aland<span class="sc">/</span><span class="fl">1e10</span>)) <span class="sc">+</span></span>
-<span id="cb52-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co_cities, <span class="fu">aes</span>(<span class="at">size =</span> population<span class="sc">/</span><span class="fl">1e5</span>), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb53-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co, <span class="fu">aes</span>(<span class="at">fill =</span> aland<span class="sc">/</span><span class="fl">1e10</span>)) <span class="sc">+</span></span>
+<span id="cb53-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co_cities, <span class="fu">aes</span>(<span class="at">size =</span> population<span class="sc">/</span><span class="fl">1e5</span>), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1423,10 +1448,10 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb53-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co, <span class="fu">aes</span>(<span class="at">fill =</span> aland<span class="sc">/</span><span class="fl">1e10</span>)) <span class="sc">+</span></span>
-<span id="cb53-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co_cities, <span class="fu">aes</span>(<span class="at">size =</span> population<span class="sc">/</span><span class="fl">1e5</span>), <span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb53-4"><a></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb54-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co, <span class="fu">aes</span>(<span class="at">fill =</span> aland<span class="sc">/</span><span class="fl">1e10</span>)) <span class="sc">+</span></span>
+<span id="cb54-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co_cities, <span class="fu">aes</span>(<span class="at">size =</span> population<span class="sc">/</span><span class="fl">1e5</span>), <span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb54-4"><a></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1445,13 +1470,13 @@
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb54-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co, <span class="fu">aes</span>(<span class="at">fill =</span> aland<span class="sc">/</span><span class="fl">1e10</span>)) <span class="sc">+</span></span>
-<span id="cb54-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co_cities, <span class="fu">aes</span>(<span class="at">size =</span> population<span class="sc">/</span><span class="fl">1e5</span>), <span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb54-4"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
-<span id="cb54-5"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Colorado Counties: Land Area"</span>,</span>
-<span id="cb54-6"><a></a>       <span class="at">size =</span> <span class="st">"Population </span><span class="sc">\n</span><span class="st">(100,000)"</span>,</span>
-<span id="cb54-7"><a></a>       <span class="at">fill =</span> <span class="st">"Acres </span><span class="sc">\n</span><span class="st">(billions)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb55-2"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co, <span class="fu">aes</span>(<span class="at">fill =</span> aland<span class="sc">/</span><span class="fl">1e10</span>)) <span class="sc">+</span></span>
+<span id="cb55-3"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> co_cities, <span class="fu">aes</span>(<span class="at">size =</span> population<span class="sc">/</span><span class="fl">1e5</span>), <span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb55-4"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span></span>
+<span id="cb55-5"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Colorado Counties: Land Area"</span>,</span>
+<span id="cb55-6"><a></a>       <span class="at">size =</span> <span class="st">"Population </span><span class="sc">\n</span><span class="st">(100,000)"</span>,</span>
+<span id="cb55-7"><a></a>       <span class="at">fill =</span> <span class="st">"Acres </span><span class="sc">\n</span><span class="st">(billions)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="cell">
@@ -1476,30 +1501,30 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">library</span>(spatialsample)</span>
-<span id="cb55-2"><a></a></span>
-<span id="cb55-3"><a></a><span class="fu">ggplot</span>(boston_canopy) <span class="sc">+</span> </span>
-<span id="cb55-4"><a></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
-<span id="cb55-5"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span> </span>
-<span id="cb55-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boston Canopy Cover"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="fu">library</span>(spatialsample)</span>
+<span id="cb56-2"><a></a></span>
+<span id="cb56-3"><a></a><span class="fu">ggplot</span>(boston_canopy) <span class="sc">+</span> </span>
+<span id="cb56-4"><a></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span> </span>
+<span id="cb56-5"><a></a>  <span class="fu">theme_linedraw</span>() <span class="sc">+</span> </span>
+<span id="cb56-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boston Canopy Cover"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-54-1.png" style="width:100.0%"></p>
+<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-55-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb56-2"><a></a>folds <span class="ot">&lt;-</span> <span class="fu">spatial_clustering_cv</span>(boston_canopy, <span class="at">v =</span> <span class="dv">10</span>)</span>
-<span id="cb56-3"><a></a></span>
-<span id="cb56-4"><a></a><span class="fu">autoplot</span>(folds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb57-2"><a></a>folds <span class="ot">&lt;-</span> <span class="fu">spatial_clustering_cv</span>(boston_canopy, <span class="at">v =</span> <span class="dv">10</span>)</span>
+<span id="cb57-3"><a></a></span>
+<span id="cb57-4"><a></a><span class="fu">autoplot</span>(folds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-55-1.png" style="width:100.0%"></p>
+<p><img data-src="23-sf_files/figure-revealjs/unnamed-chunk-56-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1520,14 +1545,14 @@
 <li>To ensure you have everything set up correctly, run the following code:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a>sf<span class="sc">::</span><span class="fu">sf_extSoftVersion</span>()</span>
-<span id="cb57-2"><a></a><span class="co">#&gt;           GEOS           GDAL         proj.4 GDAL_with_GEOS     USE_PROJ_H </span></span>
-<span id="cb57-3"><a></a><span class="co">#&gt;       "3.13.0"        "3.8.5"        "9.5.1"         "true"         "true" </span></span>
-<span id="cb57-4"><a></a><span class="co">#&gt;           PROJ </span></span>
-<span id="cb57-5"><a></a><span class="co">#&gt;        "9.5.1"</span></span>
-<span id="cb57-6"><a></a></span>
-<span id="cb57-7"><a></a>terra<span class="sc">::</span><span class="fu">gdal</span>()</span>
-<span id="cb57-8"><a></a><span class="co">#&gt; [1] "3.8.5"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a>sf<span class="sc">::</span><span class="fu">sf_extSoftVersion</span>()</span>
+<span id="cb58-2"><a></a><span class="co">#&gt;           GEOS           GDAL         proj.4 GDAL_with_GEOS     USE_PROJ_H </span></span>
+<span id="cb58-3"><a></a><span class="co">#&gt;       "3.13.0"        "3.8.5"        "9.5.1"         "true"         "true" </span></span>
+<span id="cb58-4"><a></a><span class="co">#&gt;           PROJ </span></span>
+<span id="cb58-5"><a></a><span class="co">#&gt;        "9.5.1"</span></span>
+<span id="cb58-6"><a></a></span>
+<span id="cb58-7"><a></a>terra<span class="sc">::</span><span class="fu">gdal</span>()</span>
+<span id="cb58-8"><a></a><span class="co">#&gt; [1] "3.8.5"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><p>And report the values to the Canvas dropbox.</p></li>
@@ -1720,7 +1745,7 @@
         // specified using percentage units.
         width: 1600,
 
-        height: 1000,
+        height: 1200,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
