@@ -12493,5 +12493,985 @@
     "title": "Lecture 22",
     "section": "Growing Ecosystem",
     "text": "Growing Ecosystem"
+  },
+  {
+    "objectID": "slides/22-sf.html#simple-features",
+    "href": "slides/22-sf.html#simple-features",
+    "title": "Lecture 23",
+    "section": "Simple Features",
+    "text": "Simple Features"
+  },
+  {
+    "objectID": "slides/22-sf.html#simple-features-1",
+    "href": "slides/22-sf.html#simple-features-1",
+    "title": "Lecture 23",
+    "section": "Simple Features",
+    "text": "Simple Features\n\nSimple feature geometries describe the geometries of features.\nThe main application of simple feature geometries is to describe 2D geometries as points, lines, or polygons.\n“simple” refers to the fact that line or polygon geometries are represented by set of points connected with straight lines.\nSimple features access is a standard (Herring 2011, Herring (2010), ISO (2004)) for describing simple feature geometries via:\n\na class hierarchy\na set of operations\nbinary and text encodings"
+  },
+  {
+    "objectID": "slides/22-sf.html#simple-features-access",
+    "href": "slides/22-sf.html#simple-features-access",
+    "title": "Lecture 23",
+    "section": "Simple Features Access",
+    "text": "Simple Features Access\n\nSimple features or simple feature access refers to the formal standard (ISO 19125-1:2004) describing how objects in the real world can be represented in computers, with emphasis on the spatial geometry of these objects.\nIt also describes how objects can be stored in and retrieved from databases, and which geometrical operations should/can be defined for them.\nThe standard is widely implemented in spatial databases (such as PostGIS), commercial GIS (e.g., ESRI ArcGIS) and forms the vector data basis for libraries such as GDAL.\nA subset of simple features (e.g. the big 7) forms the GeoJSON specification.\nR has well-supported classes for storing spatial data (sp) and interfacing to the above mentioned environments (rgdal, rgeos), but has so far lacked a complete implementation of simple features, making conversions at times convoluted, inefficient or incomplete.\nsf is seeking to fill this gap and has/will succeed sp"
+  },
+  {
+    "objectID": "slides/22-sf.html#geometry-types",
+    "href": "slides/22-sf.html#geometry-types",
+    "title": "Lecture 23",
+    "section": "Geometry types",
+    "text": "Geometry types\nThe following 7 simple feature types are the most common, and are the only ones used for GeoJSON:\n\n\n\n\n\n\n\nSINGLE\nDescription\n\n\n\n\nPOINT\nzero-dimensional geometry containing a single point\n\n\nLINESTRING\nsequence of points connected by straight, non-self intersecting line pieces; one-dimensional geometry\n\n\nPOLYGON\ngeometry with a positive area (two-dimensional); sequence of points form a closed, non-self intersecting ring; the first ring denotes the exterior ring, zero or more subsequent rings denote holes in this exterior ring\n\n\n\n\n\n\n\n\n\n\nMULTI (same typed)\nDescription\n\n\n\n\nMULTIPOINT\nset of points; a MULTIPOINT is simple if no two Points in the MULTIPOINT are equal\n\n\nMULTILINESTRING\nset of linestrings\n\n\nMULTIPOLYGON\nset of polygons\n\n\n\n\n\n\n\n\n\n\nMulti-Typed\nDescription\n\n\n\n\nGEOMETRYCOLLECTION\nset of geometries of any type except GEOMETRYCOLLECTION\n\n\n\n\nThe descriptions above were copied from the PostGIS manual."
+  },
+  {
+    "objectID": "slides/22-sf.html#section",
+    "href": "slides/22-sf.html#section",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "The remaining geometries 10 are rarer, but increasingly find implementations:\n\n\n\n\n\n\n\ntype\ndescription\n\n\n\n\nCIRCULARSTRING\nThe CIRCULARSTRING is the basic curve type, similar to a LINESTRING in the linear world. A single segment requires three points, the start and end points (first and third) and any other point on the arc. The exception to this is for a closed circle, where the start and end points are the same. In this case the second point MUST be the center of the arc, i.e., the opposite side of the circle. To chain arcs together, the last point of the previous arc becomes the first point of the next arc, just like in LINESTRING. This means that a valid circular string must have an odd number of points greater than 1.\n\n\nCOMPOUNDCURVE\nA compound curve is a single, continuous curve that has both curved (circular) segments and linear segments. That means that in addition to having well-formed components, the end point of every component (except the last) must be coincident with the start point of the following component.\n\n\nCURVEPOLYGON\nExample compound curve in a curve polygon: CURVEPOLYGON(COMPOUNDCURVE(CIRCULARSTRING(0 0,2 0, 2 1, 2 3, 4 3),(4 3, 4 5, 1 4, 0 0)), CIRCULARSTRING(1.7 1, 1.4 0.4, 1.6 0.4, 1.6 0.5, 1.7 1) )\n\n\nMULTICURVE\nA MultiCurve is a 1-dimensional GeometryCollection whose elements are Curves, it can include linear strings, circular strings or compound strings.\n\n\nMULTISURFACE\nA MultiSurface is a 2-dimensional GeometryCollection whose elements are Surfaces, all using coordinates from the same coordinate reference system.\n\n\nCURVE\nA Curve is a 1-dimensional geometric object usually stored as a sequence of Points, with the subtype of Curve specifying the form of the interpolation between Points\n\n\nSURFACE\nA Surface is a 2-dimensional geometric object\n\n\nPOLYHEDRALSURFACE\nA PolyhedralSurface is a contiguous collection of polygons, which share common boundary segments\n\n\nTIN\nA TIN (triangulated irregular network) is a PolyhedralSurface consisting only of Triangle patches.\n\n\nTRIANGLE\nA Triangle is a polygon with 3 distinct, non-collinear vertices and no interior boundary"
+  },
+  {
+    "objectID": "slides/22-sf.html#dimensions",
+    "href": "slides/22-sf.html#dimensions",
+    "title": "Lecture 23",
+    "section": "Dimensions",
+    "text": "Dimensions\nAll geometries are composed of points\n\nPoints are defined by coordinates in a 2-, 3- or 4-D space.\nIn addition to XY coordinates, there are two optional dimensions:\na Z coordinate, denoting altitude\nan M coordinate (rarely used), denoting some measure\nThe M describes a property of the vertex that is independent of the feature.\nIt sounds attractive to encode a time as M, however these quickly become invalid once the path self-intersects.\nBoth Z and M are found relatively rarely, and software support to do something useful with them is rarer still."
+  },
+  {
+    "objectID": "slides/22-sf.html#valid-geometries",
+    "href": "slides/22-sf.html#valid-geometries",
+    "title": "Lecture 23",
+    "section": "Valid geometries",
+    "text": "Valid geometries\n\nValid geometries obey the following properties:\n\nLINESTRINGS shall not self-intersect\nPOLYGON rings shall be closed (last point = first point)\nPOLYGON holes (inner rings) shall be inside their exterior ring\nPOLYGON inner rings shall maximally touch the exterior ring in single points, not over a line\nPOLYGON rings shall not repeat their own path\n\nIf any of the above is not the case, the geometry is not valid."
+  },
+  {
+    "objectID": "slides/22-sf.html#non-simple-and-non-valid-geometries",
+    "href": "slides/22-sf.html#non-simple-and-non-valid-geometries",
+    "title": "Lecture 23",
+    "section": "Non-simple and non-valid geometries",
+    "text": "Non-simple and non-valid geometries\n\nst_is_simple and st_is_valid provide methods to help detect non-simple and non-valid geometries:\nAn example of a non-simple geometries is a self-intersecting lines\nAn example of a non-valid geometry are would be a polygon with slivers or self-intersections.\n\n\n\n\n(x1 &lt;- st_linestring(cbind(c(0,1,0,1),c(0,1,1,0))))\nst_is_simple(x1)\n#&gt; [1] FALSE\n\n\n\n\n\n\n\n\n\n\n\n\n(x2 &lt;- st_polygon(list(cbind(c(0,1,1,1,0,0),c(0,0,1,0.6,1,0)))))\n(x3 &lt;- st_polygon(list(cbind(c(0,1,0,1,0),c(0,1,1,0,0)))))\n\nst_is_valid(c(x2,x3))\n#&gt; [1] FALSE"
+  },
+  {
+    "objectID": "slides/22-sf.html#empty-geometries",
+    "href": "slides/22-sf.html#empty-geometries",
+    "title": "Lecture 23",
+    "section": "Empty Geometries",
+    "text": "Empty Geometries\n\nAn important concept in the feature geometry framework is the empty geometry.\nempty geometries serve similar purposes as NA values in vectors (placeholder)\nEmpty geometries arise naturally from geometrical operations, for instance:\n\n\n\n(e = st_intersection(st_point(c(0,0)), st_point(c(1,1))))\n#&gt; GEOMETRYCOLLECTION EMPTY\n\n\nIt is not entirely clear what the benefit is of having typed empty geometries, but according to the simple feature standard they are type so the sf package abides by that.\nEmpty geometries can be detected by:\n\n\n\n\nst_is_empty(e)\n#&gt; [1] TRUE"
+  },
+  {
+    "objectID": "slides/22-sf.html#so",
+    "href": "slides/22-sf.html#so",
+    "title": "Lecture 23",
+    "section": "So:",
+    "text": "So:\n\nThere are 17 typed geometries supported by the simple feature standard\nAll geometries are made up of points\npoints can exist in 2,3,4 Dinimsonal space\nLINESTRING and POLYGON geometries have rules that define validity\nGeometries can be empty (but are still typed)"
+  },
+  {
+    "objectID": "slides/22-sf.html#how-simple-features-are-organized-in-r",
+    "href": "slides/22-sf.html#how-simple-features-are-organized-in-r",
+    "title": "Lecture 23",
+    "section": "How simple features are organized in R?",
+    "text": "How simple features are organized in R?\n\nSimple Features is a standard that is implemented in R (not limited to R)\nSo far we have discusses simple features the standard, rather then simple features the implementation\nIn R, simple features are implemented using standard data structures (S3 classes, lists, matrix, vector).\nAttributes are stored in data.frames (or tbl_df)\nFeature geometries are stored in a data.frame column.\nSince geometries are not single-valued, they are put in a list-column\nThis means each observation (element) is a list itself!\n\n\nRemember our nested lists?\n\nlist(list(c(1:5)))\n#&gt; [[1]]\n#&gt; [[1]][[1]]\n#&gt; [1] 1 2 3 4 5"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-sfc-sfg",
+    "href": "slides/22-sf.html#sf-sfc-sfg",
+    "title": "Lecture 23",
+    "section": "sf, sfc, sfg",
+    "text": "sf, sfc, sfg\nThe three classes are used to represent simple feature obejcts are:\nsf: data.frame with feature attributes and geometries\n\nwhich is contains an:\n\nsfc: the list-column with the geometries for each feature\n\n\nwhich is composed of:\n\nsfg, individual simple feature geometries"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-sfc-sfg-1",
+    "href": "slides/22-sf.html#sf-sfc-sfg-1",
+    "title": "Lecture 23",
+    "section": "sf, sfc, sfg",
+    "text": "sf, sfc, sfg\n\nIn the output we see:\n\nin green a simple feature: a single record (row, consisting of attributes and geometry\nin blue a single simple feature geometry (an object of class sfg)\nin red a simple feature list-column (an object of class sfc, which is a column in the data.frame)\nEven though geometries are native R objects, they are printed as well-known text"
+  },
+  {
+    "objectID": "slides/22-sf.html#sfg-simple-feature-geometry-blue",
+    "href": "slides/22-sf.html#sfg-simple-feature-geometry-blue",
+    "title": "Lecture 23",
+    "section": "sfg: simple feature geometry (blue)",
+    "text": "sfg: simple feature geometry (blue)\n\n\nSimple feature geometry (sfg) objects carry the geometry for a single feature\nSimple feature geometries are implemented as R native data, using the following rules\n\na single POINT is a numeric vector\na set of points (e.g. in a LINESTRING or ring of a POLYGON) is a matrix, each row containing a point\nany other set is a list\n\n\nlist of numeric matrices for MULTILINESTRING and POLYGON\nlist of lists of numeric matrices for MULTIPOLYGON\nlist of (typed) geometries for GEOMETRYCOLLECTION"
+  },
+  {
+    "objectID": "slides/22-sf.html#note-mixed-geometries",
+    "href": "slides/22-sf.html#note-mixed-geometries",
+    "title": "Lecture 23",
+    "section": "Note: Mixed geometries",
+    "text": "Note: Mixed geometries\nSets of simple features also consist of features with heterogeneous geometry types. In this case, the geometry type of the set is GEOMETRY:\n\n\n\n(g = st_sfc(st_point(c(0,0)), \n            st_linestring(rbind(c(0,0), c(1,1)))))\n#&gt; Geometry set for 2 features \n#&gt; Geometry type: GEOMETRY\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n\n\nThese set can be filtered by using st_is\n\ng |&gt; st_is(\"LINESTRING\")\n#&gt; [1] FALSE  TRUE\n\nor, when working with sf objects,\n\n# Note need of %&gt;%\nst_sf(g) %&gt;%\n  filter(st_is(., \"LINESTRING\"))\n#&gt; Simple feature collection with 1 feature and 0 fields\n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt;                       g\n#&gt; 1 LINESTRING (0 0, 1 1)"
+  },
+  {
+    "objectID": "slides/22-sf.html#geometrycollection",
+    "href": "slides/22-sf.html#geometrycollection",
+    "title": "Lecture 23",
+    "section": "GEOMETRYCOLLECTION",
+    "text": "GEOMETRYCOLLECTION\n\nSingle features (1 geometry per row) can have a single geometry, that consists of several geometries of different types.\nSuch cases arise rather naturally when looking for intersections. For instance, the intersection of two LINESTRING geometries may be the combination of a LINESTRING and a POINT.\nPutting this intersection into a single feature geometry needs a GEOMETRYCOLLECTION\n\n\n\npt &lt;- st_point(c(1, 0))\nls &lt;- st_linestring(matrix(c(4, 3, 0, 0), ncol = 2))\npoly1 &lt;- st_polygon(list(matrix(c(5.5, 7, 7, 6, 5.5, 0, 0, -0.5, -0.5, 0), ncol = 2)))\npoly2 &lt;- st_polygon(list(matrix(c(6.6, 8, 8, 7, 6.6, 1, 1, 1.5, 1.5, 1), ncol = 2)))\nmultipoly &lt;- st_multipolygon(list(poly1, poly2))\n\nst_sfc(pt, ls, poly1, poly2, multipoly)\n#&gt; Geometry set for 5 features \n#&gt; Geometry type: GEOMETRY\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 1 ymin: -0.5 xmax: 8 ymax: 1.5\n#&gt; CRS:           NA\n\n(j &lt;- st_geometrycollection(list(pt, ls, poly1, poly2, multipoly)))"
+  },
+  {
+    "objectID": "slides/22-sf.html#geometrycollection-1",
+    "href": "slides/22-sf.html#geometrycollection-1",
+    "title": "Lecture 23",
+    "section": "GEOMETRYCOLLECTION",
+    "text": "GEOMETRYCOLLECTION\n\nIn case we end up with GEOMETRYCOLLECTION objects, the next question is often what to do with them. One thing we can do is extract elements from them:\n\n\n\nst_collection_extract(j, \"POLYGON\")\n#&gt; Geometry set for 3 features \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 5.5 ymin: -0.5 xmax: 8 ymax: 1.5\n#&gt; CRS:           NA\n\nst_collection_extract(j, \"POINT\")\n\nst_collection_extract(j, \"LINESTRING\")"
+  },
+  {
+    "objectID": "slides/22-sf.html#conversion-between-types",
+    "href": "slides/22-sf.html#conversion-between-types",
+    "title": "Lecture 23",
+    "section": "Conversion between types",
+    "text": "Conversion between types\nWe can convert simple feature geometries using the st_cast generic (up to the extent that a conversion is feasible):\n\nmethods(st_cast)\n#&gt;  [1] st_cast.CIRCULARSTRING*     st_cast.COMPOUNDCURVE*     \n#&gt;  [3] st_cast.CURVE*              st_cast.GEOMETRYCOLLECTION*\n#&gt;  [5] st_cast.LINESTRING*         st_cast.MULTICURVE*        \n#&gt;  [7] st_cast.MULTILINESTRING*    st_cast.MULTIPOINT*        \n#&gt;  [9] st_cast.MULTIPOLYGON*       st_cast.MULTISURFACE*      \n#&gt; [11] st_cast.POINT*              st_cast.POLYGON*           \n#&gt; [13] st_cast.sf*                 st_cast.sfc*               \n#&gt; [15] st_cast.sfc_CIRCULARSTRING*\n#&gt; see '?methods' for accessing help and source code"
+  },
+  {
+    "objectID": "slides/22-sf.html#conversion-between-types-1",
+    "href": "slides/22-sf.html#conversion-between-types-1",
+    "title": "Lecture 23",
+    "section": "Conversion between types",
+    "text": "Conversion between types\nLets take the Larimer County in our Colorado sf object:\n\n(co1 = AOI::aoi_get(state = \"CO\", county = \"Larimer\"))\n#&gt; Simple feature collection with 1 feature and 14 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844\n#&gt; Geodetic CRS:  WGS 84\n#&gt;   state_region state_division feature_code state_name state_abbr    name\n#&gt; 1            4              8      0198150   Colorado         CO Larimer\n#&gt;   fip_class tiger_class combined_area_code metropolitan_area_code\n#&gt; 1        H1       G4020                 NA                   &lt;NA&gt;\n#&gt;   functional_status  land_area water_area fip_code\n#&gt; 1                 A 6723017943   98980718    08069\n#&gt;                         geometry\n#&gt; 1 MULTIPOLYGON (((-105.6533 4...\n(co_ls = st_cast(co1, \"MULTILINESTRING\"))\n#&gt; Simple feature collection with 1 feature and 14 fields\n#&gt; Geometry type: MULTILINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844\n#&gt; Geodetic CRS:  WGS 84\n#&gt;   state_region state_division feature_code state_name state_abbr    name\n#&gt; 1            4              8      0198150   Colorado         CO Larimer\n#&gt;   fip_class tiger_class combined_area_code metropolitan_area_code\n#&gt; 1        H1       G4020                 NA                   &lt;NA&gt;\n#&gt;   functional_status  land_area water_area fip_code\n#&gt; 1                 A 6723017943   98980718    08069\n#&gt;                         geometry\n#&gt; 1 MULTILINESTRING ((-105.6533..."
+  },
+  {
+    "objectID": "slides/22-sf.html#conversion-between-types-2",
+    "href": "slides/22-sf.html#conversion-between-types-2",
+    "title": "Lecture 23",
+    "section": "Conversion between types",
+    "text": "Conversion between types\nIt is often convenient to analyze the the points that make up a LINESTRING However …\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt; \n  st_linestring() |&gt; \n  st_cast(\"POINT\")\n#&gt; Warning in st_cast.LINESTRING(st_linestring(rbind(c(0, 0), c(1, 1), c(1, :\n#&gt; point from first coordinate only\n#&gt; POINT (0 0)\n\n\ndoes not do what we expect, because it will convert a single geometry into a new single geometry (one line to one point)\n\n\nInstead, we must recognize that a collection of points is what defines a LINSETRING and a collection of POINTs, operating as a single unit, is a MULTIPOINT\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt; \n  st_linestring() |&gt; \n  st_cast(\"MULTIPOINT\")\n\n\n\nIf we really wanted the individual POINT geometries, we need to work with sets:\n\n(p &lt;- rbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt; \n   st_linestring() |&gt; \n   st_sfc() |&gt; #&lt;&lt;\n   st_cast(\"POINT\"))\n#&gt; Geometry set for 4 features \n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA"
+  },
+  {
+    "objectID": "slides/22-sf.html#sfc-sets-of-geometries",
+    "href": "slides/22-sf.html#sfc-sets-of-geometries",
+    "title": "Lecture 23",
+    "section": "sfc: sets of geometries",
+    "text": "sfc: sets of geometries\n\nsf provides a dedicated class for handeling geometry sets, called sfc (simple feature geometry list column).\nWe can create such a list column with constructor function st_sfc:\n\n\n\n(sfc = st_sfc(st_point(c(0,1)), st_point(c(-3,2))))\n#&gt; Geometry set for 2 features \n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -3 ymin: 1 xmax: 0 ymax: 2\n#&gt; CRS:           NA"
+  },
+  {
+    "objectID": "slides/22-sf.html#section-1",
+    "href": "slides/22-sf.html#section-1",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "The default report from the print method for sfc gives\n\nthe number of features geometries\nthe feature geometry type (here: POINT)\nthe feature geometry dimension (here: XY)\nthe bounding box for the set\nthe coordinate reference system for the set (epsg and proj4string)\nthe first few geometries, as (abbreviated) WKT\n\n\nThe class of the geometry list-column is a combination of a specific class, and a superclass.\n\nclass(sfc)\n#&gt; [1] \"sfc_POINT\" \"sfc\""
+  },
+  {
+    "objectID": "slides/22-sf.html#section-2",
+    "href": "slides/22-sf.html#section-2",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "In addition to a class, the sfc object has further attributes (remember S3 class!)\n\nattributes(sfc) |&gt; names()\n#&gt; [1] \"class\"     \"precision\" \"bbox\"      \"crs\"       \"n_empty\"\n\nwhich are used to record for the whole set:\n\na precision value\nthe bounding box enclosing all geometries (for x and y)\na coordinate reference system\nthe number of empty geometries contained in the set"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-objects-with-simple-features",
+    "href": "slides/22-sf.html#sf-objects-with-simple-features",
+    "title": "Lecture 23",
+    "section": "sf: objects with simple features",
+    "text": "sf: objects with simple features\nSimple features geometries and feature attributes are put together in sf (simple feature) objects.\n\nco1\n#&gt; Simple feature collection with 1 feature and 14 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844\n#&gt; Geodetic CRS:  WGS 84\n#&gt;   state_region state_division feature_code state_name state_abbr    name\n#&gt; 1            4              8      0198150   Colorado         CO Larimer\n#&gt;   fip_class tiger_class combined_area_code metropolitan_area_code\n#&gt; 1        H1       G4020                 NA                   &lt;NA&gt;\n#&gt;   functional_status  land_area water_area fip_code\n#&gt; 1                 A 6723017943   98980718    08069\n#&gt;                         geometry\n#&gt; 1 MULTIPOLYGON (((-105.6533 4...\n\nThis sf object is of class\n\nclass(co1)\n#&gt; [1] \"sf\"         \"data.frame\"\n\nmeaning it extends data.frame, but with a single list-column with geometries, which is held in the column named:\n\nattr(co1, \"sf_column\")\n#&gt; [1] \"geometry\""
+  },
+  {
+    "objectID": "slides/22-sf.html#the-stickness-of-sfc-column",
+    "href": "slides/22-sf.html#the-stickness-of-sfc-column",
+    "title": "Lecture 23",
+    "section": "The stickness of sfc column",
+    "text": "The stickness of sfc column\n\nGeometry columns are “sticky” meaning they persist through data manipulation:\n\n\n\nco |&gt; \n  select(name) |&gt; \n  slice(1:2)\n#&gt; Simple feature collection with 2 features and 1 field\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -106.0393 ymin: 37.3562 xmax: -103.7057 ymax: 40.00137\n#&gt; Geodetic CRS:  WGS 84\n#&gt;      name                       geometry\n#&gt; 1   Adams MULTIPOLYGON (((-105.0532 3...\n#&gt; 2 Alamosa MULTIPOLYGON (((-105.4855 3...\n\n\nDropping the geometry column requires dropping the geometry via sf:\n\n\n\n\nco |&gt; \n  st_drop_geometry() |&gt; #&lt;&lt;\n  select(name) |&gt; \n  slice(1:2)\n#&gt;      name\n#&gt; 1   Adams\n#&gt; 2 Alamosa\n\n\nOr cohersing the sf object to a data.frame:\n\n\n\n\nco |&gt; \n  as.data.frame() |&gt; #&lt;&lt;\n  select(name) |&gt; \n  slice(1:2)\n#&gt;      name\n#&gt; 1   Adams\n#&gt; 2 Alamosa"
+  },
+  {
+    "objectID": "slides/22-sf.html#the-stickness-of-sfc-column-1",
+    "href": "slides/22-sf.html#the-stickness-of-sfc-column-1",
+    "title": "Lecture 23",
+    "section": "The stickness of sfc column",
+    "text": "The stickness of sfc column\n\nA simple features object (sf) is the connection of a sfc list-column and data.frame of attributes"
+  },
+  {
+    "objectID": "slides/22-sf.html#reading-and-writing",
+    "href": "slides/22-sf.html#reading-and-writing",
+    "title": "Lecture 23",
+    "section": "Reading and writing",
+    "text": "Reading and writing\nAs we’ve seen above, reading spatial data from an external file can be done via sf - reading data requires the “parser function” and the file path\n\n#&gt; Reading layer `co' from data source \n#&gt;   `/Users/mikejohnson/github/csu-ess-330/slides/data/co.shp' \n#&gt;   using driver `ESRI Shapefile'\n#&gt; Simple feature collection with 64 features and 4 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n\nwe can suppress the output by adding argument quiet=TRUE or by using the otherwise nearly identical but more quiet\n\nco &lt;- read_sf(\"data/co.shp\")\n\nWriting takes place in the same fashion, using st_write:\n\nst_write(co, \"data/co.shp\")\n\nor its quiet alternative that silently overwrites existing files by default,\n\nwrite_sf(co, \"co.shp\") # silently overwrites"
+  },
+  {
+    "objectID": "slides/22-sf.html#from-tables-e.g.-csv",
+    "href": "slides/22-sf.html#from-tables-e.g.-csv",
+    "title": "Lecture 23",
+    "section": "From Tables (e.g. CSV)",
+    "text": "From Tables (e.g. CSV)\nSpatial data can also be created from CSV and other flat files once it is in R:\n\n(cities = readr::read_csv(\"../labs/data/uscities.csv\") |&gt; \n  select(city, state_name, county_name, population, lat, lng) )\n#&gt; # A tibble: 31,254 × 6\n#&gt;    city         state_name           county_name         population   lat    lng\n#&gt;    &lt;chr&gt;        &lt;chr&gt;                &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n#&gt;  1 New York     New York             Queens                18832416  40.7  -73.9\n#&gt;  2 Los Angeles  California           Los Angeles           11885717  34.1 -118. \n#&gt;  3 Chicago      Illinois             Cook                   8489066  41.8  -87.7\n#&gt;  4 Miami        Florida              Miami-Dade             6113982  25.8  -80.2\n#&gt;  5 Houston      Texas                Harris                 6046392  29.8  -95.4\n#&gt;  6 Dallas       Texas                Dallas                 5843632  32.8  -96.8\n#&gt;  7 Philadelphia Pennsylvania         Philadelphia           5696588  40.0  -75.1\n#&gt;  8 Atlanta      Georgia              Fulton                 5211164  33.8  -84.4\n#&gt;  9 Washington   District of Columbia District of Columb…    5146120  38.9  -77.0\n#&gt; 10 Boston       Massachusetts        Suffolk                4355184  42.3  -71.1\n#&gt; # ℹ 31,244 more rows"
+  },
+  {
+    "objectID": "slides/22-sf.html#data-manipulation",
+    "href": "slides/22-sf.html#data-manipulation",
+    "title": "Lecture 23",
+    "section": "Data Manipulation",
+    "text": "Data Manipulation\n\nSince sf objects are data.frames, our dplyr verbs work!\nLets find the most populous city in each Colorado county…"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-and-dplyr",
+    "href": "slides/22-sf.html#sf-and-dplyr",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf\n\n\n\n#&gt; Simple feature collection with 31254 features and 4 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -176.6295 ymin: 17.9559 xmax: 174.111 ymax: 71.2727\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 31,254 × 5\n#&gt;    city         state_name      county_name population            geometry\n#&gt;  * &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;\n#&gt;  1 New York     New York        Queens        18832416  (-73.9249 40.6943)\n#&gt;  2 Los Angeles  California      Los Angeles   11885717 (-118.4068 34.1141)\n#&gt;  3 Chicago      Illinois        Cook           8489066  (-87.6866 41.8375)\n#&gt;  4 Miami        Florida         Miami-Dade     6113982   (-80.2101 25.784)\n#&gt;  5 Houston      Texas           Harris         6046392   (-95.3885 29.786)\n#&gt;  6 Dallas       Texas           Dallas         5843632  (-96.7667 32.7935)\n#&gt;  7 Philadelphia Pennsylvania    Philadelph…    5696588  (-75.1339 40.0077)\n#&gt;  8 Atlanta      Georgia         Fulton         5211164   (-84.422 33.7628)\n#&gt;  9 Washington   District of Co… District o…    5146120  (-77.0163 38.9047)\n#&gt; 10 Boston       Massachusetts   Suffolk        4355184  (-71.0852 42.3188)\n#&gt; # ℹ 31,244 more rows"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-and-dplyr-1",
+    "href": "slides/22-sf.html#sf-and-dplyr-1",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf |&gt;\n  filter(state_name == \"Colorado\")\n\n\n\n#&gt; Simple feature collection with 477 features and 4 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0066 ymin: 37.0155 xmax: -102.0804 ymax: 40.9849\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 477 × 5\n#&gt;    city             state_name county_name population            geometry\n#&gt;  * &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;\n#&gt;  1 Denver           Colorado   Denver         2691349  (-104.8758 39.762)\n#&gt;  2 Colorado Springs Colorado   El Paso         638421 (-104.7605 38.8674)\n#&gt;  3 Aurora           Colorado   Arapahoe        390201 (-104.7237 39.7083)\n#&gt;  4 Fort Collins     Colorado   Larimer         339256 (-105.0656 40.5477)\n#&gt;  5 Lakewood         Colorado   Jefferson       156309 (-105.1172 39.6977)\n#&gt;  6 Greeley          Colorado   Weld            143554 (-104.7706 40.4152)\n#&gt;  7 Thornton         Colorado   Adams           142878 (-104.9438 39.9197)\n#&gt;  8 Grand Junction   Colorado   Mesa            141008 (-108.5673 39.0877)\n#&gt;  9 Arvada           Colorado   Jefferson       122835   (-105.151 39.832)\n#&gt; 10 Boulder          Colorado   Boulder         120121 (-105.2524 40.0248)\n#&gt; # ℹ 467 more rows"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-and-dplyr-2",
+    "href": "slides/22-sf.html#sf-and-dplyr-2",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf |&gt;\n  filter(state_name == \"Colorado\") |&gt;\n  group_by(county_name)\n\n\n\n#&gt; Simple feature collection with 477 features and 4 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0066 ymin: 37.0155 xmax: -102.0804 ymax: 40.9849\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 477 × 5\n#&gt; # Groups:   county_name [64]\n#&gt;    city             state_name county_name population            geometry\n#&gt;    &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;\n#&gt;  1 Denver           Colorado   Denver         2691349  (-104.8758 39.762)\n#&gt;  2 Colorado Springs Colorado   El Paso         638421 (-104.7605 38.8674)\n#&gt;  3 Aurora           Colorado   Arapahoe        390201 (-104.7237 39.7083)\n#&gt;  4 Fort Collins     Colorado   Larimer         339256 (-105.0656 40.5477)\n#&gt;  5 Lakewood         Colorado   Jefferson       156309 (-105.1172 39.6977)\n#&gt;  6 Greeley          Colorado   Weld            143554 (-104.7706 40.4152)\n#&gt;  7 Thornton         Colorado   Adams           142878 (-104.9438 39.9197)\n#&gt;  8 Grand Junction   Colorado   Mesa            141008 (-108.5673 39.0877)\n#&gt;  9 Arvada           Colorado   Jefferson       122835   (-105.151 39.832)\n#&gt; 10 Boulder          Colorado   Boulder         120121 (-105.2524 40.0248)\n#&gt; # ℹ 467 more rows"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-and-dplyr-3",
+    "href": "slides/22-sf.html#sf-and-dplyr-3",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf |&gt;\n  filter(state_name == \"Colorado\") |&gt;\n  group_by(county_name) |&gt;\n  slice_max(population, n = 1)\n\n\n\n#&gt; Simple feature collection with 64 features and 4 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -108.9071 ymin: 37.1751 xmax: -102.2627 ymax: 40.9849\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 64 × 5\n#&gt; # Groups:   county_name [64]\n#&gt;    city           state_name county_name population            geometry\n#&gt;    &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;\n#&gt;  1 Thornton       Colorado   Adams           142878 (-104.9438 39.9197)\n#&gt;  2 Alamosa        Colorado   Alamosa           9847  (-105.877 37.4752)\n#&gt;  3 Aurora         Colorado   Arapahoe        390201 (-104.7237 39.7083)\n#&gt;  4 Pagosa Springs Colorado   Archuleta         1718 (-107.0307 37.2675)\n#&gt;  5 Springfield    Colorado   Baca              1482  (-102.6189 37.405)\n#&gt;  6 Las Animas     Colorado   Bent              2480 (-103.2236 38.0695)\n#&gt;  7 Boulder        Colorado   Boulder         120121 (-105.2524 40.0248)\n#&gt;  8 Broomfield     Colorado   Broomfield       75110 (-105.0526 39.9542)\n#&gt;  9 Salida         Colorado   Chaffee           5786 (-105.9979 38.5298)\n#&gt; 10 Cheyenne Wells Colorado   Cheyenne           949 (-102.3521 38.8192)\n#&gt; # ℹ 54 more rows"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-and-dplyr-4",
+    "href": "slides/22-sf.html#sf-and-dplyr-4",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf |&gt;\n  filter(state_name == \"Colorado\") |&gt;\n  group_by(county_name) |&gt;\n  slice_max(population, n = 1) -&gt;\n  co_cities"
+  },
+  {
+    "objectID": "slides/22-sf.html#plotting",
+    "href": "slides/22-sf.html#plotting",
+    "title": "Lecture 23",
+    "section": "Plotting",
+    "text": "Plotting\n\nWe’ve already seen that ggplot() is a powerful visualization tool:\n\nThe 5 steps we described for building a ggplot are:\n\n\ncanvas\n\n\n\nlayers (geoms)\nlabels\nfacets\nthemes\n\n\nspatial work in R is becoming so common that ggplot() comes with a sf geom (geom_sf)"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-an-ggplot",
+    "href": "slides/22-sf.html#sf-an-ggplot",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot()"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-an-ggplot-1",
+    "href": "slides/22-sf.html#sf-an-ggplot-1",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot() +\n  geom_sf(data = co, aes(fill = aland/1e10))"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-an-ggplot-2",
+    "href": "slides/22-sf.html#sf-an-ggplot-2",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot() +\n  geom_sf(data = co, aes(fill = aland/1e10)) +\n  geom_sf(data = co_cities, aes(size = population/1e5), col = \"red\")"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-an-ggplot-3",
+    "href": "slides/22-sf.html#sf-an-ggplot-3",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot() +\n  geom_sf(data = co, aes(fill = aland/1e10)) +\n  geom_sf(data = co_cities, aes(size = population/1e5), col = \"red\") +\n  theme_linedraw()"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-an-ggplot-4",
+    "href": "slides/22-sf.html#sf-an-ggplot-4",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot() +\n  geom_sf(data = co, aes(fill = aland/1e10)) +\n  geom_sf(data = co_cities, aes(size = population/1e5), col = \"red\") +\n  theme_linedraw() +\n  labs(title = \"Colorado Counties: Land Area\",\n       size = \"Population \\n(100,000)\",\n       fill = \"Acres \\n(billions)\")"
+  },
+  {
+    "objectID": "slides/22-sf.html#conus",
+    "href": "slides/22-sf.html#conus",
+    "title": "Lecture 23",
+    "section": "CONUS",
+    "text": "CONUS\n\n\n\nconus &lt;-  USAboundaries::us_states() |&gt;\n  filter(!state_name %in% c(\"Puerto Rico\", \n                            \"Alaska\", \n                            \"Hawaii\"))\n\nlength(st_geometry(conus))\n#&gt; [1] 49\n\n::: {.column width=“50%”}\n\nggplot() + \n  geom_sf(data = conus, aes(fill = state_name)) + \n  theme_linedraw() + \n  theme(legend.position = \"none\") + \n  labs(title = paste(\"CONUS:\", length(st_geometry(conus)), \"feature(s)\") ) + \n  scale_fill_viridis_d()\n\n\n\n\n\n\n\n\n\n:::"
+  },
+  {
+    "objectID": "slides/22-sf.html#what-makes-spatial-data-spatial",
+    "href": "slides/22-sf.html#what-makes-spatial-data-spatial",
+    "title": "Lecture 23",
+    "section": "What makes spatial data spatial?",
+    "text": "What makes spatial data spatial?\n\nWhat makes a feature geometry spatial is the reference system…"
+  },
+  {
+    "objectID": "slides/22-sf.html#coordinate-systems-1",
+    "href": "slides/22-sf.html#coordinate-systems-1",
+    "title": "Lecture 23",
+    "section": "Coordinate Systems",
+    "text": "Coordinate Systems\n\nCoordinate Reference Systems (CRS) defines how spatial features relate to the surface of the Earth.\nCRSs are either geographic or projected…\nCRSs are measurement units for coordinates:"
+  },
+  {
+    "objectID": "slides/22-sf.html#sf-tools",
+    "href": "slides/22-sf.html#sf-tools",
+    "title": "Lecture 23",
+    "section": "sf tools",
+    "text": "sf tools\nIn sf we have three tools for exploring, define, and changing CRS systems:\n\nst_crs : Retrieve coordinate reference system from sf or sfc object\nst_set_crs : Set or replace coordinate reference system from object\nst_transform : Transform or convert coordinates of simple feature\nAgain, “st” (like PostGIS) denotes it is an operation that can work on a ” s patial t ype”"
+  },
+  {
+    "objectID": "slides/22-sf.html#geographic-coordinate-systms-gcs",
+    "href": "slides/22-sf.html#geographic-coordinate-systms-gcs",
+    "title": "Lecture 23",
+    "section": "Geographic Coordinate Systms (GCS)",
+    "text": "Geographic Coordinate Systms (GCS)\n\nA GCS identifies locations on the curved surface of the earth.\nLocations are measured in angular units from the center of the earth relative to the plane defined by the equator and the plane defined by the prime meridian.\nThe vertical angle describes the latitude and the horizontal angle the longitude\nIn most coordinate systems, the North-South and East-West directions are encoded as +/-.\nNorth and East are positive (+) and South and West are negative (-) sign.\nA GCS is defined by 3 mathematical models of the earth’s shape:\n\nan ellipsoid:\n\ndefined by two radii: semi-major and semi-minor axes\na model of the earth’s surface that is smooth\n\na geoid:\n\ndefined by the gravitational potential of the earth\na model of the earth’s surface that is undulating\n\na datum:\n\ndefined by the alignment of the ellipsoid to the geoid\na model of the earth’s surface that is aligned to the geoid"
+  },
+  {
+    "objectID": "slides/22-sf.html#projected-coordinate-systems",
+    "href": "slides/22-sf.html#projected-coordinate-systems",
+    "title": "Lecture 23",
+    "section": "Projected Coordinate Systems",
+    "text": "Projected Coordinate Systems\n\nThe surface of the earth is curved but maps (and to data GIS) is flat.\nA projected coordinate system (PCS) is a reference system for identifying locations and measuring features on a flat (2D) surfaces. I\nProjected coordinate systems have an origin, an x axis, a y axis, and a linear unit of measure.\nGoing from a GCS to a PCS requires mathematical transformations.\nThere are three main groups of projection types:\n\nconic:\n\ndefined by a cone touching the earth at 1 or 2 lines of tangency\nbest suited for mid-latitude areas\n\ncylindrical:\n\ndefined by a cylinder touching the earth at 1 or 2 lines of tangency\nbest suited for large areas\n\nplanar:\n\ndefined by a plane touching the earth at 1 point or along 1 line of tangency\nbest suited for polar regions"
+  },
+  {
+    "objectID": "slides/22-sf.html#spatial-properties",
+    "href": "slides/22-sf.html#spatial-properties",
+    "title": "Lecture 23",
+    "section": "Spatial Properties",
+    "text": "Spatial Properties\n\nAll projections distort real-world geographic features.\nThink about trying to unpeel an orange while preserving the skin\nThe four spatial properties that are subject to distortion are: shape, area, distance and direction\n\nA map that preserves shape is called conformal;\none that preserves area is called equal-area;\none that preserves distance is called equidistant\none that preserves direction is called azimuthal\nEach map projection can preserve only one or two of the four spatial properties.\nOften, projections are named after the spatial properties they preserve.\n\nWhen working with small-scale (large area) maps and when multiple spatial properties are needed, it is best to break the analyses across projections to minimize errors associated with spatial distortion."
+  },
+  {
+    "objectID": "slides/22-sf.html#setting-crsspcss",
+    "href": "slides/22-sf.html#setting-crsspcss",
+    "title": "Lecture 23",
+    "section": "Setting CRSs/PCSs",
+    "text": "Setting CRSs/PCSs\n\nWe saw that sfc objects have two attributes to store a CRS: epsg and proj4string\n\n\n\nst_geometry(conus)\n#&gt; Geometry set for 49 features \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -124.7258 ymin: 24.49813 xmax: -66.9499 ymax: 49.38436\n#&gt; Geodetic CRS:  WGS 84\n#&gt; First 5 geometries:\n\n\nThis implies that all geometries in a geometry list-column (sfc) must have the same CRS.\nproj4string is a generic, string-based description of a CRS, understood by PROJ\nIt defines projection types and parameter values for particular projections,\nAs a result it can cover an infinite amount of different projections.\nepsg is the integer ID for a known CRS that can be resolved into a proj4string.\n\nThis is somewhat equivalent to the idea that a 6-digit FIP code can be resolved to a state/county pair\n\nSome proj4string values can resolved back into their corresponding epsg ID, but this does not always work.\nThe importance of having epsg values stored with data besides proj4string values is that the epsg refers to particular, well-known CRS, whose parameters may change (improve) over time\nfixing only the proj4string may remove the possibility to benefit from such improvements, and limit some of the provenance of datasets (but may help reproducibility)"
+  },
+  {
+    "objectID": "slides/22-sf.html#transform-and-retrive",
+    "href": "slides/22-sf.html#transform-and-retrive",
+    "title": "Lecture 23",
+    "section": "Transform and retrive",
+    "text": "Transform and retrive\n\n\n\nst_crs(conus)$epsg\n#&gt; [1] 4326\nst_crs(conus)$proj4string\n#&gt; [1] \"+proj=longlat +datum=WGS84 +no_defs\"\nst_crs(conus)$datum\n#&gt; [1] \"WGS84\"\n\n\n\nconus5070 &lt;- st_transform(conus, 5070)\n\nst_crs(conus5070)$epsg\n#&gt; [1] 5070\nst_crs(conus5070)$proj4string\n#&gt; [1] \"+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs\"\nst_crs(conus5070)$datum\n#&gt; [1] \"NAD83\""
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features",
+    "href": "slides/23-sf.html#simple-features",
+    "title": "Lecture 23",
+    "section": "Simple features",
+    "text": "Simple features\nPart 1 ISO 19125-1 (SFA-CA for “common architecture”), defines a model for 2D simple features, with linear interpolation between vertices.\nThe data model defined in SFA-CA is a hierarchy of classes. This part also defines representation using Well-Known Text (and Binary).\n\n\nPart 2 of the standard, ISO 19125-2 (SFA-SQL), defines an implementation using SQL.\nThe geometries are also associated with spatial reference systems.\nThe standard also specifies attributes, methods and assertions with the geometries. - In general, a 2D geometry is simple if it contains no self-intersection. - The specification defines DE-9IM spatial predicates and several spatial operators that can be used to generate new geometries from existing geometries."
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-1",
+    "href": "slides/23-sf.html#simple-features-1",
+    "title": "Lecture 23",
+    "section": "Simple Features",
+    "text": "Simple Features"
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-access",
+    "href": "slides/23-sf.html#simple-features-access",
+    "title": "Lecture 23",
+    "section": "Simple Features Access",
+    "text": "Simple Features Access\n\nSimple features or simple feature access refers to the formal standard (ISO 19125-1:2004) describing how objects in the real world can be represented in computers, with emphasis on the spatial geometry of these objects.\nIt also describes how objects can be stored in and retrieved from databases, and which geometrical operations should/can be defined for them.\nThe standard is widely implemented in spatial databases (such as PostGIS), commercial GIS (e.g., ESRI ArcGIS) and forms the vector data basis for libraries such as GDAL.\nA subset of simple features (e.g. the big 7) forms the GeoJSON specification.\nR has well-supported classes for storing spatial data (sp) and interfacing to the above mentioned environments (rgdal, rgeos), but has so far lacked a complete implementation of simple features, making conversions at times convoluted, inefficient or incomplete.\nsf is seeking to fill this gap and has/will succeed sp"
+  },
+  {
+    "objectID": "slides/23-sf.html#geometry-types",
+    "href": "slides/23-sf.html#geometry-types",
+    "title": "Lecture 23",
+    "section": "Geometry types",
+    "text": "Geometry types\nThe following 7 simple feature types are the most common, and are the only ones used for GeoJSON:\n\n\n\n\n\n\n\nSINGLE\nDescription\n\n\n\n\nPOINT\nzero-dimensional geometry containing a single point\n\n\nLINESTRING\nsequence of points connected by straight, non-self intersecting line pieces; one-dimensional geometry\n\n\nPOLYGON\ngeometry with a positive area (two-dimensional); sequence of points form a closed, non-self intersecting ring; the first ring denotes the exterior ring, zero or more subsequent rings denote holes in this exterior ring\n\n\n\n\n\n\n\n\n\n\nMULTI (same typed)\nDescription\n\n\n\n\nMULTIPOINT\nset of points; a MULTIPOINT is simple if no two Points in the MULTIPOINT are equal\n\n\nMULTILINESTRING\nset of linestrings\n\n\nMULTIPOLYGON\nset of polygons\n\n\n\n\n\n\n\n\n\n\nMulti-Typed\nDescription\n\n\n\n\nGEOMETRYCOLLECTION\nset of geometries of any type except GEOMETRYCOLLECTION\n\n\n\n\nThe descriptions above were copied from the PostGIS manual."
+  },
+  {
+    "objectID": "slides/23-sf.html#section",
+    "href": "slides/23-sf.html#section",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "The remaining geometries 10 are rarer, but increasingly find implementations:\n\n\n\n\n\n\n\ntype\ndescription\n\n\n\n\nCIRCULARSTRING\nThe CIRCULARSTRING is the basic curve type, similar to a LINESTRING in the linear world. A single segment requires three points, the start and end points (first and third) and any other point on the arc. The exception to this is for a closed circle, where the start and end points are the same. In this case the second point MUST be the center of the arc, i.e., the opposite side of the circle. To chain arcs together, the last point of the previous arc becomes the first point of the next arc, just like in LINESTRING. This means that a valid circular string must have an odd number of points greater than 1.\n\n\nCOMPOUNDCURVE\nA compound curve is a single, continuous curve that has both curved (circular) segments and linear segments. That means that in addition to having well-formed components, the end point of every component (except the last) must be coincident with the start point of the following component.\n\n\nCURVEPOLYGON\nExample compound curve in a curve polygon: CURVEPOLYGON(COMPOUNDCURVE(CIRCULARSTRING(0 0,2 0, 2 1, 2 3, 4 3),(4 3, 4 5, 1 4, 0 0)), CIRCULARSTRING(1.7 1, 1.4 0.4, 1.6 0.4, 1.6 0.5, 1.7 1) )\n\n\nMULTICURVE\nA MultiCurve is a 1-dimensional GeometryCollection whose elements are Curves, it can include linear strings, circular strings or compound strings.\n\n\nMULTISURFACE\nA MultiSurface is a 2-dimensional GeometryCollection whose elements are Surfaces, all using coordinates from the same coordinate reference system.\n\n\nCURVE\nA Curve is a 1-dimensional geometric object usually stored as a sequence of Points, with the subtype of Curve specifying the form of the interpolation between Points\n\n\nSURFACE\nA Surface is a 2-dimensional geometric object\n\n\nPOLYHEDRALSURFACE\nA PolyhedralSurface is a contiguous collection of polygons, which share common boundary segments\n\n\nTIN\nA TIN (triangulated irregular network) is a PolyhedralSurface consisting only of Triangle patches.\n\n\nTRIANGLE\nA Triangle is a polygon with 3 distinct, non-collinear vertices and no interior boundary"
+  },
+  {
+    "objectID": "slides/23-sf.html#dimensions",
+    "href": "slides/23-sf.html#dimensions",
+    "title": "Lecture 23",
+    "section": "Dimensions",
+    "text": "Dimensions\nAll geometries are composed of points\n\nPoints are defined by coordinates in a 2-, 3- or 4-D space.\nIn addition to XY coordinates, there are two optional dimensions:\na Z coordinate, denoting altitude\nan M coordinate (rarely used), denoting some measure\nThe M describes a property of the vertex that is independent of the feature.\nIt sounds attractive to encode a time as M, however these quickly become invalid once the path self-intersects.\nBoth Z and M are found relatively rarely, and software support to do something useful with them is rarer still."
+  },
+  {
+    "objectID": "slides/23-sf.html#valid-geometries",
+    "href": "slides/23-sf.html#valid-geometries",
+    "title": "Lecture 23",
+    "section": "Valid geometries",
+    "text": "Valid geometries\n\nValid geometries obey the following properties:\n\nLINESTRINGS shall not self-intersect\nPOLYGON rings shall be closed (last point = first point)\nPOLYGON holes (inner rings) shall be inside their exterior ring\nPOLYGON inner rings shall maximally touch the exterior ring in single points, not over a line\nPOLYGON rings shall not repeat their own path\n\nIf any of the above is not the case, the geometry is not valid."
+  },
+  {
+    "objectID": "slides/23-sf.html#non-simple-and-non-valid-geometries",
+    "href": "slides/23-sf.html#non-simple-and-non-valid-geometries",
+    "title": "Lecture 23",
+    "section": "Non-simple and non-valid geometries",
+    "text": "Non-simple and non-valid geometries\n\nst_is_simple and st_is_valid provide methods to help detect non-simple and non-valid geometries:\nAn example of a non-simple geometries is a self-intersecting lines\nAn example of a non-valid geometry are would be a polygon with slivers or self-intersections.\n\n\n\n\n(x1 &lt;- st_linestring(cbind(c(0,1,0,1),c(0,1,1,0))))\nst_is_simple(x1)\n#&gt; [1] FALSE\n\n\n\n\n\n\n\n\n\n\n\n\n(x2 &lt;- st_polygon(list(cbind(c(0,1,1,1,0,0),c(0,0,1,0.6,1,0)))))\n(x3 &lt;- st_polygon(list(cbind(c(0,1,0,1,0),c(0,1,1,0,0)))))\n\nst_is_valid(c(x2,x3))\n#&gt; [1] FALSE"
+  },
+  {
+    "objectID": "slides/23-sf.html#empty-geometries",
+    "href": "slides/23-sf.html#empty-geometries",
+    "title": "Lecture 23",
+    "section": "Empty Geometries",
+    "text": "Empty Geometries\n\nAn important concept in the feature geometry framework is the empty geometry.\nempty geometries serve similar purposes as NA values in vectors (placeholder)\nEmpty geometries arise naturally from geometrical operations, for instance:\n\n\n\n(e = st_intersection(st_point(c(0,0)), st_point(c(1,1))))\n#&gt; GEOMETRYCOLLECTION EMPTY\n\n\nIt is not entirely clear what the benefit is of having typed empty geometries, but according to the simple feature standard they are type so the sf package abides by that.\nEmpty geometries can be detected by:\n\n\n\n\nst_is_empty(e)\n#&gt; [1] TRUE"
+  },
+  {
+    "objectID": "slides/23-sf.html#so",
+    "href": "slides/23-sf.html#so",
+    "title": "Lecture 23",
+    "section": "So:",
+    "text": "So:\n\nThere are 17 typed geometries supported by the simple feature standard\nAll geometries are made up of points\npoints can exist in 2,3,4 Dimensional space\nLINESTRING and POLYGON geometries have rules that define validity\nGeometries can be empty (but are still typed)"
+  },
+  {
+    "objectID": "slides/23-sf.html#how-simple-features-are-organized-in-r",
+    "href": "slides/23-sf.html#how-simple-features-are-organized-in-r",
+    "title": "Lecture 23",
+    "section": "How simple features are organized in R?",
+    "text": "How simple features are organized in R?\n\nSimple Features is a standard that is implemented in R (not limited to R)\nSo far we have discusses simple features the standard, rather then simple features the implementation\nIn R, simple features are implemented using standard data structures (S3 classes, lists, matrix, vector).\nAttributes are stored in data.frames (or tbl_df)\nFeature geometries are stored in a data.frame column.\nSince geometries are not single-valued, they are put in a list-column\nThis means each observation (element) is a list itself!\n\n\nRemember our nested lists?\n\nlist(list(c(1:5)))\n#&gt; [[1]]\n#&gt; [[1]][[1]]\n#&gt; [1] 1 2 3 4 5"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-sfc-sfg",
+    "href": "slides/23-sf.html#sf-sfc-sfg",
+    "title": "Lecture 23",
+    "section": "sf, sfc, sfg",
+    "text": "sf, sfc, sfg\nThe three classes are used to represent simple feature objects are:\nsf: data.frame with feature attributes and geometries\n\nwhich contains an:\n\nsfc: the list-column with the geometries for each feature\n\n\nwhich is composed of:\n\nsfg: individual simple feature geometries"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-sfc-sfg-1",
+    "href": "slides/23-sf.html#sf-sfc-sfg-1",
+    "title": "Lecture 23",
+    "section": "sf, sfc, sfg",
+    "text": "sf, sfc, sfg\n\nIn the output we see:\n\nin green a simple feature: a single record (row, consisting of attributes and geometry\nin blue a single simple feature geometry (an object of class sfg)\nin red a simple feature list-column (an object of class sfc, which is a column in the data.frame)\nEven though geometries are native R objects, they are printed as well-known text"
+  },
+  {
+    "objectID": "slides/23-sf.html#sfg-simple-feature-geometry-blue",
+    "href": "slides/23-sf.html#sfg-simple-feature-geometry-blue",
+    "title": "Lecture 23",
+    "section": "sfg: simple feature geometry (blue)",
+    "text": "sfg: simple feature geometry (blue)\n\nSimple feature geometry (sfg) objects carry geometries\nSimple feature geometries are implemented as R native data, using the following rules\n\na single POINT is a numeric vector\na set of points (e.g. in a LINESTRING or ring of a POLYGON) is a matrix, each row containing a point\nany other set is a list"
+  },
+  {
+    "objectID": "slides/23-sf.html#note-mixed-geometries",
+    "href": "slides/23-sf.html#note-mixed-geometries",
+    "title": "Lecture 23",
+    "section": "Note: Mixed geometries",
+    "text": "Note: Mixed geometries\nSets of simple features also consist of features with heterogeneous geometry types. In this case, the geometry type of the set is GEOMETRY:\n\n(g = st_sfc(st_point(c(0,0)), st_linestring(rbind(c(0,0), c(1,1)))))\n#&gt; Geometry set for 2 features \n#&gt; Geometry type: GEOMETRY\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; POINT (0 0)\n#&gt; LINESTRING (0 0, 1 1)\n\n\nThese set can be filtered by using st_is\n\ng |&gt; st_is(\"LINESTRING\")\n#&gt; [1] FALSE  TRUE\n\nor, when working with sf objects,\n\n# Note need of %&gt;%\nst_sf(g) %&gt;% filter(st_is(., \"LINESTRING\"))\n#&gt; Simple feature collection with 1 feature and 0 fields\n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt;                       g\n#&gt; 1 LINESTRING (0 0, 1 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#geometrycollection",
+    "href": "slides/23-sf.html#geometrycollection",
+    "title": "Lecture 23",
+    "section": "GEOMETRYCOLLECTION",
+    "text": "GEOMETRYCOLLECTION\n\nSingle feature objects can ALSO consist of several geometries types.\nSuch cases arise rather naturally when looking for intersections. For instance, the intersection of two LINESTRING geometries may be the combination of a LINESTRING and a POINT.\nPutting this intersection into a single feature needs a GEOMETRYCOLLECTION\n\n\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: GEOMETRYCOLLECTION\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 1 ymin: -0.5 xmax: 8 ymax: 1.5\n#&gt; CRS:           NA\n#&gt; GEOMETRYCOLLECTION (POINT (1 0), LINESTRING (4 ..."
+  },
+  {
+    "objectID": "slides/23-sf.html#geometrycollection-1",
+    "href": "slides/23-sf.html#geometrycollection-1",
+    "title": "Lecture 23",
+    "section": "GEOMETRYCOLLECTION",
+    "text": "GEOMETRYCOLLECTION\n\nIn case we end up with GEOMETRYCOLLECTION objects, the next question is often what to do with them. One thing we can do is extract elements from them:\n\n\nmap(j, st_geometry_type) |&gt; unlist()\n#&gt; [1] GEOMETRYCOLLECTION\n#&gt; 18 Levels: GEOMETRY POINT LINESTRING POLYGON MULTIPOINT ... TRIANGLE\n\nst_collection_extract(j, \"POLYGON\")\n#&gt; Geometry set for 3 features \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 5.5 ymin: -0.5 xmax: 8 ymax: 1.5\n#&gt; CRS:           NA\n#&gt; MULTIPOLYGON (((5.5 0, 7 0, 7 -0.5, 6 -0.5, 5.5...\n#&gt; MULTIPOLYGON (((6.6 1, 8 1, 8 1.5, 7 1.5, 6.6 1)))\n#&gt; MULTIPOLYGON (((5.5 0, 7 0, 7 -0.5, 6 -0.5, 5.5..."
+  },
+  {
+    "objectID": "slides/23-sf.html#conversion-between-types",
+    "href": "slides/23-sf.html#conversion-between-types",
+    "title": "Lecture 23",
+    "section": "Conversion between types",
+    "text": "Conversion between types\nWe can convert simple feature geometries using the st_cast generic (up to the extent that a conversion is feasible):\n\nmethods(st_cast)\n#&gt;  [1] st_cast.CIRCULARSTRING*     st_cast.COMPOUNDCURVE*     \n#&gt;  [3] st_cast.CURVE*              st_cast.GEOMETRYCOLLECTION*\n#&gt;  [5] st_cast.LINESTRING*         st_cast.MULTICURVE*        \n#&gt;  [7] st_cast.MULTILINESTRING*    st_cast.MULTIPOINT*        \n#&gt;  [9] st_cast.MULTIPOLYGON*       st_cast.MULTISURFACE*      \n#&gt; [11] st_cast.POINT*              st_cast.POLYGON*           \n#&gt; [13] st_cast.sf*                 st_cast.sfc*               \n#&gt; [15] st_cast.sfc_CIRCULARSTRING*\n#&gt; see '?methods' for accessing help and source code"
+  },
+  {
+    "objectID": "slides/23-sf.html#conversion-between-types-1",
+    "href": "slides/23-sf.html#conversion-between-types-1",
+    "title": "Lecture 23",
+    "section": "Conversion between types",
+    "text": "Conversion between types\nLets take the Larimer County in our Colorado sf object:\n\n(co1 = AOI::aoi_get(state = \"CO\", county = \"Larimer\")$geometry)\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTIPOLYGON (((-105.6533 40.26046, -105.6094 4...\n(co_ls = st_cast(co1, \"MULTILINESTRING\"))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTILINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -106.1954 ymin: 40.25778 xmax: -104.9431 ymax: 40.99844\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTILINESTRING ((-105.6533 40.26046, -105.6094..."
+  },
+  {
+    "objectID": "slides/23-sf.html#conversion-between-types-2",
+    "href": "slides/23-sf.html#conversion-between-types-2",
+    "title": "Lecture 23",
+    "section": "Conversion between types",
+    "text": "Conversion between types\nIt is often convenient to analyze the the points that make up a LINESTRING However …\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt; \n  st_linestring() |&gt; \n  st_cast(\"POINT\")\n#&gt; Warning in st_cast.LINESTRING(st_linestring(rbind(c(0, 0), c(1, 1), c(1, :\n#&gt; point from first coordinate only\n#&gt; POINT (0 0)\n\n\ndoes not do what we expect, because it will convert a single geometry into a new single geometry (one line to one point)\n\n\nInstead, we must recognize that a collection of points is what defines a LINSETRING and a collection of POINTs, operating as a single unit, is a MULTIPOINT\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt; \n  st_linestring() |&gt; \n  st_cast(\"MULTIPOINT\")\n\n\n\nIf we really wanted the individual POINT geometries, we need to work with sets:\n\n(p &lt;- rbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt; \n   st_linestring() |&gt; \n   st_sfc() |&gt; #&lt;&lt;\n   st_cast(\"POINT\"))\n#&gt; Geometry set for 4 features \n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA"
+  },
+  {
+    "objectID": "slides/23-sf.html#sfc-sets-of-geometries",
+    "href": "slides/23-sf.html#sfc-sets-of-geometries",
+    "title": "Lecture 23",
+    "section": "sfc: sets of geometries",
+    "text": "sfc: sets of geometries\n\nsf provides a dedicated class for handling geometry sets as a list-column called sfc\nWe can create such a list column with constructor function st_sfc:\n\n\n(sfc = st_sfc(st_point(c(0,1)), st_point(c(-3,2))))\n#&gt; Geometry set for 2 features \n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -3 ymin: 1 xmax: 0 ymax: 2\n#&gt; CRS:           NA\n#&gt; POINT (0 1)\n#&gt; POINT (-3 2)\n\nThe default report from the print method for sfc gives\n\nthe number of features geometries\nthe feature geometry type (here: POINT)\nthe feature geometry dimension (here: XY)\nthe bounding box for the set\nthe coordinate reference system for the set (epsg and proj4string)\nthe first few geometries, as (abbreviated) WKT"
+  },
+  {
+    "objectID": "slides/23-sf.html#section-1",
+    "href": "slides/23-sf.html#section-1",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "The class of the geometry list-column is a combination of a specific class, and a superclass.\n\nclass(sfc)\n#&gt; [1] \"sfc_POINT\" \"sfc\"\n\nIn addition to a class, the sfc object has further attributes (remember S3 class!)\n\nattributes(sfc) |&gt; names()\n#&gt; [1] \"class\"     \"precision\" \"bbox\"      \"crs\"       \"n_empty\"\n\nwhich are used to record for the whole set:\n\na precision value\nthe bounding box enclosing all geometries (for x and y)\na coordinate reference system\nthe number of empty geometries contained in the set"
+  },
+  {
+    "objectID": "slides/23-sf.html#section-2",
+    "href": "slides/23-sf.html#section-2",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "(co_c = st_combine(co_geom))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTIPOLYGON (((-105.0532 39.79106, -104.976 39...\n\n\n\n\n\n\n\n\n\n\n\n(co_u = st_union(co_geom))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: POLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; POLYGON ((-105.155 36.99526, -105.1208 36.99543...\n\n\n\n\n\n\n\n\n\n\n\n\n(co_c_ml = st_combine(co_geom) |&gt; \n   st_cast(\"MULTILINESTRING\"))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTILINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTILINESTRING ((-105.0532 39.79106, -104.976 ...\n\n\n\n\n\n\n\n\n\n\n\n(co_u_ml = st_union(co_geom)  |&gt; \n    st_cast(\"MULTILINESTRING\"))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTILINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTILINESTRING ((-105.155 36.99526, -105.1208 ..."
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-objects-with-simple-features",
+    "href": "slides/23-sf.html#sf-objects-with-simple-features",
+    "title": "Lecture 23",
+    "section": "sf: objects with simple features",
+    "text": "sf: objects with simple features\nSimple features geometries and feature attributes are put together in sf (simple feature) objects.\n\nco\n#&gt; Simple feature collection with 64 features and 4 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; First 10 features:\n#&gt;    geoid       name      aland state_nm                       geometry\n#&gt; 1  08001      Adams 3021840487 Colorado MULTIPOLYGON (((-105.0532 3...\n#&gt; 2  08003    Alamosa 1871643028 Colorado MULTIPOLYGON (((-105.4855 3...\n#&gt; 3  08005   Arapahoe 2066438714 Colorado MULTIPOLYGON (((-103.7065 3...\n#&gt; 4  08007  Archuleta 3496712164 Colorado MULTIPOLYGON (((-107.1287 3...\n#&gt; 5  08009       Baca 6617400567 Colorado MULTIPOLYGON (((-102.0416 3...\n#&gt; 6  08011       Bent 3918255148 Colorado MULTIPOLYGON (((-102.7476 3...\n#&gt; 7  08013    Boulder 1881325109 Colorado MULTIPOLYGON (((-105.3978 3...\n#&gt; 8  08014 Broomfield   85386685 Colorado MULTIPOLYGON (((-105.1092 3...\n#&gt; 9  08015    Chaffee 2624715692 Colorado MULTIPOLYGON (((-105.9698 3...\n#&gt; 10 08017   Cheyenne 4605713960 Colorado MULTIPOLYGON (((-103.1729 3...\n\nThis sf object is of class\n\nclass(co)\n#&gt; [1] \"sf\"         \"data.frame\"\n\nmeaning it extends data.frame, but with a single list-column with geometries, which is held in the column named:\n\nattr(co, \"sf_column\")\n#&gt; [1] \"geometry\""
+  },
+  {
+    "objectID": "slides/23-sf.html#the-stickness-of-sfc-column",
+    "href": "slides/23-sf.html#the-stickness-of-sfc-column",
+    "title": "Lecture 23",
+    "section": "The stickness of sfc column",
+    "text": "The stickness of sfc column\n\nGeometry columns are “sticky” meaning they persist through data manipulation:\n\n\n\nco |&gt; \n  select(name) |&gt; \n  slice(1:2)\n#&gt; Simple feature collection with 2 features and 1 field\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -106.0393 ymin: 37.3562 xmax: -103.7057 ymax: 40.00137\n#&gt; Geodetic CRS:  WGS 84\n#&gt;      name                       geometry\n#&gt; 1   Adams MULTIPOLYGON (((-105.0532 3...\n#&gt; 2 Alamosa MULTIPOLYGON (((-105.4855 3...\n\n\nDropping the geometry column requires dropping the geometry via sf:\n\n\n\n\nco |&gt; \n  st_drop_geometry() |&gt; #&lt;&lt;\n  select(name) |&gt; \n  slice(1:2)\n#&gt;      name\n#&gt; 1   Adams\n#&gt; 2 Alamosa\n\n\nOr cohersing the sf object to a data.frame:\n\n\n\n\nco |&gt; \n  as.data.frame() |&gt; #&lt;&lt;\n  select(name) |&gt; \n  slice(1:2)\n#&gt;      name\n#&gt; 1   Adams\n#&gt; 2 Alamosa"
+  },
+  {
+    "objectID": "slides/23-sf.html#the-stickness-of-sfc-column-1",
+    "href": "slides/23-sf.html#the-stickness-of-sfc-column-1",
+    "title": "Lecture 23",
+    "section": "The stickness of sfc column",
+    "text": "The stickness of sfc column\n\nA simple features object (sf) is the connection of a sfc list-column and data.frame of attributes"
+  },
+  {
+    "objectID": "slides/23-sf.html#reading-and-writing",
+    "href": "slides/23-sf.html#reading-and-writing",
+    "title": "Lecture 23",
+    "section": "Reading and writing",
+    "text": "Reading and writing\nAs we’ve seen above, reading spatial data from an external file can be done via sf - reading data requires the “parser function” and the file path\n\nco &lt;- st_read(\"data/co.shp\")\n#&gt; Reading layer `co' from data source \n#&gt;   `/Users/mikejohnson/github/csu-ess-330/slides/data/co.shp' \n#&gt;   using driver `ESRI Shapefile'\n#&gt; Simple feature collection with 64 features and 4 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n\nwe can suppress the output by adding argument quiet=TRUE or by using the otherwise nearly identical but more quiet\n\nco &lt;- read_sf(\"data/co.shp\")\n\nWriting takes place in the same fashion, using st_write:\n\nst_write(co, \"data/co.shp\")\n\nor its quiet alternative that silently overwrites existing files by default,\n\nwrite_sf(co, \"co.shp\") # silently overwrites"
+  },
+  {
+    "objectID": "slides/23-sf.html#from-tables-e.g.-csv",
+    "href": "slides/23-sf.html#from-tables-e.g.-csv",
+    "title": "Lecture 23",
+    "section": "From Tables (e.g. CSV)",
+    "text": "From Tables (e.g. CSV)\nSpatial data can also be created from CSV and other flat files once it is in R:\n\n(cities = read_csv(\"../labs/data/uscities.csv\") |&gt; \n  select(city, state_name, county_name, population, lat, lng) )\n#&gt; # A tibble: 31,254 × 6\n#&gt;    city         state_name           county_name         population   lat    lng\n#&gt;    &lt;chr&gt;        &lt;chr&gt;                &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n#&gt;  1 New York     New York             Queens                18832416  40.7  -73.9\n#&gt;  2 Los Angeles  California           Los Angeles           11885717  34.1 -118. \n#&gt;  3 Chicago      Illinois             Cook                   8489066  41.8  -87.7\n#&gt;  4 Miami        Florida              Miami-Dade             6113982  25.8  -80.2\n#&gt;  5 Houston      Texas                Harris                 6046392  29.8  -95.4\n#&gt;  6 Dallas       Texas                Dallas                 5843632  32.8  -96.8\n#&gt;  7 Philadelphia Pennsylvania         Philadelphia           5696588  40.0  -75.1\n#&gt;  8 Atlanta      Georgia              Fulton                 5211164  33.8  -84.4\n#&gt;  9 Washington   District of Columbia District of Columb…    5146120  38.9  -77.0\n#&gt; 10 Boston       Massachusetts        Suffolk                4355184  42.3  -71.1\n#&gt; # ℹ 31,244 more rows"
+  },
+  {
+    "objectID": "slides/23-sf.html#data-manipulation",
+    "href": "slides/23-sf.html#data-manipulation",
+    "title": "Lecture 23",
+    "section": "Data Manipulation",
+    "text": "Data Manipulation\n\nSince sf objects are data.frames, our dplyr verbs work!\nLets find the most populous city in each Colorado county…"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-and-dplyr",
+    "href": "slides/23-sf.html#sf-and-dplyr",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf\n\n\n\n#&gt; Simple feature collection with 31254 features and 4 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -176.6295 ymin: 17.9559 xmax: 174.111 ymax: 71.2727\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 31,254 × 5\n#&gt;    city         state_name      county_name population            geometry\n#&gt;  * &lt;chr&gt;        &lt;chr&gt;           &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;\n#&gt;  1 New York     New York        Queens        18832416  (-73.9249 40.6943)\n#&gt;  2 Los Angeles  California      Los Angeles   11885717 (-118.4068 34.1141)\n#&gt;  3 Chicago      Illinois        Cook           8489066  (-87.6866 41.8375)\n#&gt;  4 Miami        Florida         Miami-Dade     6113982   (-80.2101 25.784)\n#&gt;  5 Houston      Texas           Harris         6046392   (-95.3885 29.786)\n#&gt;  6 Dallas       Texas           Dallas         5843632  (-96.7667 32.7935)\n#&gt;  7 Philadelphia Pennsylvania    Philadelph…    5696588  (-75.1339 40.0077)\n#&gt;  8 Atlanta      Georgia         Fulton         5211164   (-84.422 33.7628)\n#&gt;  9 Washington   District of Co… District o…    5146120  (-77.0163 38.9047)\n#&gt; 10 Boston       Massachusetts   Suffolk        4355184  (-71.0852 42.3188)\n#&gt; # ℹ 31,244 more rows"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-and-dplyr-1",
+    "href": "slides/23-sf.html#sf-and-dplyr-1",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf |&gt;\n  filter(state_name == \"Colorado\")\n\n\n\n#&gt; Simple feature collection with 477 features and 4 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0066 ymin: 37.0155 xmax: -102.0804 ymax: 40.9849\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 477 × 5\n#&gt;    city             state_name county_name population            geometry\n#&gt;  * &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;\n#&gt;  1 Denver           Colorado   Denver         2691349  (-104.8758 39.762)\n#&gt;  2 Colorado Springs Colorado   El Paso         638421 (-104.7605 38.8674)\n#&gt;  3 Aurora           Colorado   Arapahoe        390201 (-104.7237 39.7083)\n#&gt;  4 Fort Collins     Colorado   Larimer         339256 (-105.0656 40.5477)\n#&gt;  5 Lakewood         Colorado   Jefferson       156309 (-105.1172 39.6977)\n#&gt;  6 Greeley          Colorado   Weld            143554 (-104.7706 40.4152)\n#&gt;  7 Thornton         Colorado   Adams           142878 (-104.9438 39.9197)\n#&gt;  8 Grand Junction   Colorado   Mesa            141008 (-108.5673 39.0877)\n#&gt;  9 Arvada           Colorado   Jefferson       122835   (-105.151 39.832)\n#&gt; 10 Boulder          Colorado   Boulder         120121 (-105.2524 40.0248)\n#&gt; # ℹ 467 more rows"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-and-dplyr-2",
+    "href": "slides/23-sf.html#sf-and-dplyr-2",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf |&gt;\n  filter(state_name == \"Colorado\") |&gt;\n  group_by(county_name)\n\n\n\n#&gt; Simple feature collection with 477 features and 4 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0066 ymin: 37.0155 xmax: -102.0804 ymax: 40.9849\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 477 × 5\n#&gt; # Groups:   county_name [64]\n#&gt;    city             state_name county_name population            geometry\n#&gt;    &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;\n#&gt;  1 Denver           Colorado   Denver         2691349  (-104.8758 39.762)\n#&gt;  2 Colorado Springs Colorado   El Paso         638421 (-104.7605 38.8674)\n#&gt;  3 Aurora           Colorado   Arapahoe        390201 (-104.7237 39.7083)\n#&gt;  4 Fort Collins     Colorado   Larimer         339256 (-105.0656 40.5477)\n#&gt;  5 Lakewood         Colorado   Jefferson       156309 (-105.1172 39.6977)\n#&gt;  6 Greeley          Colorado   Weld            143554 (-104.7706 40.4152)\n#&gt;  7 Thornton         Colorado   Adams           142878 (-104.9438 39.9197)\n#&gt;  8 Grand Junction   Colorado   Mesa            141008 (-108.5673 39.0877)\n#&gt;  9 Arvada           Colorado   Jefferson       122835   (-105.151 39.832)\n#&gt; 10 Boulder          Colorado   Boulder         120121 (-105.2524 40.0248)\n#&gt; # ℹ 467 more rows"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-and-dplyr-3",
+    "href": "slides/23-sf.html#sf-and-dplyr-3",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf |&gt;\n  filter(state_name == \"Colorado\") |&gt;\n  group_by(county_name) |&gt;\n  slice_max(population, n = 1)\n\n\n\n#&gt; Simple feature collection with 64 features and 4 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -108.9071 ymin: 37.1751 xmax: -102.2627 ymax: 40.9849\n#&gt; Geodetic CRS:  WGS 84\n#&gt; # A tibble: 64 × 5\n#&gt; # Groups:   county_name [64]\n#&gt;    city           state_name county_name population            geometry\n#&gt;    &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;            &lt;dbl&gt;         &lt;POINT [°]&gt;\n#&gt;  1 Thornton       Colorado   Adams           142878 (-104.9438 39.9197)\n#&gt;  2 Alamosa        Colorado   Alamosa           9847  (-105.877 37.4752)\n#&gt;  3 Aurora         Colorado   Arapahoe        390201 (-104.7237 39.7083)\n#&gt;  4 Pagosa Springs Colorado   Archuleta         1718 (-107.0307 37.2675)\n#&gt;  5 Springfield    Colorado   Baca              1482  (-102.6189 37.405)\n#&gt;  6 Las Animas     Colorado   Bent              2480 (-103.2236 38.0695)\n#&gt;  7 Boulder        Colorado   Boulder         120121 (-105.2524 40.0248)\n#&gt;  8 Broomfield     Colorado   Broomfield       75110 (-105.0526 39.9542)\n#&gt;  9 Salida         Colorado   Chaffee           5786 (-105.9979 38.5298)\n#&gt; 10 Cheyenne Wells Colorado   Cheyenne           949 (-102.3521 38.8192)\n#&gt; # ℹ 54 more rows"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-and-dplyr-4",
+    "href": "slides/23-sf.html#sf-and-dplyr-4",
+    "title": "Lecture 23",
+    "section": "sf and dplyr",
+    "text": "sf and dplyr\n\n\n\ncities_sf |&gt;\n  filter(state_name == \"Colorado\") |&gt;\n  group_by(county_name) |&gt;\n  slice_max(population, n = 1) -&gt;\n  co_cities"
+  },
+  {
+    "objectID": "slides/23-sf.html#plotting",
+    "href": "slides/23-sf.html#plotting",
+    "title": "Lecture 23",
+    "section": "Plotting",
+    "text": "Plotting\n\nWe’ve already seen that ggplot() is a powerful visualization tool:\n\ncanvas\nlayers (geoms)\nlabels\nfacets\nthemes\n\nspatial work in R is becoming so common that ggplot() comes with a sf geom (geom_sf)"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-an-ggplot",
+    "href": "slides/23-sf.html#sf-an-ggplot",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot()"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-an-ggplot-1",
+    "href": "slides/23-sf.html#sf-an-ggplot-1",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot() +\n  geom_sf(data = co, aes(fill = aland/1e10))"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-an-ggplot-2",
+    "href": "slides/23-sf.html#sf-an-ggplot-2",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot() +\n  geom_sf(data = co, aes(fill = aland/1e10)) +\n  geom_sf(data = co_cities, aes(size = population/1e5), col = \"red\")"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-an-ggplot-3",
+    "href": "slides/23-sf.html#sf-an-ggplot-3",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot() +\n  geom_sf(data = co, aes(fill = aland/1e10)) +\n  geom_sf(data = co_cities, aes(size = population/1e5), col = \"red\") +\n  theme_linedraw()"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-an-ggplot-4",
+    "href": "slides/23-sf.html#sf-an-ggplot-4",
+    "title": "Lecture 23",
+    "section": "sf an ggplot",
+    "text": "sf an ggplot\n\n\n\nggplot() +\n  geom_sf(data = co, aes(fill = aland/1e10)) +\n  geom_sf(data = co_cities, aes(size = population/1e5), col = \"red\") +\n  theme_linedraw() +\n  labs(title = \"Colorado Counties: Land Area\",\n       size = \"Population \\n(100,000)\",\n       fill = \"Acres \\n(billions)\")"
+  },
+  {
+    "objectID": "slides/23-sf.html#conus",
+    "href": "slides/23-sf.html#conus",
+    "title": "Lecture 23",
+    "section": "CONUS",
+    "text": "CONUS\n\n\n\nconus &lt;-  USAboundaries::us_states() |&gt;\n  filter(!state_name %in% c(\"Puerto Rico\", \n                            \"Alaska\", \n                            \"Hawaii\"))\n\nlength(st_geometry(conus))\n#&gt; [1] 49\n\n\n\nggplot() + \n  geom_sf(data = conus, aes(fill = state_name)) + \n  theme_linedraw() + \n  theme(legend.position = \"none\") + \n  labs(title = paste(\"CONUS:\", length(st_geometry(conus)), \"feature(s)\") ) + \n  scale_fill_viridis_d()"
+  },
+  {
+    "objectID": "slides/23-sf.html#what-makes-spatial-data-spatial",
+    "href": "slides/23-sf.html#what-makes-spatial-data-spatial",
+    "title": "Lecture 23",
+    "section": "What makes spatial data spatial?",
+    "text": "What makes spatial data spatial?\n\nWhat makes a feature geometry spatial is the reference system…"
+  },
+  {
+    "objectID": "slides/23-sf.html#coordinate-systems-1",
+    "href": "slides/23-sf.html#coordinate-systems-1",
+    "title": "Lecture 23",
+    "section": "Coordinate Systems",
+    "text": "Coordinate Systems\n\nCoordinate Reference Systems (CRS) defines how spatial features relate to the surface of the Earth.\nCRSs are either geographic or projected…\nCRSs are measurement units for coordinates:"
+  },
+  {
+    "objectID": "slides/23-sf.html#sf-tools",
+    "href": "slides/23-sf.html#sf-tools",
+    "title": "Lecture 23",
+    "section": "sf tools",
+    "text": "sf tools\nIn sf we have three tools for exploring, define, and changing CRS systems:\n\nst_crs : Retrieve coordinate reference system from sf or sfc object\nst_set_crs : Set or replace coordinate reference system from object\nst_transform : Transform or convert coordinates of simple feature\nAgain, “st” (like PostGIS) denotes it is an operation that can work on a ” s patial t ype”"
+  },
+  {
+    "objectID": "slides/23-sf.html#geographic-coordinate-systms-gcs",
+    "href": "slides/23-sf.html#geographic-coordinate-systms-gcs",
+    "title": "Lecture 23",
+    "section": "Geographic Coordinate Systms (GCS)",
+    "text": "Geographic Coordinate Systms (GCS)\n\nA GCS identifies locations on the curved surface of the earth.\nLocations are measured in angular units from the center of the earth relative to the plane defined by the equator and the plane defined by the prime meridian.\nThe vertical angle describes the latitude and the horizontal angle the longitude\nIn most coordinate systems, the North-South and East-West directions are encoded as +/-.\nNorth and East are positive (+) and South and West are negative (-) sign.\nA GCS is defined by 3 mathematical models of the earth’s shape:\n\nan ellipsoid: earth’s surface that is smooth\n\ndefined by two radii: semi-major and semi-minor axes\n\na geoid: earth’s surface that is undulating\n\ndefined by the gravitational potential of the earth\n\na datum: earth’s surface that is aligned to the geoid\n\ndefined by the alignment of the ellipsoid to the geoid"
+  },
+  {
+    "objectID": "slides/23-sf.html#projected-coordinate-systems",
+    "href": "slides/23-sf.html#projected-coordinate-systems",
+    "title": "Lecture 23",
+    "section": "Projected Coordinate Systems",
+    "text": "Projected Coordinate Systems\n\nThe surface of the earth is curved but maps (and to data GIS) is flat.\nA projected coordinate system (PCS) is a reference system for identifying locations and measuring features on a flat (2D) surfaces. I\nProjected coordinate systems have an origin, an x axis, a y axis, and a linear unit of measure.\nGoing from a GCS to a PCS requires mathematical transformations.\nThere are three main groups of projection types:\n\nconic:\n\ndefined by a cone touching the earth at 1 or 2 lines of tangency\nbest suited for mid-latitude areas\n\ncylindrical:\n\ndefined by a cylinder touching the earth at 1 or 2 lines of tangency\nbest suited for large areas\n\nplanar:\n\ndefined by a plane touching the earth at 1 point or along 1 line of tangency\nbest suited for polar regions"
+  },
+  {
+    "objectID": "slides/23-sf.html#spatial-properties",
+    "href": "slides/23-sf.html#spatial-properties",
+    "title": "Lecture 23",
+    "section": "Spatial Properties",
+    "text": "Spatial Properties\n\nAll projections distort real-world geographic features.\nThink about trying to unpeel an orange while preserving the skin\nThe four spatial properties that are subject to distortion are: shape, area, distance and direction\n\nA map that preserves shape is called conformal;\none that preserves area is called equal-area;\none that preserves distance is called equidistant\none that preserves direction is called azimuthal\nEach map projection can preserve only one or two of the four spatial properties.\nOften, projections are named after the spatial properties they preserve.\n\nWhen working with small-scale (large area) maps and when multiple spatial properties are needed, it is best to break the analyses across projections to minimize errors associated with spatial distortion."
+  },
+  {
+    "objectID": "slides/23-sf.html#setting-crsspcss",
+    "href": "slides/23-sf.html#setting-crsspcss",
+    "title": "Lecture 23",
+    "section": "Setting CRSs/PCSs",
+    "text": "Setting CRSs/PCSs\n\nWe saw that sfc objects have two attributes to store a CRS: epsg and proj4string\n\n\n\nst_geometry(conus)\n#&gt; Geometry set for 49 features \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -124.7258 ymin: 24.49813 xmax: -66.9499 ymax: 49.38436\n#&gt; Geodetic CRS:  WGS 84\n#&gt; First 5 geometries:\n#&gt; MULTIPOLYGON (((-118.594 33.4672, -118.4848 33....\n#&gt; MULTIPOLYGON (((-86.93428 45.42115, -86.83575 4...\n#&gt; MULTIPOLYGON (((-117.243 44.39097, -117.2151 44...\n#&gt; MULTIPOLYGON (((-97.22904 49.00069, -96.93096 4...\n#&gt; MULTIPOLYGON (((-96.62187 42.77925, -96.57794 4...\n\n\nThis implies that all geometries in a geometry list-column (sfc) must have the same CRS.\nproj4string is a generic, string-based description of a CRS, understood by PROJ\nIt defines projection types and parameter values for particular projections,\nAs a result it can cover an infinite amount of different projections.\nepsg is the integer ID for a known CRS that can be resolved into a proj4string.\n\nThis is somewhat equivalent to the idea that a 6-digit FIP code can be resolved to a state/county pair\n\nSome proj4string values can resolved back into their corresponding epsg ID, but this does not always work.\nThe importance of having epsg values stored with data besides proj4string values is that the epsg refers to particular, well-known CRS, whose parameters may change (improve) over time\nfixing only the proj4string may remove the possibility to benefit from such improvements, and limit some of the provenance of datasets (but may help reproducibility)"
+  },
+  {
+    "objectID": "slides/23-sf.html#transform-and-retrive",
+    "href": "slides/23-sf.html#transform-and-retrive",
+    "title": "Lecture 23",
+    "section": "Transform and retrive",
+    "text": "Transform and retrive\n\n\n\nst_crs(conus)$epsg\n#&gt; [1] 4326\nst_crs(conus)$proj4string\n#&gt; [1] \"+proj=longlat +datum=WGS84 +no_defs\"\nst_crs(conus)$datum\n#&gt; [1] \"WGS84\"\n\n\n\nconus5070 &lt;- st_transform(conus, 5070)\n\nst_crs(conus5070)$epsg\n#&gt; [1] 5070\nst_crs(conus5070)$proj4string\n#&gt; [1] \"+proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs\"\nst_crs(conus5070)$datum\n#&gt; [1] \"NAD83\""
+  },
+  {
+    "objectID": "slides/23-sf.html#section-3",
+    "href": "slides/23-sf.html#section-3",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "(co_c = st_combine(co_geom))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTIPOLYGON (((-105.0532 39.79106, -104.976 39...\n\n\n\n\n\n\n\n\n\n\n\n(co_u = st_union(co_geom))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: POLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; POLYGON ((-105.155 36.99526, -105.1208 36.99543...\n\n\n\n\n\n\n\n\n\n\n\n\n(co_c_ml = st_combine(co_geom) |&gt; \n   st_cast(\"MULTILINESTRING\"))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTILINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTILINESTRING ((-105.0532 39.79106, -104.976 ...\n\n\n\n\n\n\n\n\n\n\n\n(co_u_ml = st_union(co_geom)  |&gt; \n    st_cast(\"MULTILINESTRING\"))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTILINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTILINESTRING ((-105.155 36.99526, -105.1208 ..."
+  },
+  {
+    "objectID": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries",
+    "href": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries",
+    "title": "Lecture 23",
+    "section": "Sets of geometries arise when we separate compound geometries:",
+    "text": "Sets of geometries arise when we separate compound geometries:\n\n\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1))\n\n\n\n#&gt;      [,1] [,2]\n#&gt; [1,]    0    0\n#&gt; [2,]    1    1\n#&gt; [3,]    1    0\n#&gt; [4,]    0    1"
+  },
+  {
+    "objectID": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries-1",
+    "href": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries-1",
+    "title": "Lecture 23",
+    "section": "Sets of geometries arise when we separate compound geometries:",
+    "text": "Sets of geometries arise when we separate compound geometries:\n\n\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt;\n   st_linestring()\n\n\n\n#&gt; LINESTRING (0 0, 1 1, 1 0, 0 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries-2",
+    "href": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries-2",
+    "title": "Lecture 23",
+    "section": "Sets of geometries arise when we separate compound geometries:",
+    "text": "Sets of geometries arise when we separate compound geometries:\n\n\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt;\n   st_linestring() |&gt;\n   st_sfc()\n\n\n\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; LINESTRING (0 0, 1 1, 1 0, 0 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries-3",
+    "href": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries-3",
+    "title": "Lecture 23",
+    "section": "Sets of geometries arise when we separate compound geometries:",
+    "text": "Sets of geometries arise when we separate compound geometries:\n\n\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt;\n   st_linestring() |&gt;\n   st_sfc() |&gt;\n   st_cast(\"POINT\")\n\n\n\n#&gt; Geometry set for 4 features \n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; POINT (0 0)\n#&gt; POINT (1 1)\n#&gt; POINT (1 0)\n#&gt; POINT (0 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries-4",
+    "href": "slides/23-sf.html#sets-of-geometries-arise-when-we-separate-compound-geometries-4",
+    "title": "Lecture 23",
+    "section": "Sets of geometries arise when we separate compound geometries:",
+    "text": "Sets of geometries arise when we separate compound geometries:\n\n\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt;\n   st_linestring() |&gt;\n   st_sfc() |&gt;\n   st_cast(\"POINT\") -&gt;\n  p\n\n\n\n\n\nOn the last slide, st_sfc creates a set of one LINESTRING (p), with a size of 4.\nGoing the other way around (from set to feature), we need to combine geometries:\n\n\n\n\n\np\n#&gt; Geometry set for 4 features \n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; POINT (0 0)\n#&gt; POINT (1 1)\n#&gt; POINT (1 0)\n#&gt; POINT (0 1)\n\n\n\nst_combine(p)\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTIPOINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; MULTIPOINT ((0 0), (1 1), (1 0), (0 1))"
+  },
+  {
+    "objectID": "slides/23-sf.html#casting-must-be-done-the-level-of-the-feature",
+    "href": "slides/23-sf.html#casting-must-be-done-the-level-of-the-feature",
+    "title": "Lecture 23",
+    "section": "Casting must be done the level of the feature",
+    "text": "Casting must be done the level of the feature\nIf we want to go from the 4 feature (p) object to a 1 feature LINESTRING, we must combine before casting …\n\nst_combine(p) |&gt; \n  st_cast(\"LINESTRING\")\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; LINESTRING (0 0, 1 1, 1 0, 0 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#feature-resoloved-and-combined",
+    "href": "slides/23-sf.html#feature-resoloved-and-combined",
+    "title": "Lecture 23",
+    "section": "1 feature: resoloved and combined:",
+    "text": "1 feature: resoloved and combined:\n\nst_cast / st_union work on sfg, sfc, and sf objects:\n\n\nconus &lt;- AOI::aoi_get(state = \"conus\")\n\nus_c_ml = st_combine(conus) |&gt;\n  st_cast(\"MULTILINESTRING\")\n   \nus_u_ml = st_union(conus) |&gt;\n  st_cast(\"MULTILINESTRING\")"
+  },
+  {
+    "objectID": "slides/23-sf.html#assignment",
+    "href": "slides/23-sf.html#assignment",
+    "title": "Lecture 23",
+    "section": "Assignment",
+    "text": "Assignment\nFor today’s assignment, lets ensure we have our spatial data environment set up:\n\nTo do this install: sf (vector), terra (raster), mapview (interactive mapping) from CRAN (install.packages())\nThen, install the AOI package from GitHub: remotes::install_github(\"mikejohnson51/AOI\")"
+  },
+  {
+    "objectID": "slides/23-sf.html#make-denver-in-the-crs-of-our-states",
+    "href": "slides/23-sf.html#make-denver-in-the-crs-of-our-states",
+    "title": "Lecture 23",
+    "section": "1. Make “Denver” in the CRS of our states",
+    "text": "1. Make “Denver” in the CRS of our states\n\nWe need to define Denver as a point in the same CRS as our states\nWe can do this by creating a data.frame with the coordinates of Denver (39.7392, -104.9903 in EPSG:4326) and the name “Denver” (3 columns)\nPass this data.frame to st_as_sf() to create a simple feature object Use the coords argument to specify the columns with the coordinates (X,Y) and the crs argument to specify the CRS)\n\n\ndenver_sf &lt;- data.frame(y = 39.7392, x = -104.9903,  name = \"Denver\") |&gt; \n  st_as_sf(coords = c(\"x\", \"y\"), crs = 4326)"
+  },
+  {
+    "objectID": "slides/23-sf.html#data-from-a-package",
+    "href": "slides/23-sf.html#data-from-a-package",
+    "title": "Lecture 23",
+    "section": "2. Data from a package",
+    "text": "2. Data from a package\nNext, install the AOI package (remotes::install_github(\"mikejohnson51/AOI\")) and load the package with library(AOI).\nRun the folling code to get all states in CONUS (lower 48 states):\n\n(conus &lt;- AOI::aoi_get(state = \"CONUS\"))\n#&gt; Simple feature collection with 49 features and 14 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -124.8485 ymin: 24.39631 xmax: -66.88544 ymax: 49.38448\n#&gt; Geodetic CRS:  WGS 84\n#&gt; First 10 features:\n#&gt;    state_region state_division feature_code           state_name state_abbr\n#&gt; 1             3              6      1779775              Alabama         AL\n#&gt; 2             4              8      1779777              Arizona         AZ\n#&gt; 3             3              7      0068085             Arkansas         AR\n#&gt; 4             4              9      1779778           California         CA\n#&gt; 5             4              8      1779779             Colorado         CO\n#&gt; 6             1              1      1779780          Connecticut         CT\n#&gt; 7             3              5      1779781             Delaware         DE\n#&gt; 8             3              5      1702382 District of Columbia         DC\n#&gt; 9             3              5      0294478              Florida         FL\n#&gt; 10            3              5      1705317              Georgia         GA\n#&gt;                    name fip_class tiger_class combined_area_code\n#&gt; 1               Alabama      &lt;NA&gt;       G4000                 NA\n#&gt; 2               Arizona      &lt;NA&gt;       G4000                 NA\n#&gt; 3              Arkansas      &lt;NA&gt;       G4000                 NA\n#&gt; 4            California      &lt;NA&gt;       G4000                 NA\n#&gt; 5              Colorado      &lt;NA&gt;       G4000                 NA\n#&gt; 6           Connecticut      &lt;NA&gt;       G4000                 NA\n#&gt; 7              Delaware      &lt;NA&gt;       G4000                 NA\n#&gt; 8  District of Columbia      &lt;NA&gt;       G4000                 NA\n#&gt; 9               Florida      &lt;NA&gt;       G4000                 NA\n#&gt; 10              Georgia      &lt;NA&gt;       G4000                 NA\n#&gt;    metropolitan_area_code functional_status    land_area  water_area fip_code\n#&gt; 1                    &lt;NA&gt;                 A 131175477769  4591897964       01\n#&gt; 2                    &lt;NA&gt;                 A 294363973043   855871553       04\n#&gt; 3                    &lt;NA&gt;                 A 134660767709  3121950081       05\n#&gt; 4                    &lt;NA&gt;                 A 403671756816 20293573058       06\n#&gt; 5                    &lt;NA&gt;                 A 268418796417  1185716938       08\n#&gt; 6                    &lt;NA&gt;                 A  12541690473  1816424193       09\n#&gt; 7                    &lt;NA&gt;                 A   5046731559  1399179670       10\n#&gt; 8                    &lt;NA&gt;                 A    158316124    18709762       11\n#&gt; 9                    &lt;NA&gt;                 A 138961722096 45972570361       12\n#&gt; 10                   &lt;NA&gt;                 A 149486624386  4418360134       13\n#&gt;                          geometry\n#&gt; 1  MULTIPOLYGON (((-85.4883 30...\n#&gt; 2  MULTIPOLYGON (((-110.7507 3...\n#&gt; 3  MULTIPOLYGON (((-90.95577 3...\n#&gt; 4  MULTIPOLYGON (((-116.1062 3...\n#&gt; 5  MULTIPOLYGON (((-105.155 36...\n#&gt; 6  MULTIPOLYGON (((-72.5279 41...\n#&gt; 7  MULTIPOLYGON (((-75.13846 3...\n#&gt; 8  MULTIPOLYGON (((-77.00244 3...\n#&gt; 9  MULTIPOLYGON (((-83.10874 2...\n#&gt; 10 MULTIPOLYGON (((-81.09538 3..."
+  },
+  {
+    "objectID": "slides/23-sf.html#distance-to-state-borders",
+    "href": "slides/23-sf.html#distance-to-state-borders",
+    "title": "Lecture 23",
+    "section": "Distance to state borders …",
+    "text": "Distance to state borders …"
+  },
+  {
+    "objectID": "slides/23-sf.html#section-4",
+    "href": "slides/23-sf.html#section-4",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "On the last slide, st_sfc creates a set of one LINESTRING (p), with a size of 4.\nGoing the other way around (from set to feature), we need to combine geometries:\n\n\n\n\n\nst_cast(p, \"LINESTRING\")\n#&gt; Geometry set for 4 features \n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; LINESTRING (0 0)\n#&gt; LINESTRING (1 1)\n#&gt; LINESTRING (1 0)\n#&gt; LINESTRING (0 1)\n\n\n\nst_combine(p) |&gt; \n  st_cast(\"LINESTRING\")\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; LINESTRING (0 0, 1 1, 1 0, 0 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#geometry-selection",
+    "href": "slides/23-sf.html#geometry-selection",
+    "title": "Lecture 23",
+    "section": "Geometry Selection",
+    "text": "Geometry Selection\n\nPolygon (therefore MULTIPOLGYGONS) describe areas!\nThe distance to a point in a polygon to that polygon is 0.\nGood. However, we were only interested in the distance to the closest border not to ALL boarders. Therefore we calculated 48 (49 - 1) more distances then needed!\nWhile this is not to complex for 1 &lt;-&gt; 49 features imagine we had 28,000+ (like your lab)!\nThat would result in 1,344,000 more calculations then needed …"
+  },
+  {
+    "objectID": "slides/23-sf.html#revisting-the-idea-of-the-feature-level",
+    "href": "slides/23-sf.html#revisting-the-idea-of-the-feature-level",
+    "title": "Lecture 23",
+    "section": "Revisting the idea of the feature level:",
+    "text": "Revisting the idea of the feature level:\n\nA “feature” can “be part of the whole” or the whole\n\nA island (POLYGON), or a set of islands acting as 1 unit (MULTIPOLYGON)\nA city (POINT), or a set of cities meeting a condition (MULTIPOINT)\nA road (LINESTRING), or a route (MULTILINESTRING)\n\nSince we want the distance to the nearest border, regardless of the state. Our feature is the set of borders with preserved boundaries.\nIn other words, a 1 feature MULTILINESTRING\n\n\n\nst_distance(denver_sf, st_cast(st_combine(conus), \"MULTILINESTRING\"))\n#&gt; Units: [m]\n#&gt;          [,1]\n#&gt; [1,] 140002.6"
+  },
+  {
+    "objectID": "slides/23-sf.html#section-5",
+    "href": "slides/23-sf.html#section-5",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "(co_c = st_combine(co_geom))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTIPOLYGON (((-105.0532 39.79106, -104.976 39...\n\n\n\n\n\n\n\n\n\n\n\n(co_u = st_union(co_geom))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: POLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; POLYGON ((-105.155 36.99526, -105.1208 36.99543...\n\n\n\n\n\n\n\n\n\n\n\n\n(co_c_ml = st_combine(co_geom) |&gt; \n   st_cast(\"MULTILINESTRING\"))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTILINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTILINESTRING ((-105.0532 39.79106, -104.976 ...\n\n\n\n\n\n\n\n\n\n\n\n(co_u_ml = st_union(co_geom)  |&gt; \n    st_cast(\"MULTILINESTRING\"))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: MULTILINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; MULTILINESTRING ((-105.155 36.99526, -105.1208 ..."
+  },
+  {
+    "objectID": "slides/23-sf.html#section-6",
+    "href": "slides/23-sf.html#section-6",
+    "title": "Lecture 23",
+    "section": "",
+    "text": "conus$dist = st_distance(conus, denver_sf)\n\ndplyr::slice_min(conus, dist, n = 3)\n#&gt; Simple feature collection with 3 features and 15 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -111.0546 ymin: 36.99246 xmax: -95.30829 ymax: 45.00582\n#&gt; Geodetic CRS:  WGS 84\n#&gt;   state_region state_division feature_code state_name state_abbr     name\n#&gt; 1            4              8      1779779   Colorado         CO Colorado\n#&gt; 2            4              8      1779807    Wyoming         WY  Wyoming\n#&gt; 3            2              4      1779792   Nebraska         NE Nebraska\n#&gt;   fip_class tiger_class combined_area_code metropolitan_area_code\n#&gt; 1      &lt;NA&gt;       G4000                 NA                   &lt;NA&gt;\n#&gt; 2      &lt;NA&gt;       G4000                 NA                   &lt;NA&gt;\n#&gt; 3      &lt;NA&gt;       G4000                 NA                   &lt;NA&gt;\n#&gt;   functional_status    land_area water_area fip_code         dist\n#&gt; 1                 A 268418796417 1185716938       08      0.0 [m]\n#&gt; 2                 A 251458712294 1867503716       56 140002.6 [m]\n#&gt; 3                 A 198957385713 1371105730       31 161243.2 [m]\n#&gt;                         geometry\n#&gt; 1 MULTIPOLYGON (((-105.155 36...\n#&gt; 2 MULTIPOLYGON (((-106.3212 4...\n#&gt; 3 MULTIPOLYGON (((-95.93779 4...\n\n\nThat’s close, but the distance to Colorado is 0, that’s not a state border."
+  },
+  {
+    "objectID": "slides/23-sf.html#projections",
+    "href": "slides/23-sf.html#projections",
+    "title": "Lecture 23",
+    "section": "Projections",
+    "text": "Projections\n\nProjections can have angular units (lat/lon) - geographic coordinate systems (GCS)\n\nor\n\nProjections can have distance units (m) - projected coordinate systems (PCS)"
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-model",
+    "href": "slides/23-sf.html#simple-features-model",
+    "title": "Lecture 23",
+    "section": "Simple Features Model",
+    "text": "Simple Features Model"
+  },
+  {
+    "objectID": "slides/23-sf.html#polygon",
+    "href": "slides/23-sf.html#polygon",
+    "title": "Lecture 23",
+    "section": "Polygon",
+    "text": "Polygon\n\nA polygon is composed of 4 or more points whose starting and ending point are the same.\nPolygons have both length and area.\n\n\nggplot() + \n  geom_polygon(aes(x = c(1,2,3,1), y = c(3,1,2,3)), fill = \"green\", alpha = .5) + \n  geom_line(aes(x = c(1,2,3), y = c(3,1,2))) + \n  geom_point(aes(x = c(1,2,3), y = c(3,1,2)), col = \"red\") +\n  labs(x = \"X\", y = \"Y\")"
+  },
+  {
+    "objectID": "slides/23-sf.html#wkt-well-known-text",
+    "href": "slides/23-sf.html#wkt-well-known-text",
+    "title": "Lecture 23",
+    "section": "WKT: Well-Known-Text",
+    "text": "WKT: Well-Known-Text\nWell-known text is a text markup language for representing vector geometry objects.\nA binary equivalent, known as well-known binary, is used to transfer and store the same information in a more compact form convenient for computer processing.\n\n#&gt; Simple feature collection with 3 features and 0 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -2032604 ymin: 1468468 xmax: 1833394 ymax: 2178657\n#&gt; Projected CRS: NAD83 / Conus Albers\n#&gt; # A tibble: 3 × 1\n#&gt;             geometry\n#&gt;          &lt;POINT [m]&gt;\n#&gt; 1  (1833394 2178657)\n#&gt; 2 (-2032604 1468468)\n#&gt; 3 (684628.5 2122697)"
+  },
+  {
+    "objectID": "slides/23-sf.html#attribute-tables",
+    "href": "slides/23-sf.html#attribute-tables",
+    "title": "Lecture 23",
+    "section": "Attribute Tables",
+    "text": "Attribute Tables\n\nVector objects can have 0 to many attributes associated with it.\nFor example a city (point or polygon) can have a name, population, year founded, etc.\nIn R, these attributes are stored in a data.frame, and the geometry is stored as unique field.\n\n\n#&gt; Simple feature collection with 3 features and 3 fields\n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -2032604 ymin: 1468468 xmax: 1833394 ymax: 2178657\n#&gt; Projected CRS: NAD83 / Conus Albers\n#&gt; # A tibble: 3 × 4\n#&gt;   city        state      population           geometry\n#&gt;   &lt;chr&gt;       &lt;chr&gt;           &lt;dbl&gt;        &lt;POINT [m]&gt;\n#&gt; 1 New York    New York     18832416  (1833394 2178657)\n#&gt; 2 Los Angeles California   11885717 (-2032604 1468468)\n#&gt; 3 Chicago     Illinois      8489066 (684628.5 2122697)\n\n\nIn shapefiles, these attributes are stored in a .dbf file, the geometry is stored in a “.shp” file, and they are related through a “.shx” file.\nTypically, these attribute values are what we use to make maps (think GEOG 183 if you’ve taken it!)"
+  },
+  {
+    "objectID": "slides/23-sf.html#the-simple-feature-s3-r-object",
+    "href": "slides/23-sf.html#the-simple-feature-s3-r-object",
+    "title": "Lecture 23",
+    "section": "The simple feature S3 R object",
+    "text": "The simple feature S3 R object\n\nLike Date, factor, and POSIXct, a spatial object is an S3 class that extends core primitive types and structures.\n\n\nnc = st_read(system.file(\"gpkg/nc.gpkg\", package=\"sf\"), quiet = TRUE)\nnc[1,]\n#&gt; Simple feature collection with 1 feature and 14 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -81.74107 ymin: 36.23436 xmax: -81.23989 ymax: 36.58965\n#&gt; Geodetic CRS:  NAD27\n#&gt;    AREA PERIMETER CNTY_ CNTY_ID NAME  FIPS FIPSNO CRESS_ID BIR74 SID74 NWBIR74\n#&gt; 1 0.114     1.442  1825    1825 Ashe 37009  37009        5  1091     1      10\n#&gt;   BIR79 SID79 NWBIR79                           geom\n#&gt; 1  1364     0      19 MULTIPOLYGON (((-81.47276 3...\nclass(nc)\n#&gt; [1] \"sf\"         \"data.frame\"\ntypeof(nc)\n#&gt; [1] \"list\""
+  },
+  {
+    "objectID": "slides/23-sf.html#raster",
+    "href": "slides/23-sf.html#raster",
+    "title": "Lecture 23",
+    "section": "Raster",
+    "text": "Raster\n\nThe raster data model uses an array of cells to represent real-world phenomena and is defined by a resolution (X and Y dimension of the cells), extent and and CRS.\nRaster datasets are commonly used for representing and managing imagery, climate data, elevation models, and other entities.\n\n\n\n\nr = matrix(sample(1:100, 100, replace= TRUE), nrow = 10)\nplot(rast(r))\n\n\n\n\n\n\n\n\n\n\nr3D = array(sample(1:100, 200, replace= TRUE), dim = c(10,10,2))\nplot(rast(r3D))"
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-sf-package",
+    "href": "slides/23-sf.html#simple-features-sf-package",
+    "title": "Lecture 23",
+    "section": "Simple features (sf) package",
+    "text": "Simple features (sf) package\nThe sf package implements the Simple Features standard for R\n\nThe sf package contains functions that bind\n\nto GDAL for reading and writing data,\nto GEOS for geometrical operations, and\nto PRØJ for projection conversions and datum transformations\n\n\nThe source libraries R points to can be checked with:\n\nsf::sf_extSoftVersion()\n#&gt;           GEOS           GDAL         proj.4 GDAL_with_GEOS     USE_PROJ_H \n#&gt;       \"3.13.0\"        \"3.8.5\"        \"9.5.1\"         \"true\"         \"true\" \n#&gt;           PROJ \n#&gt;        \"9.5.1\""
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-sf-package-1",
+    "href": "slides/23-sf.html#simple-features-sf-package-1",
+    "title": "Lecture 23",
+    "section": "Simple features (sf) package",
+    "text": "Simple features (sf) package"
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-sf-package-2",
+    "href": "slides/23-sf.html#simple-features-sf-package-2",
+    "title": "Lecture 23",
+    "section": "Simple features (sf) package",
+    "text": "Simple features (sf) package"
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-in-a-larger-software-ecosystem",
+    "href": "slides/23-sf.html#simple-features-in-a-larger-software-ecosystem",
+    "title": "Lecture 23",
+    "section": "Simple Features in a Larger software ecosystem",
+    "text": "Simple Features in a Larger software ecosystem\n\nsf::sf_extSoftVersion()\n#&gt;           GEOS           GDAL         proj.4 GDAL_with_GEOS     USE_PROJ_H \n#&gt;       \"3.13.0\"        \"3.8.5\"        \"9.5.1\"         \"true\"         \"true\" \n#&gt;           PROJ \n#&gt;        \"9.5.1\""
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-2",
+    "href": "slides/23-sf.html#simple-features-2",
+    "title": "Lecture 23",
+    "section": "Simple Features",
+    "text": "Simple Features\n\nSimple feature geometries describe the geometries of features.\nThe main application of simple feature geometries is to describe 2D geometries as points, lines, or polygons.\n“simple” refers to the fact that line or polygon geometries are represented by set of points connected with straight lines.\nSimple features access is a standard (Herring 2011, Herring (2010), ISO (2004)) for describing simple feature geometries via:\n\na class hierarchy\na set of operations\nbinary and text encodings"
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-3",
+    "href": "slides/23-sf.html#simple-features-3",
+    "title": "Lecture 23",
+    "section": "Simple Features",
+    "text": "Simple Features\n\nSimple feature geometries describe the geometries of features.\nThe main application of simple feature geometries is to describe 2D geometries as points, lines, or polygons.\n“simple” refers to the fact that line or polygon geometries are represented by set of points connected with straight lines.\nSimple features access is a standard (Herring 2011, Herring (2010), ISO (2004)) for describing simple feature geometries via:\n\na class hierarchy\na set of operations\nbinary and text encodings"
+  },
+  {
+    "objectID": "slides/23-sf.html#mixed-geometries",
+    "href": "slides/23-sf.html#mixed-geometries",
+    "title": "Lecture 23",
+    "section": "Mixed geometries",
+    "text": "Mixed geometries\nSimple feature sets can consist of mixed geometry types:\nIn this case, the type of the set is GEOMETRY:\n\n(g = st_sfc(st_point(c(0,0)), st_linestring(rbind(c(0,0), c(1,1)))))\n#&gt; Geometry set for 2 features \n#&gt; Geometry type: GEOMETRY\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; POINT (0 0)\n#&gt; LINESTRING (0 0, 1 1)\n\n\nThese set can be filtered by using st_is\n\ng |&gt; st_is(\"LINESTRING\")\n#&gt; [1] FALSE  TRUE\n\nor, when working with sf objects,\n\n# Note need of %&gt;%\nst_sf(g) %&gt;% filter(st_is(., \"LINESTRING\"))\n#&gt; Simple feature collection with 1 feature and 0 fields\n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt;                       g\n#&gt; 1 LINESTRING (0 0, 1 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#level-of-feature",
+    "href": "slides/23-sf.html#level-of-feature",
+    "title": "Lecture 23",
+    "section": "Level of Feature",
+    "text": "Level of Feature\n\nThe level of the feature is the level of the geometry.\n\n1 LINESTRING (sfg) to 1 POINT (sfg)\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt;\n   st_linestring() |&gt; \n   st_cast(\"POINT\")\n#&gt; POINT (0 0)\n\n. . .\n1 LINESTRING (sfc) to POINT set (sfc)\n\nrbind(c(0,0), c(1,1), c(1,0), c(0,1)) |&gt;\n   st_linestring() |&gt; \n   st_sfc() |&gt; \n   st_cast(\"POINT\")\n#&gt; Geometry set for 4 features \n#&gt; Geometry type: POINT\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; POINT (0 0)\n#&gt; POINT (1 1)\n#&gt; POINT (1 0)\n#&gt; POINT (0 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#in-reverse",
+    "href": "slides/23-sf.html#in-reverse",
+    "title": "Lecture 23",
+    "section": "In Reverse …",
+    "text": "In Reverse …\n\n4 POINTs (sfc) to 4 LINESTRING (sfc)\n\nst_cast(p, \"LINESTRING\")\n#&gt; Geometry set for 4 features \n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; LINESTRING (0 0)\n#&gt; LINESTRING (1 1)\n#&gt; LINESTRING (1 0)\n#&gt; LINESTRING (0 1)\n\n1 MULTIPOINT POINT (sfc) to 1 LINESTRING (sfc)\n\nst_combine(p) |&gt; \n  st_cast(\"LINESTRING\")\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: LINESTRING\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 0 ymin: 0 xmax: 1 ymax: 1\n#&gt; CRS:           NA\n#&gt; LINESTRING (0 0, 1 1, 1 0, 0 1)"
+  },
+  {
+    "objectID": "slides/23-sf.html#disolving-geometries-boundaries",
+    "href": "slides/23-sf.html#disolving-geometries-boundaries",
+    "title": "Lecture 23",
+    "section": "Disolving Geometries Boundaries",
+    "text": "Disolving Geometries Boundaries\nCombining geometries preserves their interior boundaries, unioning dissolves the internal boundaries:\n\n\n\n(co_geom = co$geometry)\n#&gt; Geometry set for 64 features \n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -109.0602 ymin: 36.99246 xmax: -102.0415 ymax: 41.00342\n#&gt; Geodetic CRS:  WGS 84\n#&gt; First 5 geometries:\n#&gt; MULTIPOLYGON (((-105.0532 39.79106, -104.976 39...\n#&gt; MULTIPOLYGON (((-105.4855 37.5779, -105.4859 37...\n#&gt; MULTIPOLYGON (((-103.7065 39.73989, -103.7239 3...\n#&gt; MULTIPOLYGON (((-107.1287 37.42294, -107.2803 3...\n#&gt; MULTIPOLYGON (((-102.0416 37.64428, -102.0558 3...\n\n\n\nplot(co_geom)"
+  },
+  {
+    "objectID": "slides/23-sf.html#reading-and-writing-io",
+    "href": "slides/23-sf.html#reading-and-writing-io",
+    "title": "Lecture 23",
+    "section": "Reading and writing (I/O)",
+    "text": "Reading and writing (I/O)\nAs we’ve seen above, reading spatial data from an external file can be done via sf\n\nco &lt;- read_sf(\"data/co.shp\")\n\nWriting takes place in the same fashion, using write_sf:\n\nwrite_sf(co, \"co.shp\") # silently overwrites"
+  },
+  {
+    "objectID": "slides/23-sf.html#spatial-sampling",
+    "href": "slides/23-sf.html#spatial-sampling",
+    "title": "Lecture 23",
+    "section": "Spatial Sampling",
+    "text": "Spatial Sampling\n\nSpatial sampling is a common task in spatial data science.\n\n\nLike rsample, spatialsample provides building blocks for creating and analyzing resamples of a spatial data set but does not include code for modeling or computing statistics.\n\n\n\n\nlibrary(spatialsample)\n\nggplot(boston_canopy) + \n  geom_sf() + \n  theme_linedraw() + \n  labs(title = \"Boston Canopy Cover\")\n\n\n\n\n\n\n\n\n\n\nset.seed(1234)\nfolds &lt;- spatial_clustering_cv(boston_canopy, v = 10)\n\nautoplot(folds)"
+  },
+  {
+    "objectID": "slides/23-sf.html#assignment-1",
+    "href": "slides/23-sf.html#assignment-1",
+    "title": "Lecture 23",
+    "section": "Assignment",
+    "text": "Assignment\n\nTo ensure you have everything set up correctly, run the following code:\n\n\nsf::sf_extSoftVersion()\n#&gt;           GEOS           GDAL         proj.4 GDAL_with_GEOS     USE_PROJ_H \n#&gt;       \"3.13.0\"        \"3.8.5\"        \"9.5.1\"         \"true\"         \"true\" \n#&gt;           PROJ \n#&gt;        \"9.5.1\"\n\nterra::gdal()\n#&gt; [1] \"3.8.5\"\n\n\nAnd report the values to the Canvas dropbox.\nAdditionally, take some time to research GDAL, GEOS, and PROJ. Submit a sentence or two describing each and their role in spatial infrastructure and the value of having direct access to CLI interfaces in a functional langaugelanguage like R …"
+  },
+  {
+    "objectID": "slides/23-sf.html#the-simple-feature-s3-r-object-1",
+    "href": "slides/23-sf.html#the-simple-feature-s3-r-object-1",
+    "title": "Lecture 23",
+    "section": "The simple feature S3 R object",
+    "text": "The simple feature S3 R object\n\nattributes(nc)\n#&gt; $names\n#&gt;  [1] \"AREA\"      \"PERIMETER\" \"CNTY_\"     \"CNTY_ID\"   \"NAME\"      \"FIPS\"     \n#&gt;  [7] \"FIPSNO\"    \"CRESS_ID\"  \"BIR74\"     \"SID74\"     \"NWBIR74\"   \"BIR79\"    \n#&gt; [13] \"SID79\"     \"NWBIR79\"   \"geom\"     \n#&gt; \n#&gt; $row.names\n#&gt;   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18\n#&gt;  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36\n#&gt;  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54\n#&gt;  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72\n#&gt;  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90\n#&gt;  [91]  91  92  93  94  95  96  97  98  99 100\n#&gt; \n#&gt; $class\n#&gt; [1] \"sf\"         \"data.frame\"\n#&gt; \n#&gt; $sf_column\n#&gt; [1] \"geom\"\n#&gt; \n#&gt; $agr\n#&gt;      AREA PERIMETER     CNTY_   CNTY_ID      NAME      FIPS    FIPSNO  CRESS_ID \n#&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt; \n#&gt;     BIR74     SID74   NWBIR74     BIR79     SID79   NWBIR79 \n#&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt; \n#&gt; Levels: constant aggregate identity"
+  },
+  {
+    "objectID": "slides/23-sf.html#today-simple-features",
+    "href": "slides/23-sf.html#today-simple-features",
+    "title": "Lecture 23",
+    "section": "Today: Simple features",
+    "text": "Today: Simple features\n\nSimple Features (officially Simple Feature Access) is both an OGC and International Organization for Standardization (ISO) standard that specifies a common storage and access model of (mostly) two-dimensional geometries."
+  },
+  {
+    "objectID": "slides/23-sf.html#simple-features-sf-r-package",
+    "href": "slides/23-sf.html#simple-features-sf-r-package",
+    "title": "Lecture 23",
+    "section": "Simple features (sf) R package",
+    "text": "Simple features (sf) R package\n\nrepresents simple features as records in a data.frame/tibble with a geometry list-column\nrepresents all 17 simple feature types for all dimensions (XY, XYZ, XYM, XYZM)\ninterfaces to GEOS to support geometrical operations including the DE9-IM\ninterfaces to GDAL, supporting all driver options\ninterfaces to PRØJ for coordinate reference system conversions and transformations\nuses WKB serializations written in C++/Rcpp for fast I/O with GDAL and GEOS\nreads and writes to spatial databases such as PostGIS using DBI\nis extended by lwgeom for further liblwgeom/PostGIS functions, including some spherical geometry functions"
+  },
+  {
+    "objectID": "slides/23-sf.html#ogc-simple-features",
+    "href": "slides/23-sf.html#ogc-simple-features",
+    "title": "Lecture 23",
+    "section": "OGC Simple Features",
+    "text": "OGC Simple Features\n\nSimple feature geometries describe the geometries of features.\nThe main application of simple feature geometries is to describe 2D geometries as points, lines, or polygons.\n“simple” refers to the fact that line or polygon geometries are represented by set of points connected with straight lines.\nSimple features access is a standard (Herring 2011, Herring (2010), ISO (2004)) for describing simple feature geometries via:\n\na class hierarchy\na set of operations\nbinary and text encodings"
+  },
+  {
+    "objectID": "slides/23-sf.html#sfg-simple-feature-geometry",
+    "href": "slides/23-sf.html#sfg-simple-feature-geometry",
+    "title": "Lecture 23",
+    "section": "sfg: simple feature geometry",
+    "text": "sfg: simple feature geometry\n\nSimple feature geometry (sfg) objects carry geometries\nSimple feature geometries are implemented as R native data, using the following rules\n\na single POINT is a numeric vector\na set of points (e.g. in a LINESTRING or ring of a POLYGON) is a matrix, each row containing a point\nany other set is a list"
   }
 ]
