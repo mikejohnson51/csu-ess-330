@@ -53,7 +53,7 @@ skimr::skim(state_data)  # Summarize dataset
 # Data Splitting for Modeling
 split <- initial_split(state_data, prop = 0.8, strata = season)  # 80/20 train-test split
 train <- training(split)  # Training set
-test <- testing(split)  # Test set
+test  <- testing(split)  # Test set
 folds <- vfold_cv(train, v = 10)  # 10-fold cross-validation
 
 # Feature Engineering
@@ -89,8 +89,7 @@ wf = workflow_set(list(rec), list(lm_mod,
                                   rf_model, 
                                   rf_model2,
                                   b_mod, 
-                                  nn_mod
-)) |> 
+                                  nn_mod)) |> 
   workflow_map(resamples = folds)  # Apply workflows across resamples
 
 # Visualize Model Performance
