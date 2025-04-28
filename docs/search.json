@@ -14215,5 +14215,19 @@
     "title": "Lecture 25",
     "section": "Assignment",
     "text": "Assignment\nTo do this …\n\nNavigate to here to download a shapefile fof the major world rivers\nUnzip it and read in the shp file with read_sf\nFilter it to include only the Mississippi River system\nUse AOI::aoi_get() to get the county boundaries for all counties in CONUS.\nUse st_filter to identify the counties that intersect the Mississippi River system\nMake a map of the counties that intersect the Mississippi River system, along with the rivers themselves.\nRead in the city data from last assignment/lab and ensure they are a sf object in the correct CRS\nUse st_join to identify the cities that intersect the counties that intersect the Mississippi River system\nCalculate the total urban population in each county by summing the population of the cities within each county that intesects the Mississippi River system.\nAdd this data to the subset of intersecting counties and use it to color you map using scale_*\nSave your map as a png file in the images folder and submit it to Canvas."
+  },
+  {
+    "objectID": "slides/25-predicates.html#announcements",
+    "href": "slides/25-predicates.html#announcements",
+    "title": "Lecture 25",
+    "section": "Announcements",
+    "text": "Announcements\n\nVector Data Lab: Due this week\nLab Next Week: Lightning Talks, In Person (efficivly your final lab assignment)\n\n\n\nFinal Report Due: May 14th, 2025 5PM\nCredit Statement: Due with Final Report\n\n\n\n\nNo more late work accepted after May 9th, 2025 5PM\nAll regrades and late work will be updated by this Friday May 2nd, 2025 5PM"
+  },
+  {
+    "objectID": "slides/25-predicates.html#announcements-1",
+    "href": "slides/25-predicates.html#announcements-1",
+    "title": "Lecture 25",
+    "section": "Announcements",
+    "text": "Announcements\n\nCurrent grade breakdown is as follows: A (50%), B (20%), C (11%), D (4%), and F (15%).\n\n\n\nThere are 2 labs (vector + presentations), the 20% project, and 10% extra credit still remaining.\nReminder: The extra credit is to compile all of your labs into you personal webpage (complete with image and description). This is due May 14th, 2025 5PM as well."
   }
 ]
