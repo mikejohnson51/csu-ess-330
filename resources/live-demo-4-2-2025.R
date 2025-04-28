@@ -69,7 +69,7 @@ lm_mod <- linear_reg() |>
   set_mode("regression")
 
 rf_model <- rand_forest() |> 
-  set_engine("ranger") |> 
+  set_engine("ranger", importance = 'impurity') |> 
   set_mode("regression")
 
 rf_model2 <- rand_forest() |> 

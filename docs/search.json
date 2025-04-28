@@ -12156,7 +12156,7 @@
     "href": "schedule.html#component-4-spatial-and-temporal-data",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 4: Spatial and Temporal Data",
-    "text": "Component 4: Spatial and Temporal Data\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established. Further we will explore applications in timseries analysis, including forecasting and anomaly detection.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries\n Lecture 24 (w14): Measures & Predicates\n Lecture 25 (w15): Raster Data Introduction\n Lecture 26 (w15): Raster Data Manipulation\n Lecture 27 (w16): …\n Lecture 28 (w16): …\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22: Predicting the Poudre\nExercise 23: Install your GIS\nExercise 24: Larimer Cities\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
+    "text": "Component 4: Spatial and Temporal Data\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established. Further we will explore applications in timseries analysis, including forecasting and anomaly detection.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries\n Lecture 24 (w14): CRS and Measures\n Lecture 25 (w15): Predicates\n Lecture 26 (w15): Raster Data Introduction\n Lecture 27 (w16): Raster Data Manipulation\n Lecture 28 (w16): Local, Focal, Zonal Operations\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22: Predicting the Poudre\nExercise 23: Install your GIS\nExercise 24: Larimer Cities\nExercise 25:\nExercise 26:\nExercise 27:\nExercise 28:"
   },
   {
     "objectID": "slides/21-timeseries.html#bonus-interactive-plotting-1",
@@ -13998,5 +13998,222 @@
     "title": "Lecture 24",
     "section": "Example",
     "text": "Example\n\nGeometry X is a 3 feature polygon colored in red\nGeometry Y is a 4 feature polygon colored in blue"
+  },
+  {
+    "objectID": "slides/25-predicates.html#jumping-back-in",
+    "href": "slides/25-predicates.html#jumping-back-in",
+    "title": "Lecture 24",
+    "section": "Jumping back in …",
+    "text": "Jumping back in …\n\nLast week we learned about simple features, CRS’s, and the sf package.\nWe coverd how the sf package fits within the tidyverse data science framework, while adding spatial capabilities.\nSome of the first spatial priciples we covered were measures (st_area, st_length, st_distance) and their relation geometry types (POINT, LINESTRING, POLYGON, etc.) and CRSs.\nToday, we will cover the DE-9IM model and how it can be used to describe the spatial relationships between geometries…"
+  },
+  {
+    "objectID": "slides/25-predicates.html#topologic-diminsions",
+    "href": "slides/25-predicates.html#topologic-diminsions",
+    "title": "Lecture 24",
+    "section": "Topologic Diminsions",
+    "text": "Topologic Diminsions\nA POINT is shape with a dimension of 0 that occupies a single location in coordinate space.\n\n# POINT defined as numeric vector\n(st_dimension(st_point(c(0,1))))\n#&gt; [1] 0\n\nA LINESTRING is shape that has a dimension of 1 (length)\n\n# LINESTRING defined by matrix\n(st_dimension(st_linestring(matrix(1:4, nrow = 2))))\n#&gt; [1] 1\n\nA POLYGON is surface stored as a list of its exterior and interior rings. It has a dimension of 2. (area)\n\n# POLYGON defined by LIST (interior and exterior rings)\n(st_dimension(st_polygon(list(matrix(c(1:4, 1,2), nrow = 3, byrow = TRUE)))))\n#&gt; [1] 2"
+  },
+  {
+    "objectID": "slides/25-predicates.html#geometric-interiors-boundaries-and-exteriors",
+    "href": "slides/25-predicates.html#geometric-interiors-boundaries-and-exteriors",
+    "title": "Lecture 24",
+    "section": "Geometric Interiors, Boundaries and Exteriors",
+    "text": "Geometric Interiors, Boundaries and Exteriors\nAll geometries have interior, boundary and exterior regions.\nThe terms interior and boundary are used in the context of algebraic topology and manifold theory and not general topology\nThe OGC has define these states for the common geometry types in the simple features standard:\n\n\n\n\n\n\n\n\n\nDimension\nGeometry Type\nInterior (I)\nBoundary (B)\n\n\n\n\nPoint, MultiPoint\n0\nPoint, Points\nEmpty\n\n\nLineString, Line\n1\nPoints that are left when the boundary points are removed.\nTwo end points.\n\n\nPolygon\n2\nPoints within the rings.\nSet of rings."
+  },
+  {
+    "objectID": "slides/25-predicates.html#interior-boundary-and-exterior-points",
+    "href": "slides/25-predicates.html#interior-boundary-and-exterior-points",
+    "title": "Lecture 24",
+    "section": "Interior, Boundary and Exterior: POINTS",
+    "text": "Interior, Boundary and Exterior: POINTS"
+  },
+  {
+    "objectID": "slides/25-predicates.html#interior-boundary-and-exterior-linestring",
+    "href": "slides/25-predicates.html#interior-boundary-and-exterior-linestring",
+    "title": "Lecture 24",
+    "section": "Interior, Boundary and Exterior: LINESTRING",
+    "text": "Interior, Boundary and Exterior: LINESTRING"
+  },
+  {
+    "objectID": "slides/25-predicates.html#interior-boundary-and-exterior-polygon",
+    "href": "slides/25-predicates.html#interior-boundary-and-exterior-polygon",
+    "title": "Lecture 24",
+    "section": "Interior, Boundary and Exterior: POLYGON",
+    "text": "Interior, Boundary and Exterior: POLYGON"
+  },
+  {
+    "objectID": "slides/25-predicates.html#summary",
+    "href": "slides/25-predicates.html#summary",
+    "title": "Lecture 24",
+    "section": "Summary",
+    "text": "Summary"
+  },
+  {
+    "objectID": "slides/25-predicates.html#predicates-1",
+    "href": "slides/25-predicates.html#predicates-1",
+    "title": "Lecture 24",
+    "section": "Predicates",
+    "text": "Predicates\nIn the following, we are interested in the resulting geometry that occurs when 2 geometries are overlaid…"
+  },
+  {
+    "objectID": "slides/25-predicates.html#overlap-is-a-point-0d",
+    "href": "slides/25-predicates.html#overlap-is-a-point-0d",
+    "title": "Lecture 24",
+    "section": "Overlap is a POINT: 0D",
+    "text": "Overlap is a POINT: 0D"
+  },
+  {
+    "objectID": "slides/25-predicates.html#overlap-is-a-linestring-1d",
+    "href": "slides/25-predicates.html#overlap-is-a-linestring-1d",
+    "title": "Lecture 24",
+    "section": "Overlap is a LINESTRING: 1D",
+    "text": "Overlap is a LINESTRING: 1D"
+  },
+  {
+    "objectID": "slides/25-predicates.html#overlap-is-a-polygon-2d",
+    "href": "slides/25-predicates.html#overlap-is-a-polygon-2d",
+    "title": "Lecture 24",
+    "section": "Overlap is a POLYGON: 2D",
+    "text": "Overlap is a POLYGON: 2D"
+  },
+  {
+    "objectID": "slides/25-predicates.html#no-overlap-false",
+    "href": "slides/25-predicates.html#no-overlap-false",
+    "title": "Lecture 24",
+    "section": "No Overlap = FALSE",
+    "text": "No Overlap = FALSE"
+  },
+  {
+    "objectID": "slides/25-predicates.html#dimensionally-extended-9-intersection-model",
+    "href": "slides/25-predicates.html#dimensionally-extended-9-intersection-model",
+    "title": "Lecture 24",
+    "section": "Dimensionally Extended 9-Intersection Model",
+    "text": "Dimensionally Extended 9-Intersection Model\n\nThe DE-9IM is a topological model and (standard) used to describe the spatial relations of two geometries\nUsed in geometry, point-set topology, geospatial topology\nThe DE-9IM matrix provides a way to classify geometry relations using the set {0,1,2,F} or {T,F}\n\n\n\nWith a {T,F} matrix domain, there are 512 possible relations ….\nAbout 10 of these, have been given a common name such as intersects, touches, and within.\nWhen testing two geometries against a scheme, the result is a spatial predicate named by the scheme.\nProvides the primary basis for queries and assertions in GIS and spatial databases (PostGIS)."
+  },
+  {
+    "objectID": "slides/25-predicates.html#the-matrix-model",
+    "href": "slides/25-predicates.html#the-matrix-model",
+    "title": "Lecture 24",
+    "section": "The Matrix Model",
+    "text": "The Matrix Model\nThe DE-9IM matrix is based on a 3x3 intersection matrix:\n\nWhere:\n\ndim is the dimension of the intersection and\nI is the interior\nB is the boundary\nE is the exterior\n\n\nEmpty sets are denoted as F\nnon-empty sets are denoted with the maximum dimension of the intersection {0,1,2}"
+  },
+  {
+    "objectID": "slides/25-predicates.html#section",
+    "href": "slides/25-predicates.html#section",
+    "title": "Lecture 24",
+    "section": "",
+    "text": "A simpler (binary) version of this matrix can be created by mapping all non-empty intersections {0,1,2} to TRUE.\n\nWhere II would state: “Does the Interior of”a” overlaps with the Interior of “b” in a way that produces a point (0), line (1), or polygon (2)”\nWhere IB would state: “Does the Interior of”a” overlap with the Boundary of “b” in a way that produces a point (0), line (1), or polygon (2)”\nBoth matrix forms: - dimensional {0,1,2,F} - Boolean {T,F}\n\nCan be serialize as a “DE-9IM string code” representing the matrix in a single string element (standardized format for data interchange)\nThe OGC has standardized the typical spatial predicates (Contains, Crosses, Intersects, Touches, etc.) as Boolean functions, and the DE-9IM model as a function that returns the DE-9IM code, with domain of {0,1,2,F}"
+  },
+  {
+    "objectID": "slides/25-predicates.html#illustration",
+    "href": "slides/25-predicates.html#illustration",
+    "title": "Lecture 24",
+    "section": "Illustration",
+    "text": "Illustration\n\nReading from left-to-right and top-to-bottom, the DE-9IM(a,b) string code is ‘212101212’"
+  },
+  {
+    "objectID": "slides/25-predicates.html#named-predicates",
+    "href": "slides/25-predicates.html#named-predicates",
+    "title": "Lecture 24",
+    "section": "Named Predicates",
+    "text": "Named Predicates\n\n“named spatial predicates” have been defined for some common relations.\nA few functions can be derived (expressed by masks) from DE-9IM include (* = wildcard):\n\n\n\n\n\n\n\n\n\nPredicate\nDE-9IM String Code\nDescription\n\n\n\n\nIntersects\nT*F**FFF*\n“Two geometries intersect if they share any portion of space”\n\n\nOverlaps\nT*F**FFF*\n“Two geometries overlap if they share some but not all of the same space”\n\n\nEquals\nT*F**FFF*\n“Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other”\n\n\nDisjoint\nFF*FF*****\n“Two geometries are disjoint: they have no point in common. They form a set of disconnected geometries.”\n\n\nTouches\nFT*******\nF**T*****\n\n\nContains\nT*****FF**\n“A contains B: geometry B lies in A, and the interiors intersect”\n\n\nCovers\nT*****FF*\n*T****FF*\n\n\nWithin\n*T*****FF*\n**T****FF*\n\n\nCovered by\n*T*****FF*\n**T****FF*"
+  },
+  {
+    "objectID": "slides/25-predicates.html#binary-predicates",
+    "href": "slides/25-predicates.html#binary-predicates",
+    "title": "Lecture 24",
+    "section": "Binary Predicates",
+    "text": "Binary Predicates\n\nCollectively, predicates define the type of relationship each 2D object has with another.\nOf the ~ 512 unique relationships offered by the DE-9IM models a selection of ~ 10 have been named.\nThese are include in PostGIS/GEOS and are made accessible via R sf"
+  },
+  {
+    "objectID": "slides/25-predicates.html#example",
+    "href": "slides/25-predicates.html#example",
+    "title": "Lecture 24",
+    "section": "Example",
+    "text": "Example\n\nGeometry X is a 3 feature polygon colored in red\nGeometry Y is a 4 feature polygon colored in blue"
+  },
+  {
+    "objectID": "slides/25-predicates.html#named-predicates-in-r",
+    "href": "slides/25-predicates.html#named-predicates-in-r",
+    "title": "Lecture 24",
+    "section": "Named predicates in R",
+    "text": "Named predicates in R\n\nsf provides a set of functions that implement the DE-9IM model and named predicates. Each of these can return either a sparse or dense matrix.\n\nsparse matrix\n\nst_intersects(x,y)\n#&gt; Sparse geometry binary predicate list of length 3, where the predicate\n#&gt; was `intersects'\n#&gt;  1: 1, 3\n#&gt;  2: 2, 3\n#&gt;  3: 3\n\ndense matrix\n\nst_intersects(x, y, sparse = FALSE)\n#&gt;       [,1]  [,2] [,3]  [,4]\n#&gt; [1,]  TRUE FALSE TRUE FALSE\n#&gt; [2,] FALSE  TRUE TRUE FALSE\n#&gt; [3,] FALSE FALSE TRUE FALSE\n\nst_disjoint(x, y, sparse = FALSE)\n#&gt;       [,1]  [,2]  [,3] [,4]\n#&gt; [1,] FALSE  TRUE FALSE TRUE\n#&gt; [2,]  TRUE FALSE FALSE TRUE\n#&gt; [3,]  TRUE  TRUE FALSE TRUE\n\nst_touches(x, y, sparse = FALSE)\n#&gt;       [,1]  [,2]  [,3]  [,4]\n#&gt; [1,] FALSE FALSE FALSE FALSE\n#&gt; [2,] FALSE FALSE FALSE FALSE\n#&gt; [3,] FALSE FALSE FALSE FALSE\n\nst_within(x, y, sparse = FALSE)\n#&gt;       [,1]  [,2]  [,3]  [,4]\n#&gt; [1,] FALSE FALSE FALSE FALSE\n#&gt; [2,] FALSE FALSE FALSE FALSE\n#&gt; [3,] FALSE FALSE FALSE FALSE"
+  },
+  {
+    "objectID": "slides/25-predicates.html#spatial-filtering",
+    "href": "slides/25-predicates.html#spatial-filtering",
+    "title": "Lecture 24",
+    "section": "Spatial Filtering",
+    "text": "Spatial Filtering\n\nWe can filter spatially, use st_filter as the function call\nHere the boolean condition is not passed (e.g. name == WA)\nBut instead, is defined by a spatial predicate\nThe default is st_intersects but can be changed with the .predicate argument:\n\n\n\n\nstates = AOI::aoi_get(state = c(\"WA\", \"OR\", \"ID\", \"MT\"))\nwa &lt;- filter(states, state_abbr == \"WA\") \n\nmutate(states,\n       touch_s = st_touches(states, wa),\n       touch_d = st_touches(states, wa, sparse = FALSE)) |&gt; \n  select(state_name, contains('touch'))\n#&gt; Simple feature collection with 4 features and 3 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -124.8485 ymin: 41.98818 xmax: -104.0397 ymax: 49.00244\n#&gt; Geodetic CRS:  WGS 84\n#&gt;   state_name touch_s touch_d                       geometry\n#&gt; 1 Washington           FALSE MULTIPOLYGON (((-121.5237 4...\n#&gt; 2     Oregon       1    TRUE MULTIPOLYGON (((-117.22 44....\n#&gt; 3      Idaho       1    TRUE MULTIPOLYGON (((-111.0455 4...\n#&gt; 4    Montana           FALSE MULTIPOLYGON (((-109.7985 4...\n\n\n\nst_filter(states, wa, .predicate = st_touches) \n#&gt; Simple feature collection with 2 features and 14 fields\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: -124.7035 ymin: 41.98818 xmax: -111.0435 ymax: 49.00085\n#&gt; Geodetic CRS:  WGS 84\n#&gt;   state_region state_division feature_code state_name state_abbr   name\n#&gt; 1            4              9      1155107     Oregon         OR Oregon\n#&gt; 2            4              8      1779783      Idaho         ID  Idaho\n#&gt;   fip_class tiger_class combined_area_code metropolitan_area_code\n#&gt; 1      &lt;NA&gt;       G4000                 NA                   &lt;NA&gt;\n#&gt; 2      &lt;NA&gt;       G4000                 NA                   &lt;NA&gt;\n#&gt;   functional_status    land_area water_area fip_code\n#&gt; 1                 A 248628414476 6170965739       41\n#&gt; 2                 A 214049931578 2391569647       16\n#&gt;                         geometry\n#&gt; 1 MULTIPOLYGON (((-117.22 44....\n#&gt; 2 MULTIPOLYGON (((-111.0455 4..."
+  },
+  {
+    "objectID": "slides/25-predicates.html#result",
+    "href": "slides/25-predicates.html#result",
+    "title": "Lecture 24",
+    "section": "Result",
+    "text": "Result\n\nggplot(states) + \n  geom_sf() + \n  geom_sf(data = wa, fill = \"blue\", alpha = .3) +\n  geom_sf(data = st_filter(states, wa, .predicate = st_touches), fill = \"red\", alpha = .5) + \n  theme_void()"
+  },
+  {
+    "objectID": "slides/25-predicates.html#st_join",
+    "href": "slides/25-predicates.html#st_join",
+    "title": "Lecture 24",
+    "section": "st_join",
+    "text": "st_join\n\nIn sf st_join provides this joining capacity\nBy default, st_join performs a left join (Returns all records from x, and the matched records from y)\n\n\n\n\n\n\n\n\n\n\n\nIt can also do inner joins by setting left = FALSE.\n\n\n\n\n\n\n\n\n\n\n\nThe default predicate for st_join (and st_filter) is st_intersects\nThis can be changed with the join argument (see ?st_join for details)."
+  },
+  {
+    "objectID": "slides/25-predicates.html#section-1",
+    "href": "slides/25-predicates.html#section-1",
+    "title": "Lecture 24",
+    "section": "",
+    "text": "topSB &lt;- st_join(counties, starbucks) |&gt; \n  group_by(name, state_name) |&gt; \n  summarise(n = n()) |&gt; \n  group_by(state_name) |&gt; \n  slice_max(n, n = 1) |&gt; \n  ungroup()"
+  },
+  {
+    "objectID": "slides/25-predicates.html#section-2",
+    "href": "slides/25-predicates.html#section-2",
+    "title": "Lecture 24",
+    "section": "",
+    "text": "Neither joining nor filtering spatially alter the underlying geometry of the features\nIn cases where we seek to alter a geometry based on another, we need clipping methods"
+  },
+  {
+    "objectID": "slides/25-predicates.html#clipping",
+    "href": "slides/25-predicates.html#clipping",
+    "title": "Lecture 24",
+    "section": "Clipping",
+    "text": "Clipping\n\nClipping is a form of subsetting that involves changing the geometry of at least some features.\nClipping can only apply to features more complex than points: (lines, polygons and their ‘multi’ equivalents)."
+  },
+  {
+    "objectID": "slides/25-predicates.html#clipping-1",
+    "href": "slides/25-predicates.html#clipping-1",
+    "title": "Lecture 24",
+    "section": "Clipping",
+    "text": "Clipping\n\n\n\nwa = st_transform(wa, 5070)\n\nst_intersection(wa, starbucks) |&gt; \n  ggplot() + \n  geom_sf(data = wa, fill = \"white\") + \n  geom_sf(aes(color = name)) + \n  theme_void()\n\n\n\n\n\n\n\n\n\n\nst_difference(starbucks, wa) |&gt; \n  ggplot() + \n  geom_sf(data = wa, fill = \"white\") + \n  geom_sf(aes(color = name)) + \n  theme_void()"
+  },
+  {
+    "objectID": "slides/25-predicates.html#spatial-subsetting",
+    "href": "slides/25-predicates.html#spatial-subsetting",
+    "title": "Lecture 24",
+    "section": "Spatial Subsetting",
+    "text": "Spatial Subsetting\n\nBy default the data.frame subsetting methods we’ve seen (e.g [,]) implements st_intersection\n\n\nwa = st_transform(wa, 5070)\nwa_starbucks = starbucks[wa,] #&lt;&lt;\n\nggplot() + geom_sf(data = wa) + geom_sf(data = wa_starbucks) + theme_void()"
+  },
+  {
+    "objectID": "slides/25-predicates.html#wrap-up",
+    "href": "slides/25-predicates.html#wrap-up",
+    "title": "Lecture 24",
+    "section": "Wrap up",
+    "text": "Wrap up\nToday we covered the following topics: - Spatial predicates and binary predicates - Spatial filtering and joining\nCombined with your understanding of\n\nGeometry and topology\nCoordinate Reference Systems\nTheir integration with R\n\nWe are well suited to move on to raster data (gridded model) next time"
+  },
+  {
+    "objectID": "slides/25-predicates.html#assignment",
+    "href": "slides/25-predicates.html#assignment",
+    "title": "Lecture 24",
+    "section": "Assignment",
+    "text": "Assignment\n\nYou have been tasked by the USACE of identify the urban population living along the Mississippi River system\nYou are interested in the county level since most flood control measures and flood response efforts are enforced by county EMAs\nAs such, you will need to identify the counties that intersect the Mississippi River system and then sum the population of the cities within those counties.\nYour final results should be a map of the counties that intersect the Mississippi River system, colored by the total urban population in each county."
+  },
+  {
+    "objectID": "slides/25-predicates.html#assignment-1",
+    "href": "slides/25-predicates.html#assignment-1",
+    "title": "Lecture 24",
+    "section": "Assignment",
+    "text": "Assignment\nTo do this …\n\nNavigate to here to download a shapefile fof the major world rivers\nUnzip it and read in the shp file with read_sf\nFilter it to include only the Mississippi River system\nUse AOI::aoi_get() to get the county boundaries for all counties in CONUS.\nUse st_filter to identify the counties that intersect the Mississippi River system\nMake a map of the counties that intersect the Mississippi River system, along with the rivers themselves.\nRead in the city data from last assignment/lab and ensure they are a sf object in the correct CRS\nUse st_join to identify the cities that intersect the counties that intersect the Mississippi River system\nCalculate the total urban population in each county by summing the population of the cities within each county that intesects the Mississippi River system.\nAdd this data to the subset of intersecting counties and use it to color you map using scale_*\nSave your map as a png file in the images folder and submit it to Canvas."
   }
 ]
