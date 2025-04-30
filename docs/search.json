@@ -12156,7 +12156,7 @@
     "href": "schedule.html#component-4-spatial-and-temporal-data",
     "title": "Ecosystem Science and Sustainability 330",
     "section": "Component 4: Spatial and Temporal Data",
-    "text": "Component 4: Spatial and Temporal Data\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established. Further we will explore applications in timseries analysis, including forecasting and anomaly detection.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries\n Lecture 24 (w14): CRS and Measures\n Lecture 25 (w15): Predicates\n Lecture 26 (w15): Raster Data Introduction\n Lecture 27 (w16): Raster Data Manipulation\n Lecture 28 (w16): Local, Focal, Zonal Operations\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22: Predicting the Poudre\nExercise 23: Install your GIS\nExercise 24: Larimer County Cities\nExercise 25: Mississippi River\nExercise 26:\nExercise 27:\nExercise 28:"
+    "text": "Component 4: Spatial and Temporal Data\nHarness the power of R as a GIS. Learn to process, analyze, and visualize vector and raster data to address spatial questions in ecosystem science. This component equips you to integrate geospatial techniques into broader data science workflows you’ve already established. Further we will explore applications in timseries analysis, including forecasting and anomaly detection.\n\n\n\n\n\n\nLearning Outcomes\n\n\n\n\nUse R for vector (sf) and raster (terra) spatial data analysis.\nCreate maps and spatial visualizations.\nIntegrate location with you data science workflows\nUnderstand time-series data and methods.\n\n\n\n\n\n Lecture 21 (w13): Timeseries Basics\n Lecture 22 (w13): Timeseries Forecasting\n Lecture 23 (w14): Feature Geometries\n Lecture 24 (w14): CRS and Measures\n Lecture 25 (w15): Predicates\n Lecture 26 (w15): Raster Data Introduction\n Lecture 27 (w16): Raster Data Manipulation\n Lecture 28 (w16): Local, Focal, Zonal Operations\n\nExercise 21: Decompse the Poudre River Timeseries\nExercise 22: Predicting the Poudre\nExercise 23: Install your GIS\nExercise 24: Larimer County Cities\nExercise 25: Mississippi River\nExercise 26: Fort Collins Elevation PRofile\nExercise 27:\nExercise 28:"
   },
   {
     "objectID": "slides/21-timeseries.html#bonus-interactive-plotting-1",
@@ -14229,5 +14229,362 @@
     "title": "Lecture 25",
     "section": "Announcements",
     "text": "Announcements\n\nCurrent grade breakdown is as follows: A (50%), B (20%), C (11%), D (4%), and F (15%).\n\n\n\nThere are 2 labs (vector + presentations), the 20% project, and 10% extra credit still remaining.\nReminder: The extra credit is to compile all of your labs into you personal webpage (complete with image and description). This is due May 14th, 2025 5PM as well."
+  },
+  {
+    "objectID": "slides/26-raster.html#recap-sf-and-spatial-concepts",
+    "href": "slides/26-raster.html#recap-sf-and-spatial-concepts",
+    "title": "Lecture 26",
+    "section": "Recap: sf and spatial concepts",
+    "text": "Recap: sf and spatial concepts\n\nSpatial phenomena can be thought of discrete objects with clear boundaries or as continuous phenomenon that can be observed everywhere, with no natural boundaries.\nWe have described these as objects and fields (Kuhn, 2012)\nObjects are usually represented by vector data consisting of:\n\na geometry (simple features (sfc, sfg))\nsome attribute information (data.frame)\n\nIn R these are unified as a sf object\nField data is typically represented by raster data\nFor this, we will begin our discussions using the terra package"
+  },
+  {
+    "objectID": "slides/26-raster.html#terra",
+    "href": "slides/26-raster.html#terra",
+    "title": "Lecture 26",
+    "section": "terra",
+    "text": "terra\n\nLike sf, terra is an implementation of standard raster data model\nThe model is used by all GIS platforms\nRepresented continuous data either as continuous or categorical values as a regular set of cells in a grid (matrix)\ncells have: (1) resolution, (2) infered cell coordinate (centroid) (3) the coordinate and value apply to the entire cell area"
+  },
+  {
+    "objectID": "slides/26-raster.html#recap-r-data-structures",
+    "href": "slides/26-raster.html#recap-r-data-structures",
+    "title": "Lecture 26",
+    "section": "Recap: R data structures",
+    "text": "Recap: R data structures\n\nVector:\n\nA vector can have dimensions\n\nA 1D vector in a collection of values\nA 2D vector is a matrix\nA 3D vector is an array\n\n\nList: a collection of objects\ndata.frame: a list with requirement of equal length column (vectors)\ndata.frames and lists (sfc) defined our vector model\nArrays will define our raster model"
+  },
+  {
+    "objectID": "slides/26-raster.html#spatial-extent",
+    "href": "slides/26-raster.html#spatial-extent",
+    "title": "Lecture 26",
+    "section": "Spatial Extent",
+    "text": "Spatial Extent\nOne last topic with respect to vector data (that will carry us into raster) is the idea of an extent:\n\n(ny &lt;- AOI::aoi_get(state = \"NY\") |&gt; \n   st_transform(5070) |&gt; \n   dplyr::select(name))\n#&gt; Simple feature collection with 1 feature and 1 field\n#&gt; Geometry type: MULTIPOLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 1319502 ymin: 2149150 xmax: 1997508 ymax: 2658543\n#&gt; Projected CRS: NAD83 / Conus Albers\n#&gt;       name                       geometry\n#&gt; 1 New York MULTIPOLYGON (((1661335 263...\n\nIn geometry, the minimum bounding box for a point set (stored as POINT, POLYLINE, POLYGON) in N dimensions is “…the box with the smallest measure within which all the points lie.”"
+  },
+  {
+    "objectID": "slides/26-raster.html#we-can-extract-bounding-box-coordinates-with-st_bbox",
+    "href": "slides/26-raster.html#we-can-extract-bounding-box-coordinates-with-st_bbox",
+    "title": "Lecture 26",
+    "section": "We can extract bounding box coordinates with st_bbox",
+    "text": "We can extract bounding box coordinates with st_bbox\n\nreturns: an object of class bbox of length 4.\n\n\n(bb = st_bbox(ny))\n#&gt;    xmin    ymin    xmax    ymax \n#&gt; 1319502 2149150 1997508 2658543\n\nclass(bb)\n#&gt; [1] \"bbox\"\n\ntypeof(bb)\n#&gt; [1] \"double\""
+  },
+  {
+    "objectID": "slides/26-raster.html#there-is-a-method-for-creating-an-sfc-form-a-bbox-object",
+    "href": "slides/26-raster.html#there-is-a-method-for-creating-an-sfc-form-a-bbox-object",
+    "title": "Lecture 26",
+    "section": "There is a method for creating an sfc form a bbox object",
+    "text": "There is a method for creating an sfc form a bbox object\n\n(bb = st_as_sfc(bb))\n#&gt; Geometry set for 1 feature \n#&gt; Geometry type: POLYGON\n#&gt; Dimension:     XY\n#&gt; Bounding box:  xmin: 1319502 ymin: 2149150 xmax: 1997508 ymax: 2658543\n#&gt; Projected CRS: NAD83 / Conus Albers\n#&gt; POLYGON ((1319502 2149150, 1997508 2149150, 199...\n\nclass(bb)\n#&gt; [1] \"sfc_POLYGON\" \"sfc\"\n\ntypeof(bb)\n#&gt; [1] \"list\""
+  },
+  {
+    "objectID": "slides/26-raster.html#result",
+    "href": "slides/26-raster.html#result",
+    "title": "Lecture 26",
+    "section": "Result:",
+    "text": "Result:\n\nplot(bb, border = rgb(0,0,1))\nplot(ny, add = TRUE, col = rgb(1,0,0, .5))"
+  },
+  {
+    "objectID": "slides/26-raster.html#extents-can-be-discritized-in-a-number-of-ways",
+    "href": "slides/26-raster.html#extents-can-be-discritized-in-a-number-of-ways",
+    "title": "Lecture 26",
+    "section": "Extents can be discritized in a number of ways:",
+    "text": "Extents can be discritized in a number of ways:\n\n\n\ngrid = st_make_grid(bb)\nplot(ny$geometry)\nplot(grid, add = TRUE)\n\n\n\n\n\n\n\n\n\n\ngrid1km = st_make_grid(bb, cellsize = 10000)\nplot(ny$geometry)\nplot(grid1km, add = TRUE)"
+  },
+  {
+    "objectID": "slides/26-raster.html#what-makes-up-a-regular-tesselation",
+    "href": "slides/26-raster.html#what-makes-up-a-regular-tesselation",
+    "title": "Lecture 26",
+    "section": "What makes up a regular tesselation",
+    "text": "What makes up a regular tesselation\n\nlength(grid1km) # how many grid tiles\n#&gt; [1] 3468\n\n\n\nmapview::npts(grid1km) # how many points?\n#&gt; [1] 17340\n\n\n\n\nmapview::npts(grid1km) * 2 # how many X and Y?\n#&gt; [1] 34680\n\n\n\n\nmapview::npts(grid1km) / length(grid) # how many points per tile?\n#&gt; [1] 173.4\n\n\n\n\nsqrt(st_area(grid1km)[1]) # length of each tile?\n#&gt; 10000 [m]\n\n\nst_bbox(grid1km) # extent of grid\n#&gt;    xmin    ymin    xmax    ymax \n#&gt; 1319502 2149150 1999502 2659150"
+  },
+  {
+    "objectID": "slides/26-raster.html#alternative-representation",
+    "href": "slides/26-raster.html#alternative-representation",
+    "title": "Lecture 26",
+    "section": "Alternative representation",
+    "text": "Alternative representation\nRegular grids can also be indexed by their centroids\n\ncent &lt;- st_centroid(grid1km)\n\nplot(ny$geometry)\nplot(cent, add = TRUE, pch = 16, cex = .25)\n\n\n\nlength(cent) # how many grid tiles\n#&gt; [1] 3468\n\nmapview::npts(grid1km) # how many points?\n#&gt; [1] 17340\n\nmapview::npts(grid1km) * 2 # how many X and Y?\n#&gt; [1] 34680"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-model",
+    "href": "slides/26-raster.html#raster-model",
+    "title": "Lecture 26",
+    "section": "Raster Model",
+    "text": "Raster Model\n\nThe raster model is one of the earliest and most widely used data models within geographic information systems (Tomlin, 1990; Goodchild, 1992, Maguire, 1992).\nTypically used to record, analyze and visualize data with a continuous nature such as elevation, temperature (“GIS”), or reflected or emitted electromagnetic radiation (“Remote Sensing”)\nQuotes are used because you’ll find from a data perspective these differences are artificial and a product of the ESRI/ENVI/ERDAS divide\n\n\n\nThe term raster originated from the German word for screen, implying a series of orthogonality oriented parallel lines.\nDigital raster objects most often take the form of a regularly spaced, grid-like pattern of rows and columns\nEach element referred to as a cell, pixel, or grid point."
+  },
+  {
+    "objectID": "slides/26-raster.html#many-terms-mean-the-same-thing",
+    "href": "slides/26-raster.html#many-terms-mean-the-same-thing",
+    "title": "Lecture 26",
+    "section": "Many terms mean the same thing …",
+    "text": "Many terms mean the same thing …\n\nThe entire raster is sometimes referred to as an “image”, “array”, “surface”, “matrix”, or “lattice” (Wise, 2000).\nThe all mean the same thing…\nCells of the raster are most often square, but may be rectangular (with differing resolutions in x and y directions) or other shapes that can be tessellated such as triangles and hexagons (Figure below from Peuquet, 1984)."
+  },
+  {
+    "objectID": "slides/26-raster.html#photos-and-computers",
+    "href": "slides/26-raster.html#photos-and-computers",
+    "title": "Lecture 26",
+    "section": "Photos and Computers …",
+    "text": "Photos and Computers …"
+  },
+  {
+    "objectID": "slides/26-raster.html#aerial-imagery-really-just-a-photo",
+    "href": "slides/26-raster.html#aerial-imagery-really-just-a-photo",
+    "title": "Lecture 26",
+    "section": "Aerial Imagery (really just a photo 😄)",
+    "text": "Aerial Imagery (really just a photo 😄)"
+  },
+  {
+    "objectID": "slides/26-raster.html#what-is-stored-in-these-cells",
+    "href": "slides/26-raster.html#what-is-stored-in-these-cells",
+    "title": "Lecture 26",
+    "section": "What is stored in these cells?",
+    "text": "What is stored in these cells?\n\n\nCategorical Values (integer/factor)\n\n\n\n\n\n\n\n\n\n\nContinuous Values (numeric)"
+  },
+  {
+    "objectID": "slides/26-raster.html#spectral-values",
+    "href": "slides/26-raster.html#spectral-values",
+    "title": "Lecture 26",
+    "section": "Spectral Values",
+    "text": "Spectral Values\n\nEither Color, or sensor"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-images-seek-to-discritize-the-real-world-into-cell-based-values",
+    "href": "slides/26-raster.html#raster-images-seek-to-discritize-the-real-world-into-cell-based-values",
+    "title": "Lecture 26",
+    "section": "Raster images seek to discritize the real world into cell-based values",
+    "text": "Raster images seek to discritize the real world into cell-based values\n\nAgain either integer (categorical), continuous, or signal"
+  },
+  {
+    "objectID": "slides/26-raster.html#resolution-drives-image-clarity-granulairty",
+    "href": "slides/26-raster.html#resolution-drives-image-clarity-granulairty",
+    "title": "Lecture 26",
+    "section": "Resolution drives image clarity (granulairty)",
+    "text": "Resolution drives image clarity (granulairty)\n\nHigher resolution (smaller cells) = more detail, but bigger data!"
+  },
+  {
+    "objectID": "slides/26-raster.html#all-rasters-have-an-extent",
+    "href": "slides/26-raster.html#all-rasters-have-an-extent",
+    "title": "Lecture 26",
+    "section": "All rasters have an extent!",
+    "text": "All rasters have an extent!\n\nThis is the same extent as a bounding box\nCan be described as 4 values (xmin,ymin,xmax,ymax)"
+  },
+  {
+    "objectID": "slides/26-raster.html#implicit-coordinates",
+    "href": "slides/26-raster.html#implicit-coordinates",
+    "title": "Lecture 26",
+    "section": "Implicit Coordinates",
+    "text": "Implicit Coordinates\n\nUnlike vector data, the raster data model stores the coordinate of the grid cells indirectly\nCoordinates are derived from the reference (Xmin,Ymin) the resolution, and the cell index (e.g. [100,150])\nFor example: If we want the coordinates of a value in the 3rd row and the 40th column of a raster matrix, we have to move from the origin (Xmin, Ymin) (3 x Xres) in x-direction and (40 x Yres) in y-direction"
+  },
+  {
+    "objectID": "slides/26-raster.html#section",
+    "href": "slides/26-raster.html#section",
+    "title": "Lecture 26",
+    "section": "",
+    "text": "So, any image (.png, .tif, .gif) can be read as a raster…\nThe raster is defined by the extent and resolution of the cells\nTo be spatial, the extent (thus coordinates) must be grounded in an CRS\n\n\n\n\n(img = terra::rast('images/17-raster-extent.png'))\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 788, 1067, 4  (nrow, ncol, nlyr)\n#&gt; resolution  : 1, 1  (x, y)\n#&gt; extent      : 0, 1067, 0, 788  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. :  \n#&gt; source      : 17-raster-extent.png \n#&gt; names       : 17-rast~xtent_1, 17-rast~xtent_2, 17-rast~xtent_3, 17-rast~xtent_4\n\n\n\nterra::plotRGB(img, r = 1, g = 2, b = 3)"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-data-in-r",
+    "href": "slides/26-raster.html#raster-data-in-r",
+    "title": "Lecture 26",
+    "section": "Raster Data in R",
+    "text": "Raster Data in R\nA SpatRast represents single-layer (variable) raster data.\nA SpatRast always stores the fundamental parameters that describe it. - The number of columns and rows, - The spatial extent - The Coordinate Reference System.\nIn addition, a SpatRast can store information about the file where raster values are stored (if there is such a file).\nHere we construct an empty raster:\n\n(r &lt;- rast(ncol=20, nrow=20, xmax=-80, xmin=-120, ymin=20, ymax=60))\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 20, 20, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 2, 2  (x, y)\n#&gt; extent      : -120, -80, 20, 60  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : lon/lat WGS 84 (CRS84) (OGC:CRS84)\n\nExtract Diminisionality …\n\nnrow(r)\n#&gt; [1] 20\nncol(r)\n#&gt; [1] 20\nncell(r)\n#&gt; [1] 400\nnlyr(r)\n#&gt; [1] 1"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-values",
+    "href": "slides/26-raster.html#raster-values",
+    "title": "Lecture 26",
+    "section": "Raster Values",
+    "text": "Raster Values\nvalues can be extracted with values()\n\nhead(values(r))\n#&gt;      lyr.1\n#&gt; [1,]   NaN\n#&gt; [2,]   NaN\n#&gt; [3,]   NaN\n#&gt; [4,]   NaN\n#&gt; [5,]   NaN\n#&gt; [6,]   NaN"
+  },
+  {
+    "objectID": "slides/26-raster.html#assigning-a-values-as-a-vector",
+    "href": "slides/26-raster.html#assigning-a-values-as-a-vector",
+    "title": "Lecture 26",
+    "section": "Assigning a values as a vector",
+    "text": "Assigning a values as a vector\n\nvalues(r) &lt;- 1:ncell(r)\n\nr\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 20, 20, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 2, 2  (x, y)\n#&gt; extent      : -120, -80, 20, 60  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : lon/lat WGS 84 (CRS84) (OGC:CRS84) \n#&gt; source(s)   : memory\n#&gt; name        : lyr.1 \n#&gt; min value   :     1 \n#&gt; max value   :   400\n\nhead(values(r))\n#&gt;      lyr.1\n#&gt; [1,]     1\n#&gt; [2,]     2\n#&gt; [3,]     3\n#&gt; [4,]     4\n#&gt; [5,]     5\n#&gt; [6,]     6\n\n\nplot(r)"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-is-s4",
+    "href": "slides/26-raster.html#raster-is-s4",
+    "title": "Lecture 26",
+    "section": "Raster is S4",
+    "text": "Raster is S4\n\nCompared to S3, the S4 object system is much stricter, and much closer to other Object Oriented systems.\nWhat does this mean for us?\n\n\n\nData is structured with a “representation”\nwhich is a list of slot (or attributes), giving their names and classes, accessed with @\n\n\nstr(r, max.level = 2)\n#&gt; S4 class 'SpatRaster' [package \"terra\"]\nr@pntr\n#&gt; C++ object &lt;0x103cb8ce0&gt; of class 'SpatRaster' &lt;0x103fe8420&gt;\nr@pntr$ncol\n#&gt; Class method definition for method ncol()\n#&gt; function () \n#&gt; {\n#&gt;     \" unsigned long ncol()  \\n   docstring : ncol\"\n#&gt;     .External(list(name = \"CppMethod__invoke_notvoid\", address = &lt;pointer: 0x109e19820&gt;, \n#&gt;         dll = list(name = \"Rcpp\", path = \"/Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library/Rcpp/libs/Rcpp.so\", \n#&gt;             dynamicLookup = TRUE, handle = &lt;pointer: 0x79b993b0&gt;, \n#&gt;             info = &lt;pointer: 0x109e0fc80&gt;, forceSymbols = FALSE), \n#&gt;         numParameters = -1L), &lt;pointer: 0x103fe8420&gt;, &lt;pointer: 0x103fec7e0&gt;, \n#&gt;         .pointer)\n#&gt; }\n#&gt; &lt;environment: 0x13822ade0&gt;"
+  },
+  {
+    "objectID": "slides/26-raster.html#access-via-function",
+    "href": "slides/26-raster.html#access-via-function",
+    "title": "Lecture 26",
+    "section": "Access via Function",
+    "text": "Access via Function\n\next(r)\n#&gt; SpatExtent : -120, -80, 20, 60 (xmin, xmax, ymin, ymax)\ncrs(r)\n#&gt; [1] \"GEOGCRS[\\\"WGS 84 (CRS84)\\\",\\n    DATUM[\\\"World Geodetic System 1984\\\",\\n        ELLIPSOID[\\\"WGS 84\\\",6378137,298.257223563,\\n            LENGTHUNIT[\\\"metre\\\",1]]],\\n    PRIMEM[\\\"Greenwich\\\",0,\\n        ANGLEUNIT[\\\"degree\\\",0.0174532925199433]],\\n    CS[ellipsoidal,2],\\n        AXIS[\\\"geodetic longitude (Lon)\\\",east,\\n            ORDER[1],\\n            ANGLEUNIT[\\\"degree\\\",0.0174532925199433]],\\n        AXIS[\\\"geodetic latitude (Lat)\\\",north,\\n            ORDER[2],\\n            ANGLEUNIT[\\\"degree\\\",0.0174532925199433]],\\n    USAGE[\\n        SCOPE[\\\"unknown\\\"],\\n        AREA[\\\"World\\\"],\\n        BBOX[-90,-180,90,180]],\\n    ID[\\\"OGC\\\",\\\"CRS84\\\"]]\"\nnrow(r)\n#&gt; [1] 20\nncol(r)\n#&gt; [1] 20\nhead(values(r))\n#&gt;      lyr.1\n#&gt; [1,]     1\n#&gt; [2,]     2\n#&gt; [3,]     3\n#&gt; [4,]     4\n#&gt; [5,]     5\n#&gt; [6,]     6"
+  },
+  {
+    "objectID": "slides/26-raster.html#multi-layers",
+    "href": "slides/26-raster.html#multi-layers",
+    "title": "Lecture 26",
+    "section": "Multi-layers",
+    "text": "Multi-layers\n\nIn many cases multi-variable raster data sets are used. Variables can related to time or measurements\nA SpatRaster is a collection of objects with the same spatial extent and resolution.\nIn essence it is a list of objects, or, a 3D array."
+  },
+  {
+    "objectID": "slides/26-raster.html#remember-our-array-data",
+    "href": "slides/26-raster.html#remember-our-array-data",
+    "title": "Lecture 26",
+    "section": "Remember our Array data?",
+    "text": "Remember our Array data?\n\n(v = 1:27)\n#&gt;  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25\n#&gt; [26] 26 27\n(arr = array(v, dim = c(3,3,3)))\n#&gt; , , 1\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]    1    4    7\n#&gt; [2,]    2    5    8\n#&gt; [3,]    3    6    9\n#&gt; \n#&gt; , , 2\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]   10   13   16\n#&gt; [2,]   11   14   17\n#&gt; [3,]   12   15   18\n#&gt; \n#&gt; , , 3\n#&gt; \n#&gt;      [,1] [,2] [,3]\n#&gt; [1,]   19   22   25\n#&gt; [2,]   20   23   26\n#&gt; [3,]   21   24   27"
+  },
+  {
+    "objectID": "slides/26-raster.html#an-array-is-a-single-file-so-it-can-be-rasterized",
+    "href": "slides/26-raster.html#an-array-is-a-single-file-so-it-can-be-rasterized",
+    "title": "Lecture 26",
+    "section": "An array is a single file so it can be “rasterized”",
+    "text": "An array is a single file so it can be “rasterized”\n\nb = rast(arr)\nplot(b)"
+  },
+  {
+    "objectID": "slides/26-raster.html#bounding-box",
+    "href": "slides/26-raster.html#bounding-box",
+    "title": "Lecture 26",
+    "section": "1. Bounding Box",
+    "text": "1. Bounding Box\nGeometries have extents that define the maximum and minimum coverage of the shape in a coordinate reference system\n\nImage Source: National Ecological Observatory Network (NEON)"
+  },
+  {
+    "objectID": "slides/26-raster.html#extent",
+    "href": "slides/26-raster.html#extent",
+    "title": "Lecture 26",
+    "section": "1. Extent",
+    "text": "1. Extent\n\nWhen dealing with raster data, the extent is a fondational component of the raster data structure\n\nThat is, we need to know the area the raster is covering!\n\n\n\nImage Source: National Ecological Observatory Network (NEON)"
+  },
+  {
+    "objectID": "slides/26-raster.html#discretization",
+    "href": "slides/26-raster.html#discretization",
+    "title": "Lecture 26",
+    "section": "2. Discretization",
+    "text": "2. Discretization\nOnce we know the extent, we need to know how that space is split up\nTwo complimentary bit of information can tell us this:\n\nResolution (res)\nNumber of row and number of columns (nrow/ncol)\n\n\nImage Source: National Ecological Observatory Network (NEON)"
+  },
+  {
+    "objectID": "slides/26-raster.html#so",
+    "href": "slides/26-raster.html#so",
+    "title": "Lecture 26",
+    "section": "So,",
+    "text": "So,\nA raster is made of an extent, and a resolution / row-column structure\n\nA vector of values fill that structure (same way a vector in R can have diminisons)\n\nThese values are often scaled to integers to reduce file size\n\nValues are referenced in cartisian space, based on cell index\nA CRS along with the extent, can provide spatial reference / coordinates"
+  },
+  {
+    "objectID": "slides/26-raster.html#general-process",
+    "href": "slides/26-raster.html#general-process",
+    "title": "Lecture 26",
+    "section": "General Process",
+    "text": "General Process\nAlmost all remote sensing / image analysis begins with the same basic steps:\n\nIdentifying an area of interest (AOI)\nIdentifying and downloading the relevant images or products\nAnalyzing the raster products\n\nThe definition of a AOI is critical because raster data in continuous, therefore we need to define the bounds of the study rather then the bounds of the objects\n\nBut, objects often (even typically) define our bounds"
+  },
+  {
+    "objectID": "slides/26-raster.html#find-elevation-data-for-fort-collins",
+    "href": "slides/26-raster.html#find-elevation-data-for-fort-collins",
+    "title": "Lecture 26",
+    "section": "Find elevation data for Fort Collins:",
+    "text": "Find elevation data for Fort Collins:\n\nDefine the AOI\n\n\n(bb = AOI::geocode(\"Fort Collins\", bbox = TRUE) |&gt; \n  st_transform(5070) )\n\n\nRead data from elevation map tiles, for a specific zoom, and crop to the AOI\n\n\nelev = rast('/vsis3/lynker-spatial/gridded-resources/dem.vrt') |&gt; \n  crop(bb)\n\nwriteRaster(elev, filename = \"data/foco-elev.tif\", overwrite = TRUE)\n\nwriteRaster(elev, filename = \"../resources/foco-elev-cm.tif\", overwrite = TRUE)\n\n\nThe resulting raster …\n\n\n(elev = rast(\"data/foco-elev.tif\"))\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 725, 572, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 30, 30  (x, y)\n#&gt; extent      : -769695, -752535, 1978485, 2000235  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : +proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs \n#&gt; source      : foco-elev.tif \n#&gt; name        :    dem \n#&gt; min value   : 146730 \n#&gt; max value   : 197781"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-values-continuity",
+    "href": "slides/26-raster.html#raster-values-continuity",
+    "title": "Lecture 26",
+    "section": "Raster Values Continuity",
+    "text": "Raster Values Continuity\n\nv = values(elev)\nclass(v)\n#&gt; [1] \"matrix\" \"array\"\nlength(v)\n#&gt; [1] 414700\n\n\nelev\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 725, 572, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 30, 30  (x, y)\n#&gt; extent      : -769695, -752535, 1978485, 2000235  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : +proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs \n#&gt; source      : foco-elev.tif \n#&gt; name        :    dem \n#&gt; min value   : 146730 \n#&gt; max value   : 197781"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-values-1",
+    "href": "slides/26-raster.html#raster-values-1",
+    "title": "Lecture 26",
+    "section": "Raster Values",
+    "text": "Raster Values\n\n# The length of the vector is equal to the rows * columns\nlength(v) == nrow(elev) * ncol(elev)\n#&gt; [1] TRUE\n# The span of the x extent divided by the resolution equals the raster rows\n((xmax(elev) - xmin(elev)) / res(elev)[1]) == ncol(elev) \n#&gt; [1] TRUE\n# The span of the x extent divided by the number of rows equals the raster resolution\n((xmax(elev) - xmin(elev)) / ncol(elev)) == res(elev)[1] \n#&gt; [1] TRUE"
+  },
+  {
+    "objectID": "slides/26-raster.html#all-image-files-are-the-same",
+    "href": "slides/26-raster.html#all-image-files-are-the-same",
+    "title": "Lecture 26",
+    "section": "All image files are the same!",
+    "text": "All image files are the same!\n\ndownload.file(url = \"https://a.tile.openstreetmap.org/18/43803/104352.png\",\n              destfile = \"data/104352.png\")\nimg = png::readPNG(\"data/104352.png\")\nclass(img)\n#&gt; [1] \"array\"\ntypeof(img)\n#&gt; [1] \"double\"\ndim(img)\n#&gt; [1] 256 256   3"
+  },
+  {
+    "objectID": "slides/26-raster.html#section-1",
+    "href": "slides/26-raster.html#section-1",
+    "title": "Lecture 26",
+    "section": "",
+    "text": "img[1,1,1:3]\n#&gt; [1] 1.0000000 1.0000000 0.9333333\nrgb(1.0000000, 0.9607843, 0.8980392)\n#&gt; [1] \"#FFF5E5\"\n\n\nGoogle Color Picker"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-algebra",
+    "href": "slides/26-raster.html#raster-algebra",
+    "title": "Lecture 26",
+    "section": "Raster Algebra",
+    "text": "Raster Algebra\n\nSo our raster data is stored as a large numeric array/vector\nMany generic functions allow for simple algebra on Raster objects,\nThese include:\n\nnormal algebraic operators such as +, -, *, /\nlogical operators such as &gt;, &gt;=, &lt;,==, !\nfunctions like abs, round, ceiling, floor, trunc, sqrt, log, log10, exp, cos, sin, atan, tan, max, min, range, prod, sum, any, all"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-algebra-1",
+    "href": "slides/26-raster.html#raster-algebra-1",
+    "title": "Lecture 26",
+    "section": "Raster Algebra",
+    "text": "Raster Algebra\n\nIn these functions you can mix SpatRast objects with numbers, as long as the first argument is a raster object.\nThat means you can add 100 to a raster object but not a raster object to 100\n\n\n# GOOD\nraster + 100\n\n# BAD\n100 + raster\n\nFor example:\n\nelev + 100\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 725, 572, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 30, 30  (x, y)\n#&gt; extent      : -769695, -752535, 1978485, 2000235  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : +proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs \n#&gt; source(s)   : memory\n#&gt; varname     : foco-elev \n#&gt; name        :    dem \n#&gt; min value   : 146830 \n#&gt; max value   : 197881\nlog10(elev)\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 725, 572, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 30, 30  (x, y)\n#&gt; extent      : -769695, -752535, 1978485, 2000235  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : +proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs \n#&gt; source(s)   : memory\n#&gt; varname     : foco-elev \n#&gt; name        :      dem \n#&gt; min value   : 5.166519 \n#&gt; max value   : 5.296185"
+  },
+  {
+    "objectID": "slides/26-raster.html#replacement",
+    "href": "slides/26-raster.html#replacement",
+    "title": "Lecture 26",
+    "section": "Replacement",
+    "text": "Replacement\n\nRaster values can be replaced on a conditional statements\nDoing this changes the underlying data!\nIf you want to retain the original data, you must make a copy of the base layer\n\n\n\n\nplot(elev)\n\n\n\n\n\n\n\n\n\n\nelev2 = elev #&lt;&lt;\nelev2[elev2 &lt;= 150000] = NA #&lt;&lt;\nplot(elev2)"
+  },
+  {
+    "objectID": "slides/26-raster.html#assignment",
+    "href": "slides/26-raster.html#assignment",
+    "title": "Lecture 26",
+    "section": "Assignment",
+    "text": "Assignment\n\nStarting with this base …\n\n\nurl &lt;- 'https://raw.githubusercontent.com/mikejohnson51/csu-ess-330/refs/heads/main/resources/foco-elev-cm.tif'\n\n… construct a VSI prefixed URL that allows rast to read the data directly from our class Github Repo.\n\nOnce the date is read in, describe the structure of the data in a few sentences.\nNativly, the data has a horizonal unit of cm. Multiply the data by 0.0328084 to convert the data to feet.\nExtract the values from the raster into a data.frame by using the dataframe=TRUE parameter in the values() function.\nUse ggpubr to create a density plot of the elevation data in feet. Equit the plot with clear labs, and a title as well as a theme.\nSave your plot as a png file with ggsave and submit to the Canvase Dropbox."
+  },
+  {
+    "objectID": "slides/26-raster.html#why-do-we-care",
+    "href": "slides/26-raster.html#why-do-we-care",
+    "title": "Lecture 26",
+    "section": "Why do we care?",
+    "text": "Why do we care?\n\nPixels are the base unit of raster data and have a resolution\nThis is the X and the Y dimension of each cell in the units of the CRS"
+  },
+  {
+    "objectID": "slides/26-raster.html#terra-io",
+    "href": "slides/26-raster.html#terra-io",
+    "title": "Lecture 26",
+    "section": "terra I/O",
+    "text": "terra I/O\n\nterra is an R pacakge that binds to GDAL exposing the drivers for I/0\n\n\nlibrary(terra)\ngdal()\n#&gt; [1] \"3.8.5\"\n\nterra::gdal(drivers = TRUE) |&gt; DT::datatable()"
+  },
+  {
+    "objectID": "slides/26-raster.html#local-raster-data",
+    "href": "slides/26-raster.html#local-raster-data",
+    "title": "Lecture 26",
+    "section": "Local Raster Data",
+    "text": "Local Raster Data\n\nAll raster data is read with rast()\nCritically, rast() reads the data header, before calling data into memory\nOnly when an operation that needs the values is called, is the data streamed into memory\n\n\nrast(\"data/foco-elev.tif\")\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 725, 572, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 30, 30  (x, y)\n#&gt; extent      : -769695, -752535, 1978485, 2000235  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : +proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs \n#&gt; source      : foco-elev.tif \n#&gt; name        :    dem \n#&gt; min value   : 146730 \n#&gt; max value   : 197781"
+  },
+  {
+    "objectID": "slides/26-raster.html#raster-data-from-the-web",
+    "href": "slides/26-raster.html#raster-data-from-the-web",
+    "title": "Lecture 26",
+    "section": "Raster Data from the Web",
+    "text": "Raster Data from the Web\nGDAL exposes a number of Virtual System Interfaces (VSI) that allow for reading across various data protocols! These are implemented by prefixing a URL with the needed interface\n\nhttp(s): /vsicurl/\ns3: /vsis3/\nzip directories: /vsizip/, /vsitar/\nand more!\n\n\nurl &lt;- 'https://raw.githubusercontent.com/mikejohnson51/csu-ess-330/a993e03df117a76c609ff4c018055f8c821a6de9/resources/foco-elev.tif'\n\nrast(glue::glue(\"/vsicurl/{url}\"))\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 750, 591, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 29.01279, 29.01279  (x, y)\n#&gt; extent      : -769693.5, -752546.9, 1978477, 2000236  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : +proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs \n#&gt; source      : foco-elev.tif \n#&gt; name        : foco-elev \n#&gt; min value   :      1466 \n#&gt; max value   :      1975"
+  },
+  {
+    "objectID": "slides/26-raster.html#conus-dem",
+    "href": "slides/26-raster.html#conus-dem",
+    "title": "Lecture 26",
+    "section": "CONUS DEM",
+    "text": "CONUS DEM\n\nThe CONUS DEM is a 1 arc-second (30m) resolution elevation data set for the continental United States stored in an an s3 bucket (Amazon Cloud)\nThe s3 vsi function allows us to read the data directly from the cloud\nThe data is stored in a virtual raster format (VRT) which is a pointer to many data files…\n\n\nrast('/vsis3/lynker-spatial/gridded-resources/dem.vrt')\n#&gt; class       : SpatRaster \n#&gt; dimensions  : 114503, 163008, 1  (nrow, ncol, nlyr)\n#&gt; resolution  : 30, 30  (x, y)\n#&gt; extent      : -2470965, 2419275, 186285, 3621375  (xmin, xmax, ymin, ymax)\n#&gt; coord. ref. : +proj=aea +lat_0=23 +lon_0=-96 +lat_1=29.5 +lat_2=45.5 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs \n#&gt; source      : dem.vrt \n#&gt; name        : dem"
+  },
+  {
+    "objectID": "slides/26-raster.html#an-array-is-a-single-object-so-it-can-be-rasterized",
+    "href": "slides/26-raster.html#an-array-is-a-single-object-so-it-can-be-rasterized",
+    "title": "Lecture 26",
+    "section": "An array is a single object so it can be “rasterized”",
+    "text": "An array is a single object so it can be “rasterized”\n\nb = rast(arr)\nplot(b)"
+  },
+  {
+    "objectID": "slides/26-raster.html#crs",
+    "href": "slides/26-raster.html#crs",
+    "title": "Lecture 26",
+    "section": "3. CRS",
+    "text": "3. CRS\n\nThe Coordinate Reference System (CRS) is a system that uses coordinate values to represent the location of points in space\nThe CRS is a critical component of the raster data structure"
+  },
+  {
+    "objectID": "slides/26-raster.html#values",
+    "href": "slides/26-raster.html#values",
+    "title": "Lecture 26",
+    "section": "Values",
+    "text": "Values\n\nThe values of the raster are the data that is stored in the raster cells\nThey are represented by an vector of data that can be unfolded according to the row/column/layer structure in the header - just like how R can fold an array into a matrix or array"
   }
 ]
