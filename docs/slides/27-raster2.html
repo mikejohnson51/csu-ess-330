@@ -820,7 +820,7 @@
 <span id="cb36-19"><a></a>                                            <span class="at">startDate =</span> <span class="st">"2000-01-01"</span>, </span>
 <span id="cb36-20"><a></a>                                            <span class="at">endDate =</span> <span class="st">'2005-12-31'</span>) })</span>
 <span id="cb36-21"><a></a><span class="co">#&gt;    user  system elapsed </span></span>
-<span id="cb36-22"><a></a><span class="co">#&gt;   0.367   0.049   2.234</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-22"><a></a><span class="co">#&gt;   0.354   0.039   2.605</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># More on global next time ...</span></span>
@@ -958,15 +958,15 @@
 <ol start="5" type="1">
 <li>Use the <code>rast()</code> function to read in the DEM file from the <code>lynker-spatial</code> S3 bucket shared in last assignment. Be sure to use the vsis3 prefix!</li>
 </ol>
+</section>
+<section id="assignment-1" class="slide level2">
+<h2>Assignment</h2>
 <h4 id="extract-river-profile">Extract River Profile</h4>
 <ol start="6" type="1">
 <li><p>Use the <code>extract()</code> function to extract the elevation values from the DEM at the points along the river.</p></li>
 <li><p>Use <code>bind_cols()</code> to combine the spatial river points with the extracted elevation values.</p></li>
 <li><p>Use <code>mutate()</code> to add a new column called <code>ID</code> that is a sequence from 1 to the number of points in the river (<code>n()</code>).</p></li>
 </ol>
-</section>
-<section id="assignment-1" class="slide level2">
-<h2>Assignment</h2>
 <h4 id="compute-sinuosity">Compute Sinuosity</h4>
 <ol start="9" type="1">
 <li><p>Use the <code>st_distance()</code> function to compute the straight line distance between the first and last points in the river.</p></li>
